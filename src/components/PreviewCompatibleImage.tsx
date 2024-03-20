@@ -10,7 +10,7 @@ interface PreviewCompatibleImageProps {
 };
 
 const PreviewCompatibleImage = ({ imageInfo }: PreviewCompatibleImageProps) => {
-    const imageStyle = { borderRadius: "5px" };
+    const imageStyle = { borderRadius: "5px", width: "100%" };
 
     const { alt = "", childImageSharp, image } = imageInfo;
 

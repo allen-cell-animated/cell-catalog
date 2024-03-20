@@ -4,8 +4,9 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Diseases from "../component-queries/Diseases";
 import Content, { HTMLContent } from "../components/Content";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { getImage } from "gatsby-plugin-image";
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
+import ButtonCard from "../components/ButtonCard";
 const {
     coriellCard,
     banner,
@@ -50,16 +51,12 @@ export const DiseaseCatalogTemplate = ({
                 />
                 <div className={coriellWrapper}>
                     {image && (
-                        <a href={coriellLink} target="_blank" rel="noreferrer">
-                            <Card
-                                bordered={true}
-                                className={coriellCard}
-                                title="View Allen Cell Collection on"
-                                cover={
-                                    <GatsbyImage image={image} alt="Coriell" />
-                                }
-                            ></Card>
-                        </a>
+                        <ButtonCard 
+                            link={coriellLink}  
+                            title="View Allen Cell Collection on"
+                            className={coriellCard}
+                            image={image}
+                        />
                     )}
                 </div>
             </Flex>
