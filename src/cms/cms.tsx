@@ -6,9 +6,13 @@ import DiseaseCatalogPreview from "./preview-templates/DiseaseCatalogPreview";
 import IndexPagePreview from './preview-templates/IndexPagePreview'
 import CellLinePreview from './preview-templates/CellLinePreview'
 import GeneNamePreview from "./preview-templates/GeneNamePreview";
+import { Tag } from 'antd';
 
 CMS.registerMediaLibrary(uploadcare)
 CMS.registerMediaLibrary(cloudinary)
+
+CMS.registerPreviewStyle("https://cdnjs.cloudflare.com/ajax/libs/antd/4.4.3/antd.min.css");
+CMS.registerPreviewStyle('./style.css');
 
 CMS.registerPreviewTemplate('index', IndexPagePreview)
 CMS.registerPreviewTemplate("about", DiseaseCatalogPreview);

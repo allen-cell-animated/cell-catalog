@@ -1,0 +1,12 @@
+img {
+    max-width: 100%;
+    width: 100px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.preview-card {
+    /* width: 300px; */
+    border: 1px solid var(--border-color);
+}

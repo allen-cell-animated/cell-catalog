@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Card, Descriptions, Flex } from "antd";
 
 interface QueryResult {
     data: {
@@ -14,6 +14,11 @@ interface QueryResult {
                 tag_location: string;
                 status: string;
                 thumbnail_image: any;
+                allele_count: string;
+                fluorescent_tag: string;
+                parental_line: {
+                    name: string;
+                }
             };
         };
     };
@@ -24,41 +29,56 @@ interface CellLineProps {
     cloneNumber: number;
     gene: string;
     tagLocation: string;
-    status: string;
+    status?: string;
     thumbnail: any;
+    alleleCount: string;
+    fluorescentTag: string;
+    parentalLine: string;
 }
 
-// eslint-disable-next-line
 export const CellLineTemplate = ({
     cellLineId,
     cloneNumber,
     gene,
     tagLocation,
-    status,
     thumbnail,
+    alleleCount,
+    fluorescentTag,
+    parentalLine
 }: CellLineProps) => {
-    const image = getImage(thumbnail);
+    const title = (
+        <Flex vertical={false}>
+            <span>AICS-{cellLineId}</span> 
+            {thumbnail}
+        </Flex>
+    );
     return (
-        <section className="section">
-            <div className="container content">
-                <div className="columns">
-                    <div className="column is-10 is-offset-1">
-                        <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                            AICS-{cellLineId}
-                        </h1>
-                        <p>Clone Number: {cloneNumber}</p>
-                        <p>Gene: {gene}</p>
-                        <p>Tag: {tagLocation}</p>
-                        <p>Status: {status}</p>
-                        {image && (
-                            <GatsbyImage
-                                image={image}
-                                alt="Cell Line Thumbnail"
-                            />
-                        )}
-                    </div>
-                </div>
-            </div>
+        <section>
+            <Card
+                className={"preview-card"}
+                title={title}
+                // cover={thumbnail}
+            >
+                <Descriptions
+                    column={1}
+                    layout="horizontal"
+                    title="Info shown in table"
+                >
+                    <Descriptions.Item label="Clone Number">
+                        {cloneNumber}
+                    </Descriptions.Item>
+                    <Descriptions.Item label="Gene">{gene}</Descriptions.Item>
+                    <Descriptions.Item label="Tag location ">
+                        {tagLocation}
+                    </Descriptions.Item>
+                    <Descriptions.Item label="Tag type">
+                        {fluorescentTag}
+                    </Descriptions.Item>
+                    <Descriptions.Item label="Parental line">
+                        {parentalLine}
+                    </Descriptions.Item>
+                </Descriptions>
+            </Card>
         </section>
     );
 };
@@ -74,6 +94,9 @@ const CellLine = ({ data }: QueryResult) => {
                 tagLocation={cellLine.frontmatter.tag_location}
                 status={cellLine.frontmatter.status}
                 thumbnail={cellLine.frontmatter.thumbnail_image}
+                alleleCount={cellLine.frontmatter.allele_count}
+                fluorescentTag={cellLine.frontmatter.fluorescent_tag}
+                parentalLine={cellLine.frontmatter.parental_line}
             />
         </Layout>
     );
@@ -90,6 +113,15 @@ export const pageQuery = graphql`
                 clone_number
                 tag_location
                 status
+                allele_count
+                fluorescent_tag
+                tag_location
+                parental_line {
+                    frontmatter {
+                        name
+                    }
+                }
+
                 thumbnail_image {
                     childImageSharp {
                         gatsbyImageData(width: 200, placeholder: BLURRED)

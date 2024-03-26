@@ -7,6 +7,9 @@ const DiseaseCatalogPreview = ({ entry, widgetFor }: TemplateProps) => (
         title={entry.getIn(["data", "title"])}
         content={widgetFor("body")}
         footerText={entry.getIn(["data", "footer_text"])}
+        coriellImage={entry.getIn(["data", "coriell_image"])}
+        coriellLink={entry.getIn(["data", "coriell_link"])}
+        main={entry.getIn(["data", "main"])}
     />
 );
 
