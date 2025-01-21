@@ -42,7 +42,7 @@ export const NormalCatalogTemplate = ({
     const PageContent = contentComponent || Content;
     return (
         <section>
-            <h1 className="">{title}</h1>
+            <h1>{title}</h1>
             <Flex className={header}>
                 <PageContent className="content" content={content} />
                 <Divider
