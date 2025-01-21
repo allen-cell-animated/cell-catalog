@@ -72,8 +72,8 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
             <div className={titleSection}>
                 <h3 className={mainTitle}>{formatCellLineId(cellLineId)}</h3>
                 <span className={subtitle}>
-                    {geneSymbol}-(placeholder) in WTC-{fluorescentTag}-
-                    {parentalGeneSymbol}({alleleTag}-allelic tag)
+                    {geneSymbol} in WTC-{fluorescentTag}-{parentalGeneSymbol} (
+                    {alleleTag}-allelic tag)
                 </span>
             </div>
             <span className={rightTitle}>
