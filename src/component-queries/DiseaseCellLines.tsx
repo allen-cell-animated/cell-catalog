@@ -7,7 +7,7 @@ import { convertFrontmatterToDiseaseCellLine } from "./convert-data";
 import CellLineTable from "../components/CellLineTable";
 import { getDiseaseTableColumns } from "../components/CellLineTable/DiseaseTableColumns";
 import { getDiseaseTableMobileConfig } from "../components/CellLineTable/MobileView";
-import { MOBILE_BREAKPOINT } from "../constants";
+import { PHONE_BREAKPOINT } from "../constants";
 import useWindowWidth from "../hooks/useWindowWidth";
 import { TableStatus } from "../components/CellLineTable/types";
 
@@ -57,7 +57,7 @@ const DiseaseCellLineTemplate = (props: DiseaseCellLineTemplateProps) => {
         }
         const inProgress = disease.status === TableStatus.ComingSoon;
         const width = useWindowWidth();
-        const isMobile = width < MOBILE_BREAKPOINT;
+        const isPhone = width < PHONE_BREAKPOINT;
 
         return (
             <div key={disease.name}>
@@ -67,7 +67,7 @@ const DiseaseCellLineTemplate = (props: DiseaseCellLineTemplateProps) => {
                     footerContents={disease.acknowledgements}
                     released={disease.status === TableStatus.Available}
                     columns={getDiseaseTableColumns(inProgress)}
-                    mobileConfig={getDiseaseTableMobileConfig(isMobile)}
+                    mobileConfig={getDiseaseTableMobileConfig(isPhone)}
                 />
             </div>
         );

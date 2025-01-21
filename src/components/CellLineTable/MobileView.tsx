@@ -11,7 +11,7 @@ import GeneDisplay from "../GeneDisplay";
 
 const { expandableContent } = require("../../style/table.module.css");
 
-export const getDiseaseTableMobileConfig = (isMobile: boolean) => {
+export const getDiseaseTableMobileConfig = (isPhone: boolean) => {
     return {
         expandedRowRender: (record: UnpackedDiseaseCellLine, index: number) => (
             <Flex
@@ -21,7 +21,7 @@ export const getDiseaseTableMobileConfig = (isMobile: boolean) => {
                 className={expandableContent}
                 wrap={"wrap"}
             >
-                {isMobile && (
+                {isPhone && (
                     <div>
                         <label>SNP:</label>
                         <Flex vertical={true} key={record.snp}>
@@ -55,7 +55,7 @@ export const getDiseaseTableMobileConfig = (isMobile: boolean) => {
     };
 };
 
-export const getNormalTableMobileConfig = (isMobile: boolean) => {
+export const getNormalTableMobileConfig = (isPhone: boolean) => {
     return {
         expandedRowRender: (record: UnpackedNormalCellLine) => (
             <Flex
@@ -65,7 +65,7 @@ export const getNormalTableMobileConfig = (isMobile: boolean) => {
                 className={expandableContent}
                 wrap={"wrap" as const}
             >
-                {isMobile && (
+                {isPhone && (
                     <div>
                         <label>Tagged Protein:</label>
                         <Flex vertical={true} key={record.protein}>

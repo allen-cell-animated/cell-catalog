@@ -9,7 +9,7 @@ import {
 import { convertFrontmatterToNormalCellLines } from "./convert-data";
 import CellLineTable from "../components/CellLineTable";
 import { getNormalTableColumns } from "../components/CellLineTable/NormalTableColumns";
-import { MOBILE_BREAKPOINT } from "../constants";
+import { PHONE_BREAKPOINT } from "../constants";
 import useWindowWidth from "../hooks/useWindowWidth";
 import { getNormalTableMobileConfig } from "../components/CellLineTable/MobileView";
 
@@ -26,7 +26,7 @@ const CellLineTableTemplate = (props: QueryResult) => {
         }
     });
     const width = useWindowWidth();
-    const isMobile = width < MOBILE_BREAKPOINT;
+    const isPhone = width < PHONE_BREAKPOINT;
 
     return (
         <>
@@ -36,7 +36,7 @@ const CellLineTableTemplate = (props: QueryResult) => {
                 footerContents={""}
                 released={true}
                 columns={getNormalTableColumns(false)}
-                mobileConfig={getNormalTableMobileConfig(isMobile)}
+                mobileConfig={getNormalTableMobileConfig(isPhone)}
             />
             <CellLineTable
                 tableName="Cell Line Catalog"
@@ -44,7 +44,7 @@ const CellLineTableTemplate = (props: QueryResult) => {
                 footerContents={""}
                 released={false}
                 columns={getNormalTableColumns(true)}
-                mobileConfig={getNormalTableMobileConfig(isMobile)}
+                mobileConfig={getNormalTableMobileConfig(isPhone)}
             />
         </>
     );
