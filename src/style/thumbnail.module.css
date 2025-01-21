@@ -1,4 +1,3 @@
-
 .thumbnail {
     align-items: center;
     display: flex;
@@ -7,13 +6,12 @@
     justify-content: center;
     overflow: hidden;
     width: 100px;
+    border: 4px solid var(--WHITE);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
 }
 
 .selected-thumbnail {
-    border: 4px solid var(--AQUA_BLUE);
-}
-
-.not-selected-thumbnail {
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
+    border-color: var(--AQUA_BLUE);
+    opacity: 1;
 }

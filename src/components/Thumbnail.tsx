@@ -1,10 +1,10 @@
 import React from "react";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import classNames from "classnames";
 
 const {
     thumbnail,
     selectedThumbnail,
-    notSelectedThumbnail,
 } = require("../style/thumbnail.module.css");
 
 interface ThumbnailProps {
@@ -18,14 +18,12 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
     isSelected,
     onClick,
 }) => {
-    const thumbnailClassName = isSelected
-        ? selectedThumbnail
-        : notSelectedThumbnail;
-
     return (
         <div
             onClick={onClick}
-            className={`${thumbnail} ${thumbnailClassName}`}
+            className={classNames(thumbnail, {
+                [selectedThumbnail]: isSelected,
+            })}
             role="button"
         >
             <GatsbyImage image={image} alt="thumbnail image" />
