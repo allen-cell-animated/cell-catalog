@@ -70,7 +70,7 @@ const CellLineTable = ({
         // CoA column. They do not have the hover effect and
         // should not take you to the cell line page
         if (column.className?.includes("action-column")) {
-            column;
+            return column;
         }
         return {
             ...column,
