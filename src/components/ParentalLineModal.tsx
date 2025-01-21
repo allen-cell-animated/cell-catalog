@@ -18,7 +18,7 @@ const {
 const LinkOut = require("../img/external-link.svg");
 
 interface ParentalLineModalProps {
-    image: FileNode;
+    image?: FileNode;
     formattedId: string;
     cloneNumber: number;
     status: string;
@@ -37,7 +37,7 @@ const ParentalLineModal = (props: ParentalLineModalProps) => {
         e.stopPropagation();
         setIsModalOpen(false);
     };
-    const image = getImage(props.image);
+    const image = getImage(props.image ?? null);
     const headerElement = (
         <div className={header}>
             <div className={title}>Parental Line </div>

@@ -1,3 +1,5 @@
+import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
+
 export interface Isoform {
     name: string;
     ids?: string[];
@@ -130,7 +132,7 @@ export interface UnpackedCellLineMainInfo {
     certificateOfAnalysis: string;
     hPSCregCertificateLink: string;
     orderLink: string;
-    thumbnailImage?: any;
+    thumbnailImage?: FileNode;
 }
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     cloneNumber: number;
