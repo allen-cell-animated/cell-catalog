@@ -60,6 +60,8 @@ interface QueryResult {
     };
 }
 export default function NormalCellLines() {
+    // query filters out the original cell line, WTC (cell_line_id: 0)
+    // and any cell lines that are marked as hidden
     return (
         <StaticQuery
             query={graphql`
