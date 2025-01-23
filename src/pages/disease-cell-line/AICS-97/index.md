@@ -69,4 +69,32 @@ genomic_characterization:
       caption: After cells banks were created, one vial per clone was thawed and 30
         G-banded metaphase cells were karyotyped. Above is the representative
         analysis for clone 157. All clones resulted in normal karyotype.
+editing_design:
+  crna_target_site: 5’ TTTTGGGGCAACAGGAAAGT[TGG] 3’
+  dna_donor_sequence: 5’ AATTCATTCGAATTCATTTTGGGGCAACAG[A] AAAGTTGGCATCTGCAGACATAGAGACC 3’
+  cas9: "TrueCut™ Cas9 Protein "
+  f_primer: " 5’ CCCAACTCATCACCACTCTC 3’"
+  r_primer: 5’ GGAGAGAGAGAGAGGTCAAG 3’
+  diagrams:
+    - title: CRISPR-Cas9 methodology was used to introduce a single base pair mutation
+        to MYH7, and mEGFP at C-terminus of ACTN2 as shown below.
+      image: g256e_fullfigure.png
+      caption: "Top: MYH7 locus showing 1 MYH7 isoform; Bottom: Zoom in on mutation
+        site at isoform NM_000257.4(MYH7):c.767G>A(p.Gly256Glu)"
+    - title: CRISPR-Cas9 methodology was used to introduce a single base pair mutation
+        to MYH7, and mEGFP at C-terminus of ACTN2 as shown below.
+      image: actn2_fullfigure.png
+      caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP
+        insertion site at ACTN2 C-terminus"
+stem_cell_characteristics:
+  - clone_number: 102
+    positive_cells: 86
+  - clone_number: 113
+    positive_cells: 76
+  - clone_number: 141
+    positive_cells: 77
+  - clone_number: 157
+    positive_cells: 76
+  - clone_number: 174
+    positive_cells: 74
 ---
