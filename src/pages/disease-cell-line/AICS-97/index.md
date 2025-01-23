@@ -51,4 +51,22 @@ images_and_videos:
         using a Leica microscope 4x and 10x magnification. A four panel image of
         clone 141 (G256E/wt) is shown here. Viability and colony formation one
         day and four days post-thaw. Scale bars are shown.
+genomic_characterization:
+  diagrams:
+    - title: Sanger Sequencing Results
+      image: aics-97_g256e_sanger.png
+      caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
+        alleles. Results confirmed respective genotype as indicated in table
+        above with no additional mutations present. 
+    - title: Mono-Clonality Confirmation via ddPCR Assay
+      image: aics-97_g256e_mono-clonality-confirmation.png
+      caption: Verification of genomic copy number of WT and mutant alleles.
+        G256E:WT/RPP30 ratio from ddPCR assay; values ~ 0.5 indicate
+        heterozygous clone, values ~1 indicate unedited clone. RPP30 is known 2n
+        reference gene. 
+    - title: "Karyotype Analysis "
+      image: aics-97_g256e_cl157_karyotype.png
+      caption: After cells banks were created, one vial per clone was thawed and 30
+        G-banded metaphase cells were karyotyped. Above is the representative
+        analysis for clone 157. All clones resulted in normal karyotype.
 ---
