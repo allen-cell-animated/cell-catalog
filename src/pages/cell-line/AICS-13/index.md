@@ -2,6 +2,8 @@
 templateKey: cell-line
 cell_line_id: 13
 status: released
+date: 2024-02-27T01:25:04.306Z
+thumbnail_image: aics-13.jpg
 clone_number: 210
 allele_count: mono
 parental_line: 0
