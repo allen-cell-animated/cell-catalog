@@ -23,7 +23,7 @@ const Arrow = require("../img/arrow.svg");
 
 interface DiseaseCellLineTemplateProps {
     href: string;
-    cellLineId: string;
+    cellLineId: number;
     geneName: string;
     geneSymbol: string;
     status: string;
@@ -52,15 +52,13 @@ export const DiseaseCellLineTemplate = ({
     healthCertificate,
     imagesAndVideos,
 }: DiseaseCellLineTemplateProps) => {
+    console.log(imagesAndVideos);
     const hasImagesOrVideos =
-        (imagesAndVideos?.images?.length || 0) > 0 || (imagesAndVideos?.videos?.length || 0) > 0;
+        (imagesAndVideos?.images?.length || 0) > 0 ||
+        (imagesAndVideos?.videos?.length || 0) > 0;
     return (
         <Flex className={container} gap={40} justify="space-between">
-            <Flex
-                vertical
-                gap={16}
-                className={leftCard}
-            >
+            <Flex vertical gap={16} className={leftCard}>
                 <Link to="/disease-catalog">
                     <DefaultButton>
                         <Arrow className={returnArrow} />
@@ -187,14 +185,7 @@ export const pageQuery = graphql`
                 order_link
                 images_and_videos {
                     images {
-                        image {
-                            childImageSharp {
-                                gatsbyImageData(
-                                    placeholder: BLURRED
-                                    layout: CONSTRAINED
-                                )
-                            }
-                        }
+                        image
                         caption
                     }
                 }
