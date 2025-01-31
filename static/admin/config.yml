@@ -146,9 +146,9 @@ collections:
           - {
             label: "hPSCreg Certificate",
             name: "hPSCreg_certificate_link",
-            widget: "string",
+            widget: "file",
             required: false,
-            } # TODO: double check widget type, file or string?
+            }
           - {
                 label: "Image and Video Carousel",
                 name: "images_and_videos",

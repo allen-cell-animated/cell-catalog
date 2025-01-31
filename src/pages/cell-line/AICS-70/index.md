@@ -15,6 +15,5 @@ cofa:
 donor_plasmid: 
 eu_hpsc_reg: 
 images_and_videos:
-  images:
   videos:
 ---

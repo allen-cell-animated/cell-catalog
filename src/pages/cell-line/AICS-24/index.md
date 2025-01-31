@@ -15,11 +15,6 @@ cofa: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0024_CofA.pdf
 donor_plasmid: https://www.addgene.org/87428/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-11
 images_and_videos:
-  images:
-    - image: /images/AICS-0024/single_plane_image_cl80.jpg
-      caption: "Single images of a live hiPS cell colony expressing mEGFP tagged non-muscle myosin heavy chain IIB imaged on a spinning-disk confocal microscope. Left panel is a single slice near the bottom of the cell; right panel is a single slice near the top of the cell."
-    - image: /images/AICS-0024/AICS-24_cl80_P28_post-bank_161212_4X_scale.jpg
-      caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:
     - video: https://player.vimeo.com/video/208520321
       caption: "Z-stack of live hiPS cells expressing mEGFP tagged non-muscle myosin heavy chain IIB imaged on a spinning-disk confocal microscope. Image starts at the bottom of the cells and ends at the top."

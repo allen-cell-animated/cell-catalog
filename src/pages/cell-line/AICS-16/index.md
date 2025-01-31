@@ -15,11 +15,6 @@ cofa: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0016_CofA.pdf
 donor_plasmid: https://www.addgene.org/87425/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-3
 images_and_videos:
-  images:
-    - image: /images/AICS-0016/single_plane_image_cl184.jpg
-      caption: "Single images of a live hiPS cell colony expressing mEGFP tagged beta-actin imaged on a spinning-disk confocal microscope. Left panel is a single slice near the bottom of the cell; right panel is a single slice near the top of the cell"
-    - image: /images/AICS-0016/Main_cell_line_morphology.jpg
-      caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:
     - video: https://player.vimeo.com/video/208518520
       caption: "Z-stack of live hiPS cells expressing mEGFP tagged beta-actin imaged on a spinning-disk confocal microscope. Image starts at the bottom of the cells and ends at the top."
