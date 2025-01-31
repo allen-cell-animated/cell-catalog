@@ -131,6 +131,69 @@ collections:
                 widget: "string",
                 required: false,
             }
+          - {
+            label: "Certificate of Analysis",
+            name: "certificate_of_analysis",
+            widget: "file",
+            required: false,
+            }
+          - {
+            label: "Donor Plasmid",
+            name: "donor_plasmid",
+            widget: "string",
+            required: false,
+            }
+          - {
+            label: "hPSCreg Certificate",
+            name: "hPSCreg_certificate_link",
+            widget: "file",
+            required: false,
+            }
+          - {
+                label: "Image and Video Carousel",
+                name: "images_and_videos",
+                widget: "object",
+                required: false,
+                fields:
+                    [
+                        {
+                            label: "Images",
+                            name: "images",
+                            widget: "list",
+                            fields:
+                                [
+                                    {
+                                        label: "Image",
+                                        name: "image",
+                                        widget: "image",
+                                    },
+                                    {
+                                        label: "Caption",
+                                        name: "caption",
+                                        widget: "string",
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Videos",
+                            name: "videos",
+                            widget: "list",
+                            fields:
+                                [
+                                    {
+                                        label: "Video",
+                                        name: "video",
+                                        widget: "file",
+                                    },
+                                    {
+                                        label: "Caption",
+                                        name: "caption",
+                                        widget: "string",
+                                    },
+                                ],
+                        },
+                    ],
+            }
     - name: "disease-cell-line"
       label: "Disease Cell Lines"
       label_singular: "Disease Cell Line"

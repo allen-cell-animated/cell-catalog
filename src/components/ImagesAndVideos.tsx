@@ -21,7 +21,7 @@ const {
 
 interface ImagesAndVideosProps {
     images?: any[];
-    cellLineId: string;
+    cellLineId: number;
     parentalLine: ParentalLineFrontmatter;
     videos?: any;
     geneSymbol: string;

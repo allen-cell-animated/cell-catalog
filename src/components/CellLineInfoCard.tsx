@@ -23,7 +23,7 @@ const {
 
 interface CellLineInfoCardProps {
     href: string;
-    cellLineId: string;
+    cellLineId: number;
     geneName: string;
     geneSymbol: string;
     snp: string;
@@ -49,7 +49,8 @@ const CellLineInfoCard = ({
     healthCertificate,
 }: CellLineInfoCardProps) => {
     const defaultToolTipText = "Copy cell line link to clipboard";
-    const [shareTooltipText, setShareTooltipText] = useState(defaultToolTipText);
+    const [shareTooltipText, setShareTooltipText] =
+        useState(defaultToolTipText);
     const tableData = [
         {
             key: "1",
@@ -69,8 +70,9 @@ const CellLineInfoCard = ({
         {
             key: "4",
             label: "Parental Line",
-            children: `${formatCellLineId(parentalLine.cell_line_id)} cl. ${parentalLine.clone_number
-                } ${parentLineGene.symbol}`,
+            children: `${formatCellLineId(parentalLine.cell_line_id)} cl. ${
+                parentalLine.clone_number
+            } ${parentLineGene.symbol}`,
         },
     ];
     const cloneSummary = getCloneSummary(clones);
@@ -140,9 +142,14 @@ const CellLineInfoCard = ({
                     </Flex>
                 </h2>
                 <>
-                    <span style={{ fontWeight: 400 }}>{cloneSummary.numMutants}</span>
+                    <span style={{ fontWeight: 400 }}>
+                        {cloneSummary.numMutants}
+                    </span>
                     <span style={{ fontWeight: 300 }}> mutant clones</span>
-                    <Divider type="vertical" style={{ borderColor: PRIMARY_COLOR }} />
+                    <Divider
+                        type="vertical"
+                        style={{ borderColor: PRIMARY_COLOR }}
+                    />
                     <span style={{ fontWeight: 400 }}>
                         {cloneSummary.numIsogenics}
                     </span>{" "}
