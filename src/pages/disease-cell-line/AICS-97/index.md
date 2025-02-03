@@ -54,7 +54,7 @@ images_and_videos:
 genomic_characterization:
   diagrams:
     - title: Sanger Sequencing Results
-      image: aics-97_g256e_sanger.png
+      image: aics-97_g256e_sanger_exported_highres.png
       caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
         alleles. Results confirmed respective genotype as indicated in table
         above with no additional mutations present. 
