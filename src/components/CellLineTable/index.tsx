@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Table, Tag, Flex } from "antd";
-// TODO: debug gatsby navigate throwing errors when passed strings
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 
 import { HTMLContent } from "../shared/Content";
 import { CellLineStatus } from "../../component-queries/types";
@@ -9,6 +8,7 @@ import { CellLineStatus } from "../../component-queries/types";
 import useWindowWidth from "../../hooks/useWindowWidth";
 import { TABLET_BREAKPOINT } from "../../constants";
 import { TableStatus, UnpackedCellLine } from "./types";
+import useEnv from "../../hooks/useEnv";
 
 const {
     tableTitle,
@@ -39,8 +39,15 @@ const CellLineTable = ({
     const [hoveredRowIndex, setHoveredRowIndex] = useState(-1);
     const inProgress = !released;
     const width = useWindowWidth();
+    const env = useEnv();
     const isTablet = width < TABLET_BREAKPOINT;
 
+    const isClickable = (record: UnpackedCellLine): boolean => {
+        return (
+            record.status === CellLineStatus.DataComplete ||
+            env !== "production"
+        );
+    };
     const onCellInteraction = (
         record: UnpackedCellLine,
         index: number | undefined
@@ -58,7 +65,9 @@ const CellLineTable = ({
             onMouseEnter: () => setHoveredRowIndex(index),
             onMouseLeave: () => setHoveredRowIndex(-1),
             onClick: () => {
-                if (record.status === CellLineStatus.DataComplete) {
+                // if we are not in production, make it easier to
+                // navigate to the cell line page
+                if (isClickable(record)) {
                     navigate(record.path);
                 }
             },
@@ -84,9 +93,7 @@ const CellLineTable = ({
                 key={tableName}
                 className={[container, inProgress ? comingSoon : ""].join(" ")}
                 rowClassName={(record) =>
-                    record.status === CellLineStatus.DataComplete
-                        ? dataComplete
-                        : ""
+                    isClickable(record) ? dataComplete : ""
                 }
                 title={() => (
                     <Flex align="center">
