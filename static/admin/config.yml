@@ -18,7 +18,7 @@ collections:
       label_singular: "Cell Line"
       folder: "src/pages/cell-line"
       create: true
-      slug: "AICS-{{cell_line_id}}"
+      slug: "AICS-{{cell_line_id}}-{{clone_number}}"
       path: "{{slug}}/index"
       identifier_field: "cell_line_id"
       summary: "AICS-{{cell_line_id}} - {{gene}}"
