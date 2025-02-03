@@ -21,11 +21,11 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 - [Netlify CLI](https://github.com/netlify/cli)
 
 ## Quick Start
-1. Front end `npm run start` 
+1. Front end `npm start` 
 2. [Open dev site](http://localhost:8000/disease-catalog/)
 3. If you want use Decap CMS locally, and in another
 terminal you can run `npx netlify-cms-proxy-server`
-4. [Admin site](http://localhost:8000/admin/#/)
+1. [Admin site](http://localhost:8000/admin/#/)
 
 ### Media Libraries (installed, but optional)
 
