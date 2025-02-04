@@ -12,6 +12,7 @@ import {
 import { DefaultButton } from "../components/shared/Buttons";
 import ImagesAndVideos from "../components/ImagesAndVideos";
 import CellLineInfoCard from "../components/CellLineInfoCard";
+import SubpageTabs from "../components/SubpageTabs";
 
 const {
     container,
@@ -120,6 +121,7 @@ const CellLine = ({ data, location }: QueryResult) => {
                 }
                 imagesAndVideos={cellLine.frontmatter.images_and_videos}
             />
+            <SubpageTabs />
         </Layout>
     );
 };
