@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import { Flex } from "antd";
+import { Divider, Flex } from "antd";
 
 import Layout from "../components/Layout";
 import {
@@ -121,6 +121,7 @@ const CellLine = ({ data, location }: QueryResult) => {
                 }
                 imagesAndVideos={cellLine.frontmatter.images_and_videos}
             />
+            <Divider />
             <SubpageTabs />
         </Layout>
     );

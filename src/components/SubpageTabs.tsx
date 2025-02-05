@@ -1,6 +1,8 @@
 import React from "react";
 import { Tabs } from "antd";
 
+const { container } = require("../style/subpage-tabs.module.css");
+
 const tabNames = [
     "Editing Design",
     "Genomic Characterization",
@@ -10,14 +12,14 @@ const tabNames = [
 
 const SubpageTabs: React.FC = () => (
     <Tabs
+        className={container}
         defaultActiveKey="1"
-        centered
-        items={tabNames.map((_, i) => {
+        items={tabNames.map((name, i) => {
             const id = String(i + 1);
             return {
-                label: `Tab ${id}`,
+                label: name,
                 key: id,
-                children: `Content of Tab Pane ${id}`,
+                children: `Contents of ${name}`,
             };
         })}
     />
