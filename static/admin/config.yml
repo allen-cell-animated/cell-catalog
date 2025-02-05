@@ -37,18 +37,31 @@ collections:
                 widget: "number",
                 required: true,
             }
-          - {
-                label: "name",
-                name: "name",
-                widget: "string",
-                required: false,
-            }
+          - { label: "name", name: "name", widget: "string", required: false }
           - {
                 label: "Status",
                 name: "status",
                 widget: "select",
-                options: ["in progress", "done"],
-                default: "in progress",
+                options:
+                    [
+                        {
+                            label: "Data is complete: will render on the table and the subpage",
+                            value: "data complete",
+                        },
+                        {
+                            label: "Released: renders only on the table",
+                            value: "released",
+                        },
+                        {
+                            label: "In progress: will show in the 'in progress' table",
+                            value: "in progress",
+                        },
+                        {
+                            label: "Hide: you can enter data but it won't show up on the site at all",
+                            value: "hide",
+                        },
+                    ],
+                default: "hide",
                 required: true,
             }
           - { label: "Publish Date", name: "date", widget: "datetime" }
@@ -70,7 +83,7 @@ collections:
                 name: "parental_line",
                 widget: "number",
                 default: 0,
-                required: true
+                required: true,
             }
           - {
                 label: "Gene",
@@ -80,7 +93,7 @@ collections:
                 search_fields: ["symbol", "name", "protein", "structure"],
                 value_field: "symbol",
                 display_fields: ["symbol"],
-                required: false
+                required: false,
             }
           - {
                 label: "Allele Count",
@@ -118,6 +131,69 @@ collections:
                 widget: "string",
                 required: false,
             }
+          - {
+            label: "Certificate of Analysis",
+            name: "certificate_of_analysis",
+            widget: "file",
+            required: false,
+            }
+          - {
+            label: "Donor Plasmid",
+            name: "donor_plasmid",
+            widget: "string",
+            required: false,
+            }
+          - {
+            label: "hPSCreg Certificate",
+            name: "hPSCreg_certificate_link",
+            widget: "file",
+            required: false,
+            }
+          - {
+                label: "Image and Video Carousel",
+                name: "images_and_videos",
+                widget: "object",
+                required: false,
+                fields:
+                    [
+                        {
+                            label: "Images",
+                            name: "images",
+                            widget: "list",
+                            fields:
+                                [
+                                    {
+                                        label: "Image",
+                                        name: "image",
+                                        widget: "image",
+                                    },
+                                    {
+                                        label: "Caption",
+                                        name: "caption",
+                                        widget: "string",
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Videos",
+                            name: "videos",
+                            widget: "list",
+                            fields:
+                                [
+                                    {
+                                        label: "Video",
+                                        name: "video",
+                                        widget: "file",
+                                    },
+                                    {
+                                        label: "Caption",
+                                        name: "caption",
+                                        widget: "string",
+                                    },
+                                ],
+                        },
+                    ],
+            }
     - name: "disease-cell-line"
       label: "Disease Cell Lines"
       label_singular: "Disease Cell Line"
@@ -145,13 +221,10 @@ collections:
           - {
                 label: "Disease",
                 name: "disease",
-                widget: "select",
-                options:
-                    [
-                        "Cardiomyopathy",
-                        "Cardiomyopathy (Skeletal)",
-                        "Laminopathy",
-                    ],
+                widget: "relation",
+                collection: "disease",
+                search_fields: ["name"],
+                value_field: "name",
             }
           - { label: "Publish Date", name: "date", widget: "datetime" }
           - { label: "SNP", name: "snp", widget: string }
@@ -167,11 +240,56 @@ collections:
                 label: "Status",
                 name: "status",
                 widget: "select",
-                options: ["in progress", "done"],
+                options:
+                    [
+                        {
+                            label: "Data is complete: will render on the table and the subpage",
+                            value: "data complete",
+                        },
+                        {
+                            label: "Released: renders only on the table",
+                            value: "released",
+                        },
+                        {
+                            label: "In progress: completely hidden",
+                            value: "in progress",
+                        },
+                    ],
                 default: "in progress",
                 required: true,
             }
-          - { label: "Clones", name: "clones", widget: string }
+          - {
+                label: "Clones",
+                name: "clones",
+                widget: list,
+                fields:
+                    [
+                        {
+                            label: "Clone number",
+                            name: "clone_number",
+                            widget: "number",
+                            required: false,
+                        },
+                        {
+                            label: "Clone Type",
+                            name: "type",
+                            widget: "select",
+                            options: ["Mutant", "Control"],
+                        },
+                        {
+                            label: "Transfection Replicate",
+                            name: "transfection_replicate",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Genotype",
+                            name: "genotype",
+                            widget: "string",
+                            required: false,
+                        },
+                    ],
+            }
           - {
                 label: "Order Link",
                 name: "order_link",
@@ -183,6 +301,215 @@ collections:
                 name: "certificate_of_analysis",
                 widget: "file",
                 required: false,
+            }
+          - {
+                label: "hPSCreg Certificate",
+                name: "hPSCreg_certificate_link",
+                widget: "file",
+                required: false,
+            }
+          - {
+                label: "Image and Video Carousel",
+                name: "images_and_videos",
+                widget: "object",
+                required: false,
+                fields:
+                    [
+                        {
+                            label: "Images",
+                            name: "images",
+                            widget: "list",
+                            fields:
+                                [
+                                    {
+                                        label: "Image",
+                                        name: "image",
+                                        widget: "image",
+                                    },
+                                    {
+                                        label: "Caption",
+                                        name: "caption",
+                                        widget: "string",
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Videos",
+                            name: "videos",
+                            widget: "list",
+                            fields:
+                                [
+                                    {
+                                        label: "Video",
+                                        name: "video",
+                                        widget: "file",
+                                    },
+                                    {
+                                        label: "Caption",
+                                        name: "caption",
+                                        widget: "string",
+                                    },
+                                ],
+                        },
+                    ],
+            }
+          - {
+                label: "Genomic Characterization",
+                name: "genomic_characterization",
+                widget: "object",
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            label: "Diagrams",
+                            name: "diagrams",
+                            widget: "list",
+                            required: false,
+                            collapsed: true,
+                            fields:
+                                [
+                                    {
+                                        label: "Title",
+                                        name: "title",
+                                        widget: "string",
+                                    },
+                                    {
+                                        label: "Image",
+                                        name: "image",
+                                        widget: "image",
+                                    },
+                                    {
+                                        label: "Caption",
+                                        name: "caption",
+                                        widget: "string",
+                                    },
+                                ],
+                        },
+                    ],
+            }
+          - {
+                label: "Editing Design",
+                name: "editing_design",
+                widget: "object",
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            label: "cRNA Target Site",
+                            name: "crna_target_site",
+                            widget: "string",
+                            required: false,
+                            hint: "Enter entire cRNA Target Site sequence. Place square brackets around PAM site. e.g. AG[TGG]ATA",
+                        },
+                        {
+                            label: "DNA Donor Sequence",
+                            name: "dna_donor_sequence",
+                            widget: "string",
+                            required: false,
+                            hint: "Enter entire DNA donor sequence. Place square brackets around mutation sites. e.g. AG[A]AA",
+                        },
+                        {
+                            label: "Cas9",
+                            name: "cas9",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "F Primer for PCR/Sequencing",
+                            name: "f_primer",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "R primer for PCR/Sequencing",
+                            name: "r_primer",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Diagrams",
+                            name: "diagrams",
+                            widget: "list",
+                            required: false,
+                            collapsed: true,
+                            fields:
+                                [
+                                    {
+                                        label: "Title",
+                                        name: "title",
+                                        widget: "string",
+                                    },
+                                    {
+                                        label: "Image",
+                                        name: "image",
+                                        widget: "image",
+                                    },
+                                    {
+                                        label: "Caption",
+                                        name: "caption",
+                                        widget: "string",
+                                    },
+                                ],
+                        },
+                    ],
+            }
+          - {
+                label: "Stem Cell Characteristics",
+                name: "stem_cell_characteristics",
+                widget: "list",
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            label: "Clone number",
+                            name: "clone_number",
+                            widget: "number",
+                            required: false,
+                        },
+                        {
+                            label: "Troponin T, % Positive Cells(n)",
+                            name: "positive_cells",
+                            widget: "number",
+                            required: false,
+                        },
+                    ],
+            }
+          - {
+                label: "Protocols",
+                name: "protocols",
+                widget: "list",
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            label: "File Upload",
+                            name: "file",
+                            widget: "file",
+                            required: false,
+                        },
+                        {
+                            label: "File Name",
+                            name: "file_name",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Category",
+                            name: "category",
+                            widget: "select",
+                            options:
+                                [
+                                    "Cell Culture Protocols",
+                                    "Gene Editing Protocols",
+                                    "Disease Specific Protocols",
+                                ],
+                            required: false,
+                        },
+                    ],
             }
     - name: "gene-name"
       label: "Gene and structures names"
@@ -225,8 +552,8 @@ collections:
             widget: "list"
             required: false
             fields:
-                - { label: "Gene name", name: "gene_name", widget: "string" }
-                - { label: "Isoforms", name: "isoforms", widget: "list" }
+                - { label: "Gene name", name: "name", widget: "string" }
+                - { label: "Isoforms", name: "ids", widget: "list" }
     - name: "disease"
       label: "Modeled diseases"
       folder: "src/pages/diseases"
@@ -292,16 +619,6 @@ collections:
                               },
                           ],
                   }
-                - {
-                      label: Products,
-                      name: products,
-                      widget: list,
-                      fields:
-                          [
-                              { label: Text, name: text, widget: text },
-                              { label: Image, name: image, widget: image },
-                          ],
-                  }
 
           - file: "src/pages/disease-catalog/index.md"
             label: "Disease Cell Line Catalog"
@@ -322,7 +639,11 @@ collections:
                       fields:
                           [
                               { label: Heading, name: heading, widget: string },
-                              { label: Subheading, name: subheading, widget: string },
+                              {
+                                  label: Subheading,
+                                  name: subheading,
+                                  widget: string,
+                              },
 
                               {
                                   label: Description,
@@ -344,5 +665,53 @@ collections:
                 - {
                       label: "Footer text",
                       name: "footer_text",
+                      widget: "markdown",
+                  }
+
+          - file: "src/pages/normal-catalog/index.md"
+            label: "Cell Line Catalog"
+            name: "normal-catalog"
+            fields:
+                - {
+                      label: "Template Key",
+                      name: "templateKey",
+                      widget: "hidden",
+                      default: "normal-catalog",
+                  }
+                - { label: "Title", name: "title", widget: "string" }
+                - { label: "Body", name: "body", widget: "markdown" }
+                - {
+                      label: Main,
+                      name: main,
+                      widget: object,
+                      fields:
+                          [
+                              { label: Heading, name: heading, widget: string },
+                              {
+                                  label: Subheading,
+                                  name: subheading,
+                                  widget: string,
+                              },
+
+                              {
+                                  label: Description,
+                                  name: description,
+                                  widget: markdown,
+                              },
+                          ],
+                  }
+                - {
+                      label: "Coriell Image",
+                      name: "coriell_image",
+                      widget: "image",
+                  }
+                - {
+                      label: "Coriell Link",
+                      name: "coriell_link",
                       widget: "string",
+                  }
+                - {
+                      label: "Footer text",
+                      name: "footer_text",
+                      widget: "markdown",
                   }

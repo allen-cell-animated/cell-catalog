@@ -1,0 +1,210 @@
+@import "../style/colors.sass";
+
+.container {
+    max-width: 1728px;
+}
+
+.table-title {
+    margin-right: 18px;
+    line-height: 0;
+}
+
+.container :global(.ant-table) {
+    border-radius: 4px;
+}
+
+.container :global(.ant-table-container) {
+    border-right: 1.5px solid var(--border-color);
+    border-left: 1.5px solid var(--border-color);
+}
+
+.container :global(.ant-table-title) {
+    /* this keeps the change in border color from being 
+    mitered at the corners, which looked weird
+    */
+    box-shadow: inset 1.5px 0 0 0 var(--border-color),
+        inset -1.5px 0 0 0 var(--border-color),
+        inset 0 -3px 0 0 var(--primary-color),
+        inset 0 1.5px 0 0 var(--border-color);
+}
+
+.container :global(.ant-table-title) h3 {
+    margin: 22px 16px 22px 0;
+}
+
+.container :global(.ant-table-thead .ant-table-cell) {
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 34px;
+    color: var(--SERIOUS_GRAY);
+}
+
+.container :global(.ant-table-thead .ant-table-cell)::before {
+    display: none; /* remove dividers between column headers */
+}
+
+.container .data-complete .hovered-row:global(.ant-table-cell) {
+    background-color: var(--ALLEN_LIGHT_10);
+    cursor: pointer;
+}
+
+.container .data-complete .hovered-row:global(.ant-table-cell) h4 {
+    text-decoration: underline;
+}
+
+.container .action-column:global(.ant-table-cell):has(a):hover {
+    background-color: var(--primary-color);
+}
+
+.action-column:hover .action-button {
+    color: var(--WHITE);
+}
+
+.action-column:hover .action-button path {
+    fill: var(--primary-color);
+    stroke: var(--WHITE);
+}
+
+.container h4 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--SERIOUS_GRAY);
+    margin: 2px;
+}
+
+.container :global(.ant-table-row .ant-table-cell) {
+    vertical-align: middle;
+    padding: 14px 16px;
+}
+
+.container :global(.ant-table-thead .ant-table-cell).cell-line-id,
+.container :global(.ant-table-cell).cell-line-id {
+    padding: 10px 16px 10px 32px;
+}
+
+.snp-column {
+    max-width: 380px;
+    text-wrap: balance;
+}
+
+.action-column {
+    width: 160px;
+}
+
+.action-button a {
+    text-wrap: wrap;
+    text-align: left;
+}
+
+.clones {
+    text-wrap: balance;
+    min-width: 175px;
+}
+
+.last-column {
+    border-right: 1px solid var(--border-color);
+}
+
+.clone-number {
+    font-weight: 600;
+}
+
+.container :global(.ant-table-thead .ant-table-cell).clones {
+    border-right: none;
+}
+
+.footer {
+    padding: 8px 0 16px 0;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--ALLEN_LIGHT_60);
+}
+
+.footer p {
+    margin: 0;
+}
+
+.container :global(.ant-table-cell .ant-tag) {
+    color: var(--SERIOUS_GRAY);
+    font-size: 14px;
+}
+
+.container :global(.ant-table-cell .ant-btn) {
+    background-color: var(--WHITE);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.container .data-complete .hovered-row:global(.ant-table-cell .ant-btn) {
+    background-color: var(--ALLEN_LIGHT_10);
+}
+
+.container :global(.ant-table-title .ant-tag) {
+    color: var(--PALE_BLUE);
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 800;
+    text-transform: uppercase;
+    vertical-align: middle;
+    padding: 4px 8px;
+}
+
+.container.coming-soon :global(.ant-table-cell),
+.container.coming-soon :global(.ant-table-tbody .ant-tag),
+.container.coming-soon h4 {
+    color: var(--disabled);
+}
+
+.container.coming-soon .clones {
+    border-right: 1px solid transparent;
+}
+
+.container
+    :global(
+        .ant-table-cell.ant-table-row-expand-icon-cell.ant-table-cell-fix-left
+    ) {
+    width: 0px;
+    padding: 0px;
+}
+
+.expandable-content label {
+    font-size: 12px;
+    font-weight: 600;
+    font-weight: 300;
+    color: var(--ALLEN_LIGHT_60);
+}
+
+@media screen and (max-width: 768px) {
+    .container h4 {
+        font-size: 20px;
+    }
+    .container :global(.ant-table-row .ant-table-cell),
+    .container :global(.ant-table-thead .ant-table-cell).cell-line-id,
+    .container :global(.ant-table-cell).cell-line-id {
+        padding: 8px 4px 8px 14px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container h4 {
+        font-size: 16px;
+    }
+    .container :global(.ant-table-row .ant-table-cell) {
+        padding-bottom: 4px;
+    }
+    .action-column {
+        width: 120px;
+        padding: 4px !important;
+    }
+    .action-column .action-button {
+        font-size: 14px;
+    }
+    .container
+        :global(
+            .ant-table-cell.ant-table-row-expand-icon-cell.ant-table-cell-fix-left
+        ) {
+        width: initial;
+    }
+}

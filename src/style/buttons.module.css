@@ -1,0 +1,36 @@
+.default-button {
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--primary-color) !important;
+    background-color: var(--WHITE);
+}
+
+.default-button span {
+    line-height: 30px;
+}
+
+.default-button:hover {
+    background-color: var(--ALLEN_LIGHT_10) !important;
+}
+
+.dark-blue-hover-button {
+    background-color: transparent;
+    color: var(--primary-color) !important;
+    border: 1px solid var(--primary-color);
+}
+
+.dark-blue-hover-button:hover {
+    color: var(--WHITE) !important;
+    background-color: var(--primary-color) !important;
+}
+
+.dark-theme-ghost-button {
+    color: var(--WHITE) !important;
+    padding: 4px 8px;
+}
+
+.dark-theme-ghost-button:hover {
+    color: var(--primary-color) !important;
+    border: 1px solid var(--primary-color) !important;
+    background-color: var(--ALLEN_LIGHT_10) !important;
+}

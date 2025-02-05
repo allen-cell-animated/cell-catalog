@@ -84,6 +84,16 @@ If you want use Decap CMS locally, run the site in one terminal with `npm run st
 Terminal you can use `npx netlify-cms-proxy-server` which proxy requests so you'll be automatically logged
 in as a user on [http:localhost:3000/admin](http:localhost:3000/admin).
 
+## Deployment
+### Staging
+The `main` branch is auto deployed at the [staging site](https://main--cell-catalog.netlify.app/disease-catalog/).
+#### Production deployment
+1. Make a new version: `npm version [patch/minor/major]`
+2. Push the new package.json version: `git push origin main`
+3. Push the new tag: `git push origin [NEW_TAG]`
+4. Go to the [releases page](https://github.com/simularium/simularium-website/releases) and write the release notes for the new version. You can refer to the auto-generated [CHANGELOG.md][changelog] for a list of changes.
+
+
 ## Debugging
 
 Windows users, who aren't using [WSL](https://docs.microsoft.com/en-us/windows/wsl/about), might encounter `node-gyp` errors when trying to npm install.

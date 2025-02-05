@@ -1,0 +1,77 @@
+.header {
+    margin: 16px 0 40px 0;
+}
+
+.header :global(.content) {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+
+.header p {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--SERIOUS_GRAY);
+    margin: 0;
+}
+
+.header a {
+    color: var(--link-color);
+}
+
+.coriell-wrapper {
+    margin: auto;
+}
+
+.coriell-card {
+    width: 250px;
+    border: 1px solid var(--border-color);
+}
+
+.coriell-card :global(.ant-card-head) {
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: none;
+}
+
+.coriell-card :global(.ant-card-head) {
+    color: var(--primary-color);
+    padding: 9px 0 0 0;
+    min-height: inherit;
+}
+
+.coriell-card :global(.gatsby-image-wrapper) {
+    margin: auto;
+}
+
+.coriell-card :global(.ant-card-body) {
+    padding: 9px;
+}
+
+.main-heading {
+    color: var(--primary-color);
+}
+
+.banner:global(.ant-card) {
+    border-color: var(--border-color);
+    margin-bottom: 16px;
+    padding: 20px 32px;
+}
+
+.banner :global(.ant-card-body) {
+    padding: 0;
+}
+
+.banner-content {
+    font-size: 16px;
+    color: var(--primary-color);
+    font-weight: 300;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+    }
+}

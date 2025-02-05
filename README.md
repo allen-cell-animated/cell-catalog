@@ -20,6 +20,14 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 - [Gatsby CLI](https://www.gatsbyjs.com/docs/reference/gatsby-cli/)
 - [Netlify CLI](https://github.com/netlify/cli)
 
+## Quick Start
+
+1. `yarn install`
+2. Front end `npm start` 
+3. [Open dev site](http://localhost:8000/disease-catalog/)
+4. If you want use Decap CMS locally, and in another
+terminal you can run `npx netlify-cms-proxy-server`
+5. [Admin site](http://localhost:8000/admin/#/)
 
 ### Media Libraries (installed, but optional)
 
