@@ -1,5 +1,5 @@
 import React from "react";
-import SubpageContent from "./DiseaseSupplementalPage";
+import SubpageContent from "./Subpage";
 import { Diagram } from "../types";
 
 const {

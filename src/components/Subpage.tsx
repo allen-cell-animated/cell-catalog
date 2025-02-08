@@ -23,7 +23,7 @@ export interface DataRow {
     formatClass?: string;
 }
 
-export interface SubpageContentProps {
+export interface SubpageProps {
     data: {
         rows: DataRow[];
         diagrams?: Diagram[];
@@ -67,7 +67,7 @@ const formatTextWithGeneLocations = (text: string, className: string) => {
     });
 };
 
-export const SubpageContent: React.FC<SubpageContentProps> = ({
+export const Subpage: React.FC<SubpageProps> = ({
     data,
     headerLeadText,
 }) => {
@@ -126,4 +126,4 @@ export const SubpageContent: React.FC<SubpageContentProps> = ({
     );
 };
 
-export default SubpageContent;
+export default Subpage;
