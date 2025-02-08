@@ -1,4 +1,5 @@
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
+import { Diagram } from "../types";
 
 export interface Isoform {
     name: string;
@@ -94,6 +95,14 @@ export interface DiseaseCellLineFrontmatter {
             video: any;
             caption: string;
         }[];
+    };
+    editing_design: {
+        crna_target_site: string;
+        dna_donor_sequence: string;
+        cas9: string;
+        f_primer: string;
+        r_primer: string;
+        diagrams: Diagram[];
     };
 }
 

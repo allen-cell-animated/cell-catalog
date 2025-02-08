@@ -1,0 +1,73 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+.card :global(.ant-card-head), 
+.diagram-card :global(.ant-card-head) {
+    background-color: var(--ALLEN_LIGHT_30);
+    color: var(--ALLEN_BLUE);
+    height: 64px;
+    min-height: 64px;
+}
+
+.card :global(.ant-card-body) {
+    padding: 16px;
+}
+ 
+.data-table {
+    padding: 0;
+    border: 1px solid var(--ALLEN_LIGHT_10);
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.data-row {
+    padding: 17.5px 0;
+    border-bottom: 1px solid var(--OFF_WHITE);
+    padding-left: 20px;
+}
+
+.data-label {
+    font-weight: 400;
+    color: var(--MEDIUM_GRAY);
+}
+
+.legend-text {
+    font-size: 14px;
+    font-size: 16px;
+}
+
+
+.diagrams-container :global(.ant-card-body) {
+    padding: 0;
+}
+
+.diagram-card {
+    margin-top: 24px;
+    border: 1px solid var(--ALLEN_BLUE);
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.diagram-card-footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-radius: 0 0 4px 4px;
+    background-color: var(--ALLEN_LIGHT_10);
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    text-align: left;
+    color: var(--ALLEN_LIGHT_60);
+    font-size: 12px;
+}
+
+.diagram-image {
+    width: 100%;
+    padding: 4px;
+}
