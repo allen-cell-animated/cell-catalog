@@ -1,22 +1,40 @@
 .container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 40px;
     padding: 20px;
+    align-items: center;
 }
 
-.card :global(.ant-card-head), 
+.card, .diagram-card {
+    width: 75%;
+}
+
+.card :global(.ant-card-head),
 .diagram-card :global(.ant-card-head) {
     background-color: var(--ALLEN_LIGHT_30);
     color: var(--ALLEN_BLUE);
-    height: 64px;
     min-height: 64px;
+}
+
+.card :global(.ant-card-head-title),
+.diagram-card :global(.ant-card-head-title) {
+    /* allows long titles to wrap */
+    white-space: normal;
+    padding: 16px 0;
+}
+
+.card :global(.ant-card-head-wrapper),
+.diagram-card :global(.ant-card-head-wrapper) {
+    height: auto;
 }
 
 .card :global(.ant-card-body) {
     padding: 16px;
+    border: 1px solid var(--ALLEN_BLUE);
+    border-radius: 5px;
 }
- 
+
 .data-table {
     padding: 0;
     border: 1px solid var(--ALLEN_LIGHT_10);
@@ -38,11 +56,6 @@
 .legend-text {
     font-size: 14px;
     font-size: 16px;
-}
-
-
-.diagrams-container :global(.ant-card-body) {
-    padding: 0;
 }
 
 .diagram-card {

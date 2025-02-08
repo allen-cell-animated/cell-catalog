@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardProps } from "antd";
-import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Diagram } from "../types";
 
 const {
@@ -9,13 +9,12 @@ const {
     dataTable,
     dataRow,
     dataLabel,
-    diagramsContainer,
     diagramCard,
     diagramCardHeader,
     diagramCardFooter,
     diagramImage,
     legendText,
-} = require("../style/disease-supplemental-data.module.css");
+} = require("../style/disease-subpage.module.css");
 
 export interface DataRow {
     label: string;
@@ -45,7 +44,7 @@ export const DiagramCard: React.FC<DiagramCardProps> = ({
 }) => (
     <Card
         className={className}
-        title={title && <div className={diagramCardHeader}>{title}</div>}
+        title={title && <div>{title}</div>}
     >
         {children}
         {footer && <div className={diagramCardFooter}>{footer}</div>}
@@ -88,7 +87,7 @@ export const Subpage: React.FC<SubpageProps> = ({
 
     return (
         <div className={container}>
-            <Card className={card}>
+            <Card className={card} bordered={true}>
                 <div className={dataTable}>{data.rows.map(renderDataRow)}</div>
                 {data.legendContent && (
                     <div className={legendText}>{data.legendContent}</div>
@@ -96,7 +95,7 @@ export const Subpage: React.FC<SubpageProps> = ({
             </Card>
 
             {data.diagrams && (
-                <div className={diagramsContainer}>
+                <>
                     {data.diagrams.map((diagram, index) => {
                         const image = getImage(diagram.image.childImageSharp);
                         const headerText = headerLeadText
@@ -120,7 +119,7 @@ export const Subpage: React.FC<SubpageProps> = ({
                             </DiagramCard>
                         );
                     })}
-                </div>
+                </>
             )}
         </div>
     );
