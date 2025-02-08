@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 import { Divider, Flex } from "antd";
 
 import Layout from "../components/Layout";
@@ -24,6 +25,24 @@ const {
 
 const Arrow = require("../img/arrow.svg");
 
+export interface EditingDesignDiagrams {
+    title: string;
+    image: {
+        childImageSharp: {
+            gatsbyImageData: IGatsbyImageData;
+        };
+    };
+    caption: string;
+}
+export interface EditingDesign {
+    crna_target_site: string;
+    dna_donor_sequence: string;
+    cas9: string;
+    f_primer: string;
+    r_primer: string;
+    diagrams: EditingDesignDiagrams[];
+}
+
 interface DiseaseCellLineTemplateProps {
     href: string;
     cellLineId: number;
@@ -39,6 +58,7 @@ interface DiseaseCellLineTemplateProps {
     healthCertificate: string;
     imagesAndVideos: any;
     diseaseName: string;
+    editingDesign: EditingDesign;
 }
 
 // eslint-disable-next-line
@@ -56,6 +76,7 @@ export const DiseaseCellLineTemplate = ({
     healthCertificate,
     imagesAndVideos,
     diseaseName,
+    editingDesign,
 }: DiseaseCellLineTemplateProps) => {
     const hasImagesOrVideos =
         (imagesAndVideos?.images?.length || 0) > 0 ||
@@ -101,6 +122,7 @@ export const DiseaseCellLineTemplate = ({
             </Flex>
             <Divider />
             <SubpageTabs // TODO: request subpage data and send it in here
+                editingDesignData={editingDesign}
                 tabsToRender={
                     diseaseName === Disease.Cardiomyopathy
                         ? TABS_WITH_STEM_CELL
@@ -138,6 +160,7 @@ const CellLine = ({ data, location }: QueryResult) => {
                     cellLine.frontmatter.hPSCreg_certificate_link
                 }
                 imagesAndVideos={cellLine.frontmatter.images_and_videos}
+                editingDesign={cellLine.frontmatter.editing_design}
             />
         </Layout>
     );
@@ -203,6 +226,25 @@ export const pageQuery = graphql`
                 order_link
                 images_and_videos {
                     images {
+                        image {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    placeholder: BLURRED
+                                    layout: CONSTRAINED
+                                )
+                            }
+                        }
+                        caption
+                    }
+                }
+                editing_design {
+                    crna_target_site
+                    dna_donor_sequence
+                    cas9
+                    f_primer
+                    r_primer
+                    diagrams {
+                        title
                         image {
                             childImageSharp {
                                 gatsbyImageData(
