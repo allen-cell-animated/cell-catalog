@@ -12,6 +12,18 @@ local_backend: true
 media_folder: static/img
 public_folder: /img
 
+media_library:
+    name: cloudinary
+    config:
+        cloud_name: dkg6lnogl
+        api_key: 989839737788897
+        upload_preset: allen-cell
+        use_secure_url: true
+        default_transformations:
+            - - fetch_format: auto
+                quality: auto
+        folder: "cell-lines/{{slug}}"
+
 collections:
     - name: "cell-line"
       label: "Cell Lines"
