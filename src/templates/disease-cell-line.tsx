@@ -25,7 +25,7 @@ const {
 
 const Arrow = require("../img/arrow.svg");
 
-export interface EditingDesignDiagrams {
+export interface SubpageDiagrams {
     title: string;
     image: {
         childImageSharp: {
@@ -40,7 +40,11 @@ export interface EditingDesign {
     cas9: string;
     f_primer: string;
     r_primer: string;
-    diagrams: EditingDesignDiagrams[];
+    diagrams: SubpageDiagrams[];
+}
+
+export interface GenomicCharacterization {
+    diagrams: SubpageDiagrams[];
 }
 
 interface DiseaseCellLineTemplateProps {
@@ -59,6 +63,7 @@ interface DiseaseCellLineTemplateProps {
     imagesAndVideos: any;
     diseaseName: string;
     editingDesign: EditingDesign;
+    genomicCharacterization: GenomicCharacterization;
 }
 
 // eslint-disable-next-line
@@ -77,6 +82,7 @@ export const DiseaseCellLineTemplate = ({
     imagesAndVideos,
     diseaseName,
     editingDesign,
+    genomicCharacterization,
 }: DiseaseCellLineTemplateProps) => {
     const hasImagesOrVideos =
         (imagesAndVideos?.images?.length || 0) > 0 ||
@@ -123,6 +129,7 @@ export const DiseaseCellLineTemplate = ({
             <Divider />
             <SubpageTabs // TODO: request subpage data and send it in here
                 editingDesignData={editingDesign}
+                genomicCharacterizationData={genomicCharacterization}
                 tabsToRender={
                     diseaseName === Disease.Cardiomyopathy
                         ? TABS_WITH_STEM_CELL
@@ -161,6 +168,7 @@ const CellLine = ({ data, location }: QueryResult) => {
                 }
                 imagesAndVideos={cellLine.frontmatter.images_and_videos}
                 editingDesign={cellLine.frontmatter.editing_design}
+                genomicCharacterization={cellLine.frontmatter.genomic_characterization}
             />
         </Layout>
     );
@@ -243,6 +251,20 @@ export const pageQuery = graphql`
                     cas9
                     f_primer
                     r_primer
+                    diagrams {
+                        title
+                        image {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    placeholder: BLURRED
+                                    layout: CONSTRAINED
+                                )
+                            }
+                        }
+                        caption
+                    }
+                }
+                genomic_characterization {
                     diagrams {
                         title
                         image {

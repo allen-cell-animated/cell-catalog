@@ -24,7 +24,7 @@ export interface DataRow {
 
 export interface SubpageProps {
     data: {
-        rows: DataRow[];
+        rows?: DataRow[];
         diagrams?: Diagram[];
         legendContent?: React.ReactNode;
     };
@@ -87,12 +87,13 @@ export const Subpage: React.FC<SubpageProps> = ({
 
     return (
         <div className={container}>
-            <Card className={card} bordered={true}>
-                <div className={dataTable}>{data.rows.map(renderDataRow)}</div>
+            {data.rows && data.rows.length > 0 && <Card className={card} bordered={true}>
+                <div className={dataTable}>{data.rows?.map(renderDataRow)}</div>
                 {data.legendContent && (
                     <div className={legendText}>{data.legendContent}</div>
                 )}
             </Card>
+            }
 
             {data.diagrams && (
                 <>
