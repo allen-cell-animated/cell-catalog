@@ -5,6 +5,7 @@ import { Diagram } from "../types";
 
 const {
     container,
+    containerGrid,
     card,
     dataTable,
     dataRow,
@@ -29,6 +30,7 @@ export interface SubpageProps {
         legendContent?: React.ReactNode;
     };
     headerLeadText?: string;
+    layout?: "column" | "grid";
 }
 
 interface DiagramCardProps extends CardProps {
@@ -69,6 +71,7 @@ const formatTextWithGeneLocations = (text: string, className: string) => {
 export const Subpage: React.FC<SubpageProps> = ({
     data,
     headerLeadText,
+    layout = "column",
 }) => {
     const renderDataRow = (row: DataRow) => (
         <div className={dataRow}>
@@ -86,7 +89,7 @@ export const Subpage: React.FC<SubpageProps> = ({
     );
 
     return (
-        <div className={container}>
+        <div className={layout === "grid" ? containerGrid : container}>
             {data.rows && data.rows.length > 0 && <Card className={card} bordered={true}>
                 <div className={dataTable}>{data.rows?.map(renderDataRow)}</div>
                 {data.legendContent && (

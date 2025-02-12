@@ -22,8 +22,8 @@ const GenomicCharacterizationContent: React.FC<GenomicCharacterizationSubpagePro
     }, [genomicCharacterizationData]);
 
     return (
-        <SubpageContent data={contentData}
-        />
+            <SubpageContent data={contentData} layout="grid"
+            />
     );
 };
 
