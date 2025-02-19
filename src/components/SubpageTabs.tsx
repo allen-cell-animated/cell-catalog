@@ -1,9 +1,10 @@
 import React from "react";
 import { Tabs } from "antd";
 import { SubPage } from "../types";
-import { EditingDesign, GenomicCharacterization } from "../templates/disease-cell-line";
+import { EditingDesign, GenomicCharacterization, StemCellCharacteristics } from "../templates/disease-cell-line";
 import EditingDesignContent from "./EditingDesignSubpage";
 import GenomicCharacterizationContent from "./GenomicCharacterizationSubpage";
+import StemCellCharacteristicsContent from "./StemCellCharacteristicsSubpage";
 
 const { container } = require("../style/subpage-tabs.module.css");
 
@@ -11,12 +12,14 @@ interface SubpageTabsProps {
     tabsToRender: SubPage[];
     editingDesignData: EditingDesign;
     genomicCharacterizationData: GenomicCharacterization;
+    stemCellCharacteristicsData: StemCellCharacteristics;
 }
 
 const SubpageTabs: React.FC<SubpageTabsProps> = ({
     tabsToRender,
     editingDesignData,
     genomicCharacterizationData,
+    stemCellCharacteristicsData,
 }) => {
     // TODO: Swap out actual components for placeholders
     const tabComponents = {
@@ -27,7 +30,7 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
             <GenomicCharacterizationContent genomicCharacterizationData={genomicCharacterizationData} />
         ),
         [SubPage.StemCellCharacteristics]: (
-            <div>Stem Cell Characteristics Content</div>
+            <StemCellCharacteristicsContent stemCellCharacteristicsData={stemCellCharacteristicsData} />
         ),
         [SubPage.Protocols]: <div>Protocols Content</div>,
     };

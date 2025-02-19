@@ -107,6 +107,10 @@ export interface DiseaseCellLineFrontmatter {
     genomic_characterization: {
         diagrams: Diagram[];
     };
+    stem_cell_characteristics: {
+        clone_number: number;
+        positive_cells: number;
+    };
 }
 
 export interface DiseaseCellLineNode {

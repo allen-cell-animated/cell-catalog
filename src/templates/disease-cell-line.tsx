@@ -47,6 +47,10 @@ export interface GenomicCharacterization {
     diagrams: SubpageDiagrams[];
 }
 
+export interface StemCellCharacteristics {
+    diagrams: SubpageDiagrams[];
+}
+
 interface DiseaseCellLineTemplateProps {
     href: string;
     cellLineId: number;
@@ -64,6 +68,7 @@ interface DiseaseCellLineTemplateProps {
     diseaseName: string;
     editingDesign: EditingDesign;
     genomicCharacterization: GenomicCharacterization;
+    stemCellCharacteristics: StemCellCharacteristics;
 }
 
 // eslint-disable-next-line
@@ -83,6 +88,7 @@ export const DiseaseCellLineTemplate = ({
     diseaseName,
     editingDesign,
     genomicCharacterization,
+    stemCellCharacteristics,
 }: DiseaseCellLineTemplateProps) => {
     const hasImagesOrVideos =
         (imagesAndVideos?.images?.length || 0) > 0 ||
@@ -130,6 +136,7 @@ export const DiseaseCellLineTemplate = ({
             <SubpageTabs // TODO: request subpage data and send it in here
                 editingDesignData={editingDesign}
                 genomicCharacterizationData={genomicCharacterization}
+                stemCellCharacteristicsData={stemCellCharacteristics}
                 tabsToRender={
                     diseaseName === Disease.Cardiomyopathy
                         ? TABS_WITH_STEM_CELL
@@ -169,6 +176,7 @@ const CellLine = ({ data, location }: QueryResult) => {
                 imagesAndVideos={cellLine.frontmatter.images_and_videos}
                 editingDesign={cellLine.frontmatter.editing_design}
                 genomicCharacterization={cellLine.frontmatter.genomic_characterization}
+                stemCellCharacteristics={cellLine.frontmatter.stem_cell_characteristics}
             />
         </Layout>
     );
@@ -277,6 +285,10 @@ export const pageQuery = graphql`
                         }
                         caption
                     }
+                }
+                stem_cell_characteristics {
+                    clone_number
+                    positive_cells
                 }
             }
         }
