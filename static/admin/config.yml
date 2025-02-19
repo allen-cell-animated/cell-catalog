@@ -94,6 +94,7 @@ collections:
                 value_field: "symbol",
                 display_fields: ["symbol"],
                 required: false,
+                multiple: true,
             }
           - {
                 label: "Allele Count",
