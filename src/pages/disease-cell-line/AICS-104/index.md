@@ -44,4 +44,10 @@ images_and_videos:
         one day and four days post-thaw. This cell line may exhibit transient
         poor morphology in the first three passages post thaw. Scale bars are
         shown.
+editing_design:
+  crna_target_site: 5’ ATTCATTCGAATTCATTTTG[GGG] 3’
+  dna_donor_sequence: 5’ CCATCTCTCCAGGGGAAATTCATTCGAATT[A]ATTTTGGGGCAACAGGAAAGTTGGCATC 3’
+  cas9: "TrueCut™ Cas9 Protein "
+  f_primer: 5’ TCTCCTGATTTGAGGCTTGC 3’
+  r_primer: 5’ AAAGACACCTAGCCATGCAG 3’
 ---
