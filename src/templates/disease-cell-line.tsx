@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import { Flex } from "antd";
+import { Divider, Flex } from "antd";
 
 import Layout from "../components/Layout";
 import {
@@ -12,6 +12,9 @@ import {
 import { DefaultButton } from "../components/shared/Buttons";
 import ImagesAndVideos from "../components/ImagesAndVideos";
 import CellLineInfoCard from "../components/CellLineInfoCard";
+import SubpageTabs from "../components/SubpageTabs";
+import { DEFAULT_TABS, TABS_WITH_STEM_CELL } from "../constants";
+import { Disease } from "../types";
 
 const {
     container,
@@ -35,6 +38,7 @@ interface DiseaseCellLineTemplateProps {
     clones: Clone[];
     healthCertificate: string;
     imagesAndVideos: any;
+    diseaseName: string;
 }
 
 // eslint-disable-next-line
@@ -51,46 +55,59 @@ export const DiseaseCellLineTemplate = ({
     parentalLine,
     healthCertificate,
     imagesAndVideos,
+    diseaseName,
 }: DiseaseCellLineTemplateProps) => {
     const hasImagesOrVideos =
         (imagesAndVideos?.images?.length || 0) > 0 ||
         (imagesAndVideos?.videos?.length || 0) > 0;
     return (
-        <Flex className={container} gap={40} justify="space-between">
-            <Flex vertical gap={16} className={leftCard}>
-                <Link to="/disease-catalog">
-                    <DefaultButton>
-                        <Arrow className={returnArrow} />
-                        Return to Cell Catalog
-                    </DefaultButton>
-                </Link>
-                <CellLineInfoCard
-                    href={href}
-                    cellLineId={cellLineId}
-                    parentLineGene={parentLineGene}
-                    geneName={geneName}
-                    geneSymbol={geneSymbol}
-                    clones={clones}
-                    snp={snp}
-                    orderLink={orderLink}
-                    certificateOfAnalysis={certificateOfAnalysis}
-                    parentalLine={parentalLine}
-                    healthCertificate={healthCertificate}
-                />
+        <>
+            <Flex className={container} gap={40} justify="space-between">
+                <Flex vertical gap={16} className={leftCard}>
+                    <Link to="/disease-catalog">
+                        <DefaultButton>
+                            <Arrow className={returnArrow} />
+                            Return to Cell Catalog
+                        </DefaultButton>
+                    </Link>
+                    <CellLineInfoCard
+                        href={href}
+                        cellLineId={cellLineId}
+                        parentLineGene={parentLineGene}
+                        geneName={geneName}
+                        geneSymbol={geneSymbol}
+                        clones={clones}
+                        snp={snp}
+                        orderLink={orderLink}
+                        certificateOfAnalysis={certificateOfAnalysis}
+                        parentalLine={parentalLine}
+                        healthCertificate={healthCertificate}
+                    />
+                </Flex>
+                {hasImagesOrVideos && (
+                    <ImagesAndVideos
+                        cellLineId={cellLineId}
+                        fluorescentTag={parentalLine.fluorescent_tag}
+                        parentalGeneSymbol={
+                            parentalLine.gene.frontmatter.symbol
+                        }
+                        alleleTag={parentalLine.allele_count}
+                        parentalLine={parentalLine}
+                        geneSymbol={geneSymbol}
+                        snp={snp}
+                        images={imagesAndVideos.images}
+                    />
+                )}
             </Flex>
-            {hasImagesOrVideos && (
-                <ImagesAndVideos
-                    cellLineId={cellLineId}
-                    fluorescentTag={parentalLine.fluorescent_tag}
-                    parentalGeneSymbol={parentalLine.gene.frontmatter.symbol}
-                    alleleTag={parentalLine.allele_count}
-                    parentalLine={parentalLine}
-                    geneSymbol={geneSymbol}
-                    snp={snp}
-                    images={imagesAndVideos.images}
-                />
-            )}
-        </Flex>
+            <Divider />
+            <SubpageTabs // TODO: request subpage data and send it in here
+                tabsToRender={
+                    diseaseName === Disease.Cardiomyopathy
+                        ? TABS_WITH_STEM_CELL
+                        : DEFAULT_TABS
+                }
+            />
+        </>
     );
 };
 
@@ -99,10 +116,12 @@ const CellLine = ({ data, location }: QueryResult) => {
     const parentalLineData = cellLine.frontmatter.parental_line.frontmatter;
     const { name: geneName, symbol: geneSymbol } =
         cellLine.frontmatter.disease.frontmatter.gene.frontmatter;
+    const diseaseName = cellLine.frontmatter.disease.frontmatter.name;
     return (
         <Layout>
             <DiseaseCellLineTemplate
                 href={location.href || ""}
+                diseaseName={diseaseName}
                 cellLineId={cellLine.frontmatter.cell_line_id}
                 snp={cellLine.frontmatter.snp}
                 orderLink={cellLine.frontmatter.order_link}
