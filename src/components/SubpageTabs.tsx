@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs } from "antd";
+import { Flex, Tabs } from "antd";
 import { SubPage } from "../types";
 
 const { container } = require("../style/subpage-tabs.module.css");
@@ -27,8 +27,15 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({ tabsToRender }) => (
         items={tabsToRender.map((tabName) => {
             // TODO: Render <TabName> is not yet available for this cell line
             // if the data doesn't exist
+            const label = tabName.split(" ").map((word) => {
+                return <span>{word}</span>;
+            });
             return {
-                label: tabName,
+                label: (
+                    <Flex wrap justify="center" align="center" gap={8}>
+                        {label}
+                    </Flex>
+                ),
                 key: tabName,
                 children: tabComponents[tabName],
             };
