@@ -50,4 +50,5 @@ editing_design:
   cas9: "TrueCut™ Cas9 Protein "
   f_primer: 5’ TCTCCTGATTTGAGGCTTGC 3’
   r_primer: 5’ AAAGACACCTAGCCATGCAG 3’
+  diagrams: []
 ---
