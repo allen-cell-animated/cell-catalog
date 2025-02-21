@@ -52,4 +52,10 @@ images_and_videos:
         days post-thaw. This cell line may exhibit transient poor morphology in
         the first three passages post-thaw. However, this sub-optimal phenotype
         resolves with continued passage. Scale bars are shown.
+editing_design:
+  crna_target_site: " 5’ GTTCAAGCTGAAGCAGCGGG[AGG] 3’"
+  dna_donor_sequence: 5’ TGGAAACATGAAGTTCAAGCTGAAGCAGCAGGAGGAGC[A]GGCGGAGCCAGACGGCACTG 3’
+  cas9: "TrueCut™ Cas9 Protein "
+  f_primer: 5’ GCCAGGAAGCATAAGTGGGT 3’
+  r_primer: 5’ GGTGACGTACTCATTGCCCA 3’
 ---
