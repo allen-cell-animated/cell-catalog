@@ -1,14 +1,12 @@
 import React from "react";
-import { Card } from "antd";
+import { Card, DescriptionsProps } from "antd";
 import { Diagram } from "../../types";
 import DiagramCard from "../shared/DiagramCard";
+import InfoPanel from "../shared/InfoPanel";
 
 const {
     container,
     card,
-    dataTable,
-    dataRow,
-    dataLabel,
     legendText,
 } = require("../../style/disease-subpage.module.css");
 
@@ -43,32 +41,37 @@ const formatTextWithGeneLocations = (text: string, className: string) => {
 const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
     editingDesignData,
 }) => {
-    const rows = [
+    const rows: DescriptionsProps["items"] = [
         {
+            key: "crna",
             label: "cRNA Target Site:",
-            value: formatTextWithGeneLocations(
+            children: formatTextWithGeneLocations(
                 editingDesignData.crna_target_site,
                 pamSite
             ),
         },
         {
+            key: "dna",
             label: "DNA Donor Sequence:",
-            value: formatTextWithGeneLocations(
+            children: formatTextWithGeneLocations(
                 editingDesignData.dna_donor_sequence,
                 mutation
             ),
         },
         {
+            key: "cas9",
             label: "Cas9:",
-            value: editingDesignData.cas9,
+            children: editingDesignData.cas9,
         },
         {
+            key: "f_primer",
             label: "F Primer for PCR/Sequencing:",
-            value: editingDesignData.f_primer,
+            children: editingDesignData.f_primer,
         },
         {
+            key: "r_primer",
             label: "R Primer for PCR/Sequencing:",
-            value: editingDesignData.r_primer,
+            children: editingDesignData.r_primer,
         },
     ];
 
@@ -82,14 +85,7 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
     return (
         <div className={container}>
             <Card className={card} bordered={true}>
-                <div className={dataTable}>
-                    {rows.map((row, idx) => (
-                        <div className={dataRow} key={idx}>
-                            <span className={dataLabel}>{row.label}&nbsp;</span>
-                            <span>{row.value}</span>
-                        </div>
-                    ))}
-                </div>
+                <InfoPanel data={rows} />
                 {legendContent && (
                     <div className={legendText}>{legendContent}</div>
                 )}

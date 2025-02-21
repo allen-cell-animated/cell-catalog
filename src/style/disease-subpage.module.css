@@ -36,20 +36,8 @@
     border-radius: 5px;
 }
 
-.data-table {
-    padding: 0;
-    border: 1px solid var(--ALLEN_LIGHT_10);
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
 
-.data-row {
-    padding: 17.5px 0;
-    border-bottom: 1px solid var(--OFF_WHITE);
-    padding-left: 20px;
-}
-
-.data-label {
+.container :global(.ant-descriptions-item-label) {
     font-weight: 400;
     color: var(--MEDIUM_GRAY);
 }
