@@ -2,7 +2,7 @@ import React from "react";
 import { Flex, Tabs } from "antd";
 import { SubPage } from "../../types";
 import { EditingDesign } from "../../templates/disease-cell-line";
-import EditingDesignContent from "./EditingDesignSubpage";
+import EditingDesignSubpage from "./EditingDesignSubpage";
 
 const {
     container,
@@ -21,7 +21,7 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
     // TODO: Swap out actual components for placeholders
     const tabComponents = {
         [SubPage.EditingDesign]: (
-            <EditingDesignContent editingDesignData={editingDesignData} />
+            <EditingDesignSubpage editingDesignData={editingDesignData} />
         ),
         [SubPage.GenomicCharacterization]: (
             <div>Genomic Characterization Content</div>

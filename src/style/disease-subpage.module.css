@@ -6,7 +6,8 @@
     align-items: center;
 }
 
-.card, .diagram-card {
+.card,
+.diagram-card {
     width: 75%;
 }
 
@@ -72,12 +73,19 @@
     left: 0;
     border-radius: 0 0 4px 4px;
     background-color: var(--ALLEN_LIGHT_10);
-    height: 40px;
+    min-height: 40px;
+    height: auto;
     line-height: 40px;
-    padding: 0 20px;
+    padding: 12px 20px;
     text-align: left;
     color: var(--ALLEN_LIGHT_60);
     font-size: 12px;
+    white-space: normal;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+    overflow-x: hidden;
 }
 
 .diagram-image {
