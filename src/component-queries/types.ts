@@ -1,5 +1,5 @@
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
-import { Diagram } from "../types";
+import { Diagram } from "../components/shared/DiagramCard";
 
 export interface Isoform {
     name: string;

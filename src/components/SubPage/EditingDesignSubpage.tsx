@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, DescriptionsProps } from "antd";
-import { Diagram } from "../../types";
-import DiagramCard from "../shared/DiagramCard";
+import DiagramCard, { Diagram } from "../shared/DiagramCard";
 import InfoPanel from "../shared/InfoPanel";
 
 const {
