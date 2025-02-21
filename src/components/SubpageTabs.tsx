@@ -2,7 +2,7 @@ import React from "react";
 import { Flex, Tabs } from "antd";
 import { SubPage } from "../types";
 
-const { container } = require("../style/subpage-tabs.module.css");
+const { container, labelGroup } = require("../style/subpage-tabs.module.css");
 
 // TODO: Swap out actual components for placeholders
 const tabComponents = {
@@ -32,7 +32,12 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({ tabsToRender }) => (
             });
             return {
                 label: (
-                    <Flex wrap justify="center" align="center" gap={8}>
+                    <Flex
+                        wrap
+                        justify="center"
+                        align="center"
+                        className={labelGroup}
+                    >
                         {label}
                     </Flex>
                 ),
