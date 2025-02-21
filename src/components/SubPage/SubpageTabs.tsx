@@ -1,10 +1,10 @@
 import React from "react";
 import { Tabs } from "antd";
-import { SubPage } from "../types";
-import { EditingDesign } from "../templates/disease-cell-line";
+import { SubPage } from "../../types";
+import { EditingDesign } from "../../templates/disease-cell-line";
 import EditingDesignContent from "./EditingDesignSubpage";
 
-const { container } = require("../style/subpage-tabs.module.css");
+const { container } = require("../../style/subpage-tabs.module.css");
 
 interface SubpageTabsProps {
     tabsToRender: SubPage[];

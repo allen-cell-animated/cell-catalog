@@ -13,7 +13,7 @@ import {
 import { DefaultButton } from "../components/shared/Buttons";
 import ImagesAndVideos from "../components/ImagesAndVideos";
 import CellLineInfoCard from "../components/CellLineInfoCard";
-import SubpageTabs from "../components/SubpageTabs";
+import SubpageTabs from "../components/SubPage/SubpageTabs";
 import { DEFAULT_TABS, TABS_WITH_STEM_CELL } from "../constants";
 import { Disease } from "../types";
 

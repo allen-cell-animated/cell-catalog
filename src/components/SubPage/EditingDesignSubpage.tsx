@@ -1,11 +1,11 @@
 import React from "react";
 import SubpageContent from "./Subpage";
-import { Diagram } from "../types";
+import { Diagram } from "../../types";
 
 const {
     pamSite,
     mutation,
-} = require("../style/editing-design.module.css");
+} = require("../../style/editing-design.module.css");
 
 interface EditingDesignContentProps {
     editingDesignData: {
@@ -18,6 +18,22 @@ interface EditingDesignContentProps {
     };
 }
 
+
+const formatTextWithGeneLocations = (text: string, className: string) => {
+    // PAM sites and mutations are indicated in the string using square brackets
+    const parts = text.split(/(\[.*?\])/);
+    return parts.map((part, index) => {
+        if (part.startsWith("[") && part.endsWith("]")) {
+            return (
+                <span key={index} className={className}>
+                    {part}
+                </span>
+            );
+        }
+        return part;
+    });
+};
+
 const EditingDesignContent: React.FC<EditingDesignContentProps> = ({
     editingDesignData,
 }) => {
@@ -26,13 +42,14 @@ const EditingDesignContent: React.FC<EditingDesignContentProps> = ({
             rows: [
                 {
                     label: "cRNA Target Site:",
-                    value: editingDesignData.crna_target_site,
-                    formatClass: pamSite,
+                    value: formatTextWithGeneLocations(
+                        editingDesignData.crna_target_site,
+                        pamSite
+                    ),
                 },
                 {
                     label: "DNA Donor Sequence:",
-                    value: editingDesignData.dna_donor_sequence,
-                    formatClass: mutation,
+                    value: formatTextWithGeneLocations(editingDesignData.dna_donor_sequence, mutation),
                 },
                 {
                     label: "Cas9:",

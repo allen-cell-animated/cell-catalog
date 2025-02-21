@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardProps } from "antd";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Diagram } from "../types";
+import { Diagram } from "../../types";
 
 const {
     container,
@@ -14,12 +14,11 @@ const {
     diagramCardFooter,
     diagramImage,
     legendText,
-} = require("../style/disease-subpage.module.css");
+} = require("../../style/disease-subpage.module.css");
 
 export interface DataRow {
     label: string;
-    value: string;
-    formatClass?: string;
+    value: string | React.ReactNode;
 }
 
 export interface SubpageProps {
@@ -51,21 +50,6 @@ export const DiagramCard: React.FC<DiagramCardProps> = ({
     </Card>
 );
 
-const formatTextWithGeneLocations = (text: string, className: string) => {
-    // PAM sites and mutations are indicated in the string using square brackets
-    const parts = text.split(/(\[.*?\])/);
-    return parts.map((part, index) => {
-        if (part.startsWith("[") && part.endsWith("]")) {
-            return (
-                <span key={index} className={className}>
-                    {part}
-                </span>
-            );
-        }
-        return part;
-    });
-};
-
 export const Subpage: React.FC<SubpageProps> = ({
     data,
     headerLeadText,
@@ -77,11 +61,7 @@ export const Subpage: React.FC<SubpageProps> = ({
                 {/* intentional whitespace */}
                 {`  `}
             </span>
-            <span>
-                {row.formatClass
-                    ? formatTextWithGeneLocations(row.value, row.formatClass)
-                    : row.value}
-            </span>
+            <span>{row.value}</span>
         </div>
     );
 
