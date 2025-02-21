@@ -44,4 +44,50 @@ images_and_videos:
         one day and four days post-thaw. This cell line may exhibit transient
         poor morphology in the first three passages post thaw. Scale bars are
         shown.
+genomic_characterization:
+  diagrams:
+    - title: Sanger Sequencing Results
+      image: aics-0104_h251n_sanger_exported_highres.png
+      caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
+        alleles. Results confirmed respective genotype as indicated in table
+        above with no additional mutations present. 
+    - title: Mono-Clonality Confirmation via ddPCR Assay
+      image: aics-0104_h251n_mono-clonality-confirmation.png
+      caption: Verification of genomic copy number of WT and mutant alleles.
+        H251N:WT/RPP30 ratio from ddPCR assay; values ~ 0.5 indicate
+        heterozygous clone, values ~1 indicate unedited clone. RPP30 is known 2n
+        reference gene. 
+    - title: Karyotype Analysis
+      image: aics-0104_h251n_cl3_karyotype.png
+      caption: After cells banks were created, one vial per clone was thawed and 30
+        G-banded metaphase cells were karyotyped. Above is the representative
+        analysis for clone 3. All clones resulted in normal karyotype.
+editing_design:
+  crna_target_site: 5’ ATTCATTCGAATTCATTTTG[GGG] 3’
+  dna_donor_sequence: 5’ CCATCTCTCCAGGGGAAATTCATTCGAATT[A]ATTTTGGGGCAACAGGAAAGTTGGCATC 3’
+  cas9: "TrueCut™ Cas9 Protein "
+  f_primer: 5’ TCTCCTGATTTGAGGCTTGC 3’
+  r_primer: 5’ AAAGACACCTAGCCATGCAG 3’
+  diagrams:
+    - title: '"Header Caption: CRISPR-Cas9 methodology was used to introduce a single
+        base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown
+        below. "'
+      image: h251n_fullfigure-4x.png
+      caption: "Top: MYH7 locus showing 1 MYH7 isoform; Bottom: Zoom in on mutation
+        site at isoform NM_000257.4(MYH7):c.752C>A(p.His251Asn)"
+    - title: '"Header Caption: CRISPR-Cas9 methodology was used to introduce a single
+        base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown
+        below. "'
+      image: actn2_fullfigure.png
+      caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP
+        insertion site at ACTN2 C-terminus"
+stem_cell_characteristics:
+  - clone_number: 3
+    positive_cells: 82
+  - clone_number: 4
+    positive_cells: 92
+  - clone_number: 6
+    positive_cells: 49
+  - clone_number: 85
+    positive_cells: 79
 ---

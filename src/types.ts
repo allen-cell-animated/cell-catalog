@@ -12,7 +12,6 @@ export enum Disease {
     Laminopathy = "Laminopathy",
     SkeletalMyopathy = "Skeletal Myopathy",
 }
-
 export interface Diagram {
     image: {
         childImageSharp: {
