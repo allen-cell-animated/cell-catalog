@@ -52,6 +52,24 @@ images_and_videos:
         days post-thaw. This cell line may exhibit transient poor morphology in
         the first three passages post-thaw. However, this sub-optimal phenotype
         resolves with continued passage. Scale bars are shown.
+genomic_characterization:
+  diagrams:
+    - title: Sanger Sequencing Results
+      image: aics-105_r369q_sanger_exported_highres.png
+      caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
+        alleles. Results confirmed respective genotype as indicated in table
+        above with no additional mutations present. 
+    - title: Mono-Clonality Confirmation via ddPCR Assay
+      image: aics-105_r369q_mono-clonality-confirmation.png
+      caption: Verification of genomic copy number of WT and mutant alleles.
+        R369Q:WT/RPP30 ratio from ddPCR assay; values ~ 0.5 indicate
+        heterozygous clone, values ~1 indicate unedited clone. RPP30 is known 2n
+        reference gene. 
+    - title: Karyotype Analysis
+      image: aics-105_r369q_c31_karyotype.png
+      caption: After cells banks were created, one vial per clone was thawed and 30
+        G-banded metaphase cells were karyotyped. Above is the representative
+        analysis for clone 31. All clones resulted in normal karyotype.
 editing_design:
   crna_target_site: " 5’ GTTCAAGCTGAAGCAGCGGG[AGG] 3’"
   dna_donor_sequence: 5’ TGGAAACATGAAGTTCAAGCTGAAGCAGCAGGAGGAGC[A]GGCGGAGCCAGACGGCACTG 3’
