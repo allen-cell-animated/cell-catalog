@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import { IGatsbyImageData } from "gatsby-plugin-image";
 import { Divider, Flex } from "antd";
 
 import Layout from "../components/Layout";
@@ -9,12 +8,14 @@ import {
     DiseaseCellLineFrontmatter,
     GeneFrontMatter,
     ParentalLineFrontmatter,
+    EditingDesignData,
 } from "../component-queries/types";
 import { DefaultButton } from "../components/shared/Buttons";
 import ImagesAndVideos from "../components/ImagesAndVideos";
 import CellLineInfoCard from "../components/CellLineInfoCard";
 import SubpageTabs from "../components/SubPage/SubpageTabs";
 import { DEFAULT_TABS, TABS_WITH_STEM_CELL } from "../constants";
+import { unpackEditingDesignData } from "../component-queries/convert-data";
 import { Disease } from "../types";
 
 const {
@@ -24,24 +25,6 @@ const {
 } = require("../style/disease-cell-line.module.css");
 
 const Arrow = require("../img/arrow.svg");
-
-export interface EditingDesignDiagrams {
-    title: string;
-    image: {
-        childImageSharp: {
-            gatsbyImageData: IGatsbyImageData;
-        };
-    };
-    caption: string;
-}
-export interface EditingDesign {
-    crna_target_site: string;
-    dna_donor_sequence: string;
-    cas9: string;
-    f_primer: string;
-    r_primer: string;
-    diagrams: EditingDesignDiagrams[];
-}
 
 interface DiseaseCellLineTemplateProps {
     href: string;
@@ -58,7 +41,7 @@ interface DiseaseCellLineTemplateProps {
     healthCertificate: string;
     imagesAndVideos: any;
     diseaseName: string;
-    editingDesign: EditingDesign;
+    editingDesign: EditingDesignData;
 }
 
 // eslint-disable-next-line
@@ -139,6 +122,10 @@ const CellLine = ({ data, location }: QueryResult) => {
     const { name: geneName, symbol: geneSymbol } =
         cellLine.frontmatter.disease.frontmatter.gene.frontmatter;
     const diseaseName = cellLine.frontmatter.disease.frontmatter.name;
+    const editingDesign = unpackEditingDesignData(
+        data.markdownRemark.frontmatter.editing_design
+    );
+
     return (
         <Layout>
             <DiseaseCellLineTemplate
@@ -160,7 +147,7 @@ const CellLine = ({ data, location }: QueryResult) => {
                     cellLine.frontmatter.hPSCreg_certificate_link
                 }
                 imagesAndVideos={cellLine.frontmatter.images_and_videos}
-                editingDesign={cellLine.frontmatter.editing_design}
+                editingDesign={editingDesign}
             />
         </Layout>
     );

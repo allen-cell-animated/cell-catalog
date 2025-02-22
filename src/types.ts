@@ -1,5 +1,3 @@
-import { IGatsbyImageData } from "gatsby-plugin-image";
-
 export enum SubPage {
     EditingDesign = "Editing Design",
     GenomicCharacterization = "Genomic Characterization",

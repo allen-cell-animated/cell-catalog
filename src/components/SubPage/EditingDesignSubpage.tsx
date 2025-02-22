@@ -1,7 +1,8 @@
 import React from "react";
 import { Card, DescriptionsProps } from "antd";
-import DiagramCard, { Diagram } from "../shared/DiagramCard";
+import DiagramCard from "../shared/DiagramCard";
 import InfoPanel from "../shared/InfoPanel";
+import { Diagram } from "../../component-queries/types";
 
 const {
     container,
@@ -12,14 +13,12 @@ const {
 const { pamSite, mutation } = require("../../style/editing-design.module.css");
 
 interface EditingDesignSubpageProps {
-    editingDesignData: {
-        crna_target_site: string;
-        dna_donor_sequence: string;
-        cas9: string;
-        f_primer: string;
-        r_primer: string;
-        diagrams: Diagram[];
-    };
+    crnaTargetSite?: string;
+    dnaDonorSequence?: string;
+    cas9?: string;
+    fPrimer?: string;
+    rPrimer?: string;
+    diagrams?: Diagram[];
 }
 
 const formatTextWithGeneLocations = (text: string, className: string) => {
@@ -38,59 +37,86 @@ const formatTextWithGeneLocations = (text: string, className: string) => {
 };
 
 const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
-    editingDesignData,
+    crnaTargetSite,
+    dnaDonorSequence,
+    cas9,
+    fPrimer,
+    rPrimer,
+    diagrams,
 }) => {
-    const rows: DescriptionsProps["items"] = [
-        {
+    const rows: DescriptionsProps["items"] = [];
+
+    if (crnaTargetSite) {
+        rows.push({
             key: "crna",
             label: "cRNA Target Site:",
-            children: formatTextWithGeneLocations(
-                editingDesignData.crna_target_site,
-                pamSite
-            ),
-        },
-        {
+            children: formatTextWithGeneLocations(crnaTargetSite, pamSite),
+        });
+    }
+
+    if (dnaDonorSequence) {
+        rows.push({
             key: "dna",
             label: "DNA Donor Sequence:",
-            children: formatTextWithGeneLocations(
-                editingDesignData.dna_donor_sequence,
-                mutation
-            ),
-        },
-        {
+            children: formatTextWithGeneLocations(dnaDonorSequence, mutation),
+        });
+    }
+
+    if (cas9) {
+        rows.push({
             key: "cas9",
             label: "Cas9:",
-            children: editingDesignData.cas9,
-        },
-        {
+            children: cas9,
+        });
+    }
+
+    if (fPrimer) {
+        rows.push({
             key: "f_primer",
             label: "F Primer for PCR/Sequencing:",
-            children: editingDesignData.f_primer,
-        },
-        {
+            children: fPrimer,
+        });
+    }
+
+    if (rPrimer) {
+        rows.push({
             key: "r_primer",
             label: "R Primer for PCR/Sequencing:",
-            children: editingDesignData.r_primer,
-        },
-    ];
+            children: rPrimer,
+        });
+    }
 
-    const legendContent = (
-        <>
-            <span className={"pamSite"}>Red</span> = PAM Site,{" "}
-            <span className={"mutation"}>Blue</span> = Mutation
-        </>
-    );
+    const shouldShowLegend = Boolean(crnaTargetSite || dnaDonorSequence);
+    const legendContent = shouldShowLegend ? (
+        <div className={legendText}>
+            {crnaTargetSite && (
+                <>
+                    <span className={pamSite}>Red</span> = PAM Site
+                </>
+            )}
+            {crnaTargetSite && dnaDonorSequence && ", "}
+            {dnaDonorSequence && (
+                <>
+                    <span className={mutation}>Blue</span> = Mutation
+                </>
+            )}
+        </div>
+    ) : null;
+
+    if (rows.length === 0 && !diagrams?.length) {
+        return null;
+    }
 
     return (
         <div className={container}>
-            <Card className={card} bordered={true}>
-                <InfoPanel data={rows} />
-                {legendContent && (
-                    <div className={legendText}>{legendContent}</div>
-                )}
-            </Card>
+            {rows.length > 0 && (
+                <Card className={card} bordered={true}>
+                    <InfoPanel data={rows} />
+                    {legendContent}
+                </Card>
+            )}
 
-            {editingDesignData.diagrams?.map((diagram, index) => (
+            {diagrams?.map((diagram, index) => (
                 <DiagramCard
                     key={index}
                     diagram={diagram}

@@ -1,22 +1,13 @@
 import React from "react";
 import { Card, CardProps } from "antd";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { IGatsbyImageData } from "gatsby-plugin-image";
+import { Diagram } from "../../component-queries/types";
 
 const {
     diagramCard,
     diagramCardFooter,
 } = require("../../style/disease-subpage.module.css");
 
-export interface Diagram {
-    image: {
-        childImageSharp: {
-            gatsbyImageData: IGatsbyImageData;
-        };
-    };
-    title: string;
-    caption: string;
-}
 
 interface DiagramCardProps extends CardProps {
     diagram: Diagram;
