@@ -72,4 +72,13 @@ editing_design:
       caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP
         insertion site at ACTN2 C-terminus"
       image: actn2_fullfigure.png
+stem_cell_characteristics:
+  - clone_number: 40
+    positive_cells: 73
+  - clone_number: 88
+    positive_cells: 66
+  - clone_number: 104
+    positive_cells: 75
+  - clone_number: 134
+    positive_cells: 73
 ---
