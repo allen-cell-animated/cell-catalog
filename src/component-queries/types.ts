@@ -114,6 +114,9 @@ export interface DiseaseCellLineFrontmatter {
         r_primer: string;
         diagrams: Diagram[];
     };
+    genomic_characterization: {
+        diagrams: Diagram[];
+    };
 }
 
 export interface DiseaseCellLineNode {
@@ -170,6 +173,10 @@ export interface EditingDesignData {
     cas9?: string;
     fPrimer?: string;
     rPrimer?: string;
+    diagrams?: Diagram[];
+}
+
+export interface GenomicCharacterizationData {
     diagrams?: Diagram[];
 }
 
