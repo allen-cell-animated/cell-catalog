@@ -2,7 +2,7 @@ import {
     DiseaseCellLineNode,
     NormalCellLineNode,
     UnpackedDiseaseCellLine,
-    EditingDesignData,
+    UnpackedEditingDesignData,
     UnpackedNormalCellLine,
     Diagram,
 } from "./types";
@@ -45,7 +45,6 @@ export const convertFrontmatterToDiseaseCellLine = (
                 symbol: cellLineNode.frontmatter.parental_line.frontmatter.gene
                     .frontmatter.symbol,
             },
-
         },
         key: cellLineNode.id,
     };
@@ -59,7 +58,7 @@ export const unpackEditingDesignData = (editing_design?: {
     f_primer?: string;
     r_primer?: string;
     diagrams?: Diagram[];
-}): EditingDesignData => {
+}): UnpackedEditingDesignData => {
     if (!editing_design) {
         return {};
     }

@@ -2,7 +2,7 @@ import React from "react";
 import { Card, DescriptionsProps } from "antd";
 import DiagramCard from "../shared/DiagramCard";
 import InfoPanel from "../shared/InfoPanel";
-import { Diagram } from "../../component-queries/types";
+import { UnpackedEditingDesignData as EditingDesignSubpageProps } from "../../component-queries/types";
 
 const {
     container,
@@ -11,15 +11,6 @@ const {
 } = require("../../style/disease-subpage.module.css");
 
 const { pamSite, mutation } = require("../../style/editing-design.module.css");
-
-interface EditingDesignSubpageProps {
-    crnaTargetSite?: string;
-    dnaDonorSequence?: string;
-    cas9?: string;
-    fPrimer?: string;
-    rPrimer?: string;
-    diagrams?: Diagram[];
-}
 
 const formatTextWithGeneLocations = (text: string, className: string) => {
     // PAM sites and mutations are indicated in the string using square brackets

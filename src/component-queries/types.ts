@@ -164,7 +164,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     protein: string;
 }
 
-export interface EditingDesignData {
+export interface UnpackedEditingDesignData {
     crnaTargetSite?: string;
     dnaDonorSequence?: string;
     cas9?: string;
@@ -183,5 +183,5 @@ export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
     clones: Clone[];
     parentalLine: ParentLine;
     mutatedGene: UnpackedGene;
-    editingDesign?: EditingDesignData;
+    editingDesign?: UnpackedEditingDesignData;
 }

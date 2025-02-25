@@ -8,7 +8,7 @@ import {
     DiseaseCellLineFrontmatter,
     GeneFrontMatter,
     ParentalLineFrontmatter,
-    EditingDesignData,
+    UnpackedEditingDesignData,
 } from "../component-queries/types";
 import { DefaultButton } from "../components/shared/Buttons";
 import ImagesAndVideos from "../components/ImagesAndVideos";
@@ -41,7 +41,7 @@ interface DiseaseCellLineTemplateProps {
     healthCertificate: string;
     imagesAndVideos: any;
     diseaseName: string;
-    editingDesign: EditingDesignData;
+    editingDesign: UnpackedEditingDesignData;
 }
 
 // eslint-disable-next-line
