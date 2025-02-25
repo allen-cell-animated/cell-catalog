@@ -31,4 +31,25 @@ images_and_videos:
         all clones in the collection. Viability and colony formation one day and
         four days post-thaw. Scale bars are shown.
       image: aics107108_clone17_v606m.png
+editing_design:
+  crna_target_site: 5’ CCTCTCAATGAGACTGTCGT[GGG] 3’
+  dna_donor_sequence: Mutant*  5’ AGAACAAGGATCCTCTCAATGAGACTGTC[A]TGG
+    GCTTGTATCAGAAGTCTTCCCTCAAG 3’  WT 5’ AGAACAAGGATCCTCTCAATGAGACTGTGGTGG
+    GCTTGTATCAGAAGTCTTCCCTCAAG 3’
+  cas9: " TrueCut™ Cas9 Protein "
+  f_primer: 5’ TGCATGATGACCTCCCACAC 3’
+  r_primer: 5’ TGCAGAGCTGACACAGTCTG 3’
+  diagrams:
+    - title: '"Header Caption: CRISPR-Cas9 methodology was used to introduce a single
+        base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown
+        below."'
+      caption: "Top: MYH7 locus showing 1 MYH7 isoform; Bottom: Zoom in on mutation
+        site at isoform NM_000257.4(MYH7):c.1816G>A(p.Val606Met)"
+      image: v606m_fullfigure.png
+    - title: '"Header Caption: CRISPR-Cas9 methodology was used to introduce a single
+        base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown
+        below."'
+      caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP
+        insertion site at ACTN2 C-terminus"
+      image: actn2_fullfigure.png
 ---
