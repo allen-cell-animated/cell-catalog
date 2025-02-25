@@ -42,6 +42,20 @@
     color: var(--MEDIUM_GRAY);
 }
 
+.container-grid {
+    display: grid;
+    gap: 40px;
+}
+
+.container-grid .diagram-card:first-child {
+    grid-column: span 2;
+}
+
+.container-grid .diagram-card {
+    width: 100%;
+    height: fit-content;
+}
+
 .legend-text {
     font-size: 14px;
     font-size: 16px;

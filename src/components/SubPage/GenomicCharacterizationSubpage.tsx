@@ -3,7 +3,7 @@ import DiagramCard from "../shared/DiagramCard";
 import { Diagram } from "../../component-queries/types";
 
 const {
-    container,
+    containerGrid,
 } = require("../../style/disease-subpage.module.css");
 
 interface GenomicCharacterizationSubpageProps {
@@ -14,7 +14,7 @@ const GenomicCharacterizationSubpage: React.FC<GenomicCharacterizationSubpagePro
     diagrams,
 }) => {
     return (
-        <div className={container}>
+        <div className={containerGrid}>
             {diagrams?.map((diagram, index) => (
                 <DiagramCard
                     key={index}
