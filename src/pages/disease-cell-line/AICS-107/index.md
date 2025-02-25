@@ -8,8 +8,17 @@ parental_line: 75
 status: released
 clones:
   - type: Mutant
+    clone_number: 9
+    transfection_replicate: A
+    genotype: V606M/WT
   - type: Mutant
+    clone_number: 17
+    transfection_replicate: A
+    genotype: V606M/WT
   - type: Control
+    clone_number: 62
+    transfection_replicate: B
+    genotype: WT/WT
 order_link: https://www.coriell.org/0/Sections/Search/DiseaseCollection_Detail.aspx?Ref=AICS-0107&Product=CiPSC&PgId=166
 certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/iPSC/AICS-0107_CofA.pdf
 ---
