@@ -16,7 +16,7 @@ clones:
     transfection_replicate: A
     genotype: V606M/WT
   - type: Control
-    clone_number: 62
+    clone_number: 63
     transfection_replicate: B
     genotype: WT/WT
 order_link: https://www.coriell.org/0/Sections/Search/DiseaseCollection_Detail.aspx?Ref=AICS-0107&Product=CiPSC&PgId=166
