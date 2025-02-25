@@ -65,7 +65,7 @@ editing_design:
         below."'
       caption: "Top: MYH7 locus showing 1 MYH7 isoform; Bottom: Zoom in on mutation
         site at isoform NM_000257.4(MYH7):c.872C>T(p.Ser291Phe)"
-      image: s291f_fullfigure-4x.png
+      image: s291f_fullfigure.png
     - title: '"Header Caption: CRISPR-Cas9 methodology was used to introduce a single
         base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown
         below."'
