@@ -6,7 +6,7 @@ const {
     containerGrid,
 } = require("../../style/disease-subpage.module.css");
 
-interface GenomicCharacterizationSubpageProps {
+export interface GenomicCharacterizationSubpageProps {
     diagrams?: Diagram[];
 }
 

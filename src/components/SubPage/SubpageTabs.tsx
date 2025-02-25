@@ -1,9 +1,10 @@
 import React from "react";
 import { Flex, Tabs } from "antd";
 import { SubPage } from "../../types";
-import { EditingDesignData, GenomicCharacterizationData } from "../../component-queries/types";
+import { EditingDesignData } from "../../component-queries/types";
 import EditingDesignSubpage from "./EditingDesignSubpage";
 import GenomicCharacterizationSubpage from "./GenomicCharacterizationSubpage";
+import { GenomicCharacterizationSubpageProps } from "./GenomicCharacterizationSubpage";
 
 const {
     container,
@@ -13,7 +14,7 @@ const {
 interface SubpageTabsProps {
     tabsToRender: SubPage[];
     editingDesignData?: EditingDesignData;
-    genomicCharacterizationData?: GenomicCharacterizationData;
+    genomicCharacterizationData?: GenomicCharacterizationSubpageProps;
 }
 
 const SubpageTabs: React.FC<SubpageTabsProps> = ({
