@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+    align-items: center;
+}
+
+.card {
+    width: 75%;
+}
+
+.card :global(.ant-card-body) {
+    padding: 16px;
+    border: 1px solid var(--ALLEN_BLUE);
+    border-radius: 5px;
+}
+
+
+.container :global(.ant-descriptions-item-label) {
+    font-weight: 400;
+    color: var(--MEDIUM_GRAY);
+}
+
+.legend-text {
+    font-size: 16px;
+}
+
+.diagram-image {
+    width: 100%;
+    padding: 4px;
+}
