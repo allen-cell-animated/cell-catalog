@@ -7,7 +7,7 @@ const {
     footer,
     borderBody,
     borderCard,
-} = require("../../style/subpage-card.module.css");
+} = require("../../style/subpage-content-card.module.css");
 
 interface SubpageContentCarProps extends CardProps {
     title?: string;
