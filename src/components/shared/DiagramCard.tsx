@@ -6,7 +6,7 @@ import { Diagram } from "../../component-queries/types";
 const {
     diagramCard,
     diagramCardFooter,
-} = require("../../style/disease-subpage.module.css");
+} = require("../../style/diagram-card.module.css");
 
 
 interface DiagramCardProps extends CardProps {
