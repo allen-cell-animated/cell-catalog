@@ -35,4 +35,10 @@ images_and_videos:
         the collection. Viability and colony formation one day and four days
         post-thaw. Scale bars are shown.
       image: aics-109_clone93_e525k.png
+editing_design:
+  crna_target_site: 5’ AAAGAGGCACCTTCTCGATG[AGG] 3’
+  dna_donor_sequence: 5’ TCAGGTGGTAAGGCCAAAGAGGCACCTTCT[T]GATGAGGTCAATGC AGGCCTGCAGGTCC 3’
+  cas9: "TrueCut™ Cas9 Protein "
+  f_primer: " 5’ GGACTGTGTGGTGACAGAGG 3’"
+  r_primer: " 5’ GTGTGGGAGGTCATCATGCA 3’"
 ---
