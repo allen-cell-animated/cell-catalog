@@ -1,34 +1,42 @@
 import React from "react";
-import { Card, CardProps } from "antd";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Diagram } from "../../component-queries/types";
+import { CardProps } from "antd";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import SubpageContentCard from "./SubpageContentCard";
 
-const {
-    diagramCard,
-    diagramCardFooter,
-} = require("../../style/disease-subpage.module.css");
-
+const { container } = require("../../style/diagram-card.module.css");
 
 interface DiagramCardProps extends CardProps {
-    diagram: Diagram;
+    title?: string;
+    image?: IGatsbyImageData;
+    caption?: string;
     headerLeadText?: string;
 }
 
 const DiagramCard: React.FC<DiagramCardProps> = ({
-    diagram,
+    title,
+    image,
+    caption,
     headerLeadText,
     ...cardProps
 }) => {
-    const { title, caption } = diagram;
-    const image = getImage(diagram.image.childImageSharp);
+    if (!image) {
+        return null;
+    }
+    const imageData = getImage(image);
 
     const cardTitle = headerLeadText ? `${headerLeadText}: ${title}` : title;
 
     return (
-        <Card {...cardProps} className={diagramCard} title={cardTitle}>
-            {image && <GatsbyImage image={image} alt={title} />}
-            {caption && <div className={diagramCardFooter}>{caption}</div>}
-        </Card>
+        <SubpageContentCard
+            {...cardProps}
+            title={cardTitle}
+            caption={caption}
+            className={container}
+        >
+            {imageData && (
+                <GatsbyImage image={imageData} alt={cardTitle || "diagram"} />
+            )}
+        </SubpageContentCard>
     );
 };
 
