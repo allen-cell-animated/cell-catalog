@@ -405,11 +405,20 @@ collections:
                             hint: "Enter entire cRNA Target Site sequence. Place square brackets around PAM site. e.g. AG[TGG]ATA",
                         },
                         {
-                            label: "DNA Donor Sequence",
-                            name: "dna_donor_sequence",
-                            widget: "string",
+                            label: "DNA Donor Sequences",
+                            name: "dna_donor_sequences",
+                            widget: "list",
                             required: false,
+                            collapsed: true,
                             hint: "Enter entire DNA donor sequence. Place square brackets around mutation sites. e.g. AG[A]AA",
+                            fields:
+                                [
+                                    {
+                                        label: "Donor Sequence",
+                                        name: "donor_sequence",
+                                        widget: "string",
+                                    },
+                                ],
                         },
                         {
                             label: "Cas9",
@@ -459,21 +468,38 @@ collections:
           - {
                 label: "Stem Cell Characteristics",
                 name: "stem_cell_characteristics",
-                widget: "list",
+                widget: "object",
                 required: false,
                 collapsed: true,
                 fields:
                     [
                         {
-                            label: "Clone number",
-                            name: "clone_number",
-                            widget: "number",
+                            label: "Cell Characteristics", # label and name TBD
+                            name: "cell_characteristics",
+                            widget: "list",
                             required: false,
+                            collapsed: true,
+                            fields:
+                                [
+                                    {
+                                        label: "Clone number",
+                                        name: "clone_number",
+                                        widget: "number",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Troponin T, % Positive Cells(n)",
+                                        name: "positive_cells",
+                                        widget: "number",
+                                        valueType: float,
+                                        required: false,
+                                    },
+                                ],
                         },
                         {
-                            label: "Troponin T, % Positive Cells(n)",
-                            name: "positive_cells",
-                            widget: "number",
+                            label: "Caption",
+                            name: "caption",
+                            widget: "string",
                             required: false,
                         },
                     ],
