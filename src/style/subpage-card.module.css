@@ -1,0 +1,60 @@
+.container {
+    width: 75%;
+    border-radius: 5px;
+}
+
+.border-card {
+    border: 1px solid var(--primary-color);
+}
+
+.container :global(.ant-card-head) {
+    background-color: var(--ALLEN_LIGHT_30);
+    color: var(--ALLEN_BLUE);
+    min-height: 64px;
+    border-bottom: none;
+}
+
+.container :global(.ant-card-head-title) {
+    /* allows long titles to wrap */
+    white-space: normal;
+    padding: 16px 0;
+}
+
+.container :global(.ant-card-head-wrapper) {
+    height: auto;
+}
+
+.container :global(.ant-card-body) {
+    padding: 16px;
+    border-radius: 5px;
+}
+
+.border-body :global(.ant-card-body) {
+    border: 1px solid var(--ALLEN_BLUE);
+}
+
+.legend-text {
+    font-size: 14px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-radius: 0 0 5px 5px;
+    background-color: var(--ALLEN_LIGHT_10);
+    min-height: 40px;
+    height: auto;
+    line-height: 40px;
+    padding: 12px 20px;
+    text-align: left;
+    color: var(--ALLEN_LIGHT_60);
+    font-size: 12px;
+    white-space: normal;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+    overflow-x: hidden;
+}
