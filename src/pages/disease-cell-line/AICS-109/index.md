@@ -35,6 +35,24 @@ images_and_videos:
         the collection. Viability and colony formation one day and four days
         post-thaw. Scale bars are shown.
       image: aics-109_clone93_e525k.png
+genomic_characterization:
+  diagrams:
+    - title: Sanger Sequencing Results
+      caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
+        alleles. Results confirmed respective genotype as indicated in table
+        above with no additional mutations present. 
+      image: aics-0109_e525k_sanger_exported_highres.png
+    - title: Mono-Clonality Confirmation via ddPCR Assay
+      caption: Verification of genomic copy number of WT and mutant alleles.
+        E525K:WT/RPP30 ratio from ddPCR assay; values ~ 0.5 indicate
+        heterozygous clone, values ~1 indicate unedited clone. RPP30 is known 2n
+        reference gene. 
+      image: aics-0109_e525k_mono-clonality-confirmation.png
+    - title: Karyotype Analysis
+      caption: After cells banks were created, one vial per clone was thawed and 30
+        G-banded metaphase cells were karyotyped. Above is the representative
+        analysis for clone 72. All clones resulted in normal karyotype.
+      image: aics-0109_cl72_e525k_karyotype.png
 editing_design:
   crna_target_site: 5’ AAAGAGGCACCTTCTCGATG[AGG] 3’
   dna_donor_sequence: 5’ TCAGGTGGTAAGGCCAAAGAGGCACCTTCT[T]GATGAGGTCAATGC AGGCCTGCAGGTCC 3’
