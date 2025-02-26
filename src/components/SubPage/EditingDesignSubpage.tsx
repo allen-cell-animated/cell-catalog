@@ -98,7 +98,7 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
     return (
         <div className={container}>
             {rows.length > 0 && (
-                <SubpageContentCard bordered={true}>
+                <SubpageContentCard>
                     <InfoPanel data={rows} />
                     {legendContent}
                 </SubpageContentCard>
