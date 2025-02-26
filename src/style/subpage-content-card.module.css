@@ -9,7 +9,7 @@
 
 .container :global(.ant-card-head) {
     background-color: var(--ALLEN_LIGHT_30);
-    color: var(--ALLEN_BLUE);
+    color: var(--primary-color);
     min-height: 64px;
     border-bottom: none;
 }
@@ -30,7 +30,7 @@
 }
 
 .border-body :global(.ant-card-body) {
-    border: 1px solid var(--ALLEN_BLUE);
+    border: 1px solid var(--primary-color);
 }
 
 .legend-text {
