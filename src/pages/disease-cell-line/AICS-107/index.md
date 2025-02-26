@@ -31,6 +31,24 @@ images_and_videos:
         all clones in the collection. Viability and colony formation one day and
         four days post-thaw. Scale bars are shown.
       image: aics107108_clone17_v606m.png
+genomic_characterization:
+  diagrams:
+    - title: Sanger Sequencing Results
+      image: aics-0107_v606m_sanger_exported_highres.png
+      caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
+        alleles. Results confirmed respective genotype as indicated in table
+        above with no additional mutations present. 
+    - title: Mono-Clonality Confirmation via ddPCR Assay
+      image: aics-0107_v606m_mono-clonality-confirmation.png
+      caption: Verification of genomic copy number of WT and mutant alleles.
+        V606M:WT/RPP30 ratio from ddPCR assay; values ~ 0.5 indicate
+        heterozygous clone, values ~1 indicate unedited clone. RPP30 is known 2n
+        reference gene. 
+    - title: Karyotype Analysis
+      image: aics-0107_v606m_cl9_karyotype.png
+      caption: After cells banks were created, one vial per clone was thawed and 30
+        G-banded metaphase cells were karyotyped. Above is the representative
+        analysis for clone 9. All clones resulted in normal karyotype.
 editing_design:
   crna_target_site: 5’ CCTCTCAATGAGACTGTCGT[GGG] 3’
   dna_donor_sequence: Mutant*  5’ AGAACAAGGATCCTCTCAATGAGACTGTC[A]TGG
