@@ -1,0 +1,48 @@
+
+.diagram-card {
+    margin-top: 24px;
+    border: 1px solid var(--ALLEN_BLUE);
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.diagram-card {
+    width: 75%;
+}
+
+.diagram-card :global(.ant-card-head) {
+    background-color: var(--ALLEN_LIGHT_30);
+    color: var(--ALLEN_BLUE);
+    min-height: 64px;
+}
+
+.diagram-card :global(.ant-card-head-title) {
+    white-space: normal;
+    padding: 16px 0;
+}
+
+.diagram-card :global(.ant-card-head-wrapper) {
+    height: auto;
+}
+
+.diagram-card-footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-radius: 0 0 4px 4px;
+    background-color: var(--ALLEN_LIGHT_10);
+    min-height: 40px;
+    height: auto;
+    line-height: 40px;
+    padding: 12px 20px;
+    text-align: left;
+    color: var(--ALLEN_LIGHT_60);
+    font-size: 12px;
+    white-space: normal;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+    overflow-x: hidden;
+}

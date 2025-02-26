@@ -1,4 +1,5 @@
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 
 export interface Isoform {
     name: string;
@@ -72,6 +73,16 @@ export interface Clone {
     transfection_replicate?: string;
 }
 
+export interface Diagram {
+    image: {
+        childImageSharp: {
+            gatsbyImageData: IGatsbyImageData;
+        };
+    };
+    title: string;
+    caption: string;
+}
+
 export interface DiseaseCellLineFrontmatter {
     templateKey: string;
     cell_line_id: number;
@@ -94,6 +105,14 @@ export interface DiseaseCellLineFrontmatter {
             video: any;
             caption: string;
         }[];
+    };
+    editing_design: {
+        crna_target_site: string;
+        dna_donor_sequence: string;
+        cas9: string;
+        f_primer: string;
+        r_primer: string;
+        diagrams: Diagram[];
     };
 }
 
@@ -145,6 +164,15 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     protein: string;
 }
 
+export interface UnpackedEditingDesignData {
+    crnaTargetSite?: string;
+    dnaDonorSequence?: string;
+    cas9?: string;
+    fPrimer?: string;
+    rPrimer?: string;
+    diagrams?: Diagram[];
+}
+
 export type ParentLine = Partial<UnpackedNormalCellLine>;
 
 export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
@@ -155,4 +183,5 @@ export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
     clones: Clone[];
     parentalLine: ParentLine;
     mutatedGene: UnpackedGene;
+    editingDesign?: UnpackedEditingDesignData;
 }

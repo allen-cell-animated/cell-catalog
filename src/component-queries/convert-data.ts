@@ -2,7 +2,9 @@ import {
     DiseaseCellLineNode,
     NormalCellLineNode,
     UnpackedDiseaseCellLine,
+    UnpackedEditingDesignData,
     UnpackedNormalCellLine,
+    Diagram,
 } from "./types";
 
 export const convertFrontmatterToDiseaseCellLine = (
@@ -45,6 +47,28 @@ export const convertFrontmatterToDiseaseCellLine = (
             },
         },
         key: cellLineNode.id,
+    };
+};
+
+// todo consolidate this with the above unpacking method
+export const unpackEditingDesignData = (editing_design?: {
+    crna_target_site?: string;
+    dna_donor_sequence?: string;
+    cas9?: string;
+    f_primer?: string;
+    r_primer?: string;
+    diagrams?: Diagram[];
+}): UnpackedEditingDesignData => {
+    if (!editing_design) {
+        return {};
+    }
+    return {
+        crnaTargetSite: editing_design.crna_target_site,
+        dnaDonorSequence: editing_design.dna_donor_sequence,
+        cas9: editing_design.cas9,
+        fPrimer: editing_design.f_primer,
+        rPrimer: editing_design.r_primer,
+        diagrams: editing_design.diagrams,
     };
 };
 

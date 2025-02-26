@@ -8,12 +8,14 @@ import {
     DiseaseCellLineFrontmatter,
     GeneFrontMatter,
     ParentalLineFrontmatter,
+    UnpackedEditingDesignData,
 } from "../component-queries/types";
 import { DefaultButton } from "../components/shared/Buttons";
 import ImagesAndVideos from "../components/ImagesAndVideos";
 import CellLineInfoCard from "../components/CellLineInfoCard";
-import SubpageTabs from "../components/SubpageTabs";
+import SubpageTabs from "../components/SubPage/SubpageTabs";
 import { DEFAULT_TABS, TABS_WITH_STEM_CELL } from "../constants";
+import { unpackEditingDesignData } from "../component-queries/convert-data";
 import { Disease } from "../types";
 
 const {
@@ -39,6 +41,7 @@ interface DiseaseCellLineTemplateProps {
     healthCertificate: string;
     imagesAndVideos: any;
     diseaseName: string;
+    editingDesign: UnpackedEditingDesignData;
 }
 
 // eslint-disable-next-line
@@ -56,6 +59,7 @@ export const DiseaseCellLineTemplate = ({
     healthCertificate,
     imagesAndVideos,
     diseaseName,
+    editingDesign,
 }: DiseaseCellLineTemplateProps) => {
     const hasImagesOrVideos =
         (imagesAndVideos?.images?.length || 0) > 0 ||
@@ -101,6 +105,7 @@ export const DiseaseCellLineTemplate = ({
             </Flex>
             <Divider />
             <SubpageTabs // TODO: request subpage data and send it in here
+                editingDesignData={editingDesign}
                 tabsToRender={
                     diseaseName === Disease.Cardiomyopathy
                         ? TABS_WITH_STEM_CELL
@@ -117,6 +122,10 @@ const CellLine = ({ data, location }: QueryResult) => {
     const { name: geneName, symbol: geneSymbol } =
         cellLine.frontmatter.disease.frontmatter.gene.frontmatter;
     const diseaseName = cellLine.frontmatter.disease.frontmatter.name;
+    const editingDesign = unpackEditingDesignData(
+        data.markdownRemark.frontmatter.editing_design
+    );
+
     return (
         <Layout>
             <DiseaseCellLineTemplate
@@ -138,6 +147,7 @@ const CellLine = ({ data, location }: QueryResult) => {
                     cellLine.frontmatter.hPSCreg_certificate_link
                 }
                 imagesAndVideos={cellLine.frontmatter.images_and_videos}
+                editingDesign={editingDesign}
             />
         </Layout>
     );
@@ -203,6 +213,25 @@ export const pageQuery = graphql`
                 order_link
                 images_and_videos {
                     images {
+                        image {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    placeholder: BLURRED
+                                    layout: CONSTRAINED
+                                )
+                            }
+                        }
+                        caption
+                    }
+                }
+                editing_design {
+                    crna_target_site
+                    dna_donor_sequence
+                    cas9
+                    f_primer
+                    r_primer
+                    diagrams {
+                        title
                         image {
                             childImageSharp {
                                 gatsbyImageData(
