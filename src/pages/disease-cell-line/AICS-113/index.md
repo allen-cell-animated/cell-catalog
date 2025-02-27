@@ -73,6 +73,18 @@ images_and_videos:
         days post-thaw. May take up to five days to recover post-thaw (Day 5
         image not shown). Scale bars are shown.
       image: aics-113_clone30_g769v.png
+genomic_characterization:
+  diagrams:
+    - title: Sanger Sequencing Results
+      caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
+        alleles. Results confirmed respective genotype as indicated in table
+        above with no additional mutations present. 
+      image: aics-0113_g769v_sanger_exported_highres.png
+    - title: Karyotype Analysis
+      caption: After cells banks were created, one vial per clone was thawed and 30
+        G-banded metaphase cells were karyotyped. Above is the representative
+        analysis for clone 44. All clones resulted in normal karyotype.
+      image: aics-0113_cl44_g769v_karyotype.png
 editing_design:
   crna_target_site: 5’ CATAAGGTGTTCTTCAAGGC[TGG] 3’
   dna_donor_sequence: " 5’ TCTGCCCCATAAGGTGTTCTTCAAGGCTG[T]CTTGCTGGG AACCCTGGAAGAGATGCGGG 3’"
