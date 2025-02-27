@@ -73,4 +73,23 @@ images_and_videos:
         days post-thaw. May take up to five days to recover post-thaw (Day 5
         image not shown). Scale bars are shown.
       image: aics-113_clone30_g769v.png
+editing_design:
+  crna_target_site: 5’ CATAAGGTGTTCTTCAAGGC[TGG] 3’
+  dna_donor_sequence: " 5’ TCTGCCCCATAAGGTGTTCTTCAAGGCTG[T]CTTGCTGGG AACCCTGGAAGAGATGCGGG 3’"
+  cas9: "TrueCut™ Cas9 Protein "
+  f_primer: 5’ TGACTCCGAGCTAGTTCCCT 3’
+  r_primer: 5’ CTCCGACTTGGCGAGTTCAT 3’
+  diagrams:
+    - title: '"Header Caption: CRISPR-Cas9 methodology was used to introduce a single
+        base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown
+        below."'
+      image: g769v_fullfigure.png
+      caption: "Top: MYH3 locus showing 1 MYH3 isoform; Bottom: Zoom in on mutation
+        site at isoform NM_0027470.4(MYH3):c.2306G>T(p.Gly769Val)"
+    - title: '"Header Caption: CRISPR-Cas9 methodology was used to introduce a single
+        base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown
+        below."'
+      image: actn2_fullfigure.png
+      caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP
+        insertion site at ACTN2 C-terminus"
 ---
