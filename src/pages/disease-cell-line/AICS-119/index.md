@@ -8,9 +8,21 @@ parental_line: 13
 status: released
 clones:
   - type: Mutant
+    clone_number: 10
+    transfection_replicate: A
+    genotype: G608G/WT
+  - type: Control
+    clone_number: 23
+    transfection_replicate: A
+    genotype: WT/WT
   - type: Mutant
+    clone_number: 39
+    transfection_replicate: A
+    genotype: G608G/WT
   - type: Control
-  - type: Control
+    clone_number: 45
+    transfection_replicate: A
+    genotype: WT/WT
 order_link: https://www.coriell.org/0/Sections/Search/DiseaseCollection_Detail.aspx?Ref=AICS-0119&Product=CiPSC&PgId=166
 certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/iPSC/AICS-0119_CofA.pdf
 ---
