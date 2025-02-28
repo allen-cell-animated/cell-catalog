@@ -68,6 +68,24 @@ images_and_videos:
         of clone 45 is shown here. Viability and colony formation one day and
         four days post-thaw. Scale bars are shown.
       image: aics-119_clone45_g608g.png
+genomic_characterization:
+  diagrams:
+    - title: Sanger Sequencing Results
+      caption: Sanger Sequencing was performed on LMNA recombinant and wildtype
+        alleles. Results confirmed respective genotype as indicated in table
+        above with no additional mutations present. 
+      image: aics-0119_g608g_sanger_exported_highres.png
+    - title: Mono-Clonality Confirmation via ddPCR Assay (image is a placeholder)
+      caption: Verification of genomic copy number of WT and mutant alleles.
+        LMNA:WT/RPP30 ratio from ddPCR assay; values ~ 0.5 indicate heterozygous
+        clone, values ~1 indicate unedited clone. RPP30 is known 2n reference
+        gene. 
+      image: aics-0109_e525k_mono-clonality-confirmation.png
+    - title: Karyotype Analysis
+      image: aics_0119_cl10_g608g_karyotype.png
+      caption: After cells banks were created, one vial per clone was thawed and 30
+        G-banded metaphase cells were karyotyped. Above is the representative
+        analysis for clone 10. All clones resulted in normal karyotype.
 editing_design:
   crna_target_site: 5’ GGAGATGGGTCCGCCCACCT[GGG] 3’
   dna_donor_sequence: " 5’ GAGGCAGAAGAGCCAGAGGAGATGGGTCC[A]CCCACCTGGGCTC CTGAGCCGCTGGCAGA 3’"
