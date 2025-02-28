@@ -74,5 +74,15 @@ editing_design:
   cas9: "TrueCut™ Cas9 Protein "
   f_primer: 5’ GCCTCTCTCCCCCATTCTTG 3’
   r_primer: 5’ ATGATGCTGCAGTTCTGGGG 3’
-  diagrams: []
+  diagrams:
+    - title: CRISPR-Cas9 methodology was used to introduce a single base pair mutation
+        to LMNA, and mEGFP at N-terminus of LMNB1 as shown below.
+      image: g608g_fullfigure-2-.png
+      caption: "Top: LMNA locus showing 7 LMNA isoforms; Bottom: Zoom in on mutation
+        site at isoform NM_170707.4(LMNA):c.1824C>T(p.Gly608=)"
+    - title: CRISPR-Cas9 methodology was used to introduce a single base pair mutation
+        to LMNA, and mEGFP at N-terminus of LMNB1 as shown below.
+      caption: "Top: LMNB1 locus showing 2 LMNB1 isoforms; Bottom: Zoom in on mEGFP
+        insertion mutation site at N-terminal exon"
+      image: lmnb1_gfp-1-.png
 ---
