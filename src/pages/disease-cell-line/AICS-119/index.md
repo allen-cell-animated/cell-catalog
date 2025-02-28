@@ -103,4 +103,6 @@ editing_design:
       caption: "Top: LMNB1 locus showing 2 LMNB1 isoforms; Bottom: Zoom in on mEGFP
         insertion mutation site at N-terminal exon"
       image: lmnb1_gfp-1-.png
+stem_cell_characteristics:
+  - {}
 ---
