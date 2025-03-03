@@ -1,14 +1,11 @@
 import React from "react";
-import { Card, DescriptionsProps } from "antd";
+import { DescriptionsProps } from "antd";
 import DiagramCard from "../shared/DiagramCard";
 import InfoPanel from "../shared/InfoPanel";
 import { UnpackedEditingDesignData as EditingDesignSubpageProps } from "../../component-queries/types";
+import SubpageContentCard from "../shared/SubpageContentCard";
 
-const {
-    container,
-    card,
-    legendText,
-} = require("../../style/disease-subpage.module.css");
+const { container, legendText } = require("../../style/subpage.module.css");
 
 const { pamSite, mutation } = require("../../style/editing-design.module.css");
 
@@ -101,16 +98,18 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
     return (
         <div className={container}>
             {rows.length > 0 && (
-                <Card className={card} bordered={true}>
+                <SubpageContentCard>
                     <InfoPanel data={rows} />
                     {legendContent}
-                </Card>
+                </SubpageContentCard>
             )}
 
             {diagrams?.map((diagram, index) => (
                 <DiagramCard
                     key={index}
-                    diagram={diagram}
+                    title={diagram.title}
+                    caption={diagram.caption}
+                    image={diagram.image.childImageSharp.gatsbyImageData}
                     headerLeadText="HDR Editing Design"
                 />
             ))}
