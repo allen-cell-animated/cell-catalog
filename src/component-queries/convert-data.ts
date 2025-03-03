@@ -2,7 +2,7 @@ import {
     DiseaseCellLineNode,
     NormalCellLineNode,
     UnpackedDiseaseCellLine,
-    EditingDesignData,
+    UnpackedEditingDesignData,
     UnpackedNormalCellLine,
     Diagram,
 } from "./types";
@@ -59,7 +59,7 @@ export const unpackEditingDesignData = (editing_design?: {
     f_primer?: string;
     r_primer?: string;
     diagrams?: Diagram[];
-}): EditingDesignData => {
+}): UnpackedEditingDesignData => {
     if (!editing_design) {
         return {};
     }
