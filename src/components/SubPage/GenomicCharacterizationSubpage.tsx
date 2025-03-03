@@ -4,7 +4,7 @@ import { GenomicCharacterizationData as GenomicCharacterizationSubpageProps } fr
 
 const {
     containerGrid,
-} = require("../../style/diagram-card.module.css");
+} = require("../../style/disease-subpage.module.css");
 
 const GenomicCharacterizationSubpage: React.FC<GenomicCharacterizationSubpageProps> = ({
     diagrams,

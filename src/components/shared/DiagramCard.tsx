@@ -25,7 +25,7 @@ const DiagramCard: React.FC<DiagramCardProps> = ({
     const cardTitle = headerLeadText ? `${headerLeadText}: ${title}` : title;
 
     return (
-        <Card {...cardProps} className={diagramCard} title={cardTitle}>
+        <Card {...cardProps} className={`${diagramCard} diagram-card`} title={cardTitle}>
             {image && <GatsbyImage image={image} alt={title} />}
             {caption && <div className={diagramCardFooter}>{caption}</div>}
         </Card>
