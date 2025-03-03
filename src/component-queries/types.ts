@@ -176,6 +176,10 @@ export interface UnpackedEditingDesignData {
     diagrams?: Diagram[];
 }
 
+export interface GenomicCharacterizationData {
+    diagrams?: Diagram[];
+}
+
 export type ParentLine = Partial<UnpackedNormalCellLine>;
 
 export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
@@ -187,4 +191,5 @@ export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
     parentalLine: ParentLine;
     mutatedGene: UnpackedGene;
     editingDesign?: UnpackedEditingDesignData;
+    genomicCharacterization?: GenomicCharacterizationData;
 }

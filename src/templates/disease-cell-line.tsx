@@ -9,6 +9,7 @@ import {
     GeneFrontMatter,
     ParentalLineFrontmatter,
     UnpackedEditingDesignData,
+    GenomicCharacterizationData,
 } from "../component-queries/types";
 import { DefaultButton } from "../components/shared/Buttons";
 import ImagesAndVideos from "../components/ImagesAndVideos";
@@ -17,7 +18,6 @@ import SubpageTabs from "../components/SubPage/SubpageTabs";
 import { DEFAULT_TABS, TABS_WITH_STEM_CELL } from "../constants";
 import { unpackEditingDesignData } from "../component-queries/convert-data";
 import { Disease } from "../types";
-import { GenomicCharacterizationSubpageProps } from "../components/SubPage/GenomicCharacterizationSubpage";
 
 const {
     container,
@@ -43,7 +43,7 @@ interface DiseaseCellLineTemplateProps {
     imagesAndVideos: any;
     diseaseName: string;
     editingDesign: UnpackedEditingDesignData;
-    genomicCharacterization: GenomicCharacterizationSubpageProps;
+    genomicCharacterization: GenomicCharacterizationData;
 }
 
 // eslint-disable-next-line

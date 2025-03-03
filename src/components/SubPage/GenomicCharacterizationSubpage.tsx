@@ -1,14 +1,10 @@
 import React from "react";
 import DiagramCard from "../shared/DiagramCard";
-import { Diagram } from "../../component-queries/types";
+import { GenomicCharacterizationData as GenomicCharacterizationSubpageProps } from "../../component-queries/types";
 
 const {
     containerGrid,
-} = require("../../style/disease-subpage.module.css");
-
-export interface GenomicCharacterizationSubpageProps {
-    diagrams?: Diagram[];
-}
+} = require("../../style/diagram-card.module.css");
 
 const GenomicCharacterizationSubpage: React.FC<GenomicCharacterizationSubpageProps> = ({
     diagrams,

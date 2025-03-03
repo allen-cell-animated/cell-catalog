@@ -47,30 +47,6 @@
     overflow-x: hidden;
 }
 
-.card,
-.diagram-card {
-    width: 75%;
-}
-
-.card :global(.ant-card-head),
-.diagram-card :global(.ant-card-head) {
-    background-color: var(--ALLEN_LIGHT_30);
-    color: var(--ALLEN_BLUE);
-    min-height: 64px;
-}
-
-.card :global(.ant-card-head-title),
-.diagram-card :global(.ant-card-head-title) {
-    /* allows long titles to wrap */
-    white-space: normal;
-    padding: 16px 0;
-}
-
-.card :global(.ant-card-head-wrapper),
-.diagram-card :global(.ant-card-head-wrapper) {
-    height: auto;
-}
-
 .container-grid {
     display: grid;
     gap: 40px;
