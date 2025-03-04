@@ -9,13 +9,13 @@ const {
     borderCard,
 } = require("../../style/subpage-content-card.module.css");
 
-interface SubpageContentCarProps extends CardProps {
+interface SubpageContentCardProps extends CardProps {
     title?: string;
     caption?: string;
     children?: React.ReactNode;
 }
 
-const SubpageContentCard: React.FC<SubpageContentCarProps> = ({
+const SubpageContentCard: React.FC<SubpageContentCardProps> = ({
     title,
     children,
     caption,
