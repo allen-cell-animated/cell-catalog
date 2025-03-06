@@ -1,5 +1,6 @@
 import React from "react";
 import { CardProps } from "antd";
+import classNames from "classnames";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import SubpageContentCard from "./SubpageContentCard";
 
@@ -17,6 +18,7 @@ const DiagramCard: React.FC<DiagramCardProps> = ({
     image,
     caption,
     headerLeadText,
+    className,
     ...cardProps
 }) => {
     if (!image) {
@@ -31,7 +33,7 @@ const DiagramCard: React.FC<DiagramCardProps> = ({
             {...cardProps}
             title={cardTitle}
             caption={caption}
-            className={container}
+            className={classNames(container, className)}
         >
             {imageData && (
                 <GatsbyImage image={imageData} alt={cardTitle || "diagram"} />
