@@ -32,20 +32,3 @@
     padding: 4px;
 }
 
-.container-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    padding: 0 13.5%;
-}
-
-.container-grid :global(.diagram-card) {
-    width: 100%;
-    height: fit-content;
-    padding-bottom: 50px;
-}
-
-.container-grid :global(.diagram-card:first-child) {
-    grid-column: span 2;
-}
-
