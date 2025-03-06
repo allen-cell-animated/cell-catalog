@@ -53,7 +53,7 @@ export const convertFrontmatterToDiseaseCellLine = (
 // todo consolidate this with the above unpacking method
 export const unpackEditingDesignData = (editing_design?: {
     crna_target_site?: string;
-    dna_donor_sequence?: string;
+    dna_donor_sequence?: string[];
     cas9?: string;
     f_primer?: string;
     r_primer?: string;

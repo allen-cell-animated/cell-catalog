@@ -108,7 +108,7 @@ export interface DiseaseCellLineFrontmatter {
     };
     editing_design: {
         crna_target_site: string;
-        dna_donor_sequence: string;
+        dna_donor_sequence: string[];
         cas9: string;
         f_primer: string;
         r_primer: string;
@@ -166,7 +166,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
 
 export interface UnpackedEditingDesignData {
     crnaTargetSite?: string;
-    dnaDonorSequence?: string;
+    dnaDonorSequence?: string[];
     cas9?: string;
     fPrimer?: string;
     rPrimer?: string;

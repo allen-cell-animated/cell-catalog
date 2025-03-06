@@ -64,7 +64,8 @@ genomic_characterization:
         analysis for clone 3. All clones resulted in normal karyotype.
 editing_design:
   crna_target_site: 5’ ATTCATTCGAATTCATTTTG[GGG] 3’
-  dna_donor_sequence: 5’ CCATCTCTCCAGGGGAAATTCATTCGAATT[A]ATTTTGGGGCAACAGGAAAGTTGGCATC 3’
+  dna_donor_sequence: 
+    - sequence: 5’ CCATCTCTCCAGGGGAAATTCATTCGAATT[A]ATTTTGGGGCAACAGGAAAGTTGGCATC 3’
   cas9: "TrueCut™ Cas9 Protein "
   f_primer: 5’ TCTCCTGATTTGAGGCTTGC 3’
   r_primer: 5’ AAAGACACCTAGCCATGCAG 3’

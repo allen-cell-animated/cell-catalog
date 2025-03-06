@@ -12,9 +12,10 @@ const {
 
 const { pamSite, mutation } = require("../../style/editing-design.module.css");
 
-const formatTextWithGeneLocations = (text: string, className: string) => {
+const formatTextWithGeneLocations = (text: string | {sequence: string} , className: string) => {
     // PAM sites and mutations are indicated in the string using square brackets
-    const parts = text.split(/(\[.*?\])/);
+    const input = typeof text === "string" ? text : text.sequence;
+    const parts = input.split(/(\[.*?\])/);
     return parts.map((part, index) => {
         if (part.startsWith("[") && part.endsWith("]")) {
             return (
@@ -46,10 +47,19 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
     }
 
     if (dnaDonorSequence) {
+        const sequences = Array.isArray(dnaDonorSequence)
+            ? dnaDonorSequence
+            : [dnaDonorSequence];
         rows.push({
             key: "dna",
-            label: "DNA Donor Sequence:",
-            children: formatTextWithGeneLocations(dnaDonorSequence, mutation),
+            label: "DNA Donor Sequence(s):",
+            children: sequences.map((sequence, index) => (
+                <div key={index}>
+                    {formatTextWithGeneLocations(sequence, mutation)}
+                </div>
+                
+            )
+            ),
         });
     }
 
