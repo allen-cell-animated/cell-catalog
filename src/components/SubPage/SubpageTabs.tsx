@@ -43,7 +43,7 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
                 // TODO: Render <TabName> is not yet available for this cell line
                 // if the data doesn't exist
                 const label = tabName.split(" ").map((word) => {
-                    return <span>{word}</span>;
+                    return <span key={word}>{word}</span>;
                 });
                 return {
                     label: (
