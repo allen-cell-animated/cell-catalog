@@ -2,8 +2,8 @@ import React from "react";
 import { Flex, Tabs } from "antd";
 import { SubPage } from "../../types";
 import { UnpackedEditingDesignData, GenomicCharacterizationData } from "../../component-queries/types";
-import EditingDesignSubpage from "./EditingDesignSubpage";
-import GenomicCharacterizationSubpage from "./GenomicCharacterizationSubpage";
+import EditingDesignSubpage from "./EditingDesign";
+import GenomicCharacterizationSubpage from "./GenomicCharacterization";
 
 const {
     container,
