@@ -8,6 +8,6 @@
     flex: 1 1 calc(33.333% - 10px);
 }
 
-.card:first-child {
+.card.full-width {
     flex-basis: 100%;
 }
