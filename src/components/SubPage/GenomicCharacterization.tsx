@@ -4,14 +4,14 @@ import { GenomicCharacterizationData as GenomicCharacterizationSubpageProps } fr
 import { Flex } from "antd";
 
 const {
-    containerGrid,
-} = require("../../style/disease-subpage.module.css");
+    containerFlex,
+} = require("../../style/genomic-characterization.module.css");
 
 const GenomicCharacterizationSubpage: React.FC<GenomicCharacterizationSubpageProps> = ({
     diagrams,
 }) => {
     return (
-        <Flex className={containerGrid} gap={12} wrap="wrap" justify="center">
+        <Flex className={containerFlex} gap={12} wrap="wrap" justify="space-between">
             {diagrams?.map((diagram, index) => (
                 <DiagramCard
                     key={index}
@@ -19,7 +19,6 @@ const GenomicCharacterizationSubpage: React.FC<GenomicCharacterizationSubpagePro
                 />
             ))}
         </Flex>
-        
     );
 };
 

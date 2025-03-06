@@ -1,0 +1,13 @@
+.container-flex {
+    padding: 0 13.5%;
+}
+
+.container-flex :global(.diagram-card) {
+    width: calc(50% - 20px);
+    height: fit-content;
+    padding-bottom: 50px;
+}
+
+.container-flex :global(.diagram-card:first-child) {
+    width: 100%;
+}
