@@ -13,9 +13,6 @@ clones:
     genotype: WT/WT
     positive_cells: 73
   - type: Control
-    clone_number: 88
-    positive_cells: 66
-  - type: Control
     clone_number: 86
     transfection_replicate: B
     genotype: WT/WT
