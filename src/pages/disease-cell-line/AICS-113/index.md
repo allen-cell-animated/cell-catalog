@@ -88,7 +88,7 @@ genomic_characterization:
 editing_design:
   crna_target_site: 5’ CATAAGGTGTTCTTCAAGGC[TGG] 3’
   dna_donor_sequence: 
-    - sequence: " 5’ TCTGCCCCATAAGGTGTTCTTCAAGGCTG[T]CTTGCTGGG AACCCTGGAAGAGATGCGGG 3’"
+    - sequence: 5’ TCTGCCCCATAAGGTGTTCTTCAAGGCTG[T]CTTGCTGGGAACCCTGGAAGAGATGCGGG 3’
   cas9: "TrueCut™ Cas9 Protein "
   f_primer: 5’ TGACTCCGAGCTAGTTCCCT 3’
   r_primer: 5’ CTCCGACTTGGCGAGTTCAT 3’
