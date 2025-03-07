@@ -61,6 +61,7 @@ editing_design:
   crna_target_site: 5’ AAAGAGGCACCTTCTCGATG[AGG] 3’
   dna_donor_sequence: 
     - sequence: 5’ TCAGGTGGTAAGGCCAAAGAGGCACCTTCT[T]GATGAGGTCAATGC AGGCCTGCAGGTCC 3’
+      type: ""
   cas9: "TrueCut™ Cas9 Protein "
   f_primer: " 5’ GGACTGTGTGGTGACAGAGG 3’"
   r_primer: " 5’ GTGTGGGAGGTCATCATGCA 3’"
