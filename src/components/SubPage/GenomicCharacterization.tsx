@@ -13,12 +13,6 @@ const {
 const GenomicCharacterizationSubpage: React.FC<GenomicCharacterizationSubpageProps> = ({
     diagrams,
 }) => {
-
-    diagrams?.forEach((diagram, index) => {
-        console.log(diagram.title);
-    }
-    );
-
     return (
         <Flex
             className={container}
