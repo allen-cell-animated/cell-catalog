@@ -133,22 +133,22 @@ collections:
                 required: false,
             }
           - {
-            label: "Certificate of Analysis",
-            name: "certificate_of_analysis",
-            widget: "file",
-            required: false,
+                label: "Certificate of Analysis",
+                name: "certificate_of_analysis",
+                widget: "file",
+                required: false,
             }
           - {
-            label: "Donor Plasmid",
-            name: "donor_plasmid",
-            widget: "string",
-            required: false,
+                label: "Donor Plasmid",
+                name: "donor_plasmid",
+                widget: "string",
+                required: false,
             }
           - {
-            label: "hPSCreg Certificate",
-            name: "hPSCreg_certificate_link",
-            widget: "file",
-            required: false,
+                label: "hPSCreg Certificate",
+                name: "hPSCreg_certificate_link",
+                widget: "file",
+                required: false,
             }
           - {
                 label: "Image and Video Carousel",
@@ -411,7 +411,20 @@ collections:
                             required: false,
                             collapsed: true,
                             hint: "Enter entire DNA donor sequence. Place square brackets around mutation sites. e.g. AG[A]AA",
-                            fields: [{ label: "Sequence", name: "sequence", widget: "string" }, { label: "Type", name: "type", widget: "select", options: ['WT', 'Mutant'] }],
+                            fields:
+                                [
+                                    {
+                                        label: "Sequence",
+                                        name: "sequence",
+                                        widget: "string",
+                                    },
+                                    {
+                                        label: "Type",
+                                        name: "type",
+                                        widget: "select",
+                                        options: ["WT", "Mutant"],
+                                    },
+                                ],
                         },
                         {
                             label: "Cas9",
@@ -461,38 +474,21 @@ collections:
           - {
                 label: "Stem Cell Characteristics",
                 name: "stem_cell_characteristics",
-                widget: "object",
+                widget: "list",
                 required: false,
                 collapsed: true,
                 fields:
                     [
                         {
-                            label: "Cell Characteristics", # label and name TBD
-                            name: "cell_characteristics",
-                            widget: "list",
+                            label: "Clone number",
+                            name: "clone_number",
+                            widget: "number",
                             required: false,
-                            collapsed: true,
-                            fields:
-                                [
-                                    {
-                                        label: "Clone number",
-                                        name: "clone_number",
-                                        widget: "number",
-                                        required: false,
-                                    },
-                                    {
-                                        label: "Troponin T, % Positive Cells(n)",
-                                        name: "positive_cells",
-                                        widget: "number",
-                                        valueType: float,
-                                        required: false,
-                                    },
-                                ],
                         },
                         {
-                            label: "Caption",
-                            name: "caption",
-                            widget: "string",
+                            label: "Troponin T, % Positive Cells(n)",
+                            name: "positive_cells",
+                            widget: "number",
                             required: false,
                         },
                     ],

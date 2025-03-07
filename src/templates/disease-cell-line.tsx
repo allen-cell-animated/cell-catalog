@@ -228,6 +228,7 @@ export const pageQuery = graphql`
                     crna_target_site
                     dna_donor_sequence {
                         sequence
+                        type
                     }
                     cas9
                     f_primer
