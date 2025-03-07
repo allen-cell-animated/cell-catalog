@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { TemplateProps } from "./types";
 import InfoPanel from "../../components/shared/InfoPanel";
@@ -7,10 +7,11 @@ import CloneTable from "../../components/CloneTable";
 import { Clone } from "../../component-queries/types";
 import PreviewCompatibleImage from "../../components/PreviewCompatibleImage";
 import ProgressPreview from "./ProgressPreview";
+import useDisableWheel from "../hooks/useDisableWheel";
 
 const DiseaseCellLinePreview = ({ entry, getAsset }: TemplateProps) => {
     const parental_line_id = entry.getIn(["data", "parental_line"]);
-
+    useDisableWheel();
     const data = [
         {
             key: "cell_line_id",
