@@ -289,8 +289,66 @@ collections:
                             widget: "string",
                             required: false,
                         },
-                    ],
-            }
+                        {
+                            label: "Troponin T, % Positive Cells(n)",
+                            name: "positive_cells",
+                            widget: "number",
+                            value_type: "float",
+                            required: false,
+                        },
+                        {
+                            label: "Passing Antibodies",
+                            name: "antibody_analysis",
+                            hint: "select all antibodies this clone passed ",
+                            widget: "select",
+                            options: ["PAX6", "SOX17", "Brachyury"],
+                            multiple: true,
+                        },
+                        {
+                            label: "Differentiation",
+                            name: "differentiation",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "NANOG",
+                                        name: "nanog",
+                                        widget: "number",
+                                        value_type: "float",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "SOX2",
+                                        name: "sox_2",
+                                        widget: "number",
+                                        value_type: "float",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "OCT4",
+                                        name: "oct_4",
+                                        widget: "number",
+                                        value_type: "float",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "SSEA-1",
+                                        name: "ssea_1",
+                                        widget: "number",
+                                        value_type: "float",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "SSEA-4",
+                                        name: "ssea_4",
+                                        widget: "number",
+                                        value_type: "float",
+                                        required: false,
+                                    },
+                                ],
+                        },
+                    ] }
           - {
                 label: "Order Link",
                 name: "order_link",
@@ -453,28 +511,6 @@ collections:
                                         widget: "string",
                                     },
                                 ],
-                        },
-                    ],
-            }
-          - {
-                label: "Stem Cell Characteristics",
-                name: "stem_cell_characteristics",
-                widget: "list",
-                required: false,
-                collapsed: true,
-                fields:
-                    [
-                        {
-                            label: "Clone number",
-                            name: "clone_number",
-                            widget: "number",
-                            required: false,
-                        },
-                        {
-                            label: "Troponin T, % Positive Cells(n)",
-                            name: "positive_cells",
-                            widget: "number",
-                            required: false,
                         },
                     ],
             }

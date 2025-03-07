@@ -11,14 +11,17 @@ clones:
     clone_number: 9
     transfection_replicate: A
     genotype: V606M/WT
+    positive_cells: 72
   - type: Mutant
     clone_number: 17
     transfection_replicate: A
     genotype: V606M/WT
+    positive_cells: 74
   - type: Control
     clone_number: 63
     transfection_replicate: B
     genotype: WT/WT
+    positive_cells: 73
 order_link: https://www.coriell.org/0/Sections/Search/DiseaseCollection_Detail.aspx?Ref=AICS-0107&Product=CiPSC&PgId=166
 certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/iPSC/AICS-0107_CofA.pdf
 images_and_videos:
@@ -70,11 +73,4 @@ editing_design:
       caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP
         insertion site at ACTN2 C-terminus"
       image: actn2_fullfigure.png
-stem_cell_characteristics:
-  - clone_number: 9
-    positive_cells: 72
-  - clone_number: 17
-    positive_cells: 74
-  - clone_number: 63
-    positive_cells: 73
 ---
