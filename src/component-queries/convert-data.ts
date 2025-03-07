@@ -45,6 +45,7 @@ export const convertFrontmatterToDiseaseCellLine = (
                 symbol: cellLineNode.frontmatter.parental_line.frontmatter.gene
                     .frontmatter.symbol,
             },
+
         },
         key: cellLineNode.id,
     };

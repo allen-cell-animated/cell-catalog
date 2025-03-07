@@ -9,6 +9,7 @@ import {
     GeneFrontMatter,
     ParentalLineFrontmatter,
     UnpackedEditingDesignData,
+    GenomicCharacterizationData,
 } from "../component-queries/types";
 import { DefaultButton } from "../components/shared/Buttons";
 import ImagesAndVideos from "../components/ImagesAndVideos";
@@ -42,6 +43,7 @@ interface DiseaseCellLineTemplateProps {
     imagesAndVideos: any;
     diseaseName: string;
     editingDesign: UnpackedEditingDesignData;
+    genomicCharacterization: GenomicCharacterizationData;
 }
 
 // eslint-disable-next-line
@@ -60,6 +62,7 @@ export const DiseaseCellLineTemplate = ({
     imagesAndVideos,
     diseaseName,
     editingDesign,
+    genomicCharacterization,
 }: DiseaseCellLineTemplateProps) => {
     const hasImagesOrVideos =
         (imagesAndVideos?.images?.length || 0) > 0 ||
@@ -106,6 +109,7 @@ export const DiseaseCellLineTemplate = ({
             <Divider />
             <SubpageTabs // TODO: request subpage data and send it in here
                 editingDesignData={editingDesign}
+                genomicCharacterizationData={genomicCharacterization}
                 tabsToRender={
                     diseaseName === Disease.Cardiomyopathy
                         ? TABS_WITH_STEM_CELL
@@ -125,7 +129,7 @@ const CellLine = ({ data, location }: QueryResult) => {
     const editingDesign = unpackEditingDesignData(
         data.markdownRemark.frontmatter.editing_design
     );
-
+    const genomicCharacterization = cellLine.frontmatter.genomic_characterization;
     return (
         <Layout>
             <DiseaseCellLineTemplate
@@ -148,6 +152,7 @@ const CellLine = ({ data, location }: QueryResult) => {
                 }
                 imagesAndVideos={cellLine.frontmatter.images_and_videos}
                 editingDesign={editingDesign}
+                genomicCharacterization={genomicCharacterization}
             />
         </Layout>
     );
@@ -230,6 +235,20 @@ export const pageQuery = graphql`
                     cas9
                     f_primer
                     r_primer
+                    diagrams {
+                        title
+                        image {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    placeholder: BLURRED
+                                    layout: CONSTRAINED
+                                )
+                            }
+                        }
+                        caption
+                    }
+                }
+                genomic_characterization {
                     diagrams {
                         title
                         image {

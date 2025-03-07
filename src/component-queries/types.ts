@@ -114,6 +114,9 @@ export interface DiseaseCellLineFrontmatter {
         r_primer: string;
         diagrams: Diagram[];
     };
+    genomic_characterization: {
+        diagrams: Diagram[];
+    };
 }
 
 export interface DiseaseCellLineNode {
@@ -173,6 +176,10 @@ export interface UnpackedEditingDesignData {
     diagrams?: Diagram[];
 }
 
+export interface GenomicCharacterizationData {
+    diagrams?: Diagram[];
+}
+
 export type ParentLine = Partial<UnpackedNormalCellLine>;
 
 export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
@@ -184,4 +191,5 @@ export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
     parentalLine: ParentLine;
     mutatedGene: UnpackedGene;
     editingDesign?: UnpackedEditingDesignData;
+    genomicCharacterization?: GenomicCharacterizationData;
 }
