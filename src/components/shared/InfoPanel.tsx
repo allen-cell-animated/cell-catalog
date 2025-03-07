@@ -24,7 +24,7 @@ const InfoPanel: React.FC<InfoPanelProps> = ({ data }) => {
                     alignItems: "center",
                     fontSize: "16px",
                     fontWeight: "semi-bold",
-                    lineHeight: "1px",
+                    lineHeight: "1.5",
                 }}
             />
         </div>
