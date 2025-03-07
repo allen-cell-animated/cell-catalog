@@ -11,26 +11,32 @@ clones:
     clone_number: 22
     transfection_replicate: A
     genotype: WT/WT
+    positive_cells: 50
   - type: Mutant
     clone_number: 30
     transfection_replicate: A
     genotype: R369Q/WT
+    positive_cells: 52
   - type: Mutant
     clone_number: 31
     transfection_replicate: A
     genotype: R369Q/R369Q
+    positive_cells: 48
   - type: Mutant
     clone_number: 32
     transfection_replicate: A
     genotype: R369Q/WT
+    positive_cells: 54
   - type: Mutant
     clone_number: 57
     transfection_replicate: B
     genotype: R369Q/WT
+    positive_cells: 36
   - type: Control
     clone_number: 89
     transfection_replicate: B
     genotype: WT/WT
+    positive_cells: 57
 order_link: https://www.coriell.org/0/Sections/Search/DiseaseCollection_Detail.aspx?Ref=AICS-0105&Product=CiPSC&PgId=166
 certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/iPSC/AICS-0105_CofA.pdf
 images_and_videos:
@@ -90,17 +96,4 @@ editing_design:
       caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP
         insertion site at ACTN2 C-terminus"
       image: actn2_fullfigure.png
-stem_cell_characteristics:
-  - clone_number: 22
-    positive_cells: 50
-  - clone_number: 30
-    positive_cells: 52
-  - clone_number: 31
-    positive_cells: 48
-  - clone_number: 32
-    positive_cells: 54
-  - clone_number: 57
-    positive_cells: 36
-  - clone_number: 89
-    positive_cells: 57
 ---
