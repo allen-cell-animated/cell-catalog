@@ -9,10 +9,9 @@ const { container, legendText } = require("../../style/subpage.module.css");
 
 const { pamSite, mutation } = require("../../style/editing-design.module.css");
 
-const formatTextWithGeneLocations = (text: string | {sequence: string} , className: string) => {
+const formatTextWithGeneLocations = (text: string, className: string) => {
     // PAM sites and mutations are indicated in the string using square brackets
-    const input = typeof text === "string" ? text : text.sequence;
-    const parts = input.split(/(\[.*?\])/);
+    const parts = text.split(/(\[.*?\])/);
     return parts.map((part, index) => {
         if (part.startsWith("[") && part.endsWith("]")) {
             return (
@@ -53,11 +52,10 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
             children: (
                 <div>
                     {sequences.map((sequence, index) => {
-                        const sequenceType = sequence.type ? `${sequence.type}` : "";
                         return (
                             <div key={index}>
-                                <span> {sequenceType} </span>
-                                {formatTextWithGeneLocations(sequence, mutation)}
+                                <span> {sequence.type} </span>
+                                {formatTextWithGeneLocations(sequence.sequence, mutation)}
                             </div>
                         )
         })}
