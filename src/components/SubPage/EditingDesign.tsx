@@ -43,10 +43,24 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
     }
 
     if (dnaDonorSequence) {
+        const sequences = Array.isArray(dnaDonorSequence)
+            ? dnaDonorSequence
+            : [dnaDonorSequence];
         rows.push({
             key: "dna",
             label: "DNA Donor Sequence:",
-            children: formatTextWithGeneLocations(dnaDonorSequence, mutation),
+            children: (
+                <div>
+                    {sequences.map((sequence, index) => {
+                        return (
+                            <div key={index}>
+                                <span> {sequence.type} </span>
+                                {formatTextWithGeneLocations(sequence.sequence, mutation)}
+                            </div>
+                        )
+        })}
+                </div>
+            )
         });
     }
 
