@@ -43,15 +43,12 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
     }
 
     if (dnaDonorSequence) {
-        const sequences = Array.isArray(dnaDonorSequence)
-            ? dnaDonorSequence
-            : [dnaDonorSequence];
         rows.push({
             key: "dna",
             label: "DNA Donor Sequence:",
             children: (
                 <div>
-                    {sequences.map((sequence, index) => {
+                    {dnaDonorSequence.map((sequence, index) => {
                         return (
                             <div key={index}>
                                 <span> {sequence.type} </span>
