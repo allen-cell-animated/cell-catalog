@@ -124,7 +124,7 @@ export const unpackDiseaseFrontmatterForSubpage = (
         snp: cellLineNode.frontmatter.snp,
         parentalLine: parentalLineData,
         parentalLineGene: parentalLineData.gene.frontmatter,
-        clones: cellLineNode.frontmatter.clones,
+        clones: cellLineNode.frontmatter.clones, // TODO: unpack this into only data needed for card
         imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
         editingDesign: editingDesign,
         genomicCharacterization: genomicCharacterization,
