@@ -1,6 +1,5 @@
 .container {
-    width: 75%;
-    border-radius: 5px;
+    width: max-content;
 }
 
 .border-card {
@@ -25,8 +24,12 @@
 }
 
 .container :global(.ant-card-body) {
+    padding: 0;
+    border-radius: 4px;
+}
+
+.container :global(.ant-card-body):first-child {
     padding: 16px;
-    border-radius: 5px;
 }
 
 .border-body :global(.ant-card-body) {
@@ -37,24 +40,14 @@
     font-size: 14px;
 }
 
-.footer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    border-radius: 0 0 5px 5px;
+.container :global(.ant-card-meta) {
+    border-radius: 0 0 4px 4px;
     background-color: var(--ALLEN_LIGHT_10);
-    min-height: 40px;
-    height: auto;
-    line-height: 40px;
     padding: 12px 20px;
     text-align: left;
     color: var(--ALLEN_LIGHT_60);
     font-size: 12px;
-    white-space: normal;
-    display: flex;
-    align-items: center;
     line-height: 1.4;
     overflow-wrap: break-word;
-    overflow-x: hidden;
+    margin: 0px;
 }

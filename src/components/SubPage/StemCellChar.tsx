@@ -3,31 +3,35 @@ import InfoPanel from "../shared/InfoPanel";
 import SubpageContentCard from "../shared/SubpageContentCard";
 import { DescriptionsProps } from "antd";
 import { ClonePercentPositive } from "./types";
+import SubpageTable from "../shared/SubpageTable";
+import {
+    percentPositiveCaption,
+    percentPositiveTableColumns,
+} from "./stem-cell-table-constants";
 
 export interface StemCellCharProps {
-    percentPositive?: ClonePercentPositive[];
+    percentPositive: ClonePercentPositive[];
     passingAntibodies?: any[];
     differentiation?: any[];
 }
 
 const StemCellChar: React.FC<StemCellCharProps> = ({ percentPositive }) => {
-    const percentPositiveRows: DescriptionsProps["items"] = [];
-    if (percentPositive && percentPositive.length > 0) {
-        percentPositive.forEach((clone) => {
-            percentPositiveRows.push({
-                key: clone.cloneNumber,
-                label: `No ${clone.cloneNumber}`,
-                children: `${clone.value}%`,
-            });
-        });
-    }
+    const percentPositiveRows = percentPositive.map((clone) => ({
+        key: clone.cloneNumber,
+        cloneNumber: `cl. ${clone.cloneNumber}`,
+        value: `${clone.value}%`,
+    }));
+
     return (
         <div>
-            <SubpageContentCard>
-                {percentPositiveRows.length && (
-                    <InfoPanel data={percentPositiveRows} />
-                )}
-            </SubpageContentCard>
+            {percentPositiveRows.length && (
+                <SubpageTable
+                    title={"Cardiomyocyte Differentiation"}
+                    columns={percentPositiveTableColumns}
+                    caption={percentPositiveCaption}
+                    dataSource={percentPositiveRows}
+                />
+            )}
         </div>
     );
 };

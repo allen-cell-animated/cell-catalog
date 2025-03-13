@@ -16,7 +16,7 @@ export interface SubpageTabsProps {
     tabsToRender: SubPage[];
     editingDesignData?: UnpackedEditingDesign;
     genomicCharacterizationData?: DiagramCardProps[];
-    stemCellCharData?: StemCellCharProps;
+    stemCellCharData: StemCellCharProps;
 }
 
 const SubpageTabs: React.FC<SubpageTabsProps> = ({

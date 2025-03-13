@@ -36,7 +36,11 @@ const DiagramCard: React.FC<DiagramCardProps> = ({
             className={classNames(container, className)}
         >
             {imageData && (
-                <GatsbyImage image={imageData} alt={cardTitle || "diagram"} />
+                <GatsbyImage
+                    style={{ margin: 16 }}
+                    image={imageData}
+                    alt={cardTitle || "diagram"}
+                />
             )}
         </SubpageContentCard>
     );
