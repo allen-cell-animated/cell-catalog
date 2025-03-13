@@ -3,7 +3,7 @@ import { CardProps, Flex, Table } from "antd";
 import classNames from "classnames";
 import SubpageContentCard from "./SubpageContentCard";
 
-const { container } = require("../../style/diagram-card.module.css");
+const { container } = require("../../style/subpage-table.module.css");
 
 export interface SubpageTable extends CardProps {
     title?: string;

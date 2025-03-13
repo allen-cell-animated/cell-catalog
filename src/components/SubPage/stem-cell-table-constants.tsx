@@ -1,13 +1,26 @@
+import React from "react";
+const {
+    cloneColumn,
+    percentPositiveColumn,
+} = require("../../style/stem-cell-char.module.css");
 export const percentPositiveTableColumns = [
     {
-        title: "Clone Number",
+        title: (
+            <>
+                Clone <br /> Number
+            </>
+        ),
         dataIndex: "cloneNumber",
         key: "cloneNumber",
+        width: 271,
+        className: cloneColumn,
     },
     {
         title: "Troponin T, % positive cells (n)",
         dataIndex: "value",
         key: "value",
+        width: 140,
+        className: percentPositiveColumn,
     },
 ];
 
