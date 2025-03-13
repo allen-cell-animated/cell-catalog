@@ -6,7 +6,7 @@ import SubpageContentCard from "./SubpageContentCard";
 
 const { container } = require("../../style/diagram-card.module.css");
 
-interface DiagramCardProps extends CardProps {
+export interface DiagramCardProps extends CardProps {
     title?: string;
     image?: IGatsbyImageData;
     caption?: string;

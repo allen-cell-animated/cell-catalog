@@ -2,9 +2,7 @@ import {
     DiseaseCellLineNode,
     NormalCellLineNode,
     UnpackedDiseaseCellLine,
-    UnpackedEditingDesignData,
     UnpackedNormalCellLine,
-    Diagram,
 } from "./types";
 
 export const convertFrontmatterToDiseaseCellLine = (
@@ -14,8 +12,7 @@ export const convertFrontmatterToDiseaseCellLine = (
     return {
         cellLineId: cellLineNode.frontmatter.cell_line_id,
         certificateOfAnalysis: cellLineNode.frontmatter.certificate_of_analysis,
-        hPSCregCertificateLink:
-            cellLineNode.frontmatter.hPSCreg_certificate_link,
+        healthCertificate: cellLineNode.frontmatter.hPSCreg_certificate_link,
         snp: cellLineNode.frontmatter.snp,
         status: cellLineNode.frontmatter.status,
         clones: cellLineNode.frontmatter.clones,
@@ -45,31 +42,8 @@ export const convertFrontmatterToDiseaseCellLine = (
                 symbol: cellLineNode.frontmatter.parental_line.frontmatter.gene
                     .frontmatter.symbol,
             },
-
         },
         key: cellLineNode.id,
-    };
-};
-
-// todo consolidate this with the above unpacking method
-export const unpackEditingDesignData = (editing_design?: {
-    crna_target_site?: string;
-    dna_donor_sequence?: string;
-    cas9?: string;
-    f_primer?: string;
-    r_primer?: string;
-    diagrams?: Diagram[];
-}): UnpackedEditingDesignData => {
-    if (!editing_design) {
-        return {};
-    }
-    return {
-        crnaTargetSite: editing_design.crna_target_site,
-        dnaDonorSequence: editing_design.dna_donor_sequence,
-        cas9: editing_design.cas9,
-        fPrimer: editing_design.f_primer,
-        rPrimer: editing_design.r_primer,
-        diagrams: editing_design.diagrams,
     };
 };
 
@@ -94,7 +68,7 @@ export const convertFrontmatterToNormalCellLines = ({
         structure: cellLineNode.frontmatter.gene.frontmatter.structure,
         status: cellLineNode.frontmatter.status,
         certificateOfAnalysis: "",
-        hPSCregCertificateLink: "",
+        healthCertificate: "",
         orderLink: cellLineNode.frontmatter.order_link,
     };
 };

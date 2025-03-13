@@ -1,19 +1,22 @@
 import React from "react";
 import { Flex, Tabs } from "antd";
 import { SubPage } from "../../types";
-import { UnpackedEditingDesignData, GenomicCharacterizationData } from "../../component-queries/types";
 import EditingDesignSubpage from "./EditingDesign";
-import GenomicCharacterizationSubpage from "./GenomicCharacterization";
+import GenomicCharacterization from "./GenomicCharacterization";
+import StemCellChar from "./StemCellChar";
+import { UnpackedEditingDesign } from "./types";
+import { DiagramCardProps } from "../shared/DiagramCard";
 
 const {
     container,
     labelGroup,
 } = require("../../style/subpage-tabs.module.css");
 
-interface SubpageTabsProps {
+export interface SubpageTabsProps {
     tabsToRender: SubPage[];
-    editingDesignData?: UnpackedEditingDesignData;
-    genomicCharacterizationData?: GenomicCharacterizationData;
+    editingDesignData?: UnpackedEditingDesign;
+    genomicCharacterizationData?: DiagramCardProps[];
+    stemCellCarData?: any;
 }
 
 const SubpageTabs: React.FC<SubpageTabsProps> = ({
@@ -24,13 +27,15 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
     // TODO: Swap out actual components for placeholders
     const tabComponents = {
         [SubPage.EditingDesign]: (
-            <EditingDesignSubpage {...editingDesignData}/>
+            <EditingDesignSubpage {...editingDesignData} />
         ),
         [SubPage.GenomicCharacterization]: (
-            <GenomicCharacterizationSubpage {...genomicCharacterizationData}/>
+            <GenomicCharacterization
+                diagrams={genomicCharacterizationData || []}
+            />
         ),
         [SubPage.StemCellCharacteristics]: (
-            <div>Stem Cell Characteristics Content</div>
+            <StemCellChar data={stemCellCarData} />
         ),
         [SubPage.Protocols]: <div>Protocols Content</div>,
     };

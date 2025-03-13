@@ -8,16 +8,19 @@ import {
     DiseaseCellLineFrontmatter,
     GeneFrontMatter,
     ParentalLineFrontmatter,
-    UnpackedEditingDesignData,
-    GenomicCharacterizationData,
 } from "../component-queries/types";
 import { DefaultButton } from "../components/shared/Buttons";
 import ImagesAndVideos from "../components/ImagesAndVideos";
 import CellLineInfoCard from "../components/CellLineInfoCard";
 import SubpageTabs from "../components/SubPage/SubpageTabs";
 import { DEFAULT_TABS, TABS_WITH_STEM_CELL } from "../constants";
-import { unpackEditingDesignData } from "../component-queries/convert-data";
 import { Disease } from "../types";
+import { unpackDiseaseFrontmatterForSubpage } from "../components/SubPage/convert-data";
+import {
+    UnpackedDiseaseCellLineFull,
+    UnpackedEditingDesign,
+} from "../components/SubPage/types";
+import { DiagramCardProps } from "../components/shared/DiagramCard";
 
 const {
     container,
@@ -27,30 +30,15 @@ const {
 
 const Arrow = require("../img/arrow.svg");
 
-interface DiseaseCellLineTemplateProps {
+interface DiseaseCellLineTemplateProps extends UnpackedDiseaseCellLineFull {
     href: string;
-    cellLineId: number;
-    geneName: string;
-    geneSymbol: string;
-    status: string;
-    snp: string;
-    orderLink: string;
-    certificateOfAnalysis: string;
-    parentalLine: ParentalLineFrontmatter;
-    parentLineGene: GeneFrontMatter;
-    clones: Clone[];
-    healthCertificate: string;
-    imagesAndVideos: any;
-    diseaseName: string;
-    editingDesign: UnpackedEditingDesignData;
-    genomicCharacterization: GenomicCharacterizationData;
 }
 
 // eslint-disable-next-line
 export const DiseaseCellLineTemplate = ({
     href,
     cellLineId,
-    parentLineGene,
+    parentalLineGene,
     geneName,
     geneSymbol,
     clones,
@@ -63,6 +51,7 @@ export const DiseaseCellLineTemplate = ({
     diseaseName,
     editingDesign,
     genomicCharacterization,
+    stemCellCharData,
 }: DiseaseCellLineTemplateProps) => {
     const hasImagesOrVideos =
         (imagesAndVideos?.images?.length || 0) > 0 ||
@@ -80,7 +69,7 @@ export const DiseaseCellLineTemplate = ({
                     <CellLineInfoCard
                         href={href}
                         cellLineId={cellLineId}
-                        parentLineGene={parentLineGene}
+                        parentLineGene={parentalLineGene}
                         geneName={geneName}
                         geneSymbol={geneSymbol}
                         clones={clones}
@@ -110,6 +99,7 @@ export const DiseaseCellLineTemplate = ({
             <SubpageTabs // TODO: request subpage data and send it in here
                 editingDesignData={editingDesign}
                 genomicCharacterizationData={genomicCharacterization}
+                stemCellCharData={stemCellCharData}
                 tabsToRender={
                     diseaseName === Disease.Cardiomyopathy
                         ? TABS_WITH_STEM_CELL
@@ -122,37 +112,23 @@ export const DiseaseCellLineTemplate = ({
 
 const CellLine = ({ data, location }: QueryResult) => {
     const { markdownRemark: cellLine } = data;
-    const parentalLineData = cellLine.frontmatter.parental_line.frontmatter;
-    const { name: geneName, symbol: geneSymbol } =
-        cellLine.frontmatter.disease.frontmatter.gene.frontmatter;
-    const diseaseName = cellLine.frontmatter.disease.frontmatter.name;
-    const editingDesign = unpackEditingDesignData(
-        data.markdownRemark.frontmatter.editing_design
-    );
-    const genomicCharacterization = cellLine.frontmatter.genomic_characterization;
+    // const parentalLineData = cellLine.frontmatter.parental_line.frontmatter;
+    // const { name: geneName, symbol: geneSymbol } =
+    //     cellLine.frontmatter.disease.frontmatter.gene.frontmatter;
+    // const diseaseName = cellLine.frontmatter.disease.frontmatter.name;
+
+    // const editingDesign = unpackEditingDesignData(
+    //     data.markdownRemark.frontmatter.editing_design
+    // );
+    // const genomicCharacterization = unpackDiagrams(
+    //     cellLine.frontmatter.genomic_characterization?.diagrams
+    // );
+    const unpackedCellLine = unpackDiseaseFrontmatterForSubpage(cellLine);
     return (
         <Layout>
             <DiseaseCellLineTemplate
                 href={location.href || ""}
-                diseaseName={diseaseName}
-                cellLineId={cellLine.frontmatter.cell_line_id}
-                snp={cellLine.frontmatter.snp}
-                orderLink={cellLine.frontmatter.order_link}
-                certificateOfAnalysis={
-                    cellLine.frontmatter.certificate_of_analysis
-                }
-                geneName={geneName}
-                geneSymbol={geneSymbol}
-                parentalLine={parentalLineData}
-                status={cellLine.frontmatter.status}
-                parentLineGene={parentalLineData.gene.frontmatter}
-                clones={cellLine.frontmatter.clones}
-                healthCertificate={
-                    cellLine.frontmatter.hPSCreg_certificate_link
-                }
-                imagesAndVideos={cellLine.frontmatter.images_and_videos}
-                editingDesign={editingDesign}
-                genomicCharacterization={genomicCharacterization}
+                {...unpackedCellLine}
             />
         </Layout>
     );
@@ -161,7 +137,13 @@ const CellLine = ({ data, location }: QueryResult) => {
 interface QueryResult {
     location: Location;
     data: {
-        markdownRemark: { frontmatter: DiseaseCellLineFrontmatter };
+        markdownRemark: {
+            id: string;
+            fields: {
+                slug: string;
+            };
+            frontmatter: DiseaseCellLineFrontmatter;
+        };
     };
 }
 
