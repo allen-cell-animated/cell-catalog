@@ -63,9 +63,6 @@ export enum CellLineStatus {
     InProgress = "in progress",
 }
 
-// NOTE: Temporarily optional fields, but
-// once the data has been updated by gene editing
-// these fields will be required
 enum Antibody {
     PAX6 = "PAX6",
     SOX17 = "SOX17",
@@ -79,6 +76,10 @@ enum TranscriptFactor {
     SSEA1 = "SSEA-1",
     SSEA4 = "SSEA-4",
 }
+
+// NOTE: Temporarily optional fields, but
+// // once the data has been updated by gene editing
+// these fields will be required
 export interface Clone {
     type: string;
     clone_number?: number;
