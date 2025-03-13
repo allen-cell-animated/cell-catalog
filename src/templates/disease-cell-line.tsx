@@ -3,12 +3,7 @@ import { graphql, Link } from "gatsby";
 import { Divider, Flex } from "antd";
 
 import Layout from "../components/Layout";
-import {
-    Clone,
-    DiseaseCellLineFrontmatter,
-    GeneFrontMatter,
-    ParentalLineFrontmatter,
-} from "../component-queries/types";
+import { DiseaseCellLineFrontmatter } from "../component-queries/types";
 import { DefaultButton } from "../components/shared/Buttons";
 import ImagesAndVideos from "../components/ImagesAndVideos";
 import CellLineInfoCard from "../components/CellLineInfoCard";
@@ -16,11 +11,7 @@ import SubpageTabs from "../components/SubPage/SubpageTabs";
 import { DEFAULT_TABS, TABS_WITH_STEM_CELL } from "../constants";
 import { Disease } from "../types";
 import { unpackDiseaseFrontmatterForSubpage } from "../components/SubPage/convert-data";
-import {
-    UnpackedDiseaseCellLineFull,
-    UnpackedEditingDesign,
-} from "../components/SubPage/types";
-import { DiagramCardProps } from "../components/shared/DiagramCard";
+import { UnpackedDiseaseCellLineFull } from "../components/SubPage/types";
 
 const {
     container,

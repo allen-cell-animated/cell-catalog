@@ -15,6 +15,12 @@ export const unpackDiagrams = (diagrams?: Diagram[]): DiagramCardProps[] => {
         return [];
     }
     return diagrams.map((diagram) => {
+        if (!diagram.image) {
+            return {
+                title: diagram.title,
+                caption: diagram.caption,
+            };
+        }
         return {
             title: diagram.title,
             caption: diagram.caption,
@@ -55,7 +61,7 @@ export const getStemCellCharData = (clones: Clone[]) => {
         passingAntibodies: [],
         differentiation: [],
     };
-    return clones.reduce((acc, clone) => {
+    const data = clones.reduce((acc, clone) => {
         const cloneNumber = clone.clone_number;
         if (cloneNumber === undefined) {
             return acc;
@@ -68,6 +74,15 @@ export const getStemCellCharData = (clones: Clone[]) => {
         }
         return acc;
     }, init);
+    if (
+        data.percentPositive.length === 0 &&
+        data.passingAntibodies.length === 0 &&
+        data.differentiation.length === 0
+    ) {
+        return null;
+    } else {
+        return data;
+    }
 };
 
 export const unpackDiseaseFrontmatterForSubpage = (
