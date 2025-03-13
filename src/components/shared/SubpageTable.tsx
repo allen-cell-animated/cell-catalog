@@ -3,7 +3,7 @@ import { CardProps, Table } from "antd";
 import classNames from "classnames";
 import SubpageContentCard from "./SubpageContentCard";
 
-const { container } = require("../../style/subpage-table.module.css");
+const { container, table } = require("../../style/subpage-table.module.css");
 
 export interface SubpageTable extends CardProps {
     title?: string;
@@ -33,6 +33,7 @@ const SubpageTable: React.FC<SubpageTable> = ({
                 dataSource={dataSource}
                 pagination={false}
                 bordered={false}
+                className={table}
                 style={{ width: "max-content", borderRadius: 0 }}
             />
         </SubpageContentCard>

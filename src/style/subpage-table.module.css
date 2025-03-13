@@ -1,3 +1,16 @@
 .container :global(.ant-table-thead .ant-table-cell)::before {
     display: none; /* remove dividers between column headers */
 }
+
+.container :global(.ant-table-thead .ant-table-cell) {
+    border-bottom: 1.5px solid var(--border-color);
+    padding-bottom: 4px;
+}
+
+.table {
+    margin-bottom: 20px;
+}
+
+.table :last-of-type:global(.ant-table-row .ant-table-cell) {
+    border-style: none;
+}
