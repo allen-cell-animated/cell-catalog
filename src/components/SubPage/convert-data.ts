@@ -1,3 +1,4 @@
+import { isEmpty } from "lodash";
 import {
     Diagram,
     Clone,
@@ -38,18 +39,25 @@ export const unpackEditingDesignData = (editing_design?: {
     f_primer?: string;
     r_primer?: string;
     diagrams?: Diagram[];
-}): UnpackedEditingDesign => {
+}): UnpackedEditingDesign | null => {
     if (!editing_design) {
-        return {};
+        return null;
     }
-    return {
+    const diagrams = unpackDiagrams(editing_design.diagrams);
+    const data = {
         crnaTargetSite: editing_design.crna_target_site,
         dnaDonorSequence: editing_design.dna_donor_sequence,
         cas9: editing_design.cas9,
         fPrimer: editing_design.f_primer,
         rPrimer: editing_design.r_primer,
-        diagrams: unpackDiagrams(editing_design.diagrams),
+        diagrams: diagrams.length > 0 ? diagrams : undefined, // an empty array is still truthy
     };
+
+    if (isEmpty(data)) {
+        return null;
+    } else {
+        return data;
+    }
 };
 
 export const getStemCellCharData = (clones: Clone[]) => {

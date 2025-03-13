@@ -14,7 +14,7 @@ const {
 
 export interface SubpageTabsProps {
     tabsToRender: SubPage[];
-    editingDesignData?: UnpackedEditingDesign;
+    editingDesignData: UnpackedEditingDesign | null;
     genomicCharacterizationData?: DiagramCardProps[];
     stemCellCharData: StemCellCharProps | null;
 }
@@ -25,22 +25,31 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
     genomicCharacterizationData,
     stemCellCharData,
 }) => {
+    const getNoDataComponent = (tab: SubPage) => {
+        return (
+            <div style={{ padding: "33px" }}>
+                {`<${tab}>`} is not yet available for this cell line.
+            </div>
+        );
+    };
     const tabComponents = {
-        [SubPage.EditingDesign]: (
+        [SubPage.EditingDesign]: editingDesignData ? (
             <EditingDesignSubpage {...editingDesignData} />
+        ) : (
+            getNoDataComponent(SubPage.EditingDesign)
         ),
-        [SubPage.GenomicCharacterization]: (
-            <GenomicCharacterization
-                diagrams={genomicCharacterizationData || []}
-            />
-        ),
+        [SubPage.GenomicCharacterization]:
+            genomicCharacterizationData?.length ? (
+                <GenomicCharacterization
+                    diagrams={genomicCharacterizationData || []}
+                />
+            ) : (
+                getNoDataComponent(SubPage.GenomicCharacterization)
+            ),
         [SubPage.StemCellCharacteristics]: stemCellCharData ? (
             <StemCellChar {...stemCellCharData} />
         ) : (
-            <>
-                {`<${SubPage.StemCellCharacteristics}>`} is not yet available
-                for this cell line.
-            </>
+            getNoDataComponent(SubPage.StemCellCharacteristics)
         ),
 
         // TODO: add this once we have the data

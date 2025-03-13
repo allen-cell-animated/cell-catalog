@@ -30,7 +30,7 @@ export interface UnpackedDiseaseCellLineFull extends UnpackedCellLineMainInfo {
     parentalLineGene: GeneFrontMatter;
     clones: Clone[];
     imagesAndVideos: any;
-    editingDesign?: UnpackedEditingDesign;
+    editingDesign: UnpackedEditingDesign | null;
     genomicCharacterization?: DiagramCardProps[];
     stemCellCharData: StemCellCharProps | null;
 }

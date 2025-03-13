@@ -52,12 +52,15 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
                         return (
                             <div key={index}>
                                 <span> {sequence.type} </span>
-                                {formatTextWithGeneLocations(sequence.sequence, mutation)}
+                                {formatTextWithGeneLocations(
+                                    sequence.sequence,
+                                    mutation
+                                )}
                             </div>
-                        )
-        })}
+                        );
+                    })}
                 </div>
-            )
+            ),
         });
     }
 
@@ -101,10 +104,6 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
             )}
         </div>
     ) : null;
-
-    if (rows.length === 0 && !diagrams?.length) {
-        return null;
-    }
 
     return (
         <div className={container}>
