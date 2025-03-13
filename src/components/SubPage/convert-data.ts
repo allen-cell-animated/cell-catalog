@@ -4,7 +4,11 @@ import {
     DiseaseCellLineNode,
 } from "../../component-queries/types";
 import { DiagramCardProps } from "../shared/DiagramCard";
-import { UnpackedDiseaseCellLineFull, UnpackedEditingDesign } from "./types";
+import {
+    ClonePercentPositive,
+    UnpackedDiseaseCellLineFull,
+    UnpackedEditingDesign,
+} from "./types";
 
 export const unpackDiagrams = (diagrams?: Diagram[]): DiagramCardProps[] => {
     if (!diagrams || diagrams.length === 0) {
@@ -42,15 +46,29 @@ export const unpackEditingDesignData = (editing_design?: {
 };
 
 export const getStemCellCharData = (clones: Clone[]) => {
-    return clones.map((clone) => {
-        return {
-            cloneNumber: clone.clone_number,
-            type: clone,
-            percentPositiveCells: clone.positive_cells,
-            // passingAntibodies: clone.antibody_analysis,
-            // differentiation: clone.differentiation,
-        };
-    });
+    const init: {
+        percentPositive: ClonePercentPositive[];
+        passingAntibodies: any[];
+        differentiation: any[];
+    } = {
+        percentPositive: [],
+        passingAntibodies: [],
+        differentiation: [],
+    };
+    console.log(clones);
+    return clones.reduce((acc, clone) => {
+        const cloneNumber = clone.clone_number;
+        if (cloneNumber === undefined) {
+            return acc;
+        }
+        if (clone.positive_cells !== undefined) {
+            acc.percentPositive.push({
+                cloneNumber,
+                value: clone.positive_cells,
+            });
+        }
+        return acc;
+    }, init);
 };
 
 export const unpackDiseaseFrontmatterForSubpage = (
@@ -70,18 +88,21 @@ export const unpackDiseaseFrontmatterForSubpage = (
     const stemCellCharData = getStemCellCharData(
         cellLineNode.frontmatter.clones
     );
-
+    console.log(stemCellCharData);
     return {
+        path: cellLineNode.fields.slug,
         cellLineId: cellLineNode.frontmatter.cell_line_id,
-        certificateOfAnalysis: cellLineNode.frontmatter.certificate_of_analysis,
-        snp: cellLineNode.frontmatter.snp,
         status: cellLineNode.frontmatter.status,
-        clones: cellLineNode.frontmatter.clones,
+        certificateOfAnalysis: cellLineNode.frontmatter.certificate_of_analysis,
+        healthCertificate: cellLineNode.frontmatter.hPSCreg_certificate_link,
         orderLink: cellLineNode.frontmatter.order_link,
         geneName: geneName,
         geneSymbol: geneSymbol,
+        diseaseName: cellLineNode.frontmatter.disease.frontmatter.name,
+        snp: cellLineNode.frontmatter.snp,
         parentalLine: parentalLineData,
-        healthCertificate: cellLineNode.frontmatter.hPSCreg_certificate_link,
+        parentalLineGene: parentalLineData.gene.frontmatter,
+        clones: cellLineNode.frontmatter.clones,
         imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
         editingDesign: editingDesign,
         genomicCharacterization: genomicCharacterization,

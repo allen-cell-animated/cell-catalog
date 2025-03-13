@@ -3,7 +3,7 @@ import { Flex, Tabs } from "antd";
 import { SubPage } from "../../types";
 import EditingDesignSubpage from "./EditingDesign";
 import GenomicCharacterization from "./GenomicCharacterization";
-import StemCellChar from "./StemCellChar";
+import StemCellChar, { StemCellCharProps } from "./StemCellChar";
 import { UnpackedEditingDesign } from "./types";
 import { DiagramCardProps } from "../shared/DiagramCard";
 
@@ -16,13 +16,14 @@ export interface SubpageTabsProps {
     tabsToRender: SubPage[];
     editingDesignData?: UnpackedEditingDesign;
     genomicCharacterizationData?: DiagramCardProps[];
-    stemCellCarData?: any;
+    stemCellCharData?: StemCellCharProps;
 }
 
 const SubpageTabs: React.FC<SubpageTabsProps> = ({
     tabsToRender,
     editingDesignData,
     genomicCharacterizationData,
+    stemCellCharData,
 }) => {
     // TODO: Swap out actual components for placeholders
     const tabComponents = {
@@ -35,7 +36,7 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
             />
         ),
         [SubPage.StemCellCharacteristics]: (
-            <StemCellChar data={stemCellCarData} />
+            <StemCellChar {...stemCellCharData} />
         ),
         [SubPage.Protocols]: <div>Protocols Content</div>,
     };

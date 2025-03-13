@@ -5,6 +5,7 @@ import {
     UnpackedCellLineMainInfo,
 } from "../../component-queries/types";
 import { DiagramCardProps } from "../shared/DiagramCard";
+import { StemCellCharProps } from "./StemCellChar";
 import { SubpageTabsProps } from "./SubpageTabs";
 
 export interface UnpackedEditingDesign {
@@ -14,6 +15,10 @@ export interface UnpackedEditingDesign {
     fPrimer?: string;
     rPrimer?: string;
     diagrams?: DiagramCardProps[];
+}
+export interface ClonePercentPositive {
+    cloneNumber: number;
+    value: number;
 }
 
 export interface UnpackedDiseaseCellLineFull extends UnpackedCellLineMainInfo {
@@ -27,5 +32,5 @@ export interface UnpackedDiseaseCellLineFull extends UnpackedCellLineMainInfo {
     imagesAndVideos: any;
     editingDesign?: UnpackedEditingDesign;
     genomicCharacterization?: DiagramCardProps[];
-    stemCellCharData: SubpageTabsProps;
+    stemCellCharData?: StemCellCharProps;
 }

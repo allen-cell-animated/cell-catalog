@@ -112,17 +112,7 @@ export const DiseaseCellLineTemplate = ({
 
 const CellLine = ({ data, location }: QueryResult) => {
     const { markdownRemark: cellLine } = data;
-    // const parentalLineData = cellLine.frontmatter.parental_line.frontmatter;
-    // const { name: geneName, symbol: geneSymbol } =
-    //     cellLine.frontmatter.disease.frontmatter.gene.frontmatter;
-    // const diseaseName = cellLine.frontmatter.disease.frontmatter.name;
 
-    // const editingDesign = unpackEditingDesignData(
-    //     data.markdownRemark.frontmatter.editing_design
-    // );
-    // const genomicCharacterization = unpackDiagrams(
-    //     cellLine.frontmatter.genomic_characterization?.diagrams
-    // );
     const unpackedCellLine = unpackDiseaseFrontmatterForSubpage(cellLine);
     return (
         <Layout>
@@ -153,6 +143,9 @@ export const pageQuery = graphql`
     query DiseaseCellLineByID($id: String!) {
         markdownRemark(id: { eq: $id }) {
             id
+            fields {
+                slug
+            }
             frontmatter {
                 cell_line_id
                 parental_line {
@@ -195,6 +188,7 @@ export const pageQuery = graphql`
                     type
                     transfection_replicate
                     genotype
+                    positive_cells
                 }
                 certificate_of_analysis
                 order_link

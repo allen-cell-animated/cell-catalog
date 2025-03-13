@@ -1,19 +1,32 @@
 import React from "react";
 import InfoPanel from "../shared/InfoPanel";
 import SubpageContentCard from "../shared/SubpageContentCard";
+import { DescriptionsProps } from "antd";
+import { ClonePercentPositive } from "./types";
 
 export interface StemCellCharProps {
-    percentTableData: any;
-    antibodyTableData: any;
-    differentiationTableData: any;
+    percentPositive?: ClonePercentPositive[];
+    passingAntibodies?: any[];
+    differentiation?: any[];
 }
 
-const StemCellChar: React.FC<StemCellCharProps> = ({ data }) => {
+const StemCellChar: React.FC<StemCellCharProps> = ({ percentPositive }) => {
+    const percentPositiveRows: DescriptionsProps["items"] = [];
+    if (percentPositive && percentPositive.length > 0) {
+        percentPositive.forEach((clone) => {
+            percentPositiveRows.push({
+                key: clone.cloneNumber,
+                label: `No ${clone.cloneNumber}`,
+                children: `${clone.value}%`,
+            });
+        });
+    }
     return (
         <div>
             <SubpageContentCard>
-                <InfoPanel data={rows} />
-                {legendContent}
+                {percentPositiveRows.length && (
+                    <InfoPanel data={percentPositiveRows} />
+                )}
             </SubpageContentCard>
         </div>
     );

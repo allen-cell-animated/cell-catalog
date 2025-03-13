@@ -2,7 +2,7 @@ import React from "react";
 import { DescriptionsProps } from "antd";
 import DiagramCard from "../shared/DiagramCard";
 import InfoPanel from "../shared/InfoPanel";
-import { UnpackedEditingDesignData as EditingDesignSubpageProps } from "../../component-queries/types";
+import { UnpackedEditingDesign as EditingDesignSubpageProps } from "./types";
 import SubpageContentCard from "../shared/SubpageContentCard";
 
 const { container, legendText } = require("../../style/subpage.module.css");
@@ -109,7 +109,7 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
                     key={index}
                     title={diagram.title}
                     caption={diagram.caption}
-                    image={diagram.image.childImageSharp.gatsbyImageData}
+                    image={diagram.image}
                     headerLeadText="HDR Editing Design"
                 />
             ))}
