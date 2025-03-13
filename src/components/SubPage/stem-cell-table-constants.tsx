@@ -3,7 +3,7 @@ const {
     cloneColumn,
     percentPositiveColumn,
 } = require("../../style/stem-cell-char.module.css");
-export const percentPositiveTableColumns = [
+export const PERCENT_POS_COLUMNS = [
     {
         title: (
             <>
@@ -24,5 +24,5 @@ export const percentPositiveTableColumns = [
     },
 ];
 
-export const percentPositiveCaption =
+export const PERCENT_POS_CAPTION =
     "mEGFP: mEGFP/RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene.";

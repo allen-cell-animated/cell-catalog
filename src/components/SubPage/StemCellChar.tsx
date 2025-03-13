@@ -3,8 +3,8 @@ import { Flex } from "antd";
 import { ClonePercentPositive } from "./types";
 import SubpageTable from "../shared/SubpageTable";
 import {
-    percentPositiveCaption,
-    percentPositiveTableColumns,
+    PERCENT_POS_CAPTION,
+    PERCENT_POS_COLUMNS,
 } from "./stem-cell-table-constants";
 
 export interface StemCellCharProps {
@@ -25,8 +25,8 @@ const StemCellChar: React.FC<StemCellCharProps> = ({ percentPositive }) => {
             {percentPositiveRows.length && (
                 <SubpageTable
                     title={"Cardiomyocyte Differentiation"}
-                    columns={percentPositiveTableColumns}
-                    caption={percentPositiveCaption}
+                    columns={PERCENT_POS_COLUMNS}
+                    caption={PERCENT_POS_CAPTION}
                     dataSource={percentPositiveRows}
                 />
             )}
