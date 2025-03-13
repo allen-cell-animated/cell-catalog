@@ -87,7 +87,7 @@ export const DiseaseCellLineTemplate = ({
                 )}
             </Flex>
             <Divider />
-            <SubpageTabs // TODO: request subpage data and send it in here
+            <SubpageTabs
                 editingDesignData={editingDesign}
                 genomicCharacterizationData={genomicCharacterization}
                 stemCellCharData={stemCellCharData}

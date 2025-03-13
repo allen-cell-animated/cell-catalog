@@ -2,15 +2,15 @@ import {
     Clone,
     GeneFrontMatter,
     ParentalLineFrontmatter,
+    Sequence,
     UnpackedCellLineMainInfo,
 } from "../../component-queries/types";
 import { DiagramCardProps } from "../shared/DiagramCard";
 import { StemCellCharProps } from "./StemCellChar";
-import { SubpageTabsProps } from "./SubpageTabs";
 
 export interface UnpackedEditingDesign {
     crnaTargetSite?: string;
-    dnaDonorSequence?: string;
+    dnaDonorSequence?: Sequence[];
     cas9?: string;
     fPrimer?: string;
     rPrimer?: string;
@@ -32,5 +32,5 @@ export interface UnpackedDiseaseCellLineFull extends UnpackedCellLineMainInfo {
     imagesAndVideos: any;
     editingDesign?: UnpackedEditingDesign;
     genomicCharacterization?: DiagramCardProps[];
-    stemCellCharData?: StemCellCharProps;
+    stemCellCharData: StemCellCharProps | null;
 }

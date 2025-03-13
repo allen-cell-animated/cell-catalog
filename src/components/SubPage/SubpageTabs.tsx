@@ -16,7 +16,7 @@ export interface SubpageTabsProps {
     tabsToRender: SubPage[];
     editingDesignData?: UnpackedEditingDesign;
     genomicCharacterizationData?: DiagramCardProps[];
-    stemCellCharData?: StemCellCharProps;
+    stemCellCharData: StemCellCharProps | null;
 }
 
 const SubpageTabs: React.FC<SubpageTabsProps> = ({
@@ -25,7 +25,6 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
     genomicCharacterizationData,
     stemCellCharData,
 }) => {
-    // TODO: Swap out actual components for placeholders
     const tabComponents = {
         [SubPage.EditingDesign]: (
             <EditingDesignSubpage {...editingDesignData} />
@@ -37,7 +36,12 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
         ),
         [SubPage.StemCellCharacteristics]: stemCellCharData ? (
             <StemCellChar {...stemCellCharData} />
-        ) : null,
+        ) : (
+            <>
+                {SubPage.StemCellCharacteristics} is not yet available for this
+                cell line.
+            </>
+        ),
         // TODO: add this once we have the data
         // [SubPage.Protocols]: <div>Protocols Content</div>,
     };

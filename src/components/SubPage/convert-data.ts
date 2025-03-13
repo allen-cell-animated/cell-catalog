@@ -2,6 +2,7 @@ import {
     Diagram,
     Clone,
     DiseaseCellLineNode,
+    Sequence,
 } from "../../component-queries/types";
 import { DiagramCardProps } from "../shared/DiagramCard";
 import {
@@ -32,7 +33,7 @@ export const unpackDiagrams = (diagrams?: Diagram[]): DiagramCardProps[] => {
 // subpage data
 export const unpackEditingDesignData = (editing_design?: {
     crna_target_site?: string;
-    dna_donor_sequence?: string;
+    dna_donor_sequence?: Sequence[];
     cas9?: string;
     f_primer?: string;
     r_primer?: string;
