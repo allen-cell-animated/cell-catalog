@@ -207,7 +207,10 @@ export const pageQuery = graphql`
                 }
                 editing_design {
                     crna_target_site
-                    dna_donor_sequence
+                    dna_donor_sequence {
+                        sequence
+                        type
+                    }
                     cas9
                     f_primer
                     r_primer
