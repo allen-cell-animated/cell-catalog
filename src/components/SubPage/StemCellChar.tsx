@@ -9,8 +9,8 @@ import {
 
 export interface StemCellCharProps {
     percentPositive: ClonePercentPositive[];
-    passingAntibodies?: any[];
-    differentiation?: any[];
+    passingAntibodies?: any[]; //TODO: type this once we have the data
+    differentiation?: any[]; //TODO: type this once we have the data
 }
 
 const StemCellChar: React.FC<StemCellCharProps> = ({ percentPositive }) => {
@@ -19,7 +19,7 @@ const StemCellChar: React.FC<StemCellCharProps> = ({ percentPositive }) => {
         cloneNumber: `cl. ${clone.cloneNumber}`,
         value: `${clone.value}%`,
     }));
-
+    // TODO: add passing antibodies and differentiation tables once we have the data
     return (
         <Flex>
             {percentPositiveRows.length && (
