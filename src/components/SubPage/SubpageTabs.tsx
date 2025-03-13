@@ -38,10 +38,11 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
             <StemCellChar {...stemCellCharData} />
         ) : (
             <>
-                {SubPage.StemCellCharacteristics} is not yet available for this
-                cell line.
+                {`<${SubPage.StemCellCharacteristics}>`} is not yet available
+                for this cell line.
             </>
         ),
+
         // TODO: add this once we have the data
         // [SubPage.Protocols]: <div>Protocols Content</div>,
     };
