@@ -10,6 +10,7 @@ import { DiagramCardProps } from "../shared/DiagramCard";
 const {
     container,
     labelGroup,
+    noData,
 } = require("../../style/subpage-tabs.module.css");
 
 export interface SubpageTabsProps {
@@ -27,7 +28,7 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
 }) => {
     const getNoDataComponent = (tab: SubPage) => {
         return (
-            <div style={{ padding: "33px" }}>
+            <div className={noData}>
                 {`<${tab}>`} is not yet available for this cell line.
             </div>
         );
