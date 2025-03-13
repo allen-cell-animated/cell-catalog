@@ -43,11 +43,11 @@ interface QueryResult {
     };
 }
 
-interface DiseaseCellLineTemplateProps extends QueryResult {
+interface DiseaseCellLinesTemplateProps extends QueryResult {
     diseases: UnpackedDisease[];
 }
 
-const DiseaseCellLineTemplate = (props: DiseaseCellLineTemplateProps) => {
+const DiseaseCellLinesTemplate = (props: DiseaseCellLinesTemplateProps) => {
     const { edges: cellLines } = props.data.allMarkdownRemark;
     const { diseases } = props;
     const groupedCellLines = groupLines(diseases, cellLines);
@@ -147,7 +147,7 @@ export default function DiseaseCellLineQuery(props: {
                 }
             `}
             render={(data) => (
-                <DiseaseCellLineTemplate
+                <DiseaseCellLinesTemplate
                     data={data}
                     diseases={props.diseases}
                 />

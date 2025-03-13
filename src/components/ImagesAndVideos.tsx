@@ -41,12 +41,12 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
 }) => {
     const [mainImage, setMainImage] = useState(images?.[0] || null);
     const hasMultipleImages = images?.length > 1;
-    const thumbnails = images?.map((image) => {
+    const thumbnails = images?.map((image, index) => {
         const renderImage = getImage(image?.image);
         if (renderImage) {
             return (
                 <Thumbnail
-                    key={image.id}
+                    key={index}
                     image={renderImage}
                     isSelected={mainImage === image}
                     onClick={() => setMainImage(image)}

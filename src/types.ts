@@ -2,7 +2,7 @@ export enum SubPage {
     EditingDesign = "Editing Design",
     GenomicCharacterization = "Genomic Characterization",
     StemCellCharacteristics = "Stem Cell Characteristics",
-    Protocols = "Protocols",
+    // Protocols = "Protocols",
 }
 
 export enum Disease {
