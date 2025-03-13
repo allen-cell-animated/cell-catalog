@@ -89,6 +89,11 @@ export interface Clone {
     differentiation?: { [key in TranscriptFactor]?: number };
 }
 
+export interface Sequence {
+    sequence: string;
+    type: string;
+}
+
 export interface Diagram {
     image: {
         childImageSharp: {
@@ -124,7 +129,7 @@ export interface DiseaseCellLineFrontmatter {
     };
     editing_design?: {
         crna_target_site: string;
-        dna_donor_sequence: string;
+        dna_donor_sequence: Sequence[];
         cas9: string;
         f_primer: string;
         r_primer: string;
