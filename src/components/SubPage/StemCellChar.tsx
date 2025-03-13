@@ -1,7 +1,5 @@
 import React from "react";
-import InfoPanel from "../shared/InfoPanel";
-import SubpageContentCard from "../shared/SubpageContentCard";
-import { DescriptionsProps } from "antd";
+import { Flex } from "antd";
 import { ClonePercentPositive } from "./types";
 import SubpageTable from "../shared/SubpageTable";
 import {
@@ -23,7 +21,7 @@ const StemCellChar: React.FC<StemCellCharProps> = ({ percentPositive }) => {
     }));
 
     return (
-        <div>
+        <Flex>
             {percentPositiveRows.length && (
                 <SubpageTable
                     title={"Cardiomyocyte Differentiation"}
@@ -32,7 +30,7 @@ const StemCellChar: React.FC<StemCellCharProps> = ({ percentPositive }) => {
                     dataSource={percentPositiveRows}
                 />
             )}
-        </div>
+        </Flex>
     );
 };
 

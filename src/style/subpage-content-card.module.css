@@ -11,6 +11,7 @@
     color: var(--primary-color);
     min-height: 64px;
     border-bottom: none;
+    border-radius: 3px 3px 0 0; /* 1 less to avoid white space between border and header */
 }
 
 .container :global(.ant-card-head-title) {
@@ -41,7 +42,7 @@
 }
 
 .container :global(.ant-card-meta) {
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 3px 3px; /* 1 less to avoid white space between border and header */
     background-color: var(--ALLEN_LIGHT_10);
     padding: 12px 20px;
     text-align: left;

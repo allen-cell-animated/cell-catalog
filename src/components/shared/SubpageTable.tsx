@@ -21,21 +21,21 @@ const SubpageTable: React.FC<SubpageTable> = ({
     ...cardProps
 }) => {
     return (
-        <Flex>
-            <SubpageContentCard
-                {...cardProps}
-                title={title}
-                caption={caption}
-                className={classNames(container, className)}
-            >
-                <Table
-                    columns={columns}
-                    dataSource={dataSource}
-                    pagination={false}
-                    bordered={false}
-                />
-            </SubpageContentCard>
-        </Flex>
+        <SubpageContentCard
+            {...cardProps}
+            title={title}
+            caption={caption}
+            style={{ width: "min-content" }}
+            className={classNames(container, className)}
+        >
+            <Table
+                columns={columns}
+                dataSource={dataSource}
+                pagination={false}
+                bordered={false}
+                style={{ width: "max-content", borderRadius: 0 }}
+            />
+        </SubpageContentCard>
     );
 };
 

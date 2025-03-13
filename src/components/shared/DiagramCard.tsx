@@ -37,7 +37,7 @@ const DiagramCard: React.FC<DiagramCardProps> = ({
         >
             {imageData && (
                 <GatsbyImage
-                    style={{ margin: 16 }}
+                    style={{ marginBottom: 16 }}
                     image={imageData}
                     alt={cardTitle || "diagram"}
                 />
