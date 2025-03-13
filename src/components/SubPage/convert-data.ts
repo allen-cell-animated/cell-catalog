@@ -55,7 +55,6 @@ export const getStemCellCharData = (clones: Clone[]) => {
         passingAntibodies: [],
         differentiation: [],
     };
-    console.log(clones);
     return clones.reduce((acc, clone) => {
         const cloneNumber = clone.clone_number;
         if (cloneNumber === undefined) {
@@ -88,7 +87,6 @@ export const unpackDiseaseFrontmatterForSubpage = (
     const stemCellCharData = getStemCellCharData(
         cellLineNode.frontmatter.clones
     );
-    console.log(stemCellCharData);
     return {
         path: cellLineNode.fields.slug,
         cellLineId: cellLineNode.frontmatter.cell_line_id,

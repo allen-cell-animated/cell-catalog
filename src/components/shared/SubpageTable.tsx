@@ -1,5 +1,5 @@
 import React from "react";
-import { CardProps, Flex, Table } from "antd";
+import { CardProps, Table } from "antd";
 import classNames from "classnames";
 import SubpageContentCard from "./SubpageContentCard";
 
