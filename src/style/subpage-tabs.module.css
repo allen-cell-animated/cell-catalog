@@ -52,6 +52,11 @@
     width: 0;
 }
 
+.container :global(.ant-tabs-content) {
+    width: 75%;
+    margin: auto;
+}
+
 @media (max-width: 1024px) {
     .container :global(.ant-tabs-tab-btn) {
         font-size: 16px;

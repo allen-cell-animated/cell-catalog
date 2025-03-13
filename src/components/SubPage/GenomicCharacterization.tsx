@@ -4,7 +4,6 @@ import classNames from "classnames";
 import DiagramCard, { DiagramCardProps } from "../shared/DiagramCard";
 
 const {
-    container,
     card,
     fullWidth,
 } = require("../../style/genomic-characterization.module.css");
@@ -17,13 +16,7 @@ const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
     diagrams,
 }) => {
     return (
-        <Flex
-            className={container}
-            gap={40}
-            wrap="wrap"
-            justify="space-between"
-            align="baseline"
-        >
+        <Flex gap={40} wrap="wrap" justify="space-between" align="baseline">
             {diagrams?.map((diagram, index) => (
                 <DiagramCard
                     key={index}
