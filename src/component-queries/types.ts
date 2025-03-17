@@ -78,7 +78,7 @@ enum TranscriptFactor {
 }
 
 // NOTE: Temporarily optional fields, but
-// // once the data has been updated by gene editing
+// once the data has been updated by gene editing
 // these fields will be required
 export interface Clone {
     type: string;
