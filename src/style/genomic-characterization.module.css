@@ -1,8 +1,12 @@
 .card {
     height: 100%;
-    flex: 1 1 calc(33.333% - 10px);
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(
+        50% - 20px
+    ); /* if there isn't a second image below the main one */
 }
 
 .card.full-width {
     flex-basis: 100%;
+    max-width: 100%;
 }
