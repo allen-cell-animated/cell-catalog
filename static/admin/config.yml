@@ -313,42 +313,43 @@ collections:
                                 [
                                     {
                                         label: "NANOG",
-                                        name: "nanog",
+                                        name: "NANOG",
                                         widget: "number",
                                         value_type: "float",
                                         required: false,
                                     },
                                     {
                                         label: "SOX2",
-                                        name: "sox_2",
+                                        name: "SOX2",
                                         widget: "number",
                                         value_type: "float",
                                         required: false,
                                     },
                                     {
                                         label: "OCT4",
-                                        name: "oct_4",
+                                        name: "OCT4",
                                         widget: "number",
                                         value_type: "float",
                                         required: false,
                                     },
                                     {
                                         label: "SSEA-1",
-                                        name: "ssea_1",
+                                        name: "SSEA-1",
                                         widget: "number",
                                         value_type: "float",
                                         required: false,
                                     },
                                     {
                                         label: "SSEA-4",
-                                        name: "ssea_4",
+                                        name: "SSEA-4",
                                         widget: "number",
                                         value_type: "float",
                                         required: false,
                                     },
                                 ],
                         },
-                    ] }
+                    ],
+            }
           - {
                 label: "Order Link",
                 name: "order_link",

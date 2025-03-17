@@ -63,6 +63,20 @@ export enum CellLineStatus {
     InProgress = "in progress",
 }
 
+enum Antibody {
+    PAX6 = "PAX6",
+    SOX17 = "SOX17",
+    BRACHYURY = "Brachyury",
+}
+
+enum TranscriptFactor {
+    NANOG = "NANOG",
+    OCT4 = "OCT4",
+    SOX2 = "SOX2",
+    SSEA1 = "SSEA-1",
+    SSEA4 = "SSEA-4",
+}
+
 // NOTE: Temporarily optional fields, but
 // once the data has been updated by gene editing
 // these fields will be required
@@ -71,6 +85,9 @@ export interface Clone {
     clone_number?: number;
     genotype?: string;
     transfection_replicate?: string;
+    positive_cells?: number;
+    antibody_analysis?: Antibody[];
+    differentiation?: { [key in TranscriptFactor]?: number };
 }
 
 export interface Sequence {
@@ -101,7 +118,7 @@ export interface DiseaseCellLineFrontmatter {
     order_link: string;
     status: CellLineStatus;
     hPSCreg_certificate_link: string;
-    images_and_videos: {
+    images_and_videos?: {
         images: {
             image: any;
             caption: string;
@@ -111,7 +128,7 @@ export interface DiseaseCellLineFrontmatter {
             caption: string;
         }[];
     };
-    editing_design: {
+    editing_design?: {
         crna_target_site: string;
         dna_donor_sequence: Sequence[];
         cas9: string;
@@ -119,7 +136,7 @@ export interface DiseaseCellLineFrontmatter {
         r_primer: string;
         diagrams: Diagram[];
     };
-    genomic_characterization: {
+    genomic_characterization?: {
         diagrams: Diagram[];
     };
 }
@@ -157,7 +174,7 @@ export interface UnpackedCellLineMainInfo {
     cellLineId: number;
     status: CellLineStatus;
     certificateOfAnalysis: string;
-    hPSCregCertificateLink: string;
+    healthCertificate: string;
     orderLink: string;
     thumbnailImage?: FileNode;
 }
@@ -172,19 +189,6 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     protein: string;
 }
 
-export interface UnpackedEditingDesignData {
-    crnaTargetSite?: string;
-    dnaDonorSequence?: Sequence[];
-    cas9?: string;
-    fPrimer?: string;
-    rPrimer?: string;
-    diagrams?: Diagram[];
-}
-
-export interface GenomicCharacterizationData {
-    diagrams?: Diagram[];
-}
-
 export type ParentLine = Partial<UnpackedNormalCellLine>;
 
 export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
@@ -195,6 +199,4 @@ export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
     clones: Clone[];
     parentalLine: ParentLine;
     mutatedGene: UnpackedGene;
-    editingDesign?: UnpackedEditingDesignData;
-    genomicCharacterization?: GenomicCharacterizationData;
 }

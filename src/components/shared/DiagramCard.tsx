@@ -6,7 +6,7 @@ import SubpageContentCard from "./SubpageContentCard";
 
 const { container } = require("../../style/diagram-card.module.css");
 
-interface DiagramCardProps extends CardProps {
+export interface DiagramCardProps extends CardProps {
     title?: string;
     image?: IGatsbyImageData;
     caption?: string;
@@ -36,7 +36,11 @@ const DiagramCard: React.FC<DiagramCardProps> = ({
             className={classNames(container, className)}
         >
             {imageData && (
-                <GatsbyImage image={imageData} alt={cardTitle || "diagram"} />
+                <GatsbyImage
+                    style={{ marginBottom: 16 }}
+                    image={imageData}
+                    alt={cardTitle || "diagram"}
+                />
             )}
         </SubpageContentCard>
     );

@@ -7,12 +7,12 @@ export const PRODUCTION_HOST = "https://cell-catalog.allencell.org/";
 export const DEFAULT_TABS = [
     SubPage.EditingDesign,
     SubPage.GenomicCharacterization,
-    SubPage.Protocols,
+    // SubPage.Protocols,
 ];
 
 export const TABS_WITH_STEM_CELL = [
     SubPage.EditingDesign,
     SubPage.GenomicCharacterization,
     SubPage.StemCellCharacteristics,
-    SubPage.Protocols,
+    // SubPage.Protocols,
 ];

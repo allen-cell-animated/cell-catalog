@@ -2,7 +2,7 @@ import React from "react";
 import { DescriptionsProps } from "antd";
 import DiagramCard from "../shared/DiagramCard";
 import InfoPanel from "../shared/InfoPanel";
-import { UnpackedEditingDesignData as EditingDesignSubpageProps } from "../../component-queries/types";
+import { UnpackedEditingDesign as EditingDesignSubpageProps } from "./types";
 import SubpageContentCard from "../shared/SubpageContentCard";
 
 const { container, legendText } = require("../../style/subpage.module.css");
@@ -52,12 +52,15 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
                         return (
                             <div key={index}>
                                 <span> {sequence.type} </span>
-                                {formatTextWithGeneLocations(sequence.sequence, mutation)}
+                                {formatTextWithGeneLocations(
+                                    sequence.sequence,
+                                    mutation
+                                )}
                             </div>
-                        )
-        })}
+                        );
+                    })}
                 </div>
-            )
+            ),
         });
     }
 
@@ -102,10 +105,6 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
         </div>
     ) : null;
 
-    if (rows.length === 0 && !diagrams?.length) {
-        return null;
-    }
-
     return (
         <div className={container}>
             {rows.length > 0 && (
@@ -120,7 +119,7 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
                     key={index}
                     title={diagram.title}
                     caption={diagram.caption}
-                    image={diagram.image.childImageSharp.gatsbyImageData}
+                    image={diagram.image}
                     headerLeadText="HDR Editing Design"
                 />
             ))}

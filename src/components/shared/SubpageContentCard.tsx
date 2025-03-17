@@ -2,9 +2,10 @@ import React from "react";
 import { Card, CardProps } from "antd";
 import classNames from "classnames";
 
+const { Meta } = Card;
+
 const {
     container,
-    footer,
     borderBody,
     borderCard,
 } = require("../../style/subpage-content-card.module.css");
@@ -31,7 +32,7 @@ const SubpageContentCard: React.FC<SubpageContentCardProps> = ({
     return (
         <Card {...cardProps} title={title} className={className}>
             {children}
-            {caption && <div className={footer}>{caption}</div>}
+            {caption && <Meta description={caption} />}
         </Card>
     );
 };
