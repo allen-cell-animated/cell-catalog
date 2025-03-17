@@ -11,6 +11,7 @@ import {
     UnpackedDiseaseCellLineFull,
     UnpackedEditingDesign,
 } from "./types";
+import { StemCellCharProps } from "./StemCellChar";
 
 export const unpackDiagrams = (diagrams?: Diagram[]): DiagramCardProps[] => {
     if (!diagrams || diagrams.length === 0) {
@@ -56,7 +57,9 @@ export const unpackEditingDesignData = (editing_design?: {
     }
 };
 
-export const getStemCellCharData = (clones: Clone[]) => {
+export const getStemCellCharData = (
+    clones: Clone[]
+): StemCellCharProps | null => {
     const init: {
         percentPositive: ClonePercentPositive[];
         passingAntibodies: any[];
