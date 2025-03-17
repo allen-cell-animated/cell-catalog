@@ -17,16 +17,12 @@ export const unpackDiagrams = (diagrams?: Diagram[]): DiagramCardProps[] => {
         return [];
     }
     return diagrams.map((diagram) => {
-        if (!diagram.image) {
-            return {
-                title: diagram.title,
-                caption: diagram.caption,
-            };
-        }
         return {
             title: diagram.title,
             caption: diagram.caption,
-            image: diagram.image.childImageSharp.gatsbyImageData,
+            image: diagram.image
+                ? diagram.image.childImageSharp.gatsbyImageData
+                : undefined,
         };
     });
 };
