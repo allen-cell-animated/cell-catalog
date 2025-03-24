@@ -11,7 +11,7 @@ backend:
     squash_merges: true
 
 publish_mode: editorial_workflow
-# local_backend: true
+local_backend: true
 media_folder: static/img
 public_folder: /img
 
