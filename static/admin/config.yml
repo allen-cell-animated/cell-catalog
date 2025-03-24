@@ -78,7 +78,7 @@ collections:
                 label: "Clone Number",
                 name: "clone_number",
                 widget: "number",
-                value_type: int,
+                valueType: int,
                 required: false,
             }
           - {
@@ -296,7 +296,7 @@ collections:
                             label: "Troponin T, % Positive Cells(n)",
                             name: "positive_cells",
                             widget: "number",
-                            value_type: "float",
+                            valueType: "float",
                             required: false,
                         },
                         {
