@@ -296,7 +296,7 @@ collections:
                             label: "Troponin T, % Positive Cells(n)",
                             name: "positive_cells",
                             widget: "number",
-                            valueType: "float",
+                            value_type: "float",
                             required: false,
                         },
                         {
