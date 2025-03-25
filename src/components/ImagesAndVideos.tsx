@@ -26,7 +26,7 @@ interface ImagesAndVideosProps {
     videos?: any;
     geneSymbol: string;
     snp: string;
-    fluorescentTag: string;
+    fluorescentTag: string[];
     parentalGeneSymbol: string;
     alleleTag: string;
 }
@@ -34,7 +34,7 @@ interface ImagesAndVideosProps {
 const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     images = [],
     cellLineId,
-    fluorescentTag,
+    fluorescentTag = [],
     parentalGeneSymbol,
     alleleTag,
     geneSymbol,
@@ -62,7 +62,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     if (!imageData) {
         return null;
     }
-
+    // TODO: add separator for multiple fluorescent tags if any
     const title = (
         <Flex
             justify="space-between"

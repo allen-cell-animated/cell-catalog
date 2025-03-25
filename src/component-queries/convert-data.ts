@@ -5,6 +5,12 @@ import {
     UnpackedNormalCellLine,
 } from "./types";
 
+const multipleValues = (value: string | string[] | undefined): string => {
+    if (!value || value.length === 0) return "";
+    if (typeof value === "string") return value;
+    return value.length > 1 ? value.join(", ") : value[0];
+};
+
 export const convertFrontmatterToDiseaseCellLine = (
     cellLineNode: DiseaseCellLineNode
 ): UnpackedDiseaseCellLine => {
@@ -32,10 +38,10 @@ export const convertFrontmatterToDiseaseCellLine = (
             cloneNumber:
                 cellLineNode.frontmatter.parental_line.frontmatter.clone_number,
             tagLocation:
-                cellLineNode.frontmatter.parental_line.frontmatter.tag_location,
+                multipleValues(cellLineNode.frontmatter.parental_line.frontmatter.tag_location),
             fluorescentTag:
-                cellLineNode.frontmatter.parental_line.frontmatter
-                    .fluorescent_tag,
+                multipleValues(cellLineNode.frontmatter.parental_line.frontmatter
+                    .fluorescent_tag),
             taggedGene: {
                 name: cellLineNode.frontmatter.parental_line.frontmatter.gene
                     .frontmatter.name,
@@ -57,8 +63,8 @@ export const convertFrontmatterToNormalCellLines = ({
         cellLineId: cellLineNode.frontmatter.cell_line_id,
         cloneNumber: cellLineNode.frontmatter.clone_number,
         alleleCount: cellLineNode.frontmatter.allele_count,
-        fluorescentTag: cellLineNode.frontmatter.fluorescent_tag,
-        tagLocation: cellLineNode.frontmatter.tag_location,
+        fluorescentTag: multipleValues(cellLineNode.frontmatter.fluorescent_tag),
+        tagLocation: multipleValues(cellLineNode.frontmatter.tag_location),
         parentalLine: cellLineNode.frontmatter.parental_line.frontmatter.name,
         protein: cellLineNode.frontmatter.gene.frontmatter.protein,
         taggedGene: {
