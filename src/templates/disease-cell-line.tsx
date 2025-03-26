@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import { Divider, Flex } from "antd";
+import { Divider } from "antd";
 
 import Layout from "../components/Layout";
 import { DiseaseCellLineFrontmatter } from "../component-queries/types";
@@ -17,6 +17,7 @@ const {
     container,
     leftCard,
     returnArrow,
+    imagesContainer,
 } = require("../style/disease-cell-line.module.css");
 
 const Arrow = require("../img/arrow.svg");
@@ -49,8 +50,8 @@ export const DiseaseCellLineTemplate = ({
         (imagesAndVideos?.videos?.length || 0) > 0;
     return (
         <>
-            <Flex className={container} gap={40} justify="space-between">
-                <Flex vertical gap={16} className={leftCard}>
+            <div className={container}>
+                <div className={leftCard}>
                     <Link to="/disease-catalog">
                         <DefaultButton>
                             <Arrow className={returnArrow} />
@@ -70,22 +71,24 @@ export const DiseaseCellLineTemplate = ({
                         parentalLine={parentalLine}
                         healthCertificate={healthCertificate}
                     />
-                </Flex>
+                </div>
                 {hasImagesOrVideos && (
-                    <ImagesAndVideos
-                        cellLineId={cellLineId}
-                        fluorescentTag={parentalLine.fluorescent_tag}
-                        parentalGeneSymbol={
-                            parentalLine.gene.frontmatter.symbol
-                        }
-                        alleleTag={parentalLine.allele_count}
-                        parentalLine={parentalLine}
-                        geneSymbol={geneSymbol}
-                        snp={snp}
-                        images={imagesAndVideos.images}
-                    />
+                    <div className={imagesContainer}>
+                        <ImagesAndVideos
+                            cellLineId={cellLineId}
+                            fluorescentTag={parentalLine.fluorescent_tag}
+                            parentalGeneSymbol={
+                                parentalLine.gene.frontmatter.symbol
+                            }
+                            alleleTag={parentalLine.allele_count}
+                            parentalLine={parentalLine}
+                            geneSymbol={geneSymbol}
+                            snp={snp}
+                            images={imagesAndVideos.images}
+                        />
+                    </div>
                 )}
-            </Flex>
+            </div>
             <Divider />
             <SubpageTabs
                 editingDesignData={editingDesign}
