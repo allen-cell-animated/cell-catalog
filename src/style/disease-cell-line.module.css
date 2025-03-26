@@ -20,13 +20,6 @@
     margin-right: 8px;
 }
 
-/* smaller sizes on computer screen */
-@media screen and (min-width: 1280px) and (max-width: 1920px) {
-    .container {
-        padding: 0 20px;
-    }
-}
-
 /* tablet sizing */
 @media (max-width: 1279px) {
     .container {
@@ -34,12 +27,16 @@
         flex-direction: column;
         max-width: 960px;
         gap: 20px;
-        padding: 0 20px;
         min-height: auto;
+        margin-bottom: 40px;
     }
 
     .left-card {
         width: 100%;
         min-height: auto;
+    }
+
+    :global(.ant-divider) {
+        display: none;
     }
 }
