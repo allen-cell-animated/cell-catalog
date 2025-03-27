@@ -5,7 +5,8 @@ status: released
 clone_number: 13
 allele_count: mono
 parental_line: 0
-gene: RAB5A
+gene:
+  - RAB5A
 tag_location:
   - N-terminus
 fluorescent_tag:

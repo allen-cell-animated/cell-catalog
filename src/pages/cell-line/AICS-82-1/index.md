@@ -5,7 +5,8 @@ status: released
 clone_number: 1
 allele_count: mono
 parental_line: 0
-gene: G3BP1
+gene:
+  - G3BP1
 tag_location:
   - N-terminus
 fluorescent_tag:

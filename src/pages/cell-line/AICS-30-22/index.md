@@ -5,7 +5,8 @@ status: released
 clone_number: 22
 allele_count: mono
 parental_line: 0
-gene: MAP1LC3B
+gene:
+  - MAP1LC3B
 tag_location:
   - N-terminus
 fluorescent_tag:

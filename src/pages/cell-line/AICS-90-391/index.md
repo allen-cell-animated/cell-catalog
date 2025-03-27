@@ -5,7 +5,8 @@ status: released
 clone_number: 391
 allele_count: mono
 parental_line: 0
-gene: CLYBL safe harbor
+gene:
+  - CLYBL safe harbor
 tag_location:
   - NA
 fluorescent_tag:

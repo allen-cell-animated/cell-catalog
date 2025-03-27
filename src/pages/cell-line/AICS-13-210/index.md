@@ -6,7 +6,8 @@ thumbnail_image: aics-13.jpg
 clone_number: 210
 allele_count: mono
 parental_line: 0
-gene: LMNB1
+gene:
+  - LMNB1
 tag_location:
   - N-terminus
 fluorescent_tag:
