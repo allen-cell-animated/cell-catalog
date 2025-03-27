@@ -1,5 +1,6 @@
 backend:
     name: git-gateway
+    repo: allen-cell-animated/cell-catalog
     branch: main
     commit_messages:
         create: "Create {{collection}} “{{slug}}”"
@@ -7,7 +8,9 @@ backend:
         delete: "Delete {{collection}} “{{slug}}”"
         uploadMedia: "[skip ci] Upload “{{path}}”"
         deleteMedia: "[skip ci] Delete “{{path}}”"
+    squash_merges: true
 
+publish_mode: editorial_workflow
 local_backend: true
 media_folder: static/img
 public_folder: /img
