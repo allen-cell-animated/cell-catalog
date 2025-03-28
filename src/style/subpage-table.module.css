@@ -14,9 +14,17 @@
 }
 
 .table {
+    width: max-content;
+    border-radius: 0;
     margin-bottom: 20px;
 }
 
 .table :last-of-type:global(.ant-table-row .ant-table-cell) {
     border-style: none;
+}
+
+@media screen and (max-width: 1280px) {
+   .table:global(.ant-table-wrapper) {
+        width: 100%;
+    }
 }

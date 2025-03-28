@@ -14,3 +14,11 @@
     font-weight: 700;
     padding-top: 20px;
 }
+
+
+@media screen and (max-width: 1280px) {
+    :global(.ant-card) {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}
