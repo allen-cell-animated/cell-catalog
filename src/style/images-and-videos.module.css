@@ -108,7 +108,7 @@
 }
 
 /* tablet sizing */
-@media (max-width: 1279px) {
+@media (max-width: 1280px) {
     .container {
         max-width: 960px;
         min-width: 0;

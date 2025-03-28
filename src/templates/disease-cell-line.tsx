@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import { Divider } from "antd";
 
 import Layout from "../components/Layout";
 import { DiseaseCellLineFrontmatter } from "../component-queries/types";
@@ -89,7 +88,6 @@ export const DiseaseCellLineTemplate = ({
                     </div>
                 )}
             </div>
-            <Divider />
             <SubpageTabs
                 editingDesignData={editingDesign}
                 genomicCharacterizationData={genomicCharacterization}
