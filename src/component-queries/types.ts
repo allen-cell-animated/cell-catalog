@@ -22,7 +22,7 @@ export interface ParentalLineFrontmatter {
     thumbnail_image: any;
     gene: {
         frontmatter: GeneFrontMatter;
-    };
+    }[];
 }
 
 export interface NormalCellLineFrontmatter {
@@ -46,8 +46,8 @@ export interface NormalCellLineFrontmatter {
             symbol: string;
             structure: string;
         };
-    };
-}
+    }[];
+};
 
 export interface NormalCellLineNode {
     id: string;
@@ -157,7 +157,7 @@ export interface DiseaseFrontmatter {
     name: string;
     gene: {
         frontmatter: GeneFrontMatter;
-    };
+    }[];
     status: string;
     acknowledgements: { html: string };
 }
@@ -182,7 +182,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     cloneNumber: number;
     tagLocation: string;
     fluorescentTag: string;
-    taggedGene: UnpackedGene;
+    taggedGene: UnpackedGene[];
     alleleCount: string;
     parentalLine: string;
     structure: string;
@@ -198,5 +198,5 @@ export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
     snp: string;
     clones: Clone[];
     parentalLine: ParentLine;
-    mutatedGene: UnpackedGene;
+    mutatedGene: UnpackedGene[];
 }
