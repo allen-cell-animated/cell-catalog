@@ -22,7 +22,7 @@ interface ParentalLineModalProps {
     formattedId: string;
     cloneNumber: number;
     status: string;
-    taggedGene: UnpackedGene;
+    taggedGene: UnpackedGene[];
     tagLocation: string;
     fluorescentTag: string;
 }
@@ -50,7 +50,8 @@ const ParentalLineModal = (props: ParentalLineModalProps) => {
     if (props.status === "coming soon") {
         return <>{props.formattedId}</>;
     }
-    const { symbol, name } = props.taggedGene;
+    
+    const { symbol, name } = props.taggedGene[0];
     const { fluorescentTag, tagLocation } = props;
     const parentalLineItems = [
         {
