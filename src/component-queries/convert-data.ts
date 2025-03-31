@@ -15,7 +15,13 @@ const multipleValues = (value: string | string[] | undefined): string => {
 
 
 const extractGenes = (geneArray: { frontmatter: GeneFrontMatter }[] = []): UnpackedGene[] => {
-    return geneArray.map((gene) => ({
+    if (!geneArray) return [];
+
+    return geneArray
+        // TODO: check with scientists
+        // filter out null values, e.g. UBTF, CLYBL-dCas9-KRAB 
+        .filter((gene) => gene && gene.frontmatter) 
+        .map((gene) => ({
             name: gene.frontmatter.name,
             symbol: gene.frontmatter.symbol,
             structure: gene.frontmatter.structure,
