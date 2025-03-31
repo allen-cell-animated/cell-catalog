@@ -34,8 +34,18 @@ export const getNormalTableColumns = (
             key: "taggedGene",
             dataIndex: "taggedGene",
             responsive: mdBreakpoint,
-            render: (taggedGene: UnpackedGene) => {
-                return <GeneDisplay gene={taggedGene} />;
+            render: (taggedGene: UnpackedGene[]) => {
+                return (
+                    <>
+                        {taggedGene.map((gene, index) => (
+                            <GeneDisplay
+                                key={index}
+                                gene={gene}
+                            />
+                        ))}
+                    </>
+                ) 
+                
             },
         },
         {

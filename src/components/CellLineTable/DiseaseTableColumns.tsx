@@ -53,8 +53,17 @@ export const getDiseaseTableColumns = (
             key: "mutatedGene",
             dataIndex: "mutatedGene",
             responsive: mdBreakpoint,
-            render: (mutatedGene: UnpackedGene) => {
-                return <GeneDisplay gene={mutatedGene} />;
+            render: (mutatedGene: UnpackedGene[]) => {
+                return (
+                    <>
+                        {mutatedGene.map((gene, index) => (
+                            <GeneDisplay
+                                key={index}
+                                gene={gene}
+                            />
+                        ))}
+                    </>
+                ) 
             },
         },
         {
