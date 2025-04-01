@@ -63,7 +63,7 @@
 
 .caption {
     flex: 0 0 auto;
-    max-height: 15%;
+    max-height: min-content;
     overflow-y: auto;
     line-height: 1.4;
     margin: 0;
@@ -89,7 +89,7 @@
 }
 
 /* smaller sizes on computer screen */
-@media (min-width: 1280px) and (max-width: 1920px) {
+@media (max-width: 1920px) and (min-width: 1280px) {
     .container :global(.ant-card-body) {
         display: flex;
         margin: 24px 0 40px 0;
@@ -124,14 +124,6 @@
         margin: 20px 0px;
         gap: 20px;
         justify-content: space-between;
-    }
-
-    .caption {
-        max-height: auto;
-    }
-
-    .primary-image-container {
-        gap: 20px;
     }
 
     .primary-image-only {
