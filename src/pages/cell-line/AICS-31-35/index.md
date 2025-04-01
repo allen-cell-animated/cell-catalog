@@ -5,7 +5,8 @@ status: released
 clone_number: 35
 allele_count: mono
 parental_line: 0
-gene: TUBA1B
+gene:
+  - TUBA1B
 tag_location:
   - N-terminus
 fluorescent_tag:

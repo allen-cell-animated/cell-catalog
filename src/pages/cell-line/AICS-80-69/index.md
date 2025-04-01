@@ -5,7 +5,8 @@ status: released
 clone_number: 69
 allele_count: mono
 parental_line: 0
-gene: FUS
+gene:
+  - FUS
 tag_location:
   - C-terminus
 fluorescent_tag:

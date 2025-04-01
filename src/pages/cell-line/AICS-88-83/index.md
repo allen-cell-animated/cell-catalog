@@ -5,7 +5,8 @@ status: released
 clone_number: 83
 allele_count: mono
 parental_line: 0
-gene: PCNA
+gene:
+  - PCNA
 tag_location:
   - N-terminus
 fluorescent_tag:

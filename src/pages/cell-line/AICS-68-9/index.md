@@ -5,7 +5,8 @@ status: released
 clone_number: 9
 allele_count: mono
 parental_line: 0
-gene: SMC1A
+gene:
+  - SMC1A
 tag_location:
   - C-terminus
 fluorescent_tag:

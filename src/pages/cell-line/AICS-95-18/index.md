@@ -5,7 +5,8 @@ status: released
 clone_number: 18
 allele_count: mono
 parental_line: 0
-gene: EZH2
+gene:
+  - EZH2
 tag_location:
   - N-terminus
 fluorescent_tag:

@@ -5,7 +5,8 @@ status: released
 clone_number: 91
 allele_count: mono
 parental_line: 0
-gene: AAVS1
+gene:
+  - AAVS1
 tag_location:
   - NA
 fluorescent_tag:

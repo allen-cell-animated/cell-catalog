@@ -5,7 +5,8 @@ status: released
 clone_number: 50
 allele_count: mono
 parental_line: 0
-gene: PXN
+gene:
+  - PXN
 tag_location:
   - C-terminus
 fluorescent_tag:

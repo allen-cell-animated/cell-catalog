@@ -5,7 +5,8 @@ status: in progress
 clone_number: 
 allele_count: 
 parental_line: 0
-gene: EOMES
+gene:
+  - EOMES
 tag_location:
   - C-terminus
 fluorescent_tag:

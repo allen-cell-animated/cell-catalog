@@ -5,7 +5,8 @@ status: released
 clone_number: 19
 allele_count: mono
 parental_line: 0
-gene: CETN2
+gene:
+  - CETN2
 tag_location:
   - N-terminus
 fluorescent_tag:

@@ -5,7 +5,8 @@ status: released
 clone_number: 27
 allele_count: mono
 parental_line: 0
-gene: MYL2
+gene:
+  - MYL2
 tag_location:
   - C-terminus
 fluorescent_tag:

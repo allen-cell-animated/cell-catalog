@@ -5,7 +5,8 @@ status: released
 clone_number: 115
 allele_count: mono
 parental_line: 0
-gene: SLC25A17
+gene:
+  - SLC25A17
 tag_location:
   - C-terminus
 fluorescent_tag:

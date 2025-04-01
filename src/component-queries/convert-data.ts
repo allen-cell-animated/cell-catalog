@@ -2,13 +2,36 @@ import {
     DiseaseCellLineNode,
     NormalCellLineNode,
     UnpackedDiseaseCellLine,
+    UnpackedGene,
+    GeneFrontMatter,
     UnpackedNormalCellLine,
 } from "./types";
+
+
+const extractGenes = (geneArray: { frontmatter: GeneFrontMatter }[] = []): UnpackedGene[] => {
+    if (!geneArray) return [];
+
+    return geneArray
+        // TODO: check with scientists
+        // filter out null values, e.g. UBTF, CLYBL-dCas9-KRAB 
+        .filter((gene) => gene && gene.frontmatter) 
+        .map((gene) => ({
+            name: gene.frontmatter.name,
+            symbol: gene.frontmatter.symbol,
+            structure: gene.frontmatter.structure,
+            protein: gene.frontmatter.protein,
+    }));
+};
+
 
 export const convertFrontmatterToDiseaseCellLine = (
     cellLineNode: DiseaseCellLineNode
 ): UnpackedDiseaseCellLine => {
     const diseaseData = cellLineNode.frontmatter.disease.frontmatter;
+    const mutatedGenes = extractGenes(diseaseData.gene);
+    const parentalGenes = extractGenes(
+        cellLineNode.frontmatter.parental_line.frontmatter.gene
+    );
     return {
         cellLineId: cellLineNode.frontmatter.cell_line_id,
         certificateOfAnalysis: cellLineNode.frontmatter.certificate_of_analysis,
@@ -18,10 +41,7 @@ export const convertFrontmatterToDiseaseCellLine = (
         clones: cellLineNode.frontmatter.clones,
         orderLink: cellLineNode.frontmatter.order_link,
         diseaseStatus: diseaseData.status,
-        mutatedGene: {
-            name: diseaseData.gene.frontmatter.name,
-            symbol: diseaseData.gene.frontmatter.symbol,
-        },
+        mutatedGene: mutatedGenes,
         path: cellLineNode.fields.slug,
         parentalLine: {
             thumbnailImage:
@@ -31,17 +51,11 @@ export const convertFrontmatterToDiseaseCellLine = (
                 cellLineNode.frontmatter.parental_line.frontmatter.cell_line_id,
             cloneNumber:
                 cellLineNode.frontmatter.parental_line.frontmatter.clone_number,
-            tagLocation:
+            tagLocation: 
                 cellLineNode.frontmatter.parental_line.frontmatter.tag_location,
-            fluorescentTag:
-                cellLineNode.frontmatter.parental_line.frontmatter
-                    .fluorescent_tag,
-            taggedGene: {
-                name: cellLineNode.frontmatter.parental_line.frontmatter.gene
-                    .frontmatter.name,
-                symbol: cellLineNode.frontmatter.parental_line.frontmatter.gene
-                    .frontmatter.symbol,
-            },
+            fluorescentTag: 
+                cellLineNode.frontmatter.parental_line.frontmatter.fluorescent_tag,
+            taggedGene: parentalGenes,
         },
         key: cellLineNode.id,
     };
@@ -52,6 +66,10 @@ export const convertFrontmatterToNormalCellLines = ({
 }: {
     node: NormalCellLineNode;
 }): UnpackedNormalCellLine => {
+    const genes = extractGenes(cellLineNode.frontmatter.gene);
+    const proteins = genes.map((gene) => gene.protein || "");
+    const structures = genes.map((gene) => gene.structure || "");
+    // TODO: check multi-tag with UX
     return {
         path: cellLineNode.fields.slug,
         cellLineId: cellLineNode.frontmatter.cell_line_id,
@@ -60,12 +78,9 @@ export const convertFrontmatterToNormalCellLines = ({
         fluorescentTag: cellLineNode.frontmatter.fluorescent_tag,
         tagLocation: cellLineNode.frontmatter.tag_location,
         parentalLine: cellLineNode.frontmatter.parental_line.frontmatter.name,
-        protein: cellLineNode.frontmatter.gene.frontmatter.protein,
-        taggedGene: {
-            name: cellLineNode.frontmatter.gene.frontmatter.name,
-            symbol: cellLineNode.frontmatter.gene.frontmatter.symbol,
-        },
-        structure: cellLineNode.frontmatter.gene.frontmatter.structure,
+        protein: proteins.join(", "),
+        taggedGene: genes,
+        structure: structures.join(", "),
         status: cellLineNode.frontmatter.status,
         certificateOfAnalysis: "",
         healthCertificate: "",
