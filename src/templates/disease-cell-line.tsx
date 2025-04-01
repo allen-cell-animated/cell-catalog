@@ -74,7 +74,7 @@ export const DiseaseCellLineTemplate = ({
                 {hasImagesOrVideos && (
                     <ImagesAndVideos
                         cellLineId={cellLineId}
-                        fluorescentTag={parentalLine.fluorescent_tag}
+                        fluorescentTag={[parentalLine.fluorescent_tag[0]]}
                         parentalGeneSymbol={
                             parentalLine.gene[0].frontmatter.symbol
                         }

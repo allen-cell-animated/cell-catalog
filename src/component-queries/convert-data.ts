@@ -7,12 +7,6 @@ import {
     UnpackedNormalCellLine,
 } from "./types";
 
-const multipleValues = (value: string | string[] | undefined): string => {
-    if (!value || value.length === 0) return "";
-    if (typeof value === "string") return value;
-    return value.length > 1 ? value.join(", ") : value[0];
-};
-
 
 const extractGenes = (geneArray: { frontmatter: GeneFrontMatter }[] = []): UnpackedGene[] => {
     if (!geneArray) return [];
@@ -57,11 +51,10 @@ export const convertFrontmatterToDiseaseCellLine = (
                 cellLineNode.frontmatter.parental_line.frontmatter.cell_line_id,
             cloneNumber:
                 cellLineNode.frontmatter.parental_line.frontmatter.clone_number,
-            tagLocation:
-                multipleValues(cellLineNode.frontmatter.parental_line.frontmatter.tag_location),
-            fluorescentTag:
-                multipleValues(cellLineNode.frontmatter.parental_line.frontmatter
-                    .fluorescent_tag),
+            tagLocation: 
+                cellLineNode.frontmatter.parental_line.frontmatter.tag_location,
+            fluorescentTag: 
+                cellLineNode.frontmatter.parental_line.frontmatter.fluorescent_tag,
             taggedGene: parentalGenes,
         },
         key: cellLineNode.id,
@@ -76,14 +69,14 @@ export const convertFrontmatterToNormalCellLines = ({
     const genes = extractGenes(cellLineNode.frontmatter.gene);
     const proteins = genes.map((gene) => gene.protein || "");
     const structures = genes.map((gene) => gene.structure || "");
-
+    // TODO: check multi-tag with UX
     return {
         path: cellLineNode.fields.slug,
         cellLineId: cellLineNode.frontmatter.cell_line_id,
         cloneNumber: cellLineNode.frontmatter.clone_number,
         alleleCount: cellLineNode.frontmatter.allele_count,
-        fluorescentTag: multipleValues(cellLineNode.frontmatter.fluorescent_tag),
-        tagLocation: multipleValues(cellLineNode.frontmatter.tag_location),
+        fluorescentTag: cellLineNode.frontmatter.fluorescent_tag,
+        tagLocation: cellLineNode.frontmatter.tag_location,
         parentalLine: cellLineNode.frontmatter.parental_line.frontmatter.name,
         protein: proteins.join(", "),
         taggedGene: genes,

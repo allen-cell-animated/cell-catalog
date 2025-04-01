@@ -23,8 +23,8 @@ interface ParentalLineModalProps {
     cloneNumber: number;
     status: string;
     taggedGene: UnpackedGene[];
-    tagLocation: string;
-    fluorescentTag: string;
+    tagLocation: string[];
+    fluorescentTag: string[];
 }
 const ParentalLineModal = (props: ParentalLineModalProps) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -52,7 +52,8 @@ const ParentalLineModal = (props: ParentalLineModalProps) => {
     }
     
     const { symbol, name } = props.taggedGene[0];
-    const { fluorescentTag, tagLocation } = props;
+    const fluorescentTag  = props.fluorescentTag[0];
+    const tagLocation = props.tagLocation[0];
     const parentalLineItems = [
         {
             key: "1",

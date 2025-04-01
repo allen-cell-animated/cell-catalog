@@ -13,6 +13,7 @@ import {
     certificateOfAnalysisColumn,
     obtainLineColumn,
 } from "./SharedColumns";
+import { render } from "react-dom";
 
 const { lastColumn } = require("../../style/table.module.css");
 
@@ -72,6 +73,9 @@ export const getNormalTableColumns = (
             key: "fluorescentTag",
             dataIndex: "fluorescentTag",
             responsive: mdBreakpoint,
+            render: (fluorescentTag: string[]) => {
+                return fluorescentTag?.join(" / ");
+            },
         },
         {
             title: "Tag Location",
@@ -79,6 +83,9 @@ export const getNormalTableColumns = (
             dataIndex: "tagLocation",
             className: inProgress ? "" : lastColumn,
             responsive: mdBreakpoint,
+            render: (tagLocation: string[]) => {
+                return tagLocation?.join(" / ");
+            },
         },
     ];
 

@@ -180,8 +180,8 @@ export interface UnpackedCellLineMainInfo {
 }
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     cloneNumber: number;
-    tagLocation: string;
-    fluorescentTag: string;
+    tagLocation: string[];
+    fluorescentTag: string[];
     taggedGene: UnpackedGene[];
     alleleCount: string;
     parentalLine: string;
