@@ -89,7 +89,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                 align="center"
                 vertical
                 justify="center"
-                gap={8}
+                gap={20}
             >
                 <GatsbyImage
                     className={primaryImageClassName}

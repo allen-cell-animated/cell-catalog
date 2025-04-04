@@ -34,7 +34,6 @@ const SubpageTable: React.FC<SubpageTable> = ({
                 pagination={false}
                 bordered={false}
                 className={table}
-                style={{ width: "max-content", borderRadius: 0 }}
             />
         </SubpageContentCard>
     );
