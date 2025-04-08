@@ -49,3 +49,11 @@
     overflow-wrap: break-word;
     margin: 0px;
 }
+
+@media screen and (max-width: 1280px) {
+    .container :global(.ant-card){
+        flex-basis: 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+}

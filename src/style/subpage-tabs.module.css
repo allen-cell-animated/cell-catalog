@@ -47,6 +47,7 @@
 }
 
 .container :global(.ant-tabs-tab-active .ant-tabs-tab-btn) {
+    border-radius: 3px;
     background-color: var(--primary-color);
     color: white !important;
 }
@@ -57,7 +58,7 @@
 }
 
 .container :global(.ant-tabs-content) {
-    width: 75%;
+    max-width: 1245px;
     margin: auto;
 }
 
@@ -70,5 +71,22 @@
 @media (max-width: 1024px) {
     .container :global(.ant-tabs-tab-btn) {
         font-size: 16px;
+    }
+
+    .container :global(.ant-tabs-tab-btn) {
+        height: 64px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .container {
+        max-width: 960px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .container :global(.ant-card) {
+        width: 100%;
+        margin: 0px;
     }
 }
