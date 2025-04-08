@@ -12,8 +12,6 @@ const extractGenes = (geneArray: { frontmatter: GeneFrontMatter }[] = []): Unpac
     if (!geneArray) return [];
 
     return geneArray
-        // TODO: check with scientists
-        // filter out null values, e.g. UBTF, CLYBL-dCas9-KRAB 
         .filter((gene) => gene && gene.frontmatter) 
         .map((gene) => ({
             name: gene.frontmatter.name,

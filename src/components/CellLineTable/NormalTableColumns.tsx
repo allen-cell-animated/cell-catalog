@@ -13,7 +13,6 @@ import {
     certificateOfAnalysisColumn,
     obtainLineColumn,
 } from "./SharedColumns";
-import { render } from "react-dom";
 
 const { lastColumn } = require("../../style/table.module.css");
 
