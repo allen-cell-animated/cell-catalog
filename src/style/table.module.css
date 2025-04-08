@@ -61,7 +61,8 @@
     color: var(--WHITE);
 }
 
-.action-column:hover .action-button path {
+.action-column:hover .action-button path,
+.action-column:hover .action-button line {
     fill: var(--primary-color);
     stroke: var(--WHITE);
 }
