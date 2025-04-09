@@ -5,7 +5,7 @@ disease: Laminopathy
 date: 2024-02-26T21:35:41.941Z
 snp: NM_170707.4(LMNA):c.1824C>T(p.Gly608=)
 parental_line: 13
-status: released
+status: data complete
 clones:
   - type: Mutant
     clone_number: 10
@@ -88,7 +88,7 @@ genomic_characterization:
         analysis for clone 10. All clones resulted in normal karyotype.
 editing_design:
   crna_target_site: 5’ GGAGATGGGTCCGCCCACCT[GGG] 3’
-  dna_donor_sequence: 
+  dna_donor_sequence:
     - sequence: 5’ GAGGCAGAAGAGCCAGAGGAGATGGGTCC[A]CCCACCTGGGCTCCTGAGCCGCTGGCAGA 3’
       type: ""
   cas9: "TrueCut™ Cas9 Protein "
