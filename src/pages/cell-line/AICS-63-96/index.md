@@ -5,7 +5,8 @@ status: released
 clone_number: 96
 allele_count: mono
 parental_line: 0
-gene: DMD
+gene:
+  - DMD
 tag_location:
   - C-terminus
 fluorescent_tag:

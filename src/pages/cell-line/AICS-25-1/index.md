@@ -5,7 +5,8 @@ status: released
 clone_number: 1
 allele_count: mono
 parental_line: 0
-gene: ST6GAL1
+gene:
+  - ST6GAL1
 tag_location:
   - C-terminus
 fluorescent_tag:

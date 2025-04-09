@@ -99,7 +99,7 @@ export const unpackDiseaseFrontmatterForSubpage = (
     const parentalLineData = cellLineNode.frontmatter.parental_line.frontmatter;
 
     const { name: geneName, symbol: geneSymbol } =
-        cellLineNode.frontmatter.disease.frontmatter.gene.frontmatter;
+        cellLineNode.frontmatter.disease.frontmatter.gene[0].frontmatter;
 
     const editingDesign = unpackEditingDesignData(
         cellLineNode.frontmatter.editing_design
@@ -122,7 +122,7 @@ export const unpackDiseaseFrontmatterForSubpage = (
         diseaseName: cellLineNode.frontmatter.disease.frontmatter.name,
         snp: cellLineNode.frontmatter.snp,
         parentalLine: parentalLineData,
-        parentalLineGene: parentalLineData.gene.frontmatter,
+        parentalLineGene: parentalLineData.gene[0].frontmatter,
         clones: cellLineNode.frontmatter.clones, // TODO: unpack this into only data needed for card
         imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
         editingDesign: editingDesign,

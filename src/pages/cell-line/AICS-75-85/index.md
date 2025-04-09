@@ -6,7 +6,8 @@ thumbnail_image: 20181023_m02_001_s13_cl85_cropped_scalebar20_withinset_rgb.jpg
 clone_number: 85
 allele_count: mono
 parental_line: 0
-gene: ACTN2
+gene:
+  - ACTN2
 tag_location:
   - C-terminus
 fluorescent_tag:

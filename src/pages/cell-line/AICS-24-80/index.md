@@ -5,7 +5,8 @@ status: released
 clone_number: 80
 allele_count: mono
 parental_line: 0
-gene: MYH10
+gene:
+  - MYH10
 tag_location:
   - N-terminus
 fluorescent_tag:

@@ -5,7 +5,8 @@ status: released
 clone_number: 88
 allele_count: mono
 parental_line: 0
-gene: NUP153
+gene:
+  - NUP153
 tag_location:
   - N-terminus
 fluorescent_tag:

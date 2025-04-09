@@ -5,7 +5,8 @@ status: released
 clone_number: 51
 allele_count: mono
 parental_line: 0
-gene: ATP2A2
+gene:
+  - ATP2A2
 tag_location:
   - N-terminus
 fluorescent_tag:

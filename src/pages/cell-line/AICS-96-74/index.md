@@ -5,7 +5,8 @@ status: released
 clone_number: 74
 allele_count: mono
 parental_line: 0
-gene: POLR2A
+gene:
+  - POLR2A
 tag_location:
   - N-terminus
 fluorescent_tag:

@@ -5,7 +5,8 @@ status: released
 clone_number: 41
 allele_count: bi
 parental_line: 0
-gene: CDH5
+gene:
+  - CDH5
 tag_location:
   - C-terminus
 fluorescent_tag:

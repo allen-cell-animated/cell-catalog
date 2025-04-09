@@ -24,7 +24,7 @@ collections:
       slug: "AICS-{{cell_line_id}}-{{clone_number}}"
       path: "{{slug}}/index"
       identifier_field: "cell_line_id"
-      summary: "AICS-{{cell_line_id}} - {{gene}}"
+      summary: "AICS-{{cell_line_id}} - {{gene[0]}}"
       media_folder: ""
       public_folder: ""
       fields:
@@ -78,7 +78,7 @@ collections:
                 label: "Clone Number",
                 name: "clone_number",
                 widget: "number",
-                valueType: int,
+                value_type: int,
                 required: false,
             }
           - {

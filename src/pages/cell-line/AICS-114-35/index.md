@@ -5,7 +5,8 @@ status: released
 clone_number: 35
 allele_count: mono
 parental_line: 0
-gene: CDH1
+gene:
+  - CDH1
 tag_location:
   - C-terminus
 fluorescent_tag:

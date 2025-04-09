@@ -36,8 +36,8 @@ const DiseaseTemplate = (props: QueryResult) => {
             disease.frontmatter;
             return {
                 name,
-                geneSymbol: gene.frontmatter.symbol,
-                geneName: gene.frontmatter.name,
+                geneSymbol: gene[0].frontmatter.symbol,
+                geneName: gene[0].frontmatter.name,
                 acknowledgements: acknowledgements.html,
                 status,
             };

@@ -5,7 +5,8 @@ status: released
 clone_number: 3
 allele_count: mono
 parental_line: 0
-gene: MYL7
+gene:
+  - MYL7
 tag_location:
   - C-terminus
 fluorescent_tag:

@@ -5,7 +5,8 @@ status: released
 clone_number: 184
 allele_count: mono
 parental_line: 0
-gene: ACTB
+gene:
+  - ACTB
 tag_location:
   - N-terminus
 fluorescent_tag:

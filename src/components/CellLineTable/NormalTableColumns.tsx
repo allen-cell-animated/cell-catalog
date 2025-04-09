@@ -34,8 +34,18 @@ export const getNormalTableColumns = (
             key: "taggedGene",
             dataIndex: "taggedGene",
             responsive: mdBreakpoint,
-            render: (taggedGene: UnpackedGene) => {
-                return <GeneDisplay gene={taggedGene} />;
+            render: (taggedGene: UnpackedGene[]) => {
+                return (
+                    <>
+                        {taggedGene.map((gene, index) => (
+                            <GeneDisplay
+                                key={index}
+                                gene={gene}
+                            />
+                        ))}
+                    </>
+                ) 
+                
             },
         },
         {
@@ -62,6 +72,9 @@ export const getNormalTableColumns = (
             key: "fluorescentTag",
             dataIndex: "fluorescentTag",
             responsive: mdBreakpoint,
+            render: (fluorescentTag: string[]) => {
+                return fluorescentTag?.join(" / ");
+            },
         },
         {
             title: "Tag Location",
@@ -69,6 +82,9 @@ export const getNormalTableColumns = (
             dataIndex: "tagLocation",
             className: inProgress ? "" : lastColumn,
             responsive: mdBreakpoint,
+            render: (tagLocation: string[]) => {
+                return tagLocation?.join(" / ");
+            },
         },
     ];
 
