@@ -5,7 +5,7 @@ disease: Cardiomyopathy
 date: 2024-02-26T21:30:55.945Z
 snp: NM_000257.4(MYH7):c.1106G>A(p.Arg369Gln)
 parental_line: 75
-status: released
+status: data complete
 clones:
   - type: Control
     clone_number: 22
@@ -78,7 +78,7 @@ genomic_characterization:
         analysis for clone 31. All clones resulted in normal karyotype.
 editing_design:
   crna_target_site: " 5’ GTTCAAGCTGAAGCAGCGGG[AGG] 3’"
-  dna_donor_sequence: 
+  dna_donor_sequence:
     - sequence: 5’ TGGAAACATGAAGTTCAAGCTGAAGCAGCAGGAGGAGC[A]GGCGGAGCCAGACGGCACTG 3’
       type: ""
   cas9: "TrueCut™ Cas9 Protein "
