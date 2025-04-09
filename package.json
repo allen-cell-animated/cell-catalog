@@ -1,7 +1,7 @@
 {
   "name": "gatsby-starter-decap-cms",
   "description": "Example Gatsby, and Netlify CMS project",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "author": "Austin Green",
   "dependencies": {
     "@ant-design/icons": "^5.5.1",
