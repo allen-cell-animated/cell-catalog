@@ -5,7 +5,7 @@ disease: Skeletal Myopathy
 date: 2024-02-26T21:30:55.945Z
 snp: NM_0027470.4(MYH3):c.2306G>T(p.Gly769Val)
 parental_line: 75
-status: released
+status: data complete
 clones:
   - type: Mutant
     clone_number: 2
@@ -87,7 +87,7 @@ genomic_characterization:
       image: aics-0113_cl44_g769v_karyotype.png
 editing_design:
   crna_target_site: 5’ CATAAGGTGTTCTTCAAGGC[TGG] 3’
-  dna_donor_sequence: 
+  dna_donor_sequence:
     - sequence: 5’ TCTGCCCCATAAGGTGTTCTTCAAGGCTG[T]CTTGCTGGGAACCCTGGAAGAGATGCGGG 3’
       type: ""
   cas9: "TrueCut™ Cas9 Protein "
