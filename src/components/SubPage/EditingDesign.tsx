@@ -51,7 +51,7 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
                     {dnaDonorSequence.map((sequence, index) => {
                         return (
                             <div key={index}>
-                                <span> {sequence.type} </span>
+                                <span> {sequence.type}{sequence.type === "Mutant" ? "*" : ""} </span>
                                 {formatTextWithGeneLocations(
                                     sequence.sequence,
                                     mutation
