@@ -1,6 +1,7 @@
 ---
 templateKey: cell-line
 cell_line_id: 120
+name: "Tom20/Mitochondrial Targeting Sequence of COXVIII (mitoTag) "
 status: hide
 date: 2025-02-05T18:14:13.824Z
 clone_number: 204
