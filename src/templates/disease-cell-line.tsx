@@ -79,7 +79,7 @@ export const DiseaseCellLineTemplate = ({
                             parentalGeneSymbol={
                                 parentalLine.gene[0].frontmatter.symbol
                             }
-                            alleleTag={parentalLine.allele_count}
+                            alleleTag={[parentalLine.allele_count[0]]}
                             parentalLine={parentalLine}
                             geneSymbol={geneSymbol}
                             snp={snp}
