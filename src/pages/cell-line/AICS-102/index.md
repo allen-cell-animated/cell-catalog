@@ -7,7 +7,8 @@ clone_number: 330
 parental_line: 0
 gene: 
   - AAVS1
-allele_count: mono
+allele_count: 
+  - mono
 fluorescent_tag:
   - mTagRFP-T
 ---

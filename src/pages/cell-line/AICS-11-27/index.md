@@ -3,7 +3,8 @@ templateKey: cell-line
 cell_line_id: 11
 status: released
 clone_number: 27
-allele_count: mono
+allele_count:
+  - mono
 parental_line: 0
 gene:
   - TOMM20

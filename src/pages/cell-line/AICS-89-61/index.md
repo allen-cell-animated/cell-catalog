@@ -3,7 +3,10 @@ templateKey: cell-line
 cell_line_id: 89
 status: released
 clone_number: 61
-allele_count: mono
+allele_count:
+  - mono
+  - mono
+  - mono
 parental_line: 0
 gene:
   - FBL

@@ -3,7 +3,8 @@ templateKey: cell-line
 cell_line_id: 25
 status: released
 clone_number: 1
-allele_count: mono
+allele_count:
+  - mono
 parental_line: 0
 gene:
   - ST6GAL1

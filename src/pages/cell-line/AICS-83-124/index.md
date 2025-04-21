@@ -3,7 +3,8 @@ templateKey: cell-line
 cell_line_id: 83
 status: released
 clone_number: 124
-allele_count: mono
+allele_count:
+  - mono
 parental_line: 0
 gene:
   - DCP1A

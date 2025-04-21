@@ -3,7 +3,8 @@ templateKey: cell-line
 cell_line_id: 114
 status: released
 clone_number: 35
-allele_count: mono
+allele_count:
+  - mono
 parental_line: 0
 gene:
   - CDH1

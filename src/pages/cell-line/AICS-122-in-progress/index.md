@@ -3,7 +3,7 @@ templateKey: cell-line
 cell_line_id: 122
 status: in progress
 clone_number: 
-allele_count: 
+allele_count:
 parental_line: 0
 gene:
   - EOMES

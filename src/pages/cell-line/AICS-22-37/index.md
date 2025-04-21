@@ -3,7 +3,8 @@ templateKey: cell-line
 cell_line_id: 22
 status: released
 clone_number: 37
-allele_count: mono
+allele_count:
+  - mono
 parental_line: 0
 gene:
   - LAMP1

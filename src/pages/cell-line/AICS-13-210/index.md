@@ -4,7 +4,8 @@ cell_line_id: 13
 status: released
 thumbnail_image: aics-13.jpg
 clone_number: 210
-allele_count: mono
+allele_count:
+  - mono
 parental_line: 0
 gene:
   - LMNB1

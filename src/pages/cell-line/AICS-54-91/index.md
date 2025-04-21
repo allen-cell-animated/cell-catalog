@@ -3,7 +3,8 @@ templateKey: cell-line
 cell_line_id: 54
 status: released
 clone_number: 91
-allele_count: mono
+allele_count:
+  - mono
 parental_line: 0
 gene:
   - AAVS1

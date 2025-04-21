@@ -3,7 +3,8 @@ templateKey: cell-line
 cell_line_id: 126
 status: released
 clone_number: 41
-allele_count: bi
+allele_count:
+  - bi
 parental_line: 0
 gene:
   - CDH5

@@ -3,7 +3,8 @@ templateKey: cell-line
 cell_line_id: 40
 status: released
 clone_number: 13
-allele_count: mono
+allele_count:
+  - mono
 parental_line: 0
 gene:
   - RAB5A
