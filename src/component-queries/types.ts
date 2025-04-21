@@ -16,7 +16,7 @@ export interface GeneFrontMatter {
 export interface ParentalLineFrontmatter {
     cell_line_id: number;
     clone_number: number;
-    allele_count: string;
+    allele_count: string[];
     tag_location: string[];
     fluorescent_tag: string[];
     thumbnail_image: any;
@@ -32,7 +32,7 @@ export interface NormalCellLineFrontmatter {
     clone_number: number;
     tag_location: string[];
     fluorescent_tag: string[];
-    allele_count: string;
+    allele_count: string[];
     order_link: string;
     parental_line: {
         frontmatter: {
@@ -183,7 +183,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     tagLocation: string[];
     fluorescentTag: string[];
     taggedGene: UnpackedGene[];
-    alleleCount: string;
+    alleleCount: string[];
     parentalLine: string;
     structure: string;
     protein: string;

@@ -59,6 +59,9 @@ export const getNormalTableColumns = (
             key: "alleleCount",
             dataIndex: "alleleCount",
             responsive: mdBreakpoint,
+            render: (alleleCount: string[]) => {
+                return alleleCount?.join(" / ");
+            },
         },
         {
             title: "Structure",

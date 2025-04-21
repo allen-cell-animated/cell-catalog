@@ -28,7 +28,7 @@ interface ImagesAndVideosProps {
     snp: string;
     fluorescentTag: string[];
     parentalGeneSymbol: string;
-    alleleTag: string;
+    alleleTag: string[];
 }
 
 const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
@@ -36,7 +36,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     cellLineId,
     fluorescentTag = [],
     parentalGeneSymbol,
-    alleleTag,
+    alleleTag = [],
     geneSymbol,
 }) => {
     const [mainImage, setMainImage] = useState(images?.[0] || null);
@@ -64,6 +64,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     }
 
     const firstTag = fluorescentTag.length > 0 ? fluorescentTag[0] : "";
+    const firstAlleleTag = alleleTag.length > 0 ? alleleTag[0] : "";
 
     const title = (
         <Flex
@@ -75,7 +76,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                 <h3 className={mainTitle}>{formatCellLineId(cellLineId)}</h3>
                 <span className={subtitle}>
                     {geneSymbol} in WTC-{firstTag}-{parentalGeneSymbol} (
-                    {alleleTag}-allelic tag)
+                    {firstAlleleTag}-allelic tag)
                 </span>
             </div>
             <span className={rightTitle}>
