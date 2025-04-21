@@ -67,7 +67,6 @@ export const convertFrontmatterToNormalCellLines = ({
     const genes = extractGenes(cellLineNode.frontmatter.gene);
     const proteins = genes.map((gene) => gene.protein || "");
     const structures = genes.map((gene) => gene.structure || "");
-    // TODO: check multi-tag with UX
     return {
         path: cellLineNode.fields.slug,
         cellLineId: cellLineNode.frontmatter.cell_line_id,
@@ -76,9 +75,9 @@ export const convertFrontmatterToNormalCellLines = ({
         fluorescentTag: cellLineNode.frontmatter.fluorescent_tag,
         tagLocation: cellLineNode.frontmatter.tag_location,
         parentalLine: cellLineNode.frontmatter.parental_line.frontmatter.name,
-        protein: proteins.join(", "),
+        protein: proteins.join(" / "),
         taggedGene: genes,
-        structure: structures.join(", "),
+        structure: structures.join(" / "),
         status: cellLineNode.frontmatter.status,
         certificateOfAnalysis: "",
         healthCertificate: "",
