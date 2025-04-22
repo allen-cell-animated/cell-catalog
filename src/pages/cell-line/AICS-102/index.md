@@ -11,6 +11,7 @@ gene:
 allele_count: mono
 fluorescent_tag:
   - mTagRFP-T
+certificate_of_analysis: aics_102_mitotag_cofa_final.pdf
 images_and_videos:
   images:
     - image: aics-102_cl330_mitotag.jpg
@@ -18,4 +19,5 @@ images_and_videos:
         inhibitor for 24hrs post-thaw). Cultures were observed daily. Colonies
         were imaged one (a,b), three (c,d) and four (e,f) days post-thaw using a
         Leica microscope at 4x and 10x magnification
+  videos: []
 ---
