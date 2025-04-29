@@ -272,7 +272,6 @@ collections:
                             label: "Clone number",
                             name: "clone_number",
                             widget: "number",
-                            required: false,
                         },
                         {
                             label: "Clone Type",
@@ -306,6 +305,7 @@ collections:
                             widget: "select",
                             options: ["PAX6", "SOX17", "Brachyury"],
                             multiple: true,
+                            required: false,
                         },
                         {
                             label: "Differentiation",
