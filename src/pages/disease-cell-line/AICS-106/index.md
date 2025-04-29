@@ -60,7 +60,7 @@ editing_design:
   crna_target_site: 5’ GCTCAGGCTTTTTGTTAGAC[AGG] 3’
   dna_donor_sequence:
     - sequence: 5’ ACTCACCCAGCAGCTCAGGCTTTTT[G]TTAAACAGGATTTGGTAG AAAATGTGATAATCT 3’
-      type: ""
+      type: Mutant
   cas9: " TrueCut™ Cas9 Protein "
   f_primer: 5’ GCTAGGTGTCTTTCTCTGGG 3’
   r_primer: 5’ GATCAGCAGCATGTCTAGGG 3’
