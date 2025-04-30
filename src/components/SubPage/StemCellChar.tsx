@@ -16,7 +16,7 @@ export interface StemCellCharProps {
 const StemCellChar: React.FC<StemCellCharProps> = ({ percentPositive }) => {
     const percentPositiveRows = percentPositive.map((clone) => ({
         key: clone.cloneNumber,
-        cloneNumber: `cl. ${clone.cloneNumber}`,
+        cloneNumber: clone.cloneNumber,
         value: `${clone.value}%`,
     }));
     // TODO: add passing antibodies and differentiation tables once we have the data
