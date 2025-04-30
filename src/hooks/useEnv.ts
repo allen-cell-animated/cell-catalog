@@ -5,6 +5,7 @@ import { PRODUCTION_HOST } from "../constants";
 const useEnv = () => {
     const [env, setEnv] = useState<"dev" | "staging" | "production">("dev");
     const hostname = useLocation().hostname;
+    console.log("hostname", hostname);
     useEffect(() => {
         if (hostname === PRODUCTION_HOST) {
             setEnv("production");
