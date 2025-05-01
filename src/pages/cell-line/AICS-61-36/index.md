@@ -5,7 +5,8 @@ status: released
 clone_number: 36
 allele_count: mono
 parental_line: 0
-gene: HIST1H2BJ
+gene:
+  - HIST1H2BJ
 tag_location:
   - C-terminus
 fluorescent_tag:

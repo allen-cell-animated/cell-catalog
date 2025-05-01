@@ -5,7 +5,8 @@ status: released
 clone_number: 55
 allele_count: mono
 parental_line: 0
-gene: SEC61B
+gene:
+  - SEC61B
 tag_location:
   - N-terminus
 fluorescent_tag:

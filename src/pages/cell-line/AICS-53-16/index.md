@@ -5,7 +5,8 @@ status: released
 clone_number: 16
 allele_count: mono
 parental_line: 0
-gene: GJA1
+gene:
+  - GJA1
 tag_location:
   - C-terminus
 fluorescent_tag:

@@ -5,7 +5,8 @@ status: released
 clone_number: 67
 allele_count: mono
 parental_line: 0
-gene: CTNNB1
+gene:
+  - CTNNB1
 tag_location:
   - N-terminus
 fluorescent_tag:

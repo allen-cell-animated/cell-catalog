@@ -10,8 +10,8 @@ interface QueryResult {
             frontmatter: {
                 cell_line_id: string;
                 clone_number: number;
-                gene: string;
-                tag_location: string;
+                gene: string[];
+                tag_location: string[];
                 status: string;
                 thumbnail_image: any;
             };
@@ -22,8 +22,8 @@ interface QueryResult {
 interface CellLineProps {
     cellLineId: string;
     cloneNumber: number;
-    gene: string;
-    tagLocation: string;
+    gene: string[];
+    tagLocation: string[];
     status: string;
     thumbnail: any;
 }

@@ -5,7 +5,8 @@ status: released
 clone_number: 5
 allele_count: bi
 parental_line: 0
-gene: DCP1A
+gene:
+  - DCP1A
 tag_location:
   - N-terminus
 fluorescent_tag:
