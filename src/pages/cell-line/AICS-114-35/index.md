@@ -1,7 +1,7 @@
 ---
 templateKey: cell-line
 cell_line_id: 114
-status: released
+status: data complete
 date: 2025-05-06T22:28:41.417Z
 clone_number: 35
 parental_line: 0
