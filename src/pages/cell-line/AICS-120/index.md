@@ -21,4 +21,9 @@ images_and_videos:
         inhibitor for 24hrs post-thaw). Cultures were observed daily. Colonies
         were imaged one and three days post-thaw using a Leica microscope at 4x
         and 10x magnification.
+    - image: ad00006088_20240513_x02_001_s47_z5to65_crop_scalebar5um_8bit_slice22.jpg
+      caption: hiPS cells expressing mTagRFP-T-tagged mitochondrial targeting sequence
+        of COXVIII (mitoTag). Image is a single slice near the bottom of the
+        cell (scalebar, 5 μm). Cells were imaged live in 3D on a spinning-disk
+        confocal microscope.
 ---
