@@ -17,7 +17,7 @@ tag_location:
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0090-391&PgId=166
 images_and_videos:
   videos:
-    - video: https://vimeo.com/manage/videos/1079587233/6ede024c61
+    - video: https://vimeo.com/1079587233/6ede024c61?ts=0&share=copy
       caption: Z-stack of live hiPS cell colony expressing TagBFP-tagged dCas9-KRAB.
         TagBFP-tagged dCas9-KRAB (left) and overlay onto transmitted light image
         stack (right) are shown. Cells were imaged in 3D on a spinning-disk
