@@ -8,7 +8,7 @@ interface GeneDisplayProps {
 
 const GeneDisplay: React.FC<GeneDisplayProps> = ({ gene }) => {
     return (
-        <Flex wrap="wrap">
+        <Flex wrap="wrap" align="flex-end">
             <Tag bordered={false} color="#DFE5EA">
                 {gene.symbol}
             </Tag>

@@ -1,0 +1,59 @@
+.border-card {
+    border: 1px solid var(--primary-color);
+}
+
+.container :global(.ant-card-head) {
+    background-color: var(--ALLEN_LIGHT_30);
+    color: var(--primary-color);
+    min-height: 64px;
+    border-bottom: none;
+    margin-bottom: 0; /* antd has a -1px bottom margin */
+    border-radius: 3px 3px 0 0; /* 1 less to avoid white space between border and header */
+}
+
+.container :global(.ant-card-head-title) {
+    /* allows long titles to wrap */
+    white-space: normal;
+    padding: 16px 0;
+}
+
+.container :global(.ant-card-head-wrapper) {
+    height: auto;
+}
+
+.container :global(.ant-card-body) {
+    padding: 0;
+    border-radius: 4px;
+}
+
+.container :global(.ant-card-body):first-child {
+    padding: 16px;
+}
+
+.border-body :global(.ant-card-body) {
+    border: 1px solid var(--primary-color);
+}
+
+.legend-text {
+    font-size: 14px;
+}
+
+.container :global(.ant-card-meta) {
+    border-radius: 0 0 3px 3px; /* 1 less to avoid white space between border and header */
+    background-color: var(--ALLEN_LIGHT_10);
+    padding: 12px 20px;
+    text-align: left;
+    color: var(--ALLEN_LIGHT_60);
+    font-size: 12px;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+    margin: 0px;
+}
+
+@media screen and (max-width: 1280px) {
+    .container :global(.ant-card){
+        flex-basis: 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+}

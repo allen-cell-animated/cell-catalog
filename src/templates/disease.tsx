@@ -1,10 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
+import { GeneFrontMatter } from "../component-queries/types";
 
 interface DiseaseTemplateProps {
     name: string;
-    gene: string;
+    gene: {
+        frontmatter: GeneFrontMatter;
+    }[];
 }
 export const DiseaseTemplate = ({ name, gene }: DiseaseTemplateProps) => {
     return (
@@ -13,7 +16,9 @@ export const DiseaseTemplate = ({ name, gene }: DiseaseTemplateProps) => {
                 <div className="columns">
                     <div className="column is-10 is-offset-1">
                         <p>Name: {name}</p>
-                        <p>Gene: {gene}</p>
+                        {gene.map((geneItem, index) => (
+                            <p key={index}>Gene: {geneItem.frontmatter.symbol} - {geneItem.frontmatter.name}</p>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -27,7 +32,7 @@ const Disease = ({ data }: any) => {
         <Layout>
             <DiseaseTemplate
                 name={cellLine.frontmatter.name}
-                gene={`${cellLine.frontmatter.gene.frontmatter.symbol} - ${cellLine.frontmatter.gene.frontmatter.name}`}
+                gene={cellLine.frontmatter.gene}
             />
         </Layout>
     );

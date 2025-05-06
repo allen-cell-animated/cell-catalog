@@ -1,0 +1,24 @@
+.clone-column {
+    padding: 8px 0 8px 24px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.percent-positive-column {
+    padding: 8px 24px 8px 0;
+    font-size: 12px;
+}
+
+:global(.ant-table-thead) .clone-column:global(.ant-table-cell),
+:global(.ant-table-thead) .percent-positive-column:global(.ant-table-cell) {
+    font-weight: 700;
+    padding-top: 20px;
+}
+
+
+@media screen and (max-width: 1280px) {
+    :global(.ant-card) {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}

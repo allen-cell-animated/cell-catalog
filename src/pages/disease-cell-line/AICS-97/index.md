@@ -11,22 +11,27 @@ clones:
     clone_number: 102
     transfection_replicate: A
     genotype: G256E/WT
+    positive_cells: 86
   - type: Control
     clone_number: 113
     transfection_replicate: A
     genotype: WT/WT
+    positive_cells: 76
   - type: Mutant
     clone_number: 141
     transfection_replicate: A
     genotype: G256E/WT
+    positive_cells: 77
   - type: Mutant
     clone_number: 157
     transfection_replicate: B
     genotype: G256E/WT
+    positive_cells: 76
   - type: Control
     clone_number: 174
     transfection_replicate: B
     genotype: WT/WT
+    positive_cells: 74
 order_link: https://www.coriell.org/0/Sections/Search/DiseaseCollection_Detail.aspx?Ref=AICS-0097&Product=CiPSC&PgId=166
 certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/iPSC/AICS-0097_CofA.pdf
 images_and_videos:
@@ -71,7 +76,9 @@ genomic_characterization:
         analysis for clone 157. All clones resulted in normal karyotype.
 editing_design:
   crna_target_site: 5’ TTTTGGGGCAACAGGAAAGT[TGG] 3’
-  dna_donor_sequence: 5’ AATTCATTCGAATTCATTTTGGGGCAACAG[A] AAAGTTGGCATCTGCAGACATAGAGACC 3’
+  dna_donor_sequence:
+    - sequence: 5’ AATTCATTCGAATTCATTTTGGGGCAACAG[A]AAAGTTGGCATCTGCAGACATAGAGACC 3’
+      type: ""
   cas9: "TrueCut™ Cas9 Protein "
   f_primer: " 5’ CCCAACTCATCACCACTCTC 3’"
   r_primer: 5’ GGAGAGAGAGAGAGGTCAAG 3’
@@ -86,15 +93,4 @@ editing_design:
       image: actn2_fullfigure.png
       caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP
         insertion site at ACTN2 C-terminus"
-stem_cell_characteristics:
-  - clone_number: 102
-    positive_cells: 86
-  - clone_number: 113
-    positive_cells: 76
-  - clone_number: 141
-    positive_cells: 77
-  - clone_number: 157
-    positive_cells: 76
-  - clone_number: 174
-    positive_cells: 74
 ---

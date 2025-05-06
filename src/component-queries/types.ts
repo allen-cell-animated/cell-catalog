@@ -1,4 +1,5 @@
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 
 export interface Isoform {
     name: string;
@@ -16,12 +17,12 @@ export interface ParentalLineFrontmatter {
     cell_line_id: number;
     clone_number: number;
     allele_count: string;
-    tag_location: string;
-    fluorescent_tag: string;
+    tag_location: string[];
+    fluorescent_tag: string[];
     thumbnail_image: any;
     gene: {
         frontmatter: GeneFrontMatter;
-    };
+    }[];
 }
 
 export interface NormalCellLineFrontmatter {
@@ -29,8 +30,8 @@ export interface NormalCellLineFrontmatter {
     cell_line_id: number;
     status: CellLineStatus;
     clone_number: number;
-    tag_location: string;
-    fluorescent_tag: string;
+    tag_location: string[];
+    fluorescent_tag: string[];
     allele_count: string;
     order_link: string;
     parental_line: {
@@ -45,8 +46,8 @@ export interface NormalCellLineFrontmatter {
             symbol: string;
             structure: string;
         };
-    };
-}
+    }[];
+};
 
 export interface NormalCellLineNode {
     id: string;
@@ -62,6 +63,20 @@ export enum CellLineStatus {
     InProgress = "in progress",
 }
 
+enum Antibody {
+    PAX6 = "PAX6",
+    SOX17 = "SOX17",
+    BRACHYURY = "Brachyury",
+}
+
+enum TranscriptFactor {
+    NANOG = "NANOG",
+    OCT4 = "OCT4",
+    SOX2 = "SOX2",
+    SSEA1 = "SSEA-1",
+    SSEA4 = "SSEA-4",
+}
+
 // NOTE: Temporarily optional fields, but
 // once the data has been updated by gene editing
 // these fields will be required
@@ -70,6 +85,24 @@ export interface Clone {
     clone_number?: number;
     genotype?: string;
     transfection_replicate?: string;
+    positive_cells?: number;
+    antibody_analysis?: Antibody[];
+    differentiation?: { [key in TranscriptFactor]?: number };
+}
+
+export interface Sequence {
+    sequence: string;
+    type: string;
+}
+
+export interface Diagram {
+    image: {
+        childImageSharp: {
+            gatsbyImageData: IGatsbyImageData;
+        };
+    };
+    title: string;
+    caption: string;
 }
 
 export interface DiseaseCellLineFrontmatter {
@@ -85,7 +118,7 @@ export interface DiseaseCellLineFrontmatter {
     order_link: string;
     status: CellLineStatus;
     hPSCreg_certificate_link: string;
-    images_and_videos: {
+    images_and_videos?: {
         images: {
             image: any;
             caption: string;
@@ -94,6 +127,17 @@ export interface DiseaseCellLineFrontmatter {
             video: any;
             caption: string;
         }[];
+    };
+    editing_design?: {
+        crna_target_site: string;
+        dna_donor_sequence: Sequence[];
+        cas9: string;
+        f_primer: string;
+        r_primer: string;
+        diagrams: Diagram[];
+    };
+    genomic_characterization?: {
+        diagrams: Diagram[];
     };
 }
 
@@ -113,7 +157,7 @@ export interface DiseaseFrontmatter {
     name: string;
     gene: {
         frontmatter: GeneFrontMatter;
-    };
+    }[];
     status: string;
     acknowledgements: { html: string };
 }
@@ -130,15 +174,15 @@ export interface UnpackedCellLineMainInfo {
     cellLineId: number;
     status: CellLineStatus;
     certificateOfAnalysis: string;
-    hPSCregCertificateLink: string;
+    healthCertificate: string;
     orderLink: string;
     thumbnailImage?: FileNode;
 }
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     cloneNumber: number;
-    tagLocation: string;
-    fluorescentTag: string;
-    taggedGene: UnpackedGene;
+    tagLocation: string[];
+    fluorescentTag: string[];
+    taggedGene: UnpackedGene[];
     alleleCount: string;
     parentalLine: string;
     structure: string;
@@ -154,5 +198,5 @@ export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
     snp: string;
     clones: Clone[];
     parentalLine: ParentLine;
-    mutatedGene: UnpackedGene;
+    mutatedGene: UnpackedGene[];
 }

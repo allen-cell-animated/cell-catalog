@@ -7,10 +7,75 @@ snp: NM_000257.4(MYH7):c.1573G>A (p.Glu525Lys)
 parental_line: 75
 status: released
 clones:
-  - type: Mutant
-  - type: Mutant
   - type: Control
+    clone_number: 55
+    transfection_replicate: B
+    genotype: WT/WT
+    positive_cells: 58
+  - type: Mutant
+    clone_number: 56
+    transfection_replicate: B
+    genotype: E525K/WT
+    positive_cells: 76
   - type: Control
+    clone_number: 72
+    transfection_replicate: B
+    genotype: WT/WT
+    positive_cells: 73
+  - type: Mutant
+    clone_number: 93
+    transfection_replicate: B
+    genotype: E525K/WT
+    positive_cells: 62
 order_link: https://www.coriell.org/0/Sections/Search/DiseaseCollection_Detail.aspx?Ref=AICS-0109&Product=CiPSC&PgId=166
 certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/iPSC/AICS-0109_CofA.pdf
+images_and_videos:
+  images:
+    - caption: One vial of distribution lot was thawed (cells were treated with ROCK
+        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
+        were observed daily. Colonies were imaged one and four days post-thaw
+        using a Leica microscope 4x and 10x magnification. A four panel image of
+        clone 93 is shown here and is a representative image for all clones in
+        the collection. Viability and colony formation one day and four days
+        post-thaw. Scale bars are shown.
+      image: aics-109_clone93_e525k.png
+genomic_characterization:
+  diagrams:
+    - title: Sanger Sequencing Results
+      caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
+        alleles. Results confirmed respective genotype as indicated in table
+        above with no additional mutations present. 
+      image: aics-0109_e525k_sanger_exported_highres.png
+    - title: Mono-Clonality Confirmation via ddPCR Assay
+      caption: Verification of genomic copy number of WT and mutant alleles.
+        E525K:WT/RPP30 ratio from ddPCR assay; values ~ 0.5 indicate
+        heterozygous clone, values ~1 indicate unedited clone. RPP30 is known 2n
+        reference gene. 
+      image: aics-0109_e525k_mono-clonality-confirmation.png
+    - title: Karyotype Analysis
+      caption: After cells banks were created, one vial per clone was thawed and 30
+        G-banded metaphase cells were karyotyped. Above is the representative
+        analysis for clone 72. All clones resulted in normal karyotype.
+      image: aics-0109_cl72_e525k_karyotype.png
+editing_design:
+  crna_target_site: 5’ AAAGAGGCACCTTCTCGATG[AGG] 3’
+  dna_donor_sequence:
+    - sequence: 5’ TCAGGTGGTAAGGCCAAAGAGGCACCTTCT[T]GATGAGGTCAATGC AGGCCTGCAGGTCC 3’
+      type: ""
+  cas9: "TrueCut™ Cas9 Protein "
+  f_primer: " 5’ GGACTGTGTGGTGACAGAGG 3’"
+  r_primer: " 5’ GTGTGGGAGGTCATCATGCA 3’"
+  diagrams:
+    - title: '"Header Caption: CRISPR-Cas9 methodology was used to introduce a single
+        base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown
+        below."'
+      caption: "Top: MYH7 locus showing 1 MYH7 isoform; Bottom: Zoom in on mutation
+        site at isoform NM_000257.4(MYH7):c.1573G>A (p.Glu525Lys)"
+      image: e525k_fullfigure.png
+    - title: '"Header Caption: CRISPR-Cas9 methodology was used to introduce a single
+        base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown
+        below."'
+      caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP
+        insertion site at ACTN2 C-terminus"
+      image: actn2_fullfigure.png
 ---

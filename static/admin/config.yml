@@ -1,5 +1,6 @@
 backend:
     name: git-gateway
+    repo: allen-cell-animated/cell-catalog
     branch: main
     commit_messages:
         create: "Create {{collection}} “{{slug}}”"
@@ -7,7 +8,9 @@ backend:
         delete: "Delete {{collection}} “{{slug}}”"
         uploadMedia: "[skip ci] Upload “{{path}}”"
         deleteMedia: "[skip ci] Delete “{{path}}”"
+    squash_merges: true
 
+publish_mode: editorial_workflow
 local_backend: true
 media_folder: static/img
 public_folder: /img
@@ -18,10 +21,10 @@ collections:
       label_singular: "Cell Line"
       folder: "src/pages/cell-line"
       create: true
-      slug: "AICS-{{cell_line_id}}"
+      slug: "AICS-{{cell_line_id}}-{{clone_number}}"
       path: "{{slug}}/index"
       identifier_field: "cell_line_id"
-      summary: "AICS-{{cell_line_id}} - {{gene}}"
+      summary: "AICS-{{cell_line_id}} - {{gene[0]}}"
       media_folder: ""
       public_folder: ""
       fields:
@@ -75,7 +78,7 @@ collections:
                 label: "Clone Number",
                 name: "clone_number",
                 widget: "number",
-                valueType: int,
+                value_type: int,
                 required: false,
             }
           - {
@@ -94,6 +97,7 @@ collections:
                 value_field: "symbol",
                 display_fields: ["symbol"],
                 required: false,
+                multiple: true,
             }
           - {
                 label: "Allele Count",
@@ -132,22 +136,22 @@ collections:
                 required: false,
             }
           - {
-            label: "Certificate of Analysis",
-            name: "certificate_of_analysis",
-            widget: "file",
-            required: false,
+                label: "Certificate of Analysis",
+                name: "certificate_of_analysis",
+                widget: "file",
+                required: false,
             }
           - {
-            label: "Donor Plasmid",
-            name: "donor_plasmid",
-            widget: "string",
-            required: false,
+                label: "Donor Plasmid",
+                name: "donor_plasmid",
+                widget: "string",
+                required: false,
             }
           - {
-            label: "hPSCreg Certificate",
-            name: "hPSCreg_certificate_link",
-            widget: "file",
-            required: false,
+                label: "hPSCreg Certificate",
+                name: "hPSCreg_certificate_link",
+                widget: "file",
+                required: false,
             }
           - {
                 label: "Image and Video Carousel",
@@ -268,7 +272,6 @@ collections:
                             label: "Clone number",
                             name: "clone_number",
                             widget: "number",
-                            required: false,
                         },
                         {
                             label: "Clone Type",
@@ -287,6 +290,66 @@ collections:
                             name: "genotype",
                             widget: "string",
                             required: false,
+                        },
+                        {
+                            label: "Troponin T, % Positive Cells(n)",
+                            name: "positive_cells",
+                            widget: "number",
+                            value_type: "float",
+                            required: false,
+                        },
+                        {
+                            label: "Passing Antibodies",
+                            name: "antibody_analysis",
+                            hint: "select all antibodies this clone passed ",
+                            widget: "select",
+                            options: ["PAX6", "SOX17", "Brachyury"],
+                            multiple: true,
+                            required: false,
+                        },
+                        {
+                            label: "Differentiation",
+                            name: "differentiation",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "NANOG",
+                                        name: "NANOG",
+                                        widget: "number",
+                                        value_type: "float",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "SOX2",
+                                        name: "SOX2",
+                                        widget: "number",
+                                        value_type: "float",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "OCT4",
+                                        name: "OCT4",
+                                        widget: "number",
+                                        value_type: "float",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "SSEA-1",
+                                        name: "SSEA-1",
+                                        widget: "number",
+                                        value_type: "float",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "SSEA-4",
+                                        name: "SSEA-4",
+                                        widget: "number",
+                                        value_type: "float",
+                                        required: false,
+                                    },
+                                ],
                         },
                     ],
             }
@@ -406,9 +469,25 @@ collections:
                         {
                             label: "DNA Donor Sequence",
                             name: "dna_donor_sequence",
-                            widget: "string",
+                            widget: "list",
                             required: false,
+                            collapsed: true,
                             hint: "Enter entire DNA donor sequence. Place square brackets around mutation sites. e.g. AG[A]AA",
+                            fields:
+                                [
+                                    {
+                                        label: "Sequence",
+                                        name: "sequence",
+                                        widget: "string",
+                                    },
+                                    {
+                                        label: "Type",
+                                        name: "type",
+                                        widget: "select",
+                                        default: "",
+                                        options: ["", "WT", "Mutant"],
+                                    },
+                                ],
                         },
                         {
                             label: "Cas9",
@@ -452,28 +531,6 @@ collections:
                                         widget: "string",
                                     },
                                 ],
-                        },
-                    ],
-            }
-          - {
-                label: "Stem Cell Characteristics",
-                name: "stem_cell_characteristics",
-                widget: "list",
-                required: false,
-                collapsed: true,
-                fields:
-                    [
-                        {
-                            label: "Clone number",
-                            name: "clone_number",
-                            widget: "number",
-                            required: false,
-                        },
-                        {
-                            label: "Troponin T, % Positive Cells(n)",
-                            name: "positive_cells",
-                            widget: "number",
-                            required: false,
                         },
                     ],
             }

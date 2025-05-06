@@ -28,6 +28,10 @@
     border: 1px solid var(--border-color);
 }
 
+.coriell-card:hover {
+    border: solid 1.5px var(--primary-color);
+}
+
 .coriell-card :global(.ant-card-head) {
     font-family: "Open Sans";
     font-size: 16px;
