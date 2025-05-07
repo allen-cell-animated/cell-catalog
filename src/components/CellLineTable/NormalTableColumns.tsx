@@ -143,7 +143,6 @@ export const getNormalTableColumns = (
                 return fluorescentTag?.join(" / ");
             },
             sortIcon: sortIcon,
-
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     (a.fluorescentTag ?? []).join("|"),
