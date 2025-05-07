@@ -27,5 +27,5 @@ images_and_videos:
         of the cell (scalebar, 5 μm). Inset image is 2x enlargement of boxed
         area to show detailed relationship between tagged proteins. Cells were
         imaged live in 3D on a spinning-disk confocal microscope.
-      image: ad00006088_20240513_x02_001_s14_z17to61_crop_inset2x_shifted_scalebar5um_rgb_z14.jpg
+      image: ad00006088_20240513_x02_001_s14_z17to61_crop_inset2x_shifted_scalebar5um_rgb_z14.png
 ---
