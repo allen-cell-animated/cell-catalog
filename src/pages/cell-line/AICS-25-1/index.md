@@ -3,14 +3,12 @@ templateKey: cell-line
 cell_line_id: 25
 status: released
 clone_number: 1
-allele_count: mono
 parental_line: 0
-gene:
-  - ST6GAL1
-tag_location:
-  - C-terminus
-fluorescent_tag:
-  - mEGFP
+genetic_modifications:
+  - gene: ST6GAL1
+    tag_location: C-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
 order_link: https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0025-001&Product=iPSC
 cofa: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0025-001_CofA.pdf
 donor_plasmid: https://www.addgene.org/101786/
