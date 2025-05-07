@@ -1,8 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GeneticModification } from "../component-queries/types";
 
 interface QueryResult {
     data: {
@@ -11,7 +11,7 @@ interface QueryResult {
                 cell_line_id: string;
                 clone_number: number;
                 gene: string[];
-                tag_location: string[];
+                genetic_modifications?: GeneticModification[];
                 status: string;
                 thumbnail_image: any;
             };
@@ -22,8 +22,7 @@ interface QueryResult {
 interface CellLineProps {
     cellLineId: string;
     cloneNumber: number;
-    gene: string[];
-    tagLocation: string[];
+    geneticModifications?: GeneticModification[];
     status: string;
     thumbnail: any;
 }
@@ -32,8 +31,7 @@ interface CellLineProps {
 export const CellLineTemplate = ({
     cellLineId,
     cloneNumber,
-    gene,
-    tagLocation,
+    geneticModifications,
     status,
     thumbnail,
 }: CellLineProps) => {
@@ -47,8 +45,8 @@ export const CellLineTemplate = ({
                             AICS-{cellLineId}
                         </h1>
                         <p>Clone Number: {cloneNumber}</p>
-                        <p>Gene: {gene}</p>
-                        <p>Tag: {tagLocation}</p>
+                        <p>Gene: {geneticModifications?.map(mod => mod.gene?.frontmatter?.symbol).join(" / ")}</p>
+                        <p>Tag: {geneticModifications?.map(mod => mod.tag_location).join(" / ")}</p>
                         <p>Status: {status}</p>
                         {image && (
                             <GatsbyImage
@@ -70,8 +68,7 @@ const CellLine = ({ data }: QueryResult) => {
             <CellLineTemplate
                 cellLineId={cellLine.frontmatter.cell_line_id}
                 cloneNumber={cellLine.frontmatter.clone_number}
-                gene={cellLine.frontmatter.gene}
-                tagLocation={cellLine.frontmatter.tag_location}
+                geneticModifications={cellLine.frontmatter.genetic_modifications}
                 status={cellLine.frontmatter.status}
                 thumbnail={cellLine.frontmatter.thumbnail_image}
             />
@@ -88,7 +85,15 @@ export const pageQuery = graphql`
             frontmatter {
                 cell_line_id
                 clone_number
-                tag_location
+                genetic_modifications {
+                    gene {
+                        frontmatter {
+                            symbol
+                            name
+                        }
+                    }
+                    tag_location
+                }
                 status
                 thumbnail_image {
                     childImageSharp {

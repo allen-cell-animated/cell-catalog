@@ -3,22 +3,28 @@ import {
     NormalCellLineNode,
     UnpackedDiseaseCellLine,
     UnpackedGene,
-    GeneFrontMatter,
     UnpackedNormalCellLine,
+    GeneticModification,
 } from "./types";
 
+const extractGeneticModifications = (
+    modifications?: GeneticModification[]
+): { taggedGene: UnpackedGene, alleleCount: string, tagLocation: string, fluorescentTag: string }[] => {
+    if (!modifications || !modifications.length) return [];
 
-const extractGenes = (geneArray: { frontmatter: GeneFrontMatter }[] = []): UnpackedGene[] => {
-    if (!geneArray) return [];
-
-    return geneArray
-        .filter((gene) => gene && gene.frontmatter) 
-        .map((gene) => ({
-            name: gene.frontmatter.name,
-            symbol: gene.frontmatter.symbol,
-            structure: gene.frontmatter.structure,
-            protein: gene.frontmatter.protein,
-    }));
+    return modifications
+        .filter(mod => mod && mod.gene && mod.gene.frontmatter)
+        .map(mod => ({
+            taggedGene: {
+                name: mod.gene?.frontmatter.name || "",
+                symbol: mod.gene?.frontmatter.symbol || "",
+                structure: mod.gene?.frontmatter.structure || "",
+                protein: mod.gene?.frontmatter.protein || ""
+            },
+            alleleCount: mod.allele_count || "",
+            tagLocation: mod.tag_location || "",
+            fluorescentTag: mod.fluorescent_tag || ""
+        }));
 };
 
 
@@ -26,10 +32,19 @@ export const convertFrontmatterToDiseaseCellLine = (
     cellLineNode: DiseaseCellLineNode
 ): UnpackedDiseaseCellLine => {
     const diseaseData = cellLineNode.frontmatter.disease.frontmatter;
-    const mutatedGenes = extractGenes(diseaseData.gene);
-    const parentalGenes = extractGenes(
-        cellLineNode.frontmatter.parental_line.frontmatter.gene
+    const mutatedGenes = diseaseData.gene
+        .filter((gene) => gene && gene.frontmatter)
+        .map((gene) => ({
+            name: gene.frontmatter.name,
+            symbol: gene.frontmatter.symbol,
+            structure: gene.frontmatter.structure,
+            protein: gene.frontmatter.protein,
+        }));
+    const parentalGeneticModifications = extractGeneticModifications(
+        cellLineNode.frontmatter.parental_line.frontmatter.genetic_modifications
     );
+    const parentalGenes = parentalGeneticModifications.map(mod => mod.taggedGene);
+
     return {
         cellLineId: cellLineNode.frontmatter.cell_line_id,
         certificateOfAnalysis: cellLineNode.frontmatter.certificate_of_analysis,
@@ -49,11 +64,7 @@ export const convertFrontmatterToDiseaseCellLine = (
                 cellLineNode.frontmatter.parental_line.frontmatter.cell_line_id,
             cloneNumber:
                 cellLineNode.frontmatter.parental_line.frontmatter.clone_number,
-            tagLocation: 
-                cellLineNode.frontmatter.parental_line.frontmatter.tag_location,
-            fluorescentTag: 
-                cellLineNode.frontmatter.parental_line.frontmatter.fluorescent_tag,
-            taggedGene: parentalGenes,
+            geneticModifications: parentalGeneticModifications,
         },
         key: cellLineNode.id,
     };
@@ -64,19 +75,18 @@ export const convertFrontmatterToNormalCellLines = ({
 }: {
     node: NormalCellLineNode;
 }): UnpackedNormalCellLine => {
-    const genes = extractGenes(cellLineNode.frontmatter.gene);
+    const geneticModifications = extractGeneticModifications(cellLineNode.frontmatter.genetic_modifications);
+    const genes = geneticModifications.map(mod => mod.taggedGene);
     const proteins = genes.map((gene) => gene.protein || "");
     const structures = genes.map((gene) => gene.structure || "");
+
     return {
         path: cellLineNode.fields.slug,
         cellLineId: cellLineNode.frontmatter.cell_line_id,
         cloneNumber: cellLineNode.frontmatter.clone_number,
-        alleleCount: cellLineNode.frontmatter.allele_count,
-        fluorescentTag: cellLineNode.frontmatter.fluorescent_tag,
-        tagLocation: cellLineNode.frontmatter.tag_location,
+        geneticModifications: geneticModifications, 
         parentalLine: cellLineNode.frontmatter.parental_line.frontmatter.name,
         protein: proteins.join(" / "),
-        taggedGene: genes,
         structure: structures.join(" / "),
         status: cellLineNode.frontmatter.status,
         certificateOfAnalysis: "",

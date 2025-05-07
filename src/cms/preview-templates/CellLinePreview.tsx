@@ -4,19 +4,16 @@ import { TemplateProps } from "./types";
 import useDisableWheel from "../hooks/useDisableWheel";
 
 const CellLinePreview = ({ entry }: TemplateProps) => {
-    const geneEntry = entry.getIn(["data", "gene"]);
-    const gene = geneEntry?.join ? geneEntry.join(", ") : geneEntry || "";
-    const tagLocationEntry = entry.getIn(["data", "tag_location"]);
-    const tagLocation = tagLocationEntry?.join
-        ? tagLocationEntry.join(", ")
-        : tagLocationEntry || "";
+    const geneticModificationsEntry = entry.getIn(["data", "genetic_modifications"]);
+    const geneticModifications = geneticModificationsEntry ?
+        geneticModificationsEntry.toJS() : 
+        [];
     useDisableWheel();
     return (
         <CellLineTemplate
             cellLineId={entry.getIn(["data", "cell_line_id"])}
             cloneNumber={entry.getIn(["data", "clone_number"])}
-            gene={gene}
-            tagLocation={tagLocation}
+            geneticModifications={geneticModifications}
             status={entry.getIn(["data", "status"])}
             thumbnail={entry.getIn(["data", "thumbnail_image"])}
         />

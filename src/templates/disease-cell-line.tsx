@@ -75,11 +75,13 @@ export const DiseaseCellLineTemplate = ({
                     <div className={imagesContainer}>
                         <ImagesAndVideos
                             cellLineId={cellLineId}
-                            fluorescentTag={[parentalLine.fluorescent_tag[0]]}
-                            parentalGeneSymbol={
-                                parentalLine.gene[0].frontmatter.symbol
+                            fluorescentTag={
+                                parentalLine.genetic_modifications?.[0]?.fluorescent_tag || ""
                             }
-                            alleleTag={parentalLine.allele_count}
+                            parentalGeneSymbol={
+                                parentalLine.genetic_modifications?.[0]?.gene?.frontmatter.symbol || ""
+                            }
+                            alleleTag={parentalLine.genetic_modifications?.[0]?.allele_count || ""}
                             parentalLine={parentalLine}
                             geneSymbol={geneSymbol}
                             snp={snp}
@@ -144,9 +146,6 @@ export const pageQuery = graphql`
                     frontmatter {
                         cell_line_id
                         clone_number
-                        allele_count
-                        tag_location
-                        fluorescent_tag
                         thumbnail_image {
                             childImageSharp {
                                 gatsbyImageData(
@@ -155,11 +154,16 @@ export const pageQuery = graphql`
                                 )
                             }
                         }
-                        gene {
-                            frontmatter {
-                                symbol
-                                name
+                        genetic_modifications {
+                            gene {
+                                frontmatter {
+                                    symbol
+                                    name
+                                }
                             }
+                            allele_count
+                            tag_location
+                            fluorescent_tag
                         }
                     }
                 }
