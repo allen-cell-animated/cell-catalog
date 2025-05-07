@@ -41,6 +41,10 @@
     color: var(--SERIOUS_GRAY);
 }
 
+.container .subtitle {
+    font-size: 16px;
+}
+
 .right-title {
     font-size: 12px;
     font-style: italic;
@@ -133,5 +137,12 @@
     .primary-image-with-thumbnail {
         width: 100%;
         flex: 1 1 auto;
+    }
+}
+
+/* mobile sizing */
+@media (max-width: 744px) {
+    .container .subtitle {
+        font-size: 14px;
     }
 }
