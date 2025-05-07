@@ -24,7 +24,7 @@ collections:
       slug: "AICS-{{cell_line_id}}-{{clone_number}}"
       path: "{{slug}}/index"
       identifier_field: "cell_line_id"
-      summary: "AICS-{{cell_line_id}} - {{gene[0]}}"
+      summary: "AICS-{{cell_line_id}}-{{genetic_modifications.[0].gene}}"
       media_folder: ""
       public_folder: ""
       fields:
@@ -89,40 +89,45 @@ collections:
                 required: true,
             }
           - {
-                label: "Gene",
-                name: "gene",
-                widget: "relation",
-                collection: "gene-name",
-                search_fields: ["symbol", "name", "protein", "structure"],
-                value_field: "symbol",
-                display_fields: ["symbol"],
+                label: "Genetic Modifications",
+                name: "genetic_modifications",
+                widget: "list",
                 required: false,
-                multiple: true,
-            }
-          - {
-                label: "Allele Count",
-                name: "allele_count",
-                widget: "select",
-                options: ["mono", "bi"],
-                required: false,
-            }
-
-          - {
-                label: "Tag Location",
-                name: "tag_location",
-                widget: "select",
-                multiple: true,
-                options: ["C-terminus", "N-terminus"],
-                required: false,
-            }
-          - {
-                label: "Fluorescent Tag",
-                name: "fluorescent_tag",
-                widget: "select",
-                multiple: true,
-                options: ["mEGFP", "EGFP", "mTagRFP-T", "TagBFP", "HaloTag"],
-                required: false,
-            }
+                fields:
+                    [
+                        {
+                            label: "Gene",
+                            name: "gene",
+                            widget: "relation",
+                            collection: "gene-name",
+                            search_fields: ["symbol", "name", "protein", "structure"],
+                            value_field: "symbol",
+                            display_fields: ["symbol"],
+                            required: false,
+                        },
+                        {
+                            label: "Allele Count",
+                            name: "allele_count",
+                            widget: "select",
+                            options: ["mono", "bi"],
+                            required: false,
+                        },
+                        {
+                            label: "Tag Location",
+                            name: "tag_location",
+                            widget: "select",
+                            options: ["C-terminus", "N-terminus"],
+                            required: false,
+                        },
+                        {
+                            label: "Fluorescent Tag",
+                            name: "fluorescent_tag",
+                            widget: "select",
+                            options: ["mEGFP", "EGFP", "mTagRFP-T", "TagBFP", "HaloTag"],
+                            required: false,
+                        },
+                    ],
+          }
           - {
                 label: "Linker",
                 name: "linker",

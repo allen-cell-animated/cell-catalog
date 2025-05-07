@@ -1,6 +1,4 @@
 import React from "react";
-import { Flex, GetProp, Table } from "antd";
-import Icon from "@ant-design/icons";
 
 import {
     UnpackedGene,
@@ -31,21 +29,21 @@ export const getNormalTableColumns = (
         {
             title: "Gene Symbol & Name",
             width: 280,
-            key: "taggedGene",
-            dataIndex: "taggedGene",
+            key: "geneticModifications",
+            dataIndex: "geneticModifications",
             responsive: mdBreakpoint,
-            render: (taggedGene: UnpackedGene[]) => {
+            render: (geneticModifications?: { taggedGene: UnpackedGene, alleleCount: string, tagLocation: string, fluorescentTag: string }[]) => {
+                console.log("geneticModifications", geneticModifications);
                 return (
                     <>
-                        {taggedGene.map((gene, index) => (
+                        {geneticModifications?.map((mod, index) => (
                             <GeneDisplay
                                 key={index}
-                                gene={gene}
+                                gene={mod.taggedGene}
                             />
                         ))}
                     </>
-                ) 
-                
+                )
             },
         },
         {
@@ -56,9 +54,12 @@ export const getNormalTableColumns = (
         },
         {
             title: "Tagged Alleles",
-            key: "alleleCount",
-            dataIndex: "alleleCount",
+            key: "geneticModifications",
+            dataIndex: "geneticModifications",
             responsive: mdBreakpoint,
+            render: (geneticModifications?: { taggedGene: UnpackedGene, alleleCount: string, tagLocation: string, fluorescentTag: string }[]) => {
+                return geneticModifications?.map(mod => mod.alleleCount).join(" / ");
+            },
         },
         {
             title: "Structure",
@@ -69,22 +70,22 @@ export const getNormalTableColumns = (
         },
         {
             title: "Fluorescent Tag",
-            key: "fluorescentTag",
-            dataIndex: "fluorescentTag",
+            key: "geneticModifications",
+            dataIndex: "geneticModifications",
             responsive: mdBreakpoint,
-            render: (fluorescentTag: string[]) => {
-                return fluorescentTag?.join(" / ");
+            render: (geneticModifications?: { taggedGene: UnpackedGene, alleleCount: string, tagLocation: string, fluorescentTag: string }[]) => {
+                return geneticModifications?.map(mod => mod.fluorescentTag).join(" / ");
             },
         },
         {
             title: "Tag Location",
-            key: "tagLocation",
-            dataIndex: "tagLocation",
+            key: "geneticModifications",
+            dataIndex: "geneticModifications",
             className: inProgress ? "" : lastColumn,
             responsive: mdBreakpoint,
-            render: (tagLocation: string[]) => {
-                return tagLocation?.join(" / ");
-            },
+            render: (geneticModifications?: { taggedGene: UnpackedGene, alleleCount: string, tagLocation: string, fluorescentTag: string }[]) => {
+                return geneticModifications?.map(mod => mod.tagLocation).join(" / ");
+            }
         },
     ];
 

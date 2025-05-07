@@ -3,14 +3,12 @@ templateKey: cell-line
 cell_line_id: 40
 status: released
 clone_number: 35
-allele_count: bi
 parental_line: 0
-gene:
-  - RAB5A
-tag_location:
-  - N-terminus
-fluorescent_tag:
-  - mEGFP
+genetic_modifications:
+  - gene: RAB5A
+    tag_location: N-terminus
+    fluorescent_tag: mEGFP
+    allele_count: bi
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0040-035&PgId=166
 cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0040-035_CofA.pdf
 donor_plasmid: https://www.addgene.org/107579/

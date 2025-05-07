@@ -103,8 +103,6 @@ export default function DiseaseCellLineQuery(props: {
                                         frontmatter {
                                             cell_line_id
                                             clone_number
-                                            tag_location
-                                            fluorescent_tag
                                             thumbnail_image {
                                                 childImageSharp {
                                                     gatsbyImageData(
@@ -114,10 +112,14 @@ export default function DiseaseCellLineQuery(props: {
                                                     )
                                                 }
                                             }
-                                            gene {
-                                                frontmatter {
-                                                    symbol
-                                                    name
+                                            genetic_modifications {
+                                                tag_location
+                                                fluorescent_tag
+                                                gene {
+                                                    frontmatter {
+                                                        symbol
+                                                        name
+                                                    }
                                                 }
                                             }
                                         }

@@ -3,14 +3,12 @@ templateKey: cell-line
 cell_line_id: 93
 status: released
 clone_number: 25
-allele_count: mono
 parental_line: 0
-gene:
-  - TERF2
-tag_location:
-  - N-terminus
-fluorescent_tag:
-  - mEGFP
+genetic_modifications:
+  - gene: TERF2
+    tag_location: N-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0093-025&PgId=166
 cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0093-025_CofA.pdf
 donor_plasmid: https://www.addgene.org/168798/

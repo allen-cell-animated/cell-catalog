@@ -3,14 +3,12 @@ templateKey: cell-line
 cell_line_id: 30
 status: released
 clone_number: 22
-allele_count: mono
 parental_line: 0
-gene:
-  - MAP1LC3B
-tag_location:
-  - N-terminus
-fluorescent_tag:
-  - mEGFP
+genetic_modifications:
+  - gene: MAP1LC3B
+    tag_location: N-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0030-022&PgId=166
 cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0030-022_CofA.pdf
 donor_plasmid: https://www.addgene.org/101783/
