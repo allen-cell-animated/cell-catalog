@@ -18,11 +18,9 @@ const InfoPanel: React.FC<InfoPanelProps> = ({ data }) => {
                 colon={false}
                 labelStyle={{
                     alignItems: "center",
-                    fontSize: "14px",
                 }}
                 contentStyle={{
                     alignItems: "center",
-                    fontSize: "16px",
                     fontWeight: "semi-bold",
                     lineHeight: "1.5",
                 }}

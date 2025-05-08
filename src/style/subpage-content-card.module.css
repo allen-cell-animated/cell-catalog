@@ -15,6 +15,7 @@
     /* allows long titles to wrap */
     white-space: normal;
     padding: 16px 0;
+    font-size: 24px;
 }
 
 .container :global(.ant-card-head-wrapper) {
@@ -51,9 +52,12 @@
 }
 
 @media screen and (max-width: 1280px) {
-    .container :global(.ant-card){
+    .container :global(.ant-card) {
         flex-basis: 100%;
         max-width: 100%;
         width: 100%;
+    }
+    .container :global(.ant-card-head-title) {
+        font-size: 16px;
     }
 }

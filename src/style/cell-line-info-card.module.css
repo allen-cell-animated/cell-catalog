@@ -54,3 +54,10 @@
         rgba(11, 154, 171, 0.5) 100%
     ) !important;
 }
+
+/* mobile sizing */
+@media (max-width: 744px) {
+    .container .title {
+        font-size: 40px;
+    }
+}
