@@ -24,5 +24,10 @@ images_and_videos:
         of COXVIII (mitoTag). Image is a single slice near the bottom of the
         cell (scalebar, 5 μm). Cells were imaged live in 3D on a spinning-disk
         confocal microscope.
-  videos: []
+  videos:
+    - video: https://vimeo.com/1082631557/50d82c66b5?ts=0&share=copy
+      caption: Z-stack of a live hiPS cell colony expressing mTagRFP-T-tagged
+        mitochondrial targeting sequence of COXVIII (mitoTag). The movie starts
+        at the bottom of the cells and ends at the top (scale bar, 5 µm). Cells
+        were imaged live in 3D on a spinning-disk confocal microscope.
 ---
