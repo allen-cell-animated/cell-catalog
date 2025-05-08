@@ -28,4 +28,13 @@ images_and_videos:
         area to show detailed relationship between tagged proteins. Cells were
         imaged live in 3D on a spinning-disk confocal microscope.
       image: ad00006088_20240513_x02_001_s14_z17to61_crop_inset2x_shifted_scalebar5um_rgb_z14.png
+  videos:
+    - video: https://vimeo.com/1082633752/0e3a793bb8?ts=0&share=copy
+      caption: "Z-stack of a live hiPS cell colony expressing expressing mEGFP-tagged
+        outer mitochondrial membrane receptor Tom20 (TOMM20) and
+        mTagRFP-T-tagged mitochondrial targeting sequence of COXVIII (mitoTag).
+        The movie starts at the bottom of the cells and ends at the top (scale
+        bar, 5 µm). Inset image is 2x enlargement of boxed area to show detailed
+        relationship between tagged proteins. Cells were imaged live in 3D on a
+        spinning-disk confocal microscope. "
 ---
