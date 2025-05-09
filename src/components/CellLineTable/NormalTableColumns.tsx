@@ -16,17 +16,26 @@ import {
 
 const { lastColumn } = require("../../style/table.module.css");
 
+/* case insensitive string comparison */
+const compareStrings = (a = "", b = "") =>
+    a.localeCompare(b, undefined, { sensitivity: "base" });
+
 export const getNormalTableColumns = (
     inProgress: boolean
 ): CellLineColumns<UnpackedNormalCellLine> => {
     const columns = [
-        { ...cellLineIdColumn },
+        {
+            ...cellLineIdColumn,
+            sorter: (a: any, b: any) =>
+                (a.cellLineId ?? 0) - (b.cellLineId ?? 0),
+        },
         {
             title: "Protein",
             key: "protein",
             dataIndex: "protein",
             width: 200,
             responsive: mdBreakpoint,
+            sorter: (a: any, b: any) => compareStrings(a.protein, b.protein),
         },
         {
             title: "Gene Symbol & Name",
@@ -38,27 +47,21 @@ export const getNormalTableColumns = (
                 return (
                     <>
                         {taggedGene.map((gene, index) => (
-                            <GeneDisplay
-                                key={index}
-                                gene={gene}
-                            />
+                            <GeneDisplay key={index} gene={gene} />
                         ))}
                     </>
-                ) 
-                
+                );
             },
-        },
-        {
-            title: "Clone",
-            key: "cloneNumber",
-            dataIndex: "cloneNumber",
-            responsive: mdBreakpoint,
+            sorter: (a: any, b: any) =>
+                compareStrings(a.taggedGene[0].name, b.taggedGene[0].name),
         },
         {
             title: "Tagged Alleles",
             key: "alleleCount",
             dataIndex: "alleleCount",
             responsive: mdBreakpoint,
+            sorter: (a: any, b: any) =>
+                compareStrings(a.alleleCount, b.alleleCount),
         },
         {
             title: "Structure",
@@ -66,6 +69,8 @@ export const getNormalTableColumns = (
             width: 280,
             dataIndex: "structure",
             responsive: mdBreakpoint,
+            sorter: (a: any, b: any) =>
+                compareStrings(a.structure, b.structure),
         },
         {
             title: "Fluorescent Tag",
@@ -75,6 +80,11 @@ export const getNormalTableColumns = (
             render: (fluorescentTag: string[]) => {
                 return fluorescentTag?.join(" / ");
             },
+            sorter: (a: any, b: any) =>
+                compareStrings(
+                    (a.fluorescentTag ?? []).join("|"),
+                    (b.fluorescentTag ?? []).join("|")
+                ),
         },
         {
             title: "Tag Location",
@@ -85,6 +95,11 @@ export const getNormalTableColumns = (
             render: (tagLocation: string[]) => {
                 return tagLocation?.join(" / ");
             },
+            sorter: (a: any, b: any) =>
+                compareStrings(
+                    (a.tagLocation ?? []).join("|"),
+                    (b.tagLocation ?? []).join("|")
+                ),
         },
     ];
 
