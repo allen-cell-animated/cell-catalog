@@ -82,7 +82,7 @@
 
 .container :global(.ant-table-thead .ant-table-cell).cell-line-id,
 .container :global(.ant-table-cell).cell-line-id {
-    padding: 10px 16px 10px 32px;
+    padding: 10px 16px 10px;
 }
 
 .snp-column {
@@ -175,6 +175,28 @@
     font-weight: 600;
     font-weight: 300;
     color: var(--ALLEN_LIGHT_60);
+}
+
+.container :global(.ant-table-column-sorter) {
+  display: none;
+}
+
+.container .column-header {
+    display: flex;
+    gap: 8px;
+}
+
+.container .column-header :global(.anticon) {
+    font-size: 16px;
+    color: var(--RAIN_SHADOW);
+}
+
+.container th.active-column:global(.ant-table-column-sort) {
+    background-color: var(--WHITE);
+}
+
+.container .active-column .column-header :global(.anticon) {
+    color: var(--SERIOUS_GRAY);
 }
 
 @media screen and (max-width: 768px) {

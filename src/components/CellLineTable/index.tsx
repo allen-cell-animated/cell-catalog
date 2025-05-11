@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Table, Tag, Flex } from "antd";
+import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
+import { SortOrder } from "antd/es/table/interface";
 import { navigate } from "gatsby";
 
 import { HTMLContent } from "../shared/Content";
@@ -17,6 +19,8 @@ const {
     footer,
     hoveredRow,
     dataComplete,
+    columnHeader,
+    activeColumn,
 } = require("../../style/table.module.css");
 
 interface CellLineTableProps {
@@ -37,6 +41,16 @@ const CellLineTable = ({
     mobileConfig,
 }: CellLineTableProps) => {
     const [hoveredRowIndex, setHoveredRowIndex] = useState(-1);
+    const [sortedColumn, setSortedColumn] = useState<{
+        key: string;
+        order: SortOrder;
+    }>({ key: "", order: null });
+
+    const onSortingChange = (_p: any, _f: any, sorter: any) => {
+        const s = Array.isArray(sorter) ? sorter[0] : sorter; // multi‑sort guard
+        setSortedColumn({ key: s.columnKey, order: s.order });
+    };
+
     const inProgress = !released;
     const width = useWindowWidth();
     const env = useEnv();
@@ -77,12 +91,33 @@ const CellLineTable = ({
     const interactiveColumns = columns.map((column: any) => {
         // the two clickable columns are the order cell line and
         // CoA column. They do not have the hover effect and
-        // should not take you to the cell line page
+        // should not take you to the cell line page, and are not
+        // sortable.
         if (column.className?.includes("action-column")) {
             return column;
         }
+        const isSortedColumn = sortedColumn.key === column.key;
+        const sortIcon =
+            isSortedColumn && sortedColumn.order === "descend" ? (
+                <CaretUpOutlined />
+            ) : (
+                <CaretDownOutlined />
+            );
+        // reverse sort direction for first column so that
+        // it toggles on first selection
+        const sortDirections =
+            column.key === "cellLineId"
+                ? ["descend", "ascend"]
+                : ["ascend", "descend"];
         return {
             ...column,
+            title: (
+                <div className={columnHeader}>
+                    {column.title} {sortIcon}
+                </div>
+            ),
+            className: isSortedColumn ? activeColumn : "",
+            sortDirections: sortDirections,
             onCell: onCellInteraction,
         };
     });
@@ -110,6 +145,8 @@ const CellLineTable = ({
                 expandable={isTablet ? mobileConfig : undefined}
                 columns={interactiveColumns}
                 dataSource={cellLines}
+                onChange={onSortingChange}
+                showSorterTooltip={false}
             />
             <div className={footer}>
                 <HTMLContent content={footerContents} />
