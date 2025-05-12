@@ -768,7 +768,25 @@ collections:
                       widget: "string",
                   }
                 - {
-                      label: "Footer text",
-                      name: "footer_text",
+                    label: "Acknowledgements Block",
+                    name: "acknowledgements_block",
+                    widget: "object",
+                    fields:
+                    [
+                        { label: "Intro", name: intro, widget: string },
+                        {
+                            label: "Contributors",
+                            name: contributors,
+                            widget: list,
+                            fields:
+                                - { label: "Name",        name: name,        widget: string },
+                                - { label: "Institution", name: institution, widget: string },
+                        },
+                        { label: "Outro", name: outro, widget: string },
+                    ],
+                }
+                - {
+                      label: "Funding",
+                      name: "funding_text",
                       widget: "markdown",
                   }
