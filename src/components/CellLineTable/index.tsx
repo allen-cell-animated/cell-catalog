@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Table, Tag, Flex } from "antd";
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
-import { SortOrder } from "antd/es/table/interface";
+import { SorterResult, SortOrder } from "antd/es/table/interface";
 import { navigate } from "gatsby";
 
 import { HTMLContent } from "../shared/Content";
@@ -46,9 +46,15 @@ const CellLineTable = ({
         order: SortOrder;
     }>({ key: "", order: null });
 
-    const onSortingChange = (_p: any, _f: any, sorter: any) => {
+    const onSortingChange = (
+        _p: any,
+        _f: any,
+        sorter: SorterResult<UnpackedCellLine> | SorterResult<UnpackedCellLine>[]
+    ) => {
         const s = Array.isArray(sorter) ? sorter[0] : sorter; // multi‑sort guard
-        setSortedColumn({ key: s.columnKey, order: s.order });
+        const sortedKey = s.columnKey?.toString() ?? "";
+        const sortedOrder = s.order ?? null;
+        setSortedColumn({ key: sortedKey, order: sortedOrder });
     };
 
     const inProgress = !released;
