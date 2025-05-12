@@ -44,12 +44,14 @@ const CellLineTable = ({
     const [sortedColumn, setSortedColumn] = useState<{
         key: string;
         order: SortOrder;
-    }>({ key: "", order: null });
+    }>({ key: "cellLineId", order: "ascend" });
 
     const onSortingChange = (
         _p: any,
         _f: any,
-        sorter: SorterResult<UnpackedCellLine> | SorterResult<UnpackedCellLine>[]
+        sorter:
+            | SorterResult<UnpackedCellLine>
+            | SorterResult<UnpackedCellLine>[]
     ) => {
         const s = Array.isArray(sorter) ? sorter[0] : sorter; // multi‑sort guard
         const sortedKey = s.columnKey?.toString() ?? "";
@@ -113,7 +115,7 @@ const CellLineTable = ({
         // it toggles on first selection
         const sortDirections =
             column.key === "cellLineId"
-                ? ["descend", "ascend"]
+                ? ["descend", "ascend", "descend"]
                 : ["ascend", "descend"];
         return {
             ...column,

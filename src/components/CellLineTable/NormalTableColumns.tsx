@@ -16,8 +16,7 @@ import {
 
 const { lastColumn } = require("../../style/table.module.css");
 
-/* case insensitive string comparison */
-const compareStrings = (a = "", b = "") =>
+const caseInsensitiveStringCompare = (a = "", b = "") =>
     a.localeCompare(b, undefined, { sensitivity: "base" });
 
 export const getNormalTableColumns = (
@@ -35,7 +34,7 @@ export const getNormalTableColumns = (
             dataIndex: "protein",
             width: 200,
             responsive: mdBreakpoint,
-            sorter: (a: any, b: any) => compareStrings(a.protein, b.protein),
+            sorter: (a: any, b: any) => caseInsensitiveStringCompare(a.protein, b.protein),
         },
         {
             title: "Gene Symbol & Name",
@@ -53,7 +52,7 @@ export const getNormalTableColumns = (
                 );
             },
             sorter: (a: any, b: any) =>
-                compareStrings(a.taggedGene[0].name, b.taggedGene[0].name),
+                caseInsensitiveStringCompare(a.taggedGene[0].name, b.taggedGene[0].name),
         },
         {
             title: "Tagged Alleles",
@@ -61,7 +60,7 @@ export const getNormalTableColumns = (
             dataIndex: "alleleCount",
             responsive: mdBreakpoint,
             sorter: (a: any, b: any) =>
-                compareStrings(a.alleleCount, b.alleleCount),
+                caseInsensitiveStringCompare(a.alleleCount, b.alleleCount),
         },
         {
             title: "Structure",
@@ -70,7 +69,7 @@ export const getNormalTableColumns = (
             dataIndex: "structure",
             responsive: mdBreakpoint,
             sorter: (a: any, b: any) =>
-                compareStrings(a.structure, b.structure),
+                caseInsensitiveStringCompare(a.structure, b.structure),
         },
         {
             title: "Fluorescent Tag",
@@ -81,7 +80,7 @@ export const getNormalTableColumns = (
                 return fluorescentTag?.join(" / ");
             },
             sorter: (a: any, b: any) =>
-                compareStrings(
+                caseInsensitiveStringCompare(
                     (a.fluorescentTag ?? []).join("|"),
                     (b.fluorescentTag ?? []).join("|")
                 ),
@@ -96,7 +95,7 @@ export const getNormalTableColumns = (
                 return tagLocation?.join(" / ");
             },
             sorter: (a: any, b: any) =>
-                compareStrings(
+                caseInsensitiveStringCompare(
                     (a.tagLocation ?? []).join("|"),
                     (b.tagLocation ?? []).join("|")
                 ),
