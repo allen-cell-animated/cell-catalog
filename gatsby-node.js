@@ -11,6 +11,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
             gene: [MarkdownRemark] @link(by: "frontmatter.symbol", from: "gene") 
             parental_line: MarkdownRemark @link(by: "frontmatter.cell_line_id")
             funding_text:  String @md
+            footer_text: String @md
             acknowledgements: String @md
         }`,
     ];
