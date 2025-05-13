@@ -1,7 +1,4 @@
 import React from "react";
-import { Flex, GetProp, Table } from "antd";
-import Icon from "@ant-design/icons";
-
 import {
     UnpackedGene,
     UnpackedNormalCellLine,
@@ -10,8 +7,8 @@ import GeneDisplay from "../GeneDisplay";
 import { CellLineColumns, mdBreakpoint } from "./types";
 import {
     cellLineIdColumn,
-    certificateOfAnalysisColumn,
     obtainLineColumn,
+    obtainPlasmidColumn,
 } from "./SharedColumns";
 
 const { lastColumn } = require("../../style/table.module.css");
@@ -92,7 +89,7 @@ export const getNormalTableColumns = (
         return [
             ...columns,
             { ...obtainLineColumn },
-            { ...certificateOfAnalysisColumn },
+            { ...obtainPlasmidColumn },
         ];
     }
     return columns;

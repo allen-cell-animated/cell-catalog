@@ -34,6 +34,7 @@ export interface NormalCellLineFrontmatter {
     fluorescent_tag: string[];
     allele_count: string;
     order_link: string;
+    donor_plasmid: string;
     parental_line: {
         frontmatter: {
             name: string;
@@ -187,6 +188,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     parentalLine: string;
     structure: string;
     protein: string;
+    orderPlasmid: string;
 }
 
 export type ParentLine = Partial<UnpackedNormalCellLine>;
