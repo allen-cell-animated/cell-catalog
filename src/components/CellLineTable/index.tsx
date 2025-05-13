@@ -116,7 +116,7 @@ const CellLineTable = ({
         const sortDirections =
             column.key === "cellLineId"
                 ? ["descend", "ascend", "descend"]
-                : ["ascend", "descend"];
+                : ["ascend", "descend", "ascend"];
         return {
             ...column,
             title: (
