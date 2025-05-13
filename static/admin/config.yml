@@ -738,23 +738,23 @@ collections:
                 - { label: "Title", name: "title", widget: "string" }
                 - { label: "Body", name: "body", widget: "markdown" }
                 - {
-                      label: Main,
-                      name: main,
-                      widget: object,
+                      label: "Main",
+                      name: "main",
+                      widget: "object",
                       fields:
                         [
-                            { label: Heading, name: heading, widget: string },
+                            { label: "Heading", name: "heading", widget: "string" },
                             {
-                                label: Subheading,
-                                name: subheading,
+                                label: "Subheading",
+                                name: "subheading",
                                 required: false,
-                                widget: string,
+                                widget: "string",
                             },
 
                             {
-                                label: Description,
-                                name: description,
-                                widget: markdown,
+                                label: "Description",
+                                name: "description",
+                                widget: "markdown",
                             },
                         ],
                 }
@@ -774,28 +774,28 @@ collections:
                     widget: "object",
                     fields:
                         [
-                            { label: "Intro", name: intro, widget: string },
+                            { label: "Intro", name: "intro", widget: "string" },
                             {
                                 label: "Contributors",
-                                name: contributors,
-                                widget: list,
+                                name: "contributors",
+                                widget: "list",
                                 required: false,
                                 collapsed: true,
                                 fields:
                                     [
                                         {
                                             label: "Name",
-                                            name: name,
-                                            widget: string,
+                                            name: "name",
+                                            widget: "string",
                                         },
                                         {
                                             label: "Institution",
-                                            name: institution,
-                                            widget: string,
+                                            name: "institution",
+                                            widget: "string",
                                         },
                                     ],
                             },
-                            { label: "Outro", name: outro, widget: string },
+                            { label: "Outro", name: "outro", widget: "string" },
                         ],
                 }
                 - {
