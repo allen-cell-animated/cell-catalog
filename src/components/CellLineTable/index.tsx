@@ -30,6 +30,7 @@ interface CellLineTableProps {
     released: boolean;
     columns: any;
     mobileConfig?: any;
+    sortableTable?: boolean;
 }
 
 const CellLineTable = ({
@@ -39,6 +40,7 @@ const CellLineTable = ({
     released,
     columns,
     mobileConfig,
+    sortableTable,
 }: CellLineTableProps) => {
     const [hoveredRowIndex, setHoveredRowIndex] = useState(-1);
     const [sortedColumn, setSortedColumn] = useState<{
@@ -96,17 +98,10 @@ const CellLineTable = ({
         };
     };
 
-    const interactiveColumns = columns.map((column: any) => {
-        // the two clickable columns are the order cell line and
-        // CoA column. They do not have the hover effect and
-        // should not take you to the cell line page, and are not
-        // sortable.
-        if (column.className?.includes("action-column")) {
-            return column;
-        }
-        const isSortedColumn = sortedColumn.key === column.key;
+    const applySortingProperties = (column: any) => {
+        const isCurrentlySortedCol = sortedColumn.key === column.key;
         const sortIcon =
-            isSortedColumn && sortedColumn.order === "descend" ? (
+            isCurrentlySortedCol && sortedColumn.order === "descend" ? (
                 <CaretUpOutlined />
             ) : (
                 <CaretDownOutlined />
@@ -124,9 +119,29 @@ const CellLineTable = ({
                     {column.title} {sortIcon}
                 </div>
             ),
-            className: isSortedColumn ? activeColumn : "",
+            className: isCurrentlySortedCol ? activeColumn : "",
             sortDirections: sortDirections,
+        };
+    };
+
+    const interactiveColumns = columns.map((column: any) => {        
+        // the two clickable columns are the order cell line and
+        // CoA column. They do not have the hover effect and
+        // should not take you to the cell line page, and are not
+        // sortable.
+        if (column.className?.includes("action-column")) {
+            return column;
+        }
+        const interactiveColumn = {
+            ...column,
             onCell: onCellInteraction,
+        };
+        if (sortableTable && column.sorter) {
+            return applySortingProperties(interactiveColumn);
+        }
+        return {
+            ...interactiveColumn,
+            sorter: undefined,
         };
     });
 
@@ -153,7 +168,7 @@ const CellLineTable = ({
                 expandable={isTablet ? mobileConfig : undefined}
                 columns={interactiveColumns}
                 dataSource={cellLines}
-                onChange={onSortingChange}
+                onChange={sortableTable ? onSortingChange : undefined}
                 showSorterTooltip={false}
             />
             <div className={footer}>
