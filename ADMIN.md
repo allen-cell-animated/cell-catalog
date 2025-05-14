@@ -1,4 +1,4 @@
-## Adding new Disease Cell Lines through the admin CMS
+## Using the admin CMS
 
 ### Relational dependancies 
 
@@ -20,7 +20,8 @@
 
 1. **Login to the Admin CMS**: Open your web browser and navigate to the admin CMS URL. Use github to sign in.
 
-2. **Before you start**: Before you add a new cell line you need to make sure you have already added:
+## Adding new Disease through the admin CMS
+2. **Before you start**: Before you add a new disease cell line you need to make sure you have already added:
    1. **the disease** the cell line is modeling. If you it is not yet in the database, go to the section on adding a disease and then continue here.  
    2. **the parental/base cell line**. If it is not yet in the database, go to the section on adding a cell line and then continue here. 
 
