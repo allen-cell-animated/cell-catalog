@@ -98,10 +98,18 @@ const CellLineTable = ({
         };
     };
 
-    const applySortingProperties = (column: any) => {
-        const isCurrentlySortedCol = sortedColumn.key === column.key;
+    const getSortProperties = (column: any) => {
+        const sortableColumn = sortableTable && column.sorter && !inProgress;
+
+        // strip the sorter off the column if it's table is
+        // in progress, or the disease cell line table
+        if (!sortableColumn) {
+            return { sorter: undefined };
+        }
+
+        const isCurrentlySorted = sortedColumn.key === column.key;
         const sortIcon =
-            isCurrentlySortedCol && sortedColumn.order === "descend" ? (
+            isCurrentlySorted && sortedColumn.order === "descend" ? (
                 <CaretUpOutlined />
             ) : (
                 <CaretDownOutlined />
@@ -113,18 +121,17 @@ const CellLineTable = ({
                 ? ["descend", "ascend", "descend"]
                 : ["ascend", "descend", "ascend"];
         return {
-            ...column,
             title: (
                 <div className={columnHeader}>
                     {column.title} {sortIcon}
                 </div>
             ),
-            className: isCurrentlySortedCol ? activeColumn : "",
+            className: isCurrentlySorted ? activeColumn : "",
             sortDirections: sortDirections,
         };
     };
 
-    const interactiveColumns = columns.map((column: any) => {        
+    const interactiveColumns = columns.map((column: any) => {
         // the two clickable columns are the order cell line and
         // CoA column. They do not have the hover effect and
         // should not take you to the cell line page, and are not
@@ -132,16 +139,10 @@ const CellLineTable = ({
         if (column.className?.includes("action-column")) {
             return column;
         }
-        const interactiveColumn = {
-            ...column,
-            onCell: onCellInteraction,
-        };
-        if (sortableTable && column.sorter) {
-            return applySortingProperties(interactiveColumn);
-        }
         return {
-            ...interactiveColumn,
-            sorter: undefined,
+            ...column,
+            ...getSortProperties(column),
+            onCell: inProgress ? undefined : onCellInteraction,
         };
     });
 
