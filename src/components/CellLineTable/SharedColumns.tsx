@@ -10,13 +10,11 @@ import { mdBreakpoint, UnpackedCellLine } from "./types";
 
 const CertificateIcon = require("../../img/cert-icon.svg");
 const Tube = require("../../img/tube.svg");
-const Plasmid = require("../../img/plasmid.svg");
 
 const {
     cellLineId,
     actionColumn,
     actionButton,
-    plasmidIcon,
     tubeIcon,
 } = require("../../style/table.module.css");
 
@@ -97,35 +95,6 @@ export const obtainLineColumn = {
                             }}
                         />
                         Obtain Collection
-                    </Flex>
-                </a>
-            )
-        );
-    },
-};
-
-export const obtainPlasmidColumn = {
-    title: "",
-    key: "orderPlasmid",
-    dataIndex: "orderPlasmid",
-    className: actionColumn,
-    fixed: "right" as const,
-    render: (orderPlasmid: string) => {
-        return (
-            orderPlasmid && (
-                <a
-                    className={actionButton}
-                    href={orderPlasmid}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <Flex gap={8}>
-                        <Icon
-                            className={plasmidIcon}
-                            component={Plasmid}
-                            style={{ fontSize: 28 }}
-                        />
-                        Obtain Plasmid
                     </Flex>
                 </a>
             )
