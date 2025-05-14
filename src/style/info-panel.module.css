@@ -24,3 +24,21 @@
 .container tbody {
     border-spacing: 10px;
 }
+
+.container :global(.ant-descriptions-item-label) {
+    font-size: 14px;
+}
+
+.container :global(.ant-descriptions-item-content) {
+    font-size: 16px;
+}
+
+/* mobile sizing */
+@media (max-width: 744px) {
+    .container :global(.ant-descriptions-item-label) {
+        font-size: 12px;
+    }
+    .container :global(.ant-descriptions-item-content) {
+        font-size: 14px;
+    }
+}
