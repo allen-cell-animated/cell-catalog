@@ -3,19 +3,18 @@ import { TemplateProps } from "./types";
 import useDisableWheel from "../hooks/useDisableWheel";
 import InfoPanel from "../../components/shared/InfoPanel";
 import ProgressPreview from "./ProgressPreview";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import PreviewCompatibleImage from "../../components/PreviewCompatibleImage";
 
 
-const CellLinePreview = ({ entry }: TemplateProps) => {
+const CellLinePreview = ({ entry, getAsset }: TemplateProps) => {
     useDisableWheel();
     const geneticModificationsEntry = entry.getIn(["data", "genetic_modifications"]);
     const geneticModifications = geneticModificationsEntry ?
         geneticModificationsEntry.toJS() : 
         [];
 
-    // TODO: debug gastby-image
     const thumbnail = entry.getIn(["data", "thumbnail_image"]);
-    const thumbnailImage = getImage(thumbnail);
+    const thumbnailImage = getAsset(thumbnail);
 
     const status = entry.getIn(["data", "status"]);
     const genes = geneticModifications.map((mod: any) => mod.gene).join(" / ");
@@ -55,19 +54,27 @@ const CellLinePreview = ({ entry }: TemplateProps) => {
             label: "Allele Count",
             children: alleleCounts,
         },
+        ...(thumbnailImage ? [{
+            key: "thumbnail",
+            label: "Thumbnail Image",
+            children: (
+                <PreviewCompatibleImage
+                    imageInfo={{
+                        image: thumbnailImage.url,
+                        alt: "Cell Line Thumbnail"
+                    }}
+                    imageStyle={{ 
+                        maxWidth: "400px",
+                    }}
+                />
+            ),
+        }] : []),
     ];
 
-    // TODO: does this current info panel component fit in here?
     return (
         <>
-            <ProgressPreview status={status} />
+            <ProgressPreview collection={"cell_lines"} status={status} />
             <InfoPanel data={data} />
-            {thumbnailImage && (
-                <GatsbyImage
-                    image={thumbnailImage}
-                    alt="Cell Line Thumbnail"
-                />
-            )}
         </>
     );
 };
