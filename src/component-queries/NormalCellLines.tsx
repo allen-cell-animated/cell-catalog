@@ -37,7 +37,6 @@ const CellLineTableTemplate = (props: QueryResult) => {
                 released={true}
                 columns={getNormalTableColumns(false)}
                 mobileConfig={getNormalTableMobileConfig(isPhone)}
-                sortableTable={true}
             />
             <CellLineTable
                 tableName="Cell Line Catalog"

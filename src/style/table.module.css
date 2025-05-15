@@ -178,25 +178,16 @@
 }
 
 .container :global(.ant-table-column-sorter) {
-  display: none;
-}
-
-.container .column-header {
-    display: flex;
+    justify-content: flex-start;
     gap: 8px;
 }
 
-.container .column-header :global(.anticon) {
-    font-size: 16px;
-    color: var(--RAIN_SHADOW);
+.container :global(.ant-table-column-sorter .ant-table-column-title) {
+    max-width: fit-content;
 }
 
 .container th.active-column:global(.ant-table-column-sort) {
     background-color: var(--WHITE);
-}
-
-.container .active-column .column-header :global(.anticon) {
-    color: var(--SERIOUS_GRAY);
 }
 
 @media screen and (max-width: 768px) {

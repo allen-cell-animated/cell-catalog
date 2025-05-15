@@ -1,6 +1,5 @@
 import React from "react";
-import { Flex, GetProp, Table } from "antd";
-import Icon from "@ant-design/icons";
+import { SortOrder } from "antd/es/table/interface";
 
 import {
     UnpackedGene,
@@ -13,11 +12,27 @@ import {
     certificateOfAnalysisColumn,
     obtainLineColumn,
 } from "./SharedColumns";
+import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
+import { RAIN_SHADOW, SERIOUS_GRAY } from "../../style/theme";
 
 const { lastColumn } = require("../../style/table.module.css");
 
 const caseInsensitiveStringCompare = (a = "", b = "") =>
     a.localeCompare(b, undefined, { sensitivity: "base" });
+
+const sortIcon = ({ sortOrder }: { sortOrder: SortOrder }) => {
+    console.log("sortOrder", sortOrder);
+    if (sortOrder === null) {
+        return (
+            <CaretDownOutlined style={{ color: RAIN_SHADOW, fontSize: 16 }} />
+        );
+    }
+    return sortOrder === "ascend" ? (
+        <CaretDownOutlined style={{ color: SERIOUS_GRAY, fontSize: 16 }} />
+    ) : (
+        <CaretUpOutlined style={{ color: SERIOUS_GRAY, fontSize: 16 }} />
+    );
+};
 
 export const getNormalTableColumns = (
     inProgress: boolean
@@ -27,6 +42,8 @@ export const getNormalTableColumns = (
             ...cellLineIdColumn,
             sorter: (a: any, b: any) =>
                 (a.cellLineId ?? 0) - (b.cellLineId ?? 0),
+            sortIcon: sortIcon,
+            defaultSortOrder: "ascend" as SortOrder,
         },
         {
             title: "Protein",
@@ -34,7 +51,9 @@ export const getNormalTableColumns = (
             dataIndex: "protein",
             width: 200,
             responsive: mdBreakpoint,
-            sorter: (a: any, b: any) => caseInsensitiveStringCompare(a.protein, b.protein),
+            sortIcon: sortIcon,
+            sorter: (a: any, b: any) =>
+                caseInsensitiveStringCompare(a.protein, b.protein),
         },
         {
             title: "Gene Symbol & Name",
@@ -51,14 +70,20 @@ export const getNormalTableColumns = (
                     </>
                 );
             },
+            sortIcon: sortIcon,
             sorter: (a: any, b: any) =>
-                caseInsensitiveStringCompare(a.taggedGene[0].name, b.taggedGene[0].name),
+                caseInsensitiveStringCompare(
+                    a.taggedGene[0].name,
+                    b.taggedGene[0].name
+                ),
         },
         {
             title: "Tagged Alleles",
             key: "alleleCount",
             dataIndex: "alleleCount",
             responsive: mdBreakpoint,
+            sortIcon: sortIcon,
+
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(a.alleleCount, b.alleleCount),
         },
@@ -68,6 +93,8 @@ export const getNormalTableColumns = (
             width: 280,
             dataIndex: "structure",
             responsive: mdBreakpoint,
+            sortIcon: sortIcon,
+
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(a.structure, b.structure),
         },
@@ -79,6 +106,8 @@ export const getNormalTableColumns = (
             render: (fluorescentTag: string[]) => {
                 return fluorescentTag?.join(" / ");
             },
+            sortIcon: sortIcon,
+
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     (a.fluorescentTag ?? []).join("|"),
@@ -94,6 +123,8 @@ export const getNormalTableColumns = (
             render: (tagLocation: string[]) => {
                 return tagLocation?.join(" / ");
             },
+            sortIcon: sortIcon,
+
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     (a.tagLocation ?? []).join("|"),

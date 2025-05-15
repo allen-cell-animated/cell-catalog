@@ -30,7 +30,6 @@ interface CellLineTableProps {
     released: boolean;
     columns: any;
     mobileConfig?: any;
-    sortableTable?: boolean;
 }
 
 const CellLineTable = ({
@@ -40,26 +39,8 @@ const CellLineTable = ({
     released,
     columns,
     mobileConfig,
-    sortableTable,
 }: CellLineTableProps) => {
     const [hoveredRowIndex, setHoveredRowIndex] = useState(-1);
-    const [sortedColumn, setSortedColumn] = useState<{
-        key: string;
-        order: SortOrder;
-    }>({ key: "cellLineId", order: "ascend" });
-
-    const onSortingChange = (
-        _p: any,
-        _f: any,
-        sorter:
-            | SorterResult<UnpackedCellLine>
-            | SorterResult<UnpackedCellLine>[]
-    ) => {
-        const s = Array.isArray(sorter) ? sorter[0] : sorter; // multi‑sort guard
-        const sortedKey = s.columnKey?.toString() ?? "";
-        const sortedOrder = s.order ?? null;
-        setSortedColumn({ key: sortedKey, order: sortedOrder });
-    };
 
     const inProgress = !released;
     const width = useWindowWidth();
@@ -98,33 +79,7 @@ const CellLineTable = ({
         };
     };
 
-    const applySortingProperties = (column: any) => {
-        const isCurrentlySortedCol = sortedColumn.key === column.key;
-        const sortIcon =
-            isCurrentlySortedCol && sortedColumn.order === "descend" ? (
-                <CaretUpOutlined />
-            ) : (
-                <CaretDownOutlined />
-            );
-        // reverse sort direction for first column so that
-        // it toggles on first selection
-        const sortDirections =
-            column.key === "cellLineId"
-                ? ["descend", "ascend", "descend"]
-                : ["ascend", "descend", "ascend"];
-        return {
-            ...column,
-            title: (
-                <div className={columnHeader}>
-                    {column.title} {sortIcon}
-                </div>
-            ),
-            className: isCurrentlySortedCol ? activeColumn : "",
-            sortDirections: sortDirections,
-        };
-    };
-
-    const interactiveColumns = columns.map((column: any) => {        
+    const interactiveColumns = columns.map((column: any) => {
         // the two clickable columns are the order cell line and
         // CoA column. They do not have the hover effect and
         // should not take you to the cell line page, and are not
@@ -136,12 +91,9 @@ const CellLineTable = ({
             ...column,
             onCell: onCellInteraction,
         };
-        if (sortableTable && column.sorter) {
-            return applySortingProperties(interactiveColumn);
-        }
+
         return {
             ...interactiveColumn,
-            sorter: undefined,
         };
     });
 
@@ -168,8 +120,8 @@ const CellLineTable = ({
                 expandable={isTablet ? mobileConfig : undefined}
                 columns={interactiveColumns}
                 dataSource={cellLines}
-                onChange={sortableTable ? onSortingChange : undefined}
                 showSorterTooltip={false}
+                sortDirections={["ascend", "descend", "ascend"]}
             />
             <div className={footer}>
                 <HTMLContent content={footerContents} />
