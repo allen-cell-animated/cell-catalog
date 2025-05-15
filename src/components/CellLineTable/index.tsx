@@ -87,13 +87,9 @@ const CellLineTable = ({
         if (column.className?.includes("action-column")) {
             return column;
         }
-        const interactiveColumn = {
-            ...column,
-            onCell: onCellInteraction,
-        };
-
         return {
-            ...interactiveColumn,
+            ...column,
+            onCell: inProgress ? undefined : onCellInteraction,
         };
     });
 
