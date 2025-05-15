@@ -177,12 +177,12 @@
     color: var(--ALLEN_LIGHT_60);
 }
 
-.container :global(.ant-table-column-sorter) {
+.container :global(.ant-table-column-sorters) {
     justify-content: flex-start;
     gap: 8px;
 }
 
-.container :global(.ant-table-column-sorter .ant-table-column-title) {
+.container :global(.ant-table-column-sorters .ant-table-column-title) {
     max-width: fit-content;
 }
 
