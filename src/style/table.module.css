@@ -186,7 +186,12 @@
     max-width: fit-content;
 }
 
-.container th.active-column:global(.ant-table-column-sort) {
+/* remove the antd gray styling on the sorters */
+.container :global(.ant-table-cell.ant-table-column-sort),
+.container
+    :global(
+        .ant-table-cell.ant-table-column-sort.ant-table-column-has-sorters
+    ) {
     background-color: var(--WHITE);
 }
 
