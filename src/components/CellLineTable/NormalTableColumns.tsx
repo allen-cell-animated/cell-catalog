@@ -137,11 +137,5 @@ export const getNormalTableColumns = (
             { ...certificateOfAnalysisColumn },
         ];
     }
-    // remove the sorting function from the inprogress table
-    return columns.map((column) => {
-        return {
-            ...column,
-            sorter: undefined,
-        };
-    });
+    return columns;
 };

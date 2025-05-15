@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Table, Tag, Flex } from "antd";
-import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
-import { SorterResult, SortOrder } from "antd/es/table/interface";
 import { navigate } from "gatsby";
 
 import { HTMLContent } from "../shared/Content";
@@ -19,8 +17,6 @@ const {
     footer,
     hoveredRow,
     dataComplete,
-    columnHeader,
-    activeColumn,
 } = require("../../style/table.module.css");
 
 interface CellLineTableProps {
@@ -89,6 +85,7 @@ const CellLineTable = ({
         }
         return {
             ...column,
+            sorter: inProgress ? undefined : column.sorter,
             onCell: inProgress ? undefined : onCellInteraction,
         };
     });
