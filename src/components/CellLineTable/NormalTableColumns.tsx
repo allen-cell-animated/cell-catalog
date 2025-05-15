@@ -83,7 +83,6 @@ export const getNormalTableColumns = (
             dataIndex: "alleleCount",
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
-
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(a.alleleCount, b.alleleCount),
         },
@@ -124,7 +123,6 @@ export const getNormalTableColumns = (
                 return tagLocation?.join(" / ");
             },
             sortIcon: sortIcon,
-
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     (a.tagLocation ?? []).join("|"),
@@ -132,7 +130,7 @@ export const getNormalTableColumns = (
                 ),
         },
     ];
-
+    // if active add the buttons
     if (!inProgress) {
         return [
             ...columns,
@@ -140,5 +138,11 @@ export const getNormalTableColumns = (
             { ...certificateOfAnalysisColumn },
         ];
     }
-    return columns;
+    // remove the sorting function from the inprogress table
+    return columns.map((column) => {
+        return {
+            ...column,
+            sorter: undefined,
+        };
+    });
 };
