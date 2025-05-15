@@ -21,7 +21,6 @@ const caseInsensitiveStringCompare = (a = "", b = "") =>
     a.localeCompare(b, undefined, { sensitivity: "base" });
 
 const sortIcon = ({ sortOrder }: { sortOrder: SortOrder }) => {
-    console.log("sortOrder", sortOrder);
     if (sortOrder === null) {
         return (
             <CaretDownOutlined style={{ color: RAIN_SHADOW, fontSize: 16 }} />
