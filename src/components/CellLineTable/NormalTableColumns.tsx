@@ -1,6 +1,4 @@
 import React from "react";
-import { Flex, GetProp, Table } from "antd";
-import Icon from "@ant-design/icons";
 
 import {
     UnpackedGene,
@@ -38,14 +36,10 @@ export const getNormalTableColumns = (
                 return (
                     <>
                         {taggedGene.map((gene, index) => (
-                            <GeneDisplay
-                                key={index}
-                                gene={gene}
-                            />
+                            <GeneDisplay key={index} gene={gene} />
                         ))}
                     </>
-                ) 
-                
+                );
             },
         },
         {
