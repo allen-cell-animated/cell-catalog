@@ -89,6 +89,7 @@ export default function NormalCellLines() {
                                     clone_number
                                     status
                                     order_link
+                                    donor_plasmid
                                     genetic_modifications {
                                         gene {
                                             frontmatter {

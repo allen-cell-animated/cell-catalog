@@ -36,6 +36,7 @@ export interface NormalCellLineFrontmatter {
     clone_number: number;
     order_link: string;
     genetic_modifications?: GeneticModification[];
+    donor_plasmid: string;
     parental_line: {
         frontmatter: {
             name: string;
@@ -184,6 +185,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
         tagLocation: string;
         fluorescentTag: string;
     }[];
+    orderPlasmid: string;
 }
 
 export type ParentLine = Partial<UnpackedNormalCellLine>;
