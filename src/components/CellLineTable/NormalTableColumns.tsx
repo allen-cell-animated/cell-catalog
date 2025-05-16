@@ -1,13 +1,15 @@
 import React from "react";
 import { Flex } from "antd";
-import Icon from "@ant-design/icons";
+import Icon, { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
+import { SortOrder } from "antd/es/table/interface";
 import {
     UnpackedGene,
     UnpackedNormalCellLine,
 } from "../../component-queries/types";
+import { RAIN_SHADOW, SERIOUS_GRAY } from "../../style/theme";
 import GeneDisplay from "../GeneDisplay";
-import { CellLineColumns, mdBreakpoint } from "./types";
 import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
+import { CellLineColumns, mdBreakpoint } from "./types";
 
 const Plasmid = require("../../img/plasmid.svg");
 
@@ -17,6 +19,22 @@ const {
     actionButton,
     plasmidIcon,
 } = require("../../style/table.module.css");
+
+const caseInsensitiveStringCompare = (a = "", b = "") =>
+    a.localeCompare(b, undefined, { sensitivity: "base" });
+
+const sortIcon = ({ sortOrder }: { sortOrder: SortOrder }) => {
+    if (sortOrder === null) {
+        return (
+            <CaretDownOutlined style={{ color: RAIN_SHADOW, fontSize: 16 }} />
+        );
+    }
+    return sortOrder === "ascend" ? (
+        <CaretDownOutlined style={{ color: SERIOUS_GRAY, fontSize: 16 }} />
+    ) : (
+        <CaretUpOutlined style={{ color: SERIOUS_GRAY, fontSize: 16 }} />
+    );
+};
 
 const obtainPlasmidColumn = {
     title: "",
@@ -51,13 +69,22 @@ export const getNormalTableColumns = (
     inProgress: boolean
 ): CellLineColumns<UnpackedNormalCellLine> => {
     const columns = [
-        { ...cellLineIdColumn },
+        {
+            ...cellLineIdColumn,
+            sorter: (a: any, b: any) =>
+                (a.cellLineId ?? 0) - (b.cellLineId ?? 0),
+            sortIcon: sortIcon,
+            defaultSortOrder: "ascend" as SortOrder,
+        },
         {
             title: "Protein",
             key: "protein",
             dataIndex: "protein",
             width: 200,
             responsive: mdBreakpoint,
+            sortIcon: sortIcon,
+            sorter: (a: any, b: any) =>
+                caseInsensitiveStringCompare(a.protein, b.protein),
         },
         {
             title: "Gene Symbol & Name",
@@ -74,18 +101,21 @@ export const getNormalTableColumns = (
                     </>
                 );
             },
-        },
-        {
-            title: "Clone",
-            key: "cloneNumber",
-            dataIndex: "cloneNumber",
-            responsive: mdBreakpoint,
+            sortIcon: sortIcon,
+            sorter: (a: any, b: any) =>
+                caseInsensitiveStringCompare(
+                    a.taggedGene[0].name,
+                    b.taggedGene[0].name
+                ),
         },
         {
             title: "Tagged Alleles",
             key: "alleleCount",
             dataIndex: "alleleCount",
             responsive: mdBreakpoint,
+            sortIcon: sortIcon,
+            sorter: (a: any, b: any) =>
+                caseInsensitiveStringCompare(a.alleleCount, b.alleleCount),
         },
         {
             title: "Structure",
@@ -93,6 +123,10 @@ export const getNormalTableColumns = (
             width: 280,
             dataIndex: "structure",
             responsive: mdBreakpoint,
+            sortIcon: sortIcon,
+
+            sorter: (a: any, b: any) =>
+                caseInsensitiveStringCompare(a.structure, b.structure),
         },
         {
             title: "Fluorescent Tag",
@@ -102,6 +136,13 @@ export const getNormalTableColumns = (
             render: (fluorescentTag: string[]) => {
                 return fluorescentTag?.join(" / ");
             },
+            sortIcon: sortIcon,
+
+            sorter: (a: any, b: any) =>
+                caseInsensitiveStringCompare(
+                    (a.fluorescentTag ?? []).join("|"),
+                    (b.fluorescentTag ?? []).join("|")
+                ),
         },
         {
             title: "Tag Location",
@@ -112,9 +153,15 @@ export const getNormalTableColumns = (
             render: (tagLocation: string[]) => {
                 return tagLocation?.join(" / ");
             },
+            sortIcon: sortIcon,
+            sorter: (a: any, b: any) =>
+                caseInsensitiveStringCompare(
+                    (a.tagLocation ?? []).join("|"),
+                    (b.tagLocation ?? []).join("|")
+                ),
         },
     ];
-
+    // if active add the buttons
     if (!inProgress) {
         return [
             ...columns,

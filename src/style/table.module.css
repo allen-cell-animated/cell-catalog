@@ -86,7 +86,7 @@
 
 .container :global(.ant-table-thead .ant-table-cell).cell-line-id,
 .container :global(.ant-table-cell).cell-line-id {
-    padding: 10px 16px 10px 32px;
+    padding: 10px 16px 10px;
 }
 
 .snp-column {
@@ -179,6 +179,24 @@
     font-weight: 600;
     font-weight: 300;
     color: var(--ALLEN_LIGHT_60);
+}
+
+.container :global(.ant-table-column-sorters) {
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.container :global(.ant-table-column-sorters .ant-table-column-title) {
+    max-width: fit-content;
+}
+
+/* remove the antd gray styling on the sorters */
+.container :global(.ant-table-cell.ant-table-column-sort),
+.container
+    :global(
+        .ant-table-cell.ant-table-column-sort.ant-table-column-has-sorters
+    ) {
+    background-color: var(--WHITE);
 }
 
 @media screen and (max-width: 768px) {
