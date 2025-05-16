@@ -25,3 +25,7 @@ export const DarkBlueHoverButton: React.FC<ButtonProps> = (props) => {
 export const DarkThemeGhostButton: React.FC<ButtonProps> = (props) => {
     return <AntdButton {...props} ghost className={darkThemeGhostButton} />;
 };
+
+export const GrayButton: React.FC<ButtonProps> = (props) => {
+    return <AntdButton {...props} type="primary" />;
+};
