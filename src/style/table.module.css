@@ -61,10 +61,14 @@
     color: var(--WHITE);
 }
 
-.action-column:hover .action-button path,
-.action-column:hover .action-button line {
+.action-column:hover .action-button .tube-icon path,
+.action-column:hover .action-button .tube-icon line {
     fill: var(--primary-color);
     stroke: var(--WHITE);
+}
+
+.action-column:hover .plasmid-icon path {
+  fill: var(--WHITE);
 }
 
 .container h4 {

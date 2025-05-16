@@ -15,6 +15,7 @@ const {
     cellLineId,
     actionColumn,
     actionButton,
+    tubeIcon,
 } = require("../../style/table.module.css");
 
 export const cellLineIdColumn = {
@@ -86,6 +87,7 @@ export const obtainLineColumn = {
                 >
                     <Flex>
                         <Icon
+                            className={tubeIcon}
                             component={Tube}
                             style={{
                                 color: WHITE,
