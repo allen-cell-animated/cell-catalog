@@ -47,7 +47,7 @@ export interface NormalCellLineFrontmatter {
             structure: string;
         };
     }[];
-};
+}
 
 export interface NormalCellLineNode {
     id: string;
@@ -199,4 +199,39 @@ export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
     clones: Clone[];
     parentalLine: ParentLine;
     mutatedGene: UnpackedGene[];
+}
+
+export interface SearchAndFilterGroup {
+    fieldValue: string;
+    edges: {
+        node: {
+            frontmatter: {
+                cell_line_id: number;
+                gene: {
+                    frontmatter: {
+                        name: string;
+                        symbol: string;
+                        protein: string;
+                        structure: string;
+                    };
+                };
+            };
+        };
+    }[];
+}
+
+export interface SearchAndFilterQueryResult {
+    allMarkdownRemark: {
+        group: SearchAndFilterGroup[];
+    };
+}
+
+export interface SearchLookup {
+    // Maps gene symbol to a list of cell line IDs
+    geneSymToCellIds: Map<string, number[]>;
+    // Maps each of the words associated with a gene to that gene symbol
+    // (so many words map to the same gene symbol)
+    // used for getting a unique identifier for the geneSymToCellIds map
+    structureAndNameToGene: Map<string, string>;
+    allSearchableTerms: Set<string>;
 }

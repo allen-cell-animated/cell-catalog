@@ -1,4 +1,3 @@
-import { format } from "path";
 import {
     DiseaseCellLineNode,
     NormalCellLineNode,
@@ -6,6 +5,8 @@ import {
     UnpackedGene,
     GeneFrontMatter,
     UnpackedNormalCellLine,
+    SearchLookup,
+    SearchAndFilterGroup,
 } from "./types";
 import { formatCellLineId } from "../utils";
 
@@ -88,10 +89,12 @@ export const convertFrontmatterToNormalCellLines = ({
     };
 };
 
-export const dataForSearch = (data: any) => {
-    const cellLineIdMap = new Map();
-    const geneMap = new Map();
-    const allSearchableTerms = new Set();
+export const createLookupMappings = (
+    data: SearchAndFilterGroup[]
+): SearchLookup => {
+    const geneSymToCellIds = new Map();
+    const structureAndNameToGene = new Map();
+    const allSearchableTerms: Set<string> = new Set();
     data.forEach((group: any) => {
         const symbol = group.fieldValue;
         allSearchableTerms.add(symbol);
@@ -109,14 +112,18 @@ export const dataForSearch = (data: any) => {
                 const geneProtein = gene.frontmatter.protein;
                 const geneStructure = gene.frontmatter.structure;
                 allSearchableTerms.add(geneSymbol);
-                geneMap.set(geneName, geneSymbol);
-                geneMap.set(geneProtein, geneSymbol);
-                geneMap.set(geneStructure, geneSymbol);
+                structureAndNameToGene.set(geneName, geneSymbol);
+                structureAndNameToGene.set(geneProtein, geneSymbol);
+                structureAndNameToGene.set(geneStructure, geneSymbol);
                 allSearchableTerms.add(geneName);
                 allSearchableTerms.add(geneProtein);
             });
         });
-        cellLineIdMap.set(symbol, cellLines);
+        geneSymToCellIds.set(symbol, cellLines);
     });
-    return { cellLineIdMap, geneMap, allSearchableTerms };
+    return {
+        geneSymToCellIds,
+        structureAndNameToGene,
+        allSearchableTerms,
+    };
 };

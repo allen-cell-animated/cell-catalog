@@ -1,9 +1,23 @@
 import React from "react";
+import { Card } from "antd";
 import { StaticQuery, graphql } from "gatsby";
 import SearchBar from "../components/SearchBar";
-import { dataForSearch } from "./convert-data";
+import { createLookupMappings } from "./convert-data";
+import { SearchAndFilterQueryResult, UnpackedNormalCellLine } from "./types";
 
-const SearchAndFilter = ({ dataToFilter, onSearch }) => {
+const { banner } = require("../style/catalog.module.css");
+const { container } = require("../style/search-and-filter.module.css");
+
+interface SearchAndFilterProps {
+    allCellLines: UnpackedNormalCellLine[];
+    setResults: (filteredCellLines: UnpackedNormalCellLine[]) => void;
+}
+
+// This query groups all cell lines by gene symbol
+const SearchAndFilter = ({
+    allCellLines,
+    setResults,
+}: SearchAndFilterProps) => {
     return (
         <StaticQuery
             query={graphql`
@@ -44,15 +58,24 @@ const SearchAndFilter = ({ dataToFilter, onSearch }) => {
                     }
                 }
             `}
-            render={(data) => {
-                const mapping = dataForSearch(data.allMarkdownRemark.group);
-                console.log(mapping);
+            render={(data: SearchAndFilterQueryResult) => {
+                const mapping = createLookupMappings(
+                    data.allMarkdownRemark.group
+                );
                 return (
-                    <SearchBar
-                        dataToSearch={dataToFilter}
-                        mappings={mapping}
-                        onSearch={onSearch}
-                    />
+                    <Card className={banner} bordered>
+                        <div className={container}>
+                            <div>
+                                Search below or sort by clicking on column
+                                headers
+                            </div>
+                            <SearchBar
+                                allCellLines={allCellLines}
+                                mappings={mapping}
+                                setResults={setResults}
+                            />
+                        </div>
+                    </Card>
                 );
             }}
         />

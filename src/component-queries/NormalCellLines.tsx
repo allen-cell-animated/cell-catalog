@@ -33,9 +33,8 @@ const CellLineTableTemplate = (props: QueryResult) => {
     return (
         <>
             <SearchAndFilter
-                dataToFilter={finishedCellLines}
-                setDataToShow={setFilteredCellLines}
-                onSearch={setFilteredCellLines}
+                allCellLines={finishedCellLines}
+                setResults={setFilteredCellLines}
             />
             <CellLineTable
                 tableName="Cell Line Catalog"

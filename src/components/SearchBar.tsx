@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import { AutoComplete, Input } from "antd";
-import { UnpackedNormalCellLine } from "../component-queries/types";
 import { filter } from "lodash";
+import {
+    SearchLookup,
+    UnpackedNormalCellLine,
+} from "../component-queries/types";
 import { GrayButton } from "./shared/Buttons";
-import { on } from "events";
 
+const { searchBarContainer } = require("../style/search-and-filter.module.css");
 interface SearchBarProps {
-    mappings: any;
-    dataToSearch: any;
-    onSearch: (filteredCellLines: UnpackedNormalCellLine[]) => void;
+    mappings: SearchLookup;
+    allCellLines: UnpackedNormalCellLine[];
+    setResults: (filteredCellLines: UnpackedNormalCellLine[]) => void;
 }
 
-const SearchBar = ({ mappings, dataToSearch, onSearch }: SearchBarProps) => {
+const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
     const [options, setOptions] = useState<{ value: string }[]>([]);
     const [currentValue, setCurrentValue] = useState<string>("");
+    const [ignoreSelect, setIgnoreSelect] = useState(false);
+
     const handleSearch = (value: string) => {
-        console.log("Search value:", value);
         setCurrentValue(value);
         if (value) {
             const { allSearchableTerms } = mappings;
@@ -28,86 +32,96 @@ const SearchBar = ({ mappings, dataToSearch, onSearch }: SearchBarProps) => {
             setOptions(nextOptions);
         } else {
             setOptions([]);
-            onSearch(dataToSearch);
+            setResults(allCellLines);
         }
     };
 
     const handleClear = () => {
         setOptions([]);
-        onSearch(dataToSearch);
+        setResults(allCellLines);
         setCurrentValue("");
     };
 
     const onEnter = () => {
         let cellLines: UnpackedNormalCellLine[] = [];
-        console.log("Selected options:", options);
         options.forEach((option) => {
             cellLines = [...cellLines, ...getCellLinesToShow(option.value)];
         });
-        console.log("Filtered cell lines:", cellLines);
-        onSearch(cellLines);
-        // setOptions([]);
+        setResults(cellLines);
+        setIgnoreSelect(true);
+        setOptions([]);
     };
 
     const filterCellLines = (cellIds: number[]) => {
-        return dataToSearch.filter((cellLine: UnpackedNormalCellLine) => {
+        return allCellLines.filter((cellLine: UnpackedNormalCellLine) => {
             return cellIds.includes(cellLine.cellLineId);
         });
     };
 
     const getCellLinesToShow = (value: string) => {
-        const { cellLineIdMap, geneMap } = mappings;
+        // NOTE: the checks for undefined values are for typescript, this data is all
+        // generated from the same source, so the looks ups will always
+        // return a value
+        const { geneSymToCellIds, structureAndNameToGene } = mappings;
         let dataToShow;
         if (value.includes("AICS")) {
+            // the cell line ids in the lookup list are formatted as AICS-<id>
+            // but the cell line ids in the data are just numbers
             const cellLineId = value.split("AICS-")[1];
-            dataToShow = filter(dataToSearch, {
+            dataToShow = filter(allCellLines, {
                 cellLineId: parseInt(cellLineId),
             });
-        } else if (cellLineIdMap.has(value)) {
-            const cellLineIds = cellLineIdMap.get(value);
-            dataToShow = filterCellLines(cellLineIds);
-        } else if (geneMap.has(value)) {
-            const geneSymbol = geneMap.get(value);
-            const cellLineIds = cellLineIdMap.get(geneSymbol);
-            dataToShow = filterCellLines(cellLineIds);
+        } else if (geneSymToCellIds.has(value)) {
+            const cellLineIds = geneSymToCellIds.get(value);
+            dataToShow = cellLineIds ? filterCellLines(cellLineIds) : [];
+        } else if (structureAndNameToGene.has(value)) {
+            const geneSymbol = structureAndNameToGene.get(value);
+            const cellLineIds = geneSymbol
+                ? geneSymToCellIds.get(geneSymbol)
+                : undefined;
+            dataToShow = cellLineIds ? filterCellLines(cellLineIds) : [];
         } else {
-            dataToShow = dataToSearch;
+            dataToShow = allCellLines;
         }
         return dataToShow;
     };
 
     const onSelect = (value: string) => {
-        console.log("Selected value:", value);
+        // hitting enter also selects an option from the dropdown
+        // but we want to ignore that
+        if (ignoreSelect) {
+            setIgnoreSelect(false);
+            return;
+        }
         setCurrentValue(value);
         const dataToShow = getCellLinesToShow(value);
-        onSearch(dataToShow);
+        setResults(dataToShow);
     };
 
     return (
-        <>
+        <div className={searchBarContainer}>
             <AutoComplete
                 options={options}
                 value={currentValue}
-                style={{ width: 300 }}
+                style={{ width: "100%" }}
                 onSelect={onSelect}
                 onSearch={handleSearch}
                 allowClear
                 onClear={() => {
                     setOptions([]);
-                    onSearch(dataToSearch);
+                    setResults(allCellLines);
                 }}
                 onInputKeyDown={(e) => {
                     if (e.key === "Enter") {
                         e.preventDefault();
-                        console.log("Enter key pressed");
                         onEnter();
                     }
                 }}
             >
-                <Input placeholder="Search here" />
+                <Input placeholder="Search AICS ID, protein, gene..." />
             </AutoComplete>
             <GrayButton onClick={handleClear}>Clear</GrayButton>
-        </>
+        </div>
     );
 };
 
