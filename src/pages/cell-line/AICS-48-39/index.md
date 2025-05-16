@@ -3,14 +3,12 @@ templateKey: cell-line
 cell_line_id: 48
 status: released
 clone_number: 39
-allele_count: mono
 parental_line: 0
-gene:
-  - TTN
-tag_location:
-  - C-terminus
-fluorescent_tag:
-  - mEGFP
+genetic_modifications:
+  - gene: TTN
+    tag_location: C-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0048-039&PgId=166
 cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0048-039_CofA.pdf
 donor_plasmid: https://www.addgene.org/114412/

@@ -90,32 +90,49 @@ export const getNormalTableColumns = (
             title: "Gene Symbol & Name",
             width: 280,
             key: "taggedGene",
-            dataIndex: "taggedGene",
+            dataIndex: "geneticModifications",
             responsive: mdBreakpoint,
-            render: (taggedGene: UnpackedGene[]) => {
+            sortIcon: sortIcon,
+            render: (geneticModifications?: { taggedGene: UnpackedGene, alleleCount: string, tagLocation: string, fluorescentTag: string }[]) => {
                 return (
                     <>
-                        {taggedGene.map((gene, index) => (
-                            <GeneDisplay key={index} gene={gene} />
+                        {geneticModifications?.map((mod, index) => (
+                            <GeneDisplay
+                                key={index}
+                                gene={mod.taggedGene}
+                            />
                         ))}
                     </>
                 );
             },
-            sortIcon: sortIcon,
-            sorter: (a: any, b: any) =>
-                caseInsensitiveStringCompare(
-                    a.taggedGene[0].name,
-                    b.taggedGene[0].name
-                ),
+            sorter: (a: any, b: any) => {
+                const getFirstGeneName = (item: any) => {
+                    return item.geneticModifications?.[0]?.taggedGene?.name;
+                };
+                return caseInsensitiveStringCompare(
+                    getFirstGeneName(a),
+                    getFirstGeneName(b)
+                );
+            }
         },
         {
             title: "Tagged Alleles",
-            key: "alleleCount",
-            dataIndex: "alleleCount",
+            key: "taggedAlleles",
+            dataIndex: "geneticModifications",
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
-            sorter: (a: any, b: any) =>
-                caseInsensitiveStringCompare(a.alleleCount, b.alleleCount),
+            render: (geneticModifications?: { taggedGene: UnpackedGene, alleleCount: string, tagLocation: string, fluorescentTag: string }[]) => {
+                return geneticModifications?.map(mod => mod.alleleCount).join(" / ");
+            },
+            sorter: (a: any, b: any) =>{
+                const getTaggedAllelesString = (item: any) => {
+                    return item.geneticModifications?.map((mod: any) => mod.alleleCount).join(" / ");
+                };
+                return caseInsensitiveStringCompare(
+                    getTaggedAllelesString(a),
+                    getTaggedAllelesString(b)
+                );
+            }
         },
         {
             title: "Structure",
@@ -124,41 +141,47 @@ export const getNormalTableColumns = (
             dataIndex: "structure",
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
-
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(a.structure, b.structure),
         },
         {
             title: "Fluorescent Tag",
             key: "fluorescentTag",
-            dataIndex: "fluorescentTag",
+            dataIndex: "geneticModifications",
             responsive: mdBreakpoint,
-            render: (fluorescentTag: string[]) => {
-                return fluorescentTag?.join(" / ");
-            },
             sortIcon: sortIcon,
-
-            sorter: (a: any, b: any) =>
-                caseInsensitiveStringCompare(
-                    (a.fluorescentTag ?? []).join("|"),
-                    (b.fluorescentTag ?? []).join("|")
-                ),
+            render: (geneticModifications?: { taggedGene: UnpackedGene, alleleCount: string, tagLocation: string, fluorescentTag: string }[]) => {
+                return geneticModifications?.map(mod => mod.fluorescentTag).join(" / ");
+            },
+            sorter: (a: any, b: any) =>{
+                const getFluorescentTagsString = (item: any) => {
+                    return item.geneticModifications?.map((mod: any) => mod.fluorescentTag).join(" / ");
+                };
+                return caseInsensitiveStringCompare(
+                    getFluorescentTagsString(a),
+                    getFluorescentTagsString(b)
+                );
+            }
         },
         {
             title: "Tag Location",
             key: "tagLocation",
-            dataIndex: "tagLocation",
+            dataIndex: "geneticModifications",
             className: inProgress ? "" : lastColumn,
             responsive: mdBreakpoint,
-            render: (tagLocation: string[]) => {
-                return tagLocation?.join(" / ");
-            },
             sortIcon: sortIcon,
-            sorter: (a: any, b: any) =>
-                caseInsensitiveStringCompare(
-                    (a.tagLocation ?? []).join("|"),
-                    (b.tagLocation ?? []).join("|")
-                ),
+            render: (geneticModifications?: { taggedGene: UnpackedGene, alleleCount: string, tagLocation: string, fluorescentTag: string }[]) => {
+                return geneticModifications?.map(mod => mod.tagLocation).join(" / ");
+            },
+            sorter: (a: any, b: any) => {
+                const getTagLocationsString = (item: any) => {
+                    return item.geneticModifications?.map((mod: any) => mod.tagLocation).join(" / ");
+                };
+                return caseInsensitiveStringCompare(
+                    getTagLocationsString(a),
+                    getTagLocationsString(b)
+                );
+            }
         },
     ];
     // if active add the buttons

@@ -3,14 +3,12 @@ templateKey: cell-line
 cell_line_id: 74
 status: released
 clone_number: 26
-allele_count: mono
 parental_line: 0
-gene:
-  - SOX2
-tag_location:
-  - C-terminus
-fluorescent_tag:
-  - mEGFP
+genetic_modifications:
+  - gene: SOX2
+    tag_location: C-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0074-026&PgId=166
 cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0074-026_CofA.pdf
 donor_plasmid: https://www.addgene.org/124606/

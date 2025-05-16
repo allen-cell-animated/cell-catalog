@@ -3,14 +3,12 @@ templateKey: cell-line
 cell_line_id: 32
 status: released
 clone_number: 19
-allele_count: mono
 parental_line: 0
-gene:
-  - CETN2
-tag_location:
-  - N-terminus
-fluorescent_tag:
-  - mTagRFP-T
+genetic_modifications:
+  - gene: CETN2
+    tag_location: N-terminus
+    fluorescent_tag: mTagRFP-T
+    allele_count: mono
 order_link: https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0032-019&Product=iPSC
 cofa: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0032-019_CofA.pdf
 donor_plasmid: https://www.addgene.org/101781/
