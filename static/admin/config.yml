@@ -24,7 +24,7 @@ collections:
       slug: "AICS-{{cell_line_id}}-{{clone_number}}"
       path: "{{slug}}/index"
       identifier_field: "cell_line_id"
-      summary: "AICS-{{cell_line_id}}-{{genetic_modifications.[0].gene}}"
+      summary: "AICS-{{cell_line_id}}-{{clone_number}}-{{genetic_modifications.[0].gene}}"
       media_folder: ""
       public_folder: ""
       fields:
@@ -116,7 +116,7 @@ collections:
                             label: "Tag Location",
                             name: "tag_location",
                             widget: "select",
-                            options: ["C-terminus", "N-terminus"],
+                            options: ["C-terminus", "N-terminus", "NA"],
                             required: false,
                         },
                         {
