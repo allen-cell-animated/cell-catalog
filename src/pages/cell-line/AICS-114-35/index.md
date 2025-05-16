@@ -1,7 +1,8 @@
 ---
 templateKey: cell-line
 cell_line_id: 114
-status: released
+status: data complete
+date: 2025-05-06T22:28:41.417Z
 clone_number: 35
 parental_line: 0
 genetic_modifications:
@@ -15,4 +16,21 @@ donor_plasmid: https://www.addgene.org/193921/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-67
 images_and_videos:
   videos:
+    - caption: Time-lapse movie of a live hiPS cell colony expressing mEGFP-tagged
+        E-cadherin. A single plane near the top of the cells was imaged every 3
+        min on a spinning-disk confocal microscope. Movie plays at 900x real
+        time. Scale bar, 5 µm.
+      video: https://vimeo.com/1079877453/64b0dd3fbc?ts=0&share=copy
+    - caption: Z-stack of a live hiPS cell colony expressing mEGFP-tagged E-cadherin.
+        Cells were imaged in 3D on a spinning-disk confocal microscope. The
+        movie starts at the bottom of the cells and ends at the top. Scale bar,
+        5 µm.
+      video: https://vimeo.com/1079877719/96600ed1da?ts=0&share=copy
+    - caption: Time-lapse movie of a live hiPS cell colony expressing mEGFP-tagged
+        E-cadherin. A small mid-level stack of six z-slices was imaged every 3
+        min on a spinning-disk confocal microscope. A maximum intensity
+        projection of the six z-slices is shown. Bleaching was corrected using
+        the histogram matching method in ImageJ. Movie plays at 1800x real time.
+        Scale bar, 5 µm.
+      video: https://vimeo.com/1079877956/3b9719f5a4?ts=0&share=copy
 ---
