@@ -43,7 +43,6 @@ export const convertFrontmatterToDiseaseCellLine = (
     const parentalGeneticModifications = extractGeneticModifications(
         cellLineNode.frontmatter.parental_line.frontmatter.genetic_modifications
     );
-    const parentalGenes = parentalGeneticModifications.map(mod => mod.taggedGene);
 
     return {
         cellLineId: cellLineNode.frontmatter.cell_line_id,
