@@ -34,3 +34,17 @@
     border: 1px solid var(--primary-color) !important;
     background-color: var(--ALLEN_LIGHT_10) !important;
 }
+
+.gray-button,
+.gray-button:hover {
+    background-color: var(--GRAY_30) !important;
+    border: none !important;
+    color: var(--WHITE) !important;
+}
+
+.gray-button.active,
+.gray-button.active:hover {
+    background-color: var(--primary-color) !important;
+    border: none !important;
+    color: var(--WHITE) !important;
+}

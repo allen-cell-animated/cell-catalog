@@ -7,7 +7,9 @@ import {
 } from "../component-queries/types";
 import { GrayButton } from "./shared/Buttons";
 
+const { active } = require("../style/buttons.module.css");
 const { searchBarContainer } = require("../style/search-and-filter.module.css");
+
 interface SearchBarProps {
     mappings: SearchLookup;
     allCellLines: UnpackedNormalCellLine[];
@@ -120,7 +122,12 @@ const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
             >
                 <Input placeholder="Search AICS ID, protein, gene..." />
             </AutoComplete>
-            <GrayButton onClick={handleClear}>Clear</GrayButton>
+            <GrayButton
+                onClick={handleClear}
+                className={currentValue ? active : ""}
+            >
+                Clear
+            </GrayButton>
         </div>
     );
 };

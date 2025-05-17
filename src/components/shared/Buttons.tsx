@@ -5,11 +5,13 @@ const {
     defaultButton,
     darkBlueHoverButton,
     darkThemeGhostButton,
+    grayButton,
 } = require("../../style/buttons.module.css");
 
 interface ButtonProps extends React.ComponentProps<typeof AntdButton> {
     children?: React.ReactNode;
     style?: React.CSSProperties;
+    className?: string;
 }
 
 export const DefaultButton: React.FC<ButtonProps> = (props) => {
@@ -27,5 +29,10 @@ export const DarkThemeGhostButton: React.FC<ButtonProps> = (props) => {
 };
 
 export const GrayButton: React.FC<ButtonProps> = (props) => {
-    return <AntdButton {...props} type="primary" />;
+    return (
+        <AntdButton
+            {...props}
+            className={[grayButton, props.className].join(" ")}
+        />
+    );
 };
