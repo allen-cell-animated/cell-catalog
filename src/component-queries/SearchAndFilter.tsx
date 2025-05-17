@@ -63,7 +63,7 @@ const SearchAndFilter = ({
                     data.allMarkdownRemark.group
                 );
                 return (
-                    <Card className={banner} bordered>
+                    <Card className={banner}>
                         <div className={container}>
                             <div>
                                 Search below or sort by clicking on column
