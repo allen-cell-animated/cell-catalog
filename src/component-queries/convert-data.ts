@@ -86,6 +86,7 @@ export const convertFrontmatterToNormalCellLines = ({
         certificateOfAnalysis: "",
         healthCertificate: "",
         orderLink: cellLineNode.frontmatter.order_link,
+        orderPlasmid: cellLineNode.frontmatter.donor_plasmid,
     };
 };
 

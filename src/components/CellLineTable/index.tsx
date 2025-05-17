@@ -37,6 +37,7 @@ const CellLineTable = ({
     mobileConfig,
 }: CellLineTableProps) => {
     const [hoveredRowIndex, setHoveredRowIndex] = useState(-1);
+
     const inProgress = !released;
     const width = useWindowWidth();
     const env = useEnv();
@@ -77,13 +78,15 @@ const CellLineTable = ({
     const interactiveColumns = columns.map((column: any) => {
         // the two clickable columns are the order cell line and
         // CoA column. They do not have the hover effect and
-        // should not take you to the cell line page
+        // should not take you to the cell line page, and are not
+        // sortable.
         if (column.className?.includes("action-column")) {
             return column;
         }
         return {
             ...column,
-            onCell: onCellInteraction,
+            sorter: inProgress ? undefined : column.sorter,
+            onCell: inProgress ? undefined : onCellInteraction,
         };
     });
 
@@ -110,6 +113,8 @@ const CellLineTable = ({
                 expandable={isTablet ? mobileConfig : undefined}
                 columns={interactiveColumns}
                 dataSource={cellLines}
+                showSorterTooltip={false}
+                sortDirections={["ascend", "descend", "ascend"]}
             />
             <div className={footer}>
                 <HTMLContent content={footerContents} />

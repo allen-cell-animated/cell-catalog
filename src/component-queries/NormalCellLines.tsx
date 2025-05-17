@@ -98,6 +98,7 @@ export default function NormalCellLines() {
                                     allele_count
                                     status
                                     order_link
+                                    donor_plasmid
                                     gene {
                                         frontmatter {
                                             protein
