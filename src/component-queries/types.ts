@@ -52,6 +52,7 @@ export interface NormalCellLineFrontmatter {
 
 export interface NormalCellLineNode {
     id: string;
+    key: string;
     fields: {
         slug: string;
     };

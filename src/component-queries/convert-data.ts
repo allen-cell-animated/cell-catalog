@@ -72,6 +72,7 @@ export const convertFrontmatterToNormalCellLines = ({
     const proteins = genes.map((gene) => gene.protein || "");
     const structures = genes.map((gene) => gene.structure || "");
     return {
+        key: `${cellLineNode.frontmatter.cell_line_id}-${cellLineNode.frontmatter.clone_number}`,
         path: cellLineNode.fields.slug,
         cellLineId: cellLineNode.frontmatter.cell_line_id,
         cloneNumber: cellLineNode.frontmatter.clone_number,
