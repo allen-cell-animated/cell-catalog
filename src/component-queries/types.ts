@@ -27,6 +27,12 @@ export interface ParentalLineFrontmatter {
     clone_number: number;
     thumbnail_image: any;
     genetic_modifications?: GeneticModification[];
+    tagged_gene?: {
+        frontmatter: GeneFrontMatter;
+    }[];
+    allele_count?: string[];
+    tag_location?: string[];
+    fluorescent_tag?: string[];
 }
 
 export interface NormalCellLineFrontmatter {
@@ -36,6 +42,12 @@ export interface NormalCellLineFrontmatter {
     clone_number: number;
     order_link: string;
     genetic_modifications?: GeneticModification[];
+    tagged_gene?: {
+        frontmatter: GeneFrontMatter;
+    }[];
+    allele_count?: string[];
+    tag_location?: string[];
+    fluorescent_tag?: string[];
     donor_plasmid: string;
     parental_line: {
         frontmatter: {
@@ -185,6 +197,10 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
         tagLocation: string;
         fluorescentTag: string;
     }[];
+    taggedGene?: UnpackedGene[];
+    alleleCount?: string[];
+    tagLocation?: string[];
+    fluorescentTag?: string[];
     orderPlasmid: string;
 }
 
