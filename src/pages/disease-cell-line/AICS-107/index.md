@@ -2,7 +2,7 @@
 templateKey: disease-cell-line
 cell_line_id: 107
 disease: Cardiomyopathy
-date: 2024-02-13T22:14:32.486Z
+date: 2025-05-19T22:56:39.905Z
 snp: NM_000257.4(MYH7):c.1816G>A(p.Val606Met)
 parental_line: 75
 status: released
