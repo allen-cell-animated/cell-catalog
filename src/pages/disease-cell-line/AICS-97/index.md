@@ -2,7 +2,7 @@
 templateKey: disease-cell-line
 cell_line_id: 97
 disease: Cardiomyopathy
-date: 2024-02-10T06:30:07.929Z
+date: 2025-05-19T22:57:54.962Z
 snp: NM_000257.4(MYH7):c.767G>A(p.Gly256Glu)
 parental_line: 75
 status: released
@@ -78,7 +78,7 @@ editing_design:
   crna_target_site: 5’ TTTTGGGGCAACAGGAAAGT[TGG] 3’
   dna_donor_sequence:
     - sequence: 5’ AATTCATTCGAATTCATTTTGGGGCAACAG[A]AAAGTTGGCATCTGCAGACATAGAGACC 3’
-      type: ""
+      type: Mutant
   cas9: "TrueCut™ Cas9 Protein "
   f_primer: " 5’ CCCAACTCATCACCACTCTC 3’"
   r_primer: 5’ GGAGAGAGAGAGAGGTCAAG 3’
