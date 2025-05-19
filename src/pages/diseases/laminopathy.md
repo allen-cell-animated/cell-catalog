@@ -1,8 +1,7 @@
 ---
 templateKey: disease
 name: Laminopathy
-gene: 
-  - LMNA
+gene: LMNA
 status: Available
 acknowledgements: These lines were generated at Allen Institute and released to
   a group of collaborators to perform preliminary studies. We would like to
