@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Table, Tag, Flex } from "antd";
 import { navigate } from "gatsby";
+import classNames from "classnames";
 
 import { HTMLContent } from "../shared/Content";
 import { CellLineStatus } from "../../component-queries/types";
 
 import useWindowWidth from "../../hooks/useWindowWidth";
-import { TABLET_BREAKPOINT } from "../../constants";
+import { NORMAL_CELLS_TABLE_NAME, TABLET_BREAKPOINT } from "../../constants";
 import { TableStatus, UnpackedCellLine } from "./types";
 import useEnv from "../../hooks/useEnv";
 
@@ -17,6 +18,7 @@ const {
     footer,
     hoveredRow,
     dataComplete,
+    normalCells,
 } = require("../../style/table.module.css");
 
 interface CellLineTableProps {
@@ -90,11 +92,17 @@ const CellLineTable = ({
         };
     });
 
+    const tableClassNames = classNames(
+        container,
+        inProgress ? comingSoon : "",
+        tableName === NORMAL_CELLS_TABLE_NAME ? normalCells : ""
+    );
+
     return (
         <>
             <Table
                 key={tableName}
-                className={[container, inProgress ? comingSoon : ""].join(" ")}
+                className={tableClassNames}
                 rowClassName={(record) =>
                     isClickable(record) ? dataComplete : ""
                 }
