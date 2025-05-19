@@ -181,6 +181,7 @@ export interface UnpackedCellLineMainInfo {
     thumbnailImage?: FileNode;
 }
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
+    key: string;
     cloneNumber: number;
     tagLocation: string[];
     fluorescentTag: string[];
