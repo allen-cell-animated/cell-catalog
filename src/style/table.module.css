@@ -38,6 +38,7 @@
 
 .container :global(.ant-table-thead .ant-table-cell) {
     padding: 10px 16px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 34px;
     color: var(--SERIOUS_GRAY);
