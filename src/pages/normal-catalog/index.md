@@ -22,7 +22,11 @@ acknowledgements_block:
         - name: David Drubin
           institution: University of California, Berkley
     outro: The parental WTC hiPSC line was provided by the Bruce R. Conklin laboratory at the Gladstone Institute and UCSF.
-funding_text: The generation of some of these cell lines was supported by the National Human Genome Research Institute of the National Institutes under Award Number UM1HG011593. <br/> <br/> We wish to thank Allen Institute founders, Jody Allen & Paul G. Allen, for their vision, encouragement, and support.
+funding_text: >
+  The generation of some of these cell lines was supported by the National Human Genome Research Institute of the National Institutes under Award Number UM1HG011593. 
+
+
+  We wish to thank Allen Institute founders, Jody Allen & Paul G. Allen, for their vision, encouragement, and support.
 ---
 
 [Subscribe to our newsletter](https://www.alleninstitute.org/newsletter) to stay informed of frequently released new cell lines.
