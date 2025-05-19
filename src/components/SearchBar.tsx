@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AutoComplete, Input } from "antd";
-import { filter } from "lodash";
+import { debounce, filter, set } from "lodash";
 import {
     SearchLookup,
     UnpackedNormalCellLine,
@@ -19,7 +19,6 @@ interface SearchBarProps {
 const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
     const [options, setOptions] = useState<{ value: string }[]>([]);
     const [currentValue, setCurrentValue] = useState<string>("");
-    const [ignoreSelect, setIgnoreSelect] = useState(false);
 
     const handleSearch = (value: string) => {
         setCurrentValue(value);
@@ -45,12 +44,19 @@ const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
     };
 
     const onEnter = () => {
-        let cellLines: UnpackedNormalCellLine[] = [];
+        let selectedCellLines = new Set<number>();
         options.forEach((option) => {
-            cellLines = [...cellLines, ...getCellLinesToShow(option.value)];
+            selectedCellLines = new Set([
+                ...selectedCellLines,
+                ...getCellLineIdsToShow(option.value),
+            ]);
         });
+        if (selectedCellLines.size === 0) {
+            setResults([]);
+            return;
+        }
+        const cellLines = filterCellLines(Array.from(selectedCellLines));
         setResults(cellLines);
-        setIgnoreSelect(true);
         setOptions([]);
     };
 
@@ -60,41 +66,38 @@ const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
         });
     };
 
-    const getCellLinesToShow = (value: string) => {
+    const getCellLineIdsToShow = (value: string): number[] => {
         // NOTE: the checks for undefined values are for typescript, this data is all
         // generated from the same source, so the looks ups will always
         // return a value
         const { geneSymToCellIds, structureAndNameToGene } = mappings;
-        let dataToShow;
+        let cellLineIds: number[] = [];
         if (value.includes("AICS")) {
             // the cell line ids in the lookup list are formatted as AICS-<id>
             // but the cell line ids in the data are just numbers
-            const cellLineId = value.split("AICS-")[1];
-            dataToShow = filter(allCellLines, {
-                cellLineId: parseInt(cellLineId),
-            });
+            const cellLineId = parseInt(value.split("AICS-")[1]);
+            cellLineIds = [cellLineId];
         } else if (geneSymToCellIds.has(value)) {
-            const cellLineIds = geneSymToCellIds.get(value);
-            dataToShow = cellLineIds ? filterCellLines(cellLineIds) : [];
+            cellLineIds = geneSymToCellIds.get(value) || [];
         } else if (structureAndNameToGene.has(value)) {
             const geneSymbol = structureAndNameToGene.get(value);
-            const cellLineIds = geneSymbol
-                ? geneSymToCellIds.get(geneSymbol)
-                : undefined;
-            dataToShow = cellLineIds ? filterCellLines(cellLineIds) : [];
-        } else {
-            dataToShow = allCellLines;
+            cellLineIds = geneSymbol
+                ? geneSymToCellIds.get(geneSymbol) || []
+                : [];
+        }
+        return cellLineIds;
+    };
+
+    const getCellLinesToShow = (value: string) => {
+        let dataToShow: UnpackedNormalCellLine[] = [];
+        const cellLineIds = getCellLineIdsToShow(value);
+        if (cellLineIds.length > 0) {
+            dataToShow = filterCellLines(cellLineIds);
         }
         return dataToShow;
     };
 
     const onSelect = (value: string) => {
-        // hitting enter also selects an option from the dropdown
-        // but we want to ignore that
-        if (ignoreSelect) {
-            setIgnoreSelect(false);
-            return;
-        }
         setCurrentValue(value);
         const dataToShow = getCellLinesToShow(value);
         setResults(dataToShow);
@@ -103,6 +106,7 @@ const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
     return (
         <div className={searchBarContainer}>
             <AutoComplete
+                defaultActiveFirstOption={false}
                 options={options}
                 value={currentValue}
                 style={{ width: "100%" }}

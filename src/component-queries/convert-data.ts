@@ -119,6 +119,9 @@ export const createLookupMappings = (
                 structureAndNameToGene.set(geneStructure, geneSymbol);
                 allSearchableTerms.add(geneName);
                 allSearchableTerms.add(geneProtein);
+                if (geneStructure) {
+                    allSearchableTerms.add(geneStructure);
+                }
             });
         });
         geneSymToCellIds.set(symbol, cellLines);
