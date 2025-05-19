@@ -116,10 +116,10 @@ export const createLookupMappings = (
                 allSearchableTerms.add(geneSymbol);
                 structureAndNameToGene.set(geneName, geneSymbol);
                 structureAndNameToGene.set(geneProtein, geneSymbol);
-                structureAndNameToGene.set(geneStructure, geneSymbol);
                 allSearchableTerms.add(geneName);
                 allSearchableTerms.add(geneProtein);
                 if (geneStructure) {
+                    structureAndNameToGene.set(geneStructure, geneSymbol);
                     allSearchableTerms.add(geneStructure);
                 }
             });
