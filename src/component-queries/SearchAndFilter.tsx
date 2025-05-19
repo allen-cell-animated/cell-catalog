@@ -59,7 +59,7 @@ const SearchAndFilter = ({
                 }
             `}
             render={(data: SearchAndFilterQueryResult) => {
-                const mapping = createLookupMappings(
+                const mappings = createLookupMappings(
                     data.allMarkdownRemark.group
                 );
                 return (
@@ -71,7 +71,7 @@ const SearchAndFilter = ({
                             </div>
                             <SearchBar
                                 allCellLines={allCellLines}
-                                mappings={mapping}
+                                mappings={mappings}
                                 setResults={setResults}
                             />
                         </div>
