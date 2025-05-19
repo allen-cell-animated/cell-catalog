@@ -1,8 +1,7 @@
 ---
 templateKey: disease
 name: Cardiomyopathy
-gene: 
-  - MYH7
+gene: MYH7
 status: Available
 acknowledgements: "These cell lines were generated at Allen Institute and
   released to a group of collaborators to perform preliminary studies. We would
