@@ -1,8 +1,7 @@
 ---
 templateKey: disease
 name: Skeletal Myopathy
-gene: 
-  - MYH3
+gene: MYH3
 status: Available
 acknowledgements: These lines were generated at Allen Institute and released to
   a group of collaborators to perform skeletal differentiation. We would like to
