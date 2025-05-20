@@ -76,12 +76,12 @@ export const DiseaseCellLineTemplate = ({
                         <ImagesAndVideos
                             cellLineId={cellLineId}
                             fluorescentTag={
-                                parentalLine.genetic_modifications?.[0]?.fluorescent_tag || ""
+                                parentalLine.genetic_modifications?.[0].fluorescent_tag || ""
                             }
                             parentalGeneSymbol={
-                                parentalLine.genetic_modifications?.[0]?.gene?.frontmatter.symbol || ""
+                                parentalLine.genetic_modifications?.[0].gene.frontmatter.symbol || ""
                             }
-                            alleleTag={parentalLine.genetic_modifications?.[0]?.allele_count || ""}
+                            alleleTag={parentalLine.genetic_modifications?.[0].allele_count || ""}
                             parentalLine={parentalLine}
                             geneSymbol={geneSymbol}
                             snp={snp}
