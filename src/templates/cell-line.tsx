@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { GeneticModification } from "../component-queries/types";
+import ImagesAndVideos from "../components/ImagesAndVideos";
 
 interface QueryResult {
     data: {
@@ -14,6 +15,7 @@ interface QueryResult {
                 genetic_modifications?: GeneticModification[];
                 status: string;
                 thumbnail_image: any;
+                images_and_videos: any
             };
         };
     };
@@ -25,6 +27,7 @@ interface CellLineProps {
     geneticModifications?: GeneticModification[];
     status: string;
     thumbnail: any;
+    imagesAndVideos?: any;
 }
 
 // eslint-disable-next-line
@@ -34,8 +37,12 @@ export const CellLineTemplate = ({
     geneticModifications,
     status,
     thumbnail,
+    imagesAndVideos,
 }: CellLineProps) => {
     const image = getImage(thumbnail);
+    const hasImagesOrVideos =
+        (imagesAndVideos?.images?.length || 0) > 0 ||
+        (imagesAndVideos?.videos?.length || 0) > 0;
     return (
         <section className="section">
             <div className="container content">
@@ -52,6 +59,12 @@ export const CellLineTemplate = ({
                             <GatsbyImage
                                 image={image}
                                 alt="Cell Line Thumbnail"
+                            />
+                        )}
+                        {hasImagesOrVideos && (
+                            <ImagesAndVideos
+                                // images={imagesAndVideos.images}
+                                videos={imagesAndVideos.videos}
                             />
                         )}
                     </div>
@@ -71,6 +84,7 @@ const CellLine = ({ data }: QueryResult) => {
                 geneticModifications={cellLine.frontmatter.genetic_modifications}
                 status={cellLine.frontmatter.status}
                 thumbnail={cellLine.frontmatter.thumbnail_image}
+                imagesAndVideos={cellLine.frontmatter.images_and_videos}
             />
         </Layout>
     );
@@ -98,6 +112,12 @@ export const pageQuery = graphql`
                 thumbnail_image {
                     childImageSharp {
                         gatsbyImageData(width: 200, placeholder: BLURRED)
+                    }
+                }
+                images_and_videos {
+                    videos {
+                        video 
+                        caption
                     }
                 }
             }
