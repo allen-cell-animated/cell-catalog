@@ -65,19 +65,12 @@ export const NormalCatalogTemplate = ({
                 </div>
             </Flex>
             <h2 className={mainHeading}>{main.heading}</h2>
-            <Card className={banner} bordered={true}>
-                <h4>{main.subheading}</h4>
-                <PageContent
-                    className={bannerContent}
-                    content={main.description}
-                />
-            </Card>
             <NormalCellLines />
             <HTMLContent className="footer" content={footerText} />
         </section>
     );
 };
-
+// TODO: remove `main` content from the template and the query
 interface QueryResult {
     data: {
         markdownRemark: {
