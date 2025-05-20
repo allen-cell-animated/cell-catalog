@@ -21,25 +21,30 @@ const {
 
 interface ImagesAndVideosProps {
     images?: any[];
-    cellLineId: number;
-    parentalLine: ParentalLineFrontmatter;
-    videos?: any;
-    geneSymbol: string;
-    snp: string;
-    fluorescentTag: string;
-    parentalGeneSymbol: string;
-    alleleTag: string;
+    // TODO: separate out the video type so don't have to make properties optional?
+    cellLineId?: number;
+    parentalLine?: ParentalLineFrontmatter;
+    videos?: any[];
+    geneSymbol?: string;
+    snp?: string;
+    fluorescentTag?: string;
+    parentalGeneSymbol?: string;
+    alleleTag?: string;
 }
 
 const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     images = [],
+    videos = [],
     cellLineId,
     fluorescentTag,
     parentalGeneSymbol,
     alleleTag,
     geneSymbol,
 }) => {
-    const [mainImage, setMainImage] = useState(images?.[0] || null);
+    const hasImage = images?.length > 0;
+    const hasVideo = videos?.length > 0;
+
+    const [mainImage, setMainImage] = useState(hasImage ? images?.[0] : null);
     const hasMultipleImages = images?.length > 1;
     const thumbnails = images?.map((image, index) => {
         const renderImage = getImage(image?.image);
@@ -58,9 +63,36 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
         ? primaryImageWithThumbnail
         : primaryImageOnly;
 
-    const imageData = getImage(mainImage.image);
-    if (!imageData) {
-        return null;
+    const imageData = mainImage?.image ? getImage(mainImage.image) : null;
+    
+    const getVimeoUrl = (url: string) => {
+        if (url?.includes("player.vimeo.com")) {
+            return url;
+        }
+        return url;
+    };
+
+    const videoList = hasVideo ? videos.map((video, index) => {
+        const videoUrl = getVimeoUrl(video?.video);
+        return (
+            <div key={index}>
+                <iframe
+                    src={`${videoUrl}?badge=0&autoplay=0&title=0`}
+                    width="400"
+                    height="400"
+                ></iframe>
+                <p>{video?.caption}</p>
+            </div>
+        );
+    }) : null;
+
+    // temporarily render videos for cell lines 
+    if (hasVideo && !hasImage && !cellLineId) {
+        return (
+            <div>
+                {videoList}
+            </div>
+        );
     }
 
     const title = (
@@ -70,7 +102,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
             className={header}
         >
             <div className={titleSection}>
-                <h3 className={mainTitle}>{formatCellLineId(cellLineId)}</h3>
+                {cellLineId && (<h3 className={mainTitle}>{formatCellLineId(cellLineId)}</h3>)}
                 <span className={subtitle}>
                     {geneSymbol} in WTC-{fluorescentTag}-{parentalGeneSymbol} (
                     {alleleTag}-allelic tag)
@@ -84,31 +116,35 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
 
     return (
         <Card className={container} title={title}>
-            <Flex
-                className={primaryImageContainer}
-                align="center"
-                vertical
-                justify="center"
-                gap={20}
-            >
-                <GatsbyImage
-                    className={primaryImageClassName}
-                    image={imageData}
-                    alt="main image"
-                    imgStyle={{ objectFit: "contain" }}
-                />
-                {mainImage.caption && (
-                    <p className={caption}>{mainImage.caption}</p>
-                )}
-            </Flex>
-            {hasMultipleImages && (
+            {hasImage && imageData && (
+                <>
                 <Flex
+                    className={primaryImageContainer}
+                    align="center"
                     vertical
-                    style={{ minHeight: 0 }}
-                    className={thumbnailContainer}
+                    justify="center"
+                    gap={20}
                 >
-                    {thumbnails}
+                    <GatsbyImage
+                        className={primaryImageClassName}
+                        image={imageData}
+                        alt="main image"
+                        imgStyle={{ objectFit: "contain" }}
+                    />
+                    {mainImage?.caption && (
+                        <p className={caption}>{mainImage.caption}</p>
+                    )}
                 </Flex>
+                {hasMultipleImages && (
+                    <Flex
+                        vertical
+                        style={{ minHeight: 0 }}
+                        className={thumbnailContainer}
+                    >
+                        {thumbnails}
+                    </Flex>
+                )}
+                </>
             )}
         </Card>
     );
