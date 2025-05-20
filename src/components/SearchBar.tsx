@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { AutoComplete, Input } from "antd";
-import { debounce, filter, set } from "lodash";
 import {
     SearchLookup,
     UnpackedNormalCellLine,
@@ -18,6 +17,7 @@ interface SearchBarProps {
 const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
     const [options, setOptions] = useState<{ value: string }[]>([]);
     const [currentValue, setCurrentValue] = useState<string>("");
+    const ignoreSelect = useRef(false);
 
     const handleSearch = (value: string) => {
         setCurrentValue(value);
@@ -43,6 +43,9 @@ const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
     };
 
     const onEnter = () => {
+        // if the user presses enter we want to select all the options
+        // not select the first item in the dropdown
+        ignoreSelect.current = true;
         let selectedCellLines = new Set<number>();
         options.forEach((option) => {
             selectedCellLines = new Set([
@@ -56,7 +59,6 @@ const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
         }
         const cellLines = filterCellLines(Array.from(selectedCellLines));
         setResults(cellLines);
-        setOptions([]);
     };
 
     const filterCellLines = (cellIds: number[]) => {
@@ -97,6 +99,11 @@ const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
     };
 
     const onSelect = (value: string) => {
+        if (ignoreSelect.current) {
+            // the user pressed enter, which can also trigger the select event
+            ignoreSelect.current = false;
+            return;
+        }
         setCurrentValue(value);
         const dataToShow = getCellLinesToShow(value);
         setResults(dataToShow);
