@@ -35,16 +35,20 @@
     background-color: var(--ALLEN_LIGHT_10) !important;
 }
 
-.gray-button,
-.gray-button:hover {
-    background-color: var(--GRAY_30) !important;
+.secondary-button {
+    background-color: var(--primary-color) !important;
     border: none !important;
     color: var(--WHITE) !important;
 }
 
-.gray-button.active,
-.gray-button.active:hover {
-    background-color: var(--primary-color) !important;
-    border: none !important;
-    color: var(--WHITE) !important;
+.secondary-button:disabled {
+    background-color: var(--GRAY_30) !important;
+}
+
+.secondary-button:disabled:hover {
+    background-color: var(--GRAY_30) !important;
+}
+
+.secondary-button:hover {
+    background-color: var(--BLUE_90) !important;
 }
