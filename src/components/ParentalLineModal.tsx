@@ -22,9 +22,9 @@ interface ParentalLineModalProps {
     formattedId: string;
     cloneNumber: number;
     status: string;
-    taggedGene?: UnpackedGene[];
-    tagLocation?: string[];
-    fluorescentTag?: string[];
+    taggedGene: UnpackedGene[];
+    tagLocation: string[];
+    fluorescentTag: string[];
 }
 const ParentalLineModal = (props: ParentalLineModalProps) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -51,9 +51,9 @@ const ParentalLineModal = (props: ParentalLineModalProps) => {
         return <>{props.formattedId}</>;
     }
     
-    const { symbol, name } = props.taggedGene?.[0] || {symbol: "", name: ""};
-    const fluorescentTag  = props.fluorescentTag?.[0] || "";  
-    const tagLocation = props.tagLocation?.[0] || "";
+    const { symbol, name } = props.taggedGene[0];
+    const fluorescentTag  = props.fluorescentTag[0];  
+    const tagLocation = props.tagLocation[0];
     const parentalLineItems = [
         {
             key: "1",
