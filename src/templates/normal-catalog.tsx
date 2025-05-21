@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Divider, Flex } from "antd";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import Footer from "../components/CellLineTable/Footer";
+import Footer from "../components/Footer";
 import Content, { HTMLContent } from "../components/shared/Content";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";

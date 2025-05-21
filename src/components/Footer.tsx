@@ -1,11 +1,11 @@
 import React from "react";
-import { HTMLContent } from "../shared/Content";
+import { HTMLContent } from "./shared/Content";
 
 const {
     container,
     contributor,
     institution,
-} = require("../../style/footer.module.css");
+} = require("../style/footer.module.css");
 
 interface FooterProps {
     acknowledgementsBlock: {
