@@ -2,8 +2,7 @@ import React from "react";
 import { HTMLContent } from "../shared/Content";
 
 const {
-    footer,
-    contributorsClass,
+    container,
     contributor,
     institution,
 } = require("../../style/footer.module.css");
@@ -23,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({
 }) => {
     const { intro, contributors, outro } = acknowledgementsBlock;
     return (
-        <div className={footer}>
+        <div className={container}>
             <div>
                 <h3>Acknowledgements</h3>
                 <p> {intro} </p>

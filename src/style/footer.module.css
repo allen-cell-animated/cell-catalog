@@ -1,4 +1,4 @@
-.footer {
+.container {
     color: var(--footer-text);
     display: flex;
     flex-direction: column;
@@ -7,14 +7,14 @@
     gap: 24px;
 }
 
-.footer p {
+.container p {
     margin: 8px 0px;
 }
 
-.footer .contributor {
+.container .contributor {
     font-weight: 600;
 }
 
-.footer .institution {
+.container .institution {
     font-style: italic;
 }
