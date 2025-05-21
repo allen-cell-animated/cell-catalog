@@ -1,3 +1,6 @@
+.container :global(.ant-table-cell) {
+    font-size: 14px;
+}
 .header {
     margin: 16px 0 40px 0;
 }
