@@ -21,14 +21,14 @@ const extractGeneticModifications = (
         taggedGene: modifications
             .filter((mod) => mod.gene && mod.gene.frontmatter)
             .map((mod) => ({
-                name: mod.gene?.frontmatter.name || "",
-                symbol: mod.gene?.frontmatter.symbol || "",
-                structure: mod.gene?.frontmatter.structure || "",
-                protein: mod.gene?.frontmatter.protein || "",
+                name: mod.gene.frontmatter.name,
+                symbol: mod.gene.frontmatter.symbol,
+                structure: mod.gene.frontmatter.structure,
+                protein: mod.gene.frontmatter.protein,
             })),
-        alleleCount: modifications.map((mod) => mod.allele_count || ""),
-        tagLocation: modifications.map((mod) => mod.tag_location || ""),
-        fluorescentTag: modifications.map((mod) => mod.fluorescent_tag || ""),
+        alleleCount: modifications.map((mod) => mod.allele_count),
+        tagLocation: modifications.map((mod) => mod.tag_location),
+        fluorescentTag: modifications.map((mod) => mod.fluorescent_tag),
     };
 };
 
@@ -83,8 +83,8 @@ export const convertFrontmatterToNormalCellLines = ({
     node: NormalCellLineNode;
 }): UnpackedNormalCellLine => {
     const { taggedGene, alleleCount, tagLocation, fluorescentTag } = extractGeneticModifications(cellLineNode.frontmatter.genetic_modifications);
-    const proteins = taggedGene.map((gene) => gene.protein || "");
-    const structures = taggedGene.map((gene) => gene.structure || "");
+    const proteins = taggedGene.map((gene) => gene.protein);
+    const structures = taggedGene.map((gene) => gene.structure);
 
     return {
         path: cellLineNode.fields.slug,
