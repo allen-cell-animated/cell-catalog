@@ -18,6 +18,9 @@ const {
     actionColumn,
     actionButton,
     plasmidIcon,
+    protein,
+    gene,
+    structure,
 } = require("../../style/table.module.css");
 
 const caseInsensitiveStringCompare = (a = "", b = "") =>
@@ -83,6 +86,7 @@ export const getNormalTableColumns = (
             width: 200,
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
+            className: protein,
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(a.protein, b.protein),
         },
@@ -92,6 +96,8 @@ export const getNormalTableColumns = (
             key: "taggedGene",
             dataIndex: "taggedGene",
             responsive: mdBreakpoint,
+            sortIcon: sortIcon,
+            className: gene,
             render: (taggedGene: UnpackedGene[]) => {
                 return (
                     <>
@@ -101,7 +107,6 @@ export const getNormalTableColumns = (
                     </>
                 );
             },
-            sortIcon: sortIcon,
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     a.taggedGene[0].name,
@@ -124,7 +129,7 @@ export const getNormalTableColumns = (
             dataIndex: "structure",
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
-
+            className: structure,
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(a.structure, b.structure),
         },

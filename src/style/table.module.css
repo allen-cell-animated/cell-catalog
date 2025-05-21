@@ -68,7 +68,7 @@
 }
 
 .action-column:hover .plasmid-icon path {
-  fill: var(--WHITE);
+    fill: var(--WHITE);
 }
 
 .container h4 {
@@ -179,6 +179,25 @@
     font-weight: 600;
     font-weight: 300;
     color: var(--ALLEN_LIGHT_60);
+}
+
+.container .protein,
+.container .structure {
+    max-width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.container .gene {
+    max-width: 310px;
+    flex-wrap: nowrap;
+}
+
+.container .gene-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .container :global(.ant-table-column-sorters) {

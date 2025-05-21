@@ -6,13 +6,17 @@ interface GeneDisplayProps {
     gene: UnpackedGene;
 }
 
+const {
+    geneName,
+} = require("../style/table.module.css");
+
 const GeneDisplay: React.FC<GeneDisplayProps> = ({ gene }) => {
     return (
-        <Flex wrap="wrap" align="flex-end">
+        <Flex wrap="nowrap" align="flex-end">
             <Tag bordered={false} color="#DFE5EA">
                 {gene.symbol}
             </Tag>
-            <div>{gene.name}</div>
+            <div className={geneName}>{gene.name}</div>
         </Flex>
     );
 };
