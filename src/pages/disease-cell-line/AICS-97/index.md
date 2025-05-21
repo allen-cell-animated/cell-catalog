@@ -51,11 +51,11 @@ images_and_videos:
         camera."
     - image: aics-097_cl141_g256e.png
       caption: One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one and four days post-thaw
-        using a Leica microscope 4x and 10x magnification. A four panel image of
-        clone 141 (G256E/wt) is shown here. Viability and colony formation one
-        day and four days post-thaw. Scale bars are shown.
+        inhibitor for 24hrs post-thaw - refer to culture protocol). A four panel
+        image of clone 141 (G256E/wt) is shown here and is a representative
+        image for all clones in the collection. Cultures were observed daily.
+        Colonies were imaged one (D1) and four (D4) days post-thaw using a Leica
+        microscope at 4x and 10x magnification. Scale bars are shown.
 genomic_characterization:
   diagrams:
     - title: Sanger Sequencing Results
