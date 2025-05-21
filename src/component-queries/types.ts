@@ -68,6 +68,7 @@ export enum CellLineStatus {
     DataComplete = "data complete",
     Released = "released",
     InProgress = "in progress",
+    Hide = "hide",
 }
 
 enum Antibody {
