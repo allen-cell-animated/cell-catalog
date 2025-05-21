@@ -22,7 +22,6 @@ const CellLinePreview = ({ entry, getAsset }: TemplateProps) => {
     const fluorescentTags = geneticModifications.map((mod: any) => mod.fluorescent_tag).join(" / ");
     const alleleCounts = geneticModifications.map((mod: any) => mod.allele_count).join(" / ");
 
-    // TODO: should add protein, structure and name? what's the best way?
     const data = [
         {
             key: "cell_line_id",
