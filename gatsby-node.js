@@ -5,14 +5,21 @@ const { createFilePath } = require("gatsby-source-filesystem");
 exports.createSchemaCustomization = ({ actions, schema }) => {
     const { createTypes } = actions;
     const typeDefs = [
-        "type MarkdownRemark implements Node { frontmatter: Frontmatter }",
-        `type Frontmatter {
-            disease: MarkdownRemark @link(by: "frontmatter.name")
-            gene: [MarkdownRemark] @link(by: "frontmatter.symbol", from: "gene") 
-            parental_line: MarkdownRemark @link(by: "frontmatter.cell_line_id")
-            footer_text: String @md
-            acknowledgements: String @md
-        }`,
+      "type MarkdownRemark implements Node { frontmatter: Frontmatter }",
+      `type GeneticModification {
+                gene: MarkdownRemark @link(by: "frontmatter.symbol", from: "gene")
+                allele_count: String
+                tag_location: String
+                fluorescent_tag: String
+            }`,
+      `type Frontmatter {
+                disease: MarkdownRemark @link(by: "frontmatter.name")
+                genetic_modifications: [GeneticModification]
+                gene: [MarkdownRemark] @link(by: "frontmatter.symbol", from: "gene")
+                parental_line: MarkdownRemark @link(by: "frontmatter.cell_line_id")
+                footer_text: String @md
+                acknowledgements: String @md
+            }`,
     ];
     createTypes(typeDefs);
 };

@@ -3,14 +3,12 @@ templateKey: cell-line
 cell_line_id: 122
 status: in progress
 clone_number: 
-allele_count: 
 parental_line: 0
-gene:
-  - EOMES
-tag_location:
-  - C-terminus
-fluorescent_tag:
-  - mEGFP
+genetic_modifications:
+  - gene: EOMES
+    tag_location: C-terminus
+    fluorescent_tag: mEGFP
+    allele_count: 
 order_link: 
 cofa: 
 donor_plasmid: 

@@ -3,14 +3,12 @@ templateKey: cell-line
 cell_line_id: 23
 status: released
 clone_number: 20
-allele_count: mono
 parental_line: 0
-gene:
-  - TJP1
-tag_location:
-  - N-terminus
-fluorescent_tag:
-  - mEGFP
+genetic_modifications:
+  - gene: TJP1
+    tag_location: N-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
 order_link: https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0023&Product=iPSC
 cofa: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0023_CofA.pdf
 donor_plasmid: https://www.addgene.org/87429/

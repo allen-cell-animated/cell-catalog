@@ -3,14 +3,12 @@ templateKey: cell-line
 cell_line_id: 52
 status: released
 clone_number: 3
-allele_count: mono
 parental_line: 0
-gene:
-  - MYL7
-tag_location:
-  - C-terminus
-fluorescent_tag:
-  - mEGFP
+genetic_modifications:
+  - gene: MYL7
+    tag_location: C-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0052-003&PgId=166
 cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0052-003_CofA.pdf
 donor_plasmid: https://www.addgene.org/114413/

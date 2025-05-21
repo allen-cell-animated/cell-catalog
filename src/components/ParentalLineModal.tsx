@@ -52,7 +52,7 @@ const ParentalLineModal = (props: ParentalLineModalProps) => {
     }
     
     const { symbol, name } = props.taggedGene[0];
-    const fluorescentTag  = props.fluorescentTag[0];
+    const fluorescentTag  = props.fluorescentTag[0];  
     const tagLocation = props.tagLocation[0];
     const parentalLineItems = [
         {
