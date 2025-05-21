@@ -8,6 +8,7 @@ import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import NormalCellLines from "../component-queries/NormalCellLines";
 
 const {
+    container,
     coriellCard,
     banner,
     bannerContent,
@@ -41,7 +42,7 @@ export const NormalCatalogTemplate = ({
     const image = getImage(coriellImage);
     const PageContent = contentComponent || Content;
     return (
-        <section>
+        <section className={container}>
             <h1>{title}</h1>
             <Flex className={header}>
                 <PageContent className="content" content={content} />

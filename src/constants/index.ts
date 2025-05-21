@@ -16,5 +16,3 @@ export const TABS_WITH_STEM_CELL = [
     SubPage.StemCellCharacteristics,
     // SubPage.Protocols,
 ];
-
-export const NORMAL_CELLS_TABLE_NAME = "Cell Line Catalog";
