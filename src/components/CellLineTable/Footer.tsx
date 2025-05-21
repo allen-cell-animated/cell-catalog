@@ -28,7 +28,7 @@ const Footer: React.FC<FooterProps> = ({
                 <h3>Acknowledgements</h3>
                 <p> {intro} </p>
                 {contributors.map((p, i) => (
-                    <div className={contributorsClass} key={i}>
+                    <div key={i}>
                         <span className={contributor}>{p.name}</span>,{" "}
                         <span className={institution}>{p.institution}</span>
                     </div>

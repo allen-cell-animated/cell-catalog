@@ -1,5 +1,5 @@
 .footer {
-    color: #204A6C;
+    color: var(--footer-text);
     display: flex;
     flex-direction: column;
     font-size: 16px;
@@ -11,10 +11,10 @@
     margin: 8px 0px;
 }
 
-.footer .contributorsClass .contributor {
+.footer .contributor {
     font-weight: 600;
 }
 
-.footer .contributorsClass .institution {
+.footer .institution {
     font-style: italic;
 }
