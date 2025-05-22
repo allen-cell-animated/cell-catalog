@@ -43,21 +43,21 @@ images_and_videos:
   images:
     - image: aics-105_clone57_r369q.png
       caption: One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one, four and five days
-        post-thaw using a Leica microscope 4x and 10x magnification. A four
-        panel image of clone 57 is shown here and is a representative image for
-        all clones in the collection (except clone 89). Viability and colony
-        formation one day and four days post-thaw. Scale bars are shown.
+        inhibitor for 24hrs post-thaw - refer to culture protocol). A four panel
+        image of clone 57 (R369Q/wt) is shown here and is a representative image
+        for all clones in the collection (except clone 89). Cultures were
+        observed daily. Colonies were imaged one (D1) and four (D4) days
+        post-thaw using a Leica microscope at 4x and 10x magnification. Scale
+        bars are shown.
     - image: r369q_cl89.png
       caption: One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one, four and five days
-        post-thaw using a Leica microscope 4x and 10x magnification. A four
-        panel image of clone 89. Viability and colony formation one day and four
-        days post-thaw. This cell line may exhibit transient poor morphology in
-        the first three passages post-thaw. However, this sub-optimal phenotype
-        resolves with continued passage. Scale bars are shown.
+        inhibitor for 24hrs post-thaw - refer to culture protocol). A four panel
+        image of clone 89 (wt/wt) is shown here. This cell line may exhibit
+        transient poor morphology in the first three passages post-thaw.
+        However, this sub-optimal phenotype resolves with continued passage.
+        Cultures were observed daily. Colonies were imaged one (D1) and four
+        (D4) days post-thaw using a Leica microscope at 4x and 10x
+        magnification. Scale bars are shown.
 genomic_characterization:
   diagrams:
     - title: Sanger Sequencing Results
@@ -80,7 +80,7 @@ editing_design:
   crna_target_site: " 5’ GTTCAAGCTGAAGCAGCGGG[AGG] 3’"
   dna_donor_sequence:
     - sequence: 5’ TGGAAACATGAAGTTCAAGCTGAAGCAGCAGGAGGAGC[A]GGCGGAGCCAGACGGCACTG 3’
-      type: ""
+      type: Mutant
   cas9: "TrueCut™ Cas9 Protein "
   f_primer: 5’ GCCAGGAAGCATAAGTGGGT 3’
   r_primer: 5’ GGTGACGTACTCATTGCCCA 3’
