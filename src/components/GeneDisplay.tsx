@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex, Tag, Typography } from "antd";
 import { UnpackedGene } from "../component-queries/types";
-import { getTooltipProps } from "./CellLineTable/NormalTableColumns";
+import { getTooltipProps } from "./MultiLineTableCell";
 
 interface GeneDisplayProps {
     gene: UnpackedGene;
