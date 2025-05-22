@@ -32,20 +32,20 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/iPSC/AICS-0109_CofA
 images_and_videos:
   images:
     - caption: One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one and four days post-thaw
-        using a Leica microscope 4x and 10x magnification. A four panel image of
-        clone 93 is shown here and is a representative image for all clones in
-        the collection. Viability and colony formation one day and four days
-        post-thaw. Scale bars are shown.
+        inhibitor for 24hrs post-thaw - refer to culture protocol). A four panel
+        image of clone 93 (E525K/wt) is shown here and is a representative image
+        for all clones in the collection. Cultures were observed daily. Colonies
+        were imaged one (D1) and four (D4) days post-thaw using a Leica
+        microscope at 4x and 10x magnification. Scale bars are shown.
       image: aics-109_clone93_e525k.png
 genomic_characterization:
   diagrams:
     - title: Sanger Sequencing Results
       caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
-        alleles. Results confirmed respective genotype as indicated in table
-        above with no additional mutations present. 
-      image: aics-0109_e525k_sanger_exported_highres.png
+        alleles. The E525K mutation (NM_000257.4(MYH7):c.1573G>A (p.Glu525Lys))
+        is indicated by a G > A. Results confirmed respective genotype as
+        indicated in the figure above with no additional mutations present. 
+      image: e525k_sanger_results.png
     - title: Mono-Clonality Confirmation via ddPCR Assay
       caption: Verification of genomic copy number of WT and mutant alleles.
         E525K:WT/RPP30 ratio from ddPCR assay; values ~ 0.5 indicate
@@ -61,7 +61,7 @@ editing_design:
   crna_target_site: 5’ AAAGAGGCACCTTCTCGATG[AGG] 3’
   dna_donor_sequence:
     - sequence: 5’ TCAGGTGGTAAGGCCAAAGAGGCACCTTCT[T]GATGAGGTCAATGC AGGCCTGCAGGTCC 3’
-      type: ""
+      type: Mutant
   cas9: "TrueCut™ Cas9 Protein "
   f_primer: " 5’ GGACTGTGTGGTGACAGAGG 3’"
   r_primer: " 5’ GTGTGGGAGGTCATCATGCA 3’"
