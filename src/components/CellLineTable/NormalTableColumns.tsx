@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex } from "antd";
+import { Flex, Typography, TooltipProps } from "antd";
 import Icon, { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { SortOrder } from "antd/es/table/interface";
 import {
@@ -12,6 +12,7 @@ import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint } from "./types";
 
 const Plasmid = require("../../img/plasmid.svg");
+const { Text } = Typography;
 
 const {
     lastColumn,
@@ -21,6 +22,8 @@ const {
     protein,
     gene,
     structure,
+    tooltip,
+    truncatedText,
 } = require("../../style/table.module.css");
 
 const caseInsensitiveStringCompare = (a = "", b = "") =>
@@ -37,6 +40,10 @@ const sortIcon = ({ sortOrder }: { sortOrder: SortOrder }) => {
     ) : (
         <CaretUpOutlined style={{ color: SERIOUS_GRAY, fontSize: 16 }} />
     );
+};
+
+const tooltipProps = (text: string): TooltipProps => {
+    return { title: text, arrow: false, rootClassName: tooltip };
 };
 
 const obtainPlasmidColumn = {
@@ -83,16 +90,25 @@ export const getNormalTableColumns = (
             title: "Protein",
             key: "protein",
             dataIndex: "protein",
-            width: 200,
+            width: 220,
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
             className: protein,
+            render: (text: string) => (
+                <Text
+                    className={truncatedText}
+                    ellipsis={{ tooltip: tooltipProps(text) }}
+                >
+                    {text}
+                </Text>
+            ),
+
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(a.protein, b.protein),
         },
         {
             title: "Gene Symbol & Name",
-            width: 280,
+            width: 310,
             key: "taggedGene",
             dataIndex: "taggedGene",
             responsive: mdBreakpoint,
@@ -125,11 +141,19 @@ export const getNormalTableColumns = (
         {
             title: "Structure",
             key: "structure",
-            width: 280,
+            width: 220,
             dataIndex: "structure",
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
             className: structure,
+            render: (text: string) => (
+                <Text
+                    className={truncatedText}
+                    ellipsis={{ tooltip: tooltipProps(text) }}
+                >
+                    {text}
+                </Text>
+            ),
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(a.structure, b.structure),
         },

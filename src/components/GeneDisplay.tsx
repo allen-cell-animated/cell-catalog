@@ -1,14 +1,12 @@
 import React from "react";
-import { Flex, Tag } from "antd";
+import { Flex, Tag, Typography } from "antd";
 import { UnpackedGene } from "../component-queries/types";
-
 interface GeneDisplayProps {
     gene: UnpackedGene;
 }
 
-const {
-    geneName,
-} = require("../style/table.module.css");
+const { truncatedText, tooltip } = require("../style/table.module.css");
+const { Text } = Typography;
 
 const GeneDisplay: React.FC<GeneDisplayProps> = ({ gene }) => {
     return (
@@ -16,7 +14,18 @@ const GeneDisplay: React.FC<GeneDisplayProps> = ({ gene }) => {
             <Tag bordered={false} color="#DFE5EA">
                 {gene.symbol}
             </Tag>
-            <div className={geneName}>{gene.name}</div>
+            <Text
+                className={truncatedText}
+                ellipsis={{
+                    tooltip: {
+                        title: gene.name,
+                        arrow: false,
+                        rootClassName: tooltip,
+                    },
+                }}
+            >
+                {gene.name}
+            </Text>
         </Flex>
     );
 };

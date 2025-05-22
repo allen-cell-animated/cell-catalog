@@ -184,20 +184,27 @@
 .container .protein,
 .container .structure {
     max-width: 220px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .container .gene {
     max-width: 310px;
-    flex-wrap: nowrap;
 }
 
-.container .gene-name {
+.container .truncated-text {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.tooltip:global(.ant-tooltip) {
+    max-width: none;
+}
+
+.tooltip :global(.ant-tooltip-inner) {
+    background-color: var(--tooltip-background);
+    border-radius: 0;
+    min-height: 0;
+    padding: 2px;
 }
 
 .container :global(.ant-table-column-sorters) {
