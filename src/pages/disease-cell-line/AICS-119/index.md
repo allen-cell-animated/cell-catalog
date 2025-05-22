@@ -47,26 +47,23 @@ images_and_videos:
         microscope. All scale bars are 100um."
       image: g608g_progerin-2-.png
     - caption: One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one and four days post-thaw
-        using a Leica microscope at 4x and 10x magnification. A four panel image
-        of clone 10 is shown here and is also a representative image for clone
-        39 (not pictured). Viability and colony formation one day and four days
-        post-thaw. Scale bars are shown.
+        inhibitor for 24hrs post-thaw - refer to culture protocol). A four panel
+        image of clone 10 (G608G/wt) is shown here and is also a representative
+        image for clone 39 (G608G/wt) (not pictured). Cultures were observed
+        daily. Colonies were imaged one (D1) and four (D4) days post-thaw using
+        a Leica microscope at 4x and 10x magnification. Scale bars are shown.
       image: aics-119_clone10_g608g.png
     - caption: One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one and five days post-thaw
-        using a Leica microscope at 4x and 10x magnification. A four panel image
-        of clone 23 is shown here. Viability and colony formation one day and
-        five days post-thaw. Scale bars are shown.
+        inhibitor for 24hrs post-thaw - refer to culture protocol). A four panel
+        image of clone 23 (wt/wt) is shown here. Cultures were observed daily.
+        Colonies were imaged one (D1) and five (D5) days post-thaw using a Leica
+        microscope at 4x and 10x magnification. Scale bars are shown.
       image: aics-119_clone23_g608g.png
     - caption: One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one and four days post-thaw
-        using a Leica microscope at 4x and 10x magnification. A four panel image
-        of clone 45 is shown here. Viability and colony formation one day and
-        four days post-thaw. Scale bars are shown.
+        inhibitor for 24hrs post-thaw - refer to culture protocol). A four panel
+        image of clone 45 (wt/wt) is shown here. Cultures were observed daily.
+        Colonies were imaged one (D1) and four (D4) days post-thaw using a Leica
+        microscope at 4x and 10x magnification. Scale bars are shown.
       image: aics-119_clone45_g608g.png
 genomic_characterization:
   diagrams:
@@ -90,7 +87,7 @@ editing_design:
   crna_target_site: 5’ GGAGATGGGTCCGCCCACCT[GGG] 3’
   dna_donor_sequence:
     - sequence: 5’ GAGGCAGAAGAGCCAGAGGAGATGGGTCC[A]CCCACCTGGGCTCCTGAGCCGCTGGCAGA 3’
-      type: ""
+      type: Mutant
   cas9: "TrueCut™ Cas9 Protein "
   f_primer: 5’ GCCTCTCTCCCCCATTCTTG 3’
   r_primer: 5’ ATGATGCTGCAGTTCTGGGG 3’
