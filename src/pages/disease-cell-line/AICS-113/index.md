@@ -49,7 +49,7 @@ images_and_videos:
         courtesy of Alina Greimal, BS, Christian Mandrycky, PhD and David Mack,
         PhD Institute for Stem Cell & Regenerative Medicine (ISCRM) at the
         University of Washington."
-      image: g769v_live-1-.png
+      image: g769v_live_cropped.png
     - caption: One vial of distribution lot was thawed (cells were treated with ROCK
         inhibitor for 24hrs post-thaw - refer to culture protocol). A four panel
         image of clone 44 (wt/wt) is shown here and is a representative image
