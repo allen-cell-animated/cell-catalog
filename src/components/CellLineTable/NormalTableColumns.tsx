@@ -42,7 +42,7 @@ const sortIcon = ({ sortOrder }: { sortOrder: SortOrder }) => {
     );
 };
 
-const tooltipProps = (text: string): TooltipProps => {
+export const getTooltipProps = (text: string): TooltipProps => {
     return { title: text, arrow: false, rootClassName: tooltip };
 };
 
@@ -97,7 +97,7 @@ export const getNormalTableColumns = (
             render: (text: string) => (
                 <Text
                     className={truncatedText}
-                    ellipsis={{ tooltip: tooltipProps(text) }}
+                    ellipsis={{ tooltip: getTooltipProps(text) }}
                 >
                     {text}
                 </Text>
@@ -149,7 +149,7 @@ export const getNormalTableColumns = (
             render: (text: string) => (
                 <Text
                     className={truncatedText}
-                    ellipsis={{ tooltip: tooltipProps(text) }}
+                    ellipsis={{ tooltip: getTooltipProps(text) }}
                 >
                     {text}
                 </Text>

@@ -1,11 +1,13 @@
 import React from "react";
 import { Flex, Tag, Typography } from "antd";
 import { UnpackedGene } from "../component-queries/types";
+import { getTooltipProps } from "./CellLineTable/NormalTableColumns";
+
 interface GeneDisplayProps {
     gene: UnpackedGene;
 }
 
-const { truncatedText, tooltip } = require("../style/table.module.css");
+const { truncatedText } = require("../style/table.module.css");
 const { Text } = Typography;
 
 const GeneDisplay: React.FC<GeneDisplayProps> = ({ gene }) => {
@@ -17,11 +19,7 @@ const GeneDisplay: React.FC<GeneDisplayProps> = ({ gene }) => {
             <Text
                 className={truncatedText}
                 ellipsis={{
-                    tooltip: {
-                        title: gene.name,
-                        arrow: false,
-                        rootClassName: tooltip,
-                    },
+                    tooltip: getTooltipProps(gene.name),
                 }}
             >
                 {gene.name}
