@@ -50,10 +50,11 @@ images_and_videos:
 genomic_characterization:
   diagrams:
     - title: Sanger Sequencing Results
-      image: aics-0104_h251n_sanger_exported_highres.png
+      image: h251n_sanger_results.png
       caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
-        alleles. Results confirmed respective genotype as indicated in table
-        above with no additional mutations present. 
+        alleles. The H251N mutation (NM_000257.4(MYH7):c.752C>A(p.His251Asn)) is
+        indicated by a C > A. Results confirmed respective genotype as indicated
+        in the figure above with no additional mutations present. 
     - title: Mono-Clonality Confirmation via ddPCR Assay
       image: aics-0104_h251n_mono-clonality-confirmation.png
       caption: Verification of genomic copy number of WT and mutant alleles.
