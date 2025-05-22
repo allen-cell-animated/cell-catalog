@@ -74,10 +74,11 @@ images_and_videos:
 genomic_characterization:
   diagrams:
     - title: Sanger Sequencing Results
-      caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
-        alleles. Results confirmed respective genotype as indicated in table
-        above with no additional mutations present. 
-      image: aics-0113_g769v_sanger_exported_highres.png
+      caption: Sanger Sequencing was performed on MYH3 recombinant and wildtype
+        alleles. The G769V mutation (NM_0027470.4(MYH3):c.2306G>T(p.Gly769Val))
+        is indicated by a G > T. Results confirmed respective genotype as
+        indicated in the figure above with no additional mutations present. 
+      image: g769v_sanger_results.png
     - title: Karyotype Analysis
       caption: After cells banks were created, one vial per clone was thawed and 30
         G-banded metaphase cells were karyotyped. Above is the representative
