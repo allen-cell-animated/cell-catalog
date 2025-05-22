@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex } from "antd";
+import { Flex, Typography, TooltipProps } from "antd";
 import Icon, { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { SortOrder } from "antd/es/table/interface";
 import {
@@ -12,12 +12,19 @@ import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint } from "./types";
 
 const Plasmid = require("../../img/plasmid.svg");
+const { Text } = Typography;
 
 const {
     lastColumn,
     actionColumn,
     actionButton,
     plasmidIcon,
+    protein,
+    gene,
+    geneContainer,
+    structure,
+    tooltip,
+    truncatedText,
 } = require("../../style/table.module.css");
 
 const caseInsensitiveStringCompare = (a = "", b = "") =>
@@ -34,6 +41,10 @@ const sortIcon = ({ sortOrder }: { sortOrder: SortOrder }) => {
     ) : (
         <CaretUpOutlined style={{ color: SERIOUS_GRAY, fontSize: 16 }} />
     );
+};
+
+export const getTooltipProps = (text: string): TooltipProps => {
+    return { title: text, arrow: false, rootClassName: tooltip };
 };
 
 const obtainPlasmidColumn = {
@@ -80,28 +91,39 @@ export const getNormalTableColumns = (
             title: "Protein",
             key: "protein",
             dataIndex: "protein",
-            width: 200,
+            width: 220,
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
+            className: protein,
+            render: (text: string) => (
+                <Text
+                    className={truncatedText}
+                    ellipsis={{ tooltip: getTooltipProps(text) }}
+                >
+                    {text}
+                </Text>
+            ),
+
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(a.protein, b.protein),
         },
         {
             title: "Gene Symbol & Name",
-            width: 280,
+            width: 310,
             key: "taggedGene",
             dataIndex: "taggedGene",
             responsive: mdBreakpoint,
+            sortIcon: sortIcon,
+            className: gene,
             render: (taggedGene: UnpackedGene[]) => {
                 return (
-                    <>
+                    <div className={geneContainer}>
                         {taggedGene.map((gene, index) => (
                             <GeneDisplay key={index} gene={gene} />
                         ))}
-                    </>
+                    </div>
                 );
             },
-            sortIcon: sortIcon,
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     a.taggedGene[0].name,
@@ -120,11 +142,19 @@ export const getNormalTableColumns = (
         {
             title: "Structure",
             key: "structure",
-            width: 280,
+            width: 220,
             dataIndex: "structure",
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
-
+            className: structure,
+            render: (text: string) => (
+                <Text
+                    className={truncatedText}
+                    ellipsis={{ tooltip: getTooltipProps(text) }}
+                >
+                    {text}
+                </Text>
+            ),
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(a.structure, b.structure),
         },
