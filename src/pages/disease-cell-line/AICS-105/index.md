@@ -61,10 +61,11 @@ images_and_videos:
 genomic_characterization:
   diagrams:
     - title: Sanger Sequencing Results
-      image: aics-105_r369q_sanger_exported_highres.png
+      image: r369q_sanger_results.png
       caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
-        alleles. Results confirmed respective genotype as indicated in table
-        above with no additional mutations present. 
+        alleles. The R369Q mutation (NM_000257.4(MYH7):c.1106G>A(p.Arg369Gln))
+        is indicated by a G > A. Results confirmed respective genotype as
+        indicated in the figure above with no additional mutations present. 
     - title: Mono-Clonality Confirmation via ddPCR Assay
       image: aics-105_r369q_mono-clonality-confirmation.png
       caption: Verification of genomic copy number of WT and mutant alleles.
