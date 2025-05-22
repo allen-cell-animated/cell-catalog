@@ -186,8 +186,8 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     taggedGene: UnpackedGene[];
     alleleCount: string;
     parentalLine: string;
-    structure: string;
-    protein: string;
+    structure: string[];
+    protein: string[];
     orderPlasmid: string;
 }
 

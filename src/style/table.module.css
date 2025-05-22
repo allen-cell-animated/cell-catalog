@@ -190,7 +190,7 @@
     max-width: 310px;
 }
 
-.container .gene-container {
+.container .multiple-lines {
     display: flex;
     flex-direction: column;
     gap: 5px;
