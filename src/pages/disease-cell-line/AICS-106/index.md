@@ -31,20 +31,20 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/iPSC/AICS-0106_CofA
 images_and_videos:
   images:
     - caption: "One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one, four and five days
-        post-thaw using a Leica microscope 4x and 10x magnification. A four
-        panel image of clone 88 is shown here and is a representative image for
-        all clones in the collection. Viability and colony formation one day and
-        four days post-thaw. Scale bars are shown. "
+        inhibitor for 24hrs post-thaw - refer to culture protocol).  A four
+        panel image of clone 88 (wt/wt) is shown here and is a representative
+        image for all clones in the collection. Cultures were observed daily.
+        Colonies were imaged one (D1) and four (D4) days post-thaw using a Leica
+        microscope at 4x and 10x magnification. Scale bars are shown. "
       image: aics-106_clone88_s291f.png
 genomic_characterization:
   diagrams:
     - title: Sanger Sequencing Results
-      image: aics-0106_s291f_sanger_exported_highres.png
+      image: s291f_sanger_results.png
       caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
-        alleles. Results confirmed respective genotype as indicated in table
-        above with no additional mutations present. 
+        alleles. The S291F mutation (NM_000257.4(MYH7):c.872C>T(p.Ser291Phe)) is
+        indicated by a C > T. Results confirmed respective genotype as indicated
+        in the figure above with no additional mutations present. 
     - title: Mono-Clonality Confirmation via ddPCR Assay
       image: aics-0106_s291f_mono-clonality-confirmation.png
       caption: Verification of genomic copy number of WT and mutant alleles.
