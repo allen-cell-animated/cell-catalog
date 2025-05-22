@@ -21,6 +21,7 @@ const {
     plasmidIcon,
     protein,
     gene,
+    geneContainer,
     structure,
     tooltip,
     truncatedText,
@@ -116,11 +117,11 @@ export const getNormalTableColumns = (
             className: gene,
             render: (taggedGene: UnpackedGene[]) => {
                 return (
-                    <>
+                    <div className={geneContainer}>
                         {taggedGene.map((gene, index) => (
                             <GeneDisplay key={index} gene={gene} />
                         ))}
-                    </>
+                    </div>
                 );
             },
             sorter: (a: any, b: any) =>

@@ -190,6 +190,15 @@
     max-width: 310px;
 }
 
+.container .gene-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    min-height: 79px;
+}
+
+
 .container .truncated-text {
     white-space: nowrap;
     overflow: hidden;
