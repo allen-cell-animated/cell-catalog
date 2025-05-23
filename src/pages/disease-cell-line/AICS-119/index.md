@@ -45,7 +45,7 @@ images_and_videos:
         labeled with anti-mouse AlexaFluor594 (ThermoFisher cat. No. A-11005,
         diluted 1:500) for 1 hour at RT. Cells were imaged on a widefield
         microscope. All scale bars are 100um."
-      image: g608g_progerin-2-.png
+      image: g608g_progerin-2-_cropped.png
     - caption: One vial of distribution lot was thawed (cells were treated with ROCK
         inhibitor for 24hrs post-thaw - refer to culture protocol). A four panel
         image of clone 10 (G608G/wt) is shown here and is also a representative
