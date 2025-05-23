@@ -2,7 +2,6 @@ import { Link } from "gatsby";
 import React from "react";
 import { Flex } from "antd";
 import Icon from "@ant-design/icons";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import { CellLineStatus } from "../../component-queries/types";
 import { formatCellLineId } from "../../utils";
@@ -17,11 +16,9 @@ const {
     actionColumn,
     actionButton,
     tubeIcon,
-    thumbnailContainer,
-    idColumn,
-    idHeader,
 } = require("../../style/table.module.css");
 
+// TODO: move to DiseaseTableColumns?
 export const cellLineIdColumn = {
     title: "Cell Collection ID",
     key: "cellLineId",
@@ -29,35 +26,15 @@ export const cellLineIdColumn = {
     dataIndex: "cellLineId",
     fixed: "left" as const,
     render: (cellLineId: number, record: UnpackedCellLine) => {
-        const formattedId = formatCellLineId(cellLineId);
         const cellLine = (
-            <h4 key={cellLineId}>{formattedId}</h4>
-        );
-        const thumbnailImage = record.thumbnailImage?.childImageSharp?.gatsbyImageData ?
-            getImage(record.thumbnailImage.childImageSharp.gatsbyImageData) : null;
-        const content = (
-            <div className={idColumn}>
-                <div className={idHeader}>
-                    {cellLine}
-                </div>
-                {thumbnailImage && (
-                    <div className={thumbnailContainer}>
-                        <GatsbyImage
-                            image={thumbnailImage}
-                            alt={`${formattedId} thumbnail`}
-                            style={{ width: "100%", height: "100%" }}
-                            objectFit="cover"
-                        />
-                    </div>
-                )}
-            </div>
+            <h4 key={cellLineId}>{formatCellLineId(cellLineId)}</h4>
         );
         return record.status === CellLineStatus.DataComplete ? (
             <Link to={record.path}>
-                {content}
+                {cellLine}
             </Link>
         ) : (
-            content
+            cellLine
         );
     },
 };
