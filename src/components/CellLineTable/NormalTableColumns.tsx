@@ -5,11 +5,15 @@ import { SortOrder } from "antd/es/table/interface";
 import {
     UnpackedGene,
     UnpackedNormalCellLine,
+    CellLineStatus,
 } from "../../component-queries/types";
 import { RAIN_SHADOW, SERIOUS_GRAY } from "../../style/theme";
 import GeneDisplay from "../GeneDisplay";
-import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
-import { CellLineColumns, mdBreakpoint } from "./types";
+import { obtainLineColumn } from "./SharedColumns";
+import { CellLineColumns, mdBreakpoint, UnpackedCellLine } from "./types";
+import { formatCellLineId } from "../../utils";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 const Plasmid = require("../../img/plasmid.svg");
 
@@ -18,6 +22,10 @@ const {
     actionColumn,
     actionButton,
     plasmidIcon,
+    cellLineId,
+    thumbnailContainer,
+    idColumn,
+    idHeader,
 } = require("../../style/table.module.css");
 
 const caseInsensitiveStringCompare = (a = "", b = "") =>
@@ -34,6 +42,46 @@ const sortIcon = ({ sortOrder }: { sortOrder: SortOrder }) => {
     ) : (
         <CaretUpOutlined style={{ color: SERIOUS_GRAY, fontSize: 16 }} />
     );
+};
+
+const cellLineIdColumn = {
+    title: "Cell Collection ID",
+    key: "cellLineId",
+    className: cellLineId,
+    dataIndex: "cellLineId",
+    fixed: "left" as const,
+    render: (cellLineId: number, record: UnpackedCellLine) => {
+        const formattedId = formatCellLineId(cellLineId);
+        const cellLine = (
+            <h4 key={cellLineId}>{formattedId}</h4>
+        );
+        const thumbnailImage = record.thumbnailImage?.childImageSharp?.gatsbyImageData ?
+            getImage(record.thumbnailImage.childImageSharp.gatsbyImageData) : null;
+        const content = (
+            <div className={idColumn}>
+                <div className={idHeader}>
+                    {cellLine}
+                </div>
+                {thumbnailImage && (
+                    <div className={thumbnailContainer}>
+                        <GatsbyImage
+                            image={thumbnailImage}
+                            alt={`${formattedId} thumbnail`}
+                            style={{ width: "100%", height: "100%" }}
+                            objectFit="cover"
+                        />
+                    </div>
+                )}
+            </div>
+        );
+        return record.status === CellLineStatus.DataComplete ? (
+            <Link to={record.path}>
+                {content}
+            </Link>
+        ) : (
+            content
+        );
+    },
 };
 
 const obtainPlasmidColumn = {
