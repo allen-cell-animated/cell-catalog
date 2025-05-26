@@ -9,6 +9,7 @@ import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import NormalCellLines from "../component-queries/NormalCellLines";
 
 const {
+    container,
     coriellCard,
     banner,
     bannerContent,
@@ -48,7 +49,7 @@ export const NormalCatalogTemplate = ({
     const image = getImage(coriellImage);
     const PageContent = contentComponent || Content;
     return (
-        <section>
+        <section className={container}>
             <h1>{title}</h1>
             <Flex className={header}>
                 <PageContent className="content" content={content} />
@@ -72,13 +73,6 @@ export const NormalCatalogTemplate = ({
                 </div>
             </Flex>
             <h2 className={mainHeading}>{main.heading}</h2>
-            <Card className={banner} bordered={true}>
-                <h4>{main.subheading}</h4>
-                <PageContent
-                    className={bannerContent}
-                    content={main.description}
-                />
-            </Card>
             <NormalCellLines />
             <Footer
                 acknowledgementsBlock={acknowledgementsBlock}
@@ -87,7 +81,7 @@ export const NormalCatalogTemplate = ({
         </section>
     );
 };
-
+// TODO: remove `main` content from the template and the query
 interface QueryResult {
     data: {
         markdownRemark: {

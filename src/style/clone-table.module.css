@@ -23,3 +23,10 @@
     padding: 5px 16px;
     line-height: 1.4;
 }
+
+/* mobile sizing */
+@media (max-width: 744px) {
+   .container :global(.ant-table-thead .ant-table-cell) {
+        font-size: 12px;
+    }
+}

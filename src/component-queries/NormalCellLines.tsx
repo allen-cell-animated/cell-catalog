@@ -12,6 +12,7 @@ import { getNormalTableColumns } from "../components/CellLineTable/NormalTableCo
 import { PHONE_BREAKPOINT } from "../constants";
 import useWindowWidth from "../hooks/useWindowWidth";
 import { getNormalTableMobileConfig } from "../components/CellLineTable/MobileView";
+import SearchAndFilter from "./SearchAndFilter";
 
 const CellLineTableTemplate = (props: QueryResult) => {
     const { edges: cellLines } = props.data.allMarkdownRemark;
@@ -27,12 +28,17 @@ const CellLineTableTemplate = (props: QueryResult) => {
     });
     const width = useWindowWidth();
     const isPhone = width < PHONE_BREAKPOINT;
-
+    const [filteredCellLines, setFilteredCellLines] =
+        React.useState(finishedCellLines);
     return (
         <>
+            <SearchAndFilter
+                allCellLines={finishedCellLines}
+                setResults={setFilteredCellLines}
+            />
             <CellLineTable
                 tableName="Cell Line Catalog"
-                cellLines={finishedCellLines}
+                cellLines={filteredCellLines}
                 footerContents={""}
                 released={true}
                 columns={getNormalTableColumns(false)}
@@ -92,6 +98,7 @@ export default function NormalCellLines() {
                                     allele_count
                                     status
                                     order_link
+                                    donor_plasmid
                                     gene {
                                         frontmatter {
                                             protein

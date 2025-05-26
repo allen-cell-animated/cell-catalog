@@ -1,0 +1,14 @@
+.container {
+    padding: 0 64px;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 34px;
+}
+
+.search-bar-container {
+    max-width: 984px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
