@@ -1,7 +1,5 @@
 import React from "react";
 import { Typography, TooltipProps } from "antd";
-import { UnpackedGene } from "../component-queries/types";
-import GeneDisplay from "./GeneDisplay";
 
 const { Text } = Typography;
 
@@ -16,7 +14,7 @@ export const getTooltipProps = (text: string): TooltipProps => {
 };
 
 interface MultipleLineContainerProps {
-    entries: string[] | UnpackedGene[];
+    entries: string[];
     truncated?: boolean;
 }
 
@@ -27,23 +25,21 @@ export const MultiLineTableCell: React.FC<MultipleLineContainerProps> = ({
         return null;
     }
 
-    const renderItems = entries.map((entry, idx) => {
-        if (typeof entry === "string") {
-            return (
-                <Text
-                    key={`${entry}-${idx}`}
-                    className={truncatedText}
-                    ellipsis={{
-                        tooltip: getTooltipProps(entry),
-                    }}
-                >
-                    {entry}
-                </Text>
-            );
-        } else if (typeof entry === "object" && "name" in entry) {
-            return <GeneDisplay key={entry.name} gene={entry} />;
-        }
-    });
-
-    return <div className={multipleLines}>{renderItems}</div>;
+    return (
+        <div className={multipleLines}>
+            {entries.map((entry, idx) => {
+                return (
+                    <Text
+                        key={`${entry}-${idx}`}
+                        className={truncatedText}
+                        ellipsis={{
+                            tooltip: getTooltipProps(entry),
+                        }}
+                    >
+                        {entry}
+                    </Text>
+                );
+            })}
+        </div>
+    );
 };

@@ -10,6 +10,7 @@ import { RAIN_SHADOW, SERIOUS_GRAY } from "../../style/theme";
 import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint } from "./types";
 import { MultiLineTableCell } from "../MultiLineTableCell";
+import GeneDisplay from "../GeneDisplay";
 
 const Plasmid = require("../../img/plasmid.svg");
 
@@ -21,6 +22,7 @@ const {
     protein,
     gene,
     structure,
+    multipleLines,
 } = require("../../style/table.module.css");
 
 const caseInsensitiveStringCompare = (a = "", b = "") =>
@@ -101,9 +103,15 @@ export const getNormalTableColumns = (
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
             className: gene,
-            render: (genes: UnpackedGene[]) => (
-                <MultiLineTableCell entries={genes} />
-            ),
+            render: (taggedGene: UnpackedGene[]) => {
+                return (
+                    <div className={multipleLines}>
+                        {taggedGene.map((gene, index) => (
+                            <GeneDisplay key={index} gene={gene} />
+                        ))}
+                    </div>
+                );
+            },
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     a.taggedGene[0].name,
