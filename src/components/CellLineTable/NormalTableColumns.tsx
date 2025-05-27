@@ -2,6 +2,7 @@ import React from "react";
 import { Flex, Typography, TooltipProps } from "antd";
 import Icon, { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { SortOrder } from "antd/es/table/interface";
+
 import {
     UnpackedGene,
     UnpackedNormalCellLine,

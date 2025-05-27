@@ -5,22 +5,25 @@ import {
     UnpackedGene,
     GeneFrontMatter,
     UnpackedNormalCellLine,
+    SearchLookup,
+    SearchAndFilterGroup,
 } from "./types";
+import { formatCellLineId } from "../utils";
 
-
-const extractGenes = (geneArray: { frontmatter: GeneFrontMatter }[] = []): UnpackedGene[] => {
+const extractGenes = (
+    geneArray: { frontmatter: GeneFrontMatter }[] = []
+): UnpackedGene[] => {
     if (!geneArray) return [];
 
     return geneArray
-        .filter((gene) => gene && gene.frontmatter) 
+        .filter((gene) => gene && gene.frontmatter)
         .map((gene) => ({
             name: gene.frontmatter.name,
             symbol: gene.frontmatter.symbol,
             structure: gene.frontmatter.structure,
             protein: gene.frontmatter.protein,
-    }));
+        }));
 };
-
 
 export const convertFrontmatterToDiseaseCellLine = (
     cellLineNode: DiseaseCellLineNode
@@ -49,10 +52,11 @@ export const convertFrontmatterToDiseaseCellLine = (
                 cellLineNode.frontmatter.parental_line.frontmatter.cell_line_id,
             cloneNumber:
                 cellLineNode.frontmatter.parental_line.frontmatter.clone_number,
-            tagLocation: 
+            tagLocation:
                 cellLineNode.frontmatter.parental_line.frontmatter.tag_location,
-            fluorescentTag: 
-                cellLineNode.frontmatter.parental_line.frontmatter.fluorescent_tag,
+            fluorescentTag:
+                cellLineNode.frontmatter.parental_line.frontmatter
+                    .fluorescent_tag,
             taggedGene: parentalGenes,
         },
         key: cellLineNode.id,
@@ -68,6 +72,7 @@ export const convertFrontmatterToNormalCellLines = ({
     const proteins = genes.map((gene) => gene.protein || "");
     const structures = genes.map((gene) => gene.structure || "");
     return {
+        key: `${cellLineNode.frontmatter.cell_line_id}-${cellLineNode.frontmatter.clone_number}`,
         path: cellLineNode.fields.slug,
         cellLineId: cellLineNode.frontmatter.cell_line_id,
         cloneNumber: cellLineNode.frontmatter.clone_number,
@@ -83,5 +88,47 @@ export const convertFrontmatterToNormalCellLines = ({
         healthCertificate: "",
         orderLink: cellLineNode.frontmatter.order_link,
         orderPlasmid: cellLineNode.frontmatter.donor_plasmid,
+    };
+};
+
+export const createLookupMappings = (
+    data: SearchAndFilterGroup[]
+): SearchLookup => {
+    const geneSymToCellIds = new Map();
+    const structureAndNameToGene = new Map();
+    const allSearchableTerms: Set<string> = new Set();
+    data.forEach((group: any) => {
+        const symbol = group.fieldValue;
+        allSearchableTerms.add(symbol);
+        const cellLines: number[] = [];
+        group.edges.forEach((edge: any) => {
+            const cellLineId = edge.node.frontmatter.cell_line_id;
+            cellLines.push(cellLineId);
+            if (cellLineId) {
+                allSearchableTerms.add(formatCellLineId(cellLineId));
+            }
+            const genes = edge.node.frontmatter.gene;
+            genes.forEach((gene: any) => {
+                const geneSymbol = gene.frontmatter.symbol;
+                const geneName = gene.frontmatter.name;
+                const geneProtein = gene.frontmatter.protein;
+                const geneStructure = gene.frontmatter.structure;
+                allSearchableTerms.add(geneSymbol);
+                structureAndNameToGene.set(geneName, geneSymbol);
+                structureAndNameToGene.set(geneProtein, geneSymbol);
+                allSearchableTerms.add(geneName);
+                allSearchableTerms.add(geneProtein);
+                if (geneStructure) {
+                    structureAndNameToGene.set(geneStructure, geneSymbol);
+                    allSearchableTerms.add(geneStructure);
+                }
+            });
+        });
+        geneSymToCellIds.set(symbol, cellLines);
+    });
+    return {
+        geneSymToCellIds,
+        structureAndNameToGene,
+        allSearchableTerms,
     };
 };
