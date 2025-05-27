@@ -1,20 +1,21 @@
 ---
 templateKey: cell-line
 cell_line_id: 70
-status: in progress
-clone_number: 
-allele_count: 
+status: hide
+date: 2025-05-27T20:36:14.626Z
+clone_number: null
 parental_line: 0
 gene:
   - CBX1
-tag_location:
-  - N-terminus
+allele_count: null
 fluorescent_tag:
   - mEGFP
-order_link: 
-cofa: 
-donor_plasmid: 
-eu_hpsc_reg: 
+donor_plasmid: null
+cofa: null
+tag_location:
+  - N-terminus
+order_link: null
 images_and_videos:
-  videos:
+  ? videos
+eu_hpsc_reg: null
 ---
