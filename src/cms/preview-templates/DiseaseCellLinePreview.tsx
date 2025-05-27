@@ -78,7 +78,7 @@ const DiseaseCellLinePreview = ({ entry, getAsset }: TemplateProps) => {
     }
     return (
         <>
-            <ProgressPreview status={status} />
+            <ProgressPreview collection={"disease"} status={status} />
             <InfoPanel data={data} />
             <CloneTable dataSource={cloneData} />
 
