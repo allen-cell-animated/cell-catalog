@@ -18,26 +18,8 @@ const {
     tubeIcon,
 } = require("../../style/table.module.css");
 
-// TODO: move to DiseaseTableColumns?
-export const cellLineIdColumn = {
-    title: "Cell Collection ID",
-    key: "cellLineId",
-    className: cellLineId,
-    dataIndex: "cellLineId",
-    fixed: "left" as const,
-    render: (cellLineId: number, record: UnpackedCellLine) => {
-        const cellLine = (
-            <h4 key={cellLineId}>{formatCellLineId(cellLineId)}</h4>
-        );
-        return record.status === CellLineStatus.DataComplete ? (
-            <Link to={record.path}>
-                {cellLine}
-            </Link>
-        ) : (
-            cellLine
-        );
-    },
-};
+
+
 
 export const certificateOfAnalysisColumn = {
     title: "",
