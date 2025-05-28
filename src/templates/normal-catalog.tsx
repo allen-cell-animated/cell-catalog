@@ -2,12 +2,14 @@ import React from "react";
 import { Card, Divider, Flex } from "antd";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
+import Footer from "../components/Footer";
 import Content, { HTMLContent } from "../components/shared/Content";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import NormalCellLines from "../component-queries/NormalCellLines";
 
 const {
+    container,
     coriellCard,
     banner,
     bannerContent,
@@ -19,7 +21,12 @@ interface NormalCatalogTemplateProps {
     title: string;
     content: string;
     contentComponent?: JSX.ElementType;
-    footerText: string;
+    fundingText: string;
+    acknowledgementsBlock: {
+        intro: string;
+        contributors: { name: string; institution: string }[];
+        outro: string;
+    };
     main: {
         heading: string;
         description: string;
@@ -33,7 +40,8 @@ export const NormalCatalogTemplate = ({
     title,
     content,
     contentComponent,
-    footerText,
+    fundingText,
+    acknowledgementsBlock,
     main,
     coriellImage,
     coriellLink,
@@ -41,7 +49,7 @@ export const NormalCatalogTemplate = ({
     const image = getImage(coriellImage);
     const PageContent = contentComponent || Content;
     return (
-        <section>
+        <section className={container}>
             <h1>{title}</h1>
             <Flex className={header}>
                 <PageContent className="content" content={content} />
@@ -65,19 +73,15 @@ export const NormalCatalogTemplate = ({
                 </div>
             </Flex>
             <h2 className={mainHeading}>{main.heading}</h2>
-            <Card className={banner} bordered={true}>
-                <h4>{main.subheading}</h4>
-                <PageContent
-                    className={bannerContent}
-                    content={main.description}
-                />
-            </Card>
             <NormalCellLines />
-            <HTMLContent className="footer" content={footerText} />
+            <Footer
+                acknowledgementsBlock={acknowledgementsBlock}
+                fundingText={fundingText}
+            />
         </section>
     );
 };
-
+// TODO: remove `main` content from the template and the query
 interface QueryResult {
     data: {
         markdownRemark: {
@@ -86,6 +90,14 @@ interface QueryResult {
                 title: string;
                 footer_text: {
                     html: string;
+                };
+                funding_text: {
+                    html: string;
+                };
+                acknowledgements_block: {
+                    intro: string;
+                    contributors: { name: string; institution: string }[];
+                    outro: string;
                 };
                 main: {
                     heading: string;
@@ -107,7 +119,8 @@ const NormalCatalog = ({ data }: QueryResult) => {
                 contentComponent={HTMLContent}
                 title={post.frontmatter.title}
                 content={post.html}
-                footerText={post.frontmatter.footer_text.html}
+                fundingText={post.frontmatter.funding_text.html}
+                acknowledgementsBlock={post.frontmatter.acknowledgements_block}
                 main={post.frontmatter.main}
                 coriellImage={post.frontmatter.coriell_image}
                 coriellLink={post.frontmatter.coriell_link}
@@ -124,8 +137,16 @@ export const aboutPageQuery = graphql`
             html
             frontmatter {
                 title
-                footer_text {
+                funding_text {
                     html
+                }
+                acknowledgements_block {
+                    intro
+                    contributors {
+                        name
+                        institution
+                    }
+                    outro
                 }
                 main {
                     heading

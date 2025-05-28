@@ -5,7 +5,10 @@ import {
     UnpackedGene,
     UnpackedNormalCellLine,
     GeneticModification,
+    SearchLookup,
+    SearchAndFilterGroup,
 } from "./types";
+import { formatCellLineId } from "../utils";
 
 const extractGeneticModifications = (
     modifications?: GeneticModification[]
@@ -31,7 +34,6 @@ const extractGeneticModifications = (
         fluorescentTag: modifications.map((mod) => mod.fluorescent_tag),
     };
 };
-
 
 export const convertFrontmatterToDiseaseCellLine = (
     cellLineNode: DiseaseCellLineNode
@@ -87,6 +89,7 @@ export const convertFrontmatterToNormalCellLines = ({
     const structures = taggedGene.map((gene) => gene.structure);
 
     return {
+        key: `${cellLineNode.frontmatter.cell_line_id}-${cellLineNode.frontmatter.clone_number}`,
         path: cellLineNode.fields.slug,
         cellLineId: cellLineNode.frontmatter.cell_line_id,
         cloneNumber: cellLineNode.frontmatter.clone_number,
@@ -102,5 +105,47 @@ export const convertFrontmatterToNormalCellLines = ({
         healthCertificate: "",
         orderLink: cellLineNode.frontmatter.order_link,
         orderPlasmid: cellLineNode.frontmatter.donor_plasmid,
+    };
+};
+
+export const createLookupMappings = (
+    data: SearchAndFilterGroup[]
+): SearchLookup => {
+    const geneSymToCellIds = new Map();
+    const structureAndNameToGene = new Map();
+    const allSearchableTerms: Set<string> = new Set();
+    data.forEach((group: any) => {
+        const symbol = group.fieldValue;
+        allSearchableTerms.add(symbol);
+        const cellLines: number[] = [];
+        group.edges.forEach((edge: any) => {
+            const cellLineId = edge.node.frontmatter.cell_line_id;
+            cellLines.push(cellLineId);
+            if (cellLineId) {
+                allSearchableTerms.add(formatCellLineId(cellLineId));
+            }
+            const genes = edge.node.frontmatter.gene;
+            genes.forEach((gene: any) => {
+                const geneSymbol = gene.frontmatter.symbol;
+                const geneName = gene.frontmatter.name;
+                const geneProtein = gene.frontmatter.protein;
+                const geneStructure = gene.frontmatter.structure;
+                allSearchableTerms.add(geneSymbol);
+                structureAndNameToGene.set(geneName, geneSymbol);
+                structureAndNameToGene.set(geneProtein, geneSymbol);
+                allSearchableTerms.add(geneName);
+                allSearchableTerms.add(geneProtein);
+                if (geneStructure) {
+                    structureAndNameToGene.set(geneStructure, geneSymbol);
+                    allSearchableTerms.add(geneStructure);
+                }
+            });
+        });
+        geneSymToCellIds.set(symbol, cellLines);
+    });
+    return {
+        geneSymToCellIds,
+        structureAndNameToGene,
+        allSearchableTerms,
     };
 };

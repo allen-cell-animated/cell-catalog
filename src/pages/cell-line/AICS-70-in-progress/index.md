@@ -1,7 +1,8 @@
 ---
 templateKey: cell-line
 cell_line_id: 70
-status: in progress
+status: hide
+date: 2025-05-27T20:36:14.626Z
 clone_number: 
 parental_line: 0
 genetic_modifications:
@@ -14,5 +15,5 @@ cofa:
 donor_plasmid: 
 eu_hpsc_reg: 
 images_and_videos:
-  videos:
+  ? videos
 ---
