@@ -1,4 +1,6 @@
 import React from "react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 import { Flex } from "antd";
 import Icon, { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { SortOrder } from "antd/es/table/interface";
@@ -13,8 +15,6 @@ import GeneDisplay from "../GeneDisplay";
 import { obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint, UnpackedCellLine } from "./types";
 import { formatCellLineId } from "../../utils";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Link } from "gatsby";
 
 const Plasmid = require("../../img/plasmid.svg");
 
@@ -25,7 +25,6 @@ const {
     plasmidIcon,
     cellLineId,
     thumbnailContainer,
-    idColumn,
     idHeader,
 } = require("../../style/table.module.css");
 
@@ -59,21 +58,17 @@ const cellLineIdColumn = {
         const thumbnailImage = record.thumbnailImage?.childImageSharp?.gatsbyImageData ?
             getImage(record.thumbnailImage.childImageSharp.gatsbyImageData) : null;
         const content = (
-            <div className={idColumn}>
-                <div className={idHeader}>
-                    {cellLine}
-                </div>
+            <>
+                <div className={idHeader}>{cellLine}</div>
                 {thumbnailImage && (
                     <div className={thumbnailContainer}>
                         <GatsbyImage
                             image={thumbnailImage}
                             alt={`${formattedId} thumbnail`}
-                            style={{ width: "100%", height: "100%" }}
-                            objectFit="cover"
                         />
                     </div>
                 )}
-            </div>
+            </>
         );
         return record.status === CellLineStatus.DataComplete ? (
             <Link to={record.path}>
