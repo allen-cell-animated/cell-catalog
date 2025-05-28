@@ -15,13 +15,6 @@
     position: absolute; 
 }
 
-.id-column {
-    position: relative;
-    width: 100%; 
-    height: 100%; 
-    min-height: 80px;
-}
-
 .id-header {
     position: absolute;
     top: 0; 
@@ -31,6 +24,10 @@
     background-color: var(--WHITE);
     opacity: 0.85;
     text-align: center; 
+}
+
+.container .id-header h4 {
+    margin: 0px;
 }
 
 .container :global(.ant-table-container) {
@@ -104,9 +101,12 @@
     padding: 14px 16px;
 }
 
-.container :global(.ant-table-thead .ant-table-cell).cell-line-id,
-.container :global(.ant-table-cell).cell-line-id {
+.container :global(.ant-table-thead .ant-table-cell).cell-line-id {
     padding: 10px 16px 10px;
+}
+
+.container :global(.ant-table-cell).cell-line-id {
+    padding: 0px;
 }
 
 .snp-column {
