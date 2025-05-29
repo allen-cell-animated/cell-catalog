@@ -2,19 +2,20 @@
 templateKey: cell-line
 cell_line_id: 122
 status: in progress
-clone_number: 
-allele_count: 
+date: 2025-05-29T21:31:53.468Z
+clone_number: 77
 parental_line: 0
 gene:
   - EOMES
-tag_location:
-  - C-terminus
+allele_count: mono
 fluorescent_tag:
   - mEGFP
-order_link: 
-cofa: 
-donor_plasmid: 
-eu_hpsc_reg: 
+donor_plasmid: null
+cofa: null
+tag_location:
+  - C-terminus
+order_link: null
 images_and_videos:
-  videos:
+  ? videos
+eu_hpsc_reg: null
 ---
