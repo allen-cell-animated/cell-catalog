@@ -11,7 +11,7 @@ genetic_modifications:
     fluorescent_tag: mEGFP
     allele_count: 
 order_link: 
-cofa: 
+certificate_of_analysis: 
 donor_plasmid: 
 eu_hpsc_reg: 
 images_and_videos:
