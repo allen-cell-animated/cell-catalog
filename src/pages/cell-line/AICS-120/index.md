@@ -15,6 +15,7 @@ tag_location:
 fluorescent_tag:
   - mEGFP
   - mTagRFP-T
+certificate_of_analysis: www.coriell.org/0/PDF/Allen/ipsc/AICS-0120-204_CofA.pdf
 images_and_videos:
   images:
     - image: aics-120_cl204_tomm20_mito.png
