@@ -100,6 +100,7 @@ export default function NormalCellLines() {
                                         childImageSharp {
                                             gatsbyImageData(
                                                 placeholder: BLURRED
+                                                width: 164
                                             )
                                         }
                                     }
