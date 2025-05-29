@@ -9,6 +9,7 @@ parental_line: 0
 gene:
   - TOMM20
   - AAVS1
+allele_count: mono
 tag_location:
   - C-terminus
 fluorescent_tag:
