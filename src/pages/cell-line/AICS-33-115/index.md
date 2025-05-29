@@ -11,7 +11,7 @@ genetic_modifications:
     fluorescent_tag: mEGFP
     allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0033-115&PgId=166
-cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0033-115_CofA.pdf
+certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0033-115_CofA.pdf
 donor_plasmid: https://www.addgene.org/101784/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-19
 images_and_videos:
