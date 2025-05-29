@@ -3,6 +3,7 @@ templateKey: cell-line
 cell_line_id: 93
 status: data complete
 date: 2025-05-06T22:09:02.776Z
+thumbnail_image: single_plane_image_cl25.jpg
 clone_number: 25
 parental_line: 0
 genetic_modifications:

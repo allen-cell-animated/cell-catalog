@@ -2,7 +2,7 @@
 templateKey: cell-line
 cell_line_id: 13
 status: released
-thumbnail_image: aics-13.jpg
+thumbnail_image: single_plane_image_cl210.jpg
 clone_number: 210
 parental_line: 0
 genetic_modifications:
