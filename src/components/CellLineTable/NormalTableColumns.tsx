@@ -49,7 +49,6 @@ const cellLineIdColumn = {
     className: cellLineId,
     dataIndex: "cellLineId",
     fixed: "left" as const,
-    width: 164,
     render: (cellLineId: number, record: UnpackedCellLine) => {
         const formattedId = formatCellLineId(cellLineId);
         const cellLine = (
