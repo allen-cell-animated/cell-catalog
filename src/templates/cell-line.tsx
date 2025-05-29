@@ -97,7 +97,7 @@ export const pageQuery = graphql`
                 status
                 thumbnail_image {
                     childImageSharp {
-                        gatsbyImageData(placeholder: BLURRED, width: 164)
+                        gatsbyImageData(placeholder: BLURRED)
                     }
                 }
             }
