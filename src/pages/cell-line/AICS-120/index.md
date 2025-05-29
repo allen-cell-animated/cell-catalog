@@ -6,15 +6,16 @@ status: released
 date: 2025-02-05T18:14:13.824Z
 clone_number: 204
 parental_line: 0
-gene:
-  - TOMM20
-  - AAVS1
-allele_count: mono
-tag_location:
-  - C-terminus
-fluorescent_tag:
-  - mEGFP
-  - mTagRFP-T
+genetic_modifications:
+  - gene: TOMM20
+    tag_location: C-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
+  - gene: AAVS1
+    tag_location: NA
+    fluorescent_tag: mTagRFP-T
+    allele_count: mono
+certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0120-204_CofA.pdf
 images_and_videos:
   images:
     - image: aics-120_cl204_tomm20_mito.png
