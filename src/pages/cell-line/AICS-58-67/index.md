@@ -2,6 +2,7 @@
 templateKey: cell-line
 cell_line_id: 58
 status: released
+thumbnail_image: single_plane_image_cl67.jpg
 clone_number: 67
 parental_line: 0
 genetic_modifications:

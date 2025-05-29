@@ -2,7 +2,7 @@
 templateKey: cell-line
 cell_line_id: 75
 status: released
-thumbnail_image: 20181023_m02_001_s13_cl85_cropped_scalebar20_withinset_rgb.jpg
+thumbnail_image: single_plane_image_cl85.jpg
 clone_number: 85
 parental_line: 0
 genetic_modifications:
