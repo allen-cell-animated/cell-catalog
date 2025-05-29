@@ -11,7 +11,7 @@ gene:
 allele_count: mono
 fluorescent_tag:
   - mTagRFP-T
-certificate_of_analysis: aics_102_mitotag_cofa_final.pdf
+certificate_of_analysis: www.coriell.org/0/PDF/Allen/ipsc/AICS-0102-330_CofA.pdf
 images_and_videos:
   images:
     - image: aics-102_mito-tag_cl330.png
