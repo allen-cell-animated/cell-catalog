@@ -31,11 +31,9 @@ export const cellLineIdColumn = {
         const cellLine = (
             <h4 key={cellLineId}>{formatCellLineId(cellLineId)}</h4>
         );
+        const thumbnailImage = getImage(record.thumbnailImage || null);
 
-        const thumbnailImage = record.thumbnailImage?.childImageSharp?.gatsbyImageData ?
-            getImage(record.thumbnailImage.childImageSharp.gatsbyImageData) : null;
-
-        const content =  thumbnailImage ? (
+        const content = thumbnailImage ? (
             <>
                 <div className={idHeader}>{cellLine}</div>
                 <div className={thumbnailContainer}>

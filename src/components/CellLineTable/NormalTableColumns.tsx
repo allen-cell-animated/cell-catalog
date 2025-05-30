@@ -9,7 +9,7 @@ import {
 } from "../../component-queries/types";
 import { RAIN_SHADOW, SERIOUS_GRAY } from "../../style/theme";
 import GeneDisplay from "../GeneDisplay";
-import { obtainLineColumn, cellLineIdColumn } from "./SharedColumns";
+import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint } from "./types";
 
 const Plasmid = require("../../img/plasmid.svg");

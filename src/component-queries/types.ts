@@ -186,7 +186,7 @@ export interface UnpackedCellLineMainInfo {
     certificateOfAnalysis: string;
     healthCertificate: string;
     orderLink: string;
-    thumbnailImage?: FileNode;
+    thumbnailImage?: IGatsbyImageData | null;
 }
 
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
@@ -206,7 +206,6 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     tagLocation: string[];
     fluorescentTag: string[];
     orderPlasmid: string;
-    thumbnailImage: FileNode;
 }
 
 export type ParentLine = Partial<UnpackedNormalCellLine>;
