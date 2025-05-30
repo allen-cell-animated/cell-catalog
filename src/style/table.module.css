@@ -9,6 +9,27 @@
     line-height: 0;
 }
 
+.thumbnail-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.id-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: var(--WHITE);
+    opacity: 0.85;
+    text-align: center;
+}
+
+.container .id-header h4 {
+    margin: 0px;
+}
+
 .container :global(.ant-table) {
     border-radius: 4px;
 }

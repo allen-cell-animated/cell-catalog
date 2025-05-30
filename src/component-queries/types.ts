@@ -49,6 +49,7 @@ export interface NormalCellLineFrontmatter {
     tag_location: string[];
     fluorescent_tag: string[];
     donor_plasmid: string;
+    thumbnail_image: FileNode;
     parental_line: {
         frontmatter: {
             name: string;
@@ -185,7 +186,7 @@ export interface UnpackedCellLineMainInfo {
     certificateOfAnalysis: string;
     healthCertificate: string;
     orderLink: string;
-    thumbnailImage?: FileNode;
+    thumbnailImage?: IGatsbyImageData | null;
 }
 
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {

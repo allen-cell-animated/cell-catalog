@@ -96,6 +96,14 @@ export default function NormalCellLines() {
                                     status
                                     order_link
                                     donor_plasmid
+                                    thumbnail_image {
+                                        childImageSharp {
+                                            gatsbyImageData(
+                                                placeholder: BLURRED
+                                                width: 164
+                                            )
+                                        }
+                                    }
                                     genetic_modifications {
                                         gene {
                                             frontmatter {

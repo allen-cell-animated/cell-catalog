@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Descriptions, Divider, Flex, Modal } from "antd";
 import Icon, { InfoCircleOutlined } from "@ant-design/icons";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 import { DarkBlueHoverButton } from "./shared/Buttons";
 import { UnpackedGene } from "../component-queries/types";
@@ -18,7 +17,7 @@ const {
 const LinkOut = require("../img/external-link.svg");
 
 interface ParentalLineModalProps {
-    image?: FileNode;
+    image?: IGatsbyImageData | null;
     formattedId: string;
     cloneNumber: number;
     status: string;
