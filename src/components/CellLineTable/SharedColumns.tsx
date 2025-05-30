@@ -1,18 +1,59 @@
+import {Link} from "gatsby";
 import React from "react";
 import { Flex } from "antd";
 import Icon from "@ant-design/icons";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
+import { CellLineStatus } from "../../component-queries/types";
+import { formatCellLineId } from "../../utils";
 import { WHITE } from "../../style/theme";
-import { mdBreakpoint } from "./types";
+import { mdBreakpoint, UnpackedCellLine } from "./types";
 
 const CertificateIcon = require("../../img/cert-icon.svg");
 const Tube = require("../../img/tube.svg");
 
 const {
+    cellLineId,
     actionColumn,
     actionButton,
     tubeIcon,
+    idHeader,
+    thumbnailContainer,
 } = require("../../style/table.module.css");
+
+export const cellLineIdColumn = {
+    title: "Cell Collection ID",
+    key: "cellLineId",
+    className: cellLineId,
+    dataIndex: "cellLineId",
+    fixed: "left" as const,
+    render: (cellLineId: number, record: UnpackedCellLine) => {
+        const cellLine = (
+            <h4 key={cellLineId}>{formatCellLineId(cellLineId)}</h4>
+        );
+
+        const thumbnailImage = record.thumbnailImage?.childImageSharp?.gatsbyImageData ?
+            getImage(record.thumbnailImage.childImageSharp.gatsbyImageData) : null;
+
+        const content =  thumbnailImage ? (
+            <>
+                <div className={idHeader}>{cellLine}</div>
+                <div className={thumbnailContainer}>
+                    <GatsbyImage
+                        image={thumbnailImage}
+                        alt={`${cellLine} thumbnail`}
+                    />
+                </div>
+            </>
+        ) : cellLine;
+
+        return record.status === CellLineStatus.DataComplete ? (
+            <Link to={record.path}>{content}</Link>
+        ) : (
+            content
+        );
+    },
+};
 
 export const certificateOfAnalysisColumn = {
     title: "",
