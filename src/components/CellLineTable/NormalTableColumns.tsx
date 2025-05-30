@@ -115,8 +115,14 @@ export const getNormalTableColumns = (
             dataIndex: "alleleCount",
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
+            render: (alleleCount: string[]) => {
+                return alleleCount?.join(" / ");
+            },
             sorter: (a: any, b: any) =>
-                caseInsensitiveStringCompare(a.alleleCount, b.alleleCount),
+                caseInsensitiveStringCompare(
+                    (a.alleleCount ?? []).join("|"),
+                    (b.alleleCount ?? []).join("|")
+                ),
         },
         {
             title: "Structure",
@@ -125,7 +131,6 @@ export const getNormalTableColumns = (
             dataIndex: "structure",
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
-
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(a.structure, b.structure),
         },

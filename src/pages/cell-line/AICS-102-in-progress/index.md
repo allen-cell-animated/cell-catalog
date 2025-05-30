@@ -6,12 +6,12 @@ status: in progress
 date: 2025-02-05T17:41:29.111Z
 clone_number: 330
 parental_line: 0
-gene:
-  - AAVS1
-allele_count: mono
-fluorescent_tag:
-  - mTagRFP-T
-certificate_of_analysis: www.coriell.org/0/PDF/Allen/ipsc/AICS-0102-330_CofA.pdf
+genetic_modifications:
+  - gene: AAVS1
+    tag_location: NA
+    fluorescent_tag: mTagRFP-T
+    allele_count: mono
+certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0102-330_CofA.pdf
 images_and_videos:
   images:
     - image: aics-102_mito-tag_cl330.png

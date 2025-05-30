@@ -3,14 +3,12 @@ templateKey: cell-line
 cell_line_id: 54
 status: released
 clone_number: 91
-allele_count: mono
 parental_line: 0
-gene:
-  - AAVS1
-tag_location:
-  - NA
-fluorescent_tag:
-  - mTagRFP-T
+genetic_modifications:
+  - gene: AAVS1
+    tag_location: NA
+    fluorescent_tag: mTagRFP-T
+    allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0054-091&PgId=166
 cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0054-091_CofA.pdf
 donor_plasmid: https://www.addgene.org/107580/

@@ -5,16 +5,15 @@ status: data complete
 date: 2025-05-06T20:50:42.082Z
 clone_number: 18
 parental_line: 0
-gene:
-  - EZH2
-allele_count: mono
-fluorescent_tag:
-  - mEGFP
-donor_plasmid: https://www.addgene.org/164499/
-cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0095-018_CofA.pdf
-tag_location:
-  - N-terminus
+genetic_modifications:
+  - gene: EZH2
+    tag_location: N-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0095-018&PgId=166
+cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0095-018_CofA.pdf
+donor_plasmid: https://www.addgene.org/164499/
+eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-46
 images_and_videos:
   videos:
     - caption: Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged EZH2.
@@ -28,5 +27,4 @@ images_and_videos:
         were imaged in 3D on a spinning-disk confocal microscope and are shown
         here with the despeckle ImageJ filter applied. Movie starts at the
         bottom of the cells and ends at the top. Scale bar, 5 μm.
-eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-46
 ---
