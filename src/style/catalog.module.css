@@ -28,7 +28,7 @@
 
 .coriell-card {
     width: 250px;
-    border: 1px solid var(--border-color);
+    border: 1.5px solid var(--border-color);
 }
 
 .coriell-card:hover {
