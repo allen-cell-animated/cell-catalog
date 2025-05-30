@@ -1,6 +1,8 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 import { Flex } from "antd";
 import Icon, { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { SortOrder } from "antd/es/table/interface";
@@ -9,9 +11,13 @@ import {
     UnpackedGene,
     UnpackedNormalCellLine,
     CellLineStatus,
+    CellLineStatus,
 } from "../../component-queries/types";
 import { RAIN_SHADOW, SERIOUS_GRAY } from "../../style/theme";
 import GeneDisplay from "../GeneDisplay";
+import { obtainLineColumn } from "./SharedColumns";
+import { CellLineColumns, mdBreakpoint, UnpackedCellLine } from "./types";
+import { formatCellLineId } from "../../utils";
 import { obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint, UnpackedCellLine } from "./types";
 import { formatCellLineId } from "../../utils";
@@ -23,6 +29,9 @@ const {
     actionColumn,
     actionButton,
     plasmidIcon,
+    cellLineId,
+    thumbnailContainer,
+    idHeader,
     cellLineId,
     thumbnailContainer,
     idHeader,
@@ -42,6 +51,42 @@ const sortIcon = ({ sortOrder }: { sortOrder: SortOrder }) => {
     ) : (
         <CaretUpOutlined style={{ color: SERIOUS_GRAY, fontSize: 16 }} />
     );
+};
+
+const cellLineIdColumn = {
+    title: "Cell Collection ID",
+    key: "cellLineId",
+    className: cellLineId,
+    dataIndex: "cellLineId",
+    fixed: "left" as const,
+    render: (cellLineId: number, record: UnpackedCellLine) => {
+        const formattedId = formatCellLineId(cellLineId);
+        const cellLine = (
+            <h4 key={cellLineId}>{formattedId}</h4>
+        );
+        const thumbnailImage = record.thumbnailImage?.childImageSharp?.gatsbyImageData ?
+            getImage(record.thumbnailImage.childImageSharp.gatsbyImageData) : null;
+        const content = (
+            <>
+                <div className={idHeader}>{cellLine}</div>
+                {thumbnailImage && (
+                    <div className={thumbnailContainer}>
+                        <GatsbyImage
+                            image={thumbnailImage}
+                            alt={`${formattedId} thumbnail`}
+                        />
+                    </div>
+                )}
+            </>
+        );
+        return record.status === CellLineStatus.DataComplete ? (
+            <Link to={record.path}>
+                {content}
+            </Link>
+        ) : (
+            content
+        );
+    },
 };
 
 const cellLineIdColumn = {
@@ -134,28 +179,35 @@ export const getNormalTableColumns = (
             title: "Gene Symbol & Name",
             width: 280,
             key: "taggedGene",
-            dataIndex: "taggedGene",
+            dataIndex: "geneticModifications",
             responsive: mdBreakpoint,
-            render: (taggedGene: UnpackedGene[]) => {
+            sortIcon: sortIcon,
+            render: (geneticModifications?: { taggedGene: UnpackedGene, alleleCount: string, tagLocation: string, fluorescentTag: string }[]) => {
                 return (
                     <>
-                        {taggedGene.map((gene, index) => (
-                            <GeneDisplay key={index} gene={gene} />
+                        {geneticModifications?.map((mod, index) => (
+                            <GeneDisplay
+                                key={index}
+                                gene={mod.taggedGene}
+                            />
                         ))}
                     </>
                 );
             },
-            sortIcon: sortIcon,
-            sorter: (a: any, b: any) =>
-                caseInsensitiveStringCompare(
-                    a.taggedGene[0].name,
-                    b.taggedGene[0].name
-                ),
+            sorter: (a: any, b: any) => {
+                const getFirstGeneName = (item: any) => {
+                    return item.geneticModifications?.[0]?.taggedGene?.name;
+                };
+                return caseInsensitiveStringCompare(
+                    getFirstGeneName(a),
+                    getFirstGeneName(b)
+                );
+            }
         },
         {
             title: "Tagged Alleles",
-            key: "alleleCount",
-            dataIndex: "alleleCount",
+            key: "taggedAlleles",
+            dataIndex: "geneticModifications",
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
             render: (alleleCount: string[]) => {
@@ -180,11 +232,8 @@ export const getNormalTableColumns = (
         {
             title: "Fluorescent Tag",
             key: "fluorescentTag",
-            dataIndex: "fluorescentTag",
+            dataIndex: "geneticModifications",
             responsive: mdBreakpoint,
-            render: (fluorescentTag: string[]) => {
-                return fluorescentTag?.join(" / ");
-            },
             sortIcon: sortIcon,
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
@@ -195,18 +244,22 @@ export const getNormalTableColumns = (
         {
             title: "Tag Location",
             key: "tagLocation",
-            dataIndex: "tagLocation",
+            dataIndex: "geneticModifications",
             className: inProgress ? "" : lastColumn,
             responsive: mdBreakpoint,
-            render: (tagLocation: string[]) => {
-                return tagLocation?.join(" / ");
-            },
             sortIcon: sortIcon,
-            sorter: (a: any, b: any) =>
-                caseInsensitiveStringCompare(
-                    (a.tagLocation ?? []).join("|"),
-                    (b.tagLocation ?? []).join("|")
-                ),
+            render: (geneticModifications?: { taggedGene: UnpackedGene, alleleCount: string, tagLocation: string, fluorescentTag: string }[]) => {
+                return geneticModifications?.map(mod => mod.tagLocation).join(" / ");
+            },
+            sorter: (a: any, b: any) => {
+                const getTagLocationsString = (item: any) => {
+                    return item.geneticModifications?.map((mod: any) => mod.tagLocation).join(" / ");
+                };
+                return caseInsensitiveStringCompare(
+                    getTagLocationsString(a),
+                    getTagLocationsString(b)
+                );
+            }
         },
     ];
     // if active add the buttons
