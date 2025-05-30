@@ -1,12 +1,14 @@
 import React from "react";
 import { Flex } from "antd";
 import classNames from "classnames";
+import { Link } from "gatsby";
 
 import {
     Clone,
     UnpackedDiseaseCellLine,
     UnpackedGene,
     UnpackedNormalCellLine,
+    CellLineStatus,
 } from "../../component-queries/types";
 import { formatCellLineId, getCloneSummary } from "../../utils";
 import GeneDisplay from "../GeneDisplay";
@@ -14,17 +16,37 @@ import ParentalLineModal from "../ParentalLineModal";
 import CloneSummary from "../CloneSummary";
 
 import {
-    cellLineIdColumn,
     certificateOfAnalysisColumn,
     obtainLineColumn,
 } from "./SharedColumns";
-import { smBreakPoint, mdBreakpoint, CellLineColumns } from "./types";
+import { smBreakPoint, mdBreakpoint, CellLineColumns, UnpackedCellLine } from "./types";
 
 const {
     clones,
     lastColumn,
     snpColumn,
+    cellLineId,
 } = require("../../style/table.module.css");
+
+const cellLineIdColumn = {
+    title: "Cell Collection ID",
+    key: "cellLineId",
+    className: cellLineId,
+    dataIndex: "cellLineId",
+    fixed: "left" as const,
+    render: (cellLineId: number, record: UnpackedCellLine) => {
+        const cellLine = (
+            <h4 key={cellLineId}>{formatCellLineId(cellLineId)}</h4>
+        );
+        return record.status === CellLineStatus.DataComplete ? (
+            <Link to={record.path}>
+                {cellLine}
+            </Link>
+        ) : (
+            cellLine
+        );
+    },
+};
 
 export const getDiseaseTableColumns = (
     inProgress: boolean
