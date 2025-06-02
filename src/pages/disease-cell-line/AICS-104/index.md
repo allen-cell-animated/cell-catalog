@@ -32,13 +32,13 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/iPSC/AICS-0104_CofA
 images_and_videos:
   images:
     - image: aics-104_cl85_h251n-1-.png
-      caption: '"One vial of distribution lot was thawed (cells were treated with ROCK
+      caption: One vial of distribution lot was thawed (cells were treated with ROCK
         inhibitor for 24hrs post-thaw - refer to culture protocol). A six panel
         image of clone 85 (H251N/wt) is shown here and is a representative image
         for all clones in the collection (except clone 4). Cultures were
         observed daily. Colonies were imaged one (a,b), four (c,d) and five
         (e,f) days post-thaw using a Leica microscope at 4x and 10x
-        magnification.  Scale bars are shown."'
+        magnification.  Scale bars are shown.
     - image: aics-104_cl4_h251n-1-.png
       caption: One vial of distribution lot was thawed (cells were treated with ROCK
         inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
