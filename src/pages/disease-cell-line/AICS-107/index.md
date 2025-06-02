@@ -16,7 +16,7 @@ clones:
     clone_number: 17
     transfection_replicate: A
     genotype: V606M/WT
-    positive_cells: 74
+    positive_cells: 76
   - type: Control
     clone_number: 63
     transfection_replicate: B
