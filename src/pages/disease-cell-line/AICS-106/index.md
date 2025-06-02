@@ -13,9 +13,10 @@ clones:
     genotype: WT/WT
     positive_cells: 73
   - type: Control
-    clone_number: 86
+    clone_number: 88
     transfection_replicate: B
     genotype: WT/WT
+    positive_cells: 66
   - type: Mutant
     clone_number: 104
     transfection_replicate: A
@@ -31,20 +32,20 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/iPSC/AICS-0106_CofA
 images_and_videos:
   images:
     - caption: "One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one, four and five days
-        post-thaw using a Leica microscope 4x and 10x magnification. A four
-        panel image of clone 88 is shown here and is a representative image for
-        all clones in the collection. Viability and colony formation one day and
-        four days post-thaw. Scale bars are shown. "
+        inhibitor for 24hrs post-thaw - refer to culture protocol).  A four
+        panel image of clone 88 (wt/wt) is shown here and is a representative
+        image for all clones in the collection. Cultures were observed daily.
+        Colonies were imaged one (D1) and four (D4) days post-thaw using a Leica
+        microscope at 4x and 10x magnification. Scale bars are shown. "
       image: aics-106_clone88_s291f.png
 genomic_characterization:
   diagrams:
     - title: Sanger Sequencing Results
-      image: aics-0106_s291f_sanger_exported_highres.png
+      image: s291f_sanger_results.png
       caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
-        alleles. Results confirmed respective genotype as indicated in table
-        above with no additional mutations present. 
+        alleles. The S291F mutation (NM_000257.4(MYH7):c.872C>T(p.Ser291Phe)) is
+        indicated by a C > T. Results confirmed respective genotype as indicated
+        in the figure above with no additional mutations present. 
     - title: Mono-Clonality Confirmation via ddPCR Assay
       image: aics-0106_s291f_mono-clonality-confirmation.png
       caption: Verification of genomic copy number of WT and mutant alleles.
@@ -53,27 +54,25 @@ genomic_characterization:
         reference gene. 
     - title: Karyotype Analysis
       image: aics-0106_s291f_cl40_karyotype.png
-      caption: After cells banks were created, one vial per clone was thawed and 30
+      caption: After cell banks were created, one vial per clone was thawed and 30
         G-banded metaphase cells were karyotyped. Above is the representative
         analysis for clone 40. All clones resulted in normal karyotype.
 editing_design:
   crna_target_site: 5’ GCTCAGGCTTTTTGTTAGAC[AGG] 3’
   dna_donor_sequence:
     - sequence: 5’ ACTCACCCAGCAGCTCAGGCTTTTT[G]TTAAACAGGATTTGGTAG AAAATGTGATAATCT 3’
-      type: ""
+      type: Mutant
   cas9: " TrueCut™ Cas9 Protein "
   f_primer: 5’ GCTAGGTGTCTTTCTCTGGG 3’
   r_primer: 5’ GATCAGCAGCATGTCTAGGG 3’
   diagrams:
-    - title: '"Header Caption: CRISPR-Cas9 methodology was used to introduce a single
-        base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown
-        below."'
+    - title: CRISPR-Cas9 methodology was used to introduce a single base pair mutation
+        to MYH7, and mEGFP at C-terminus of ACTN2 as shown below.
       caption: "Top: MYH7 locus showing 1 MYH7 isoform; Bottom: Zoom in on mutation
         site at isoform NM_000257.4(MYH7):c.872C>T(p.Ser291Phe)"
       image: s291f_fullfigure.png
-    - title: '"Header Caption: CRISPR-Cas9 methodology was used to introduce a single
-        base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown
-        below."'
+    - title: CRISPR-Cas9 methodology was used to introduce a single base pair mutation
+        to MYH7, and mEGFP at C-terminus of ACTN2 as shown below.
       caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP
         insertion site at ACTN2 C-terminus"
       image: actn2_fullfigure.png
