@@ -63,7 +63,7 @@ genomic_characterization:
         reference gene. 
     - title: Karyotype Analysis
       image: aics-0104_h251n_cl3_karyotype.png
-      caption: After cells banks were created, one vial per clone was thawed and 30
+      caption: After cell banks were created, one vial per clone was thawed and 30
         G-banded metaphase cells were karyotyped. Above is the representative
         analysis for clone 3. All clones resulted in normal karyotype.
 editing_design:
