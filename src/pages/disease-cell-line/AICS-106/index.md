@@ -16,6 +16,7 @@ clones:
     clone_number: 88
     transfection_replicate: B
     genotype: WT/WT
+    positive_cells: 66
   - type: Mutant
     clone_number: 104
     transfection_replicate: A
