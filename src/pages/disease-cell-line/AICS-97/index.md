@@ -61,9 +61,9 @@ genomic_characterization:
     - title: Sanger Sequencing Results
       image: g256e_sanger_results-01.png
       caption: '"Sanger Sequencing was performed on MYH7 recombinant and wildtype
-        alleles. The G256E mutation ( NM_000257.4(MYH7):c.767G>A(p.Gly256Glu))
-        is indicated by a G > A. Results confirmed respective genotype as
-        indicated in the figure above with no additional mutations present. "'
+        alleles. The G256E mutation (NM_000257.4(MYH7):c.767G>A(p.Gly256Glu)) is
+        indicated by a G > A. Results confirmed respective genotype as indicated
+        in the figure above with no additional mutations present. "'
     - title: Mono-Clonality Confirmation via ddPCR Assay
       image: aics-97_g256e_mono-clonality-confirmation.png
       caption: Verification of genomic copy number of WT and mutant alleles.
