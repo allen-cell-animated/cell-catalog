@@ -3,14 +3,12 @@ templateKey: cell-line
 cell_line_id: 36
 status: released
 clone_number: 28
-allele_count: mono
 parental_line: 0
-gene:
-  - AAVS1
-tag_location:
-  - NA
-fluorescent_tag:
-  - mEGFP
+genetic_modifications:
+  - gene: AAVS1
+    tag_location: NA
+    fluorescent_tag: mEGFP
+    allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0036-028&PgId=166
 cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0036-028_CofA.pdf
 donor_plasmid: https://www.addgene.org/91565/

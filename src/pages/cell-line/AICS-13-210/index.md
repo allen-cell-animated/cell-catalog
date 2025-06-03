@@ -4,14 +4,12 @@ cell_line_id: 13
 status: released
 thumbnail_image: aics-13.jpg
 clone_number: 210
-allele_count: mono
 parental_line: 0
-gene:
-  - LMNB1
-tag_location:
-  - N-terminus
-fluorescent_tag:
-  - mEGFP
+genetic_modifications:
+  - gene: LMNB1
+    tag_location: N-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
 order_link: https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0013&Product=iPSC
 cofa: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0013_CofA.pdf
 donor_plasmid: https://www.addgene.org/87422/

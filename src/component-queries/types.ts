@@ -13,16 +13,26 @@ export interface GeneFrontMatter {
     isoforms?: Isoform[];
 }
 
+export interface GeneticModification {
+    gene: {
+        frontmatter: GeneFrontMatter;
+    };
+    allele_count: string;
+    tag_location: string;
+    fluorescent_tag: string;
+}
+
 export interface ParentalLineFrontmatter {
     cell_line_id: number;
     clone_number: number;
-    allele_count: string;
-    tag_location: string[];
-    fluorescent_tag: string[];
     thumbnail_image: any;
-    gene: {
+    genetic_modifications?: GeneticModification[];
+    tagged_gene: {
         frontmatter: GeneFrontMatter;
     }[];
+    allele_count: string[];
+    tag_location: string[];
+    fluorescent_tag: string[];
 }
 
 export interface NormalCellLineFrontmatter {
@@ -30,28 +40,26 @@ export interface NormalCellLineFrontmatter {
     cell_line_id: number;
     status: CellLineStatus;
     clone_number: number;
+    order_link: string;
+    genetic_modifications?: GeneticModification[];
+    tagged_gene: {
+        frontmatter: GeneFrontMatter;
+    }[];
+    allele_count: string[];
     tag_location: string[];
     fluorescent_tag: string[];
-    allele_count: string;
-    order_link: string;
     donor_plasmid: string;
+    thumbnail_image: FileNode;
     parental_line: {
         frontmatter: {
             name: string;
         };
     };
-    gene: {
-        frontmatter: {
-            protein: string;
-            name: string;
-            symbol: string;
-            structure: string;
-        };
-    }[];
 };
 
 export interface NormalCellLineNode {
     id: string;
+    key: string;
     fields: {
         slug: string;
     };
@@ -62,6 +70,7 @@ export enum CellLineStatus {
     DataComplete = "data complete",
     Released = "released",
     InProgress = "in progress",
+    Hide = "hide",
 }
 
 enum Antibody {
@@ -177,17 +186,25 @@ export interface UnpackedCellLineMainInfo {
     certificateOfAnalysis: string;
     healthCertificate: string;
     orderLink: string;
-    thumbnailImage?: FileNode;
+    thumbnailImage?: IGatsbyImageData | null;
 }
+
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
+    key: string;
     cloneNumber: number;
-    tagLocation: string[];
-    fluorescentTag: string[];
-    taggedGene: UnpackedGene[];
-    alleleCount: string;
     parentalLine: string;
     structure: string[];
     protein: string[];
+    geneticModifications?: {
+        taggedGene: UnpackedGene;
+        alleleCount: string;
+        tagLocation: string;
+        fluorescentTag: string;
+    }[];
+    taggedGene: UnpackedGene[];
+    alleleCount: string[];
+    tagLocation: string[];
+    fluorescentTag: string[];
     orderPlasmid: string;
 }
 
@@ -201,4 +218,39 @@ export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
     clones: Clone[];
     parentalLine: ParentLine;
     mutatedGene: UnpackedGene[];
+}
+
+export interface SearchAndFilterGroup {
+    fieldValue: string;
+    edges: {
+        node: {
+            frontmatter: {
+                cell_line_id: number;
+                gene: {
+                    frontmatter: {
+                        name: string;
+                        symbol: string;
+                        protein: string;
+                        structure: string;
+                    };
+                };
+            };
+        };
+    }[];
+}
+
+export interface SearchAndFilterQueryResult {
+    allMarkdownRemark: {
+        group: SearchAndFilterGroup[];
+    };
+}
+
+export interface SearchLookup {
+    // Maps gene symbol to a list of cell line IDs
+    geneSymToCellIds: Map<string, number[]>;
+    // Maps each of the words associated with a gene to that gene symbol
+    // (so many words map to the same gene symbol)
+    // used for getting a unique identifier for the geneSymToCellIds map
+    structureAndNameToGene: Map<string, string>;
+    allSearchableTerms: Set<string>;
 }

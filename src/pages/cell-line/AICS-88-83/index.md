@@ -5,16 +5,15 @@ status: data complete
 date: 2025-05-06T22:17:55.522Z
 clone_number: 83
 parental_line: 0
-gene:
-  - PCNA
-allele_count: mono
-fluorescent_tag:
-  - mEGFP
-donor_plasmid: https://www.addgene.org/170818/
-cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0088-083_CofA.pdf
-tag_location:
-  - N-terminus
+genetic_modifications:
+  - gene: PCNA
+    tag_location: N-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0088-083&PgId=166
+cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0088-083_CofA.pdf
+donor_plasmid: https://www.addgene.org/170818/
+eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-56
 images_and_videos:
   videos:
     - caption: Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged
@@ -32,5 +31,4 @@ images_and_videos:
         the cells was imaged every 3 min on a spinning-disk confocal microscope.
         Movie plays at 1800x real time. Scale bar, 20 µm.
       video: https://vimeo.com/1079876541/cc9572adf0?ts=0&share=copy
-eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-56
 ---

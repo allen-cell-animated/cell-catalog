@@ -43,28 +43,29 @@ images_and_videos:
   images:
     - image: aics-105_clone57_r369q.png
       caption: One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one, four and five days
-        post-thaw using a Leica microscope 4x and 10x magnification. A four
-        panel image of clone 57 is shown here and is a representative image for
-        all clones in the collection (except clone 89). Viability and colony
-        formation one day and four days post-thaw. Scale bars are shown.
+        inhibitor for 24hrs post-thaw - refer to culture protocol). A four panel
+        image of clone 57 (R369Q/wt) is shown here and is a representative image
+        for all clones in the collection (except clone 89). Cultures were
+        observed daily. Colonies were imaged one (D1) and four (D4) days
+        post-thaw using a Leica microscope at 4x and 10x magnification. Scale
+        bars are shown.
     - image: r369q_cl89.png
       caption: One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one, four and five days
-        post-thaw using a Leica microscope 4x and 10x magnification. A four
-        panel image of clone 89. Viability and colony formation one day and four
-        days post-thaw. This cell line may exhibit transient poor morphology in
-        the first three passages post-thaw. However, this sub-optimal phenotype
-        resolves with continued passage. Scale bars are shown.
+        inhibitor for 24hrs post-thaw - refer to culture protocol). A four panel
+        image of clone 89 (wt/wt) is shown here. This cell line may exhibit
+        transient poor morphology in the first three passages post-thaw.
+        However, this sub-optimal phenotype resolves with continued passage.
+        Cultures were observed daily. Colonies were imaged one (D1) and four
+        (D4) days post-thaw using a Leica microscope at 4x and 10x
+        magnification. Scale bars are shown.
 genomic_characterization:
   diagrams:
     - title: Sanger Sequencing Results
-      image: aics-105_r369q_sanger_exported_highres.png
+      image: r369q_sanger_results.png
       caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
-        alleles. Results confirmed respective genotype as indicated in table
-        above with no additional mutations present. 
+        alleles. The R369Q mutation (NM_000257.4(MYH7):c.1106G>A(p.Arg369Gln))
+        is indicated by a G > A. Results confirmed respective genotype as
+        indicated in the figure above with no additional mutations present. 
     - title: Mono-Clonality Confirmation via ddPCR Assay
       image: aics-105_r369q_mono-clonality-confirmation.png
       caption: Verification of genomic copy number of WT and mutant alleles.
@@ -73,27 +74,25 @@ genomic_characterization:
         reference gene. 
     - title: Karyotype Analysis
       image: aics-105_r369q_c31_karyotype.png
-      caption: After cells banks were created, one vial per clone was thawed and 30
+      caption: After cell banks were created, one vial per clone was thawed and 30
         G-banded metaphase cells were karyotyped. Above is the representative
         analysis for clone 31. All clones resulted in normal karyotype.
 editing_design:
   crna_target_site: " 5’ GTTCAAGCTGAAGCAGCGGG[AGG] 3’"
   dna_donor_sequence:
     - sequence: 5’ TGGAAACATGAAGTTCAAGCTGAAGCAGCAGGAGGAGC[A]GGCGGAGCCAGACGGCACTG 3’
-      type: ""
+      type: Mutant
   cas9: "TrueCut™ Cas9 Protein "
   f_primer: 5’ GCCAGGAAGCATAAGTGGGT 3’
   r_primer: 5’ GGTGACGTACTCATTGCCCA 3’
   diagrams:
-    - title: '"Header Caption: CRISPR-Cas9 methodology was used to introduce a single
-        base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown
-        below. "'
+    - title: "CRISPR-Cas9 methodology was used to introduce a single base pair
+        mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown below. "
       caption: "Top: MYH7 locus showing 1 MYH7 isoform; Bottom: Zoom in on mutation
         site at isoform NM_000257.4(MYH7):c.1106G>A(p.Arg369Gln)"
       image: r369q_fullfigure.png
-    - title: '"Header Caption: CRISPR-Cas9 methodology was used to introduce a single
-        base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown
-        below. "'
+    - title: "CRISPR-Cas9 methodology was used to introduce a single base pair
+        mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown below. "
       caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP
         insertion site at ACTN2 C-terminus"
       image: actn2_fullfigure.png

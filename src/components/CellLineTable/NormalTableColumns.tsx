@@ -2,6 +2,7 @@ import React from "react";
 import { Flex } from "antd";
 import Icon, { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { SortOrder } from "antd/es/table/interface";
+
 import {
     UnpackedGene,
     UnpackedNormalCellLine,
@@ -124,8 +125,14 @@ export const getNormalTableColumns = (
             dataIndex: "alleleCount",
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
+            render: (alleleCount: string[]) => {
+                return alleleCount?.join(" / ");
+            },
             sorter: (a: any, b: any) =>
-                caseInsensitiveStringCompare(a.alleleCount, b.alleleCount),
+                caseInsensitiveStringCompare(
+                    (a.alleleCount ?? []).join("|"),
+                    (b.alleleCount ?? []).join("|")
+                ),
         },
         {
             title: "Structure",

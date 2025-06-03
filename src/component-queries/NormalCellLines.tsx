@@ -12,6 +12,7 @@ import { getNormalTableColumns } from "../components/CellLineTable/NormalTableCo
 import { PHONE_BREAKPOINT } from "../constants";
 import useWindowWidth from "../hooks/useWindowWidth";
 import { getNormalTableMobileConfig } from "../components/CellLineTable/MobileView";
+import SearchAndFilter from "./SearchAndFilter";
 
 const CellLineTableTemplate = (props: QueryResult) => {
     const { edges: cellLines } = props.data.allMarkdownRemark;
@@ -27,12 +28,17 @@ const CellLineTableTemplate = (props: QueryResult) => {
     });
     const width = useWindowWidth();
     const isPhone = width < PHONE_BREAKPOINT;
-
+    const [filteredCellLines, setFilteredCellLines] =
+        React.useState(finishedCellLines);
     return (
         <>
+            <SearchAndFilter
+                allCellLines={finishedCellLines}
+                setResults={setFilteredCellLines}
+            />
             <CellLineTable
                 tableName="Cell Line Catalog"
-                cellLines={finishedCellLines}
+                cellLines={filteredCellLines}
                 footerContents={""}
                 released={true}
                 columns={getNormalTableColumns(false)}
@@ -87,19 +93,29 @@ export default function NormalCellLines() {
                                     templateKey
                                     cell_line_id
                                     clone_number
-                                    tag_location
-                                    fluorescent_tag
-                                    allele_count
                                     status
                                     order_link
                                     donor_plasmid
-                                    gene {
-                                        frontmatter {
-                                            protein
-                                            structure
-                                            name
-                                            symbol
+                                    thumbnail_image {
+                                        childImageSharp {
+                                            gatsbyImageData(
+                                                placeholder: BLURRED
+                                                width: 164
+                                            )
                                         }
+                                    }
+                                    genetic_modifications {
+                                        gene {
+                                            frontmatter {
+                                                protein
+                                                structure
+                                                symbol
+                                                name
+                                            }
+                                        }
+                                        allele_count
+                                        tag_location
+                                        fluorescent_tag
                                     }
                                     parental_line {
                                         frontmatter {

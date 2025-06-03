@@ -3,20 +3,20 @@ templateKey: cell-line
 cell_line_id: 86
 status: released
 clone_number: 147
-allele_count: mono
 parental_line: 0
-gene:
-  - FBL
-  - NPM1
-  - UBTF
-tag_location:
-  - C-terminus
-  - C-terminus
-  - N-terminus
-fluorescent_tag:
-  - mEGFP
-  - mTagRFP-T
-  - HaloTag
+genetic_modifications:
+  - gene: FBL
+    tag_location: C-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
+  - gene: NPM1
+    tag_location: C-terminus
+    fluorescent_tag: mTagRFP-T
+    allele_count: mono
+  - gene: UBTF
+    tag_location: N-terminus
+    fluorescent_tag: HaloTag
+    allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0086-147&PgId=166
 cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0086-147_CofA.pdf
 donor_plasmid: https://www.addgene.org/133963/
