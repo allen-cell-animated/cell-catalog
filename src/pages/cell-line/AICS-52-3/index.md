@@ -2,6 +2,7 @@
 templateKey: cell-line
 cell_line_id: 52
 status: released
+thumbnail_image: single_plane_image_cl3.jpg
 clone_number: 3
 parental_line: 0
 genetic_modifications:
@@ -10,7 +11,7 @@ genetic_modifications:
     fluorescent_tag: mEGFP
     allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0052-003&PgId=166
-cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0052-003_CofA.pdf
+certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0052-003_CofA.pdf
 donor_plasmid: https://www.addgene.org/114413/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-29
 images_and_videos:

@@ -2,6 +2,7 @@
 templateKey: cell-line
 cell_line_id: 86
 status: released
+thumbnail_image: single_plane_image_cl147.jpg
 clone_number: 147
 parental_line: 0
 genetic_modifications:
@@ -18,7 +19,7 @@ genetic_modifications:
     fluorescent_tag: HaloTag
     allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0086-147&PgId=166
-cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0086-147_CofA.pdf
+certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0086-147_CofA.pdf
 donor_plasmid: https://www.addgene.org/133963/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-42
 images_and_videos:

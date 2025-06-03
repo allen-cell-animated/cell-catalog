@@ -3,6 +3,7 @@ templateKey: cell-line
 cell_line_id: 114
 status: data complete
 date: 2025-05-06T22:28:41.417Z
+thumbnail_image: single_plane_image_cl35.jpg
 clone_number: 35
 parental_line: 0
 genetic_modifications:
@@ -11,7 +12,7 @@ genetic_modifications:
     fluorescent_tag: mEGFP
     allele_count: mono
 order_link: https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0114-035&Product=iPSC
-cofa: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0114-035_CofA.pdf
+certificate_of_analysis: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0114-035_CofA.pdf
 donor_plasmid: https://www.addgene.org/193921/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-67
 images_and_videos:

@@ -2,6 +2,7 @@
 templateKey: cell-line
 cell_line_id: 34
 status: released
+thumbnail_image: single_plane_image_cl62.jpg
 clone_number: 62
 parental_line: 0
 genetic_modifications:
@@ -10,7 +11,7 @@ genetic_modifications:
     fluorescent_tag: mTagRFP-T
     allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0034-062&PgId=166
-cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0034-062_CofA.pdf
+certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0034-062_CofA.pdf
 donor_plasmid: https://www.addgene.org/114403/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-41
 images_and_videos:
