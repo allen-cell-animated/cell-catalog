@@ -67,9 +67,7 @@ editing_design:
       caption: "MYH7 and ACTN2 locus modifications"
       images:
         - image: v606m_fullfigure.png
-          caption: >
-            Top: MYH7 locus showing 1 MYH7 isoform; Bottom: Zoom in on mutation site at isoform NM_000257.4(MYH7):c.1816G>A(p.Val606Met)"
+          caption: "Top: MYH7 locus showing 1 MYH7 isoform; Bottom: Zoom in on mutation site at isoform NM_000257.4(MYH7):c.1816G>A(p.Val606Met)"
         - image: actn2_fullfigure.png
-          caption: >
-            Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP insertion site at ACTN2 C-terminus
+          caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP insertion site at ACTN2 C-terminus"
 ---

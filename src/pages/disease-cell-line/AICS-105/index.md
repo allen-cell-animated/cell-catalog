@@ -85,16 +85,10 @@ editing_design:
   f_primer: 5’ GCCAGGAAGCATAAGTGGGT 3’
   r_primer: 5’ GGTGACGTACTCATTGCCCA 3’
   diagrams:
-    - title: '"Header Caption: CRISPR-Cas9 methodology was used to introduce a single
-        base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown
-        below. "'
-      caption: "Top: MYH7 locus showing 1 MYH7 isoform; Bottom: Zoom in on mutation
-        site at isoform NM_000257.4(MYH7):c.1106G>A(p.Arg369Gln)"
-      image: r369q_fullfigure.png
-    - title: '"Header Caption: CRISPR-Cas9 methodology was used to introduce a single
-        base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown
-        below. "'
-      caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP
-        insertion site at ACTN2 C-terminus"
-      image: actn2_fullfigure.png
+    - title: "CRISPR-Cas9 methodology was used to introduce a single base pair mutation to MYH7, and mEGFP at C-terminus of ACTN2 as shown below."
+      images:
+        - image: r369q_fullfigure.png
+          caption: "Top: MYH7 locus showing 1 MYH7 isoform; Bottom: Zoom in on mutation site at isoform NM_000257.4(MYH7):c.1106G>A(p.Arg369Gln)"
+        - image: actn2_fullfigure.png
+          caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP insertion site at ACTN2 C-terminus"
 ---
