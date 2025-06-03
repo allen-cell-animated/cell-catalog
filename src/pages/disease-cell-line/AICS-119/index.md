@@ -73,12 +73,6 @@ genomic_characterization:
         indicated by a C > T. Results confirmed respective genotype as indicated
         in the figure above with no additional mutations present. "'
       image: g608g_sanger_results.png
-    - title: Mono-Clonality Confirmation via ddPCR Assay (image is a placeholder)
-      caption: Verification of genomic copy number of WT and mutant alleles.
-        LMNA:WT/RPP30 ratio from ddPCR assay; values ~ 0.5 indicate heterozygous
-        clone, values ~1 indicate unedited clone. RPP30 is known 2n reference
-        gene. 
-      image: aics-0109_e525k_mono-clonality-confirmation.png
     - title: Karyotype Analysis
       image: aics_0119_cl10_g608g_karyotype.png
       caption: After cells banks were created, one vial per clone was thawed and 30
