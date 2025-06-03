@@ -15,7 +15,7 @@ export interface UnpackedEditingDesign {
     cas9?: string;
     fPrimer?: string;
     rPrimer?: string;
-    diagrams?: Diagram[];
+    diagrams?: DiagramCardProps[];
 }
 export interface ClonePercentPositive {
     cloneNumber: number;
