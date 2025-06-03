@@ -1,5 +1,6 @@
 import {
     Clone,
+    Diagram,
     GeneFrontMatter,
     ParentalLineFrontmatter,
     Sequence,
@@ -14,7 +15,7 @@ export interface UnpackedEditingDesign {
     cas9?: string;
     fPrimer?: string;
     rPrimer?: string;
-    diagrams?: DiagramCardProps[];
+    diagrams?: Diagram[];
 }
 export interface ClonePercentPositive {
     cloneNumber: number;

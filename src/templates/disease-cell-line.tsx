@@ -208,15 +208,17 @@ export const pageQuery = graphql`
                     r_primer
                     diagrams {
                         title
-                        image {
-                            childImageSharp {
-                                gatsbyImageData(
-                                    placeholder: BLURRED
-                                    layout: CONSTRAINED
-                                )
+                        images {
+                            image {
+                                childImageSharp {
+                                    gatsbyImageData(
+                                        placeholder: BLURRED
+                                        layout: CONSTRAINED
+                                    )
+                                }
                             }
+                            caption
                         }
-                        caption
                     }
                 }
                 genomic_characterization {

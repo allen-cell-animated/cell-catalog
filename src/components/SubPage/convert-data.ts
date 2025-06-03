@@ -17,15 +17,24 @@ export const unpackDiagrams = (diagrams?: Diagram[]): DiagramCardProps[] => {
     if (!diagrams || diagrams.length === 0) {
         return [];
     }
-    return diagrams.map((diagram) => {
-        return {
-            title: diagram.title,
-            caption: diagram.caption,
-            image: diagram.image
-                ? diagram.image.childImageSharp.gatsbyImageData
-                : undefined,
-        };
+
+    const result: DiagramCardProps[] = [];
+
+    diagrams.forEach((diagram) => {
+        if (!diagram.images || diagram.images.length === 0) {
+            return;
+        }
+
+        diagram.images.forEach((imageObj, index) => {
+            result.push({
+                title: index === 0 ? diagram.title : "",
+                caption: imageObj.caption,
+                image: imageObj.image.childImageSharp.gatsbyImageData,
+            });
+        });
     });
+
+    return result;
 };
 
 // subpage data

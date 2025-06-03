@@ -1,3 +1,7 @@
 .container {
     position: relative;
 }
+
+.container:global(.ant-card) :global(.ant-card-body) {
+    padding: 0px;
+}

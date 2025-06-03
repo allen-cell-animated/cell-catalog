@@ -98,13 +98,15 @@ export interface Sequence {
 }
 
 export interface Diagram {
-    image: {
-        childImageSharp: {
-            gatsbyImageData: IGatsbyImageData;
-        };
-    };
+    images: {
+        image: {
+            childImageSharp: {
+                gatsbyImageData: IGatsbyImageData;
+            };
+        },
+        caption: string;
+    }[];
     title: string;
-    caption: string;
 }
 
 export interface DiseaseCellLineFrontmatter {

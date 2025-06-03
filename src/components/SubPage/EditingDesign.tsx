@@ -113,14 +113,8 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
                     {legendContent}
                 </SubpageContentCard>
             )}
-
-            {diagrams?.map((diagram, index) => (
-                <DiagramCard
-                    key={index}
-                    title={diagram.title}
-                    caption={diagram.caption}
-                    image={diagram.image}
-                />
+            {diagrams?.map((diagramProps, index) => (
+                <DiagramCard key={index} {...diagramProps} />
             ))}
         </div>
     );
