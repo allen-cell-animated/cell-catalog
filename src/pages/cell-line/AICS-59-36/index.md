@@ -3,17 +3,16 @@ templateKey: cell-line
 cell_line_id: 59
 status: released
 clone_number: 36
-allele_count: mono
 parental_line: 0
-gene:
-  - SEC61B
-  - LMNB1
-tag_location:
-  - N-terminus
-  - N-terminus
-fluorescent_tag:
-  - mEGFP
-  - mTagRFP-T
+genetic_modifications:
+  - gene: SEC61B
+    tag_location: N-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
+  - gene: LMNB1
+    tag_location: N-terminus
+    fluorescent_tag: mTagRFP-T
+    allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0059-036&PgId=166
 cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0059-036_CofA.pdf
 donor_plasmid: https://www.addgene.org/The_Allen_Institute_for_Cell_Science/

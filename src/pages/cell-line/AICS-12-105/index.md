@@ -3,14 +3,12 @@ templateKey: cell-line
 cell_line_id: 12
 status: released
 clone_number: 105
-allele_count: mono
 parental_line: 0
-gene:
-  - TUBA1B
-tag_location:
-  - N-terminus
-fluorescent_tag:
-  - mEGFP
+genetic_modifications:
+  - gene: TUBA1B
+    tag_location: N-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
 order_link: https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0012&Product=iPSC
 cofa: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0012_CofA.pdf
 donor_plasmid: https://www.addgene.org/87421/

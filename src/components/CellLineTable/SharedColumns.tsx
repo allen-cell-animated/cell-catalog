@@ -1,7 +1,8 @@
-import { Link } from "gatsby";
+import {Link} from "gatsby";
 import React from "react";
 import { Flex } from "antd";
 import Icon from "@ant-design/icons";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import { CellLineStatus } from "../../component-queries/types";
 import { formatCellLineId } from "../../utils";
@@ -16,6 +17,8 @@ const {
     actionColumn,
     actionButton,
     tubeIcon,
+    idHeader,
+    thumbnailContainer,
 } = require("../../style/table.module.css");
 
 export const cellLineIdColumn = {
@@ -28,10 +31,24 @@ export const cellLineIdColumn = {
         const cellLine = (
             <h4 key={cellLineId}>{formatCellLineId(cellLineId)}</h4>
         );
+        const thumbnailImage = getImage(record.thumbnailImage || null);
+
+        const content = thumbnailImage ? (
+            <>
+                <div className={idHeader}>{cellLine}</div>
+                <div className={thumbnailContainer}>
+                    <GatsbyImage
+                        image={thumbnailImage}
+                        alt={`${cellLine} thumbnail`}
+                    />
+                </div>
+            </>
+        ) : cellLine;
+
         return record.status === CellLineStatus.DataComplete ? (
-            <Link to={record.path}>{cellLine}</Link>
+            <Link to={record.path}>{content}</Link>
         ) : (
-            cellLine
+            content
         );
     },
 };

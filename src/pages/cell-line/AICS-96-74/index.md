@@ -5,16 +5,15 @@ status: data complete
 date: 2025-05-06T21:01:17.772Z
 clone_number: 74
 parental_line: 0
-gene:
-  - POLR2A
-allele_count: mono
-fluorescent_tag:
-  - mEGFP
-donor_plasmid: https://www.addgene.org/164500/
-cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0096-074_CofA.pdf
-tag_location:
-  - N-terminus
+genetic_modifications:
+  - gene: POLR2A
+    tag_location: N-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0096-074&PgId=166
+cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0096-074_CofA.pdf
+donor_plasmid: https://www.addgene.org/164500/
+eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-47
 images_and_videos:
   videos:
     - caption: Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged RPB1.
@@ -31,5 +30,4 @@ images_and_videos:
         RPB1. Cells were imaged in 3D on a spinning-disk confocal microscope
         every 3 min. A single mid-level plane is shown. Movie plays at 1800x
         real time. Scale bar, 20 µm.
-eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-47
 ---

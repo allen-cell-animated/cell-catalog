@@ -93,19 +93,29 @@ export default function NormalCellLines() {
                                     templateKey
                                     cell_line_id
                                     clone_number
-                                    tag_location
-                                    fluorescent_tag
-                                    allele_count
                                     status
                                     order_link
                                     donor_plasmid
-                                    gene {
-                                        frontmatter {
-                                            protein
-                                            structure
-                                            name
-                                            symbol
+                                    thumbnail_image {
+                                        childImageSharp {
+                                            gatsbyImageData(
+                                                placeholder: BLURRED
+                                                width: 164
+                                            )
                                         }
+                                    }
+                                    genetic_modifications {
+                                        gene {
+                                            frontmatter {
+                                                protein
+                                                structure
+                                                symbol
+                                                name
+                                            }
+                                        }
+                                        allele_count
+                                        tag_location
+                                        fluorescent_tag
                                     }
                                     parental_line {
                                         frontmatter {

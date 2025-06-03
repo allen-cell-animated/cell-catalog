@@ -5,16 +5,15 @@ status: data complete
 date: 2025-05-06T22:26:12.922Z
 clone_number: 32
 parental_line: 0
-gene:
-  - CDH1
-allele_count: bi
-fluorescent_tag:
-  - mEGFP
-donor_plasmid: https://www.addgene.org/193921/
-cofa: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0114-032_CofA.pdf
-tag_location:
-  - C-terminus
+genetic_modifications:
+  - gene: CDH1
+    tag_location: C-terminus
+    fluorescent_tag: mEGFP
+    allele_count: bi
 order_link: https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0114-032&Product=iPSC
+cofa: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0114-032_CofA.pdf
+donor_plasmid: https://www.addgene.org/193921/
+eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-66
 images_and_videos:
   videos:
     - caption: Time-lapse movie of a live hiPS cell colony expressing mEGFP-tagged
@@ -33,5 +32,4 @@ images_and_videos:
         projection of the six z-slices is shown. Movie plays at 1800x real time.
         Scale bar, 5 µm.
       video: https://vimeo.com/1079877818/1a3f780ef9?ts=0&share=copy
-eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-66
 ---
