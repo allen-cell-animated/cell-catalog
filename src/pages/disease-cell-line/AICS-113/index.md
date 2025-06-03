@@ -80,7 +80,7 @@ genomic_characterization:
         indicated in the figure above with no additional mutations present. 
       image: g769v_sanger_results.png
     - title: Karyotype Analysis
-      caption: After cells banks were created, one vial per clone was thawed and 30
+      caption: After cell banks were created, one vial per clone was thawed and 30
         G-banded metaphase cells were karyotyped. Above is the representative
         analysis for clone 44. All clones resulted in normal karyotype.
       image: aics-0113_cl44_g769v_karyotype.png
