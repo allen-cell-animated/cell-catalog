@@ -85,8 +85,13 @@ export const convertFrontmatterToNormalCellLines = ({
     node: NormalCellLineNode;
 }): UnpackedNormalCellLine => {
     const { taggedGene, alleleCount, tagLocation, fluorescentTag } = extractGeneticModifications(cellLineNode.frontmatter.genetic_modifications);
-    const proteins = taggedGene.map((gene) => gene.protein);
-    const structures = taggedGene.map((gene) => gene.structure);
+    const proteins = taggedGene
+        .map((gene) => gene.protein)
+        .filter((protein): protein is string => protein !== undefined);
+
+    const structures = taggedGene
+        .map((gene) => gene.structure)
+        .filter((structure): structure is string => structure !== undefined);
 
     return {
         key: `${cellLineNode.frontmatter.cell_line_id}-${cellLineNode.frontmatter.clone_number}`,
@@ -99,7 +104,6 @@ export const convertFrontmatterToNormalCellLines = ({
         fluorescentTag: fluorescentTag,
         parentalLine: cellLineNode.frontmatter.parental_line.frontmatter.name,
         protein: proteins,
-        taggedGene: genes,
         structure: structures,
         status: cellLineNode.frontmatter.status,
         certificateOfAnalysis: "",
