@@ -69,7 +69,7 @@ genomic_characterization:
   diagrams:
     - title: Sanger Sequencing Results
       caption: Sanger Sequencing was performed on LMNA recombinant and wildtype
-        alleles. The G608G mutation ( NM_170707.4(LMNA):c.1824C>T(p.Gly608=)) is
+        alleles. The G608G mutation (NM_170707.4(LMNA):c.1824C>T(p.Gly608=)) is
         indicated by a C > T. Results confirmed respective genotype as indicated
         in the figure above with no additional mutations present. 
       image: g608g_sanger_results.png
