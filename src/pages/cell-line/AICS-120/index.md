@@ -4,17 +4,9 @@ cell_line_id: 120
 name: "Tom20/Mitochondrial Targeting Sequence of COXVIII (mitoTag) "
 status: released
 date: 2025-02-05T18:14:13.824Z
+thumbnail_image: ad00006088_20240513_x02_001_s14_z17to61_crop_inset2x_shifted_scalebar5um_rgb_z14.jpg
 clone_number: 204
 parental_line: 0
-genetic_modifications:
-  - gene: TOMM20
-    tag_location: C-terminus
-    fluorescent_tag: mEGFP
-    allele_count: mono
-  - gene: AAVS1
-    tag_location: NA
-    fluorescent_tag: mTagRFP-T
-    allele_count: mono
 certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0120-204_CofA.pdf
 images_and_videos:
   images:
@@ -39,4 +31,13 @@ images_and_videos:
         bar, 5 µm). Inset image is 2x enlargement of boxed area to show detailed
         relationship between tagged proteins. Cells were imaged live in 3D on a
         spinning-disk confocal microscope. "
+genetic_modifications:
+  - gene: TOMM20
+    tag_location: C-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
+  - gene: AAVS1
+    tag_location: NA
+    fluorescent_tag: mTagRFP-T
+    allele_count: mono
 ---
