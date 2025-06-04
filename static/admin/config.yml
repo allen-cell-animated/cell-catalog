@@ -759,17 +759,22 @@ collections:
                     fields: [
                         {
                             label: "Primary Text",
-                            name: "primary_text",
+                            name: "primary",
+                            widget: "text"
+                        },
+                                                {
+                            label: "Primary emphasis Text",
+                            name: "emphasis",
                             widget: "text"
                         },
                         {
                             label: "Newsletter Text",
-                            name: "newsletter_text",
+                            name: "newsletter",
                             widget: "text"
                         },
                         {
                             label: "Disease Catalog Copy",
-                            name: "disease_catalog_copy",
+                            name: "disease",
                             widget: "text"
                         },
                         {
@@ -788,7 +793,7 @@ collections:
                                 },
                                 {
                                     label: "Disease Catalog Link",
-                                    name: "disease_catalog",
+                                    name: "disease",
                                     widget: "object",
                                     fields: [
                                         { label: "Text", name: "text", widget: "string" },

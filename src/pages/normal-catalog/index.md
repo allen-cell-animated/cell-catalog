@@ -2,18 +2,18 @@
 templateKey: normal-catalog
 title: About the Collection
 about_block: 
-  primary_text: >
+  primary: >
     The Allen Cell Collection contains over one hundred high quality, certified fluorescently tagged hiPSC lines that target dozens of key cellular structures and substructures. These cell lines and their editing plasmids are openly available to academic and commercial researchers through Coriell and Addgene respectively.
-  emphasis_text: Allen Cell Collection
-  newsletter_text: >
+  emphasis: Allen Cell Collection
+  newsletter: >
       New lines are released frequently. Subscribe to our newsletter to stay current with out latest releases.
-  disease_catalog_copy: >
+  disease: >
     Looking for a line with a disease mutation? Check out our Disease Cell Catalog.
   links:
     newsletter:
       text: "Subscribe to our newsletter"
       url: "https://www.alleninstitute.org/newsletter"
-    disease_catalog:
+    disease:
       text: "Check out our Disease Cell Catalog"
       url: "https://www.allencell.org/cell-catalog/disease-catalog"
 table_header: "Allen Cell Collection Cell Lines"

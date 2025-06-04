@@ -19,16 +19,16 @@ const {
 interface NormalCatalogTemplateProps {
     title: string;
     aboutBlock: {
-        primary_text: string;
-        emphasis_text: string;
-        newsletter_text: string;
-        disease_catalog_copy: string;
+        primary: string;
+        emphasis: string;
+        newsletter: string;
+        disease: string;
         links: {
             newsletter: {
                 url: string;
                 text: string;
             };
-            disease_catalog: {
+            disease: {
                 url: string;
                 text: string;
             };
@@ -65,7 +65,7 @@ export const NormalCatalogTemplate = ({
             <h1>{title}</h1>
             <Flex className={header}>
                 <PageContent className="content" content={content} />
-                <About {...aboutBlock} />
+                <About {...aboutBlock}/>
                 <Divider
                     type="vertical"
                     style={{ height: "initial", marginInline: "20px" }}
@@ -105,16 +105,16 @@ interface QueryResult {
                     html: string;
                 };
                 about_block: {
-                    primary_text: string;
-                    emphasis_text: string;
-                    newsletter_text: string;
-                    disease_catalog_copy: string;
+                    primary: string;
+                    emphasis: string;
+                    newsletter: string;
+                    disease: string;
                     links: {
                         newsletter: {
                             url: string;
                             text: string;
                         };
-                        disease_catalog: {
+                        disease: {
                             url: string;
                             text: string;
                         };
@@ -167,16 +167,16 @@ export const aboutPageQuery = graphql`
                     html
                 }
                 about_block {
-                    primary_text
-                    emphasis_text
-                    newsletter_text
-                    disease_catalog_copy
+                    primary
+                    emphasis
+                    newsletter
+                    disease
                     links {
                        newsletter {
                             text
                             url
                         }
-                        disease_catalog {
+                        disease {
                             text
                             url
                         }

@@ -3,16 +3,16 @@ import React from "react";
 const { container, italic, firstBlock, diseaseCopy } = require("../style/about.module.css");
 
 interface AboutProps {
-    primary_text: string;
-    emphasis_text: string;
-    newsletter_text: string;
-    disease_catalog_copy: string;
+    primary: string;
+    emphasis: string;
+    newsletter: string;
+    disease: string;
     links: {
         newsletter: {
             url: string;
             text: string;
         };
-        disease_catalog: {
+        disease: {
             url: string;
             text: string;
         };
@@ -44,23 +44,23 @@ const processTextWithEmphasis = (text: string, emphasis: string) => {
 };
 
 const About: React.FC<AboutProps> = ({
-    primary_text,
-    emphasis_text,
-    newsletter_text,
-    disease_catalog_copy,
+    primary,
+    emphasis,
+    newsletter,
+    disease,
     links,
 }) => {
-    const primaryText = processTextWithEmphasis(primary_text, emphasis_text);
-    const newsletterText = processTextWithLinks(newsletter_text, {
+    const primaryTextWithEmphasis = processTextWithEmphasis(primary, emphasis);
+    const newsletterText = processTextWithLinks(newsletter, {
         newsletter: links.newsletter,
     });
-    const diseaseCatalogCopy = processTextWithLinks(disease_catalog_copy, {
-        disease_catalog: links.disease_catalog,
+    const diseaseCatalogCopy = processTextWithLinks(disease, {
+        disease_catalog: links.disease,
     });
     return (
         <div className={container}>
             <div className={firstBlock}>
-                <div>{primaryText}</div>
+                <div>{primaryTextWithEmphasis}</div>
                 <div>{newsletterText}</div>
             </div>
             <div className={diseaseCopy}>{diseaseCatalogCopy}</div>
