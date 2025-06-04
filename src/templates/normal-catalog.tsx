@@ -14,6 +14,7 @@ const {
     coriellCard,
     header,
     coriellWrapper,
+    mainHeading,
 } = require("../style/catalog.module.css");
 interface NormalCatalogTemplateProps {
     title: string;
@@ -43,6 +44,7 @@ interface NormalCatalogTemplateProps {
     };
     coriellImage: FileNode;
     coriellLink: string;
+    tableHeader: string
 }
 // eslint-disable-next-line
 export const NormalCatalogTemplate = ({
@@ -54,6 +56,7 @@ export const NormalCatalogTemplate = ({
     coriellImage,
     coriellLink,
     aboutBlock,
+    tableHeader
 }: NormalCatalogTemplateProps) => {
     const image = getImage(coriellImage);
     const PageContent = contentComponent || Content;
@@ -82,6 +85,7 @@ export const NormalCatalogTemplate = ({
                     )}
                 </div>
             </Flex>
+            <h2 className={mainHeading}>{tableHeader}</h2>
             <NormalCellLines />
             <Footer
                 acknowledgementsBlock={acknowledgementsBlock}
@@ -126,6 +130,7 @@ interface QueryResult {
                 };
                 coriell_image: FileNode;
                 coriell_link: string;
+                table_header: string;
             };
         };
     };
@@ -144,6 +149,7 @@ const NormalCatalog = ({ data }: QueryResult) => {
                 acknowledgementsBlock={post.frontmatter.acknowledgements_block}
                 coriellImage={post.frontmatter.coriell_image}
                 coriellLink={post.frontmatter.coriell_link}
+                tableHeader={post.frontmatter.table_header}
             />
         </Layout>
     );
@@ -176,6 +182,7 @@ export const aboutPageQuery = graphql`
                         }
                     }
                 }
+                table_header
                 acknowledgements_block {
                     intro
                     contributors {
