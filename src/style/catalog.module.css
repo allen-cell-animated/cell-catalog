@@ -21,51 +21,12 @@
 .header a {
     color: var(--link-color);
 }
-
-.button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.coriell-wrapper {
-    margin: auto;
-}
-
-.coriell-card {
-    box-sizing: border-box;
-    width: 250px;
-    border: 1px solid var(--border-color);
-}
-
-.coriell-card:hover {
-    border: solid 1.5px var(--primary-color);
-}
-
-.coriell-card :global(.ant-card-head) {
-    font-family: "Open Sans";
-    font-size: 16px;
-    font-weight: 600;
-    text-align: center;
-    border-bottom: none;
-}
-
-.coriell-card :global(.ant-card-head) {
-    color: var(--primary-color);
-    padding: 9px 0 0 0;
-    min-height: inherit;
-}
-
-.coriell-card :global(.gatsby-image-wrapper) {
-    margin: auto;
-}
-
-.coriell-card :global(.ant-card-body) {
-    padding: 9px;
-}
-
 .main-heading {
     color: var(--primary-color);
+}
+
+.normal.main-heading {
+    margin-top: 56px;
 }
 
 .banner:global(.ant-card) {

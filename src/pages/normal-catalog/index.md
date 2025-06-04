@@ -20,7 +20,7 @@ table_header: "Allen Cell Collection Cell Lines"
 coriell_image: /img/coriell.png
 coriell_link: https://www.coriell.org/1/AllenCellCollection
 learn_image: /img/learn.png
-learn_link: https://www.coriell.org/1/AllenCellCollection
+learn_link: https://www.youtube.com/watch?v=3OMq6B5Vhfo
 addgene_image: /img/addgene.png
 addgene_link: https://www.addgene.org/depositor-collections/allen-institute-cell-science/
 acknowledgements_block:
