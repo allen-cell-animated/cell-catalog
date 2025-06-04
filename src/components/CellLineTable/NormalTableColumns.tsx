@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Typography, TooltipProps } from "antd";
+import { Flex } from "antd";
 import Icon, { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { SortOrder } from "antd/es/table/interface";
 
@@ -8,12 +8,12 @@ import {
     UnpackedNormalCellLine,
 } from "../../component-queries/types";
 import { RAIN_SHADOW, SERIOUS_GRAY } from "../../style/theme";
-import GeneDisplay from "../GeneDisplay";
 import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint } from "./types";
+import { MultiLineTableCell } from "../MultiLineTableCell";
+import GeneDisplay from "../GeneDisplay";
 
 const Plasmid = require("../../img/plasmid.svg");
-const { Text } = Typography;
 
 const {
     lastColumn,
@@ -22,10 +22,8 @@ const {
     plasmidIcon,
     protein,
     gene,
-    geneContainer,
     structure,
-    tooltip,
-    truncatedText,
+    multipleLines,
 } = require("../../style/table.module.css");
 
 const caseInsensitiveStringCompare = (a = "", b = "") =>
@@ -42,10 +40,6 @@ const sortIcon = ({ sortOrder }: { sortOrder: SortOrder }) => {
     ) : (
         <CaretUpOutlined style={{ color: SERIOUS_GRAY, fontSize: 16 }} />
     );
-};
-
-export const getTooltipProps = (text: string): TooltipProps => {
-    return { title: text, arrow: false, rootClassName: tooltip };
 };
 
 const obtainPlasmidColumn = {
@@ -96,15 +90,9 @@ export const getNormalTableColumns = (
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
             className: protein,
-            render: (text: string) => (
-                <Text
-                    className={truncatedText}
-                    ellipsis={{ tooltip: getTooltipProps(text) }}
-                >
-                    {text}
-                </Text>
+            render: (proteins: string[]) => (
+                <MultiLineTableCell entries={proteins} />
             ),
-
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(a.protein, b.protein),
         },
@@ -118,7 +106,7 @@ export const getNormalTableColumns = (
             className: gene,
             render: (taggedGene: UnpackedGene[]) => {
                 return (
-                    <div className={geneContainer}>
+                    <div className={multipleLines}>
                         {taggedGene.map((gene, index) => (
                             <GeneDisplay key={index} gene={gene} />
                         ))}
@@ -154,13 +142,8 @@ export const getNormalTableColumns = (
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
             className: structure,
-            render: (text: string) => (
-                <Text
-                    className={truncatedText}
-                    ellipsis={{ tooltip: getTooltipProps(text) }}
-                >
-                    {text}
-                </Text>
+            render: (structures: string[]) => (
+                <MultiLineTableCell entries={structures} />
             ),
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(a.structure, b.structure),
@@ -170,11 +153,8 @@ export const getNormalTableColumns = (
             key: "fluorescentTag",
             dataIndex: "fluorescentTag",
             responsive: mdBreakpoint,
-            render: (fluorescentTag: string[]) => {
-                return fluorescentTag?.join(" / ");
-            },
+            render: (tags: string[]) => <MultiLineTableCell entries={tags} />,
             sortIcon: sortIcon,
-
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     (a.fluorescentTag ?? []).join("|"),
@@ -187,9 +167,9 @@ export const getNormalTableColumns = (
             dataIndex: "tagLocation",
             className: inProgress ? "" : lastColumn,
             responsive: mdBreakpoint,
-            render: (tagLocation: string[]) => {
-                return tagLocation?.join(" / ");
-            },
+            render: (locations: string[]) => (
+                <MultiLineTableCell entries={locations} />
+            ),
             sortIcon: sortIcon,
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
