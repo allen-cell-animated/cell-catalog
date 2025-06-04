@@ -3,18 +3,18 @@ templateKey: cell-line
 cell_line_id: 82
 status: data complete
 date: 2025-05-06T22:23:18.691Z
+thumbnail_image: single_plane_image_cl1.jpg
 clone_number: 1
 parental_line: 0
-gene:
-  - G3BP1
-allele_count: mono
-fluorescent_tag:
-  - mEGFP
-donor_plasmid: null
-cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0082-001_CofA.pdf
-tag_location:
-  - N-terminus
+genetic_modifications:
+  - gene: G3BP1
+    tag_location: N-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0082-001&PgId=166
+certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0082-001_CofA.pdf
+donor_plasmid: 
+eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-63
 images_and_videos:
   videos:
     - caption: Time-lapse movie of a live hiPS cell colony expressing mEGFP-tagged Ras
@@ -42,5 +42,4 @@ images_and_videos:
         mid-level plane of the cells was imaged every 3 min on a spinning-disk
         confocal microscope. Movie plays at 900x real time. Scale bar, 5 µm.
       video: https://vimeo.com/1079876934/b976fc343f?ts=0&share=copy
-eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-63
 ---

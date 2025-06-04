@@ -13,16 +13,26 @@ export interface GeneFrontMatter {
     isoforms?: Isoform[];
 }
 
+export interface GeneticModification {
+    gene: {
+        frontmatter: GeneFrontMatter;
+    };
+    allele_count: string;
+    tag_location: string;
+    fluorescent_tag: string;
+}
+
 export interface ParentalLineFrontmatter {
     cell_line_id: number;
     clone_number: number;
-    allele_count: string;
-    tag_location: string[];
-    fluorescent_tag: string[];
     thumbnail_image: any;
-    gene: {
+    genetic_modifications?: GeneticModification[];
+    tagged_gene: {
         frontmatter: GeneFrontMatter;
     }[];
+    allele_count: string[];
+    tag_location: string[];
+    fluorescent_tag: string[];
 }
 
 export interface NormalCellLineFrontmatter {
@@ -30,25 +40,22 @@ export interface NormalCellLineFrontmatter {
     cell_line_id: number;
     status: CellLineStatus;
     clone_number: number;
+    order_link: string;
+    genetic_modifications?: GeneticModification[];
+    tagged_gene: {
+        frontmatter: GeneFrontMatter;
+    }[];
+    allele_count: string[];
     tag_location: string[];
     fluorescent_tag: string[];
-    allele_count: string;
-    order_link: string;
     donor_plasmid: string;
+    thumbnail_image: FileNode;
     parental_line: {
         frontmatter: {
             name: string;
         };
     };
-    gene: {
-        frontmatter: {
-            protein: string;
-            name: string;
-            symbol: string;
-            structure: string;
-        };
-    }[];
-}
+};
 
 export interface NormalCellLineNode {
     id: string;
@@ -63,6 +70,7 @@ export enum CellLineStatus {
     DataComplete = "data complete",
     Released = "released",
     InProgress = "in progress",
+    Hide = "hide",
 }
 
 enum Antibody {
@@ -180,18 +188,25 @@ export interface UnpackedCellLineMainInfo {
     certificateOfAnalysis: string;
     healthCertificate: string;
     orderLink: string;
-    thumbnailImage?: FileNode;
+    thumbnailImage?: IGatsbyImageData | null;
 }
+
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     key: string;
     cloneNumber: number;
+    parentalLine: string;
+    structure: string[];
+    protein: string[];
+    geneticModifications?: {
+        taggedGene: UnpackedGene;
+        alleleCount: string;
+        tagLocation: string;
+        fluorescentTag: string;
+    }[];
+    taggedGene: UnpackedGene[];
+    alleleCount: string[];
     tagLocation: string[];
     fluorescentTag: string[];
-    taggedGene: UnpackedGene[];
-    alleleCount: string;
-    parentalLine: string;
-    structure: string;
-    protein: string;
     orderPlasmid: string;
 }
 

@@ -16,7 +16,7 @@ clones:
     clone_number: 17
     transfection_replicate: A
     genotype: V606M/WT
-    positive_cells: 74
+    positive_cells: 76
   - type: Control
     clone_number: 63
     transfection_replicate: B
@@ -27,20 +27,20 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/iPSC/AICS-0107_CofA
 images_and_videos:
   images:
     - caption: One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one, four and five days
-        post-thaw using a Leica microscope 4x and 10x magnification. A four
-        panel image of clone 17 is shown here and is a representative image for
-        all clones in the collection. Viability and colony formation one day and
-        four days post-thaw. Scale bars are shown.
+        inhibitor for 24hrs post-thaw - refer to culture protocol). A four panel
+        image of clone 17 (V606M/wt) is shown here and is a representative image
+        for all clones in the collection. Cultures were observed daily. Colonies
+        were imaged one (D1) and four (D4) days post-thaw using a Leica
+        microscope at 4x and 10x magnification. Scale bars are shown.
       image: aics107108_clone17_v606m.png
 genomic_characterization:
   diagrams:
     - title: Sanger Sequencing Results
-      image: aics-0107_v606m_sanger_exported_highres.png
+      image: v606m_sanger_results.png
       caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
-        alleles. Results confirmed respective genotype as indicated in table
-        above with no additional mutations present. 
+        alleles. The V606M mutation (NM_000257.4(MYH7):c.1816G>A(p.Val606Met))
+        is indicated by a G > A. Results confirmed respective genotype as
+        indicated in the figure above with no additional mutations present. 
     - title: Mono-Clonality Confirmation via ddPCR Assay
       image: aics-0107_v606m_mono-clonality-confirmation.png
       caption: Verification of genomic copy number of WT and mutant alleles.

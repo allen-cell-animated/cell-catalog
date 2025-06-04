@@ -2,17 +2,16 @@
 templateKey: cell-line
 cell_line_id: 61
 status: released
+thumbnail_image: single_plane_image_cl36.jpg
 clone_number: 36
-allele_count: mono
 parental_line: 0
-gene:
-  - HIST1H2BJ
-tag_location:
-  - C-terminus
-fluorescent_tag:
-  - mEGFP
+genetic_modifications:
+  - gene: HIST1H2BJ
+    tag_location: C-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0061-036&PgId=166
-cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0061-036_CofA.pdf
+certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0061-036_CofA.pdf
 donor_plasmid: https://www.addgene.org/109121/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-28
 images_and_videos:

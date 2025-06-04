@@ -33,28 +33,28 @@ images_and_videos:
   images:
     - image: aics-104_cl85_h251n-1-.png
       caption: One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one, four and five days
-        post-thaw using a Leica microscope 4x and 10x magnification. A six panel
+        inhibitor for 24hrs post-thaw - refer to culture protocol). A six panel
         image of clone 85 (H251N/wt) is shown here and is a representative image
-        for all clones in the collection (except clone 4). Viability and colony
-        formation one day and four days post-thaw. Scale bars are shown.
+        for all clones in the collection (except clone 4). Cultures were
+        observed daily. Colonies were imaged one (a,b), four (c,d) and five
+        (e,f) days post-thaw using a Leica microscope at 4x and 10x
+        magnification.  Scale bars are shown.
     - image: aics-104_cl4_h251n-1-.png
       caption: One vial of distribution lot was thawed (cells were treated with ROCK
         inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one, four and five days
-        post-thaw using a Leica microscope 4x and 10x magnification. A six panel
-        image of clone 4 (wt/wt) is shown here. Viability and colony formation
-        one day and four days post-thaw. This cell line may exhibit transient
-        poor morphology in the first three passages post thaw. Scale bars are
-        shown.
+        were observed daily. Colonies were imaged one (a,b), four (c,d) and five
+        (e,f) days post-thaw using a Leica microscope at 4x and 10x
+        magnification.  A six panel image of clone 4 (wt/wt) is shown here. This
+        cell line may exhibit transient poor morphology in the first three
+        passages post thaw. Scale bars are shown.
 genomic_characterization:
   diagrams:
     - title: Sanger Sequencing Results
-      image: aics-0104_h251n_sanger_exported_highres.png
+      image: h251n_sanger_results.png
       caption: Sanger Sequencing was performed on MYH7 recombinant and wildtype
-        alleles. Results confirmed respective genotype as indicated in table
-        above with no additional mutations present. 
+        alleles. The H251N mutation (NM_000257.4(MYH7):c.752C>A(p.His251Asn)) is
+        indicated by a C > A. Results confirmed respective genotype as indicated
+        in the figure above with no additional mutations present. 
     - title: Mono-Clonality Confirmation via ddPCR Assay
       image: aics-0104_h251n_mono-clonality-confirmation.png
       caption: Verification of genomic copy number of WT and mutant alleles.
@@ -63,14 +63,14 @@ genomic_characterization:
         reference gene. 
     - title: Karyotype Analysis
       image: aics-0104_h251n_cl3_karyotype.png
-      caption: After cells banks were created, one vial per clone was thawed and 30
+      caption: After cell banks were created, one vial per clone was thawed and 30
         G-banded metaphase cells were karyotyped. Above is the representative
         analysis for clone 3. All clones resulted in normal karyotype.
 editing_design:
   crna_target_site: 5’ ATTCATTCGAATTCATTTTG[GGG] 3’
   dna_donor_sequence:
     - sequence: 5’ CCATCTCTCCAGGGGAAATTCATTCGAATT[A]ATTTTGGGGCAACAGGAAAGTTGGCATC 3’
-      type: ""
+      type: Mutant
   cas9: "TrueCut™ Cas9 Protein "
   f_primer: 5’ TCTCCTGATTTGAGGCTTGC 3’
   r_primer: 5’ AAAGACACCTAGCCATGCAG 3’

@@ -2,23 +2,24 @@
 templateKey: cell-line
 cell_line_id: 89
 status: released
+thumbnail_image: single_plane_image_cl61.jpg
 clone_number: 61
-allele_count: mono
 parental_line: 0
-gene:
-  - FBL
-  - NPM1
-  - CLYBL-dCas9-KRAB
-tag_location:
-  - C-terminus
-  - C-terminus
-  - NA
-fluorescent_tag:
-  - mEGFP
-  - mTagRFP-T
-  - TagBFP
+genetic_modifications:
+  - gene: FBL
+    tag_location: C-terminus
+    fluorescent_tag: mEGFP
+    allele_count: mono
+  - gene: NPM1
+    tag_location: C-terminus
+    fluorescent_tag: mTagRFP-T
+    allele_count: mono
+  - gene: CLYBL-dCas9-KRAB
+    tag_location: NA
+    fluorescent_tag: TagBFP
+    allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0089-061&PgId=166
-cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0089-061_CofA.pdf
+certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0089-061_CofA.pdf
 donor_plasmid: https://www.addgene.org/The_Allen_Institute_for_Cell_Science/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-39
 images_and_videos:

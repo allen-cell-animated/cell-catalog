@@ -107,6 +107,17 @@ export const unpackDiseaseFrontmatterForSubpage = (
 ): UnpackedDiseaseCellLineFull => {
     const parentalLineData = cellLineNode.frontmatter.parental_line.frontmatter;
 
+    const firstGeneticMod = parentalLineData.genetic_modifications?.find(
+        mod => mod && mod.gene && mod.gene.frontmatter
+    );
+
+    const parentalGene = firstGeneticMod?.gene?.frontmatter || {
+        name: "",
+        symbol: "",
+        structure: "",
+        protein: ""
+    };
+
     const { name: geneName, symbol: geneSymbol } =
         cellLineNode.frontmatter.disease.frontmatter.gene[0].frontmatter;
 
@@ -131,7 +142,7 @@ export const unpackDiseaseFrontmatterForSubpage = (
         diseaseName: cellLineNode.frontmatter.disease.frontmatter.name,
         snp: cellLineNode.frontmatter.snp,
         parentalLine: parentalLineData,
-        parentalLineGene: parentalLineData.gene[0].frontmatter,
+        parentalLineGene: parentalGene,
         clones: cellLineNode.frontmatter.clones, // TODO: unpack this into only data needed for card
         imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
         editingDesign: editingDesign,

@@ -2,17 +2,16 @@
 templateKey: cell-line
 cell_line_id: 31
 status: released
+thumbnail_image: single_plane_image_cl35.jpg
 clone_number: 35
-allele_count: mono
 parental_line: 0
-gene:
-  - TUBA1B
-tag_location:
-  - N-terminus
-fluorescent_tag:
-  - mTagRFP-T
+genetic_modifications:
+  - gene: TUBA1B
+    tag_location: N-terminus
+    fluorescent_tag: mTagRFP-T
+    allele_count: mono
 order_link: https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0031-035&Product=iPSC
-cofa: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0031-035_CofA.pdf
+certificate_of_analysis: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0031-035_CofA.pdf
 donor_plasmid: https://www.addgene.org/101785/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-16
 images_and_videos:
