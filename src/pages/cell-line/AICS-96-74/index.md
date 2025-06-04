@@ -3,6 +3,7 @@ templateKey: cell-line
 cell_line_id: 96
 status: data complete
 date: 2025-05-06T21:01:17.772Z
+thumbnail_image: single_plane_image_cl74.jpg
 clone_number: 74
 parental_line: 0
 genetic_modifications:
@@ -11,7 +12,7 @@ genetic_modifications:
     fluorescent_tag: mEGFP
     allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0096-074&PgId=166
-cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0096-074_CofA.pdf
+certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0096-074_CofA.pdf
 donor_plasmid: https://www.addgene.org/164500/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-47
 images_and_videos:

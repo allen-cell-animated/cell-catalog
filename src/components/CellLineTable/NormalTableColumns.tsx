@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex } from "antd";
+import { Flex, Typography, TooltipProps } from "antd";
 import Icon, { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { SortOrder } from "antd/es/table/interface";
 
@@ -14,6 +14,7 @@ import { MultiLineTableCell } from "../MultiLineTableCell";
 import GeneDisplay from "../GeneDisplay";
 
 const Plasmid = require("../../img/plasmid.svg");
+const { Text } = Typography;
 
 const {
     lastColumn,
@@ -40,6 +41,10 @@ const sortIcon = ({ sortOrder }: { sortOrder: SortOrder }) => {
     ) : (
         <CaretUpOutlined style={{ color: SERIOUS_GRAY, fontSize: 16 }} />
     );
+};
+
+export const getTooltipProps = (text: string): TooltipProps => {
+    return { title: text, arrow: false, rootClassName: tooltip };
 };
 
 const obtainPlasmidColumn = {

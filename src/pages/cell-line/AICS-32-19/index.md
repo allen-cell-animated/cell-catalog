@@ -2,6 +2,7 @@
 templateKey: cell-line
 cell_line_id: 32
 status: released
+thumbnail_image: single_plane_image_cl19.jpg
 clone_number: 19
 parental_line: 0
 genetic_modifications:
@@ -10,7 +11,7 @@ genetic_modifications:
     fluorescent_tag: mTagRFP-T
     allele_count: mono
 order_link: https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0032-019&Product=iPSC
-cofa: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0032-019_CofA.pdf
+certificate_of_analysis: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0032-019_CofA.pdf
 donor_plasmid: https://www.addgene.org/101781/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-17
 images_and_videos:

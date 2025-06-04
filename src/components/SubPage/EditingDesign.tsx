@@ -120,7 +120,6 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
                     title={diagram.title}
                     caption={diagram.caption}
                     image={diagram.image}
-                    headerLeadText="HDR Editing Design"
                 />
             ))}
         </div>
