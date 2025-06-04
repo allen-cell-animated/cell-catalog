@@ -1,6 +1,21 @@
 ---
 templateKey: normal-catalog
 title: About the Collection
+about_block: 
+  primary_text: >
+    The Allen Cell Collection contains over one hundred high quality, certified fluorescently tagged hiPSC lines that target dozens of key cellular structures and substructures. These cell lines and their editing plasmids are openly available to academic and commercial researchers through Coriell and Addgene respectively.
+  emphasis_text: Allen Cell Collection
+  newsletter_text: >
+      New lines are released frequently. Subscribe to our newsletter to stay current with out latest releases.
+  disease_catalog_copy: >
+    Looking for a line with a disease mutation? Check out our Disease Cell Catalog.
+  links:
+    newsletter:
+      text: "Subscribe to our newsletter"
+      url: "https://www.alleninstitute.org/newsletter"
+    disease_catalog:
+      text: "Check out our Disease Cell Catalog"
+      url: "https://www.allencell.org/cell-catalog/disease-catalog"
 coriell_image: /img/coriell.png
 coriell_link: https://www.coriell.org/1/AllenCellCollection
 acknowledgements_block:
@@ -22,5 +37,3 @@ funding_text: >
 
   We wish to thank Allen Institute founders, Jody Allen & Paul G. Allen, for their vision, encouragement, and support.
 ---
-
-[Subscribe to our newsletter](https://www.alleninstitute.org/newsletter) to stay informed of frequently released new cell lines.

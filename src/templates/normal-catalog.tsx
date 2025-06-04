@@ -7,6 +7,7 @@ import Content, { HTMLContent } from "../components/shared/Content";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import NormalCellLines from "../component-queries/NormalCellLines";
+import About from "../components/About";
 
 const {
     container,
@@ -16,6 +17,22 @@ const {
 } = require("../style/catalog.module.css");
 interface NormalCatalogTemplateProps {
     title: string;
+    aboutBlock: {
+        primary_text: string;
+        emphasis_text: string;
+        newsletter_text: string;
+        disease_catalog_copy: string;
+        links: {
+            newsletter: {
+                url: string;
+                text: string;
+            };
+            disease_catalog: {
+                url: string;
+                text: string;
+            };
+        };
+    };
     content: string;
     contentComponent?: JSX.ElementType;
     fundingText: string;
@@ -36,6 +53,7 @@ export const NormalCatalogTemplate = ({
     acknowledgementsBlock,
     coriellImage,
     coriellLink,
+    aboutBlock,
 }: NormalCatalogTemplateProps) => {
     const image = getImage(coriellImage);
     const PageContent = contentComponent || Content;
@@ -44,6 +62,7 @@ export const NormalCatalogTemplate = ({
             <h1>{title}</h1>
             <Flex className={header}>
                 <PageContent className="content" content={content} />
+                <About {...aboutBlock} />
                 <Divider
                     type="vertical"
                     style={{ height: "initial", marginInline: "20px" }}
@@ -81,6 +100,22 @@ interface QueryResult {
                 footer_text: {
                     html: string;
                 };
+                about_block: {
+                    primary_text: string;
+                    emphasis_text: string;
+                    newsletter_text: string;
+                    disease_catalog_copy: string;
+                    links: {
+                        newsletter: {
+                            url: string;
+                            text: string;
+                        };
+                        disease_catalog: {
+                            url: string;
+                            text: string;
+                        };
+                    };
+                };
                 funding_text: {
                     html: string;
                 };
@@ -102,6 +137,7 @@ const NormalCatalog = ({ data }: QueryResult) => {
         <Layout>
             <NormalCatalogTemplate
                 contentComponent={HTMLContent}
+                aboutBlock={post.frontmatter.about_block}
                 title={post.frontmatter.title}
                 content={post.html}
                 fundingText={post.frontmatter.funding_text.html}
@@ -123,6 +159,22 @@ export const aboutPageQuery = graphql`
                 title
                 funding_text {
                     html
+                }
+                about_block {
+                    primary_text
+                    emphasis_text
+                    newsletter_text
+                    disease_catalog_copy
+                    links {
+                       newsletter {
+                            text
+                            url
+                        }
+                        disease_catalog {
+                            text
+                            url
+                        }
+                    }
                 }
                 acknowledgements_block {
                     intro

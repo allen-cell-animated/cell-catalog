@@ -752,6 +752,53 @@ collections:
                       default: "normal-catalog",
                   }
                 - { label: "Title", name: "title", widget: "string" }
+                - {
+                    label: "About Block",
+                    name: "about_block",
+                    widget: "object",
+                    fields: [
+                        {
+                            label: "Primary Text",
+                            name: "primary_text",
+                            widget: "text"
+                        },
+                        {
+                            label: "Newsletter Text",
+                            name: "newsletter_text",
+                            widget: "text"
+                        },
+                        {
+                            label: "Disease Catalog Copy",
+                            name: "disease_catalog_copy",
+                            widget: "text"
+                        },
+                        {
+                            label: "Links",
+                            name: "links",
+                            widget: "object",
+                            fields: [
+                                {
+                                    label: "Newsletter Link",
+                                    name: "newsletter",
+                                    widget: "object",
+                                    fields: [
+                                        { label: "Text", name: "text", widget: "string" },
+                                        { label: "URL", name: "url", widget: "string" }
+                                    ]
+                                },
+                                {
+                                    label: "Disease Catalog Link",
+                                    name: "disease_catalog",
+                                    widget: "object",
+                                    fields: [
+                                        { label: "Text", name: "text", widget: "string" },
+                                        { label: "URL", name: "url", widget: "string" }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
                 - { label: "Body", name: "body", widget: "markdown" }
                 - {
                       label: "Main",
