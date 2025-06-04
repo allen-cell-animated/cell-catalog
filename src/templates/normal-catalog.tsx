@@ -24,7 +24,7 @@ interface NormalCatalogTemplateProps {
     };
     tableHeader: string;
 }
-// eslint-disable-next-line
+
 export const NormalCatalogTemplate = ({
     fundingText,
     acknowledgementsBlock,
@@ -74,7 +74,6 @@ const NormalCatalog = ({ data }: QueryResult) => {
     return (
         <Layout>
             <NormalCatalogTemplate
-                // contentComponent={HTMLContent}
                 title={post.frontmatter.title}
                 content={post.html}
                 fundingText={post.frontmatter.funding_text.html}
