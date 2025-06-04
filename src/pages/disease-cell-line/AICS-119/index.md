@@ -75,7 +75,7 @@ genomic_characterization:
       image: g608g_sanger_results.png
     - title: Karyotype Analysis
       image: aics_0119_cl10_g608g_karyotype.png
-      caption: After cells banks were created, one vial per clone was thawed and 30
+      caption: After cell banks were created, one vial per clone was thawed and 30
         G-banded metaphase cells were karyotyped. Above is the representative
         analysis for clone 10. All clones resulted in normal karyotype.
 editing_design:
