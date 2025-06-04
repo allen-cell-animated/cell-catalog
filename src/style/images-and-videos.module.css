@@ -63,6 +63,7 @@
 
 .container .primary-image-container :global(.gatsby-image-wrapper) {
     height: 0;
+    cursor: pointer;
 }
 
 .caption {
