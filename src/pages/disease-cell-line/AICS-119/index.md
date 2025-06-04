@@ -45,52 +45,44 @@ images_and_videos:
         labeled with anti-mouse AlexaFluor594 (ThermoFisher cat. No. A-11005,
         diluted 1:500) for 1 hour at RT. Cells were imaged on a widefield
         microscope. All scale bars are 100um."
-      image: g608g_progerin-2-.png
+      image: g608g_progerin-2-_cropped.png
     - caption: One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one and four days post-thaw
-        using a Leica microscope at 4x and 10x magnification. A four panel image
-        of clone 10 is shown here and is also a representative image for clone
-        39 (not pictured). Viability and colony formation one day and four days
-        post-thaw. Scale bars are shown.
+        inhibitor for 24hrs post-thaw - refer to culture protocol). A four panel
+        image of clone 10 (G608G/wt) is shown here and is also a representative
+        image for clone 39 (G608G/wt) (not pictured). Cultures were observed
+        daily. Colonies were imaged one (D1) and four (D4) days post-thaw using
+        a Leica microscope at 4x and 10x magnification. Scale bars are shown.
       image: aics-119_clone10_g608g.png
     - caption: One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one and five days post-thaw
-        using a Leica microscope at 4x and 10x magnification. A four panel image
-        of clone 23 is shown here. Viability and colony formation one day and
-        five days post-thaw. Scale bars are shown.
+        inhibitor for 24hrs post-thaw - refer to culture protocol). A four panel
+        image of clone 23 (wt/wt) is shown here. Cultures were observed daily.
+        Colonies were imaged one (D1) and five (D5) days post-thaw using a Leica
+        microscope at 4x and 10x magnification. Scale bars are shown.
       image: aics-119_clone23_g608g.png
     - caption: One vial of distribution lot was thawed (cells were treated with ROCK
-        inhibitor for 24hrs post-thaw - refer to culture protocol). Cultures
-        were observed daily. Colonies were imaged one and four days post-thaw
-        using a Leica microscope at 4x and 10x magnification. A four panel image
-        of clone 45 is shown here. Viability and colony formation one day and
-        four days post-thaw. Scale bars are shown.
+        inhibitor for 24hrs post-thaw - refer to culture protocol). A four panel
+        image of clone 45 (wt/wt) is shown here. Cultures were observed daily.
+        Colonies were imaged one (D1) and four (D4) days post-thaw using a Leica
+        microscope at 4x and 10x magnification. Scale bars are shown.
       image: aics-119_clone45_g608g.png
 genomic_characterization:
   diagrams:
     - title: Sanger Sequencing Results
       caption: Sanger Sequencing was performed on LMNA recombinant and wildtype
-        alleles. Results confirmed respective genotype as indicated in table
-        above with no additional mutations present. 
-      image: aics-0119_g608g_sanger_exported_highres.png
-    - title: Mono-Clonality Confirmation via ddPCR Assay (image is a placeholder)
-      caption: Verification of genomic copy number of WT and mutant alleles.
-        LMNA:WT/RPP30 ratio from ddPCR assay; values ~ 0.5 indicate heterozygous
-        clone, values ~1 indicate unedited clone. RPP30 is known 2n reference
-        gene. 
-      image: aics-0109_e525k_mono-clonality-confirmation.png
+        alleles. The G608G mutation (NM_170707.4(LMNA):c.1824C>T(p.Gly608=)) is
+        indicated by a C > T. Results confirmed respective genotype as indicated
+        in the figure above with no additional mutations present. 
+      image: g608g_sanger_results.png
     - title: Karyotype Analysis
       image: aics_0119_cl10_g608g_karyotype.png
-      caption: After cells banks were created, one vial per clone was thawed and 30
+      caption: After cell banks were created, one vial per clone was thawed and 30
         G-banded metaphase cells were karyotyped. Above is the representative
         analysis for clone 10. All clones resulted in normal karyotype.
 editing_design:
   crna_target_site: 5’ GGAGATGGGTCCGCCCACCT[GGG] 3’
   dna_donor_sequence:
     - sequence: 5’ GAGGCAGAAGAGCCAGAGGAGATGGGTCC[A]CCCACCTGGGCTCCTGAGCCGCTGGCAGA 3’
-      type: ""
+      type: Mutant
   cas9: "TrueCut™ Cas9 Protein "
   f_primer: 5’ GCCTCTCTCCCCCATTCTTG 3’
   r_primer: 5’ ATGATGCTGCAGTTCTGGGG 3’
