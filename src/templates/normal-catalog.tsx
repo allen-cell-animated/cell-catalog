@@ -15,6 +15,7 @@ const {
     header,
     coriellWrapper,
     mainHeading,
+    buttonContainer,
 } = require("../style/catalog.module.css");
 interface NormalCatalogTemplateProps {
     title: string;
@@ -44,7 +45,11 @@ interface NormalCatalogTemplateProps {
     };
     coriellImage: FileNode;
     coriellLink: string;
-    tableHeader: string
+    learnImage: FileNode;
+    learnLink: string;
+    addGeneImage: FileNode;
+    addGeneLink: string;
+    tableHeader: string;
 }
 // eslint-disable-next-line
 export const NormalCatalogTemplate = ({
@@ -55,30 +60,82 @@ export const NormalCatalogTemplate = ({
     acknowledgementsBlock,
     coriellImage,
     coriellLink,
+    learnImage,
+    learnLink,
+    addGeneImage,
+    addGeneLink,
     aboutBlock,
-    tableHeader
+    tableHeader,
 }: NormalCatalogTemplateProps) => {
-    const image = getImage(coriellImage);
+    const coriellImageRetrieved = getImage(coriellImage);
+    const learnImageRetrieved = getImage(learnImage);
+    const addGeneImageRetrieved = getImage(addGeneImage);
     const PageContent = contentComponent || Content;
     return (
         <section className={container}>
             <h1>{title}</h1>
             <Flex className={header}>
                 <PageContent className="content" content={content} />
-                <About {...aboutBlock}/>
+                <About {...aboutBlock} />
                 <Divider
                     type="vertical"
                     style={{ height: "initial", marginInline: "20px" }}
                 />
-                <div className={coriellWrapper}>
-                    {image && (
-                        <a href={coriellLink} target="_blank" rel="noreferrer">
+                <div className={buttonContainer}>
+                    <div className={coriellWrapper}>
+                        {learnImageRetrieved && (
+                            <a
+                                href={learnLink}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <Card
+                                    bordered={true}
+                                    className={coriellCard}
+                                    title="Learn about our collection"
+                                    cover={
+                                        <GatsbyImage
+                                            image={learnImageRetrieved}
+                                            alt="Coriell"
+                                        />
+                                    }
+                                ></Card>
+                            </a>
+                        )}
+                    </div>
+                    <div className={coriellWrapper}>
+                        {coriellImageRetrieved && (
+                            <a
+                                href={coriellLink}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <Card
+                                    bordered={true}
+                                    className={coriellCard}
+                                    title="View Allen Cell Collection on"
+                                    cover={
+                                        <GatsbyImage
+                                            image={coriellImageRetrieved}
+                                            alt="Coriell"
+                                        />
+                                    }
+                                ></Card>
+                            </a>
+                        )}
+                    </div>
+                    <div className={coriellWrapper}></div>
+                    {addGeneImageRetrieved && (
+                        <a href={addGeneLink} target="_blank" rel="noreferrer">
                             <Card
                                 bordered={true}
                                 className={coriellCard}
-                                title="View Allen Cell Collection on"
+                                title="View Plasmid Collection on"
                                 cover={
-                                    <GatsbyImage image={image} alt="Coriell" />
+                                    <GatsbyImage
+                                        image={addGeneImageRetrieved}
+                                        alt="Coriell"
+                                    />
                                 }
                             ></Card>
                         </a>
@@ -130,6 +187,10 @@ interface QueryResult {
                 };
                 coriell_image: FileNode;
                 coriell_link: string;
+                learn_image: FileNode;
+                learn_link: string;
+                addgene_image: FileNode;
+                addgene_link: string;
                 table_header: string;
             };
         };
@@ -149,6 +210,10 @@ const NormalCatalog = ({ data }: QueryResult) => {
                 acknowledgementsBlock={post.frontmatter.acknowledgements_block}
                 coriellImage={post.frontmatter.coriell_image}
                 coriellLink={post.frontmatter.coriell_link}
+                learnImage={post.frontmatter.learn_image}
+                learnLink={post.frontmatter.learn_link}
+                addGeneImage={post.frontmatter.addgene_image}
+                addGeneLink={post.frontmatter.addgene_link}
                 tableHeader={post.frontmatter.table_header}
             />
         </Layout>
@@ -172,7 +237,7 @@ export const aboutPageQuery = graphql`
                     newsletter
                     disease
                     links {
-                       newsletter {
+                        newsletter {
                             text
                             url
                         }
@@ -201,6 +266,26 @@ export const aboutPageQuery = graphql`
                     }
                 }
                 coriell_link
+                learn_image {
+                    childImageSharp {
+                        gatsbyImageData(
+                            placeholder: BLURRED
+                            layout: FIXED
+                            width: 190
+                        )
+                    }
+                }
+                learn_link
+                addgene_image {
+                    childImageSharp {
+                        gatsbyImageData(
+                            placeholder: BLURRED
+                            layout: FIXED
+                            width: 190
+                        )
+                    }
+                }
+                addgene_link
             }
         }
     }

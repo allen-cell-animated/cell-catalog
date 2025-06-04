@@ -22,6 +22,12 @@
     color: var(--link-color);
 }
 
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .coriell-wrapper {
     margin: auto;
 }

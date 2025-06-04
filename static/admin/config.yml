@@ -735,6 +735,26 @@ collections:
                       name: "coriell_link",
                       widget: "string",
                   }
+                  - {
+                      label: "Learn Image",
+                      name: "learn_image",
+                      widget: "image",
+                  }
+                - {
+                      label: "Learn Link",
+                      name: "learn_link",
+                      widget: "string",
+                  }
+                - {
+                      label: "Addgene Image",
+                      name: "addgene_image",
+                      widget: "image",
+                  }
+                - {
+                      label: "Addgene Link",
+                      name: "addgene_link",
+                      widget: "string",
+                  }
                 - {
                       label: "Footer text",
                       name: "footer_text",
