@@ -169,7 +169,6 @@ export interface DiseaseFrontmatter {
         frontmatter: GeneFrontMatter;
     }[];
     status: string;
-    acknowledgements: { html: string };
 }
 
 export interface UnpackedGene {
