@@ -22,7 +22,6 @@ const {
 interface CellLineTableProps {
     tableName: string;
     cellLines: UnpackedCellLine[];
-    footerContents: string;
     released: boolean;
     columns: any;
     mobileConfig?: any;
@@ -31,7 +30,6 @@ interface CellLineTableProps {
 const CellLineTable = ({
     tableName,
     cellLines,
-    footerContents,
     released,
     columns,
     mobileConfig,
@@ -116,9 +114,6 @@ const CellLineTable = ({
                 showSorterTooltip={false}
                 sortDirections={["ascend", "descend", "ascend"]}
             />
-            <div className={footer}>
-                <HTMLContent content={footerContents} />
-            </div>
         </>
     );
 };
