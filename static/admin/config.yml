@@ -657,11 +657,6 @@ collections:
                 default: "Coming soon",
                 required: true,
             }
-          - {
-                label: "Acknowledgements",
-                name: "acknowledgements",
-                widget: "markdown",
-            }
     - name: "pages"
       label: "Pages"
       files:
