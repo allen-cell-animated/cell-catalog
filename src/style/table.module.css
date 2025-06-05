@@ -13,6 +13,13 @@
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.thumbnail-container :global(.gatsby-image-wrapper) {
+    width: 100%;
+    height: 100%;
 }
 
 .id-header {
@@ -186,6 +193,15 @@
 
 .container.coming-soon .clones {
     border-right: 1px solid transparent;
+}
+
+.container.coming-soon .thumbnail-container {
+    display: none;
+}
+
+.container.coming-soon .id-header {
+    position: static;
+    text-align: left;
 }
 
 .container
