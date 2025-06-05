@@ -1,9 +1,6 @@
 ---
 templateKey: normal-catalog
 title: About the Collection
-main:
-  heading: Allen Cell Collection Cell Lines
-  description: ""
 coriell_image: /img/coriell.png
 coriell_link: https://www.coriell.org/1/AllenCellCollection
 acknowledgements_block:

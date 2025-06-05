@@ -11,10 +11,7 @@ import NormalCellLines from "../component-queries/NormalCellLines";
 const {
     container,
     coriellCard,
-    banner,
-    bannerContent,
     header,
-    mainHeading,
     coriellWrapper,
 } = require("../style/catalog.module.css");
 interface NormalCatalogTemplateProps {
@@ -27,11 +24,6 @@ interface NormalCatalogTemplateProps {
         contributors: { name: string; institution: string }[];
         outro: string;
     };
-    main: {
-        heading: string;
-        description: string;
-        subheading: string;
-    };
     coriellImage: FileNode;
     coriellLink: string;
 }
@@ -42,7 +34,6 @@ export const NormalCatalogTemplate = ({
     contentComponent,
     fundingText,
     acknowledgementsBlock,
-    main,
     coriellImage,
     coriellLink,
 }: NormalCatalogTemplateProps) => {
@@ -72,7 +63,6 @@ export const NormalCatalogTemplate = ({
                     )}
                 </div>
             </Flex>
-            <h2 className={mainHeading}>{main.heading}</h2>
             <NormalCellLines />
             <Footer
                 acknowledgementsBlock={acknowledgementsBlock}
@@ -81,7 +71,7 @@ export const NormalCatalogTemplate = ({
         </section>
     );
 };
-// TODO: remove `main` content from the template and the query
+
 interface QueryResult {
     data: {
         markdownRemark: {
@@ -98,11 +88,6 @@ interface QueryResult {
                     intro: string;
                     contributors: { name: string; institution: string }[];
                     outro: string;
-                };
-                main: {
-                    heading: string;
-                    subheading: string;
-                    description: string;
                 };
                 coriell_image: FileNode;
                 coriell_link: string;
@@ -121,7 +106,6 @@ const NormalCatalog = ({ data }: QueryResult) => {
                 content={post.html}
                 fundingText={post.frontmatter.funding_text.html}
                 acknowledgementsBlock={post.frontmatter.acknowledgements_block}
-                main={post.frontmatter.main}
                 coriellImage={post.frontmatter.coriell_image}
                 coriellLink={post.frontmatter.coriell_link}
             />
@@ -147,11 +131,6 @@ export const aboutPageQuery = graphql`
                         institution
                     }
                     outro
-                }
-                main {
-                    heading
-                    subheading
-                    description
                 }
                 coriell_image {
                     childImageSharp {
