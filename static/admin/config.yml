@@ -538,7 +538,7 @@ collections:
                                     },
                                     {
                                         label: "Images",
-                                        name: "image",
+                                        name: "images",
                                         widget: "list",
                                         fields:
                                             [
