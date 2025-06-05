@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from "classnames";
 import { YoutubeFilled } from "@ant-design/icons";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
@@ -13,7 +12,6 @@ const {
     firstBlock,
     diseaseCopy,
     buttonContainer,
-    aboutCard,
     iconOverlay,
     imageContainer,
     imageWrapper,
@@ -192,19 +190,18 @@ const About: React.FC = () => {
                                 image={learnImageWithYoutubeIcon}
                                 link={learn_link}
                                 title="Learn about our collection"
-                                className={classNames(aboutCard, learnCard)}
+                                className={learnCard}
                             />
                             <AboutButton
                                 image={coriell_image}
                                 link={coriell_link}
                                 title="View Allen Cell Collection on"
-                                className={aboutCard}
                             />
                             <AboutButton
                                 image={addgene_image}
                                 link={addgene_link}
                                 title="View Plasmid Collection on"
-                                className={classNames(aboutCard, addgeneCard)}
+                                className={addgeneCard}
                             />
                         </div>
                     </div>

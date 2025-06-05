@@ -1,9 +1,10 @@
 import React from "react";
-import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import { Card } from "antd";
+import classNames from "classnames";
 
-const { coriellWrapper } = require("../style/about.module.css");
+const { cardWrapper, aboutCard } = require("../style/about.module.css");
 
 interface AboutButtonProps {
     image: FileNode | JSX.Element;
@@ -29,10 +30,13 @@ const AboutButton: React.FC<AboutButtonProps> = ({
 
     if (!imageElement) return null;
     return (
-        <div className={coriellWrapper}>
+        <div className={cardWrapper}>
             {imageElement && (
                 <a href={link} target="_blank" rel="noreferrer">
-                    <Card className={className} title={title}>
+                    <Card
+                        className={classNames(aboutCard, className)}
+                        title={title}
+                    >
                         {imageElement}
                     </Card>
                 </a>
