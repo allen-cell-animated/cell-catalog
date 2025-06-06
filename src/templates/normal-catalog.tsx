@@ -52,9 +52,6 @@ interface QueryResult {
             html: string;
             frontmatter: {
                 title: string;
-                footer_text: {
-                    html: string;
-                };
                 funding_text: {
                     html: string;
                 };

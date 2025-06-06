@@ -64,7 +64,6 @@ const DiseaseCellLinesTemplate = (props: DiseaseCellLinesTemplateProps) => {
                 <CellLineTable
                     tableName={disease.name}
                     cellLines={groupedCellLines[disease.name]}
-                    footerContents={disease.acknowledgements}
                     released={disease.status === TableStatus.Available}
                     columns={getDiseaseTableColumns(inProgress)}
                     mobileConfig={getDiseaseTableMobileConfig(isPhone)}

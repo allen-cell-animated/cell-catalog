@@ -15,7 +15,7 @@ about_block:
       url: "https://www.alleninstitute.org/newsletter"
     disease:
       text: "Check out our Disease Cell Catalog"
-      url: "https://www.allencell.org/cell-catalog/disease-catalog"
+      url: "https://cell-catalog.allencell.org/disease-catalog/"
 table_header: "Allen Cell Collection Cell Lines"
 coriell_image: /img/coriell.png
 coriell_link: https://www.coriell.org/1/AllenCellCollection
