@@ -31,7 +31,6 @@
 
 .banner:global(.ant-card) {
     border-color: var(--border-color);
-    margin-bottom: 16px;
     padding: 20px 32px;
 }
 

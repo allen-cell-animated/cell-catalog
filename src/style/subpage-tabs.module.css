@@ -39,6 +39,7 @@
     font-size: 20px;
     line-height: 27px;
     padding: 4px 24px;
+    color: var(--primary-color);
 }
 
 .label-group {

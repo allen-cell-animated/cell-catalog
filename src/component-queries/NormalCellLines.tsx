@@ -39,7 +39,6 @@ const CellLineTableTemplate = (props: QueryResult) => {
             <CellLineTable
                 tableName="Cell Line Catalog"
                 cellLines={filteredCellLines}
-                footerContents={""}
                 released={true}
                 columns={getNormalTableColumns(false)}
                 mobileConfig={getNormalTableMobileConfig(isPhone)}
@@ -47,7 +46,6 @@ const CellLineTableTemplate = (props: QueryResult) => {
             <CellLineTable
                 tableName="Cell Line Catalog"
                 cellLines={inProgressCellLines}
-                footerContents={""}
                 released={false}
                 columns={getNormalTableColumns(true)}
                 mobileConfig={getNormalTableMobileConfig(isPhone)}
