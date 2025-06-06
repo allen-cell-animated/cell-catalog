@@ -6,6 +6,7 @@ import Diseases from "../component-queries/Diseases";
 import Content, { HTMLContent } from "../components/shared/Content";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
+import Footer from "../components/Footer";
 
 const {
     coriellCard,
@@ -20,6 +21,13 @@ interface DiseaseCatalogTemplateProps {
     content: string;
     contentComponent?: JSX.ElementType;
     footerText: string;
+    fundingText: string;
+    acknowledgementsBlock: {
+        intro: string;
+        collaborators: { name: string; institution: string }[];
+        contributor_text: string;
+        contributors: { name: string; institution: string }[];
+    };
     main: {
         heading: string;
         description: string;
@@ -34,6 +42,8 @@ export const DiseaseCatalogTemplate = ({
     content,
     contentComponent,
     footerText,
+    fundingText,
+    acknowledgementsBlock,
     main,
     coriellImage,
     coriellLink,
@@ -73,7 +83,11 @@ export const DiseaseCatalogTemplate = ({
                 />
             </Card>
             <Diseases />
-            <HTMLContent className="footer" content={footerText} />
+            <Footer
+                generationText={footerText}
+                acknowledgementsBlock={acknowledgementsBlock}
+                fundingText={fundingText}
+            />
         </section>
     );
 };
@@ -86,6 +100,15 @@ interface QueryResult {
                 title: string;
                 footer_text: {
                     html: string;
+                };
+                funding_text: {
+                    html: string;
+                };
+                acknowledgements_block: {
+                    intro: string;
+                    collaborators: { name: string; institution: string }[];
+                    contributor_text: string;
+                    contributors: { name: string; institution: string }[];
                 };
                 main: {
                     heading: string;
@@ -108,6 +131,8 @@ const DiseaseCatalog = ({ data }: QueryResult) => {
                 title={post.frontmatter.title}
                 content={post.html}
                 footerText={post.frontmatter.footer_text.html}
+                fundingText={post.frontmatter.funding_text.html}
+                acknowledgementsBlock={post.frontmatter.acknowledgements_block}
                 main={post.frontmatter.main}
                 coriellImage={post.frontmatter.coriell_image}
                 coriellLink={post.frontmatter.coriell_link}
@@ -126,6 +151,21 @@ export const aboutPageQuery = graphql`
                 title
                 footer_text {
                     html
+                }
+                funding_text {
+                    html
+                }
+                acknowledgements_block {
+                    intro
+                    collaborators {
+                        name
+                        institution
+                    }
+                    contributor_text
+                    contributors {
+                        name
+                        institution
+                    }
                 }
                 main {
                     heading

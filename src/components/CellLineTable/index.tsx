@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Table, Tag, Flex } from "antd";
 import { navigate } from "gatsby";
 
-import { HTMLContent } from "../shared/Content";
 import { CellLineStatus } from "../../component-queries/types";
 
 import useWindowWidth from "../../hooks/useWindowWidth";
@@ -14,7 +13,6 @@ const {
     tableTitle,
     container,
     comingSoon,
-    footer,
     hoveredRow,
     dataComplete,
 } = require("../../style/table.module.css");

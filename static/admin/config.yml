@@ -735,7 +735,41 @@ collections:
                       name: "footer_text",
                       widget: "markdown",
                   }
-
+                - {
+                    label: "Acknowledgements Block",
+                    name: "acknowledgements_block",
+                    widget: "object",
+                    fields:
+                        [
+                            { label: "Intro", name: "intro", widget: "string" },
+                            {
+                                label: "Contributors",
+                                name: "contributors",
+                                widget: "list",
+                                required: false,
+                                collapsed: true,
+                                fields:
+                                    [
+                                        {
+                                            label: "Name",
+                                            name: "name",
+                                            widget: "string",
+                                        },
+                                        {
+                                            label: "Institution",
+                                            name: "institution",
+                                            widget: "string",
+                                        },
+                                    ],
+                            },
+                            { label: "Outro", name: "outro", widget: "string" },
+                        ],
+                }
+                - {
+                    label: "Funding",
+                    name: "funding_text",
+                    widget: "markdown",
+                }
           - file: "src/pages/normal-catalog/index.md"
             label: "Cell Line Catalog"
             name: "normal-catalog"
