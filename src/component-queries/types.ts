@@ -105,7 +105,17 @@ export interface Sequence {
     type: string;
 }
 
-export interface Diagram {
+export interface SingleImageDiagram {
+    image: {
+        childImageSharp: {
+            gatsbyImageData: IGatsbyImageData;
+        };
+    },
+    caption: string;
+    title: string;
+}
+
+export interface DiagramList {
     images: {
         image: {
             childImageSharp: {
@@ -146,10 +156,10 @@ export interface DiseaseCellLineFrontmatter {
         cas9: string;
         f_primer: string;
         r_primer: string;
-        diagrams: Diagram[];
+        diagrams: DiagramList[];
     };
     genomic_characterization?: {
-        diagrams: Diagram[];
+        diagrams: SingleImageDiagram[];
     };
 }
 

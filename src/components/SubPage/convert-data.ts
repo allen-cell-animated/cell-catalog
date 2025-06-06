@@ -1,9 +1,10 @@
 import { isEmpty } from "lodash";
 import {
-    Diagram,
+    DiagramList,
     Clone,
     DiseaseCellLineNode,
     Sequence,
+    SingleImageDiagram,
 } from "../../component-queries/types";
 import { DiagramCardProps } from "../shared/DiagramCard";
 import {
@@ -13,7 +14,22 @@ import {
 } from "./types";
 import { StemCellCharProps } from "./StemCellChar";
 
-export const unpackDiagrams = (diagrams?: Diagram[]): DiagramCardProps[] => {
+export const unpackDiagrams = (diagrams?: SingleImageDiagram[]): DiagramCardProps[] => {
+    if (!diagrams || diagrams.length === 0) {
+        return [];
+    }
+    return diagrams.map((diagram) => {
+        return {
+            title: diagram.title,
+            caption: diagram.caption,
+            image: diagram.image
+                ? diagram.image.childImageSharp.gatsbyImageData
+                : undefined,
+        };
+    });
+};
+
+export const unpackMultiImageDiagrams = (diagrams?: DiagramList[]): DiagramCardProps[] => {
     if (!diagrams || diagrams.length === 0) {
         return [];
     }
@@ -44,12 +60,12 @@ export const unpackEditingDesignData = (editing_design?: {
     cas9?: string;
     f_primer?: string;
     r_primer?: string;
-    diagrams?: Diagram[];
+    diagrams?: DiagramList[];
 }): UnpackedEditingDesign | null => {
     if (!editing_design) {
         return null;
     }
-    const diagrams = unpackDiagrams(editing_design.diagrams);
+    const diagrams = unpackMultiImageDiagrams(editing_design.diagrams);
     const data = {
         crnaTargetSite: editing_design.crna_target_site,
         dnaDonorSequence: editing_design.dna_donor_sequence,

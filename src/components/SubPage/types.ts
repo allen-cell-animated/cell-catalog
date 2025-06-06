@@ -1,6 +1,5 @@
 import {
     Clone,
-    Diagram,
     GeneFrontMatter,
     ParentalLineFrontmatter,
     Sequence,
