@@ -99,4 +99,3 @@ editing_design:
           caption: "Top: MYH3 locus showing 1 MYH3 isoform; Bottom: Zoom in on mutation site at isoform NM_0027470.4(MYH3):c.2306G>T(p.Gly769Val)"
         - image: actn2_fullfigure.png
           caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP insertion site at ACTN2 C-terminus"
----

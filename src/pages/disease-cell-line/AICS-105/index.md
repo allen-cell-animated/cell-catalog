@@ -92,4 +92,3 @@ editing_design:
           caption: "Top: MYH7 locus showing 1 MYH7 isoform; Bottom: Zoom in on mutation site at isoform NM_000257.4(MYH7):c.1106G>A(p.Arg369Gln)"
         - image: actn2_fullfigure.png
           caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP insertion site at ACTN2 C-terminus"
----
