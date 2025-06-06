@@ -50,7 +50,8 @@
     "develop": "npm run clean && gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write --tab-width 4 \"{gatsby-*.js,src/**/*.js}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx concurrently \"npx netlify-cms-proxy-server\" \"npm start -- --progress\""
   },
   "devDependencies": {
     "@types/antd": "^1.0.0",
@@ -58,6 +59,7 @@
     "@types/react": "^18.2.59",
     "@types/react-dom": "^18.2.19",
     "@types/react-helmet": "^6.1.11",
+    "concurrently": "^9.1.2",
     "gatsby-plugin-postcss": "^6.13.1",
     "netlify-cli": "^17.15.7",
     "postcss": "^8.4.35",
