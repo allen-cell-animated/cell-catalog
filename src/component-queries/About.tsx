@@ -1,5 +1,9 @@
 import React from "react";
+import { YoutubeFilled } from "@ant-design/icons";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import { StaticQuery, graphql } from "gatsby";
+import AboutButton from "../components/AboutButton";
 
 const {
     container,
@@ -7,7 +11,15 @@ const {
     italic,
     firstBlock,
     diseaseCopy,
+    buttonContainer,
+    iconOverlay,
+    imageContainer,
+    imageWrapper,
+    playButton,
+    stackedIcon,
+    learnCard,
     primaryText,
+    addgeneCard,
 } = require("../style/about.module.css");
 
 interface AboutProps {
@@ -23,6 +35,12 @@ interface AboutProps {
                     disease: { url: string; text: string };
                 };
             };
+            coriell_image: FileNode;
+            coriell_link: string;
+            learn_image: FileNode;
+            learn_link: string;
+            addgene_image: FileNode;
+            addgene_link: string;
         };
     };
 }
@@ -52,13 +70,49 @@ const About: React.FC = () => {
                                     }
                                 }
                             }
+                            coriell_image {
+                                childImageSharp {
+                                    gatsbyImageData(
+                                        placeholder: BLURRED
+                                        layout: FIXED
+                                        width: 190
+                                    )
+                                }
+                            }
+                            coriell_link
+                            learn_image {
+                                childImageSharp {
+                                    gatsbyImageData(
+                                        placeholder: BLURRED
+                                        layout: FIXED
+                                        width: 250
+                                    )
+                                }
+                            }
+                            learn_link
+                            addgene_image {
+                                childImageSharp {
+                                    gatsbyImageData(
+                                        placeholder: BLURRED
+                                        layout: FIXED
+                                        width: 190
+                                    )
+                                }
+                            }
+                            addgene_link
                         }
                     }
                 }
             `}
             render={(data: AboutProps) => {
                 const {
-                    about_block
+                    about_block,
+                    coriell_image,
+                    coriell_link,
+                    learn_image,
+                    learn_link,
+                    addgene_image,
+                    addgene_link,
                 } = data.markdownRemark.frontmatter;
 
                 /**
@@ -96,6 +150,27 @@ const About: React.FC = () => {
                     `<a href="${about_block.links.disease.url}">${about_block.links.disease.text}</a>`
                 );
 
+                const learnImageRetrieved = getImage(
+                    learn_image
+                ) as IGatsbyImageData;
+
+                const learnImageWithYoutubeIcon = learnImageRetrieved && (
+                    <div className={imageContainer}>
+                        <div className={imageWrapper}>
+                            <GatsbyImage
+                                image={learnImageRetrieved}
+                                alt="Learn about our collection"
+                            />
+                        </div>
+                        <div className={iconOverlay}>
+                            <div className={stackedIcon}>
+                                <YoutubeFilled />
+                                <div className={playButton}></div>
+                            </div>
+                        </div>
+                    </div>
+                );
+
                 return (
                     <div className={container}>
                         <div className={section}>
@@ -109,6 +184,25 @@ const About: React.FC = () => {
                             <div className={diseaseCopy}>
                                 {diseaseCopyWithLink}
                             </div>
+                        </div>
+                        <div className={buttonContainer}>
+                            <AboutButton
+                                image={learnImageWithYoutubeIcon}
+                                link={learn_link}
+                                title="Learn about our collection"
+                                className={learnCard}
+                            />
+                            <AboutButton
+                                image={coriell_image}
+                                link={coriell_link}
+                                title="View Allen Cell Collection on"
+                            />
+                            <AboutButton
+                                image={addgene_image}
+                                link={addgene_link}
+                                title="View Plasmid Collection on"
+                                className={addgeneCard}
+                            />
                         </div>
                     </div>
                 );
