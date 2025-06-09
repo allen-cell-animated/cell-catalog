@@ -21,7 +21,6 @@ const {
 
 interface ImagesAndVideosProps {
     images?: any[];
-    // TODO: separate out the video type so don't have to make properties optional?
     cellLineId?: number;
     parentalLine?: ParentalLineFrontmatter;
     videos?: any[];
@@ -86,15 +85,6 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
         );
     }) : null;
 
-    // temporarily render videos for cell lines 
-    if (hasVideo && !hasImage && !cellLineId) {
-        return (
-            <div>
-                {videoList}
-            </div>
-        );
-    }
-
     const title = (
         <Flex
             justify="space-between"
@@ -104,8 +94,10 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
             <div className={titleSection}>
                 {cellLineId && (<h3 className={mainTitle}>{formatCellLineId(cellLineId)}</h3>)}
                 <span className={subtitle}>
-                    {geneSymbol} in WTC-{fluorescentTag}-{parentalGeneSymbol} (
-                    {alleleTag}-allelic tag)
+                    {parentalGeneSymbol ? 
+                        `${geneSymbol} in WTC-${fluorescentTag}-${parentalGeneSymbol} (${alleleTag}-allelic tag)` :
+                        `${geneSymbol} in WTC-${fluorescentTag} (${alleleTag}-allelic tag)`
+                    }
                 </span>
             </div>
             <span className={rightTitle}>
@@ -145,6 +137,15 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                     </Flex>
                 )}
                 </>
+            )}
+            {hasVideo && (
+                <Flex
+                    vertical
+                    style={{ minHeight: 0 }}
+                    className={thumbnailContainer}
+                >
+                    {videoList}
+                </Flex>
             )}
         </Card>
     );

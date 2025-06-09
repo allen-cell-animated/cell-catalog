@@ -9,7 +9,7 @@ interface QueryResult {
     data: {
         markdownRemark: {
             frontmatter: {
-                cell_line_id: string;
+                cell_line_id: number;
                 clone_number: number;
                 gene: string[];
                 genetic_modifications?: GeneticModification[];
@@ -22,7 +22,7 @@ interface QueryResult {
 }
 
 interface CellLineProps {
-    cellLineId: string;
+    cellLineId: number;
     cloneNumber: number;
     geneticModifications?: GeneticModification[];
     status: string;
@@ -62,10 +62,14 @@ export const CellLineTemplate = ({
                             />
                         )}
                         {hasImagesOrVideos && (
-                            <ImagesAndVideos
-                                // images={imagesAndVideos.images}
-                                videos={imagesAndVideos.videos}
-                            />
+                                <ImagesAndVideos
+                                    cellLineId={cellLineId}
+                                    geneSymbol={geneticModifications?.[0]?.gene?.frontmatter?.symbol}
+                                    fluorescentTag={geneticModifications?.[0]?.fluorescent_tag}
+                                    alleleTag={geneticModifications?.[0]?.allele_count}
+                                    images={imagesAndVideos.images}
+                                    videos={imagesAndVideos.videos}
+                                />
                         )}
                     </div>
                 </div>
@@ -107,6 +111,8 @@ export const pageQuery = graphql`
                         }
                     }
                     tag_location
+                    allele_count
+                    fluorescent_tag
                 }
                 status
                 thumbnail_image {
