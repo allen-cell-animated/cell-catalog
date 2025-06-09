@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Card, Flex } from "antd";
+import Icon from "@ant-design/icons";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { ParentalLineFrontmatter } from "../component-queries/types";
 import { formatCellLineId } from "../utils";
@@ -17,11 +18,14 @@ const {
     primaryImageOnly,
     primaryImageWithThumbnail,
     primaryImageContainer,
+    playButton,
 } = require("../style/images-and-videos.module.css");
+
+const Play = require("../img/play.svg");
 
 interface ImagesAndVideosProps {
     images?: any[];
-    cellLineId?: number;
+    cellLineId: number;
     parentalLine?: ParentalLineFrontmatter;
     videos?: any[];
     geneSymbol?: string;
@@ -29,6 +33,12 @@ interface ImagesAndVideosProps {
     fluorescentTag?: string;
     parentalGeneSymbol?: string;
     alleleTag?: string;
+}
+
+type MediaItem = {
+    type: "image" | "video";
+    data: any;
+    caption?: string;
 }
 
 const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
@@ -40,30 +50,19 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     alleleTag,
     geneSymbol,
 }) => {
-    const hasImage = images?.length > 0;
-    const hasVideo = videos?.length > 0;
+    const mediaArray = (): MediaItem[] => {
+        const items: MediaItem[] = [];
+        images?.forEach(img => {
+            items.push({ type: "image", data: img, caption: img.caption });
+        });
 
-    const [mainImage, setMainImage] = useState(hasImage ? images?.[0] : null);
-    const hasMultipleImages = images?.length > 1;
-    const thumbnails = images?.map((image, index) => {
-        const renderImage = getImage(image?.image);
-        if (renderImage) {
-            return (
-                <Thumbnail
-                    key={index}
-                    image={renderImage}
-                    isSelected={mainImage === image}
-                    onClick={() => setMainImage(image)}
-                />
-            );
-        }
-    });
-    const primaryImageClassName = hasMultipleImages
-        ? primaryImageWithThumbnail
-        : primaryImageOnly;
+        videos?.forEach(vid => {
+            items.push({ type: "video", data: vid, caption: vid.caption });
+        });
 
-    const imageData = mainImage?.image ? getImage(mainImage.image) : null;
-    
+        return items;
+    };
+
     const getVimeoUrl = (url: string) => {
         if (url?.includes("player.vimeo.com")) {
             return url;
@@ -71,19 +70,42 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
         return url;
     };
 
-    const videoList = hasVideo ? videos.map((video, index) => {
-        const videoUrl = getVimeoUrl(video?.video);
+    const mediaItems = mediaArray();
+    const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(mediaItems[0] || null);
+    const showThumbnails = mediaItems.length > 1; 
+
+    if (!selectedMedia) return null;
+
+    const renderThumbnail = (item: MediaItem, index: number) => {
+        const isSelected = selectedMedia.data === item.data;
+
+        if (item.type === "image") {
+            const imageData = getImage(item.data?.image);
+            if (!imageData) return null;
+
+            return (
+                <Thumbnail
+                    key={index}
+                    image={imageData}
+                    isSelected={isSelected}
+                    onClick={() => setSelectedMedia(item)}
+                />
+            );
+        }
+
         return (
-            <div key={index}>
-                <iframe
-                    src={`${videoUrl}?badge=0&autoplay=0&title=0`}
-                    width="400"
-                    height="400"
-                ></iframe>
-                <p>{video?.caption}</p>
+            <div
+                key={index}
+                className={`video-thumbnail ${isSelected ? "selected" : ""}`}
+                onClick={() => setSelectedMedia(item)}
+            >
+                <video width="80" height="60" muted>
+                    <source src={item.data.url || item.data.src} type="video/mp4" />
+                </video>
+                <Icon className={playButton} component={Play}/>
             </div>
         );
-    }) : null;
+    };
 
     const title = (
         <Flex
@@ -92,7 +114,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
             className={header}
         >
             <div className={titleSection}>
-                {cellLineId && (<h3 className={mainTitle}>{formatCellLineId(cellLineId)}</h3>)}
+                <h3 className={mainTitle}>{formatCellLineId(cellLineId)}</h3>
                 <span className={subtitle}>
                     {parentalGeneSymbol ? 
                         `${geneSymbol} in WTC-${fluorescentTag}-${parentalGeneSymbol} (${alleleTag}-allelic tag)` :
@@ -101,50 +123,51 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                 </span>
             </div>
             <span className={rightTitle}>
-                Representative images for all clones
+                Representative media for all clones
             </span>
         </Flex>
     );
 
+    const renderMedia = () => {
+        if (selectedMedia.type === "image") {
+            const imageData = getImage(selectedMedia.data.image);
+            if (!imageData) return null;
+
+            return (
+                <GatsbyImage
+                    className={showThumbnails ? primaryImageWithThumbnail : primaryImageOnly}
+                    image={imageData}
+                    alt="Cell line media"
+                    imgStyle={{ objectFit: "contain" }}
+                />
+            );
+        }
+        const vimeoUrl = getVimeoUrl(selectedMedia.data.video);
+        return (
+            <>
+                <iframe
+                src={`${vimeoUrl}?badge=0&autoplay=0&title=0`}
+                width="400"
+                height="400"
+            ></iframe>
+            <p>{selectedMedia.data.video?.caption}</p>
+            </>
+        );
+    };
+
     return (
-        <Card className={container} title={title}>
-            {hasImage && imageData && (
-                <>
-                <Flex
-                    className={primaryImageContainer}
-                    align="center"
-                    vertical
-                    justify="center"
-                    gap={20}
-                >
-                    <GatsbyImage
-                        className={primaryImageClassName}
-                        image={imageData}
-                        alt="main image"
-                        imgStyle={{ objectFit: "contain" }}
-                    />
-                    {mainImage?.caption && (
-                        <p className={caption}>{mainImage.caption}</p>
-                    )}
-                </Flex>
-                {hasMultipleImages && (
-                    <Flex
-                        vertical
-                        style={{ minHeight: 0 }}
-                        className={thumbnailContainer}
-                    >
-                        {thumbnails}
-                    </Flex>
-                )}
-                </>
-            )}
-            {hasVideo && (
-                <Flex
-                    vertical
-                    style={{ minHeight: 0 }}
-                    className={thumbnailContainer}
-                >
-                    {videoList}
+        <Card
+            className={container}
+            title={title}
+        >
+            <Flex className={primaryImageContainer} align="center" vertical justify="center" gap={20}>
+                {renderMedia()}
+                {selectedMedia.caption && <p className={caption}>{selectedMedia.caption}</p>}
+            </Flex>
+
+            {showThumbnails && (
+                <Flex vertical style={{ minHeight: 0 }} className={thumbnailContainer}>
+                    {mediaItems.map(renderThumbnail).filter(Boolean)}
                 </Flex>
             )}
         </Card>
