@@ -121,6 +121,14 @@ export const pageQuery = graphql`
                     }
                 }
                 images_and_videos {
+                    images {
+                        image {
+                            childImageSharp {
+                                gatsbyImageData(width: 400, placeholder: BLURRED)
+                            }
+                        }
+                        caption
+                    }
                     videos {
                         video 
                         caption
