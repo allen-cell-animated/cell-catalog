@@ -5,7 +5,7 @@ disease: Cardiomyopathy
 date: 2025-05-19T22:57:54.962Z
 snp: NM_000257.4(MYH7):c.767G>A(p.Gly256Glu)
 parental_line: 75
-status: released
+status: data complete
 clones:
   - type: Mutant
     clone_number: 102

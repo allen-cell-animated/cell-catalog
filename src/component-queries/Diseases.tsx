@@ -23,7 +23,6 @@ export interface UnpackedDisease {
     name: string;
     geneSymbol: string;
     geneName: string;
-    acknowledgements: string;
     status: string;
 }
 
@@ -32,13 +31,12 @@ const DiseaseTemplate = (props: QueryResult) => {
 
     const unpackedDiseases = diseases
         .map(({ node: disease }) => {
-            const { name, gene, acknowledgements, status } =
+            const { name, gene, status } =
             disease.frontmatter;
             return {
                 name,
                 geneSymbol: gene[0].frontmatter.symbol,
                 geneName: gene[0].frontmatter.name,
-                acknowledgements: acknowledgements.html,
                 status,
             };
         })
@@ -78,9 +76,6 @@ export default function Diseases() {
                                     templateKey
                                     name
                                     status
-                                    acknowledgements {
-                                        html
-                                    }
                                     gene {
                                         frontmatter {
                                             symbol

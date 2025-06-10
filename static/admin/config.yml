@@ -665,11 +665,6 @@ collections:
                 default: "Coming soon",
                 required: true,
             }
-          - {
-                label: "Acknowledgements",
-                name: "acknowledgements",
-                widget: "markdown",
-            }
     - name: "pages"
       label: "Pages"
       files:
@@ -743,12 +738,66 @@ collections:
                       name: "coriell_link",
                       widget: "string",
                   }
+                  - {
+                      label: "Learn Image",
+                      name: "learn_image",
+                      widget: "image",
+                  }
+                - {
+                      label: "Learn Link",
+                      name: "learn_link",
+                      widget: "string",
+                  }
+                - {
+                      label: "Addgene Image",
+                      name: "addgene_image",
+                      widget: "image",
+                  }
+                - {
+                      label: "Addgene Link",
+                      name: "addgene_link",
+                      widget: "string",
+                  }
                 - {
                       label: "Footer text",
                       name: "footer_text",
                       widget: "markdown",
                   }
-
+                - {
+                    label: "Acknowledgements Block",
+                    name: "acknowledgements_block",
+                    widget: "object",
+                    fields:
+                        [
+                            { label: "Intro", name: "intro", widget: "string" },
+                            {
+                                label: "Contributors",
+                                name: "contributors",
+                                widget: "list",
+                                required: false,
+                                collapsed: true,
+                                fields:
+                                    [
+                                        {
+                                            label: "Name",
+                                            name: "name",
+                                            widget: "string",
+                                        },
+                                        {
+                                            label: "Institution",
+                                            name: "institution",
+                                            widget: "string",
+                                        },
+                                    ],
+                            },
+                            { label: "Outro", name: "outro", widget: "string" },
+                        ],
+                }
+                - {
+                    label: "Funding",
+                    name: "funding_text",
+                    widget: "markdown",
+                }
           - file: "src/pages/normal-catalog/index.md"
             label: "Cell Line Catalog"
             name: "normal-catalog"
@@ -760,6 +809,58 @@ collections:
                       default: "normal-catalog",
                   }
                 - { label: "Title", name: "title", widget: "string" }
+                - {
+                    label: "About Block",
+                    name: "about_block",
+                    widget: "object",
+                    fields: [
+                        {
+                            label: "Primary Text",
+                            name: "primary",
+                            widget: "text"
+                        },
+                                                {
+                            label: "Primary emphasis Text",
+                            name: "emphasis",
+                            widget: "text"
+                        },
+                        {
+                            label: "Newsletter Text",
+                            name: "newsletter",
+                            widget: "text"
+                        },
+                        {
+                            label: "Disease Catalog Copy",
+                            name: "disease",
+                            widget: "text"
+                        },
+                        {
+                            label: "Links",
+                            name: "links",
+                            widget: "object",
+                            fields: [
+                                {
+                                    label: "Newsletter Link",
+                                    name: "newsletter",
+                                    widget: "object",
+                                    fields: [
+                                        { label: "Text", name: "text", widget: "string" },
+                                        { label: "URL", name: "url", widget: "string" }
+                                    ]
+                                },
+                                {
+                                    label: "Disease Catalog Link",
+                                    name: "disease",
+                                    widget: "object",
+                                    fields: [
+                                        { label: "Text", name: "text", widget: "string" },
+                                        { label: "URL", name: "url", widget: "string" }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
                 - { label: "Body", name: "body", widget: "markdown" }
                 - {
                       label: "Main",

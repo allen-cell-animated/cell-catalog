@@ -18,9 +18,10 @@ const formatTextWithGeneLocations = (text: string, className: string) => {
     const parts = text.split(/(\[.*?\])/);
     return parts.map((part, index) => {
         if (part.startsWith("[") && part.endsWith("]")) {
+            const bracketsRemoved = part.slice(1, -1);
             return (
                 <span key={index} className={className}>
-                    {part}
+                    {bracketsRemoved}
                 </span>
             );
         }

@@ -39,6 +39,10 @@
     font-size: 14px;
 }
 
+.container :global(.ant-card-meta-description) {
+    color: var(--BLUE_70);
+}
+
 .container :global(.ant-card-meta) {
     border-radius: 0 0 3px 3px; /* 1 less to avoid white space between border and header */
     background-color: var(--ALLEN_LIGHT_10);

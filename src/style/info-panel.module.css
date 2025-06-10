@@ -27,6 +27,7 @@
 
 .container :global(.ant-descriptions-item-label) {
     font-size: 14px;
+    color: var(--MEDIUM_GRAY);
 }
 
 .container :global(.ant-descriptions-item-content) {
