@@ -109,7 +109,7 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
             )}
         </div>
     ) : null;
-console.log("diagrams:", diagrams);
+
     return (
         <div className={container}>
             {rows.length > 0 && (
