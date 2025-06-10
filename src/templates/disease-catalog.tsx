@@ -4,18 +4,17 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Diseases from "../component-queries/Diseases";
 import Content, { HTMLContent } from "../components/shared/Content";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import Footer from "../components/Footer";
+import AboutButton from "../components/AboutButton";
 
 const {
-    coriellCard,
     banner,
     bannerContent,
     header,
     mainHeading,
-    coriellWrapper,
 } = require("../style/catalog.module.css");
+
 interface DiseaseCatalogTemplateProps {
     title: string;
     content: string;
@@ -48,7 +47,6 @@ export const DiseaseCatalogTemplate = ({
     coriellImage,
     coriellLink,
 }: DiseaseCatalogTemplateProps) => {
-    const image = getImage(coriellImage);
     const PageContent = contentComponent || Content;
     return (
         <section>
@@ -59,20 +57,11 @@ export const DiseaseCatalogTemplate = ({
                     type="vertical"
                     style={{ height: "initial", marginInline: "20px" }}
                 />
-                <div className={coriellWrapper}>
-                    {image && (
-                        <a href={coriellLink} target="_blank" rel="noreferrer">
-                            <Card
-                                bordered={true}
-                                className={coriellCard}
-                                title="View Allen Cell Collection on"
-                                cover={
-                                    <GatsbyImage image={image} alt="Coriell" />
-                                }
-                            ></Card>
-                        </a>
-                    )}
-                </div>
+                <AboutButton
+                    image={coriellImage}
+                    link={coriellLink}
+                    title="View Allen Cell Collection on"
+                />
             </Flex>
             <h2 className={mainHeading}>{main.heading}</h2>
             <Card className={banner} bordered={true}>
