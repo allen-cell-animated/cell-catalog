@@ -1,3 +1,13 @@
 .container {
     position: relative;
 }
+
+.container:global(.ant-card:not(.ant-card-head)) :global(.ant-card-body) {
+    padding: 0px;
+}
+
+.container:global(.ant-card:not(.ant-card-head))
+    :global(.ant-card-body)
+    :global(.gatsby-data-image-wrapper) {
+    margin: 16px;
+}

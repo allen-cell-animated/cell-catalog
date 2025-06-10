@@ -537,14 +537,22 @@ collections:
                                         widget: "string",
                                     },
                                     {
-                                        label: "Image",
-                                        name: "image",
-                                        widget: "image",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
+                                        label: "Images",
+                                        name: "images",
+                                        widget: "list",
+                                        fields:
+                                            [
+                                                {
+                                                    label: "Image",
+                                                    name: "image",
+                                                    widget: "image",
+                                                },
+                                                {
+                                                    label: "Caption",
+                                                    name: "caption",
+                                                    widget: "string",
+                                                },
+                                            ],
                                     },
                                 ],
                         },
@@ -859,64 +867,72 @@ collections:
                       name: "main",
                       widget: "object",
                       fields:
-                        [
-                            { label: "Heading", name: "heading", widget: "string" },
-                            {
-                                label: "Subheading",
-                                name: "subheading",
-                                required: false,
-                                widget: "string",
-                            },
+                          [
+                              {
+                                  label: "Heading",
+                                  name: "heading",
+                                  widget: "string",
+                              },
+                              {
+                                  label: "Subheading",
+                                  name: "subheading",
+                                  required: false,
+                                  widget: "string",
+                              },
 
-                            {
-                                label: "Description",
-                                name: "description",
-                                widget: "markdown",
-                            },
-                        ],
-                }
+                              {
+                                  label: "Description",
+                                  name: "description",
+                                  widget: "markdown",
+                              },
+                          ],
+                  }
                 - {
-                    label: "Coriell Image",
-                    name: "coriell_image",
-                    widget: "image",
-                }
+                      label: "Coriell Image",
+                      name: "coriell_image",
+                      widget: "image",
+                  }
                 - {
-                    label: "Coriell Link",
-                    name: "coriell_link",
-                    widget: "string",
-                }
+                      label: "Coriell Link",
+                      name: "coriell_link",
+                      widget: "string",
+                  }
                 - {
-                    label: "Acknowledgements Block",
-                    name: "acknowledgements_block",
-                    widget: "object",
-                    fields:
-                        [
-                            { label: "Intro", name: "intro", widget: "string" },
-                            {
-                                label: "Contributors",
-                                name: "contributors",
-                                widget: "list",
-                                required: false,
-                                collapsed: true,
-                                fields:
-                                    [
-                                        {
-                                            label: "Name",
-                                            name: "name",
-                                            widget: "string",
-                                        },
-                                        {
-                                            label: "Institution",
-                                            name: "institution",
-                                            widget: "string",
-                                        },
-                                    ],
-                            },
-                            { label: "Outro", name: "outro", widget: "string" },
-                        ],
-                }
-                - {
-                    label: "Funding",
-                    name: "funding_text",
-                    widget: "markdown",
-                }
+                      label: "Acknowledgements Block",
+                      name: "acknowledgements_block",
+                      widget: "object",
+                      fields:
+                          [
+                              {
+                                  label: "Intro",
+                                  name: "intro",
+                                  widget: "string",
+                              },
+                              {
+                                  label: "Contributors",
+                                  name: "contributors",
+                                  widget: "list",
+                                  required: false,
+                                  collapsed: true,
+                                  fields:
+                                      [
+                                          {
+                                              label: "Name",
+                                              name: "name",
+                                              widget: "string",
+                                          },
+                                          {
+                                              label: "Institution",
+                                              name: "institution",
+                                              widget: "string",
+                                          },
+                                      ],
+                              },
+                              {
+                                  label: "Outro",
+                                  name: "outro",
+                                  widget: "string",
+                              },
+                          ],
+                  }
+                - { label: "Funding", name: "funding_text", widget: "markdown" }

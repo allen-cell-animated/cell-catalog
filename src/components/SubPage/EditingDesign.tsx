@@ -7,7 +7,11 @@ import SubpageContentCard from "../shared/SubpageContentCard";
 
 const { container, legendText } = require("../../style/subpage.module.css");
 
-const { pamSite, mutation } = require("../../style/editing-design.module.css");
+const {
+    pamSite,
+    mutation,
+    noHeader,
+} = require("../../style/editing-design.module.css");
 
 const formatTextWithGeneLocations = (text: string, className: string) => {
     // PAM sites and mutations are indicated in the string using square brackets
@@ -114,13 +118,15 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
                     {legendContent}
                 </SubpageContentCard>
             )}
-
-            {diagrams?.map((diagram, index) => (
+            {diagrams?.map((diagramProps, index) => (
                 <DiagramCard
                     key={index}
-                    title={diagram.title}
-                    caption={diagram.caption}
-                    image={diagram.image}
+                    title={diagramProps.title}
+                    caption={diagramProps.caption}
+                    image={diagramProps.image}
+                    className={
+                        !diagramProps.title && noHeader
+                    }
                 />
             ))}
         </div>
