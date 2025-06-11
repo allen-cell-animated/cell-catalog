@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { graphql, StaticQuery } from "gatsby";
 
 import { UnpackedDisease } from "./Diseases";
@@ -59,13 +59,19 @@ const DiseaseCellLinesTemplate = (props: DiseaseCellLinesTemplateProps) => {
         const width = useWindowWidth();
         const isPhone = width < PHONE_BREAKPOINT;
 
+        const suppressRowClickRef = useRef(false);
+
         return (
             <div key={disease.name}>
                 <CellLineTable
+                    suppressRowClickRef={suppressRowClickRef}
                     tableName={disease.name}
                     cellLines={groupedCellLines[disease.name]}
                     released={disease.status === TableStatus.Available}
-                    columns={getDiseaseTableColumns(inProgress)}
+                    columns={getDiseaseTableColumns(
+                        inProgress,
+                        suppressRowClickRef
+                    )}
                     mobileConfig={getDiseaseTableMobileConfig(isPhone)}
                 />
             </div>
