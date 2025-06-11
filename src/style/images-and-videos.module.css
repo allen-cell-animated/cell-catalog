@@ -70,6 +70,18 @@
     background-color: white;
 }
 
+:global(
+        .ant-image-preview-operations-operation-flipY
+    ), :global(
+        .ant-image-preview-operations-operation-flipX
+    ), :global(
+        .ant-image-preview-operations-operation-rotateLeft
+    ), :global(
+        .ant-image-preview-operations-operation-rotateRight
+    ) {
+    display: none;
+}
+
 .caption {
     flex: 0 0 auto;
     max-height: min-content;
