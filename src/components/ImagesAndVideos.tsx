@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Card, Flex, Image } from "antd";
+import { Card, Flex, Image, Space } from "antd";
 import { getImage, GatsbyImage, getSrc } from "gatsby-plugin-image";
 import { ParentalLineFrontmatter } from "../component-queries/types";
 import { formatCellLineId } from "../utils";
 import Thumbnail from "./Thumbnail";
+import { LeftOutlined, RightOutlined, ZoomOutOutlined, ZoomInOutlined, CloseOutlined } from "@ant-design/icons";
 
 const {
     container,
@@ -41,6 +42,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     geneSymbol,
 }) => {
     const [mainImage, setMainImage] = useState(images?.[0] || null);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [previewVisible, setPreviewVisible] = useState(false);
 
     const hasMultipleImages = images?.length > 1;
@@ -52,7 +54,10 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                     key={index}
                     image={renderImage}
                     isSelected={mainImage === image}
-                    onClick={() => setMainImage(image)}
+                    onClick={() => {
+                        setMainImage(image);
+                        setCurrentIndex(index);
+                    }}
                 />
             );
         }
@@ -105,8 +110,31 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
             <Image.PreviewGroup
                 preview={{
                     visible: previewVisible,
-                    onVisibleChange: (visible) => setPreviewVisible(visible),
                     className: previewImage,
+                    current: currentIndex,
+                    onVisibleChange: (visible) => setPreviewVisible(visible),
+                    onChange: (index) => {
+                        setCurrentIndex(index);
+                        setMainImage(images[index]);
+                    },
+                    toolbarRender: (
+                        _,
+                        {
+                            transform: { scale },
+                            actions: { onZoomIn, onZoomOut },
+                        }
+                    ) => (
+                        <Space size={12}>
+                            <ZoomOutOutlined
+                                disabled={scale <= 1}
+                                onClick={onZoomOut}
+                            />
+                            <ZoomInOutlined
+                                disabled={scale >= 10}
+                                onClick={onZoomIn}
+                            />
+                        </Space>
+                    ),
                 }}
             >
                 {allPreviewImages}
