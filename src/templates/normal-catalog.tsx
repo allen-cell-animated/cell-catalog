@@ -1,67 +1,36 @@
 import React from "react";
-import { Card, Divider, Flex } from "antd";
+import { Flex } from "antd";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Footer from "../components/Footer";
-import Content, { HTMLContent } from "../components/shared/Content";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import NormalCellLines from "../component-queries/NormalCellLines";
+import About from "../component-queries/About";
 
 const {
     container,
-    coriellCard,
     header,
-    coriellWrapper,
 } = require("../style/catalog.module.css");
 interface NormalCatalogTemplateProps {
     title: string;
     content: string;
-    contentComponent?: JSX.ElementType;
     fundingText: string;
     acknowledgementsBlock: {
         intro: string;
         contributors: { name: string; institution: string }[];
         outro: string;
     };
-    coriellImage: FileNode;
-    coriellLink: string;
+    tableHeader: string;
 }
-// eslint-disable-next-line
+
 export const NormalCatalogTemplate = ({
-    title,
-    content,
-    contentComponent,
     fundingText,
     acknowledgementsBlock,
-    coriellImage,
-    coriellLink,
+    tableHeader,
 }: NormalCatalogTemplateProps) => {
-    const image = getImage(coriellImage);
-    const PageContent = contentComponent || Content;
     return (
         <section className={container}>
-            <h1>{title}</h1>
             <Flex className={header}>
-                <PageContent className="content" content={content} />
-                <Divider
-                    type="vertical"
-                    style={{ height: "initial", marginInline: "20px" }}
-                />
-                <div className={coriellWrapper}>
-                    {image && (
-                        <a href={coriellLink} target="_blank" rel="noreferrer">
-                            <Card
-                                bordered={true}
-                                className={coriellCard}
-                                title="View Allen Cell Collection on"
-                                cover={
-                                    <GatsbyImage image={image} alt="Coriell" />
-                                }
-                            ></Card>
-                        </a>
-                    )}
-                </div>
+                <About />
             </Flex>
             <NormalCellLines />
             <Footer
@@ -78,9 +47,6 @@ interface QueryResult {
             html: string;
             frontmatter: {
                 title: string;
-                footer_text: {
-                    html: string;
-                };
                 funding_text: {
                     html: string;
                 };
@@ -89,8 +55,7 @@ interface QueryResult {
                     contributors: { name: string; institution: string }[];
                     outro: string;
                 };
-                coriell_image: FileNode;
-                coriell_link: string;
+                table_header: string;
             };
         };
     };
@@ -101,13 +66,11 @@ const NormalCatalog = ({ data }: QueryResult) => {
     return (
         <Layout>
             <NormalCatalogTemplate
-                contentComponent={HTMLContent}
                 title={post.frontmatter.title}
                 content={post.html}
                 fundingText={post.frontmatter.funding_text.html}
                 acknowledgementsBlock={post.frontmatter.acknowledgements_block}
-                coriellImage={post.frontmatter.coriell_image}
-                coriellLink={post.frontmatter.coriell_link}
+                tableHeader={post.frontmatter.table_header}
             />
         </Layout>
     );
@@ -124,6 +87,7 @@ export const aboutPageQuery = graphql`
                 funding_text {
                     html
                 }
+                table_header
                 acknowledgements_block {
                     intro
                     contributors {

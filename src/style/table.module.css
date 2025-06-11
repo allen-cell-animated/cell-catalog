@@ -2,6 +2,7 @@
 
 .container {
     max-width: 1728px;
+    padding: 16px 0px 0px 0px;
 }
 
 .table-title {
@@ -89,7 +90,7 @@
 }
 
 .action-column:hover .plasmid-icon path {
-  fill: var(--WHITE);
+    fill: var(--WHITE);
 }
 
 .container h4 {
@@ -178,6 +179,7 @@
 }
 
 .container.coming-soon :global(.ant-table-cell),
+.container.coming-soon :global(.ant-table-cell) *,
 .container.coming-soon :global(.ant-table-tbody .ant-tag),
 .container.coming-soon h4 {
     color: var(--disabled);
@@ -200,6 +202,40 @@
     font-weight: 600;
     font-weight: 300;
     color: var(--ALLEN_LIGHT_60);
+}
+
+.container .protein,
+.container .structure {
+    max-width: 220px;
+}
+
+.container .gene {
+    max-width: 310px;
+}
+
+.container .multiple-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    min-height: 79px;
+}
+
+.container .truncated-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tooltip:global(.ant-tooltip) {
+    max-width: none;
+}
+
+.tooltip :global(.ant-tooltip-inner) {
+    background-color: var(--tooltip-background);
+    border-radius: 0;
+    min-height: 0;
+    padding: 2px;
 }
 
 .container :global(.ant-table-column-sorters) {

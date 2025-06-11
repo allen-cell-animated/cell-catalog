@@ -8,9 +8,10 @@ import {
     UnpackedNormalCellLine,
 } from "../../component-queries/types";
 import { RAIN_SHADOW, SERIOUS_GRAY } from "../../style/theme";
-import GeneDisplay from "../GeneDisplay";
 import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint } from "./types";
+import { MultiLineTableCell } from "../MultiLineTableCell";
+import GeneDisplay from "../GeneDisplay";
 
 const Plasmid = require("../../img/plasmid.svg");
 
@@ -19,6 +20,10 @@ const {
     actionColumn,
     actionButton,
     plasmidIcon,
+    protein,
+    gene,
+    structure,
+    multipleLines,
 } = require("../../style/table.module.css");
 
 const caseInsensitiveStringCompare = (a = "", b = "") =>
@@ -81,28 +86,36 @@ export const getNormalTableColumns = (
             title: "Protein",
             key: "protein",
             dataIndex: "protein",
-            width: 200,
+            width: 220,
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
+            className: protein,
+            render: (proteins: string[]) => (
+                <MultiLineTableCell entries={proteins} />
+            ),
             sorter: (a: any, b: any) =>
-                caseInsensitiveStringCompare(a.protein, b.protein),
+                caseInsensitiveStringCompare(
+                    (a.protein ?? []).join("|"),
+                    (b.protein ?? []).join("|")
+                ),
         },
         {
             title: "Gene Symbol & Name",
-            width: 280,
+            width: 310,
             key: "taggedGene",
             dataIndex: "taggedGene",
             responsive: mdBreakpoint,
+            sortIcon: sortIcon,
+            className: gene,
             render: (taggedGene: UnpackedGene[]) => {
                 return (
-                    <>
+                    <div className={multipleLines}>
                         {taggedGene.map((gene, index) => (
                             <GeneDisplay key={index} gene={gene} />
                         ))}
-                    </>
+                    </div>
                 );
             },
-            sortIcon: sortIcon,
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     a.taggedGene[0].name,
@@ -127,23 +140,27 @@ export const getNormalTableColumns = (
         {
             title: "Structure",
             key: "structure",
-            width: 280,
+            width: 220,
             dataIndex: "structure",
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
+            className: structure,
+            render: (structures: string[]) => (
+                <MultiLineTableCell entries={structures} />
+            ),
             sorter: (a: any, b: any) =>
-                caseInsensitiveStringCompare(a.structure, b.structure),
+                caseInsensitiveStringCompare(
+                    (a.structure ?? []).join("|"),
+                    (b.structure ?? []).join("|")
+                ),
         },
         {
             title: "Fluorescent Tag",
             key: "fluorescentTag",
             dataIndex: "fluorescentTag",
             responsive: mdBreakpoint,
-            render: (fluorescentTag: string[]) => {
-                return fluorescentTag?.join(" / ");
-            },
+            render: (tags: string[]) => <MultiLineTableCell entries={tags} />,
             sortIcon: sortIcon,
-
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     (a.fluorescentTag ?? []).join("|"),
@@ -156,9 +173,9 @@ export const getNormalTableColumns = (
             dataIndex: "tagLocation",
             className: inProgress ? "" : lastColumn,
             responsive: mdBreakpoint,
-            render: (tagLocation: string[]) => {
-                return tagLocation?.join(" / ");
-            },
+            render: (locations: string[]) => (
+                <MultiLineTableCell entries={locations} />
+            ),
             sortIcon: sortIcon,
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
