@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Card, Flex } from "antd";
-import { getImage, GatsbyImage } from "gatsby-plugin-image";
+import { Card, Flex, Image } from "antd";
+import { getImage, GatsbyImage, getSrc } from "gatsby-plugin-image";
 import { ParentalLineFrontmatter } from "../component-queries/types";
 import { formatCellLineId } from "../utils";
 import Thumbnail from "./Thumbnail";
@@ -17,6 +17,7 @@ const {
     primaryImageOnly,
     primaryImageWithThumbnail,
     primaryImageContainer,
+    previewImage,
 } = require("../style/images-and-videos.module.css");
 
 interface ImagesAndVideosProps {
@@ -40,6 +41,8 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     geneSymbol,
 }) => {
     const [mainImage, setMainImage] = useState(images?.[0] || null);
+    const [previewVisible, setPreviewVisible] = useState(false);
+
     const hasMultipleImages = images?.length > 1;
     const thumbnails = images?.map((image, index) => {
         const renderImage = getImage(image?.image);
@@ -63,6 +66,21 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
         return null;
     }
 
+    const allPreviewImages = images
+        .map((img) => getImage(img?.image))
+        .filter(Boolean)
+        .map((imgData, i) => {
+            if (imgData !== undefined)
+                return (
+                    <Image
+                        key={`preview-${i}`}
+                        src={getSrc(imgData)}
+                        style={{ display: "none" }}
+                        className={previewImage}
+                    />
+                );
+        });
+
     const title = (
         <Flex
             justify="space-between"
@@ -83,34 +101,46 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     );
 
     return (
-        <Card className={container} title={title}>
-            <Flex
-                className={primaryImageContainer}
-                align="center"
-                vertical
-                justify="center"
-                gap={20}
+        <>
+            <Image.PreviewGroup
+                preview={{
+                    visible: previewVisible,
+                    onVisibleChange: (visible) => setPreviewVisible(visible),
+                    className: previewImage,
+                }}
             >
-                <GatsbyImage
-                    className={primaryImageClassName}
-                    image={imageData}
-                    alt="main image"
-                    imgStyle={{ objectFit: "contain" }}
-                />
-                {mainImage.caption && (
-                    <p className={caption}>{mainImage.caption}</p>
-                )}
-            </Flex>
-            {hasMultipleImages && (
+                {allPreviewImages}
+            </Image.PreviewGroup>
+            <Card className={container} title={title}>
                 <Flex
+                    className={primaryImageContainer}
+                    align="center"
                     vertical
-                    style={{ minHeight: 0 }}
-                    className={thumbnailContainer}
+                    justify="center"
+                    gap={20}
+                    onClick={() => setPreviewVisible(true)}
                 >
-                    {thumbnails}
+                    <GatsbyImage
+                        className={primaryImageClassName}
+                        image={imageData}
+                        alt="main image"
+                        imgStyle={{ objectFit: "contain" }}
+                    />
+                    {mainImage.caption && (
+                        <p className={caption}>{mainImage.caption}</p>
+                    )}
                 </Flex>
-            )}
-        </Card>
+                {hasMultipleImages && (
+                    <Flex
+                        vertical
+                        style={{ minHeight: 0 }}
+                        className={thumbnailContainer}
+                    >
+                        {thumbnails}
+                    </Flex>
+                )}
+            </Card>
+        </>
     );
 };
 

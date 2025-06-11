@@ -66,6 +66,10 @@
     cursor: pointer;
 }
 
+.preview-image :global(.ant-image-preview-img) {
+    background-color: white;
+}
+
 .caption {
     flex: 0 0 auto;
     max-height: min-content;
