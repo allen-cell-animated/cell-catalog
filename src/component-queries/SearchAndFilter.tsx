@@ -34,7 +34,11 @@ const SearchAndFilter = ({
                         group(
                             field: {
                                 frontmatter: {
-                                    gene: { frontmatter: { symbol: SELECT } }
+                                    genetic_modifications: {
+                                        gene: {
+                                            frontmatter: { symbol: SELECT }
+                                        }
+                                    }
                                 }
                             }
                         ) {
@@ -43,12 +47,14 @@ const SearchAndFilter = ({
                                 node {
                                     frontmatter {
                                         cell_line_id
-                                        gene {
-                                            frontmatter {
-                                                name
-                                                symbol
-                                                protein
-                                                structure
+                                        genetic_modifications {
+                                            gene {
+                                                frontmatter {
+                                                    name
+                                                    symbol
+                                                    protein
+                                                    structure
+                                                }
                                             }
                                         }
                                     }

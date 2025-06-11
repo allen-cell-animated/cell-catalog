@@ -55,7 +55,7 @@ export interface NormalCellLineFrontmatter {
             name: string;
         };
     };
-};
+}
 
 export interface NormalCellLineNode {
     id: string;
@@ -225,13 +225,15 @@ export interface SearchAndFilterGroup {
         node: {
             frontmatter: {
                 cell_line_id: number;
-                gene: {
-                    frontmatter: {
-                        name: string;
-                        symbol: string;
-                        protein: string;
-                        structure: string;
-                    };
+                genetic_modifications: {
+                    gene: {
+                        frontmatter: {
+                            name: string;
+                            symbol: string;
+                            protein: string;
+                            structure: string;
+                        };
+                    }[];
                 };
             };
         };
