@@ -2,11 +2,16 @@
 templateKey: cell-line
 cell_line_id: 102
 name: Mitochondrial Targeting Sequence of COXVIII (mitoTag)
-status: in progress
+status: released
 date: 2025-02-05T17:41:29.111Z
 thumbnail_image: ad00006088_20240513_x02_001_s47_z5to65_crop_scalebar5um_8bit_slice22.jpg
 clone_number: 330
 parental_line: 0
+genetic_modifications:
+  - gene: AAVS1
+    tag_location: NA
+    fluorescent_tag: mTagRFP-T
+    allele_count: mono
 certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0102-330_CofA.pdf
 images_and_videos:
   images:
@@ -26,9 +31,4 @@ images_and_videos:
         mitochondrial targeting sequence of COXVIII (mitoTag). The movie starts
         at the bottom of the cells and ends at the top (scale bar, 5 µm). Cells
         were imaged live in 3D on a spinning-disk confocal microscope.
-genetic_modifications:
-  - gene: AAVS1
-    tag_location: NA
-    fluorescent_tag: mTagRFP-T
-    allele_count: mono
 ---
