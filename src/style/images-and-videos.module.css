@@ -66,6 +66,33 @@
     cursor: pointer;
 }
 
+.preview-image :global(.ant-image-preview-img) {
+    background-color: white;
+}
+
+.toolbar-wrapper {
+    background-color: var(--DARK_TRANSPARENT_GRAY);
+    border-radius: 100px;
+    display: flex;
+    font-size: 20px;
+    gap: 12px;
+    padding: 0px 24px;
+}
+
+.toolbar-wrapper :global(.anticon) {
+    color: var(--WHITE);
+    padding: 12px;
+}
+
+.toolbar-wrapper :global(.anticon):hover {
+    opacity: 0.3;
+}
+
+:global(.ant-image-preview-progress) {
+    color: var(--WHITE);
+    margin-bottom: 6px;
+}
+
 .caption {
     flex: 0 0 auto;
     max-height: min-content;
