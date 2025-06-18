@@ -19,6 +19,7 @@ const {
     primaryImageWithThumbnail,
     primaryImageContainer,
     previewImage,
+    toolbarWrapper,
 } = require("../style/images-and-videos.module.css");
 
 interface ImagesAndVideosProps {
@@ -124,7 +125,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                             actions: { onZoomIn, onZoomOut },
                         }
                     ) => (
-                        <Space size={12}>
+                        <Space className={toolbarWrapper}>
                             <ZoomOutOutlined
                                 disabled={scale <= 1}
                                 onClick={onZoomOut}
