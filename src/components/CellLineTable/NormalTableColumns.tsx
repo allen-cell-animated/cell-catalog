@@ -94,7 +94,10 @@ export const getNormalTableColumns = (
                 <MultiLineTableCell entries={proteins} />
             ),
             sorter: (a: any, b: any) =>
-                caseInsensitiveStringCompare(a.protein, b.protein),
+                caseInsensitiveStringCompare(
+                    (a.protein ?? []).join("|"),
+                    (b.protein ?? []).join("|")
+                ),
         },
         {
             title: "Gene Symbol & Name",
@@ -125,9 +128,9 @@ export const getNormalTableColumns = (
             dataIndex: "alleleCount",
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
-            render: (alleleCount: string[]) => {
-                return alleleCount?.join(" / ");
-            },
+            render: (alleleCount: string[]) => (
+                <MultiLineTableCell entries={alleleCount} />
+            ),
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     (a.alleleCount ?? []).join("|"),
@@ -146,7 +149,10 @@ export const getNormalTableColumns = (
                 <MultiLineTableCell entries={structures} />
             ),
             sorter: (a: any, b: any) =>
-                caseInsensitiveStringCompare(a.structure, b.structure),
+                caseInsensitiveStringCompare(
+                    (a.structure ?? []).join("|"),
+                    (b.structure ?? []).join("|")
+                ),
         },
         {
             title: "Fluorescent Tag",
