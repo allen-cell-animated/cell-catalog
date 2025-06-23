@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Card, Flex, Image, Space } from "antd";
-import Icon from "@ant-design/icons";
 import { getImage, GatsbyImage, getSrc } from "gatsby-plugin-image";
 import { ParentalLineFrontmatter } from "../component-queries/types";
 import { formatCellLineId } from "../utils";
@@ -21,10 +20,7 @@ const {
     primaryImageContainer,
     previewImage,
     toolbarWrapper,
-    playButton,
 } = require("../style/images-and-videos.module.css");
-
-const Play = require("../img/play.svg");
 
 interface ImagesAndVideosProps {
     images?: any[];
@@ -65,10 +61,19 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
 
         return items;
     };
-
     const getVimeoUrl = (url: string) => {
-        if (url?.includes("player.vimeo.com")) {
-            return url;
+        let videoId = null;
+
+        const match = url.match(/vimeo\.com\/video\/(\d+)/) ||
+            url.match(/player\.vimeo\.com\/video\/(\d+)/) ||
+            url.match(/vimeo\.com\/(\d+)/);
+
+        if (match) {
+            videoId = match[1];
+        }
+
+        if (videoId) {
+            return `https://player.vimeo.com/video/${videoId}`;
         }
         return url;
     };
@@ -114,24 +119,22 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                         setSelectedMedia(item)
                         setCurrentIndex(index);
                     }}
+                    type="image"
                 />
             );
         }
 
         return (
-            <div
+            <Thumbnail
                 key={index}
-                className={`video-thumbnail ${isSelected ? "selected" : ""}`}
+                videoUrl={item.data.video}
+                isSelected={isSelected}
                 onClick={() => {
                     setSelectedMedia(item)
                     setCurrentIndex(index);
                 }}
-            >
-                <video width="80" height="60" muted>
-                    <source src={item.data.url || item.data.src} type="video/mp4" />
-                </video>
-                <Icon className={playButton} component={Play}/>
-            </div>
+                type="video"
+            />
         );
     };
 
@@ -144,7 +147,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
             <div className={titleSection}>
                 <h3 className={mainTitle}>{formatCellLineId(cellLineId)}</h3>
                 <span className={subtitle}>
-                    {parentalGeneSymbol ? 
+                    {parentalGeneSymbol ?
                         `${geneSymbol} in WTC-${fluorescentTag}-${parentalGeneSymbol} (${alleleTag}-allelic tag)` :
                         `${geneSymbol} in WTC-${fluorescentTag} (${alleleTag}-allelic tag)`
                     }
@@ -173,14 +176,14 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
 
         const vimeoUrl = getVimeoUrl(selectedMedia.data.video);
         return (
-            <>
-                <iframe
-                    src={`${vimeoUrl}?badge=0&autoplay=0&title=0`}
-                    width="400"
-                    height="400"
-                ></iframe>
-                <p>{selectedMedia.data.video?.caption}</p>
-            </>
+            <iframe
+                src={`${vimeoUrl}?badge=0&autoplay=0&title=0`}
+                style={{
+                    width: "100%",
+                    height: "100%",
+                    border: "none",
+                }}
+            ></iframe>
         );
     };
 
@@ -242,9 +245,9 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                     onClick={handleMediaClick}
                 >
                     {renderMedia()}
-                        {selectedMedia.caption && (
-                            <p className={caption}>{selectedMedia.caption}</p>
-                        )}
+                    {selectedMedia.caption && (
+                        <p className={caption}>{selectedMedia.caption}</p>
+                    )}
                 </Flex>
                 {showThumbnails && (
                     <Flex
