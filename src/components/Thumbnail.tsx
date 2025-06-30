@@ -9,28 +9,20 @@ const {
 
 interface ThumbnailProps {
     image?: IGatsbyImageData;
-    videoUrl?: string;
+    videoId?: string;
     isSelected: boolean;
     onClick: () => void;
     type?: "image" | "video";
 }
 
-const getVimeoThumbnail = (vimeoUrl: string) => {
-    const match = vimeoUrl.match(/vimeo\.com\/video\/(\d+)/) ||
-        vimeoUrl.match(/player\.vimeo\.com\/video\/(\d+)/) ||
-        vimeoUrl.match(/vimeo\.com\/(\d+)/);
-
-    if (match) {
-        const videoId = match[1];
-        return `https://vumbnail.com/${videoId}.jpg`;
-    }
-    return null;
+const getVimeoThumbnail = (videoId: string) => {
+    return `https://vumbnail.com/${videoId}.jpg`;
 };
 
 
 const Thumbnail: React.FC<ThumbnailProps> = ({
     image,
-    videoUrl,
+    videoId,
     isSelected,
     onClick,
     type = "image",
@@ -47,12 +39,13 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
                 <GatsbyImage image={image} alt="thumbnail image" />
             ) : (
                 <img
-                    src={getVimeoThumbnail(videoUrl || "") ?? ""}
+                    src={getVimeoThumbnail(videoId || "") ?? ""}
                     alt="Video thumbnail"
                     style={{
                         objectFit: "cover",
                         width: "100%",
-                        height: "100%"
+                        height: "100%",
+                        display: "block",
                     }}
                 />
             )}
