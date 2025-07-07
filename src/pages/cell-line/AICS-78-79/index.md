@@ -3,7 +3,6 @@ templateKey: cell-line
 cell_line_id: 78
 status: data complete
 date: 2025-05-06T22:19:51.710Z
-thumbnail_image: single_plane_image_cl79.jpg
 clone_number: 79
 parental_line: 0
 genetic_modifications:
@@ -20,6 +19,12 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0078-079_
 donor_plasmid: https://www.addgene.org/The_Allen_Institute_for_Cell_Science/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-55
 images_and_videos:
+  images:
+    - image: single_plane_image_cl79.jpg
+      caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing mEGFP-tagged Tom20 and mTagRFP-T-tagged alpha-tubulin. Panels show individual channels for Tom20 (left), alpha-tubulin (middle), and the overlay of the two (right).  Cells were imaged in 3D on a spinning-disk confocal microscope. Scale bar, 5μm."
+    - image: ReleaseWestern_AICS-0078_TUBULIN_TOMM20.jpg
+    - image: Main_cell_line_morphology.jpg
+      caption: "Viability and colony formation one day and three days post-thaw. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:
     - caption: Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged
         translocase of outer mitochondrial membrane 20 and mTagRFP-T-tagged

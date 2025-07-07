@@ -2,7 +2,6 @@
 templateKey: cell-line
 cell_line_id: 57
 status: released
-thumbnail_image: single_plane_image_cl50.jpg
 clone_number: 50
 parental_line: 0
 genetic_modifications:
@@ -15,6 +14,15 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0057-050_
 donor_plasmid: https://www.addgene.org/109122/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-24
 images_and_videos:
+  images:
+    - image: single_plane_image_cl50.jpg
+      caption: "Single mid-level plane of live hiPS cell colony expressing mEGFP-tagged nucleophosmin. Right panel is the same image as the left but with contrast enhanced to visualize dimmer localization in mitotic cells. Images are maximum intensity projections through the volume of the cells. Cells were imaged in 3D on a spinning-disk confocal microscope. Scale bar, 5µm. "
+    - image: Western blot documentation NPM1 final clone only_final_v2.jpg
+    - image: nucleophosmin clone 50 and AICS000 032218 FINAL v2.jpg
+    - image: Main_cell_line_morphology.jpg
+      caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
+    - image: AICS-57_NPM1-mEGFP_cl50.jpg
+    - image: AICS-58_AICS-57_full_allele_PCR_180202b.jpg
   videos:
     - video: https://player.vimeo.com/video/265789481
       caption: "Z-stack of live hiPS cell colony expressing mEGFP-tagged nucleophosmin. Cells were imaged in 3D on a spinning-disk confocal microscope. Right panel is the same image as the left but with contrast enhanced to visualize dimmer localization in mitotic cells.  Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."

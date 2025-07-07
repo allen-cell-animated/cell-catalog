@@ -2,7 +2,6 @@
 templateKey: cell-line
 cell_line_id: 24
 status: released
-thumbnail_image: single_plane_image_cl80.jpg
 clone_number: 80
 parental_line: 0
 genetic_modifications:
@@ -15,6 +14,15 @@ certificate_of_analysis: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0024_
 donor_plasmid: https://www.addgene.org/87428/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-11
 images_and_videos:
+  images:
+    - image: single_plane_image_cl80.jpg
+      caption: "Single images of a live hiPS cell colony expressing mEGFP tagged non-muscle myosin heavy chain IIB imaged on a spinning-disk confocal microscope. Left panel is a single slice near the bottom of the cell; right panel is a single slice near the top of the cell."
+    - image: AICS-24_cl80_P28_post-bank_161212_4X_scale.jpg
+      caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
+    - image: MYH10_full_allele_gel.jpg
+    - image: Western blot documentation MYH10 final clone only_final.jpg
+    - image: fullallele_gel1_MYH10.jpg
+    - image: myosin clone 80 and AICS000 031017.jpg
   videos:
     - video: https://player.vimeo.com/video/208520321
       caption: "Z-stack of live hiPS cells expressing mEGFP tagged non-muscle myosin heavy chain IIB imaged on a spinning-disk confocal microscope. Image starts at the bottom of the cells and ends at the top."

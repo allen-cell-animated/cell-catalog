@@ -2,7 +2,6 @@
 templateKey: cell-line
 cell_line_id: 74
 status: released
-thumbnail_image: single_plane_image_cl26.jpg
 clone_number: 26
 parental_line: 0
 genetic_modifications:
@@ -15,6 +14,14 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0074-026_
 donor_plasmid: https://www.addgene.org/124606/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-37
 images_and_videos:
+  images:
+    - image: single_plane_image_cl26.jpg
+      caption: "Single mid-level plane of live hiPS cell colony expressing mEGFP-tagged nucleophosmin. Right panel is the same image as the left but with contrast enhanced to visualize dimmer localization in mitotic cells. Images are maximum intensity projections through the volume of the cells. Cells were imaged in 3D on a spinning-disk confocal microscope. Scale bar, 5µm. "
+    - image: SOX2_clone26_andAICS0_20190319_v2.jpg
+    - image: Website_fullAllele_AICS-74.jpg
+    - image: Main_cell_line_morphology.jpg
+      caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
+    - image: Western blot documentation SOX2 final clone only_20190307.jpg
   videos:
     - video: https://player.vimeo.com/video/333850495
       caption: "Z-stack of live hiPS cell colony expressing mEGFP-tagged transcription factor SOX-2 protein. Cells were imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5 µm."

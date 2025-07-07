@@ -2,7 +2,6 @@
 templateKey: cell-line
 cell_line_id: 59
 status: released
-thumbnail_image: single_plane_image_cl36.jpg
 clone_number: 36
 parental_line: 0
 genetic_modifications:
@@ -19,6 +18,14 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0059-036_
 donor_plasmid: https://www.addgene.org/The_Allen_Institute_for_Cell_Science/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-33
 images_and_videos:
+  images:
+    - image: single_plane_image_cl36.jpg
+      caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing mEGFP-tagged Sec61 beta and mTagRFP-T-tagged lamin B1. Panels show individual channels for Sec61 beta (left) and lamin B1 (middle) and the overlay of the two (right). Imaged region captures cells at different stages of the cell cycle to highlight cell cycle-dependent variation in co-localization of Sec61 beta and Lamin B1. Cells were imaged in 3D on a spinning-disk confocal microscope. Scale bar, 5 µm. "
+    - image: AICS-59DualSec-LMNB1cl.jpg
+    - image: Western blot documentation SEC61B_LMNB1 final clone only_final.jpg
+    - image: SEC61B_LMNB1_dual_clone36_20181213.jpg
+    - image: Main_cell_line_morphology.jpg
+      caption: "Viability and colony formation photographed 4 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:
     - video: https://player.vimeo.com/video/307597511
       caption: "Z-stack of a live hiPS cell colony expressing mEGFP-tagged Sec61 beta and mTagRFP-T-tagged lamin B1. Panels show individual channels for Sec61 beta (left) and lamin B1 (middle) and the overlay of the two (right). Cells were imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."

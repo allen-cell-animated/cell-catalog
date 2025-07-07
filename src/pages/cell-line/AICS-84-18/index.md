@@ -2,7 +2,6 @@
 templateKey: cell-line
 cell_line_id: 84
 status: released
-thumbnail_image: single_plane_image_cl18.jpg
 clone_number: 18
 parental_line: 0
 genetic_modifications:
@@ -19,6 +18,13 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0084-018_
 donor_plasmid: https://www.addgene.org/The_Allen_Institute_for_Cell_Science/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-38
 images_and_videos:
+  images:
+    - image: single_plane_image_cl18.jpg
+      caption: "Single mid-level plane of live hiPS cell colony expressing mEGFP-tagged nucleophosmin. Right panel is the same image as the left but with contrast enhanced to visualize dimmer localization in mitotic cells. Images are maximum intensity projections through the volume of the cells. Cells were imaged in 3D on a spinning-disk confocal microscope. Scale bar, 5µm. "
+    - image: Western blot documentation FBL_NPM1 final clone only_final_20190306_edited_20190416_final.jpg
+    - image: FBL_NPM1_clone18_andAICS0_20190319_v2.jpg
+    - image: Main_cell_line_morphology.jpg
+      caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:
     - video: https://player.vimeo.com/video/333852568
       caption: "Z-stack of live hiPS cell colony expressing mEGFP-tagged fibrillarin and mTagRFP-T-tagged nucleophosmin. Panels show individual channels for fibrillarin (left) and nucleophosmin (middle) and the overlay of the two (right). Cells were imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."

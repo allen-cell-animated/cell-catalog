@@ -3,7 +3,6 @@ templateKey: cell-line
 cell_line_id: 90
 status: data complete
 date: 2025-05-06T20:24:44.576Z
-thumbnail_image: single_plane_image_cl391.jpg
 clone_number: 391
 parental_line: 0
 genetic_modifications:
@@ -16,6 +15,12 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0090-391_
 donor_plasmid: https://www.addgene.org/127968/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-45
 images_and_videos:
+  images:
+    - image: single_plane_image_cl391.jpg
+      caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing TagBFP-tagged dCas9-KRAB. TagBFP-tagged dCas9-KRAB (left) and overlay onto transmitted light image (right) are shown. Cells were imaged in 3D on a spinning-disk confocal microscope. Scale bar, 50 μm."
+    - image: WesternRelease_AICS-0090_dCas9-KRAB.jpg
+    - image: Main_cell_line_morphology.jpg
+      caption: "Viability and colony formation one day and three days post-thaw. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:
     - video: https://vimeo.com/1079587233/6ede024c61?ts=0&share=copy
       caption: Z-stack of live hiPS cell colony expressing TagBFP-tagged dCas9-KRAB.
