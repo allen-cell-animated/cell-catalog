@@ -128,9 +128,9 @@ export const getNormalTableColumns = (
             dataIndex: "alleleCount",
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
-            render: (alleleCount: string[]) => {
-                return alleleCount?.join(" / ");
-            },
+            render: (alleleCount: string[]) => (
+                <MultiLineTableCell entries={alleleCount} />
+            ),
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     (a.alleleCount ?? []).join("|"),
