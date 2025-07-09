@@ -6,7 +6,7 @@ main:
   description: Data for our lines will be added to this page in a user-friendly
     format later this year. In the meantime, access a large selection of QC and
     other data via the Certificate of Analysis associated with each line.
-  subheading: Updated User Experience Coming Soon!
+  subheading: ""
 coriell_image: /img/coriell.png
 coriell_link: https://www.coriell.org/1/AllenCellCollection
 footer_text: All cell lines were originally generated using the WTC-11 hiPS cell
