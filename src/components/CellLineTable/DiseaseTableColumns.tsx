@@ -27,7 +27,8 @@ const {
 } = require("../../style/table.module.css");
 
 export const getDiseaseTableColumns = (
-    inProgress: boolean
+    inProgress: boolean,
+    suppressRowClickRef: React.MutableRefObject<boolean>
 ): CellLineColumns<UnpackedDiseaseCellLine> => {
     const columns = [
         { ...cellLineIdColumn },
@@ -78,6 +79,7 @@ export const getDiseaseTableColumns = (
                 return (
                     <ParentalLineModal
                         key={parentalLine.cellLineId}
+                        suppressRowClickRef={suppressRowClickRef}
                         formattedId={formatCellLineId(parentalLine.cellLineId)}
                         cloneNumber={parentalLine.cloneNumber}
                         image={parentalLine.thumbnailImage}
