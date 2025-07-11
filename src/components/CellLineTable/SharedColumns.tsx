@@ -17,6 +17,7 @@ const {
     actionColumn,
     actionButton,
     tubeIcon,
+    certIcon,
     idHeader,
     thumbnailContainer,
 } = require("../../style/table.module.css");
@@ -72,6 +73,7 @@ export const certificateOfAnalysisColumn = {
                 >
                     <Flex>
                         <Icon
+                            className={certIcon}
                             component={CertificateIcon}
                             style={{
                                 color: WHITE,

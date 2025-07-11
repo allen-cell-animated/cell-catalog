@@ -96,6 +96,12 @@
     stroke: var(--WHITE);
 }
 
+.action-column:hover .action-button .cert-icon path,
+.action-column:hover .action-button .cert-icon line {
+    fill: var(--primary-color);
+    stroke: var(--WHITE);
+}
+
 .action-column:hover .plasmid-icon path {
     fill: var(--WHITE);
 }
