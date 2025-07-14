@@ -17,7 +17,6 @@ images_and_videos:
   images:
     - image: single_plane_image_cl115.jpg
       caption: "mEGFP-tagged PMP34 protein localization in an hiPSC colony. Image is a single, central z-slice from a 3D spinning disk confocal z-stack of a live hiPSC colony. "
-    - image: new_PMP34_and_AICS0_transient_transfections.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:

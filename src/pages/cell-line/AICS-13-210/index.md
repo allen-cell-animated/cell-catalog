@@ -17,13 +17,8 @@ images_and_videos:
   images:
     - image: single_plane_image_cl210.jpg
       caption: "Single image of a live hiPSC colony expressing LaminB1-mEGFP. Image is a maximum intensity projection of a spinning-disk confocal z-stack."
-    - image: LMNB1_full_allele.jpg
-    - image: StemCellCharacterization_karyotype.jpg
-    - image: LaminB1_clone210_AICS000_122016.jpg
-    - image: Western_blot.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: GenomicCharacterization_tagged_allele_gel.jpg
   videos:
     - video: https://player.vimeo.com/video/198393246
       caption: "Z-stack of live hiPSC cells expressing LaminB1-mEGFP imaged on a spinning-disk confocal microscope. Image starts at the bottom of the cells and ends at the top."

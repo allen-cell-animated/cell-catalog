@@ -20,8 +20,6 @@ images_and_videos:
       caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing mEGFP-tagged EZH2. Cells were imaged in 3D on a spinning-disk confocal microscope and are shown here with the despeckle ImageJ filter applied. Scale bar, 50μm"
     - image: AICS-95_cl18_EZH2_final.jpg
       caption: "Viability and colony formation one day and three days post-thaw. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: IFRelease_AICS-0095_EZH2-mEGFP.jpg
-    - image: WesternRelease_AICS-0095_EZH2-mEGFP.jpg
   videos:
     - caption: Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged EZH2.
         Cells were imaged in 3D on a spinning-disk confocal microscope every 3

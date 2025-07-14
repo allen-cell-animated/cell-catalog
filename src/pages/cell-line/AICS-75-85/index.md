@@ -17,7 +17,6 @@ images_and_videos:
   images:
     - image: single_plane_image_cl85.jpg
       caption: "Single, mid-level plane of live hiPSC-derived cardiomyocytes expressing mEGFP-tagged alpha-actinin-2 protein. Inset shows 2.5x enlargement of boxed region to show myofilament detail. Twelve days after the onset of differentiation, cells were plated on PEI and laminin coated glass and imaged in 3D on a spinning-disk confocal microscope 7 days later (19 days total after the onset of differentiation). Scale bar, 20μm"
-    - image: ACTN2_clone85_and_AICS0000.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation post-thaw. a-d: Crater-like morphology is rare post-thaw (∼1% of population). e-f: Morphology worsens the first few passages post-thaw when seeding at 1.2M/10cm dish for three days and 650K cells/10cm dish for four days. e: Craters can be seen in >10% of colonies, and optimal confluence is not reached in three days of growth. f: Lower density seeding for four days of growth improves morphology (fewer craters, better packing) and confluence. Colony morphology and craters resolve with continued passaging and become comparable to those observed post-thaw as shown in c and d. Scale bars are as shown."
   videos:

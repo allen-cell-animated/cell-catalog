@@ -19,8 +19,6 @@ images_and_videos:
       caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing mEGFP-tagged SON. Cells were imaged in 3Don a spinning-disk confocal microscope. Scale bar, 5μm."
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation one day and three days post-thaw. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: ReleaseWestern_AICS0094_cl024_20190801_SON_EGFP_final.jpg
-    - image: AICS94_SON_immuno_20200327_v2.jpg
   videos:
     - video: https://player.vimeo.com/video/442186399
       caption: "Z-stack of live hiPS cell colony expressing mEGFP-tagged SON. Cells were imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."

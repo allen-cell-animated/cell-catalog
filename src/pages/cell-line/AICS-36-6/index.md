@@ -17,11 +17,7 @@ images_and_videos:
   images:
     - image: single_plane_image_cl6.jpg
       caption: "Localization of mEGFP expressed from a safe harbor locus in hiPSC colony. mEGFP localizes to the cytoplasm and nucleus. Spaces between cells appear dark. Weaker intensity is observed in the nucleolus within the nucleus. The bright spots are dead cells on top of the colony. Some variation in intensity levels is seen between cells. Image is a maximum intensity projection of a 3D spinning disk confocal z-stack of a live hiPSC colony. "
-    - image: single_plane_image_cl28.jpg
-    - image: Western blot documentation AAVS1 backup clone only_final.jpg
-    - image: Western blot documentation AAVS1 final clone only_final.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: Main_cell_line_morphology_cl28.jpg
   videos:
 ---

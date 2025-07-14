@@ -27,8 +27,6 @@ images_and_videos:
       caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing mEGFP-tagged fibrillarin, mTagRFP-T-taggednucleophosmin, and TagBFP-tagged dCas9-KRAB. Panels show individual channels for fibrillarin, nucleophosmin, the overlayof the two, and dCas9-KRAB (clockwise from the top left). Cells were imaged in 3D on a spinning-disk confocal microscope.Scale bar, 5μm."
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation one day and three days post-thaw. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: ReleaseWestern_AICS0089_cl061_20190822 Nucleolus_Triple_dcas9-KRAB_final.jpg
-    - image: AICS89_clone61_immuno_20200403_v5.jpg
   videos:
     - video: https://player.vimeo.com/video/442183009
       caption: "Z-stack of live hiPS cell colony expressing mEGFP-tagged fibrillarin, mTagRFP-T-tagged nucleophosmin, and TagBFP-tagged dCas9-KRAB. Panels show individual channels for fibrillarin, nucleophosmin, and the overlay of the two (left to right). TagBFP-tagged dCas9-KRAB is not shown here because it was used to identify dCas9-KRAB expressing cells and not to highlight a structure (see single z-slice image for its expression pattern). Cells were imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."

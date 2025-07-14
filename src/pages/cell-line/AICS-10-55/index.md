@@ -17,12 +17,8 @@ images_and_videos:
   images:
     - image: single_plane_image_cl55.jpg
       caption: "hiPS cell colony expressing mEGFP tagged Sec61-beta imaged on a spinning-disk confocal microscope. Left panel is a single slice near the bottom of the cell; right panel is a single slice near the middle of the cell."
-    - image: fullallele_gel_SEC61B.jpg
-    - image: Sec61B clone 55 and AICS000 03092017.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: SEC61B_full_allele_gel.jpg
-    - image: Western blot documentation SEC61B final clone only_final.jpg
   videos:
     - video: https://player.vimeo.com/video/208529069
       caption: "Z-stack of live hiPS cells expressing mEGFP tagged Sec61-beta imaged on a spinning-disk confocal microscope. Image starts at the bottom of the cells and ends at the top."

@@ -17,8 +17,6 @@ images_and_videos:
   images:
     - image: single_plane_image_cl91.jpg
       caption: "Single-planes of live hiPS cell colony expressing the CAAX domain of K-Ras tagged with mEGFP expressed from a safe harbor locus. Z-planes shown are at the bottom (left), middle (middle) and top (right) of cells. Cells were imaged in 3D on a spinning-disk confocal microscope. Scale bar, 5µm. "
-    - image: CAAX and AICS0 dye v2.jpg
-    - image: Western blot documentation CAAX-mTagRFP-T (plasma membrane) final clone only_final_v2.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:

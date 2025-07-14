@@ -15,16 +15,10 @@ donor_plasmid: https://www.addgene.org/107579/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-21
 images_and_videos:
   images:
-    - image: single_plane_image_cl13.jpg
     - image: single_plane_image_cl35.jpg
       caption: "mEGFP-tagged RAB5A protein localization in an hiPSC colony. Image is a single, central z-slice from a 3D spinning disk confocal z-stack of a live hiPSC colony. "
-    - image: GenomicCharacterization_tagged_allele_gel_cl35.jpg
     - image: Main_cell_line_morphology_cl35.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: RAB5A_cl35_and_AICS0_transient_transfections.jpg
-    - image: RAB5A_cl13_and_AICS0_transient_transfections.jpg
-    - image: Main_cell_line_morphology_cl13.jpg
-    - image: GenomicCharacterization_tagged_allele_gel_cl13.jpg
   videos:
     - video: https://player.vimeo.com/video/253351513
       caption: "Z-stack of live hiPS cell colony expressing two copies (biallelic) of mEGFP-tagged Ras-related protein Rab-5A imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."

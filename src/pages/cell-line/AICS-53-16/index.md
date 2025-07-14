@@ -17,10 +17,8 @@ images_and_videos:
   images:
     - image: single_plane_image_cl16.jpg
       caption: "Single-plane of live hiPS cell colony expressing mEGFP-tagged GJA1 near the top of cells. Left: Contrast optimized to view connexin at apical cell-cell junctions. Right: The same image with contrast enhanced to show intracellular localization of connexin. Cells were imaged in 3D on a spinning-disk confocal microscope. Scale bar, 5µm. "
-    - image: Western blot documentation GJA1 final clone only_final_v2.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: GJA1 clone 16 and AICS000 01302018 FINAL v2.jpg
   videos:
     - video: https://player.vimeo.com/video/265782337
       caption: "Z-stack of live hiPS cell colony expressing mEGFP-tagged connexin-43. Cells were imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."

@@ -19,7 +19,6 @@ images_and_videos:
       caption: "mEGFP-tagged autophagy-related protein LC3 B localization in an hiPSC colony. Image is a single slice of a 3Dspinning disk confocal z-stack of a live hiPSC colony in the bottom half of the cells. Both untreated cells (left panel) andcells treated for 24 hours with 800nM leupeptin to visualize autophagosomes (right panel) are shown."
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: GenomicCharacterization_tagged_allele_gel.jpg
   videos:
     - video: https://player.vimeo.com/video/253348710
       caption: "Z-stacks of live hiPS cell colony expressing mEGFP-tagged autophagy-related protein LC3 B in the absence (stack on the left) and presence of 800 nM leupeptin (stack on the right). Cells were imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."

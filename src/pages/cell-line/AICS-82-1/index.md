@@ -18,8 +18,6 @@ images_and_videos:
   images:
     - image: single_plane_image_cl1.jpg
       caption: "hiPS cells expressing mEGFP-tagged Ras GTPase-activating protein-binding protein 1 (G3BP-1) in control cells (left panel; single mid-level plane) and in cells treated with 62.5 μM sodium arsenite for 60 minutes (right panel; maximum intensity z-projection). Cells were imaged live in 3D on a spinning-disk confocal microscope. Scale bar, 5 μm."
-    - image: ReleaseWestern_AICS-0082_G2BP1-mEGFP.jpg
-    - image: ReleaseIF_AICS-0082_G2BP1-mEGFP.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation one day and three days post-thaw. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:

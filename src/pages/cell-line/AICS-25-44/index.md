@@ -15,15 +15,10 @@ donor_plasmid: https://www.addgene.org/101786/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-15
 images_and_videos:
   images:
-    - image: single_plane_image_cl1.jpg
     - image: single_plane_image_cl44.jpg
       caption: "Single image of a live hiPS cell colony expressing two copies (biallelic) of mEGFP tagged sialyltransferase 1 (ST6GAL 1) imaged on a spinning-disk confocal microscope. Image is a maximum intensity projection of a 3D z-stack. "
-    - image: Final_AICS-25_c1_p35_d3_post-bank_thaw_normal_4x_crater.jpg
-    - image: Western blot documentation ST6GAL1 44 (b).jpg
     - image: Final_AICS-25_c44_p30_d3_post-bank_thaw_4x.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: Western blot documentation ST6GAL1 1 (m).jpg
-    - image: ST6GAL1_cl1_full_allele_gel.jpg
   videos:
     - video: https://player.vimeo.com/video/229764891
       caption: "Z-stack of live hiPS cells expressing two copies (biallelic) of mEGFP tagged sialyltransferase 1 (ST6GAL 1) imaged on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top."

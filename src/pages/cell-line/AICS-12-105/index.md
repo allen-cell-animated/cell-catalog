@@ -17,14 +17,8 @@ images_and_videos:
   images:
     - image: single_plane_image_cl105.jpg
       caption: "Single image of a live hiPSC colony expressing alpha-tubulin-mEGFP imaged on a spinning-disk confocal microscope. Image is a single slice taken in the middle of the z-stack."
-    - image: TUBA1B_full_allele.jpg
-    - image: Tubulin clone 105 and AICS000 122016_01.jpg
-    - image: StemCellCharacterization_karyotype.jpg
-    - image: Western blot documentation  TUBA1B final clone only_final_01.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: GenomicCharacterization_tagged_allele_gel.jpg
-    - image: Validation_Immunofluorescence.jpg
   videos:
     - video: https://player.vimeo.com/video/198391203
       caption: "Z-stack of live hiPSC cells expressing alpha-tubulin-mEGFP imaged on a spinning-disk confocal microscope. Image starts at the bottom of the cells and ends at the top."

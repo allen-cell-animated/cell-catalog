@@ -17,10 +17,8 @@ images_and_videos:
   images:
     - image: single_plane_image_cl19.jpg
       caption: "Single image of a live hiPS cell colony expressing mTagRFP-T tagged centrin-2 imaged on a spinning-disk confocal microscope. Left image is a maximum intensity projection of a 3D z-stack. Right image shows centrin (red) overlaid with DNA (Hoechst, blue). "
-    - image: CETN2_full_allele_gel.jpg
     - image: Final_170421_AICS-32_cl19_d3_4X-1.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: Centrin clone 19 and AICS000 new.jpg
   videos:
     - video: https://player.vimeo.com/video/229763183
       caption: "Z-stack of live hiPS cells expressing mTagRFP-T tagged centrin-2 imaged on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top."

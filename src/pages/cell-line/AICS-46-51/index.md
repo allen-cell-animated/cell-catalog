@@ -17,12 +17,8 @@ images_and_videos:
   images:
     - image: single_plane_image_cl51.jpg
       caption: "Left: Single, mid-level plane of cells in a live hiPS cell colony expressing mEGFP-tagged SERCA2 protein. Cells were imaged four days after plating on Matrigel-coated glass as described in methods at www.allencell.org. Scale bar, 5 µm. Right: Single, near-bottom plane of hiPSC-derived cardiomyocytes expressing mEGFP-tagged SERCA2 protein.Twelve days after the onset of differentiation, cells were plated on PEI and laminin coated glass and imaged 29 days later (41 days total after the onset of differentiation). Inset shows detail of SERCA2 in longitudinal sarcoplasmic reticulum (SR). Scale bars, 10 µm. Cells were imaged in 3D on a spinning-disk confocal microscope. "
-    - image: AICS-46_ATP2A2-mEGFP_Full_Allele.jpg
-    - image: serca2_clone51_and_AICS0000.jpg
-    - image: AICS-46_c51_ATP2A2_karyotype.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: Western_blot_documentation_ATP2A2_final_clone_only_final.jpg
   videos:
     - video: https://player.vimeo.com/video/287833146
       caption: "Z-stack of live hiPSC-derived cardiomyocytes expressing mEGFP-tagged SERCA2 protein. Twelve days after the onset of differentiation, cells were plated on PEI and laminin coated glass and imaged in 3D on a spinning disk confocal microscope 29 days later (41 days total after the onset of differentiation). Cells were treated with 15 mM of the myosin inhibitor 2,3-Butanedione monoxime (BDM) to prevent beating during image acquisition. Movie starts at the bottom of the cells and ends at the top. Inset shows detail of SERCA2 in longitudinal sarcoplasmic reticulum (SR). Scale bars, 10 µm."

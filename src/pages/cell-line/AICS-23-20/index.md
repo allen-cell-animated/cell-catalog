@@ -17,14 +17,8 @@ images_and_videos:
   images:
     - image: single_plane_image_cl20.jpg
       caption: "Single image of a live hiPS cell colony expressing mEGFP tagged tight junction protein ZO-1 imaged on a spinning-disk confocal microscope. Image is a maximum intensity projection of a 3D z-stack."
-    - image: TJP1_full_allele_gel.jpg
-    - image: TJP1 clone 20 and AICS000 031017_2024v2.jpg
-    - image: Western blot documentation TJP1 final clone only_final_2024v2.jpg
-    - image: TJP1 clone 20 and AICS000 031017.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: fullallele_gel1_TJP1.jpg
-    - image: Western blot documentation TJP1 final clone only_final.jpg
   videos:
     - video: https://player.vimeo.com/video/208510859
       caption: "Z-stack of live hiPS cells expressing mEGFP tagged tight junction protein ZO-1 imaged on a spinning-disk confocal microscope. Image starts at the bottom of the cells and ends at the top."

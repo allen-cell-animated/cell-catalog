@@ -17,12 +17,8 @@ images_and_videos:
   images:
     - image: single_plane_image_cl36.jpg
       caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing mEGFP-tagged Histone H2B type 1-J protein. The cells in the imaged region highlight cell-cycle-dependent changes in localization. The large dim regions within nuclei likely represent nucleoli. Cells were imaged in 3D on a spinning-disk confocal microscope. Scale bar, 5 µm."
-    - image: AICS-61 H2B-mEGFP cl36_karyo_image.jpg
-    - image: H2B_clone36_and_AICS0000.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: Western_blot_documentation_H2B_final_clone_only_final_commentsIAM_CCH.jpg
-    - image: AICS-61_cl36_71 Full Allele redo_edited.jpg
   videos:
     - video: https://player.vimeo.com/video/287833505
       caption: " Z-stack of live hiPS cell colony expressing mEGFP-tagged Histone H2B type 1-J protein. Cells were imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."

@@ -18,8 +18,6 @@ images_and_videos:
   images:
     - image: single_plane_image_cl74.jpg
       caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing mEGFP-tagged RPB1. Cells were imaged in 3D on a spinning-disk confocal microscope. Scale bar, 50μm"
-    - image: ReleaseWestern_AICS-0096_POLR2A.jpg
-    - image: ReleaseIF_AICS-0096_POLR2A.jpg
     - image: AICS-96_cl74_POLR2A_final.jpg
       caption: "Viability and colony formation one day and three days post-thaw. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:

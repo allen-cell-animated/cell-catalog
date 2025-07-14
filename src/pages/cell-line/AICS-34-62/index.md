@@ -17,8 +17,6 @@ images_and_videos:
   images:
     - image: single_plane_image_cl62.jpg
       caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing mTagRFP-T-tagged lamin B1. Cells wereimaged in 3D on a spinning-disk confocal microscope. Scale bar, 5μm."
-    - image: AICS34_LMNB1_immuno_20190106_v2.jpg
-    - image: ReleaseWestern_AICS0034_cl062_20191119_LMNB1_RFP_final.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation one day and three days post-thaw. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:

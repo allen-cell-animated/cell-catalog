@@ -17,12 +17,8 @@ images_and_videos:
   images:
     - image: single_plane_image_cl88.jpg
       caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing mEGFP-tagged Nucleoporin Nup153 protein. Cells were imaged in 3D on a spinning-disk confocal microscope. Inset depicts the bottom z-section of the boxed cell to show localization of Nucleoporin Nup153 protein across the surface of the nuclear envelope. Scale bar, 5 µm."
-    - image: AICS-69_c88_NUP153_Karyotype.jpg
-    - image: Western_blot_documentation_NUP153_final_clone_only_final.jpg
-    - image: AICS-69_NUP153_FullAllele.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: final _NUP153 clone 88 and AICS000 20180822.jpg
   videos:
     - video: https://player.vimeo.com/video/287833994
       caption: "Z-stack of live hiPS cell colony expressing mEGFP-tagged Nucleoporin Nup153 protein. Cells were imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."

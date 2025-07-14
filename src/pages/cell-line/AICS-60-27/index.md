@@ -17,8 +17,6 @@ images_and_videos:
   images:
     - image: single_plane_image_cl27.jpg
       caption: "Single, mid-level plane of live hiPSC-derived cardiomyocytes expressing mEGFP-tagged MLC-2v protein. Representative high-expressing, relatively mature cell is shown surrounded by more immature cells with lower expression levels (the culture contains cells of varying levels of maturity). Twelve days after the onset of differentiation, cells were plated on PEI and laminin coated glass and imaged in 3D on a spinning disk confocal microscope 47 days later (59 days total after the onset of differentiation). Scale bars, 10 μm."
-    - image: cl27_67_68_70_all_junctions_crop.jpg
-    - image: MYL2_cl_27_karyotype.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:

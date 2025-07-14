@@ -17,8 +17,6 @@ images_and_videos:
   images:
     - image: single_plane_image_cl35.jpg
       caption: "Single image of a live hiPS cell colony expressing mTagRFP-T tagged alpha-tubulin imaged on a spinning-disk confocal microscope. Image is a single slice from a 3D z-stack in the top half of the cell"
-    - image: tubulin mTagRFPt_cl35 - FINAL 081417.jpg
-    - image: Western blot documentation TUBA1B-RFPt final clone only_final.jpg
     - image: Final_AICS_31_TUBA1B_mTAG__cl35_4x_Phase_D3.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:

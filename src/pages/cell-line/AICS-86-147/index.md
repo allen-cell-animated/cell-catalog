@@ -25,8 +25,6 @@ images_and_videos:
   images:
     - image: single_plane_image_cl147.jpg
       caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing mEGFP-tagged fibrillarin, mTagRFP-T-tagged nucleophosmin, and HaloTag-tagged nucleolar transcription factor UBF visualized with ligand Janelia Fluor 646 (Promega). Panels show individual channels for fibrillarin, nucleolar transcription factor UBF, nucleophosmin, and an overlay of the three (counterclockwise from top right). Cells were imaged in 3D on a spinning-disk confocal microscope. Scale bar, 5μm."
-    - image: ReleaseWestern_AICS0086_cl147_20190822_Nucleolus_Triple_UBF_final.jpg
-    - image: AICS86_tripleUBTF_immuno_20200403_v5.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation one day (a,b) and four days post-thaw (c,d). Flattened, loosely packed cells around colony edges were observed (Fig. 4c, d; see arrows) in many mature stem cell colonies on day 4 post thaw, which is suboptimal. Small clump passaging with Versene improved the colony morphology after 4 passages (Fig. 4e, f; see arrows)."
   videos:

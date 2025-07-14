@@ -17,7 +17,6 @@ images_and_videos:
   images:
     - image: single_plane_image_cl172.jpg
       caption: "Single mid-level plane of live hiPSC-derived cardiomyocytes expressing mEGFP-tagged troponin I, slow skeletal. Twelve days after the onset of differentiation, cells were plated on PEI and laminin coated glass and imaged 15 days later on a spinning-disk confocal microscope (27 days total after the onset of differentiation). Scale bar, 10µm."
-    - image: troponinI_clone172_and_AICS0000_20180329_final.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:

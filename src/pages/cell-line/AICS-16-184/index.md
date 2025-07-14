@@ -17,11 +17,8 @@ images_and_videos:
   images:
     - image: single_plane_image_cl184.jpg
       caption: "Single images of a live hiPS cell colony expressing mEGFP tagged beta-actin imaged on a spinning-disk confocal microscope. Left panel is a single slice near the bottom of the cell; right panel is a single slice near the top of the cell"
-    - image: Western blot documentation ACTB final clone only_final.jpg
-    - image: Beta actin clone 184 and AICS000 012017.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: ACTB_full_allele_gel.jpg
   videos:
     - video: https://player.vimeo.com/video/208518520
       caption: "Z-stack of live hiPS cells expressing mEGFP tagged beta-actin imaged on a spinning-disk confocal microscope. Image starts at the bottom of the cells and ends at the top."

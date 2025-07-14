@@ -17,15 +17,8 @@ images_and_videos:
   images:
     - image: single_plane_image_cl65.jpg
       caption: "Single image of a live hiPSC colony expressing Desmoplakin-mEGFP imaged on a spinning-disk confocal microscope. Left panel is a maximum intensity projection of the z-stack; right panel is this same projection overlaid onto one slice of the same z-stack in the transmitted light channel."
-    - image: desmoplakin 122016_01.jpg
-    - image: WesternBlot.jpg
-    - image: StemCellCharacterization_karyotype.jpg
-    - image: Western blot documentation DSP final clone only_final_01.jpg
-    - image: desmoplakin122016.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: DSP_full_allele.jpg
-    - image: GenomicCharacterization_tagged_allele_gel.jpg
   videos:
     - video: https://player.vimeo.com/video/198394689
       caption: "Z-stack of a live hiPSC colony expressing Desmoplakin-mEGFP imaged on a spinning-disk confocal microscope. Left panel is a maximum intensity projection of the z-stack; right panel is this same projection overlaid onto one slice of the same z-stack in the transmitted light channel."

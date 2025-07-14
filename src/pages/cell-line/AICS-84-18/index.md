@@ -21,8 +21,6 @@ images_and_videos:
   images:
     - image: single_plane_image_cl18.jpg
       caption: "Single mid-level plane of live hiPS cell colony expressing mEGFP-tagged nucleophosmin. Right panel is the same image as the left but with contrast enhanced to visualize dimmer localization in mitotic cells. Images are maximum intensity projections through the volume of the cells. Cells were imaged in 3D on a spinning-disk confocal microscope. Scale bar, 5µm. "
-    - image: Western blot documentation FBL_NPM1 final clone only_final_20190306_edited_20190416_final.jpg
-    - image: FBL_NPM1_clone18_andAICS0_20190319_v2.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:

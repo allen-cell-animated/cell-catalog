@@ -17,12 +17,8 @@ images_and_videos:
   images:
     - image: single_plane_image_cl6.jpg
       caption: "Single image of a live hiPS cell colony expressing mEGFP tagged fibrillarin imaged on a spinning-disk confocal microscope. Image is a maximum intensity projection of a 3D z-stack."
-    - image: FBL_full_allele_gel.jpg
-    - image: fullallele_gel2_FBL.jpg
-    - image: Western blot documentation FBL final clone only_final.jpg
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
-    - image: Fibrillarin clone 6 and AICS000 031417.jpg
   videos:
     - video: https://player.vimeo.com/video/208515812
       caption: "Z-stack of live hiPS cells expressing mEGFP tagged fibrillarin imaged on a spinning-disk confocal microscope. Image starts at the bottom of the cells and ends at the top."
