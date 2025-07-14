@@ -1,0 +1,11 @@
+.container {
+    border: 1px black solid;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 6px;
+}
+
+.section {
+    border: 1px blue solid;
+    padding: 6px;
+}
