@@ -73,7 +73,7 @@ export const convertFrontmatterToDiseaseCellLine = (
         parentalLine: {
             thumbnailImage:
                 cellLineNode.frontmatter.parental_line.frontmatter
-                    .thumbnail_image,
+                    .images_and_videos?.images?.[0]?.image?.childImageSharp?.gatsbyImageData || null,
             cellLineId:
                 cellLineNode.frontmatter.parental_line.frontmatter.cell_line_id,
             cloneNumber:
@@ -122,7 +122,7 @@ export const convertFrontmatterToNormalCellLines = ({
         orderLink: cellLineNode.frontmatter.order_link,
         orderPlasmid: cellLineNode.frontmatter.donor_plasmid,
         thumbnailImage:
-            cellLineNode.frontmatter.thumbnail_image?.childImageSharp
+            cellLineNode.frontmatter.images_and_videos?.images?.[0]?.image?.childImageSharp
                 ?.gatsbyImageData || null,
     };
 };
