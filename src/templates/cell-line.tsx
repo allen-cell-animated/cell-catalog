@@ -13,7 +13,16 @@ interface QueryResult {
                 gene: string[];
                 genetic_modifications?: GeneticModification[];
                 status: string;
-                thumbnail_image: any;
+                images_and_videos?: {
+                    images: {
+                        image: {
+                            childImageSharp: {
+                                gatsbyImageData: any;
+                            };
+                        };
+                        caption: string;
+                    }[];
+                };
             };
         };
     };
@@ -70,7 +79,7 @@ const CellLine = ({ data }: QueryResult) => {
                 cloneNumber={cellLine.frontmatter.clone_number}
                 geneticModifications={cellLine.frontmatter.genetic_modifications}
                 status={cellLine.frontmatter.status}
-                thumbnail={cellLine.frontmatter.thumbnail_image}
+                thumbnail={cellLine.frontmatter.images_and_videos?.images[0]?.image?.childImageSharp?.gatsbyImageData}
             />
         </Layout>
     );
@@ -95,9 +104,17 @@ export const pageQuery = graphql`
                     tag_location
                 }
                 status
-                thumbnail_image {
-                    childImageSharp {
-                        gatsbyImageData(width: 200, placeholder: BLURRED)
+                images_and_videos {
+                    images {
+                        image {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    placeholder: BLURRED
+                                    layout: CONSTRAINED
+                                )
+                            }
+                        }
+                        caption
                     }
                 }
             }

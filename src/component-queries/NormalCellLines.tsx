@@ -94,12 +94,17 @@ export default function NormalCellLines() {
                                     status
                                     order_link
                                     donor_plasmid
-                                    thumbnail_image {
-                                        childImageSharp {
-                                            gatsbyImageData(
-                                                placeholder: BLURRED
-                                                width: 164
-                                            )
+                                    images_and_videos {
+                                        images {
+                                            image {
+                                                childImageSharp {
+                                                    gatsbyImageData(
+                                                        placeholder: BLURRED
+                                                        layout: CONSTRAINED
+                                                    )
+                                                }
+                                            }
+                                            caption
                                         }
                                     }
                                     genetic_modifications {

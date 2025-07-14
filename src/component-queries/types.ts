@@ -25,7 +25,12 @@ export interface GeneticModification {
 export interface ParentalLineFrontmatter {
     cell_line_id: number;
     clone_number: number;
-    thumbnail_image: any;
+    images_and_videos?: {
+        images: {
+            image: any;
+            caption: string;
+        }[];
+    };
     genetic_modifications?: GeneticModification[];
     tagged_gene: {
         frontmatter: GeneFrontMatter;
@@ -49,7 +54,12 @@ export interface NormalCellLineFrontmatter {
     tag_location: string[];
     fluorescent_tag: string[];
     donor_plasmid: string;
-    thumbnail_image: FileNode;
+    images_and_videos?: {
+        images: {
+            image: FileNode;
+            caption: string;
+        }[];
+    };
     parental_line: {
         frontmatter: {
             name: string;
