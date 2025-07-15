@@ -25,12 +25,6 @@ export interface GeneticModification {
 export interface ParentalLineFrontmatter {
     cell_line_id: number;
     clone_number: number;
-    images_and_videos?: {
-        images: {
-            image: any;
-            caption: string;
-        }[];
-    };
     genetic_modifications?: GeneticModification[];
     tagged_gene: {
         frontmatter: GeneFrontMatter;
