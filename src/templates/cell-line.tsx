@@ -45,7 +45,7 @@ export const CellLineTemplate = ({
     status,
     thumbnailImage,
     href,
-    parentalLine,
+    orderPlasmid,
     healthCertificate,
     certificateOfAnalysis,
     orderLink,
@@ -67,7 +67,7 @@ export const CellLineTemplate = ({
                     geneSymbol={taggedGene[0].symbol}
                     orderLink={orderLink}
                     certificateOfAnalysis={certificateOfAnalysis}
-                    parentalLine={parentalLine}
+                    orderPlasmid={orderPlasmid}
                     healthCertificate={healthCertificate}
                     cloneNumber={cloneNumber}
                 />
@@ -114,6 +114,7 @@ export const pageQuery = graphql`
                 cell_line_id
                 certificate_of_analysis
                 eu_hpsc_reg
+                donor_plasmid
                 parental_line {
                     frontmatter {
                         cell_line_id

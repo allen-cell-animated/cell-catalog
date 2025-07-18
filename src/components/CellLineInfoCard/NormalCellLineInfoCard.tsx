@@ -10,5 +10,5 @@ export const NormalCellLineInfoCard: React.FC<NormalProps> = (props) => {
         { key: "3", label: "Gene Name", children: props.geneName },
     ];
 
-    return <CellLineInfoCardBase {...props} infoRows={infoRows} />;
+    return <CellLineInfoCardBase {...props} infoRows={infoRows}/>;
 };

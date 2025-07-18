@@ -7,10 +7,7 @@ import { formatCellLineId } from "../../utils";
 import CloneTable from "../CloneTable";
 import { DarkThemeGhostButton, DefaultButton } from "../shared/Buttons";
 import InfoPanel from "../shared/InfoPanel";
-import {
-    Clone,
-    ParentLine,
-} from "../../component-queries/types";
+import { Clone, ParentLine } from "../../component-queries/types";
 
 const Share = require("../../img/share-icon.svg");
 const LinkOut = require("../../img/external-link.svg");
@@ -38,7 +35,7 @@ export interface DiseaseProps extends BaseCellLineProps {
 }
 
 export interface NormalProps extends BaseCellLineProps {
-    parentalLine: string;
+    orderPlasmid: string;
     cloneNumber: number;
 }
 
@@ -59,6 +56,7 @@ export interface CardLayoutProps {
     orderLink: string;
     cloneSummary?: { numMutants: number; numIsogenics: number };
     clones?: Clone[];
+    orderPlasmid?: string;
 }
 
 const CellLineInfoCardBase = ({
@@ -70,6 +68,7 @@ const CellLineInfoCardBase = ({
     orderLink,
     cloneSummary,
     clones,
+    orderPlasmid,
 }: CardLayoutProps) => {
     const defaultToolTipText = "Copy cell line link to clipboard";
     const [shareTooltipText, setShareTooltipText] =
@@ -124,6 +123,15 @@ const CellLineInfoCardBase = ({
                 >
                     hPSCreg Certificate
                 </DefaultButton>
+                {orderPlasmid && (
+                    <DefaultButton
+                        href={orderPlasmid}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        Obtain Plasmid
+                    </DefaultButton>
+                )}
             </Flex>
             <Button
                 type="primary"
