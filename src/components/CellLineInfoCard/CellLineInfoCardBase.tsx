@@ -1,81 +1,79 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { Card, Flex, Button, Divider, Tooltip } from "antd";
-
-import { PRIMARY_COLOR } from "../style/theme";
-import { formatCellLineId, getCloneSummary } from "../utils";
-import CloneTable from "./CloneTable";
-import { DarkThemeGhostButton, DefaultButton } from "./shared/Buttons";
-import InfoPanel from "./shared/InfoPanel";
 import Icon from "@ant-design/icons";
+
+import { PRIMARY_COLOR } from "../../style/theme";
+import { formatCellLineId } from "../../utils";
+import CloneTable from "../CloneTable";
+import { DarkThemeGhostButton, DefaultButton } from "../shared/Buttons";
+import InfoPanel from "../shared/InfoPanel";
 import {
-    ParentalLineFrontmatter,
-    GeneFrontMatter,
     Clone,
-} from "../component-queries/types";
-const Share = require("../img/share-icon.svg");
-const LinkOut = require("../img/external-link.svg");
+    ParentLine,
+} from "../../component-queries/types";
+
+const Share = require("../../img/share-icon.svg");
+const LinkOut = require("../../img/external-link.svg");
 
 const {
     title,
     container,
     extraLargeButton,
-} = require("../style/cell-line-info-card.module.css");
+} = require("../../style/cell-line-info-card.module.css");
 
-interface CellLineInfoCardProps {
+interface BaseCellLineProps {
     href: string;
+    certificateOfAnalysis: string;
+    healthCertificate: string;
+    orderLink: string;
     cellLineId: number;
     geneName: string;
     geneSymbol: string;
-    snp: string;
-    orderLink: string;
-    certificateOfAnalysis: string;
-    parentalLine: ParentalLineFrontmatter;
-    parentLineGene: GeneFrontMatter;
-    clones: Clone[];
-    healthCertificate: string;
 }
 
-const CellLineInfoCard = ({
+export interface DiseaseProps extends BaseCellLineProps {
+    parentalLine: ParentLine;
+    snp: string;
+    clones: Clone[];
+}
+
+export interface NormalProps extends BaseCellLineProps {
+    parentalLine: string;
+    cloneNumber: number;
+}
+
+export interface InfoTableRow {
+    key: React.Key;
+    label: string;
+    children: ReactNode;
+}
+
+export type CellLineInfoCardProps = DiseaseProps | NormalProps;
+
+export interface CardLayoutProps {
+    href: string;
+    cellLineId: number;
+    infoRows: InfoTableRow[];
+    certificateOfAnalysis: string;
+    healthCertificate: string;
+    orderLink: string;
+    cloneSummary?: { numMutants: number; numIsogenics: number };
+    clones?: Clone[];
+}
+
+const CellLineInfoCardBase = ({
     href,
     cellLineId,
-    parentLineGene,
-    geneName,
-    geneSymbol,
-    clones,
-    snp,
-    orderLink,
+    infoRows,
     certificateOfAnalysis,
-    parentalLine,
     healthCertificate,
-}: CellLineInfoCardProps) => {
+    orderLink,
+    cloneSummary,
+    clones,
+}: CardLayoutProps) => {
     const defaultToolTipText = "Copy cell line link to clipboard";
     const [shareTooltipText, setShareTooltipText] =
         useState(defaultToolTipText);
-    const tableData = [
-        {
-            key: "1",
-            label: "SNP",
-            children: snp,
-        },
-        {
-            key: "2",
-            label: "Gene Symbol",
-            children: geneSymbol,
-        },
-        {
-            key: "3",
-            label: "Gene Name",
-            children: geneName,
-        },
-        {
-            key: "4",
-            label: "Parental Line",
-            children: `${formatCellLineId(parentalLine.cell_line_id)} cl. ${
-                parentalLine.clone_number
-            } ${parentLineGene.symbol}`,
-        },
-    ];
-    const cloneSummary = getCloneSummary(clones);
 
     const titleContents = (
         <Flex justify="space-between" align="center">
@@ -84,7 +82,6 @@ const CellLineInfoCard = ({
                 <DarkThemeGhostButton
                     onMouseEnter={() => {
                         if (!shareTooltipText) {
-                            // this way it doesn't go back to default text after being copied
                             setShareTooltipText(defaultToolTipText);
                         }
                     }}
@@ -110,8 +107,8 @@ const CellLineInfoCard = ({
     );
     return (
         <Card title={titleContents} className={container}>
-            <InfoPanel data={tableData} />
-            <CloneTable dataSource={clones} />
+            <InfoPanel data={infoRows} />
+            {clones && <CloneTable dataSource={clones} />}
             <Flex vertical gap={8}>
                 <DefaultButton
                     href={certificateOfAnalysis}
@@ -141,23 +138,27 @@ const CellLineInfoCard = ({
                         <LinkOut />
                     </Flex>
                 </h2>
-                <>
-                    <span style={{ fontWeight: 400 }}>
-                        {cloneSummary.numMutants}
-                    </span>
-                    <span style={{ fontWeight: 300 }}> mutant clones</span>
-                    <Divider
-                        type="vertical"
-                        style={{ borderColor: PRIMARY_COLOR }}
-                    />
-                    <span style={{ fontWeight: 400 }}>
-                        {cloneSummary.numIsogenics}
-                    </span>{" "}
-                    <span style={{ fontWeight: 300 }}>isogenic controls</span>
-                </>
+                {cloneSummary && (
+                    <>
+                        <span style={{ fontWeight: 400 }}>
+                            {cloneSummary.numMutants}
+                        </span>
+                        <span style={{ fontWeight: 300 }}> mutant clones</span>
+                        <Divider
+                            type="vertical"
+                            style={{ borderColor: PRIMARY_COLOR }}
+                        />
+                        <span style={{ fontWeight: 400 }}>
+                            {cloneSummary.numIsogenics}
+                        </span>{" "}
+                        <span style={{ fontWeight: 300 }}>
+                            isogenic controls
+                        </span>
+                    </>
+                )}
             </Button>
         </Card>
     );
 };
 
-export default CellLineInfoCard;
+export default CellLineInfoCardBase;

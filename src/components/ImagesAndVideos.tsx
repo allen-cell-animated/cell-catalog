@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Card, Flex, Image, Space } from "antd";
+import { ZoomOutOutlined, ZoomInOutlined } from "@ant-design/icons";
 import { getImage, GatsbyImage, getSrc } from "gatsby-plugin-image";
-import { ParentalLineFrontmatter } from "../component-queries/types";
 import { formatCellLineId } from "../utils";
 import Thumbnail from "./Thumbnail";
-import { LeftOutlined, RightOutlined, ZoomOutOutlined, ZoomInOutlined, CloseOutlined } from "@ant-design/icons";
 
 const {
     container,
@@ -25,7 +24,6 @@ const {
 interface ImagesAndVideosProps {
     images?: any[];
     cellLineId: number;
-    parentalLine: ParentalLineFrontmatter;
     videos?: any;
     geneSymbol: string;
     snp: string;

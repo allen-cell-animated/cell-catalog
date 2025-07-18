@@ -1,11 +1,23 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { NormalCellLineFrontmatter, UnpackedNormalCellLine } from "../component-queries/types";
+import {
+    NormalCellLineFrontmatter,
+    UnpackedNormalCellLine,
+} from "../component-queries/types";
 import { convertFrontmatterToNormalCellLines } from "../component-queries/convert-data";
+import { NormalCellLineInfoCard } from "../components/CellLineInfoCard/NormalCellLineInfoCard";
+import { DefaultButton } from "../components/shared/Buttons";
 
-const { container, section } = require("../style/cell-line.module.css");
+const {
+    container,
+    section,
+    leftCard,
+    returnArrow,
+} = require("../style/cell-line.module.css");
+
+const Arrow = require("../img/arrow.svg");
 
 interface QueryResult {
     data: {
@@ -16,7 +28,7 @@ interface QueryResult {
                 slug: string;
             };
             frontmatter: NormalCellLineFrontmatter;
-            };
+        };
     };
 }
 
@@ -33,19 +45,36 @@ export const CellLineTemplate = ({
     status,
     thumbnailImage,
     href,
+    parentalLine,
+    healthCertificate,
+    certificateOfAnalysis,
+    orderLink,
 }: CellLineProps) => {
     const image = thumbnailImage ? getImage(thumbnailImage) : undefined;
     return (
         <div className={container}>
-            <div className={section}>
-                <h1>AICS-{cellLineId}</h1>
-                <p>Share: {href}</p>
-                <p>Clone Number: {cloneNumber}</p>
-                <p>Gene: {taggedGene?.map((gene) => gene.name).join(" / ")}</p>
-                <p>Tag: {tagLocation.join(" / ")}</p>
-                <p>Status: {status}</p>
+            <div className={leftCard}>
+                <Link to="/disease-catalog">
+                    <DefaultButton>
+                        <Arrow className={returnArrow} />
+                        Return to Cell Catalog
+                    </DefaultButton>
+                </Link>
+                <NormalCellLineInfoCard
+                    href={href}
+                    cellLineId={cellLineId}
+                    geneName={taggedGene[0].name}
+                    geneSymbol={taggedGene[0].symbol}
+                    orderLink={orderLink}
+                    certificateOfAnalysis={certificateOfAnalysis}
+                    parentalLine={parentalLine}
+                    healthCertificate={healthCertificate}
+                    cloneNumber={cloneNumber}
+                />
             </div>
             <div className={section}>
+                <p>Tag: {tagLocation.join(" / ")}</p>
+                <p>Status: {status}</p>
                 <p>Thumbnail:</p>
                 {image && (
                     <GatsbyImage image={image} alt="Cell Line Thumbnail" />
@@ -83,6 +112,8 @@ export const pageQuery = graphql`
             }
             frontmatter {
                 cell_line_id
+                certificate_of_analysis
+                eu_hpsc_reg
                 parental_line {
                     frontmatter {
                         cell_line_id
