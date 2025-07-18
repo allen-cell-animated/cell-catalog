@@ -73,13 +73,6 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
         return videoId;
     };
 
-    const uniformVimeoUrl = (url: string) => {
-        const videoId = getVideoId(url);
-        if (videoId) {
-            return `https://player.vimeo.com/video/${videoId}`;
-        }
-        return url;
-    };
 
     const mediaItems = mediaArray();
     const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(mediaItems[0] || null);
@@ -179,7 +172,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
             );
         }
 
-        const vimeoUrl = uniformVimeoUrl(selectedMedia.data.video);
+        const vimeoUrl = selectedMedia.data.video;
         return (
             <iframe
                 src={`${vimeoUrl}?badge=0&autoplay=0&title=0`}
