@@ -49,6 +49,9 @@ export const CellLineTemplate = ({
     healthCertificate,
     certificateOfAnalysis,
     orderLink,
+    protein,
+    fluorescentTag,
+    alleleCount,
 }: CellLineProps) => {
     const image = thumbnailImage ? getImage(thumbnailImage) : undefined;
     return (
@@ -70,6 +73,10 @@ export const CellLineTemplate = ({
                     orderPlasmid={orderPlasmid}
                     healthCertificate={healthCertificate}
                     cloneNumber={cloneNumber}
+                    taggedGene={taggedGene}
+                    protein={protein}
+                    fluorescentTag={fluorescentTag}
+                    alleleCount={alleleCount}
                 />
             </div>
             <div className={section}>
@@ -146,9 +153,13 @@ export const pageQuery = graphql`
                         frontmatter {
                             symbol
                             name
+                            protein
+                            structure
                         }
                     }
                     tag_location
+                    fluorescent_tag
+                    allele_count
                 }
                 status
                 thumbnail_image {
