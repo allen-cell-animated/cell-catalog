@@ -1,7 +1,6 @@
 import {
     Clone,
-    GeneFrontMatter,
-    ParentalLineFrontmatter,
+    ParentLine,
     Sequence,
     UnpackedCellLineMainInfo,
 } from "../../component-queries/types";
@@ -26,8 +25,7 @@ export interface UnpackedDiseaseCellLineFull extends UnpackedCellLineMainInfo {
     geneSymbol: string;
     diseaseName: string;
     snp: string;
-    parentalLine: ParentalLineFrontmatter;
-    parentalLineGene: GeneFrontMatter;
+    parentalLine: ParentLine;
     clones: Clone[];
     imagesAndVideos: any;
     editingDesign: UnpackedEditingDesign | null;

@@ -5,7 +5,10 @@ import {
     DiseaseCellLineNode,
     Sequence,
     SingleImageDiagram,
+    ParentalLineFrontmatter,
+    ParentLine,
 } from "../../component-queries/types";
+import { extractGeneticModifications } from "../../component-queries/convert-data";
 import { DiagramCardProps } from "../shared/DiagramCard";
 import {
     ClonePercentPositive,
@@ -118,21 +121,29 @@ export const getStemCellCharData = (
     }
 };
 
+export const unpackParentLineFromFrontMatter = (data: ParentalLineFrontmatter): ParentLine => {
+    const { taggedGene, alleleCount, tagLocation, fluorescentTag } =
+        extractGeneticModifications(
+            data
+                .genetic_modifications
+        );
+    const thumbnailImage = data.thumbnail_image;
+    const cellLineId = data.cell_line_id;
+    const cloneNumber = data.clone_number;
+    return {
+        thumbnailImage,
+        cellLineId,
+        cloneNumber,
+        taggedGene,
+        alleleCount,
+        tagLocation,
+        fluorescentTag
+    }
+}
+
 export const unpackDiseaseFrontmatterForSubpage = (
     cellLineNode: DiseaseCellLineNode
 ): UnpackedDiseaseCellLineFull => {
-    const parentalLineData = cellLineNode.frontmatter.parental_line.frontmatter;
-
-    const firstGeneticMod = parentalLineData.genetic_modifications?.find(
-        mod => mod && mod.gene && mod.gene.frontmatter
-    );
-
-    const parentalGene = firstGeneticMod?.gene?.frontmatter || {
-        name: "",
-        symbol: "",
-        structure: "",
-        protein: ""
-    };
 
     const { name: geneName, symbol: geneSymbol } =
         cellLineNode.frontmatter.disease.frontmatter.gene[0].frontmatter;
@@ -146,6 +157,9 @@ export const unpackDiseaseFrontmatterForSubpage = (
     const stemCellCharData = getStemCellCharData(
         cellLineNode.frontmatter.clones
     );
+    const parentalLine = unpackParentLineFromFrontMatter(
+        cellLineNode.frontmatter.parental_line.frontmatter)
+    ;
     return {
         path: cellLineNode.fields.slug,
         cellLineId: cellLineNode.frontmatter.cell_line_id,
@@ -157,8 +171,7 @@ export const unpackDiseaseFrontmatterForSubpage = (
         geneSymbol: geneSymbol,
         diseaseName: cellLineNode.frontmatter.disease.frontmatter.name,
         snp: cellLineNode.frontmatter.snp,
-        parentalLine: parentalLineData,
-        parentalLineGene: parentalGene,
+        parentalLine: parentalLine,
         clones: cellLineNode.frontmatter.clones, // TODO: unpack this into only data needed for card
         imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
         editingDesign: editingDesign,

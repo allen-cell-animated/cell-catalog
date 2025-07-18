@@ -10,7 +10,7 @@ import {
 } from "./types";
 import { formatCellLineId } from "../utils";
 
-const extractGeneticModifications = (
+export const extractGeneticModifications = (
     modifications?: GeneticModification[]
 ): {
     taggedGene: UnpackedGene[];
@@ -117,8 +117,8 @@ export const convertFrontmatterToNormalCellLines = ({
         protein: proteins,
         structure: structures,
         status: cellLineNode.frontmatter.status,
-        certificateOfAnalysis: "",
-        healthCertificate: "",
+        certificateOfAnalysis: cellLineNode.frontmatter.certificate_of_analysis,
+        healthCertificate: cellLineNode.frontmatter.eu_hpsc_reg,
         orderLink: cellLineNode.frontmatter.order_link,
         orderPlasmid: cellLineNode.frontmatter.donor_plasmid,
         thumbnailImage:
