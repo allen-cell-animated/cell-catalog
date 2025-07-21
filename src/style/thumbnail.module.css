@@ -16,3 +16,10 @@
     border-color: var(--AQUA_BLUE);
     opacity: 1;
 }
+
+.video-thumbnail-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+}

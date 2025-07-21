@@ -5,6 +5,7 @@ import classNames from "classnames";
 const {
     thumbnail,
     selectedThumbnail,
+    videoThumbnailImage,
 } = require("../style/thumbnail.module.css");
 
 interface ThumbnailProps {
@@ -41,12 +42,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
                 <img
                     src={getVimeoThumbnail(videoId || "") ?? ""}
                     alt="Video thumbnail"
-                    style={{
-                        objectFit: "cover",
-                        width: "100%",
-                        height: "100%",
-                        display: "block",
-                    }}
+                    className={videoThumbnailImage}
                 />
             )}
         </div>

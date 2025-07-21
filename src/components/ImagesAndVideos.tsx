@@ -20,6 +20,8 @@ const {
     primaryImageContainer,
     previewImage,
     toolbarWrapper,
+    videoContainer,
+    videoIframe,
 } = require("../style/images-and-videos.module.css");
 
 interface ImagesAndVideosProps {
@@ -174,14 +176,16 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
 
         const vimeoUrl = selectedMedia.data.video;
         return (
-            <iframe
-                src={`${vimeoUrl}?badge=0&autoplay=0&title=0`}
-                style={{
-                    width: "100%",
-                    height: "100%",
-                    border: "none",
-                }}
-            ></iframe>
+            <div 
+                className={`${showThumbnails ? primaryImageWithThumbnail : primaryImageOnly} ${videoContainer}`}
+            >
+                <iframe
+                    src={`${vimeoUrl}?badge=0&autoplay=0&title=0`}
+                    className={videoIframe}
+                    title="Cell line video"
+                    allowFullScreen
+                ></iframe>
+            </div>
         );
     };
 
