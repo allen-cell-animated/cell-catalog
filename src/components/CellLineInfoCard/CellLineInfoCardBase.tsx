@@ -45,8 +45,6 @@ export interface InfoTableRow {
     children: ReactNode;
 }
 
-export type CellLineInfoCardProps = DiseaseProps | NormalProps;
-
 export interface CardLayoutProps {
     href: string;
     cellLineId: number;

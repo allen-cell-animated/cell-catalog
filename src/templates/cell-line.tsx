@@ -54,7 +54,7 @@ export const CellLineTemplate = ({
     return (
         <div className={container}>
             <div className={leftCard}>
-                <Link to="/disease-catalog">
+                <Link to="/normal-catalog">
                     <DefaultButton>
                         <Arrow className={returnArrow} />
                         Return to Cell Catalog
