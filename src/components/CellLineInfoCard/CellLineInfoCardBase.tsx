@@ -37,6 +37,10 @@ export interface DiseaseProps extends BaseCellLineProps {
 export interface NormalProps extends BaseCellLineProps {
     orderPlasmid: string;
     cloneNumber: number;
+    taggedGene: { name: string; symbol: string; structure?: string; protein?: string }[];
+    protein: string[];
+    fluorescentTag: string[];
+    alleleCount: string[];
 }
 
 export interface InfoTableRow {
