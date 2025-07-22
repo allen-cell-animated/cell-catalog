@@ -215,6 +215,293 @@ collections:
                         },
                     ],
             }
+          - {
+                label: 'Editing Design',
+                name: 'editing_design',
+                widget: 'object',
+                required: false,
+                collapsed: true,
+                fields: [
+                        {
+                            label: 'Isoforms', # format is [GENE] NCBI Isoform(s): [entry] / [entry] / [entry]
+                            name: 'isoforms',
+                            widget: 'list',
+                            required: false,
+                            hint: '',
+                        },
+                        {
+                            label: 'cRNA Target Site',
+                            name: 'crna_target_site',
+                            widget: 'string',
+                            required: false,
+                            hint: 'Enter entire cRNA Target Site sequence. Place square brackets around PAM site. e.g. AG[TGG]ATA',
+                        },
+                        {
+                            label: 'Linker',
+                            name: 'linker',
+                            widget: 'string',
+                            required: false,
+                            hint: 'Enter entire cRNA Target Site sequence. Place square brackets around PAM site. e.g. AG[TGG]ATA',
+                        },
+                        {
+                            label: 'Cas9',
+                            name: 'cas9',
+                            widget: 'string',
+                            required: false,
+                        },
+                        {
+                            label: 'Diagrams',
+                            name: 'diagrams',
+                            widget: 'list',
+                            required: false,
+                            collapsed: true,
+                            fields:
+                                [
+                                    {
+                                        label: 'Title',
+                                        name: 'title',
+                                        widget: 'string',
+                                    },
+                                    {
+                                        label: 'Images',
+                                        name: 'images',
+                                        widget: 'list',
+                                        fields:
+                                            [
+                                                {
+                                                    label: 'Image',
+                                                    name: 'image',
+                                                    widget: 'image',
+                                                },
+                                                {
+                                                    label: 'Caption',
+                                                    name: 'caption',
+                                                    widget: 'string',
+                                                },
+                                            ],
+                                    },
+                                ],
+                        },
+                    ],
+            }
+          - {
+                label: 'Genomic Characterization',
+                name: 'genomic_characterization',
+                widget: 'object',
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            label: 'Schematic of amplified junctions',
+                            name: 'junction_schematic',
+                            widget: 'image',
+                            required: false,
+                        },
+                        {
+                            label: 'Diagrams',
+                            name: 'diagrams',
+                            widget: 'list',
+                            required: false,
+                            collapsed: true,
+                            fields:
+                                [
+                                    {
+                                        label: 'Title',
+                                        name: 'title',
+                                        widget: 'string',
+                                        required: false,
+                                    },
+                                    {
+                                        label: 'Image',
+                                        name: 'image',
+                                        widget: 'image',
+                                    },
+                                    {
+                                        label: 'Caption',
+                                        name: 'caption',
+                                        widget: 'string',
+                                        required: false,
+                                    },
+                                ],
+                        },
+                    ],
+            }
+          - {
+                label: 'Cellular Validation',
+                name: 'cellular_validation',
+                widget: 'object',
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            label: 'Diagrams',
+                            name: 'diagrams',
+                            widget: 'list',
+                            required: false,
+                            collapsed: true,
+                            fields:
+                                [
+                                    {
+                                        label: 'Title',
+                                        name: 'title',
+                                        widget: 'string',
+                                        required: false,
+                                    },
+                                    {
+                                        label: 'Image',
+                                        name: 'image',
+                                        widget: 'image',
+                                    },
+                                    {
+                                        label: 'Caption',
+                                        name: 'caption',
+                                        widget: 'string',
+                                        required: false,
+                                    },
+                                ],
+                        },
+                    ],
+            }
+          - {
+                label: 'Stem-cell Characteristics',
+                name: 'stem_cell_characteristics',
+                widget: 'object',
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            label: 'Diagrams',
+                            name: 'diagrams',
+                            widget: 'list',
+                            required: false,
+                            collapsed: true,
+                            fields:
+                                [
+                                    {
+                                        label: 'Title',
+                                        name: 'title',
+                                        widget: 'string',
+                                        required: false,
+                                    },
+                                    {
+                                        label: 'Image',
+                                        name: 'image',
+                                        widget: 'image',
+                                    },
+                                    {
+                                        label: 'Caption',
+                                        name: 'caption',
+                                        widget: 'string',
+                                        required: false,
+                                    },
+                                ],
+                        },
+                    ],
+            }
+          - {
+                label: 'Protocols',
+                name: 'protocols',
+                widget: 'object',
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            label: 'Diagrams',
+                            name: 'diagrams',
+                            widget: 'list',
+                            required: false,
+                            collapsed: true,
+                            fields:
+                                [
+                                    {
+                                        label: 'Title',
+                                        name: 'title',
+                                        widget: 'string',
+                                        required: false,
+                                    },
+                                    {
+                                        label: 'Image',
+                                        name: 'image',
+                                        widget: 'image',
+                                    },
+                                    {
+                                        label: 'Caption',
+                                        name: 'caption',
+                                        widget: 'string',
+                                        required: false,
+                                    },
+                                ],
+                        },
+                    ],
+            }
+          - {
+                label: 'Supplementary Information',
+                name: 'supplementary_info',
+                widget: 'list',
+                required: false,
+                fields:
+                    [
+                        {
+                            label: 'Acknowledgements',
+                            name: 'acknowledgements',
+                            widget: 'string',
+                            required: false,
+                        },
+                        {
+                            label: 'Supplementary Data',
+                            name: 'supplementary_data',
+                            widget: 'string',
+                            required: false,
+                        },
+                    ],
+            }
+          - {
+                label: 'STR Analysis',
+                name: 'str_analysis',
+                widget: 'object',
+                required: false,
+                collapsed: true,
+                fields: [
+                        {
+                            label: 'STR Analysis Results', #  todo: fix this, not sure exactly how to format this one yet
+                            name: 'str_analysis',
+                            widget: 'list',
+                            required: false,
+                            collapsed: true,
+                            fields:
+                                [
+                                    {
+                                        label: 'Label',
+                                        name: 'label',
+                                        widget: 'string',
+                                        required: false,
+                                    },
+                                    {
+                                        label: 'Donor fibroblasts',
+                                        name: 'donor_fibroblasts',
+                                        widget: 'list',
+                                        required: false,
+                                    },
+                                    {
+                                        label: 'WTC Line*',
+                                        name: 'wtc_line',
+                                        widget: 'list',
+                                        required: false,
+                                    },
+                                ],
+                        },
+                        {
+                            label: 'Amelogenin in WTC', # possibly the same for all lines?
+                            name: 'amelogelin',
+                            widget: 'string',
+                            required: false,
+                        },
+                    ],
+            }
     - name: "disease-cell-line"
       label: "Disease Cell Lines"
       label_singular: "Disease Cell Line"
