@@ -15,7 +15,7 @@ const {
     section,
     leftCard,
     returnArrow,
-} = require("../style/cell-line.module.css");
+} = require("../style/disease-cell-line.module.css");
 
 const Arrow = require("../img/arrow.svg");
 
