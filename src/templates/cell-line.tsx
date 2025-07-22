@@ -19,8 +19,6 @@ const {
 
 const Arrow = require("../img/arrow.svg");
 
-const { container, section } = require("../style/cell-line.module.css");
-
 interface QueryResult {
     data: {
         markdownRemark: {
