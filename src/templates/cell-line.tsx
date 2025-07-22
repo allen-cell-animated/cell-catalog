@@ -55,6 +55,9 @@ export const CellLineTemplate = ({
     alleleCount,
 }: CellLineProps) => {
     const image = thumbnailImage ? getImage(thumbnailImage) : undefined;
+    if (cellLineId === 0) {
+        return null;
+    }
     return (
         <div className={container}>
             <div className={leftCard}>
