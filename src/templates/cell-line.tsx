@@ -20,6 +20,7 @@ const {
 const Arrow = require("../img/arrow.svg");
 
 interface QueryResult {
+    location: Location;
     data: {
         markdownRemark: {
             id: string;
@@ -91,7 +92,7 @@ export const CellLineTemplate = ({
     );
 };
 
-const CellLine = ({ data }: QueryResult) => {
+const CellLine = ({ data, location }: QueryResult) => {
     const { markdownRemark: cellLine } = data;
 
     const unpackedCellLine = convertFrontmatterToNormalCellLines({
