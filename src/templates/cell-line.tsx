@@ -77,6 +77,12 @@ export const CellLineTemplate = ({
     );
 };
 
+const getThumbnail = (images: any[]) => {
+    if (!images || images.length === 0) return null;
+    const thumbnail = images[0];
+    return thumbnail ? thumbnail.image.childImageSharp.gatsbyImageData : null;
+};
+
 const CellLine = ({ data }: QueryResult) => {
     const { markdownRemark: cellLine } = data;
     return (
@@ -88,7 +94,9 @@ const CellLine = ({ data }: QueryResult) => {
                     cellLine.frontmatter.genetic_modifications
                 }
                 status={cellLine.frontmatter.status}
-                thumbnail={cellLine.frontmatter.images_and_videos?.images[0]?.image?.childImageSharp?.gatsbyImageData}
+                thumbnail={getThumbnail(
+                    cellLine.frontmatter.images_and_videos?.images || []
+                )}
             />
         </Layout>
     );
