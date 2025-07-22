@@ -24,16 +24,19 @@ interface ParentalLineModalProps {
     taggedGene: UnpackedGene[];
     tagLocation: string[];
     fluorescentTag: string[];
+    suppressRowClickRef: React.MutableRefObject<boolean>;
 }
 const ParentalLineModal = (props: ParentalLineModalProps) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
         e.stopPropagation();
+        props.suppressRowClickRef.current = true;
         setIsModalOpen(true);
     };
 
     const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
+        props.suppressRowClickRef.current = false;
         setIsModalOpen(false);
     };
     const image = getImage(props.image ?? null);

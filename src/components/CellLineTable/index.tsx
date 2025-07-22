@@ -23,6 +23,7 @@ interface CellLineTableProps {
     released: boolean;
     columns: any;
     mobileConfig?: any;
+    suppressRowClickRef?: React.MutableRefObject<boolean>;
 }
 
 const CellLineTable = ({
@@ -31,6 +32,7 @@ const CellLineTable = ({
     released,
     columns,
     mobileConfig,
+    suppressRowClickRef,
 }: CellLineTableProps) => {
     const [hoveredRowIndex, setHoveredRowIndex] = useState(-1);
 
@@ -40,6 +42,9 @@ const CellLineTable = ({
     const isTablet = width < TABLET_BREAKPOINT;
 
     const isClickable = (record: UnpackedCellLine): boolean => {
+        if (suppressRowClickRef?.current) {
+            return false;
+        }
         return (
             record.status === CellLineStatus.DataComplete ||
             env !== "production"

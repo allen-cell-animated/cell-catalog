@@ -4,6 +4,8 @@ import Layout from "../components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { GeneticModification } from "../component-queries/types";
 
+const { container, section } = require("../style/cell-line.module.css");
+
 interface QueryResult {
     data: {
         markdownRemark: {
@@ -46,27 +48,32 @@ export const CellLineTemplate = ({
 }: CellLineProps) => {
     const image = getImage(thumbnail);
     return (
-        <section className="section">
-            <div className="container content">
-                <div className="columns">
-                    <div className="column is-10 is-offset-1">
-                        <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                            AICS-{cellLineId}
-                        </h1>
-                        <p>Clone Number: {cloneNumber}</p>
-                        <p>Gene: {geneticModifications?.map(mod => mod.gene?.frontmatter?.symbol).join(" / ")}</p>
-                        <p>Tag: {geneticModifications?.map(mod => mod.tag_location).join(" / ")}</p>
-                        <p>Status: {status}</p>
-                        {image && (
-                            <GatsbyImage
-                                image={image}
-                                alt="Cell Line Thumbnail"
-                            />
-                        )}
-                    </div>
-                </div>
+        <div className={container}>
+            <div className={section}>
+                <h1>AICS-{cellLineId}</h1>
+                <p>Clone Number: {cloneNumber}</p>
+                <p>
+                    Gene:{" "}
+                    {geneticModifications
+                        ?.map((mod) => mod.gene?.frontmatter?.symbol)
+                        .join(" / ")}
+                </p>
+                <p>
+                    Tag:{" "}
+                    {geneticModifications
+                        ?.map((mod) => mod.tag_location)
+                        .join(" / ")}
+                </p>
+                <p>Status: {status}</p>
             </div>
-        </section>
+            <div className={section}>
+                <h1>Images</h1>
+                <p>Thumbnail:</p>
+                {image && (
+                    <GatsbyImage image={image} alt="Cell Line Thumbnail" />
+                )}
+            </div>
+        </div>
     );
 };
 
@@ -77,7 +84,9 @@ const CellLine = ({ data }: QueryResult) => {
             <CellLineTemplate
                 cellLineId={cellLine.frontmatter.cell_line_id}
                 cloneNumber={cellLine.frontmatter.clone_number}
-                geneticModifications={cellLine.frontmatter.genetic_modifications}
+                geneticModifications={
+                    cellLine.frontmatter.genetic_modifications
+                }
                 status={cellLine.frontmatter.status}
                 thumbnail={cellLine.frontmatter.images_and_videos?.images[0]?.image?.childImageSharp?.gatsbyImageData}
             />
