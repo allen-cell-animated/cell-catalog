@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { useState } from "react";
 import { Card, Flex, Button, Divider, Tooltip } from "antd";
 import Icon from "@ant-design/icons";
 
@@ -7,7 +7,8 @@ import { formatCellLineId } from "../../utils";
 import CloneTable from "../CloneTable";
 import { DarkThemeGhostButton, DefaultButton } from "../shared/Buttons";
 import InfoPanel from "../shared/InfoPanel";
-import { Clone, ParentLine } from "../../component-queries/types";
+import { Clone } from "../../component-queries/types";
+import { InfoTableRow } from "./types";
 
 const Share = require("../../img/share-icon.svg");
 const LinkOut = require("../../img/external-link.svg");
@@ -18,38 +19,7 @@ const {
     extraLargeButton,
 } = require("../../style/cell-line-info-card.module.css");
 
-interface BaseCellLineProps {
-    href: string;
-    certificateOfAnalysis: string;
-    healthCertificate: string;
-    orderLink: string;
-    cellLineId: number;
-    geneName: string;
-    geneSymbol: string;
-}
-
-export interface DiseaseProps extends BaseCellLineProps {
-    parentalLine: ParentLine;
-    snp: string;
-    clones: Clone[];
-}
-
-export interface NormalProps extends BaseCellLineProps {
-    orderPlasmid: string;
-    cloneNumber: number;
-    taggedGene: { name: string; symbol: string; structure?: string; protein?: string }[];
-    protein: string[];
-    fluorescentTag: string[];
-    alleleCount: string[];
-}
-
-export interface InfoTableRow {
-    key: React.Key;
-    label: string;
-    children: ReactNode;
-}
-
-export interface CardLayoutProps {
+interface CellLineInfoCardLayoutProps {
     href: string;
     cellLineId: number;
     infoRows: InfoTableRow[];
@@ -61,7 +31,7 @@ export interface CardLayoutProps {
     orderPlasmid?: string;
 }
 
-const CellLineInfoCardBase = ({
+const CellLineInfoCardLayout = ({
     href,
     cellLineId,
     infoRows,
@@ -71,7 +41,7 @@ const CellLineInfoCardBase = ({
     cloneSummary,
     clones,
     orderPlasmid,
-}: CardLayoutProps) => {
+}: CellLineInfoCardLayoutProps) => {
     const defaultToolTipText = "Copy cell line link to clipboard";
     const [shareTooltipText, setShareTooltipText] =
         useState(defaultToolTipText);
@@ -171,4 +141,4 @@ const CellLineInfoCardBase = ({
     );
 };
 
-export default CellLineInfoCardBase;
+export default CellLineInfoCardLayout;
