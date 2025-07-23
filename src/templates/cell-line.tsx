@@ -128,27 +128,7 @@ export const pageQuery = graphql`
                 donor_plasmid
                 parental_line {
                     frontmatter {
-                        cell_line_id
-                        clone_number
-                        thumbnail_image {
-                            childImageSharp {
-                                gatsbyImageData(
-                                    placeholder: BLURRED
-                                    layout: FIXED
-                                )
-                            }
-                        }
-                        genetic_modifications {
-                            gene {
-                                frontmatter {
-                                    symbol
-                                    name
-                                }
-                            }
-                            allele_count
-                            tag_location
-                            fluorescent_tag
-                        }
+                        name
                     }
                 }
                 clone_number

@@ -1,7 +1,7 @@
 import React from "react";
-import CellLineInfoCardLayout from "./CellLineInfoCardBase";
-import { CellLineInfoCardBaseProps } from "./types";
-interface NormalCellLineInfoCardProps extends CellLineInfoCardBaseProps {
+import CellLineInfoCardBase from "./CellLineInfoCardBase";
+import { CellLineInfoCardRequiredProps } from "./types";
+interface NormalCellLineInfoCardProps extends CellLineInfoCardRequiredProps {
     orderPlasmid: string;
     cloneNumber: number;
     taggedGene: { name: string; symbol: string; structure?: string;}[];
@@ -11,6 +11,22 @@ interface NormalCellLineInfoCardProps extends CellLineInfoCardBaseProps {
 }
 
 export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (props) => {
+
+    const buttonList =  [
+        {
+            label: "Certificate of Analysis",
+            href: props.certificateOfAnalysis,
+        },
+        {
+            label: "hPSCreg Certificate",
+            href: props.healthCertificate,
+        },
+        {
+            label: "Obtain Plasmid",
+            href: props.orderPlasmid,
+        }
+    ]
+
     // matching the data with catalog 1.0, the final version may change depending on the design
     // for now, showing only the first gene data if a line has multiple genes
     const infoRows = [
@@ -22,5 +38,5 @@ export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (pr
         { key: "6", label: "Tagged Allele", children: props.alleleCount?.[0] },
     ];
 
-    return <CellLineInfoCardLayout {...props} infoRows={infoRows}/>;
+    return <CellLineInfoCardBase {...props} buttonList={buttonList} infoRows={infoRows}/>;
 };

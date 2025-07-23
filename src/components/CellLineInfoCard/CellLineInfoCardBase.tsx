@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { Card, Flex, Button, Divider, Tooltip } from "antd";
 import Icon from "@ant-design/icons";
 
@@ -19,29 +19,27 @@ const {
     extraLargeButton,
 } = require("../../style/cell-line-info-card.module.css");
 
-interface CellLineInfoCardLayoutProps {
+interface CellLineInfoCardBaseProps {
     href: string;
     cellLineId: number;
     infoRows: InfoTableRow[];
     certificateOfAnalysis: string;
     healthCertificate: string;
     orderLink: string;
-    cloneSummary?: { numMutants: number; numIsogenics: number };
-    clones?: Clone[];
-    orderPlasmid?: string;
+    buttonList: { label: string; href: string }[];
+    buttonSubtitle?: ReactNode;
+    additionalInfo?: ReactNode;
 }
 
-const CellLineInfoCardLayout = ({
+const CellLineInfoCardBase = ({
     href,
+    buttonList,
     cellLineId,
     infoRows,
-    certificateOfAnalysis,
-    healthCertificate,
     orderLink,
-    cloneSummary,
-    clones,
-    orderPlasmid,
-}: CellLineInfoCardLayoutProps) => {
+    additionalInfo,
+    buttonSubtitle,
+}: CellLineInfoCardBaseProps) => {
     const defaultToolTipText = "Copy cell line link to clipboard";
     const [shareTooltipText, setShareTooltipText] =
         useState(defaultToolTipText);
@@ -79,31 +77,17 @@ const CellLineInfoCardLayout = ({
     return (
         <Card title={titleContents} className={container}>
             <InfoPanel data={infoRows} />
-            {clones && <CloneTable dataSource={clones} />}
+            {additionalInfo}
             <Flex vertical gap={8}>
-                <DefaultButton
-                    href={certificateOfAnalysis}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    Certificate of Analysis
-                </DefaultButton>
-                <DefaultButton
-                    href={healthCertificate}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    hPSCreg Certificate
-                </DefaultButton>
-                {orderPlasmid && (
+                {buttonList.map((button) => (
                     <DefaultButton
-                        href={orderPlasmid}
+                        key={button.href}
                         target="_blank"
                         rel="noreferrer"
                     >
-                        Obtain Plasmid
+                        {button.label}
                     </DefaultButton>
-                )}
+                ))}
             </Flex>
             <Button
                 type="primary"
@@ -118,27 +102,10 @@ const CellLineInfoCardLayout = ({
                         <LinkOut />
                     </Flex>
                 </h2>
-                {cloneSummary && (
-                    <>
-                        <span style={{ fontWeight: 400 }}>
-                            {cloneSummary.numMutants}
-                        </span>
-                        <span style={{ fontWeight: 300 }}> mutant clones</span>
-                        <Divider
-                            type="vertical"
-                            style={{ borderColor: PRIMARY_COLOR }}
-                        />
-                        <span style={{ fontWeight: 400 }}>
-                            {cloneSummary.numIsogenics}
-                        </span>{" "}
-                        <span style={{ fontWeight: 300 }}>
-                            isogenic controls
-                        </span>
-                    </>
-                )}
+                {buttonSubtitle}
             </Button>
         </Card>
     );
 };
 
-export default CellLineInfoCardLayout;
+export default CellLineInfoCardBase;

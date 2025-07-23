@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export interface CellLineInfoCardBaseProps {
+export interface CellLineInfoCardRequiredProps {
     href: string;
     certificateOfAnalysis: string;
     healthCertificate: string;
