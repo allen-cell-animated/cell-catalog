@@ -55,6 +55,8 @@ export interface NormalCellLineFrontmatter {
             name: string;
         };
     };
+    certificate_of_analysis: string;
+    eu_hpsc_reg: string;
 }
 
 export interface NormalCellLineNode {
@@ -219,7 +221,16 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     orderPlasmid: string;
 }
 
-export type ParentLine = Partial<UnpackedNormalCellLine>;
+export type ParentLine = Pick<UnpackedNormalCellLine,
+    "thumbnailImage" |
+    "cellLineId" |
+    "cloneNumber" |
+    "taggedGene" |
+    "alleleCount" |
+    "tagLocation" |
+    "fluorescentTag" |
+    "geneticModifications"
+>
 
 export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
     diseaseStatus: string;
