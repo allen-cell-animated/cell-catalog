@@ -78,7 +78,6 @@ export const CellLineTemplate = ({
                     healthCertificate={healthCertificate}
                     cloneNumber={cloneNumber}
                     taggedGene={taggedGene}
-                    protein={protein}
                     fluorescentTag={fluorescentTag}
                     alleleCount={alleleCount}
                 />
