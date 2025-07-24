@@ -24,4 +24,14 @@ images_and_videos:
       caption: "Timelapse movie of a hiPSC colony expressing paxillin-EGFP. Images are a single slice near the bottom of the cell taken every 5 minutes for 400 minutes on a spinning-disk confocal microscope. Movie sped up 3000x over real time."
     - video: https://player.vimeo.com/video/198389731
       caption: "Timelapse movie of a hiPSC colony expressing paxillin-EGFP. Images taken as a partial z-stack near the bottom of the cell every 5 minutes for 160 minutes on a spinning-disk confocal microscope. Image is a maximum intensity projection. Movie sped up 1500x over real time."
+editing_design:
+  PXN_ncbi_isoforms: NM_0028593
+  crna: GCACCTAGCAGAAGAGCTTG
+  linker: GTSGGS
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: PXN locus showing 4 PXN isoforms; Bottom: Zoom in on EGFP insertion site at PXN C-terminal exon"
 ---

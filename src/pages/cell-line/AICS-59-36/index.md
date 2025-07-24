@@ -30,4 +30,14 @@ images_and_videos:
       caption: "Time-lapse movie of a live hiPS cell colony expressing mEGFP-tagged Sec61 beta and mTagRFP-T-tagged lamin B1. Panels show individual channels for Sec61 beta (left) and lamin B1 (middle) and the overlay of the two (right). A single, mid-level plane was imaged on a spinning-disk confocal microscope every 5 min. Movie plays at 3000x real time. Scale bar, 5 µm."
     - video: https://player.vimeo.com/video/307167915
       caption: "Time-lapse movie of a live hiPS cell colony expressing mEGFP-tagged Sec61 beta and mTagRFP-T-tagged lamin B1. Panels show individual channels for Sec61 beta (left) and lamin B1 (middle) and the overlay of the two (right). Cells were imaged in 3D on a spinning-disk confocal microscope every 5 min. A single mid-level z-section is shown. Movie plays at 1200x real time. Scale bar, 20 µm."
+editing_design:
+  SEC61B_ncbi_isoforms: n
+  crna: GCCATACCATATTGGAGATG / GGGGTCGCAGTCGCCATGGC
+  linker: SGLRS / SGLRSRAQAS
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: SEC61B locus with zoom in on mEGFP insertion site at SEC61B N-terminal exon; Bottom: LMNB1 locus showing 2 LMNB1 isoforms with zoom in on mTagRFP-T insertion site at LMNB1 N-terminal exon"
 ---

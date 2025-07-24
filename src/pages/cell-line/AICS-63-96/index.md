@@ -31,4 +31,14 @@ images_and_videos:
         and David Mack (University of Washington). The movie starts at the
         bottom of the cells and ends at the top. Scale bar, 10 µm.
       video: https://vimeo.com/1079587182/3cc7dddf19?ts=0&share=copy
+editing_design:
+  DMD_ncbi_isoforms: n
+  crna: AGACTTCCTACATTGTGTCC
+  linker: LEADYKDDDDKRSEF
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: DMD locus showing DMD isoforms; Bottom: Zoom in on mEGFP insertion site at DMD C-terminal exon"
 ---

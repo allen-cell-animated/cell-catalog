@@ -26,4 +26,14 @@ images_and_videos:
       caption: "Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged connexin-43. Cells were imaged in 3D on a spinning-disk confocal microscope every 3.25 min. Image is a maximum intensity projection of 20 z-sections (5.51 µm) acquired at the top of the cells. Contrast is enhanced to show localization of connexin-43 to internal structures Frames were histogram matched to adjust for photobleaching. Movie plays at 975x real time. Scale bar, 5 µm."
     - video: https://player.vimeo.com/video/265782365
       caption: "Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged connexin-43. Cells were imaged in 3D on a spinning-disk confocal microscope every 3 min. Image is a maximum intensity projection through the entire cell volume. Contrast is enhanced to show localization of connexin-43 to internal structures. Movie plays at 1800x real time. Scale bar, 10 µm."
+editing_design:
+  GJA1_ncbi_isoforms: N
+  crna: CAGACCTCGCCCAGACGACC
+  linker: DPPVAT
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: GJA1 locus; Bottom: Zoom in on mEGFP insertion site at GJA1 C-terminus"
 ---

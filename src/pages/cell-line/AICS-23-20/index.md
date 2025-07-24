@@ -26,4 +26,14 @@ images_and_videos:
       caption: "Timelapse movie of live hiPS cells expressing mEGFP tagged tight junction protein ZO-1. Images taken in 3D every 3 minutes for 1.5hours on a spinning-disk confocal microscope. Image is a maximum intensity projection. Movie sped up 910x over real time."
     - video: https://player.vimeo.com/video/208510881
       caption: "Timelapse movie of a hiPS cell colony expressing mEGFP tagged tight junction protein ZO-1. Images taken in 3D every 3 minutes for 15 hours on a spinning-disk confocal microscope. Image is a maximum intensity projection. Movie sped up 1800x over real time."
+editing_design:
+  TJP1_ncbi_isoforms: NM_003257.4
+  crna: GGCCGCGGAGGCGCTCACCT
+  linker: SGLRSRALERDK
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: TJP1 locus showing 4 TJP1  isoforms; Bottom: Zoom in on mEGFP insertion site at TJP1 N-terminal exon"
 ---

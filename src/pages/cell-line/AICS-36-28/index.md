@@ -20,4 +20,14 @@ images_and_videos:
     - image: Main_cell_line_morphology_cl28.jpg
       caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:
+editing_design:
+  AAVS1_ncbi_isoforms: NA
+  crna: GGGGCCACTAGGGACAGGAT
+  linker: NA
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: AAVS1_gfp.png
+        caption: "Top: mEGFP insertion site at AAVS1 locus in PPP1R12C intron; Bottom: Zoom in on mEGFP insertion site at AAVS1 locus"
 ---

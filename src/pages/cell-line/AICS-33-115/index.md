@@ -24,4 +24,14 @@ images_and_videos:
       caption: "Z-stack of live hiPS cell colony expressing mEGFP-tagged peroxisomal membrane protein PMP34 imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."
     - video: https://player.vimeo.com/video/253349961
       caption: "Timelapse movie of live hiPS cell colony expressing mEGFP tagged peroxisomal membrane protein PMP34. Cells were imaged on a spinning-disk confocal microscope. A single, mid-level plane was acquired every second. Movie sped up 10x real time. Scale bar, 5 µm."
+editing_design:
+  SLC25A17_ncbi_isoforms: N
+  crna: GCATCTTCGGAATTTTTCAT
+  linker: RDPPVAT
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: SLC25A17 locus showing 3 SLC25A17 isoforms; Bottom: Zoom in on mEGFP insertion site at SLC25A17C-terminal exon"
 ---
