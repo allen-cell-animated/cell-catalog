@@ -21,12 +21,12 @@ images_and_videos:
         A small mid-level stack of four z-slices was imaged every 3 min on a
         spinning-disk confocal microscope. A maximum intensity projection of the
         four z-slices is shown. Movie plays at 1800x real time. Scale bar, 5 µm.
-      video: https://vimeo.com/1081987377/975f52a42a?ts=0&share=copy
-    - video: https://vimeo.com/1081988227/f17fbb30c6?ts=0&share=copy
+      video: https://player.vimeo.com/video/1081987377
+    - video: https://player.vimeo.com/video/1081988227
       caption: Z-stack of live hiPS cell colony expressing mEGFP-tagged RPB1. Cells
         were imaged in 3D on a spinning-disk confocal microscope. Movie starts
         at the bottom of the cells and ends at the top. Scale bar, 5µm.
-    - video: https://vimeo.com/1081988571/bd341cc49e?ts=0&share=copy
+    - video: https://player.vimeo.com/video/1081988571
       caption: Time-lapse movie of a live hiPS cell colony expressing mEGFP-tagged
         RPB1. Cells were imaged in 3D on a spinning-disk confocal microscope
         every 3 min. A single mid-level plane is shown. Movie plays at 1800x

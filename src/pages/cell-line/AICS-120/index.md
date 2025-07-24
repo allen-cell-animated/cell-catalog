@@ -23,7 +23,7 @@ images_and_videos:
         imaged live in 3D on a spinning-disk confocal microscope.
       image: ad00006088_20240513_x02_001_s14_z17to61_crop_inset2x_shifted_scalebar5um_rgb_z14.png
   videos:
-    - video: https://vimeo.com/1082633752/0e3a793bb8?ts=0&share=copy
+    - video: https://player.vimeo.com/video/1082633752
       caption: "Z-stack of a live hiPS cell colony expressing expressing mEGFP-tagged
         outer mitochondrial membrane receptor Tom20 (TOMM20) and
         mTagRFP-T-tagged mitochondrial targeting sequence of COXVIII (mitoTag).

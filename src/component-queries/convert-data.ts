@@ -124,6 +124,7 @@ export const convertFrontmatterToNormalCellLines = ({
         thumbnailImage:
             cellLineNode.frontmatter.thumbnail_image?.childImageSharp
                 ?.gatsbyImageData || null,
+        imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
     };
 };
 

@@ -22,8 +22,8 @@ images_and_videos:
         min. A single mid-level plane is shown. Bleaching was corrected using
         the histogram matching method in ImageJ. Movie plays at 1800x real time.
         Scale bar, 20 µm.
-      video: https://vimeo.com/1079586924/c12e670d46?ts=0&share=copy
-    - video: https://vimeo.com/1081974615/07b306116c?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079586924
+    - video: https://player.vimeo.com/video/1081974615
       caption: Z-stack of live hiPS cell colony expressing mEGFP-tagged EZH2. Cells
         were imaged in 3D on a spinning-disk confocal microscope and are shown
         here with the despeckle ImageJ filter applied. Movie starts at the
