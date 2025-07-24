@@ -210,6 +210,80 @@ collections:
                         },
                     ],
             }
+          - {
+                label: "Editing Design",
+                name: "editing_design",
+                widget: "object",
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            # TODO: in the 1.0 json data, EditingDesign_NCBI_isoform doesn't directly use the isoforms associated with the gene symbol.
+                            # Should we explicitly request the entry here?
+                            label: "NCBI Isoform(s)",
+                            name: "ncbi_isoforms",
+                            widget: "string",
+                            required: false,
+                            hint: "Use / to separate multiple isoforms (e.g., NM_002859 / NM_001080855)"
+                        },
+                        {
+                            label: "crRNA",
+                            name: "crRNA",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Linker",
+                            name: "linker",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Cas9",
+                            name: "cas9",
+                            widget: "select",
+                            default: "",
+                            options: ["", "Wildtype spCas9", "TrueCut™ Cas9 Protein"], # any other options?
+                            required: false,
+                        },
+                        {
+                            label: "Diagrams",
+                            name: "diagrams",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Title",
+                                        name: "title",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Images",
+                                        name: "images",
+                                        widget: "list",
+                                        required: false,
+                                        fields:
+                                            [
+                                                {
+                                                    label: "Image",
+                                                    name: "image",
+                                                    widget: "image",
+                                                },
+                                                {
+                                                    label: "Caption",
+                                                    name: "caption",
+                                                    widget: "string",
+                                                    required: false,
+                                                },
+                                            ],
+                                    },
+                                ],
+                        },
+                    ],
+            }
     - name: "disease-cell-line"
       label: "Disease Cell Lines"
       label_singular: "Disease Cell Line"
