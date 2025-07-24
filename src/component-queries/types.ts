@@ -57,6 +57,16 @@ export interface NormalCellLineFrontmatter {
     };
     certificate_of_analysis: string;
     eu_hpsc_reg: string;
+    images_and_videos?: {
+        images: {
+            image: any;
+            caption: string;
+        }[];
+        videos: {
+            video: any;
+            caption: string;
+        }[];
+    };
 }
 
 export interface NormalCellLineNode {
@@ -219,6 +229,16 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     tagLocation: string[];
     fluorescentTag: string[];
     orderPlasmid: string;
+    imagesAndVideos?: {
+        images: {
+            image: any;
+            caption: string;
+        }[];
+        videos: {
+            video: any;
+            caption: string;
+        }[];
+    };
 }
 
 export type ParentLine = Pick<UnpackedNormalCellLine,

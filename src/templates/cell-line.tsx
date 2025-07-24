@@ -9,6 +9,7 @@ import {
 import { convertFrontmatterToNormalCellLines } from "../component-queries/convert-data";
 import { NormalCellLineInfoCard } from "../components/CellLineInfoCard/NormalCellLineInfoCard";
 import { DefaultButton } from "../components/shared/Buttons";
+import ImagesAndVideos from "../components/ImagesAndVideos";
 
 const {
     container,
@@ -53,8 +54,12 @@ export const CellLineTemplate = ({
     protein,
     fluorescentTag,
     alleleCount,
+    imagesAndVideos,
 }: CellLineProps) => {
     const image = thumbnailImage ? getImage(thumbnailImage) : undefined;
+    const hasImagesOrVideos =
+        (imagesAndVideos?.images?.length || 0) > 0 ||
+        (imagesAndVideos?.videos?.length || 0) > 0;
     if (cellLineId === 0) {
         return null;
     }
@@ -83,11 +88,15 @@ export const CellLineTemplate = ({
                 />
             </div>
             <div className={section}>
-                <p>Tag: {tagLocation.join(" / ")}</p>
-                <p>Status: {status}</p>
-                <p>Thumbnail:</p>
-                {image && (
-                    <GatsbyImage image={image} alt="Cell Line Thumbnail" />
+                {hasImagesOrVideos && (
+                    <ImagesAndVideos
+                        cellLineId={cellLineId}
+                        geneSymbol={taggedGene?.[0]?.symbol || ""}
+                        fluorescentTag={fluorescentTag?.[0] || ""}
+                        alleleTag={alleleCount?.[0] || ""}
+                        images={imagesAndVideos?.images || []}
+                        videos={imagesAndVideos?.videos || []}
+                    />
                 )}
             </div>
         </div>
@@ -148,6 +157,20 @@ export const pageQuery = graphql`
                 thumbnail_image {
                     childImageSharp {
                         gatsbyImageData(width: 200, placeholder: BLURRED)
+                    }
+                }
+                images_and_videos {
+                    images {
+                        image {
+                            childImageSharp {
+                                gatsbyImageData(width: 400, placeholder: BLURRED)
+                            }
+                        }
+                        caption
+                    }
+                    videos {
+                        video 
+                        caption
                     }
                 }
             }

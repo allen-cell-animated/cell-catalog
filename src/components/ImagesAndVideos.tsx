@@ -19,59 +19,72 @@ const {
     primaryImageContainer,
     previewImage,
     toolbarWrapper,
+    videoContainer,
+    videoIframe,
 } = require("../style/images-and-videos.module.css");
 
 interface ImagesAndVideosProps {
     images?: any[];
     cellLineId: number;
-    videos?: any;
+    videos?: any[];
     geneSymbol: string;
-    snp: string;
+    snp?: string;
     fluorescentTag: string;
-    parentalGeneSymbol: string;
+    parentalGeneSymbol?: string;
     alleleTag: string;
+}
+
+type MediaItem = {
+    type: "image" | "video";
+    data: any;
+    caption?: string;
 }
 
 const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     images = [],
+    videos = [],
     cellLineId,
     fluorescentTag,
     parentalGeneSymbol,
     alleleTag,
     geneSymbol,
 }) => {
-    const [mainImage, setMainImage] = useState(images?.[0] || null);
+    const mediaArray = (): MediaItem[] => {
+        const items: MediaItem[] = [];
+        images?.forEach(img => {
+            items.push({ type: "image", data: img, caption: img.caption });
+        });
+
+        videos?.forEach(vid => {
+            items.push({ type: "video", data: vid, caption: vid.caption });
+        });
+
+        return items;
+    };
+
+    const getVideoId = (url: string) => {
+        let videoId = null;
+        const match = url.match(/vimeo\.com\/video\/(\d+)/) ||
+            url.match(/player\.vimeo\.com\/video\/(\d+)/) ||
+            url.match(/vimeo\.com\/(\d+)/);
+        if (match) {
+            videoId = match[1];
+        }
+        return videoId;
+    };
+
+    const mediaItems = mediaArray();
+    const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(mediaItems[0] || null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [previewVisible, setPreviewVisible] = useState(false);
 
-    const hasMultipleImages = images?.length > 1;
-    const thumbnails = images?.map((image, index) => {
-        const renderImage = getImage(image?.image);
-        if (renderImage) {
-            return (
-                <Thumbnail
-                    key={index}
-                    image={renderImage}
-                    isSelected={mainImage === image}
-                    onClick={() => {
-                        setMainImage(image);
-                        setCurrentIndex(index);
-                    }}
-                />
-            );
-        }
-    });
-    const primaryImageClassName = hasMultipleImages
-        ? primaryImageWithThumbnail
-        : primaryImageOnly;
+    const showThumbnails = mediaItems.length > 1;
 
-    const imageData = getImage(mainImage.image);
-    if (!imageData) {
-        return null;
-    }
+    if (!selectedMedia) return null;
 
-    const allPreviewImages = images
-        .map((img) => getImage(img?.image))
+    const imageItems = mediaItems.filter(item => item.type === "image");
+    const allPreviewImages = imageItems
+        .map((item) => getImage(item.data?.image))
         .filter(Boolean)
         .map((imgData, i) => {
             if (imgData !== undefined)
@@ -85,6 +98,43 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                 );
         });
 
+    const renderThumbnail = (item: MediaItem, index: number) => {
+        const isSelected = selectedMedia.data === item.data;
+
+        if (item.type === "image") {
+            const imageData = getImage(item.data?.image);
+            if (!imageData) return null;
+
+            return (
+                <Thumbnail
+                    key={index}
+                    image={imageData}
+                    isSelected={isSelected}
+                    onClick={() => {
+                        setSelectedMedia(item)
+                        setCurrentIndex(index);
+                    }}
+                    type="image"
+                />
+            );
+        }
+
+        const videoId = getVideoId(item.data.video) ?? "";
+
+        return (
+            <Thumbnail
+                key={index}
+                videoId={videoId}
+                isSelected={isSelected}
+                onClick={() => {
+                    setSelectedMedia(item)
+                    setCurrentIndex(index);
+                }}
+                type="video"
+            />
+        );
+        };
+
     const title = (
         <Flex
             justify="space-between"
@@ -94,50 +144,95 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
             <div className={titleSection}>
                 <h3 className={mainTitle}>{formatCellLineId(cellLineId)}</h3>
                 <span className={subtitle}>
-                    {geneSymbol} in WTC-{fluorescentTag}-{parentalGeneSymbol} (
-                    {alleleTag}-allelic tag)
+                    {parentalGeneSymbol ?
+                        `${geneSymbol} in WTC-${fluorescentTag}-${parentalGeneSymbol} (${alleleTag}-allelic tag)` :
+                        `${geneSymbol} in WTC-${fluorescentTag} (${alleleTag}-allelic tag)`
+                    }
                 </span>
             </div>
             <span className={rightTitle}>
-                Representative images for all clones
+                Representative media for all clones
             </span>
         </Flex>
     );
 
+    const renderMedia = () => {
+        if (selectedMedia.type === "image") {
+            const imageData = getImage(selectedMedia.data.image);
+            if (!imageData) return null;
+
+            return (
+                <GatsbyImage
+                    className={showThumbnails ? primaryImageWithThumbnail : primaryImageOnly}
+                    image={imageData}
+                    alt="Cell line media"
+                    imgStyle={{ objectFit: "contain" }}
+                />
+            );
+        }
+
+        const vimeoUrl = selectedMedia.data.video;
+        return (
+            <div
+                className={`${showThumbnails ? primaryImageWithThumbnail : primaryImageOnly} ${videoContainer}`}
+            >
+                <iframe
+                    src={`${vimeoUrl}?badge=0&autoplay=0&title=0`}
+                    className={videoIframe}
+                    title="Cell line video"
+                    allowFullScreen
+                ></iframe>
+            </div>
+        );
+    };
+
+    const handleMediaClick = () => {
+        // only show preview for images, not videos
+        if (selectedMedia.type === "image") {
+            setPreviewVisible(true);
+        }
+    };
+
     return (
         <>
-            <Image.PreviewGroup
-                preview={{
-                    visible: previewVisible,
-                    className: previewImage,
-                    current: currentIndex,
-                    onVisibleChange: (visible) => setPreviewVisible(visible),
-                    onChange: (index) => {
-                        setCurrentIndex(index);
-                        setMainImage(images[index]);
-                    },
-                    toolbarRender: (
-                        _,
-                        {
-                            transform: { scale },
-                            actions: { onZoomIn, onZoomOut },
-                        }
-                    ) => (
-                        <Space className={toolbarWrapper}>
-                            <ZoomOutOutlined
-                                disabled={scale <= 1}
-                                onClick={onZoomOut}
-                            />
-                            <ZoomInOutlined
-                                disabled={scale >= 10}
-                                onClick={onZoomIn}
-                            />
-                        </Space>
-                    ),
-                }}
-            >
-                {allPreviewImages}
-            </Image.PreviewGroup>
+            {imageItems.length > 0 && (
+                <Image.PreviewGroup
+                    preview={{
+                        visible: previewVisible,
+                        className: previewImage,
+                        current: currentIndex,
+                        onVisibleChange: (visible) => setPreviewVisible(visible),
+                        onChange: (index) => {
+                            const imageItem = imageItems[index];
+                            if (imageItem) {
+                                setSelectedMedia(imageItem);
+                                const fullIndex = mediaItems.findIndex(item => item.data === imageItem.data);
+                                setCurrentIndex(fullIndex);
+                            }
+                        },
+                        toolbarRender: (
+                            _,
+                            {
+                                transform: { scale },
+                                actions: { onZoomIn, onZoomOut },
+                            }
+                        ) => (
+                            <Space className={toolbarWrapper}>
+                                <ZoomOutOutlined
+                                    disabled={scale <= 1}
+                                    onClick={onZoomOut}
+                                />
+                                <ZoomInOutlined
+                                    disabled={scale >= 10}
+                                    onClick={onZoomIn}
+                                />
+                            </Space>
+                        ),
+                    }}
+                >
+                    {allPreviewImages}
+                </Image.PreviewGroup>
+            )}
             <Card className={container} title={title}>
                 <Flex
                     className={primaryImageContainer}
@@ -145,25 +240,20 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                     vertical
                     justify="center"
                     gap={20}
-                    onClick={() => setPreviewVisible(true)}
+                    onClick={handleMediaClick}
                 >
-                    <GatsbyImage
-                        className={primaryImageClassName}
-                        image={imageData}
-                        alt="main image"
-                        imgStyle={{ objectFit: "contain" }}
-                    />
-                    {mainImage.caption && (
-                        <p className={caption}>{mainImage.caption}</p>
+                    {renderMedia()}
+                    {selectedMedia.caption && (
+                        <p className={caption}>{selectedMedia.caption}</p>
                     )}
                 </Flex>
-                {hasMultipleImages && (
+                {showThumbnails && (
                     <Flex
                         vertical
                         style={{ minHeight: 0 }}
                         className={thumbnailContainer}
                     >
-                        {thumbnails}
+                        {mediaItems.map(renderThumbnail).filter(Boolean)}
                     </Flex>
                 )}
             </Card>
