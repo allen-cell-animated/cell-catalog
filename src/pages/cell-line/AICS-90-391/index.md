@@ -17,7 +17,7 @@ donor_plasmid: https://www.addgene.org/127968/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-45
 images_and_videos:
   videos:
-    - video: https://vimeo.com/1079587233/6ede024c61?ts=0&share=copy
+    - video: https://player.vimeo.com/video/1079587233
       caption: Z-stack of live hiPS cell colony expressing TagBFP-tagged dCas9-KRAB.
         TagBFP-tagged dCas9-KRAB (left) and overlay onto transmitted light image
         stack (right) are shown. Cells were imaged in 3D on a spinning-disk

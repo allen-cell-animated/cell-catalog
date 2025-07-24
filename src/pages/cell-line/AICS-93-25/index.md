@@ -21,14 +21,14 @@ images_and_videos:
         TERF2. A single, mid-level plane of the cells was imaged every 3 min on
         a spinning-disk confocal microscope. Movie plays at 900x real time.
         Scale bar, 5 µm.
-      video: https://vimeo.com/1079587357/cc25b6670d?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079587357
     - caption: Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged
         TERF2. A single, mid-level plane of the cells was imaged every 3 min on
         a spinning-disk confocal microscope. Movie plays at 1800x real time.
         Scale bar, 5 µm.
-      video: https://vimeo.com/1079599130/e984ccd1d0?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079599130
     - caption: Z-stack of a live hiPS cell colony expressing mEGFP-tagged TERF2. Cells
         were imaged in 3D on a spinning-disk confocal microscope. The movie
         starts at the bottom of the cells and ends at the top. Scale bar, 5 µm.
-      video: https://vimeo.com/1079598064/3e344af0a6?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079598064
 ---
