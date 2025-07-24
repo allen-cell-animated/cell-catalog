@@ -24,4 +24,14 @@ images_and_videos:
       caption: "Z-stack of live hiPS cells expressing mEGFP tagged Sec61-beta imaged on a spinning-disk confocal microscope. Image starts at the bottom of the cells and ends at the top."
     - video: https://player.vimeo.com/video/208529088
       caption: "Timelapse movie of live hiPS cells expressing mEGFP tagged Sec61-beta. Images taken in 3D every 2 minutes for 3 hours on a spinning-disk confocal microscope. Image is a single slice through the center of the cells. Movie sped up 600x over real time."
+editing_design:
+  SEC61B_ncbi_isoforms: NM_006808
+  crna: GCCATACCATATTGGAGATG
+  linker: SGLRS
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: SEC61B locus; Bottom: Zoom in on mEGFP insertion site at SEC61B N-terminal exon"
 ---

@@ -24,4 +24,14 @@ images_and_videos:
       caption: "Z-stack of live hiPS cell colony expressing the CAAX domain of K-Ras tagged with mEGFP from a safe harbor locus. Cells were imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."
     - video: https://player.vimeo.com/video/265784904
       caption: "Time-lapse movie of live hiPS cell colonies expressing the CAAX domain of K-Ras tagged with mEGFP from a safe harbor locus. Cells were imaged in 3D on a spinning-disk confocal microscope every 3 min. Image is a single z-plane near the bottom of the cells. Movie plays at 1800x real time. Scale bar, 10 µm."
+editing_design:
+  AAVS1_ncbi_isoforms: N
+  crna: GGGGCCACTAGGGACAGGAT
+  linker: NA
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: mTagRFPT insertion site at safe harbor locus (AAVS1) in PPP1R12C intron; Bottom: Zoom in on mTagRFPT insertion site at safe harbor locus (AAVS1); insertion into AAVS1 is based on Hockmeyer et al (2011) Nat. Biotechnology, 29(8): 731-734"
 ---
