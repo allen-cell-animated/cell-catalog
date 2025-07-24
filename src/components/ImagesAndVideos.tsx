@@ -63,14 +63,8 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     };
 
     const getVideoId = (url: string) => {
-        let videoId = null;
-        const match = url.match(/vimeo\.com\/video\/(\d+)/) ||
-            url.match(/player\.vimeo\.com\/video\/(\d+)/) ||
-            url.match(/vimeo\.com\/(\d+)/);
-        if (match) {
-            videoId = match[1];
-        }
-        return videoId;
+        const match = url.match(/player\.vimeo\.com\/video\/(\d+)/);
+        return match ? match[1] : null;
     };
 
     const mediaItems = mediaArray();
