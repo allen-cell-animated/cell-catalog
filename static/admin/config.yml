@@ -131,12 +131,6 @@ collections:
                     ],
             }
           - {
-                label: "Linker",
-                name: "linker",
-                widget: "string",
-                required: false,
-            }
-          - {
                 label: "Order Link",
                 name: "order_link",
                 widget: "string",
