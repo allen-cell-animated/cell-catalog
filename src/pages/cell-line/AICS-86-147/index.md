@@ -34,4 +34,14 @@ images_and_videos:
       caption: "Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged fibrillarin, mTagRFP-T-tagged nucleophosmin, and HaloTag-tagged nucleolar transcription factor UBF visualized with ligand Janelia Fluor 646 (Promega). Panels show individual channels for nucleolar transcription factor UBF, fibrillarin, nucleophosmin, and an overlay of the three (left to right). Boxed regions in top row are shown enlarged in the bottom row with increased brightness.  Cells were imaged in 3D on a spinning-disk confocal microscope every 3 min. A single mid-level plane is shown. Movie plays at 900x real time. Scale bar, 5 µm."
     - video: https://player.vimeo.com/video/442124499
       caption: "Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged fibrillarin (pseudocolored in magenta), mTagRFP-T-tagged nucleophosmin (pseudocolored in cyan), and HaloTag-tagged nucleolar transcription factor UBF visualized with ligand Janelia Fluor 646 (Promega) (pseudocolored in yellow); overlay of channels appears white where proteins are colocalized. Cells were imaged in 3D on a spinning-disk confocal microscope every 3 min. A single mid-level plane is shown. Movie plays at 1800x real time. Scale bar, 20 µm."
+editing_design:
+  FBL_ncbi_isoforms: n
+  crna: AACTGAAGTTCAGCGCTGTC / TCCAGGCTATTCAAGATCTC / CGAGGAGGTGGCTGGACAGC 
+  linker: KPNSAVDGTAGPGSIAT / KPNSAVDGTAGPGSIAT / SG
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: FBL locus with zoom in on mEGFP insertion site at FBL C-terminal exon. Middle: NPM1 locus showing 7 NPM1 isoforms with zoom in on mTagRFP-T insertion site at NPM1 C-terminal exon. Bottom: UBTF locus showing 3 UBTF isoforms with zoom in on HaloTag insertion site at UBTF N-terminal exon"
 ---

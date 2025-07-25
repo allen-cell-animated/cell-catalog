@@ -24,4 +24,14 @@ images_and_videos:
       caption: "Z-stack of a live hiPS cell colony expressing mEGFP-tagged RNA-binding protein FUS in control cells (left panel) and in the presence of 500 µM sodium arsenite for 15 min (right panel). Cells were imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."
     - video: https://player.vimeo.com/video/307598542
       caption: "Time-lapse movie of a live hiPS cell colony expressing mEGFP-tagged RNA-binding protein FUS. Six minutes after the introduction of 500 µM sodium arsenite, cells were imaged every 5 sec in 3D on a spinning-disk confocal microscope. A single mid-level plane is shown. The inset is a 2.5x enlargement of the boxed region to show detail of aggregate formation. Frames were histogram matched to adjust for photobleaching. Movie plays at 25x real time. Scale bar, 5 µm."
+editing_design:
+  FUS_ncbi_isoforms: n
+  crna: ACAGACAGGATCGCAGGGAG
+  linker: ENLYFQGAAKFKETAAAKFERQHMDSGGGGSSGPSGSSSLEVLFQGPLSSSGPSGS
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: FUS locus showing 3 FUS isoforms; Bottom: Zoom in on mEGFP insertion site at FUS C-terminal exon"
 ---

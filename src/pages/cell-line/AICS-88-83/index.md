@@ -36,4 +36,14 @@ images_and_videos:
         the cells was imaged every 3 min on a spinning-disk confocal microscope.
         Movie plays at 1800x real time. Scale bar, 20 µm.
       video: https://vimeo.com/1079876541/cc9572adf0?ts=0&share=copy
+editing_design:
+  PCNA_ncbi_isoforms: 
+  crna: GTTCGAGGCGCGCCTGGTCC
+  linker: GEGQGQGQGPGRGYAYRS
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: PCNA locus showing 2 PCNA isoforms; Bottom: Zoom in on mEGFP insertion site at PCNA N-terminal exon"
 ---

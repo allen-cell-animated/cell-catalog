@@ -36,4 +36,14 @@ images_and_videos:
         imaged every 3 min on a spinning-disk confocal microscope. Movie plays
         at 1800x real time. Scale bar, 20 µm.
       video: https://vimeo.com/1079876768/14a8b1fded?ts=0&share=copy
+editing_design:
+  CTCF_ncbi_isoforms: 
+  crna: TGATGCAGTCGAAGCCATTG
+  linker: EDLYFQS
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: CTCF locus showing 2 CTCF isoforms; Bottom: Zoom in on mEGFP insertion site at CTCF N-terminal exon"
 ---

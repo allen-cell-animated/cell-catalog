@@ -24,4 +24,14 @@ images_and_videos:
       caption: "Z-stack of live hiPS cell colony expressing one copy (monoallelic) of mEGFP-tagged Ras-related protein Rab-5A imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."
     - video: https://player.vimeo.com/video/253350453
       caption: "Timelapse movie of live hiPS cell colony expressing one copy (monoallelic) of mEGFP-tagged Ras-related protein Rab-5A. Cells were imaged on a spinning-disk confocal microscope. A single, mid-plane z-section was acquired every second. A zoom-in of the area boxed in the left panel is shown on the right. Movie sped up 10x real time. Scale bar, 5 µm."
+editing_design:
+  RAB5A_ncbi_isoforms: N
+  crna: GAGGCGCAACAAGACCCAAC
+  linker: SGLRSRA
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: RAB5A locus showing 2 RAB5A isoforms; Bottom: Zoom in on mEGFP insertion site at RAB5A N-terminal exon"
 ---

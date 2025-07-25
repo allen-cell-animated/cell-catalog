@@ -24,4 +24,14 @@ images_and_videos:
       caption: "Z-stack of live hiPSC-derived cardiomyocytes expressing mEGFP-tagged titin protein. Twelve days after the onset of differentiation, cells were plated on PEI and laminin coated glass and imaged in 3D on a spinning disk confocal microscope 23 days later (35 days total after the onset of differentiation). Cells were treated with 15 mM of the myosin inhibitor 2,3-Butanedione monoxime (BDM) to prevent beating during image acquisition. Movie starts at the bottom of the cells and ends at the top. Inset shows detail of titan in myofibrils. Scale bars, 10 µm."
     - video: https://player.vimeo.com/video/287834710
       caption: " Time-lapse movie of live hiPSC-derived cardiomyocytes expressing mEGFP-tagged titin protein. Twelve days after the onset of differentiation, cells were plated on PEI and laminin coated glass and imaged on a spinning disk confocal microscope 23 days later (35 days total after the onset of differentiation). A single plane of cells was imaged continuously with a 100 ms exposure time. Inset shows detail of titan in myofibrils. Scale bars, 10 µm. Movie plays in real time."
+editing_design:
+  TTN_ncbi_isoforms: n
+  crna: ACATATTCGATCCATTTAAG
+  linker: SGSG
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: TTN locus showing 7 TTN isoforms; Bottom: Zoom in on mEGFP insertion site at TTN C-terminus; For more information on tagging transcriptionally silent genes in hiPSCs see: Roberts et al. 2018. Scarless gene tagging of transcriptionally silent genes in hiPSCs to visualize cardiomyocyte sarcomeres in live cells. bioRxiv doi:10.1101/342881"
 ---

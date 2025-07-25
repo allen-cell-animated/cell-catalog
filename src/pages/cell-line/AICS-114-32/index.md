@@ -37,4 +37,14 @@ images_and_videos:
         projection of the six z-slices is shown. Movie plays at 1800x real time.
         Scale bar, 5 µm.
       video: https://vimeo.com/1079877818/1a3f780ef9?ts=0&share=copy
+editing_design:
+  CDH1_ncbi_isoforms: 
+  crna: ACGACTAGGGGACTCGAGAG
+  linker: LE
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: CDH1_gfp.png
+        caption: "Top: CDH1 locus showing 4 CDH1 isoforms; Bottom: Zoom in on mEGFP insertion site at CDH1 C-terminal exon."
 ---

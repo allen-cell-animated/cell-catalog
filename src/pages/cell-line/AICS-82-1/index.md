@@ -46,4 +46,14 @@ images_and_videos:
         mid-level plane of the cells was imaged every 3 min on a spinning-disk
         confocal microscope. Movie plays at 900x real time. Scale bar, 5 µm.
       video: https://vimeo.com/1079876934/b976fc343f?ts=0&share=copy
+editing_design:
+  G3BP1_ncbi_isoforms: 
+  crna: TTGCTTTGGTCAATTCAACC
+  linker: SGLRS
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: G3BP1 locus showing 2 G3BP1 isoforms; Bottom: Zoom in on mEGFP insertion site at G3BP1 N-terminal exon."
 ---

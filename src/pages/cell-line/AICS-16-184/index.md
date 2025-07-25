@@ -24,4 +24,14 @@ images_and_videos:
       caption: "Z-stack of live hiPS cells expressing mEGFP tagged beta-actin imaged on a spinning-disk confocal microscope. Image starts at the bottom of the cells and ends at the top."
     - video: https://player.vimeo.com/video/208518533
       caption: "Timelapse movie of live hiPS cells expressing mEGFP tagged beta-actin. Images taken in 3D every 3 minutes for 1.5 hours on a spinning-disk confocal microscope. Image is a maximum intensity projection of 2 z-slices near the bottom of the cells. Movie sped up 1080x over real time."
+editing_design:
+  ACTB_ncbi_isoforms: NM_001101
+  crna: GCCGTTGTCGACGACGAGCG
+  linker: AGSGT
+  cas9: Wildtype spCas9
+  diagrams:
+  - title: "mEGFP Insert"
+    images:
+      - image: EditingDesign_gene_figure.png
+        caption: "Top: ACTB locus; Bottom: Zoom in on mEGFP insertion site at ACTB N-terminal exon"
 ---
