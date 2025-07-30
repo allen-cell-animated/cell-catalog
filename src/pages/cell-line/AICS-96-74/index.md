@@ -3,7 +3,6 @@ templateKey: cell-line
 cell_line_id: 96
 status: data complete
 date: 2025-05-06T21:01:17.772Z
-thumbnail_image: single_plane_image_cl74.jpg
 clone_number: 74
 parental_line: 0
 genetic_modifications:
@@ -16,6 +15,11 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0096-074_
 donor_plasmid: https://www.addgene.org/164500/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-47
 images_and_videos:
+  images:
+    - image: single_plane_image_cl74.jpg
+      caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing mEGFP-tagged RPB1. Cells were imaged in 3D on a spinning-disk confocal microscope. Scale bar, 50μm"
+    - image: AICS-96_cl74_POLR2A_final.jpg
+      caption: "Viability and colony formation one day and three days post-thaw. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:
     - caption: Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged RPB1.
         A small mid-level stack of four z-slices was imaged every 3 min on a

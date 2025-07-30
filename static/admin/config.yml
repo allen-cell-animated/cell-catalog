@@ -69,12 +69,6 @@ collections:
             }
           - { label: "Publish Date", name: "date", widget: "datetime" }
           - {
-                label: "Thumbnail Image",
-                name: "thumbnail_image",
-                widget: "image",
-                required: false,
-            }
-          - {
                 label: "Clone Number",
                 name: "clone_number",
                 widget: "number",
@@ -178,6 +172,7 @@ collections:
                             name: "images",
                             widget: "list",
                             required: false,
+                            hint: "The first image will be used as the thumbnail in the catalog. Drag to rearrange the order.",
                             fields:
                                 [
                                     {
@@ -399,6 +394,7 @@ collections:
                             label: "Images",
                             name: "images",
                             widget: "list",
+                            hint: "The first image will be used as the thumbnail in the catalog. Drag to rearrange the order.",
                             required: false,
                             fields:
                                 [
@@ -681,11 +677,11 @@ collections:
             name: "index"
             fields:
                 - {
-                      label: "Template Key",
-                      name: "templateKey",
-                      widget: "hidden",
-                      default: "index-page",
-                  }
+                    label: "Template Key",
+                    name: "templateKey",
+                    widget: "hidden",
+                    default: "index-page",
+                }
                 - { label: Title, name: title, widget: string }
                 - { label: Image, name: image, widget: image }
                 - { label: Subtitle, name: subtitle, widget: string }
@@ -708,11 +704,11 @@ collections:
             name: "disease-catalog"
             fields:
                 - {
-                      label: "Template Key",
-                      name: "templateKey",
-                      widget: "hidden",
-                      default: "disease-catalog",
-                  }
+                    label: "Template Key",
+                    name: "templateKey",
+                    widget: "hidden",
+                    default: "disease-catalog",
+                }
                 - { label: "Title", name: "title", widget: "string" }
                 - { label: "Body", name: "body", widget: "markdown" }
                 - {
@@ -729,18 +725,18 @@ collections:
                                   required: false,
                               },
 
-                              {
-                                  label: Description,
-                                  name: description,
-                                  widget: markdown,
-                              },
-                          ],
-                  }
+                            {
+                                label: Description,
+                                name: description,
+                                widget: markdown,
+                            },
+                        ],
+                }
                 - {
-                      label: "Coriell Image",
-                      name: "coriell_image",
-                      widget: "image",
-                  }
+                    label: "Coriell Image",
+                    name: "coriell_image",
+                    widget: "image",
+                }
                 - {
                       label: "Coriell Link",
                       name: "coriell_link",
@@ -749,20 +745,20 @@ collections:
                 - { label: "Learn Image", name: "learn_image", widget: "image" }
                 - { label: "Learn Link", name: "learn_link", widget: "string" }
                 - {
-                      label: "Addgene Image",
-                      name: "addgene_image",
-                      widget: "image",
-                  }
+                    label: "Addgene Image",
+                    name: "addgene_image",
+                    widget: "image",
+                }
                 - {
-                      label: "Addgene Link",
-                      name: "addgene_link",
-                      widget: "string",
-                  }
+                    label: "Addgene Link",
+                    name: "addgene_link",
+                    widget: "string",
+                }
                 - {
-                      label: "Footer text",
-                      name: "footer_text",
-                      widget: "markdown",
-                  }
+                    label: "Footer text",
+                    name: "footer_text",
+                    widget: "markdown",
+                }
                 - {
                       label: "Acknowledgements Block",
                       name: "acknowledgements_block",
@@ -807,11 +803,11 @@ collections:
             name: "normal-catalog"
             fields:
                 - {
-                      label: "Template Key",
-                      name: "templateKey",
-                      widget: "hidden",
-                      default: "normal-catalog",
-                  }
+                    label: "Template Key",
+                    name: "templateKey",
+                    widget: "hidden",
+                    default: "normal-catalog",
+                }
                 - { label: "Title", name: "title", widget: "string" }
                 - {
                       label: "About Block",
@@ -887,76 +883,75 @@ collections:
                   }
                 - { label: "Body", name: "body", widget: "markdown" }
                 - {
-                      label: "Main",
-                      name: "main",
-                      widget: "object",
-                      fields:
-                          [
-                              {
-                                  label: "Heading",
-                                  name: "heading",
-                                  widget: "string",
-                              },
-                              {
-                                  label: "Subheading",
-                                  name: "subheading",
-                                  required: false,
-                                  widget: "string",
-                              },
-
-                              {
-                                  label: "Description",
-                                  name: "description",
-                                  widget: "markdown",
-                              },
-                          ],
-                  }
+                    label: "Main",
+                    name: "main",
+                    widget: "object",
+                    fields:
+                        [
+                            {
+                                label: "Heading",
+                                name: "heading",
+                                widget: "string",
+                            },
+                            {
+                                label: "Subheading",
+                                name: "subheading",
+                                required: false,
+                                widget: "string",
+                            },
+                            {
+                                label: "Description",
+                                name: "description",
+                                widget: "markdown",
+                            },
+                        ],
+                }
                 - {
-                      label: "Coriell Image",
-                      name: "coriell_image",
-                      widget: "image",
-                  }
+                    label: "Coriell Image",
+                    name: "coriell_image",
+                    widget: "image",
+                }
                 - {
-                      label: "Coriell Link",
-                      name: "coriell_link",
-                      widget: "string",
-                  }
+                    label: "Coriell Link",
+                    name: "coriell_link",
+                    widget: "string",
+                }
                 - {
-                      label: "Acknowledgements Block",
-                      name: "acknowledgements_block",
-                      widget: "object",
-                      fields:
-                          [
-                              {
-                                  label: "Intro",
-                                  name: "intro",
-                                  widget: "string",
-                              },
-                              {
-                                  label: "Contributors",
-                                  name: "contributors",
-                                  widget: "list",
-                                  required: false,
-                                  collapsed: true,
-                                  fields:
-                                      [
-                                          {
-                                              label: "Name",
-                                              name: "name",
-                                              widget: "string",
-                                          },
-                                          {
-                                              label: "Institution",
-                                              name: "institution",
-                                              widget: "string",
-                                          },
-                                      ],
-                              },
-                              {
-                                  label: "Outro",
-                                  name: "outro",
-                                  widget: "string",
-                              },
-                          ],
-                  }
+                    label: "Acknowledgements Block",
+                    name: "acknowledgements_block",
+                    widget: "object",
+                    fields:
+                        [
+                            {
+                                label: "Intro",
+                                name: "intro",
+                                widget: "string",
+                            },
+                            {
+                                label: "Contributors",
+                                name: "contributors",
+                                widget: "list",
+                                required: false,
+                                collapsed: true,
+                                fields:
+                                    [
+                                        {
+                                            label: "Name",
+                                            name: "name",
+                                            widget: "string",
+                                        },
+                                        {
+                                            label: "Institution",
+                                            name: "institution",
+                                            widget: "string",
+                                        },
+                                    ],
+                            },
+                            {
+                                label: "Outro",
+                                name: "outro",
+                                widget: "string",
+                            },
+                        ],
+                }
                 - { label: "Funding", name: "funding_text", widget: "markdown" }

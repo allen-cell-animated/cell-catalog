@@ -2,7 +2,6 @@
 templateKey: cell-line
 cell_line_id: 69
 status: released
-thumbnail_image: single_plane_image_cl88.jpg
 clone_number: 88
 parental_line: 0
 genetic_modifications:
@@ -15,6 +14,11 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0069-088_
 donor_plasmid: https://www.addgene.org/114407/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-31
 images_and_videos:
+  images:
+    - image: single_plane_image_cl88.jpg
+      caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing mEGFP-tagged Nucleoporin Nup153 protein. Cells were imaged in 3D on a spinning-disk confocal microscope. Inset depicts the bottom z-section of the boxed cell to show localization of Nucleoporin Nup153 protein across the surface of the nuclear envelope. Scale bar, 5 µm."
+    - image: Main_cell_line_morphology.jpg
+      caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:
     - video: https://player.vimeo.com/video/287833994
       caption: "Z-stack of live hiPS cell colony expressing mEGFP-tagged Nucleoporin Nup153 protein. Cells were imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."

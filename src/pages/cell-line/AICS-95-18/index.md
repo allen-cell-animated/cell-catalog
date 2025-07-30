@@ -3,7 +3,6 @@ templateKey: cell-line
 cell_line_id: 95
 status: data complete
 date: 2025-05-06T20:50:42.082Z
-thumbnail_image: single_plane_image_cl18.jpg
 clone_number: 18
 parental_line: 0
 genetic_modifications:
@@ -16,6 +15,11 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0095-018_
 donor_plasmid: https://www.addgene.org/164499/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-46
 images_and_videos:
+  images:
+    - image: single_plane_image_cl18.jpg
+      caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing mEGFP-tagged EZH2. Cells were imaged in 3D on a spinning-disk confocal microscope and are shown here with the despeckle ImageJ filter applied. Scale bar, 50μm"
+    - image: AICS-95_cl18_EZH2_final.jpg
+      caption: "Viability and colony formation one day and three days post-thaw. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:
     - caption: Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged EZH2.
         Cells were imaged in 3D on a spinning-disk confocal microscope every 3
