@@ -213,8 +213,7 @@ collections:
                 fields:
                     [
                         {
-                            # TODO: in the 1.0 json data, EditingDesign_NCBI_isoform doesn't directly use the isoforms associated with the gene symbol.
-                            # Should we explicitly request the entry here?
+                            # TODO: confirm with the team what data we need for this field. I'll leave it as it is for now.
                             label: "NCBI Isoform(s)",
                             name: "ncbi_isoforms",
                             widget: "string",
@@ -238,7 +237,7 @@ collections:
                             name: "cas9",
                             widget: "select",
                             default: "",
-                            options: ["", "Wildtype spCas9", "TrueCut™ Cas9 Protein"], # any other options?
+                            options: ["", "Wildtype spCas9", "TrueCut™ Cas9 Protein"],
                             required: false,
                         },
                         {
