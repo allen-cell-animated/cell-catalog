@@ -6,6 +6,7 @@ const {
     thumbnail,
     selectedThumbnail,
     videoThumbnailImage,
+    video,
 } = require("../style/thumbnail.module.css");
 
 interface ThumbnailProps {
@@ -32,6 +33,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
             onClick={onClick}
             className={classNames(thumbnail, {
                 [selectedThumbnail]: isSelected,
+                [video]: type === "video",
             })}
             role="button"
         >
