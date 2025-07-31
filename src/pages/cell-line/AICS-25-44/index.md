@@ -26,4 +26,15 @@ images_and_videos:
       caption: "Timelapse movie of live hiPS cells expressing two copies (biallelic) of mEGFP tagged sialyltransferase 1 (ST6GAL 1). Images were taken in 3D every 5 minutes for 100 minutes on a spinning-disk confocal microscope. Images are maximum intensity projections with the ‘despeckle’ ImageJ filter applied. Movie sped up 900x over real time."
     - video: https://player.vimeo.com/video/229764910
       caption: "Timelapse movie of a live hiPS cell colony expressing two copies (biallelic) of mEGFP tagged sialyltransferase 1 (ST6GAL 1). Images were taken in 3D every 3 minutes for 6 hours on a spinning-disk confocal microscope. Images are maximum intensity projections with the ‘despeckle’ ImageJ filter applied. Movie sped up 1800x over real time."
+editing_design:
+  ncbi_isoforms:
+    - N
+  crna: GTGCTTAGCAGTGAATGGTC
+  linker: LQSTVPRARDPPVAT
+  cas9: Wildtype spCas9
+  diagrams:
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: ST6GAL1 locus showing 3 ST6GAL1 isoforms; Bottom: Zoom in on mEGFP insertion site at ST6GAL1 C-terminal exon"
 ---

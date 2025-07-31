@@ -26,4 +26,15 @@ images_and_videos:
       caption: "Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged Nucleoporin Nup153 protein. Cells were imaged in a 3D volume spanning ~1.5 µm through the middle of the cells on a spinning-disk confocal microscope every 3 min. A single mid-level z-section is shown. Movie plays at 1800x real time. Scale bar, 5 µm."
     - video: https://player.vimeo.com/video/287833984
       caption: "Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged Nucleoporin Nup153 protein. Cells were imaged in a 3D volume spanning ~1.5 µm through the middle of the cells on a spinning-disk confocal microscope every 3 min. Image is a maximum intensity projection through the imaged volume. Movie plays at 1800x real time. Scale bar, 20 µm."
+editing_design:
+  ncbi_isoforms:
+    - n
+  crna: GCCATGGCCTCGGGAGCCGG
+  linker: YSDLE
+  cas9: Wildtype spCas9
+  diagrams:
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: NUP153 locus showing 3 NUP153 isoforms; Bottom: Zoom in on mEGFP insertion site at NUP153 N-terminal exon"
 ---

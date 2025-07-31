@@ -27,4 +27,15 @@ images_and_videos:
         stack (right) are shown. Cells were imaged in 3D on a spinning-disk
         confocal. Movie starts at the bottom of the cells and ends at the top.
         Scale bar, 20 μM.
+editing_design:
+  ncbi_isoforms:
+    - n
+  crna: TGTTGGAAGGATGAGGAAAT
+  linker: N/A
+  cas9: Wildtype spCas9
+  diagrams:
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: CLYBL locus; Bottom: Zoom in on dCas9-TagBFP-KRAB insertion site at CLYBL safe harbor site between exons 2 and 3"
 ---

@@ -24,4 +24,15 @@ images_and_videos:
       caption: "Z-stack of live hiPS cell colony expressing mEGFP-tagged beta-catenin. Cells were imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."
     - video: https://player.vimeo.com/video/265792317
       caption: "Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged-beta-catenin. Cells were imaged in 3D on a spinning-disk confocal microscope every 5 min. Image is a maximum intensity projection through the top 12 z-sections (3.19 µm) of the colony. Frames were histogram matched to adjust for photobleaching. Movie plays at 3000x real time. Scale bar, 5 µm."
+editing_design:
+  ncbi_isoforms:
+    - n
+  crna: TGAAAATCCAGCGTGGACAA
+  linker: SGLRSRAQASNSAVDGTAAT
+  cas9: Wildtype spCas9
+  diagrams:
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: CTNNB1 locus showing 4 CTNNB1 isoforms; Bottom: Zoom in on mEGFP insertion site at CTNNB1 N-terminal exon"
 ---

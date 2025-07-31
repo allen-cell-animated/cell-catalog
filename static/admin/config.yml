@@ -131,12 +131,6 @@ collections:
                     ],
             }
           - {
-                label: "Linker",
-                name: "linker",
-                widget: "string",
-                required: false,
-            }
-          - {
                 label: "Order Link",
                 name: "order_link",
                 widget: "string",
@@ -205,6 +199,79 @@ collections:
                                         name: "caption",
                                         widget: "string",
                                         required: false,
+                                    },
+                                ],
+                        },
+                    ],
+            }
+          - {
+                label: "Editing Design",
+                name: "editing_design",
+                widget: "object",
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            # TODO: confirm with the team what data we need for this field. I'll leave it as it is for now.
+                            label: "NCBI Isoform(s)",
+                            name: "ncbi_isoforms",
+                            widget: "string",
+                            required: false,
+                            hint: "Use / to separate multiple isoforms (e.g., NM_002859 / NM_001080855)"
+                        },
+                        {
+                            label: "crRNA",
+                            name: "crRNA",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Linker",
+                            name: "linker",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Cas9",
+                            name: "cas9",
+                            widget: "select",
+                            default: "",
+                            options: ["", "Wildtype spCas9", "TrueCut™ Cas9 Protein"],
+                            required: false,
+                        },
+                        {
+                            label: "Diagrams",
+                            name: "diagrams",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Title",
+                                        name: "title",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Images",
+                                        name: "images",
+                                        widget: "list",
+                                        required: false,
+                                        fields:
+                                            [
+                                                {
+                                                    label: "Image",
+                                                    name: "image",
+                                                    widget: "image",
+                                                },
+                                                {
+                                                    label: "Caption",
+                                                    name: "caption",
+                                                    widget: "string",
+                                                    required: false,
+                                                },
+                                            ],
                                     },
                                 ],
                         },

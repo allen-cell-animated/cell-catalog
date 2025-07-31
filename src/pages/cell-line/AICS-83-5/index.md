@@ -20,4 +20,15 @@ images_and_videos:
     - image: AICS-83_cl5_DCP1A.jpg
       caption: " Viability and colony formation one day, three days and four days post-thaw. Scale bars are as shown."
   videos:
+editing_design:
+  ncbi_isoforms:
+    - 
+  crna: GGCTCTGGGATTCAAGATGG
+  linker: SRA
+  cas9: Wildtype spCas9
+  diagrams:
+    - title: "mEGFP Insert"
+      images:
+        - image: DCP1A_GFP.png
+          caption: "Top: DCP1A locus showing 3 DCP1A isoforms; Bottom: Zoom in on mEGFP insertion site at DCP1A N-Terminus."
 ---

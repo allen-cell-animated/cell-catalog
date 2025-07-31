@@ -24,4 +24,15 @@ images_and_videos:
       caption: "Z-stack of live hiPS cell colony expressing mEGFP-tagged mitochondrial transcription factor A (TFAM). Cells were imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."
     - video: https://player.vimeo.com/video/442126456
       caption: "Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged mitochondrial transcription factor A (TFAM). A single, mid-level plane of the cells was imaged every 3 min on a spinning-disk confocal microscope. Movie plays at 900x real time. Scale bar, 5 µm."
+editing_design:
+  ncbi_isoforms:
+    - n
+  crna: GAGATGTGTTCACAATGGAT
+  linker: GGGS
+  cas9: Wildtype spCas9
+  diagrams:
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: TFAM locus showing 2 TFAM isoforms; Bottom: Zoom in on mEGFP insertion site at TFAM C-terminal exon"
 ---

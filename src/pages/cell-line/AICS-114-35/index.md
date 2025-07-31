@@ -38,4 +38,15 @@ images_and_videos:
         the histogram matching method in ImageJ. Movie plays at 1800x real time.
         Scale bar, 5 µm.
       video: https://vimeo.com/1079877956/3b9719f5a4?ts=0&share=copy
+editing_design:
+  ncbi_isoforms:
+    - 
+  crna: ACGACTAGGGGACTCGAGAG
+  linker: LE
+  cas9: Wildtype spCas9
+  diagrams:
+    - title: "mEGFP Insert"
+      images:
+        - image: CDH1_gfp.png
+          caption: "Top: CDH1 locus showing 4 CDH1 isoforms; Bottom: Zoom in on mEGFP insertion site at CDH1 C-terminal exon."
 ---

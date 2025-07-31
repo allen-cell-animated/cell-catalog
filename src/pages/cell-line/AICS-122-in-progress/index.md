@@ -15,4 +15,10 @@ donor_plasmid:
 eu_hpsc_reg: 
 images_and_videos:
   videos:
+editing_design:
+  ncbi_isoforms:
+    - N
+  crna: N
+  linker: 
+  cas9: Wildtype spCas9
 ---

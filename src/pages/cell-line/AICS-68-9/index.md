@@ -26,4 +26,15 @@ images_and_videos:
       caption: "Time-lapse movie of a live hiPS cell colony expressing mEGFP-tagged SMC protein 1A. Cells were imaged in 3D on a spinning-disk confocal microscope every 3 min. A single mid-level plane is shown. Frames were histogram matched to adjust for photobleaching. Movie plays at 900x real time. Scale bar, 5 µm."
     - video: https://player.vimeo.com/video/307601810
       caption: "Time-lapse movie of a live hiPS cell colony expressing mEGFP-tagged SMC protein 1A. Cells were imaged in 3D on a spinning-disk confocal microscope every 5 min. A single mid-level plane is shown. Movie plays at 3000x real time. Scale bar, 20 µm."
+editing_design:
+  ncbi_isoforms:
+    - n
+  crna: AAAATACTGCTACTGCTCAT
+  linker: LSSSGPSGS
+  cas9: Wildtype spCas9
+  diagrams:
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: SMC1A locus showing 2 SMC1A isoforms; Bottom: Zoom in on mEGFP insertion site at SMC1A C-terminal exon"
 ---
