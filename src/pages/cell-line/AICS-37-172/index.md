@@ -25,13 +25,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/265791472
       caption: "Time-lapse movie of live hiPSC-derived cardiomyocytes expressing mEGFP-tagged troponin I, slow skeletal. Twelve days after the onset of differentiation, cells were plated on PEI and laminin coated glass and imaged 15 days later on a spinning-disk confocal microscope (27 days total after the onset of differentiation). Cells were imaged continuously with a 100ms exposure time. Inset shows detail of sarcomeres in myofibrils. Scale bars, 5 µm and 10 µm for inset and larger field respectively. Movie plays in real time."
 editing_design:
-  TNNI1_ncbi_isoforms: N
+  ncbi_isoforms:
+    - N
   crna: AGTCTCCGACCTCACAATAG
   linker: SGSG
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: TNNI1 locus; Bottom: Zoom in on mEGFP insertion site at TNNI1 C-terminus. For more information on tagging transcriptionally silent genes in hiPSCs see: Roberts et al. 2018. Scarless gene tagging of transcriptionally silent genes in hiPSCs to visualize cardiomyocyte sarcomeres in live cells. bioRxiv doi:10.1101/342881"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: TNNI1 locus; Bottom: Zoom in on mEGFP insertion site at TNNI1 C-terminus. For more information on tagging transcriptionally silent genes in hiPSCs see: Roberts et al. 2018. Scarless gene tagging of transcriptionally silent genes in hiPSCs to visualize cardiomyocyte sarcomeres in live cells. bioRxiv doi:10.1101/342881"
 ---

@@ -37,13 +37,14 @@ images_and_videos:
         Movie plays at 1800x real time. Scale bar, 20 µm.
       video: https://vimeo.com/1079876541/cc9572adf0?ts=0&share=copy
 editing_design:
-  PCNA_ncbi_isoforms: 
+  ncbi_isoforms:
+    - 
   crna: GTTCGAGGCGCGCCTGGTCC
   linker: GEGQGQGQGPGRGYAYRS
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: PCNA locus showing 2 PCNA isoforms; Bottom: Zoom in on mEGFP insertion site at PCNA N-terminal exon"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: PCNA locus showing 2 PCNA isoforms; Bottom: Zoom in on mEGFP insertion site at PCNA N-terminal exon"
 ---

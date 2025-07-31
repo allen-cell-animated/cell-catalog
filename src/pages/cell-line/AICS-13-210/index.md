@@ -27,13 +27,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/198393326
       caption: "Timelapse movie of a hiPSC colony expressing LaminB1-mEGFP. Images taken in 3D every 3 minutes for 12 hours on a spinning-disk confocal microscope. Image is a maximum intensity projection. Movie sped up 1800x over real time."
 editing_design:
-  LMNB1_ncbi_isoforms: NM_005573
+  ncbi_isoforms:
+    - NM_005573
   crna: GGGGTCGCAGTCGCCATGGC
   linker: SGLRSRAQAS
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: LMNB1 locus showing 2 LMNB1 isoforms; Bottom: Zoom in on mEGFP insertion site at LMNB1 N-terminal exon"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: LMNB1 locus showing 2 LMNB1 isoforms; Bottom: Zoom in on mEGFP insertion site at LMNB1 N-terminal exon"
 ---

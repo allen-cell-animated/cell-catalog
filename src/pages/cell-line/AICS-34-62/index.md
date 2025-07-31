@@ -27,13 +27,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/442184428
       caption: "Time-lapse movie of live hiPS cell colony expressing mTagRFP-T-tagged lamin B1. A single, mid-level plane of the cells was imaged every 3 min on a spinning-disk confocal microscope. Movie plays at 1800x real time. Scale bar, 20 µm."
 editing_design:
-  LMNB1_ncbi_isoforms: n
+  ncbi_isoforms:
+    - n
   crna: GGGGTCGCAGTCGCCATGGC
   linker: SGLRSRAQAS
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: LMNB1 locus showing 2 LMNB1 isoforms with zoom in on mTagRFP-T insertion site at LMNB1 N-terminal exon."
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: LMNB1 locus showing 2 LMNB1 isoforms with zoom in on mTagRFP-T insertion site at LMNB1 N-terminal exon."
 ---

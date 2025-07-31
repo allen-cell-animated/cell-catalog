@@ -27,13 +27,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/287832498
       caption: "Time-lapse movie of live beating hiPSC-derived cardiomyocytes expressing mEGFP-tagged SERCA2 protein. Twelve days after the onset of differentiation, cells were plated on PEI and laminin coated glass and imaged on a spinning disk confocal microscope 8 days later (20 days total after the onset of differentiation). A single plane of cells was imaged continuously with a 100 ms exposure time. Inset shows detail of SERCA2 in longitudinal sarcoplasmic reticulum (SR). Scale bars, 10 µm. Movie plays in real time."
 editing_design:
-  ATP2A2_ncbi_isoforms: n
+  ncbi_isoforms:
+    - n
   crna: TGCGCGTTCTCCATGGCTTC
   linker: GSA
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: ATP2A2 locus showing 2 ATP2A2 isoforms; Bottom: Zoom in on mEGFP insertion site at ATP2A2 N-terminal exon"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: ATP2A2 locus showing 2 ATP2A2 isoforms; Bottom: Zoom in on mEGFP insertion site at ATP2A2 N-terminal exon"
 ---

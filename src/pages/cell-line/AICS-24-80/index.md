@@ -29,13 +29,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/208520536
       caption: "Timelapse movie of a hiPS cell colony expressing mEGFP tagged non-muscle myosin heavy chain IIB. Images taken in 3D every 5 minutes for 8 hours on a spinning-disk confocal microscope. Image is a maximum intensity projection. Movie sped up 2850x over real time."
 editing_design:
-  MYH10_ncbi_isoforms: NM_001256012
+  ncbi_isoforms:
+    - NM_001256012
   crna: GTTCTCTGCGCCATTGTAAA
   linker: YSDLELKLRIP
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: MYH10 locus showing 3 MYH10 isoforms; Bottom: Zoom in on mEGFP insertion site at MYH10 N-terminal exon"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: MYH10 locus showing 3 MYH10 isoforms; Bottom: Zoom in on mEGFP insertion site at MYH10 N-terminal exon"
 ---

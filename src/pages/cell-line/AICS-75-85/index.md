@@ -25,13 +25,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/333844902
       caption: "Time-lapse movie of live beating hiPSC-derived cardiomyocytes expressing mEGFP-tagged alpha-actinin-2 protein. Twelve days after the onset of differentiation, cells were plated on PEI and laminin coated glass and imaged on a spinning disk confocal microscope 18 days later (30 days total after the onset of differentiation). A single plane of cells was imaged continuously with a 100 ms exposure time. Inset is a 2.5x enlargement of boxed region to show detail of alpha-actinin-2 in myofibrils. Scale bar, 20 µm. Movie plays in real time."
 editing_design:
-  ACTN2_ncbi_isoforms: n
+  ncbi_isoforms:
+    - n
   crna: CGTTCTCTTCCGCACTCTAC
   linker: VDGTAGPGSIAT
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP insertion site at ACTN2 C-terminus; More information on tagging transcriptionally silent genes in hiPSCs is available in Roberts et al. (2019) Stem Cell Reports"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP insertion site at ACTN2 C-terminus; More information on tagging transcriptionally silent genes in hiPSCs is available in Roberts et al. (2019) Stem Cell Reports"
 ---

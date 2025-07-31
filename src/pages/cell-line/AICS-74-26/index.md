@@ -27,13 +27,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/333850572
       caption: "Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged transcription factor SOX-2 protein. Cells were imaged in 3D on a spinning-disk confocal microscope every 5 min. A single mid-level plane is shown. Movie plays at 3000x real time. Scale bar, 20 µm."
 editing_design:
-  SOX2_ncbi_isoforms: n
+  ncbi_isoforms:
+    - n
   crna: TGCCCCTCTCACACATGTGA
   linker: GGSG
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: SOX2 locus; Bottom: Zoom in on mEGFP insertion site at SOX2 C-terminus"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: SOX2 locus; Bottom: Zoom in on mEGFP insertion site at SOX2 C-terminus"
 ---

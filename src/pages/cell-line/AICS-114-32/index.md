@@ -38,13 +38,14 @@ images_and_videos:
         Scale bar, 5 µm.
       video: https://vimeo.com/1079877818/1a3f780ef9?ts=0&share=copy
 editing_design:
-  CDH1_ncbi_isoforms: 
+  ncbi_isoforms:
+    - 
   crna: ACGACTAGGGGACTCGAGAG
   linker: LE
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: CDH1_gfp.png
-        caption: "Top: CDH1 locus showing 4 CDH1 isoforms; Bottom: Zoom in on mEGFP insertion site at CDH1 C-terminal exon."
+    - title: "mEGFP Insert"
+      images:
+        - image: CDH1_gfp.png
+          caption: "Top: CDH1 locus showing 4 CDH1 isoforms; Bottom: Zoom in on mEGFP insertion site at CDH1 C-terminal exon."
 ---

@@ -27,13 +27,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/265789492
       caption: "Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged nucleophosmin. Cells were imaged in 3D on a spinning-disk confocal microscope every 3 min. Image is a maximum intensity projection through the volume of the cells. Movie plays at 900x real time. Scale bar, 10 µm."
 editing_design:
-  NPM1_ncbi_isoforms: N
+  ncbi_isoforms:
+    - N
   crna: TCCAGGCTATTCAAGATCTC
   linker: KPNSAVDGTAGPGSIAT
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: NPM1 locus showing 7 NPM1 isoforms; Bottom: Zoom in on mEGFP insertion site at NPM1 C-terminal exon"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: NPM1 locus showing 7 NPM1 isoforms; Bottom: Zoom in on mEGFP insertion site at NPM1 C-terminal exon"
 ---

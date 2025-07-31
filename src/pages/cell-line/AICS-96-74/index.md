@@ -36,13 +36,14 @@ images_and_videos:
         every 3 min. A single mid-level plane is shown. Movie plays at 1800x
         real time. Scale bar, 20 µm.
 editing_design:
-  POLR2A_ncbi_isoforms: n
+  ncbi_isoforms:
+    - n
   crna: CGCCTGCCTCCGCCATGCAC
   linker: SGLRSRAQASNSAVDGTAGPGSTGSS
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: POLR2A locus; Bottom: Zoom in on mEGFP insertion site at POLR2A N-terminal exon"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: POLR2A locus; Bottom: Zoom in on mEGFP insertion site at POLR2A N-terminal exon"
 ---

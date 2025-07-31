@@ -25,13 +25,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/198395370
       caption: "Timelapse movie of a hiPSC colony expressing tom20-mEGFP. Images taken as a partial z-stack near the bottom  of the cell every 11 seconds for 3 minutes on a spinning-disk confocal microscope. Image is a maximum intensity projection. Movie sped up 55x over real time."
 editing_design:
-  TOMM20_ncbi_isoforms: NM_014765
+  ncbi_isoforms:
+    - NM_014765
   crna: AATTGTAAGTGCTCAGAGCT
   linker: GGSGDPPVAT
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: TOMM20 locus; Bottom: Zoom in on mEGFP insertion site at TOMM20 C-terminal exon"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: TOMM20 locus; Bottom: Zoom in on mEGFP insertion site at TOMM20 C-terminal exon"
 ---

@@ -25,13 +25,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/229764093
       caption: "Timelapse movie of live hiPS cells expressing mEGFP tagged LAMP-1. Images were taken as a single slice every 1 second for 100 seconds on a spinning-disk confocal microscope. Images have had the ‘despeckle’ ImageJ filter applied. Movie sped up 10x over real time."
 editing_design:
-  LAMP1_ncbi_isoforms: N
+  ncbi_isoforms:
+    - N
   crna: GTGCACCAGGCTAGATAGTC
   linker: EFGSTGSTGSTGADPPVAT
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: LAMP1 locus; Bottom: Zoom in on mEGFP insertion site at LAMP1 C-terminal exon"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: LAMP1 locus; Bottom: Zoom in on mEGFP insertion site at LAMP1 C-terminal exon"
 ---

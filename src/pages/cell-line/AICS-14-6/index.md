@@ -27,13 +27,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/208515873
       caption: "Timelapse movie of a hiPS cell colony expressing mEGFP tagged fibrillarin. Images taken in 3D every 3 minutes for 10 hours on a spinning-disk confocal microscope. Image is a maximum intensity projection. Movie sped up 1800x over real time."
 editing_design:
-  FBL_ncbi_isoforms: NM_001436
+  ncbi_isoforms:
+    - NM_001436
   crna: AACTGAAGTTCAGCGCTGTC
   linker: KPNSAVDGTAGPG
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: FBL locus; Bottom: Zoom in on mEGFP insertion site at FBL C-terminal exon"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: FBL locus; Bottom: Zoom in on mEGFP insertion site at FBL C-terminal exon"
 ---

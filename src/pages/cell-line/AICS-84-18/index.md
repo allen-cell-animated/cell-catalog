@@ -31,13 +31,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/333852631
       caption: "Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged fibrillarin and mTagRFP-T-tagged nucleophosmin. Panels show individual channels for fibrillarin (left) and nucleophosmin (middle) and the overlay of the two (right). Cells were imaged in 3D on a spinning-disk confocal microscope every 3 min. Frames are maximum intensity z-projections through the entire volume of the cell. Movie plays at 1800x real time. Scale bar, 20 µm."
 editing_design:
-  FBL_ncbi_isoforms: n
+  ncbi_isoforms:
+    - n
   crna: AACTGAAGTTCAGCGCTGTC / TCCAGGCTATTCAAGATCTC
   linker: KPNSAVDGTAGPGSIAT / KPNSAVDGTAGPGSIAT
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: FBL locus with zoom in on mEGFP insertion site at FBL C-terminal exon. Bottom: NPM1 locus showing 7 NPM1 isoforms with zoom in on mTagRFP-T insertion site at NPM1 C-terminal exon"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: FBL locus with zoom in on mEGFP insertion site at FBL C-terminal exon. Bottom: NPM1 locus showing 7 NPM1 isoforms with zoom in on mTagRFP-T insertion site at NPM1 C-terminal exon"
 ---

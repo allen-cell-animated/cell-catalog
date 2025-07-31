@@ -21,13 +21,14 @@ images_and_videos:
       caption: "One vial of distribution lot was thawed (cells were treated with ROCK inhibitor for 24hrs post-thaw-refer to culture protocol). Cultures were observed daily. Colonies were imaged one and three days post-thaw using a Leica microscope at 4x and 10x magnification."
   videos:
 editing_design:
-  CDH5_ncbi_isoforms: 
+  ncbi_isoforms:
+    - 
   crna: GGAGGAGCTGCTGTATTAGG
   linker: N/A
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: CDH5_GFP.png
-        caption: "Top: CDH5 locus showing 3 CDH5 isoforms; Bottom: Zoom in on mEGFP insertion site at CDH5 C-terminal exon."
+    - title: "mEGFP Insert"
+      images:
+        - image: CDH5_GFP.png
+          caption: "Top: CDH5 locus showing 3 CDH5 isoforms; Bottom: Zoom in on mEGFP insertion site at CDH5 C-terminal exon."
 ---

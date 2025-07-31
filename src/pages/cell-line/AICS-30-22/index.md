@@ -25,13 +25,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/253348721
       caption: "Timelapse movie of live hiPS cell colony expressing mEGFP-tagged autophagy-related protein LC3 B in presence of 800 nM leupeptin. Cells were imaged on a spinning-disk confocal microscope every 10 seconds. Image is a maximum intensity projection of 4 z-slices acquired through the middle of the cells. Movie sped up 100x real time. Scale bar, 5 µm."
 editing_design:
-  MAP1LC3B_ncbi_isoforms: N
+  ncbi_isoforms:
+    - N
   crna: TGGTGCAGGGATCTGGGCGG
   linker: SGLRS
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: MAP1LC3B locus; Bottom: Zoom in on mEGFP insertion site at MAP1LC3B N-terminal exon"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: MAP1LC3B locus; Bottom: Zoom in on mEGFP insertion site at MAP1LC3B N-terminal exon"
 ---

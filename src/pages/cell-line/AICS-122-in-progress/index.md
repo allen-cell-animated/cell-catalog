@@ -16,7 +16,8 @@ eu_hpsc_reg:
 images_and_videos:
   videos:
 editing_design:
-  EOMES_ncbi_isoforms: N
+  ncbi_isoforms:
+    - N
   crna: N
   linker: 
   cas9: Wildtype spCas9

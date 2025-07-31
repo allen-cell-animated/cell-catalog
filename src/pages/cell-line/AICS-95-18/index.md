@@ -33,13 +33,14 @@ images_and_videos:
         here with the despeckle ImageJ filter applied. Movie starts at the
         bottom of the cells and ends at the top. Scale bar, 5 μm.
 editing_design:
-  EZH2_ncbi_isoforms: n
+  ncbi_isoforms:
+    - n
   crna: ACAGGTGATCATATTCAGGC
   linker: SGLRSRA
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: EZH2 locus showing 5 EZH2 isoforms; Bottom: Zoom in on mEGFP insertion site at EZH2 N-terminal exon"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: EZH2 locus showing 5 EZH2 isoforms; Bottom: Zoom in on mEGFP insertion site at EZH2 N-terminal exon"
 ---

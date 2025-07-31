@@ -25,13 +25,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/307167766
       caption: "Time-lapse movie of live hiPSC-derived cardiomyocytes expressing mEGFP-tagged MLC-2v protein. Twelve days after the onset of differentiation, cells were plated on PEI and laminin coated glass and imaged on a spinning-disk confocal microscope 28 days later (40 days total after the onset of differentiation). A single plane of cells was imaged continuously with a 100 ms exposure time. Inset is a 3x enlargement of the boxed region to show detail of MLC-2v in myofibrils. Movie plays in real time.Scale bar, 20 µm."
 editing_design:
-  MYL2_ncbi_isoforms: n
+  ncbi_isoforms:
+    - n
   crna: CCTAGTCCTTCTCTTCTCCG
   linker: SGSGSPGSGSG
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: MYL2_gfp.png
-        caption: "Top: MYL2 locus; Bottom: Zoom in on mEGFP insertion site at MYL2 C-terminus; For more information on tagging transcriptionally silent genes in hiPSCs see: Roberts et al. 2018. Scarless gene tagging of transcriptionally silent genes in hiPSCs to visualize cardiomyocyte sarcomeres in live cells. bioRxiv doi:10.1101/342881"
+    - title: "mEGFP Insert"
+      images:
+        - image: MYL2_gfp.png
+          caption: "Top: MYL2 locus; Bottom: Zoom in on mEGFP insertion site at MYL2 C-terminus; For more information on tagging transcriptionally silent genes in hiPSCs see: Roberts et al. 2018. Scarless gene tagging of transcriptionally silent genes in hiPSCs to visualize cardiomyocyte sarcomeres in live cells. bioRxiv doi:10.1101/342881"
 ---

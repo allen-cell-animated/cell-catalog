@@ -50,13 +50,14 @@ images_and_videos:
         plays at 900x real time. Scale bar, 5 µm.
       video: https://vimeo.com/1079599493/b8d79a10a3?ts=0&share=copy
 editing_design:
-  TOMM20_ncbi_isoforms: 
+  ncbi_isoforms:
+    - 
   crna: AATTGTAAGTGCTCAGAGCT / GATGCACTCACGCTGCGGGA
   linker: GGSGDPPVAT / GGSGGS
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: TOMM20 locus with zoom in on mEGFP insertion site at TOMM20 C-terminal exon. Bottom: TUBA1B locus with zoom in on mTagRFP-T insertion site at TUBA1B N-terminus."
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: TOMM20 locus with zoom in on mEGFP insertion site at TOMM20 C-terminal exon. Bottom: TUBA1B locus with zoom in on mTagRFP-T insertion site at TUBA1B N-terminus."
 ---

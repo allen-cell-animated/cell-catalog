@@ -36,14 +36,14 @@ images_and_videos:
         starts at the bottom of the cells and ends at the top. Scale bar, 5 µm.
       video: https://vimeo.com/1079598064/3e344af0a6?ts=0&share=copy
 editing_design:
-  TERF2_ncbi_isoforms: 
+  ncbi_isoforms:
+    - 
   crna: CGCTGTTTCTATCATGGCCG
   linker: SGRTQIP
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: TERF2 locus; Bottom: Zoom in on mEGFP insertion site at TERF2 N-terminal exon."
-
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: TERF2 locus; Bottom: Zoom in on mEGFP insertion site at TERF2 N-terminal exon."
 ---

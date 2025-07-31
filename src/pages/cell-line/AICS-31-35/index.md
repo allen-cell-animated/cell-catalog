@@ -25,13 +25,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/229759137
       caption: "Timelapse movie of a live hiPS cell colony expressing mTagRFP-T tagged alpha-tubulin. Images were taken in 3D every 5 minutes for 10 hours on a spinning-disk confocal microscope. Images are maximum intensity projections with the ‘despeckle’ ImageJ filter applied. Movie sped up 3000x over real time."
 editing_design:
-  TUBA1B_ncbi_isoforms: NM_006082
+  ncbi_isoforms:
+    - NM_006082
   crna: GATGCACTCACGCTGCGGGA
   linker: GGSGGS
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: TUBA1B locus; Bottom: Zoom in on mTagRFP-T insertion site at TUBA1B N-terminus"
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: TUBA1B locus; Bottom: Zoom in on mTagRFP-T insertion site at TUBA1B N-terminus"
 ---

@@ -35,13 +35,14 @@ images_and_videos:
     - video: https://player.vimeo.com/video/442182868
       caption: "Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged fibrillarin, mTagRFP-T-tagged nucleophosmin, and TagBFP-tagged dCas9-KRAB. Panels show individual channels for fibrillarin, nucleophosmin, and the overlay of the two (left to right). TagBFP-tagged dCas9-KRAB is not shown here because it was used to identify dCas9-KRAB expressing cells and not to highlight a structure (see single z-slice image for its expression pattern). Cells were imaged in 3D on a spinning-disk confocal microscope every 3 min. A single mid-level plane is shown. Movie plays at 1800x real time. Scale bar, 20 µm."
 editing_design:
-  FBL_ncbi_isoforms: n
+  ncbi_isoforms:
+    - n
   crna: AACTGAAGTTCAGCGCTGTC / TCCAGGCTATTCAAGATCTC / TGTTGGAAGGATGAGGAAAT
   linker: KPNSAVDGTAGPGSIAT / KPNSAVDGTAGPGSIAT
   cas9: Wildtype spCas9
   diagrams:
-  - title: "mEGFP Insert"
-    images:
-      - image: EditingDesign_gene_figure.png
-        caption: "Top: FBL locus with zoom in on mEGFP insertion site at FBL C-terminal exon. Middle: NPM1 locus showing 7 NPM1 isoforms with zoom in on mTagRFP-T insertion site at NPM1 C-terminal exon. Bottom: CLYBL locus showing dCas9-TagBFP-KRAB insertion site at CLYBL safe harbor site between exons 2 and 3."
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: FBL locus with zoom in on mEGFP insertion site at FBL C-terminal exon. Middle: NPM1 locus showing 7 NPM1 isoforms with zoom in on mTagRFP-T insertion site at NPM1 C-terminal exon. Bottom: CLYBL locus showing dCas9-TagBFP-KRAB insertion site at CLYBL safe harbor site between exons 2 and 3."
 ---
