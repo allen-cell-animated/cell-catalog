@@ -6,7 +6,7 @@ import {
     Clone,
     UnpackedDiseaseCellLine,
     UnpackedGene,
-    UnpackedNormalCellLine,
+    ParentLine,
 } from "../../component-queries/types";
 import { formatCellLineId, getCloneSummary } from "../../utils";
 import GeneDisplay from "../GeneDisplay";
@@ -73,7 +73,7 @@ export const getDiseaseTableColumns = (
             dataIndex: "parentalLine",
             responsive: mdBreakpoint,
             render: (
-                parentalLine: UnpackedNormalCellLine,
+                parentalLine: ParentLine,
                 record: UnpackedDiseaseCellLine
             ) => {
                 return (
