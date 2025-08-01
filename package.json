@@ -34,7 +34,7 @@
     "prop-types": "^15.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-helmet": "^6.0.0",
+    "react-helmet-async": "^2.0.5",
     "sass": "^1.43.2",
     "uuid": "^8.0.0"
   },
@@ -51,7 +51,10 @@
     "serve": "gatsby serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write --tab-width 4 \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx concurrently \"npx netlify-cms-proxy-server\" \"npm start -- --progress\""
+    "dev": "npx concurrently \"npx netlify-cms-proxy-server\" \"npm start -- --progress\"",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@types/antd": "^1.0.0",
@@ -59,8 +62,16 @@
     "@types/react": "^18.2.59",
     "@types/react-dom": "^18.2.19",
     "@types/react-helmet": "^6.1.11",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
     "concurrently": "^9.1.2",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "gatsby-plugin-postcss": "^6.13.1",
+    "husky": "^9.1.7",
     "netlify-cli": "^17.15.7",
     "postcss": "^8.4.35",
     "prettier": "^2.0.5",
