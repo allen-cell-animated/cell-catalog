@@ -36,8 +36,35 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
     fPrimer,
     rPrimer,
     diagrams,
+    ncbi_isoforms,
+    crna,
+    linker,
 }) => {
     const rows: DescriptionsProps["items"] = [];
+
+    if (ncbi_isoforms) {
+        rows.push({
+            key: "isoforms",
+            label: "NCBI Isoforms:",
+            children: ncbi_isoforms,
+        });
+    }
+
+    if (crna) {
+        rows.push({
+            key: "crna",
+            label: "cRNA Target Site:",
+            children: crna,
+        });
+    }
+
+    if (linker) {
+        rows.push({
+            key: "linker",
+            label: "Linker: ",
+            children: linker,
+        });
+    }
 
     if (crnaTargetSite) {
         rows.push({
@@ -114,7 +141,7 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
         <div className={container}>
             {rows.length > 0 && (
                 <SubpageContentCard>
-                    <InfoPanel data={rows} />
+                    <InfoPanel data={rows} hasLegend={shouldShowLegend} />
                     {legendContent}
                 </SubpageContentCard>
             )}
@@ -124,9 +151,7 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
                     title={diagramProps.title}
                     caption={diagramProps.caption}
                     image={diagramProps.image}
-                    className={
-                        !diagramProps.title && noHeader
-                    }
+                    className={!diagramProps.title && noHeader}
                 />
             ))}
         </div>
