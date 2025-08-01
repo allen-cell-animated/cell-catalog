@@ -127,7 +127,7 @@ export const unpackParentLineFromFrontMatter = (data: ParentalLineFrontmatter): 
             data
                 .genetic_modifications
         );
-    const thumbnailImage = data.thumbnail_image;
+    const thumbnailImage = data.images_and_videos?.images?.[0]?.image?.childImageSharp?.gatsbyImageData || null;
     const cellLineId = data.cell_line_id;
     const cloneNumber = data.clone_number;
     return {
