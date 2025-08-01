@@ -32,6 +32,12 @@ export interface ParentalLineFrontmatter {
     allele_count: string[];
     tag_location: string[];
     fluorescent_tag: string[];
+    images_and_videos?: {
+        images: {
+            image: FileNode;
+            caption: string;
+        }[];
+    };
 }
 
 export interface NormalCellLineFrontmatter {
