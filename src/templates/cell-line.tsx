@@ -4,15 +4,17 @@ import Layout from "../components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import {
     NormalCellLineFrontmatter,
-    UnpackedNormalCellLine,
 } from "../component-queries/types";
-import { convertFrontmatterToNormalCellLines } from "../component-queries/convert-data";
 import { NormalCellLineInfoCard } from "../components/CellLineInfoCard/NormalCellLineInfoCard";
 import { DefaultButton } from "../components/shared/Buttons";
+import SubpageTabs from "../components/SubPage/SubpageTabs";
+import { TABS_WITH_STEM_CELL } from "../constants";
+import { unpackNormalFrontMatterForSubpage } from "../components/SubPage/convert-data";
+import { UnpackedNormalCellLineFull } from "../components/SubPage/types";
 
 const {
     container,
-    section,
+    imagesContainer,
     leftCard,
     returnArrow,
 } = require("../style/disease-cell-line.module.css");
@@ -33,7 +35,7 @@ interface QueryResult {
     };
 }
 
-interface CellLineProps extends UnpackedNormalCellLine {
+interface CellLineProps extends UnpackedNormalCellLineFull {
     href: string;
 }
 
@@ -50,56 +52,59 @@ export const CellLineTemplate = ({
     healthCertificate,
     certificateOfAnalysis,
     orderLink,
-    protein,
     fluorescentTag,
     alleleCount,
+    editingDesign,
 }: CellLineProps) => {
     const image = thumbnailImage ? getImage(thumbnailImage) : undefined;
     if (cellLineId === 0) {
         return null;
     }
     return (
-        <div className={container}>
-            <div className={leftCard}>
-                <Link to="/normal-catalog">
-                    <DefaultButton>
-                        <Arrow className={returnArrow} />
-                        Return to Cell Catalog
-                    </DefaultButton>
-                </Link>
-                <NormalCellLineInfoCard
-                    href={href}
-                    cellLineId={cellLineId}
-                    geneName={taggedGene[0].name}
-                    geneSymbol={taggedGene[0].symbol}
-                    orderLink={orderLink}
-                    certificateOfAnalysis={certificateOfAnalysis}
-                    orderPlasmid={orderPlasmid}
-                    healthCertificate={healthCertificate}
-                    cloneNumber={cloneNumber}
-                    taggedGene={taggedGene}
-                    fluorescentTag={fluorescentTag}
-                    alleleCount={alleleCount}
-                />
+        <>
+            <div className={container}>
+                <div className={leftCard}>
+                    <Link to="/normal-catalog">
+                        <DefaultButton>
+                            <Arrow className={returnArrow} />
+                            Return to Cell Catalog
+                        </DefaultButton>
+                    </Link>
+                    <NormalCellLineInfoCard
+                        href={href}
+                        cellLineId={cellLineId}
+                        geneName={taggedGene[0].name}
+                        geneSymbol={taggedGene[0].symbol}
+                        orderLink={orderLink}
+                        certificateOfAnalysis={certificateOfAnalysis}
+                        orderPlasmid={orderPlasmid}
+                        healthCertificate={healthCertificate}
+                        cloneNumber={cloneNumber}
+                        taggedGene={taggedGene}
+                        fluorescentTag={fluorescentTag}
+                        alleleCount={alleleCount}
+                    />
+                </div>
+                <div className={imagesContainer}>
+                    {image && (
+                        <GatsbyImage image={image} alt="Cell Line Thumbnail" />
+                    )}
+                </div>
             </div>
-            <div className={section}>
-                <p>Tag: {tagLocation.join(" / ")}</p>
-                <p>Status: {status}</p>
-                <p>Thumbnail:</p>
-                {image && (
-                    <GatsbyImage image={image} alt="Cell Line Thumbnail" />
-                )}
-            </div>
-        </div>
+            <SubpageTabs
+                editingDesignData={editingDesign}
+                genomicCharacterizationData={[]}
+                stemCellCharData={null}
+                tabsToRender={TABS_WITH_STEM_CELL}
+            />
+        </>
     );
 };
 
 const CellLine = ({ data, location }: QueryResult) => {
     const { markdownRemark: cellLine } = data;
 
-    const unpackedCellLine = convertFrontmatterToNormalCellLines({
-        node: cellLine,
-    });
+    const unpackedCellLine = unpackNormalFrontMatterForSubpage(cellLine);
 
     return (
         <Layout>
@@ -156,6 +161,26 @@ export const pageQuery = graphql`
                             }
                         }
                         caption
+                    }
+                }
+                editing_design {
+                    ncbi_isoforms
+                    crna
+                    linker
+                    cas9
+                    diagrams {
+                        title
+                        images {
+                            image {
+                                childImageSharp {
+                                    gatsbyImageData(
+                                        placeholder: BLURRED
+                                        layout: CONSTRAINED
+                                    )
+                                }
+                            }
+                            caption
+                        }
                     }
                 }
             }
