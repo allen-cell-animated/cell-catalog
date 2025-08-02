@@ -1,6 +1,7 @@
 import {Link} from "gatsby";
 import React from "react";
 import { Flex } from "antd";
+import { ColumnProps } from "antd/es/table";
 import Icon from "@ant-design/icons";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
@@ -22,15 +23,16 @@ const {
     thumbnailContainer,
 } = require("../../style/table.module.css");
 
-export const cellLineIdColumn = {
+export const cellLineIdColumn: ColumnProps<UnpackedCellLine> = {
     title: "Cell Collection ID",
     key: "cellLineId",
     className: cellLineId,
     dataIndex: "cellLineId",
     fixed: "left" as const,
     render: (cellLineId: number, record: UnpackedCellLine) => {
+        const formattedId = formatCellLineId(cellLineId);
         const cellLine = (
-            <h4 key={cellLineId}>{formatCellLineId(cellLineId)}</h4>
+            <h4 key={cellLineId}>{formattedId}</h4>
         );
         const thumbnailImage = getImage(record.thumbnailImage || null);
 
@@ -40,11 +42,13 @@ export const cellLineIdColumn = {
                 <div className={thumbnailContainer}>
                     <GatsbyImage
                         image={thumbnailImage}
-                        alt={`${cellLine} thumbnail`}
+                        alt={`${formattedId} thumbnail`}
                     />
                 </div>
             </>
-        ) : cellLine;
+        ) : (
+            cellLine
+        );
 
         return record.status === CellLineStatus.DataComplete ? (
             <Link to={record.path}>{content}</Link>
@@ -54,7 +58,7 @@ export const cellLineIdColumn = {
     },
 };
 
-export const certificateOfAnalysisColumn = {
+export const certificateOfAnalysisColumn: ColumnProps = {
     title: "",
     key: "certificateOfAnalysis",
     dataIndex: "certificateOfAnalysis",
@@ -88,7 +92,7 @@ export const certificateOfAnalysisColumn = {
     },
 };
 
-export const obtainLineColumn = {
+export const obtainLineColumn: ColumnProps = {
     title: "",
     key: "orderLink",
     dataIndex: "orderLink",

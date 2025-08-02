@@ -25,7 +25,6 @@ interface DiseaseCellLineTemplateProps extends UnpackedDiseaseCellLineFull {
     href: string;
 }
 
-// eslint-disable-next-line
 export const DiseaseCellLineTemplate = ({
     href,
     cellLineId,

@@ -133,19 +133,18 @@ export const createLookupMappings = (
     const geneSymToCellIds = new Map();
     const structureAndNameToGene = new Map();
     const allSearchableTerms: Set<string> = new Set();
-    data.forEach((group: any) => {
+    data.forEach((group: SearchAndFilterGroup) => {
         const symbol = group.fieldValue;
         allSearchableTerms.add(symbol);
         const cellLines: number[] = [];
-        group.edges.forEach((edge: any) => {
+        group.edges.forEach((edge) => {
             const cellLineId = edge.node.frontmatter.cell_line_id;
             cellLines.push(cellLineId);
             if (cellLineId) {
                 allSearchableTerms.add(formatCellLineId(cellLineId));
             }
-            const genes = edge.node.frontmatter.genetic_modifications || [];
-            genes.forEach((obj: any) => {
-                const gene = obj.gene;
+            const genes = edge.node.frontmatter.genetic_modifications.gene || [];
+            genes.forEach((gene) => {
                 const geneSymbol = gene.frontmatter.symbol;
                 const geneName = gene.frontmatter.name;
                 const geneProtein = gene.frontmatter.protein;

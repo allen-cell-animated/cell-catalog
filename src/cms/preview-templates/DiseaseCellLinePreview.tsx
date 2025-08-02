@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { TemplateProps } from "./types";
 import InfoPanel from "../../components/shared/InfoPanel";
@@ -82,8 +82,9 @@ const DiseaseCellLinePreview = ({ entry, getAsset }: TemplateProps) => {
             <InfoPanel data={data} />
             <CloneTable dataSource={cloneData} />
 
-            {images.map((data: any) => (
+            {images.map((data: any, idx: number) => (
                 <div
+                    key={idx}
                     style={{
                         display: "flex",
                         alignItems: "center",

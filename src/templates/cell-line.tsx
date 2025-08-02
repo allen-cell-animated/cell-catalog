@@ -37,7 +37,6 @@ interface CellLineProps extends UnpackedNormalCellLine {
     href: string;
 }
 
-// eslint-disable-next-line
 export const CellLineTemplate = ({
     cellLineId,
     cloneNumber,
@@ -50,7 +49,6 @@ export const CellLineTemplate = ({
     healthCertificate,
     certificateOfAnalysis,
     orderLink,
-    protein,
     fluorescentTag,
     alleleCount,
 }: CellLineProps) => {

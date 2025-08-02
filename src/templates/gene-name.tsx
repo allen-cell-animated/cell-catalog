@@ -3,15 +3,13 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import { GeneFrontMatter } from "../component-queries/types";
 
-interface GeneNameTemplateProps extends GeneFrontMatter {}
-
 export const GeneNameTemplate = ({
     name,
     symbol,
     protein,
     structure,
     isoforms,
-}: GeneNameTemplateProps) => {
+}: GeneFrontMatter) => {
     return (
         <section>
             <h2>{name}</h2>

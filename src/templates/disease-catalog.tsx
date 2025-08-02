@@ -35,7 +35,7 @@ interface DiseaseCatalogTemplateProps {
     coriellImage: FileNode;
     coriellLink: string;
 }
-// eslint-disable-next-line
+
 export const DiseaseCatalogTemplate = ({
     title,
     content,

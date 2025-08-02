@@ -6,7 +6,7 @@ import {
     Clone,
     UnpackedDiseaseCellLine,
     UnpackedGene,
-    UnpackedNormalCellLine,
+    ParentLine,
 } from "../../component-queries/types";
 import { formatCellLineId, getCloneSummary } from "../../utils";
 import GeneDisplay from "../GeneDisplay";
@@ -18,7 +18,8 @@ import {
     certificateOfAnalysisColumn,
     obtainLineColumn,
 } from "./SharedColumns";
-import { smBreakPoint, mdBreakpoint, CellLineColumns } from "./types";
+import { smBreakPoint, mdBreakpoint } from "./types";
+import { ColumnsType } from "antd/es/table";
 
 const {
     clones,
@@ -29,8 +30,8 @@ const {
 export const getDiseaseTableColumns = (
     inProgress: boolean,
     suppressRowClickRef: React.MutableRefObject<boolean>
-): CellLineColumns<UnpackedDiseaseCellLine> => {
-    const columns = [
+): ColumnsType<any> => {
+    const columns: ColumnsType<any> = [
         { ...cellLineIdColumn },
         {
             title: "SNP",
@@ -73,7 +74,7 @@ export const getDiseaseTableColumns = (
             dataIndex: "parentalLine",
             responsive: mdBreakpoint,
             render: (
-                parentalLine: UnpackedNormalCellLine,
+                parentalLine: ParentLine,
                 record: UnpackedDiseaseCellLine
             ) => {
                 return (
