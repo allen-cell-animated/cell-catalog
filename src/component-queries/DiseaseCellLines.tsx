@@ -51,15 +51,15 @@ const DiseaseCellLinesTemplate = (props: DiseaseCellLinesTemplateProps) => {
     const { edges: cellLines } = props.data.allMarkdownRemark;
     const { diseases } = props;
     const groupedCellLines = groupLines(diseases, cellLines);
+    const width = useWindowWidth();
+    const isPhone = width < PHONE_BREAKPOINT;
+
+    const suppressRowClickRef = useRef(false);
     return diseases.map((disease) => {
         if (!groupedCellLines[disease.name].length) {
             return null;
         }
         const inProgress = disease.status === TableStatus.ComingSoon;
-        const width = useWindowWidth();
-        const isPhone = width < PHONE_BREAKPOINT;
-
-        const suppressRowClickRef = useRef(false);
 
         return (
             <div key={disease.name}>

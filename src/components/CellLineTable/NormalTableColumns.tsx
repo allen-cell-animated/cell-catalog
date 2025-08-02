@@ -1,17 +1,18 @@
 import React from "react";
 import { Flex } from "antd";
 import Icon, { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
-import { SortOrder } from "antd/es/table/interface";
+import { ColumnsType, SortOrder } from "antd/es/table/interface";
 
 import {
     UnpackedGene,
-    UnpackedNormalCellLine,
+    UnpackedNormalCellLine
 } from "../../component-queries/types";
 import { RAIN_SHADOW, SERIOUS_GRAY } from "../../style/theme";
 import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
-import { CellLineColumns, mdBreakpoint } from "./types";
+import { mdBreakpoint } from "./types";
 import { MultiLineTableCell } from "../MultiLineTableCell";
 import GeneDisplay from "../GeneDisplay";
+import { ColumnProps } from "antd/es/table";
 
 const Plasmid = require("../../img/plasmid.svg");
 
@@ -42,7 +43,7 @@ const sortIcon = ({ sortOrder }: { sortOrder: SortOrder }) => {
     );
 };
 
-const obtainPlasmidColumn = {
+const obtainPlasmidColumn: ColumnProps = {
     title: "",
     key: "orderPlasmid",
     dataIndex: "orderPlasmid",
@@ -73,8 +74,8 @@ const obtainPlasmidColumn = {
 
 export const getNormalTableColumns = (
     inProgress: boolean
-): CellLineColumns<UnpackedNormalCellLine> => {
-    const columns = [
+): ColumnsType<any> => {
+    const columns: ColumnsType<any> = [
         {
             ...cellLineIdColumn,
             sorter: (a: any, b: any) =>
@@ -93,7 +94,7 @@ export const getNormalTableColumns = (
             render: (proteins: string[]) => (
                 <MultiLineTableCell entries={proteins} />
             ),
-            sorter: (a: any, b: any) =>
+            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
                 caseInsensitiveStringCompare(
                     (a.protein ?? []).join("|"),
                     (b.protein ?? []).join("|")
@@ -116,7 +117,7 @@ export const getNormalTableColumns = (
                     </div>
                 );
             },
-            sorter: (a: any, b: any) =>
+            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
                 caseInsensitiveStringCompare(
                     a.taggedGene[0].name,
                     b.taggedGene[0].name
@@ -131,7 +132,7 @@ export const getNormalTableColumns = (
             render: (alleleCount: string[]) => (
                 <MultiLineTableCell entries={alleleCount} />
             ),
-            sorter: (a: any, b: any) =>
+            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
                 caseInsensitiveStringCompare(
                     (a.alleleCount ?? []).join("|"),
                     (b.alleleCount ?? []).join("|")
@@ -148,7 +149,7 @@ export const getNormalTableColumns = (
             render: (structures: string[]) => (
                 <MultiLineTableCell entries={structures} />
             ),
-            sorter: (a: any, b: any) =>
+            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
                 caseInsensitiveStringCompare(
                     (a.structure ?? []).join("|"),
                     (b.structure ?? []).join("|")
@@ -161,7 +162,7 @@ export const getNormalTableColumns = (
             responsive: mdBreakpoint,
             render: (tags: string[]) => <MultiLineTableCell entries={tags} />,
             sortIcon: sortIcon,
-            sorter: (a: any, b: any) =>
+            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
                 caseInsensitiveStringCompare(
                     (a.fluorescentTag ?? []).join("|"),
                     (b.fluorescentTag ?? []).join("|")
@@ -177,7 +178,7 @@ export const getNormalTableColumns = (
                 <MultiLineTableCell entries={locations} />
             ),
             sortIcon: sortIcon,
-            sorter: (a: any, b: any) =>
+            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
                 caseInsensitiveStringCompare(
                     (a.tagLocation ?? []).join("|"),
                     (b.tagLocation ?? []).join("|")

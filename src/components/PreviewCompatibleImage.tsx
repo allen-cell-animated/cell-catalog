@@ -23,7 +23,7 @@ const PreviewCompatibleImage = ({
                 alt={alt}
             />
         );
-    } else if (!!childImageSharp) {
+    } else if (childImageSharp) {
         return (
             <GatsbyImage
                 image={childImageSharp.gatsbyImageData}

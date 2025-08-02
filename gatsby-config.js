@@ -21,7 +21,6 @@ module.exports = {
     //     DEV_SSR: true,
     // },
     plugins: [
-        "gatsby-plugin-react-helmet",
         "gatsby-plugin-fix-fouc",
         "gatsby-remark-line-breaks",
         {

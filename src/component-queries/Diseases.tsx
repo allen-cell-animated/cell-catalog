@@ -2,6 +2,7 @@ import React from "react";
 import { graphql, StaticQuery } from "gatsby";
 import DiseaseCellLineQuery from "./DiseaseCellLines";
 import { DiseaseFrontmatter } from "./types";
+import { TableStatus } from "../components/CellLineTable/types";
 
 export interface QueryResult {
     data: {
@@ -23,7 +24,7 @@ export interface UnpackedDisease {
     name: string;
     geneSymbol: string;
     geneName: string;
-    status: string;
+    status: TableStatus;
 }
 
 const DiseaseTemplate = (props: QueryResult) => {

@@ -1,13 +1,10 @@
 import React, { ReactNode, useState } from "react";
-import { Card, Flex, Button, Divider, Tooltip } from "antd";
+import { Card, Flex, Button, Tooltip } from "antd";
 import Icon from "@ant-design/icons";
 
-import { PRIMARY_COLOR } from "../../style/theme";
 import { formatCellLineId } from "../../utils";
-import CloneTable from "../CloneTable";
 import { DarkThemeGhostButton, DefaultButton } from "../shared/Buttons";
 import InfoPanel from "../shared/InfoPanel";
-import { Clone } from "../../component-queries/types";
 import { InfoTableRow } from "./types";
 
 const Share = require("../../img/share-icon.svg");
@@ -54,13 +51,18 @@ const CellLineInfoCardBase = ({
                             setShareTooltipText(defaultToolTipText);
                         }
                     }}
-                    onClick={() => {
-                        navigator.clipboard.writeText(href).then(() => {
+                    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+                    onClick={async () => {
+                        try {
+                            await navigator.clipboard.writeText(href);
                             setShareTooltipText("Copied!");
+                        } catch {
+                            setShareTooltipText("Failed to copy");
+                        } finally {
                             setTimeout(() => {
                                 setShareTooltipText("");
                             }, 1000);
-                        });
+                        }
                     }}
                 >
                     Share

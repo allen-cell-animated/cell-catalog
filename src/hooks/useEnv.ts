@@ -15,7 +15,7 @@ const useEnv = () => {
             // to the staging environment
             setEnv("staging");
         }
-    }, []);
+    }, [hostname]);
     return env;
 };
 

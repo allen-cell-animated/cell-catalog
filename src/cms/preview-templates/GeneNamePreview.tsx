@@ -3,7 +3,7 @@ import { GeneNameTemplate } from "../../templates/gene-name";
 import { TemplateProps } from "./types";
 import { Isoform } from "../../component-queries/types";
 
-const GeneNamePreview = ({ entry, widgetFor }: TemplateProps) => {
+const GeneNamePreview = ({ entry }: TemplateProps) => {
     const isoforms = [] as Isoform[];
     const isoformData = entry.getIn(["data", "isoforms"]);
     if (isoformData) {

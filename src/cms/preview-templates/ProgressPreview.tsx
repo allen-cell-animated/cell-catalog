@@ -1,5 +1,5 @@
 import React from "react";
-import { Descriptions, Steps } from "antd";
+import { Steps } from "antd";
 import { CellLineStatus } from "../../component-queries/types";
 
 interface ProgressPreviewProps {
