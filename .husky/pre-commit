@@ -1,16 +1,1 @@
-#!/usr/bin/env sh
-
-echo "🔍 Running ESLint..."
-npm run lint
-LINT_EXIT=$?
-
-echo "🔍 Running TypeScript type check..."
-npm run typecheck
-TYPECHECK_EXIT=$?
-
-if [ "$LINT_EXIT" -ne 0 ] || [ "$TYPECHECK_EXIT" -ne 0 ]; then
-  echo "❌ Pre-commit checks failed. Fix errors before committing."
-  exit 1
-fi
-
-echo "✅ Pre-commit checks passed!"
+npm run lint && npm run typecheck || exit 1
