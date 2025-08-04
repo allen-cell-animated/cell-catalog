@@ -82,19 +82,9 @@
     "engines": {
         "node": ">= 18.15.0"
     },
-    "overrides": {
-        "minimatch": "10.0.1",
-        "brace-expansion": "^2.0.1",
-        "glob": {
-            "minimatch": "10.0.1",
-            "brace-expansion": "^2.0.1"
-        }
-    },
     "resolutions": {
         "cheerio": "1.0.0-rc.12",
-        "minimatch": "10.0.1",
-        "brace-expansion": "^2.0.1",
-        "glob/minimatch": "10.0.1",
-        "glob/brace-expansion": "^2.0.1"
+        "minimatch": "9.0.1",
+        "glob/minimatch": "9.0.1"
     }
 }
