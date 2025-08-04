@@ -154,9 +154,17 @@ export const pageQuery = graphql`
                     allele_count
                 }
                 status
-                thumbnail_image {
-                    childImageSharp {
-                        gatsbyImageData(width: 200, placeholder: BLURRED)
+                images_and_videos {
+                    images {
+                        image {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    placeholder: BLURRED
+                                    layout: CONSTRAINED
+                                )
+                            }
+                        }
+                        caption
                     }
                 }
                 images_and_videos {

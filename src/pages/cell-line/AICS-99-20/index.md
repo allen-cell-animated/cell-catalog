@@ -3,7 +3,6 @@ templateKey: cell-line
 cell_line_id: 99
 status: data complete
 date: 2025-05-06T22:15:04.800Z
-thumbnail_image: single_plane_image_cl20.jpg
 clone_number: 20
 parental_line: 0
 genetic_modifications:
@@ -16,6 +15,11 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0099-020_
 donor_plasmid: https://www.addgene.org/168799/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-57
 images_and_videos:
+  images:
+    - image: single_plane_image_cl20.jpg
+      caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing mEGFP-tagged CCCTC-binding factor (CTCF). Cells were imaged in 3D on a spinning-disk confocal microscope. Scale bar, 5µm."
+    - image: Main_cell_line_morphology.jpg
+      caption: "Viability and colony formation one day and three days post-thaw. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:
     - caption: Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged
         CCCTC-binding factor (CTCF). A single, mid-level plane of the cells was
@@ -32,4 +36,15 @@ images_and_videos:
         imaged every 3 min on a spinning-disk confocal microscope. Movie plays
         at 1800x real time. Scale bar, 20 µm.
       video: https://player.vimeo.com/video/1079876768
+editing_design:
+  ncbi_isoforms:
+    - 
+  crna: TGATGCAGTCGAAGCCATTG
+  linker: EDLYFQS
+  cas9: Wildtype spCas9
+  diagrams:
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: CTCF locus showing 2 CTCF isoforms; Bottom: Zoom in on mEGFP insertion site at CTCF N-terminal exon"
 ---

@@ -108,13 +108,18 @@ export default function DiseaseCellLineQuery(props: {
                                         frontmatter {
                                             cell_line_id
                                             clone_number
-                                            thumbnail_image {
-                                                childImageSharp {
-                                                    gatsbyImageData(
-                                                        placeholder: BLURRED
-                                                        layout: FIXED
-                                                        width: 192
-                                                    )
+                                            images_and_videos {
+                                                images {
+                                                    image {
+                                                        childImageSharp {
+                                                            gatsbyImageData(
+                                                                placeholder: BLURRED
+                                                                layout: FIXED
+                                                                width: 192
+                                                            )
+                                                        }
+                                                    }
+                                                    caption
                                                 }
                                             }
                                             genetic_modifications {

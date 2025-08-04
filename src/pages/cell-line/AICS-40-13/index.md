@@ -2,7 +2,6 @@
 templateKey: cell-line
 cell_line_id: 40
 status: released
-thumbnail_image: single_plane_image_cl13.jpg
 clone_number: 13
 parental_line: 0
 genetic_modifications:
@@ -15,9 +14,25 @@ certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0040-013_
 donor_plasmid: https://www.addgene.org/107579/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-20
 images_and_videos:
+  images:
+    - image: single_plane_image_cl13.jpg
+      caption: "mEGFP-tagged RAB5A protein localization in an hiPSC colony. Image is a single, central z-slice from a 3D spinning disk confocal z-stack of a live hiPSC colony. "
+    - image: Main_cell_line_morphology_cl13.jpg
+      caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:
     - video: https://player.vimeo.com/video/253350448
       caption: "Z-stack of live hiPS cell colony expressing one copy (monoallelic) of mEGFP-tagged Ras-related protein Rab-5A imaged in 3D on a spinning-disk confocal microscope. Movie starts at the bottom of the cells and ends at the top. Scale bar, 5µm."
     - video: https://player.vimeo.com/video/253350453
       caption: "Timelapse movie of live hiPS cell colony expressing one copy (monoallelic) of mEGFP-tagged Ras-related protein Rab-5A. Cells were imaged on a spinning-disk confocal microscope. A single, mid-plane z-section was acquired every second. A zoom-in of the area boxed in the left panel is shown on the right. Movie sped up 10x real time. Scale bar, 5 µm."
+editing_design:
+  ncbi_isoforms:
+    - N
+  crna: GAGGCGCAACAAGACCCAAC
+  linker: SGLRSRA
+  cas9: Wildtype spCas9
+  diagrams:
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: RAB5A locus showing 2 RAB5A isoforms; Bottom: Zoom in on mEGFP insertion site at RAB5A N-terminal exon"
 ---

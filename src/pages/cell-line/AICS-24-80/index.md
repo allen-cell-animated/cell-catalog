@@ -2,7 +2,6 @@
 templateKey: cell-line
 cell_line_id: 24
 status: released
-thumbnail_image: single_plane_image_cl80.jpg
 clone_number: 80
 parental_line: 0
 genetic_modifications:
@@ -15,6 +14,11 @@ certificate_of_analysis: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0024_
 donor_plasmid: https://www.addgene.org/87428/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-11
 images_and_videos:
+  images:
+    - image: single_plane_image_cl80.jpg
+      caption: "Single images of a live hiPS cell colony expressing mEGFP tagged non-muscle myosin heavy chain IIB imaged on a spinning-disk confocal microscope. Left panel is a single slice near the bottom of the cell; right panel is a single slice near the top of the cell."
+    - image: AICS-24_cl80_P28_post-bank_161212_4X_scale.jpg
+      caption: "Viability and colony formation photographed 3 days post-thaw at 4X magnification. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:
     - video: https://player.vimeo.com/video/208520321
       caption: "Z-stack of live hiPS cells expressing mEGFP tagged non-muscle myosin heavy chain IIB imaged on a spinning-disk confocal microscope. Image starts at the bottom of the cells and ends at the top."
@@ -24,4 +28,15 @@ images_and_videos:
       caption: "Timelapse movie of live hiPS cells expressing mEGFP tagged non-muscle myosin heavy chain IIB. Images taken in 3D every 3 minutes for 150 minutes on a spinning-disk confocal microscope. Left panel is a maximum intensity projection of 3 z-slices near the bottom of the cells. Right panel is overlaid onto the transmitted light image. Movie sped up 1800x over real time."
     - video: https://player.vimeo.com/video/208520536
       caption: "Timelapse movie of a hiPS cell colony expressing mEGFP tagged non-muscle myosin heavy chain IIB. Images taken in 3D every 5 minutes for 8 hours on a spinning-disk confocal microscope. Image is a maximum intensity projection. Movie sped up 2850x over real time."
+editing_design:
+  ncbi_isoforms:
+    - NM_001256012
+  crna: GTTCTCTGCGCCATTGTAAA
+  linker: YSDLELKLRIP
+  cas9: Wildtype spCas9
+  diagrams:
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: MYH10 locus showing 3 MYH10 isoforms; Bottom: Zoom in on mEGFP insertion site at MYH10 N-terminal exon"
 ---
