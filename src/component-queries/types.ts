@@ -32,6 +32,16 @@ export interface ParentalLineFrontmatter {
     allele_count: string[];
     tag_location: string[];
     fluorescent_tag: string[];
+    images_and_videos?: {
+        images: {
+            image: any;
+            caption: string;
+        }[];
+        videos: {
+            video: any;
+            caption: string;
+        }[];
+    };
 }
 
 export interface NormalCellLineFrontmatter {
@@ -48,12 +58,6 @@ export interface NormalCellLineFrontmatter {
     tag_location: string[];
     fluorescent_tag: string[];
     donor_plasmid: string;
-    images_and_videos?: {
-        images: {
-            image: FileNode;
-            caption: string;
-        }[];
-    };
     parental_line: {
         frontmatter: {
             name: string;

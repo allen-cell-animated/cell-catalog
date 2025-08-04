@@ -158,19 +158,6 @@ export const pageQuery = graphql`
                     images {
                         image {
                             childImageSharp {
-                                gatsbyImageData(
-                                    placeholder: BLURRED
-                                    layout: CONSTRAINED
-                                )
-                            }
-                        }
-                        caption
-                    }
-                }
-                images_and_videos {
-                    images {
-                        image {
-                            childImageSharp {
                                 gatsbyImageData(width: 400, placeholder: BLURRED)
                             }
                         }
