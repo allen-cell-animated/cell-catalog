@@ -9,6 +9,7 @@ import {
     ParentLine,
 } from "../../component-queries/types";
 import { extractGeneticModifications } from "../../component-queries/convert-data";
+import { Disease } from "../../types";
 import { DiagramCardProps } from "../shared/DiagramCard";
 import {
     ClonePercentPositive,
@@ -127,7 +128,7 @@ export const unpackParentLineFromFrontMatter = (data: ParentalLineFrontmatter): 
             data
                 .genetic_modifications
         );
-    const thumbnailImage = data.thumbnail_image;
+    const thumbnailImage = data.images_and_videos?.images?.[0]?.image?.childImageSharp?.gatsbyImageData || null;
     const cellLineId = data.cell_line_id;
     const cloneNumber = data.clone_number;
     return {
@@ -169,7 +170,7 @@ export const unpackDiseaseFrontmatterForSubpage = (
         orderLink: cellLineNode.frontmatter.order_link,
         geneName: geneName,
         geneSymbol: geneSymbol,
-        diseaseName: cellLineNode.frontmatter.disease.frontmatter.name,
+        diseaseName: cellLineNode.frontmatter.disease.frontmatter.name as Disease,
         snp: cellLineNode.frontmatter.snp,
         parentalLine: parentalLine,
         clones: cellLineNode.frontmatter.clones, // TODO: unpack this into only data needed for card

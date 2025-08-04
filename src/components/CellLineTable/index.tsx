@@ -8,6 +8,7 @@ import useWindowWidth from "../../hooks/useWindowWidth";
 import { TABLET_BREAKPOINT } from "../../constants";
 import { TableStatus, UnpackedCellLine } from "./types";
 import useEnv from "../../hooks/useEnv";
+import { ColumnsType } from "antd/es/table";
 
 const {
     tableTitle,
@@ -21,7 +22,7 @@ interface CellLineTableProps {
     tableName: string;
     cellLines: UnpackedCellLine[];
     released: boolean;
-    columns: any;
+    columns: ColumnsType<any>;
     mobileConfig?: any;
     suppressRowClickRef?: React.MutableRefObject<boolean>;
 }
@@ -53,7 +54,7 @@ const CellLineTable = ({
     const onCellInteraction = (
         record: UnpackedCellLine,
         index: number | undefined
-    ): {} => {
+    ): React.HTMLAttributes<HTMLElement> => {
         // creates a hover effect for the whole row, and takes the user to
         // the sub-page for the cell line. The reason
         // this couldn't be done at the row level, is that we have
@@ -76,7 +77,7 @@ const CellLineTable = ({
         };
     };
 
-    const interactiveColumns = columns.map((column: any) => {
+    const interactiveColumns = columns.map((column) => {
         // the two clickable columns are the order cell line and
         // CoA column. They do not have the hover effect and
         // should not take you to the cell line page, and are not

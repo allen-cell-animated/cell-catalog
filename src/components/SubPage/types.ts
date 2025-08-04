@@ -4,6 +4,7 @@ import {
     Sequence,
     UnpackedCellLineMainInfo,
 } from "../../component-queries/types";
+import { Disease } from "../../types";
 import { DiagramCardProps } from "../shared/DiagramCard";
 import { StemCellCharProps } from "./StemCellChar";
 
@@ -23,7 +24,7 @@ export interface ClonePercentPositive {
 export interface UnpackedDiseaseCellLineFull extends UnpackedCellLineMainInfo {
     geneName: string;
     geneSymbol: string;
-    diseaseName: string;
+    diseaseName: Disease;
     snp: string;
     parentalLine: ParentLine;
     clones: Clone[];

@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "gatsby";
 
 const Navbar = () => {
-  const [isActive, setIsActive] = useState(false);
-
   return (
     <nav
       className="navbar is-transparent"
@@ -13,9 +11,7 @@ const Navbar = () => {
       <div className="container">
         <ul
           id="navMenu"
-          className={` navbar-start has-text-centered navbar-menu ${
-            isActive && "is-active"
-          }`}
+          className={` navbar-start has-text-centered navbar-menu`}
         >
           {/* TODO: inline override of padding is a result of refactoring
                 to a ul for accessibilty purposes, would like to see a css
