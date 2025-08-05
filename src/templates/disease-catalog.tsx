@@ -87,12 +87,8 @@ interface QueryResult {
             html: string;
             frontmatter: {
                 title: string;
-                footer_text: {
-                    html: string;
-                };
-                funding_text: {
-                    html: string;
-                };
+                footer_text: string;
+                funding_text: string;
                 acknowledgements_block: {
                     intro: string;
                     collaborators: { name: string; institution: string }[];
@@ -119,8 +115,8 @@ const DiseaseCatalog = ({ data }: QueryResult) => {
                 contentComponent={HTMLContent}
                 title={post.frontmatter.title}
                 content={post.html}
-                footerText={post.frontmatter.footer_text.html}
-                fundingText={post.frontmatter.funding_text.html}
+                footerText={post.frontmatter.footer_text}
+                fundingText={post.frontmatter.funding_text}
                 acknowledgementsBlock={post.frontmatter.acknowledgements_block}
                 main={post.frontmatter.main}
                 coriellImage={post.frontmatter.coriell_image}
@@ -138,12 +134,8 @@ export const aboutPageQuery = graphql`
             html
             frontmatter {
                 title
-                footer_text {
-                    html
-                }
-                funding_text {
-                    html
-                }
+                footer_text
+                funding_text
                 acknowledgements_block {
                     intro
                     collaborators {
