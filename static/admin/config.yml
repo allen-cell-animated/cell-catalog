@@ -277,6 +277,130 @@ collections:
                         },
                     ],
             }
+          - {
+                label: "Genomic Characterization",
+                name: "genomic_characterization",
+                widget: "object",
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            label: "Diagrams",
+                            name: "diagrams",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Title",
+                                        name: "title",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Images",
+                                        name: "images",
+                                        widget: "list",
+                                        required: false,
+                                        fields:
+                                            [
+                                                {
+                                                    label: "Image",
+                                                    name: "image",
+                                                    widget: "image",     
+                                                },
+                                                # No caption field here according to the original data and site
+                                            ],                   
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Amplified Junctions",
+                            name: "amplified_junctions",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Edited Gene",
+                                        name: "editedGene",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Junction",
+                                        name: "junction",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Expected Size",
+                                        name: "expected_size",
+                                        widget: "string",  # Using string to handle both numbers and text like "Tagged:3006; Untagged:2256"
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Confirmed Sequence",
+                                        name: "confirmed_sequence",
+                                        widget: "select",
+                                        options: ["", "Yes", "NA"],
+                                        default: "",
+                                        required: false,
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Junction Table Caption",
+                            name: "junction_table_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "ddPCR", #TODO: confirm with the team about the label name
+                            name: "ddpcr",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Gene Tag", #TODO: confirm with the team if we can look for this value from gene and tag data
+                                        name: "gene_tag",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Clone", #TOOD: clone too
+                                        name: "clone",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "FP Ratio",
+                                        name: "fp_ratio",
+                                        widget: "number",
+                                        required: false,
+                                        value_type: "float",
+                                    },
+                                    {
+                                        label: "Plasmid",
+                                        name: "plasmid",
+                                        widget: "number",
+                                        required: false,
+                                        value_type: "float",
+                                    },
+                                ],
+                        },
+                        {
+                            label: "ddPCR Caption",
+                            name: "ddpcr_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                        #TODO: check if we want the karyotype image to be at here or move to stem cell characterization
+                    ],
+                
+            }
     - name: "disease-cell-line"
       label: "Disease Cell Lines"
       label_singular: "Disease Cell Line"
