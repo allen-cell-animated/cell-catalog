@@ -4458,7 +4458,7 @@ ajv@^6.10.0, ajv@^6.12.2, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-ajv@^8.0.0, ajv@^8.0.1, ajv@^8.10.0, ajv@^8.11.0, ajv@^8.11.2, ajv@^8.12.0, ajv@^8.17.1, ajv@^8.9.0:
+ajv@^8.0.0, ajv@^8.0.1, ajv@^8.10.0, ajv@^8.11.0, ajv@^8.11.2, ajv@^8.12.0, ajv@^8.9.0:
   version "8.17.1"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.17.1.tgz#37d9a5c776af6bc92d7f4f9510eba4c0a60d11a6"
   integrity sha512-B/gBuNg5SiMTrPkC+A2+cW0RszwxYmn6VYxB/inlBStS5nx6xHIt/ehKRhIMhqusl7a8LjQoZnjCs5vhwxOQ1g==
@@ -7014,72 +7014,51 @@ decamelize@^1.2.0:
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
   integrity sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA==
 
-decap-cms-app@^3.0.12:
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/decap-cms-app/-/decap-cms-app-3.8.3.tgz#5644bf727bdbb174818abacad366ede196cb16cf"
-  integrity sha512-89Ia2gN4blEsQjZTDSI+VbQTAN8B6qa8S+2ffzDv48/poeZDyF94lLn/akfckZVSnmSIur4TTP14BRiiEjVUVw==
+decap-cms-app@3.0.12:
+  version "3.0.12"
+  resolved "https://registry.yarnpkg.com/decap-cms-app/-/decap-cms-app-3.0.12.tgz#c273560c1e58c798efb8a88aa1ec82a77eaaf86e"
+  integrity sha512-sMbh6RKP4EeOlupGuMuv/F4Z+35GPPy6hAB0LCvOuC7h6YmasxT630gKndfmFF8EE1PlTFHbuu4Aq0+SmXo+cg==
   dependencies:
     "@emotion/react" "^11.11.1"
     "@emotion/styled" "^11.11.0"
-    ajv "^8.17.1"
-    ajv-errors "^3.0.0"
-    ajv-keywords "^5.1.0"
     codemirror "^5.46.0"
-    dayjs "^1.11.10"
-    decap-cms-backend-aws-cognito-github-proxy "^3.4.1"
-    decap-cms-backend-azure "^3.3.0"
-    decap-cms-backend-bitbucket "^3.3.0"
-    decap-cms-backend-git-gateway "^3.4.1"
-    decap-cms-backend-gitea "^3.3.0"
-    decap-cms-backend-github "^3.4.0"
-    decap-cms-backend-gitlab "^3.4.0"
-    decap-cms-backend-proxy "^3.3.0"
-    decap-cms-backend-test "^3.2.1"
-    decap-cms-core "^3.8.1"
-    decap-cms-editor-component-image "^3.2.0"
-    decap-cms-lib-auth "^3.0.6"
-    decap-cms-lib-util "^3.3.1"
-    decap-cms-lib-widgets "^3.2.1"
-    decap-cms-locales "^3.4.0"
-    decap-cms-ui-auth "^3.2.3"
-    decap-cms-ui-default "^3.3.0"
-    decap-cms-widget-boolean "^3.2.0"
-    decap-cms-widget-code "^3.2.0"
-    decap-cms-widget-colorstring "^3.2.0"
-    decap-cms-widget-datetime "^3.4.0"
-    decap-cms-widget-file "^3.2.0"
-    decap-cms-widget-image "^3.2.0"
-    decap-cms-widget-list "^3.4.0"
-    decap-cms-widget-map "^3.2.0"
-    decap-cms-widget-markdown "^3.5.0"
-    decap-cms-widget-number "^3.2.0"
-    decap-cms-widget-object "^3.4.0"
-    decap-cms-widget-relation "^3.5.2"
-    decap-cms-widget-select "^3.3.0"
-    decap-cms-widget-string "^3.2.0"
-    decap-cms-widget-text "^3.2.0"
+    decap-cms-backend-azure "^3.0.2"
+    decap-cms-backend-bitbucket "^3.0.2"
+    decap-cms-backend-git-gateway "^3.0.3"
+    decap-cms-backend-github "^3.0.3"
+    decap-cms-backend-gitlab "^3.0.2"
+    decap-cms-backend-proxy "^3.0.2"
+    decap-cms-backend-test "^3.0.2"
+    decap-cms-core "^3.2.8"
+    decap-cms-editor-component-image "^3.0.0"
+    decap-cms-lib-auth "^3.0.2"
+    decap-cms-lib-util "^3.0.1"
+    decap-cms-lib-widgets "^3.0.0"
+    decap-cms-locales "^3.1.2"
+    decap-cms-ui-default "^3.0.5"
+    decap-cms-widget-boolean "^3.0.2"
+    decap-cms-widget-code "^3.0.2"
+    decap-cms-widget-colorstring "^3.0.2"
+    decap-cms-widget-datetime "^3.0.3"
+    decap-cms-widget-file "^3.0.4"
+    decap-cms-widget-image "^3.0.3"
+    decap-cms-widget-list "^3.0.4"
+    decap-cms-widget-map "^3.0.2"
+    decap-cms-widget-markdown "^3.0.3"
+    decap-cms-widget-number "^3.0.1"
+    decap-cms-widget-object "^3.0.2"
+    decap-cms-widget-relation "^3.0.3"
+    decap-cms-widget-select "^3.0.1"
+    decap-cms-widget-string "^3.0.1"
+    decap-cms-widget-text "^3.0.1"
     immutable "^3.7.6"
     lodash "^4.17.11"
+    moment "^2.24.0"
     prop-types "^15.7.2"
     react-immutable-proptypes "^2.1.0"
     uuid "^8.3.2"
 
-decap-cms-backend-aws-cognito-github-proxy@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/decap-cms-backend-aws-cognito-github-proxy/-/decap-cms-backend-aws-cognito-github-proxy-3.4.1.tgz#438ab61b35a3644647e27a4d8ac29b40a9394918"
-  integrity sha512-TGWxXBkGyQmHp4KT8IwUXjiegUYvFvnZaiZ8QeB+MA962HvvCOX1/4W8i5Ce6qlTx0bqwPAqQ8b3tKCpPUuPbQ==
-  dependencies:
-    apollo-cache-inmemory "^1.6.2"
-    apollo-client "^2.6.3"
-    apollo-link-context "^1.0.18"
-    apollo-link-http "^1.5.15"
-    common-tags "^1.8.0"
-    graphql "^15.0.0"
-    graphql-tag "^2.10.1"
-    js-base64 "^3.0.0"
-    semaphore "^1.1.0"
-
-decap-cms-backend-azure@^3.3.0:
+decap-cms-backend-azure@^3.0.2:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/decap-cms-backend-azure/-/decap-cms-backend-azure-3.3.0.tgz#d3c7c3f9bf792c4cc83de41de11970eed9917793"
   integrity sha512-M7dVYQBDnuQk2KSB617Au1xCFfwU359US6EqkHPh8KW/JNnyYUEn2a7x30dGxedjHdxEVvQtESxe54CEV09lvQ==
@@ -7088,7 +7067,7 @@ decap-cms-backend-azure@^3.3.0:
     path-browserify "^1.0.1"
     semaphore "^1.1.0"
 
-decap-cms-backend-bitbucket@^3.3.0:
+decap-cms-backend-bitbucket@^3.0.2:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/decap-cms-backend-bitbucket/-/decap-cms-backend-bitbucket-3.3.0.tgz#570c75e5ea05e29aace6322d668d00501044ce20"
   integrity sha512-MxxLV/FpOw4XYpM626NK404ZSx2IQ5ZPfNnMZthpl6DIgIbQeiNHsJca5rAkgwlqSz3UmJmjf7vD14VIHhzZqQ==
@@ -7100,7 +7079,7 @@ decap-cms-backend-bitbucket@^3.3.0:
     semaphore "^1.1.0"
     what-the-diff "^0.6.0"
 
-decap-cms-backend-git-gateway@^3.4.1:
+decap-cms-backend-git-gateway@^3.0.3:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/decap-cms-backend-git-gateway/-/decap-cms-backend-git-gateway-3.4.1.tgz#9e5f51c3ad80d34b8011828b37542efd03749d7e"
   integrity sha512-+6AUjThs6Py6rVCul62KPhvp3GkAixdkIIyGJ+GzwcBK5oPwGeJIz3yZd1qZ8afMWxatUrb/GhSnWKIRmz5ezw==
@@ -7110,15 +7089,7 @@ decap-cms-backend-git-gateway@^3.4.1:
     jwt-decode "^3.0.0"
     minimatch "^7.0.0"
 
-decap-cms-backend-gitea@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/decap-cms-backend-gitea/-/decap-cms-backend-gitea-3.3.0.tgz#1ab635d58e94b60837a593b5fec1843df7b0b55e"
-  integrity sha512-AABTNA8fKznYwchfCvnh+n0yTVDSzz5Z+d2HgY+BFSITjg1fo61iq75/qCuTZTEDz2Y1jrWDx6GFst1YbYO9PA==
-  dependencies:
-    js-base64 "^3.0.0"
-    semaphore "^1.1.0"
-
-decap-cms-backend-github@^3.4.0:
+decap-cms-backend-github@^3.0.3:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/decap-cms-backend-github/-/decap-cms-backend-github-3.4.0.tgz#3f0f86c3636e4cf8145799fc50b150bf0ccb5025"
   integrity sha512-vyO6+wbTbGsl43nAULdonrWpcUAt4CGXucgthu2EllrxBle1rRpxEwCeIlChqo4P/gP5gwz1LGuk5f5DAF46Dg==
@@ -7134,7 +7105,7 @@ decap-cms-backend-github@^3.4.0:
     path-browserify "^1.0.1"
     semaphore "^1.1.0"
 
-decap-cms-backend-gitlab@^3.4.0:
+decap-cms-backend-gitlab@^3.0.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/decap-cms-backend-gitlab/-/decap-cms-backend-gitlab-3.4.0.tgz#a181adc098a73ebdbdffdfe79273583da769b9da"
   integrity sha512-N4Vhl//tNcvznnEi4PaDUu6M56eI2vQFReqjek5XiUZk/7MAJHWDA5eFovI+B5yYedSTmnCzoWg9jyH5RgXMuA==
@@ -7147,19 +7118,19 @@ decap-cms-backend-gitlab@^3.4.0:
     path-browserify "^1.0.1"
     semaphore "^1.1.0"
 
-decap-cms-backend-proxy@^3.3.0:
+decap-cms-backend-proxy@^3.0.2:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/decap-cms-backend-proxy/-/decap-cms-backend-proxy-3.3.0.tgz#dc60b6addfba36fb73bccc7a6c30e0905fde1084"
   integrity sha512-Tq+thq5JdjLEHr3mprI7tAmVIy+nIftL2Zqt+ndNo/QQX7LvBrottqXRZ6pg2HNQLl5tUQ8qozBTNpeLYkxGlQ==
 
-decap-cms-backend-test@^3.2.1:
+decap-cms-backend-test@^3.0.2:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/decap-cms-backend-test/-/decap-cms-backend-test-3.2.1.tgz#d73bf6f7890d8f893592a014e32380a493449cfd"
   integrity sha512-ZsUnZ1wB0NNIFRDcU9GJiR3hvx40xHZVp978HVasEXlzleG9VgBfWODgagWnX5NFyl9m4NUCQ2Yx/QaP+fBo0A==
   dependencies:
     path-browserify "^1.0.1"
 
-decap-cms-core@^3.8.1:
+decap-cms-core@^3.2.8:
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/decap-cms-core/-/decap-cms-core-3.8.1.tgz#a2a21044cce0b0ec0f6faf99aa0e673e66cff2f6"
   integrity sha512-CLlVytv3cHGlJWYGszshqsW19FeyaFA0LLLY/oWyYipVqtPUpNykdI+8iPTlh9IqGlcLEwqrnMbPvd15UZ4WBQ==
@@ -7215,17 +7186,17 @@ decap-cms-core@^3.8.1:
     what-input "^5.1.4"
     yaml "^1.8.3"
 
-decap-cms-editor-component-image@^3.2.0:
+decap-cms-editor-component-image@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/decap-cms-editor-component-image/-/decap-cms-editor-component-image-3.2.0.tgz#c351c383ebd120d8607513a7d9bac916a41b5866"
   integrity sha512-rMNBxgSGlTKn0GXOIN1NdOPSFv3+E7QeusJkb7PW9N6b8J4XZepouZDgOn1i6QGjAMH7eKCRRc7V64Ujr1lKpw==
 
-decap-cms-lib-auth@^3.0.6:
+decap-cms-lib-auth@^3.0.2:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/decap-cms-lib-auth/-/decap-cms-lib-auth-3.0.6.tgz#aa694f95d2e8f0836f7df17114467719017cd02a"
   integrity sha512-AhssFTm/DOZFHpoFv5eoXTF4P2NvFeQDQ0aFsVxOwz3hGnx/uZ/PtAqJkkz1zdRp4bMB8BM6Eh+lkVB2RQhSww==
 
-decap-cms-lib-util@^3.3.1:
+decap-cms-lib-util@^3.0.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/decap-cms-lib-util/-/decap-cms-lib-util-3.3.1.tgz#1afca0f88fc9fdc99fbdea494fd44d0538058301"
   integrity sha512-3hD8aHlh8tEG5qXmfonKBnn/k/YDaCEXqzu62MmOhsOdG/2Uyqs4ajPfm/hrsK9c/ZcDG75gdvwwi1WOy59vnQ==
@@ -7234,7 +7205,7 @@ decap-cms-lib-util@^3.3.1:
     localforage "^1.7.3"
     semaphore "^1.1.0"
 
-decap-cms-lib-widgets@^3.2.1:
+decap-cms-lib-widgets@^3.0.0:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/decap-cms-lib-widgets/-/decap-cms-lib-widgets-3.2.1.tgz#3280909d8193dfd02b38de1c267b7f94a782b395"
   integrity sha512-wUEfuLGzMCKiFp0Y8JQ/KGizEJx81pvFz2V6KcQvXTrmp28/JsFxXzEg+6B3kdUpbLM0t+76BNpJ5UpxVkKAYw==
@@ -7242,7 +7213,7 @@ decap-cms-lib-widgets@^3.2.1:
     dayjs "^1.11.10"
     path-browserify "^1.0.1"
 
-decap-cms-locales@^3.4.0:
+decap-cms-locales@^3.1.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/decap-cms-locales/-/decap-cms-locales-3.4.0.tgz#0eface3dab72393ccb7f783396bf7392fe2a4339"
   integrity sha512-CWTXt/72zrVTnIQvMTnFmwMPhotn600m88MkFcLEFxWf7QYTpPgpEpxrtTnxiuKJTyi5fQ7fpVzGYu72O5aowA==
@@ -7260,14 +7231,7 @@ decap-cms-media-library-uploadcare@^3.0.0:
     uploadcare-widget "^3.7.0"
     uploadcare-widget-tab-effects "^1.4.0"
 
-decap-cms-ui-auth@^3.2.3:
-  version "3.2.3"
-  resolved "https://registry.yarnpkg.com/decap-cms-ui-auth/-/decap-cms-ui-auth-3.2.3.tgz#e9a7da5f8a6f6306bf3cba4522210c11111cf347"
-  integrity sha512-FNsNEPKXwLQ6si74d89nVs7yOb4yPS6dLE3odNQPPBj/tJKYRnj7NYOfMVOs91LYYrdBToMQO/L2wKKfiYiReg==
-  dependencies:
-    jwt-decode "^3.0.0"
-
-decap-cms-ui-default@^3.3.0:
+decap-cms-ui-default@^3.0.5:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/decap-cms-ui-default/-/decap-cms-ui-default-3.3.0.tgz#ecb7006c143e80233175a7269a3aac327dbf91b8"
   integrity sha512-4VUzWls3gevldL5ty73znuNbwFTLSsGjYtPunvDIhLK3N4jwMfuYLMdpLH7n3IAa6UUncrHOeUJVC0+y/bH6cA==
@@ -7275,12 +7239,12 @@ decap-cms-ui-default@^3.3.0:
     react-aria-menubutton "^7.0.0"
     react-transition-group "^4.4.5"
 
-decap-cms-widget-boolean@^3.2.0:
+decap-cms-widget-boolean@^3.0.2:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/decap-cms-widget-boolean/-/decap-cms-widget-boolean-3.2.0.tgz#8c179bd77fe85c4a6ffb2cf3b270c5f5a9b61459"
   integrity sha512-T4dId4WPmmWids+GOK5xK3CA7IzSfH1bLNCGE7OGOG/r9EIuDaHW5rIsVkAhLGz2Spg39xyPNk3dfHfBd3b4Dw==
 
-decap-cms-widget-code@^3.2.0:
+decap-cms-widget-code@^3.0.2:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/decap-cms-widget-code/-/decap-cms-widget-code-3.2.0.tgz#6dd5ab5928a3c037149a376895eba3cbce53ac38"
   integrity sha512-bEUkEpUhJS1iFtwu9p72iIdgdJZLXCysJyDjcT+791zJwTq+9tgmFNBJLCYflj2/tw9o8m60uJwUZvv2P49tmA==
@@ -7288,7 +7252,7 @@ decap-cms-widget-code@^3.2.0:
     react-codemirror2 "^7.0.0"
     react-select "^5.10.0"
 
-decap-cms-widget-colorstring@^3.2.0:
+decap-cms-widget-colorstring@^3.0.2:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/decap-cms-widget-colorstring/-/decap-cms-widget-colorstring-3.2.0.tgz#c99de09a512b928386a378f01c7027ff6bf59c73"
   integrity sha512-dz1z5XxrQ9JZ/QTXOyk9Wcsx54BlTsgqxYgAQYZcjOpPTj4drXj0JJNmn0KzGxvWKhj0jzMWPhT1VC4Uvgw99Q==
@@ -7296,14 +7260,14 @@ decap-cms-widget-colorstring@^3.2.0:
     react-color "^2.18.1"
     tinycolor2 "^1.4.1"
 
-decap-cms-widget-datetime@^3.4.0:
+decap-cms-widget-datetime@^3.0.3:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/decap-cms-widget-datetime/-/decap-cms-widget-datetime-3.4.0.tgz#80b8125855f25307c01736eda9e3c0ebf90937fe"
   integrity sha512-v/eVBhWWVhEt+b+2l0KIPlAyLlZonKbR2q++5cNTZcEF88ylDNhj3dDzHCcDlIRWvpYwl+9jDkx7jHQxMVfOvw==
   dependencies:
     dayjs "^1.11.10"
 
-decap-cms-widget-file@^3.2.0:
+decap-cms-widget-file@^3.0.4:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/decap-cms-widget-file/-/decap-cms-widget-file-3.2.0.tgz#5d388c1e7cae9c6826ecd4c98e35c57e3005c0de"
   integrity sha512-QlId1KLaY+7kOK1ESqlevqSU3CCOIY0MlpUw6JPO3josRj39En7InraFWOewzdr9f+raKI6M0pf2RFTRYg7zPg==
@@ -7314,12 +7278,12 @@ decap-cms-widget-file@^3.2.0:
     array-move "4.0.0"
     common-tags "^1.8.0"
 
-decap-cms-widget-image@^3.2.0:
+decap-cms-widget-image@^3.0.3:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/decap-cms-widget-image/-/decap-cms-widget-image-3.2.0.tgz#0cf4fecc6c3dfaf92a1475d8463bdc6dc955739f"
   integrity sha512-IDTgczjocaKULTj2Z76u4i3YCUB4Fc4EschOeBwkD6Zen8LMrefhyCXaUJ8MP4cTA+cu147D05YYO8AgwOgWmA==
 
-decap-cms-widget-list@^3.4.0:
+decap-cms-widget-list@^3.0.4:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/decap-cms-widget-list/-/decap-cms-widget-list-3.4.0.tgz#e9a13a7bf49cba4397419a60afb5a70ce42124e5"
   integrity sha512-2QrZv5n/6uBHQvymSuwkdEk+4f6HogxyJm9iGPYw5xJn97dlY7jXtIl9KJJjs2jwjadZlKv93z7GA/joKyIpQQ==
@@ -7328,14 +7292,14 @@ decap-cms-widget-list@^3.4.0:
     "@dnd-kit/modifiers" "^6.0.1"
     "@dnd-kit/sortable" "^7.0.2"
 
-decap-cms-widget-map@^3.2.0:
+decap-cms-widget-map@^3.0.2:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/decap-cms-widget-map/-/decap-cms-widget-map-3.2.0.tgz#ba135e5221b0f1e481274eb4b07e17d56fed7315"
   integrity sha512-vCLkVFUO3pU5pDAxJziHMOwXvryBqqHLBMkzbHn07kByAvWx9TbqssbBS5/V/iXOW6e18vb+aw0ZJSvclD+Mwg==
   dependencies:
     ol "^6.9.0"
 
-decap-cms-widget-markdown@^3.5.0:
+decap-cms-widget-markdown@^3.0.3:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/decap-cms-widget-markdown/-/decap-cms-widget-markdown-3.5.0.tgz#83848be02eb8a49f3beeaeee7b53c63c77125061"
   integrity sha512-4fR3/mlLnM/CIWhvggxjimU/KEk8wxut5rFrHdL+aaPpbTG8ReqYxF3rcYwZBnG9CJhFMCHvxSZgD7eENQbX2w==
@@ -7366,17 +7330,17 @@ decap-cms-widget-markdown@^3.5.0:
     unist-util-visit-parents "^2.0.1"
     vfile-location "^2.0.6"
 
-decap-cms-widget-number@^3.2.0:
+decap-cms-widget-number@^3.0.1:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/decap-cms-widget-number/-/decap-cms-widget-number-3.2.0.tgz#65b97b6473d3a20e450b15b1c46be2fed294133b"
   integrity sha512-+H57DZSPZduk/Z0hGNNGoCcd89/zPUgiPDn8lXmTzALqusK1GOReOvhfwwEK69/UYQ8NxJl8m+ipjKKLY2P7Aw==
 
-decap-cms-widget-object@^3.4.0:
+decap-cms-widget-object@^3.0.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/decap-cms-widget-object/-/decap-cms-widget-object-3.4.0.tgz#66835ad63dd8f71ed4872f9ec44c1d135da86186"
   integrity sha512-Q/p5IHmANLs7J0SXv/fcdyXChtT/7YuhVHMvztDZQTjnEdV40F4EZzmQybYu1JvKL1LllFudRCeXbjULl7ql2A==
 
-decap-cms-widget-relation@^3.5.2:
+decap-cms-widget-relation@^3.0.3:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/decap-cms-widget-relation/-/decap-cms-widget-relation-3.5.2.tgz#4c7cec6de983a4311a933b1f3aa190688f132935"
   integrity sha512-ceeOvY3J11xZXD6ijk6spvC0HrK5GwDYTGVkaDYo3ex5HGnIgxDDh9Z302lYp+WIWC85Q6j+SN6Qc+Vk4BOulQ==
@@ -7387,19 +7351,19 @@ decap-cms-widget-relation@^3.5.2:
     react-select "^5.10.0"
     react-window "^1.8.5"
 
-decap-cms-widget-select@^3.3.0:
+decap-cms-widget-select@^3.0.1:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/decap-cms-widget-select/-/decap-cms-widget-select-3.3.0.tgz#e6040c506e1a9f229dedf8933b46549286cd1cd3"
   integrity sha512-5xeOhlImDDZYhXMzMYn2lzwsMDeBtK9IGJK2V5rq6jEi5wBZK0MVwSyDwAttUcp/WCJDEtNiZowjElC/f9bgsw==
   dependencies:
     react-select "^5.10.0"
 
-decap-cms-widget-string@^3.2.0:
+decap-cms-widget-string@^3.0.1:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/decap-cms-widget-string/-/decap-cms-widget-string-3.2.0.tgz#e6594e9e4d3e3ed4692d7490fa31ffeeac8c48c6"
   integrity sha512-RcdSQEhvyIPDNlKm0GZcPWIlCDO+SpxewxK424RKazodimSwJGjmBfUWhDkVbbzS8TNQkgXVOqycYNGkWGKW9g==
 
-decap-cms-widget-text@^3.2.0:
+decap-cms-widget-text@^3.0.1:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/decap-cms-widget-text/-/decap-cms-widget-text-3.2.0.tgz#07d29c51fc247f05541eb4504d7c5f62d043ae38"
   integrity sha512-dUZzNW1YQwbrylGMLu+bDSfvLOsMlpCMb1AoOEeHgTyNvKS5/x+7t0vVh8Insz78i+z2eSv4uM9j31z4VzZfPg==
@@ -9346,9 +9310,9 @@ fs-exists-cached@1.0.0, fs-exists-cached@^1.0.0:
   integrity sha512-kSxoARUDn4F2RPXX48UXnaFKwVU7Ivd/6qpzZL29MCDmr9sTvybv4gFCp+qaI4fM9m0z9fgz/yJvi56GAz+BZg==
 
 fs-extra@^11.0.0, fs-extra@^11.1.0, fs-extra@^11.2.0:
-  version "11.3.0"
-  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-11.3.0.tgz#0daced136bbaf65a555a326719af931adc7a314d"
-  integrity sha512-Z4XaCL6dUDHfP/jT25jJKMmtxvuwbkrD1vNSMFlo9lNLY2c5FHYSQgHPRZUjAB26TpDEoW9HCOgplrdbaPV/ew==
+  version "11.3.1"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-11.3.1.tgz#ba7a1f97a85f94c6db2e52ff69570db3671d5a74"
+  integrity sha512-eXvGGwZ5CL17ZSwHWd3bbgk7UUpF6IFHtP57NYYakPvHOs8GDgDe5KJI36jIJzDkJ6eJjuzRA8eBQb6SkKue0g==
   dependencies:
     graceful-fs "^4.2.0"
     jsonfile "^6.0.1"
@@ -9788,11 +9752,6 @@ gatsby-source-filesystem@^5.13.1:
     pretty-bytes "^5.6.0"
     valid-url "^1.0.9"
     xstate "^4.38.0"
-
-gatsby-transformer-remark-frontmatter@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-remark-frontmatter/-/gatsby-transformer-remark-frontmatter-1.1.0.tgz#f8a81f2fdfa0e7809483493a3c4b2d690f2542e0"
-  integrity sha512-ZtgAmbKXjJsKNSiAqIaJbvYPNIya2F2BahvlrgLq2mHZh3QuLJ7oiOYPECcRIQ43+cLwFZITOUMAv3fo7oSXgA==
 
 gatsby-transformer-remark@^6.13.1:
   version "6.14.0"
@@ -13355,7 +13314,7 @@ moize@^6.1.0, moize@^6.1.3:
     fast-equals "^3.0.1"
     micro-memoize "^4.1.2"
 
-moment@^2.29.4:
+moment@^2.24.0, moment@^2.29.4:
   version "2.30.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.30.1.tgz#f8c91c07b7a786e30c59926df530b4eac96974ae"
   integrity sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==
@@ -19816,9 +19775,9 @@ yaml@^1.10.0, yaml@^1.10.2, yaml@^1.7.2, yaml@^1.8.3:
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
 
 yaml@^2.0.0, yaml@^2.1.3:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.8.0.tgz#15f8c9866211bdc2d3781a0890e44d4fa1a5fff6"
-  integrity sha512-4lLa/EcQCB0cJkyts+FpIRx5G/llPxfP6VQU5KByHEhLxY3IJCH0f0Hy1MHI8sClTvsIb8qwRJ6R/ZdlDJ/leQ==
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.8.1.tgz#1870aa02b631f7e8328b93f8bc574fac5d6c4d79"
+  integrity sha512-lcYcMxX2PO9XMGvAJkJ3OsNMw+/7FKes7/hgerGUYWIoWu5j/+YQqcZr5JnPZWzOsEBgMbSbiSTn/dv/69Mkpw==
 
 yargs-parser@^18.1.2:
   version "18.1.3"

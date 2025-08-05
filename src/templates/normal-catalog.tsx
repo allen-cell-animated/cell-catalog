@@ -52,9 +52,7 @@ interface QueryResult {
             html: string;
             frontmatter: {
                 title: string;
-                funding_text: {
-                    html: string;
-                };
+                funding_text: string;
                 acknowledgements_block: {
                     intro: string;
                     contributors: { name: string; institution: string }[];
@@ -73,7 +71,7 @@ const NormalCatalog = ({ data }: QueryResult) => {
             <NormalCatalogTemplate
                 title={post.frontmatter.title}
                 content={post.html}
-                fundingText={post.frontmatter.funding_text.html}
+                fundingText={post.frontmatter.funding_text}
                 acknowledgementsBlock={post.frontmatter.acknowledgements_block}
                 tableHeader={post.frontmatter.table_header}
             />
@@ -89,9 +87,7 @@ export const aboutPageQuery = graphql`
             html
             frontmatter {
                 title
-                funding_text {
-                    html
-                }
+                funding_text
                 table_header
                 acknowledgements_block {
                     intro
