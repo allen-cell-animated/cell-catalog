@@ -8,6 +8,7 @@ import {
     ParentalLineFrontmatter,
     ParentLine,
 } from "../../component-queries/types";
+import { getThumbnail } from "../../utils/mediaUtils";
 import { extractGeneticModifications } from "../../component-queries/convert-data";
 import { DiagramCardProps } from "../shared/DiagramCard";
 import {
@@ -127,7 +128,7 @@ export const unpackParentLineFromFrontMatter = (data: ParentalLineFrontmatter): 
             data
                 .genetic_modifications
         );
-    const thumbnailImage = data.images_and_videos?.images?.[0]?.image?.childImageSharp?.gatsbyImageData || null;
+    const thumbnailImage = getThumbnail(data.images_and_videos);
     const cellLineId = data.cell_line_id;
     const cloneNumber = data.clone_number;
     return {

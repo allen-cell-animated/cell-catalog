@@ -24,9 +24,9 @@ const {
 } = require("../style/images-and-videos.module.css");
 
 interface ImagesAndVideosProps {
-    images?: any[];
+    images: Array<{ image: any; caption: string }>;
     cellLineId: number;
-    videos?: any[];
+    videos: Array<{ video: string; caption: string }>;
     geneSymbol: string;
     snp?: string;
     fluorescentTag: string;
@@ -41,8 +41,8 @@ type MediaItem = {
 }
 
 const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
-    images = [],
-    videos = [],
+    images,
+    videos,
     cellLineId,
     fluorescentTag,
     parentalGeneSymbol,
@@ -51,11 +51,11 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
 }) => {
     const mediaArray = (): MediaItem[] => {
         const items: MediaItem[] = [];
-        images?.forEach(img => {
+        images.forEach(img => {
             items.push({ type: "image", data: img, caption: img.caption });
         });
 
-        videos?.forEach(vid => {
+        videos.forEach(vid => {
             items.push({ type: "video", data: vid, caption: vid.caption });
         });
 
@@ -78,7 +78,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
 
     const imageItems = mediaItems.filter(item => item.type === "image");
     const allPreviewImages = imageItems
-        .map((item) => getImage(item.data?.image))
+        .map((item) => getImage(item.data.image))
         .filter(Boolean)
         .map((imgData, i) => {
             if (imgData !== undefined)
