@@ -10,9 +10,32 @@
     opacity: 0.5;
     transition: opacity 0.3s ease;
     cursor: pointer;
+    position: relative;
 }
 
 .selected-thumbnail {
     border-color: var(--AQUA_BLUE);
     opacity: 1;
+}
+.thumbnail.video::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-40%) translateY(-50%);
+    width: 0;
+    height: 0;
+    border-bottom: 12px solid transparent;
+    border-top: 12px solid transparent;
+    border-left: 18px solid var(--WHITE);
+    opacity: 0.8;
+    z-index: 20000;
+}
+
+.video-thumbnail-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
 }
