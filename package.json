@@ -68,6 +68,6 @@
     "typescript-plugin-css-modules": "^5.1.0"
   },
   "engines": {
-    "node": ">= 20.11.20"
+    "node": ">= 20.18.0"
   }
 }
