@@ -29,7 +29,7 @@ images_and_videos:
 editing_design:
   ncbi_isoforms:
     - n
-  crna: ACTCACTGTTTACTTAGCGC
+  cr_rna: ACTCACTGTTTACTTAGCGC
   linker: DPPVAT
   cas9: Wildtype spCas9
   diagrams:

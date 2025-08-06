@@ -27,7 +27,7 @@ images_and_videos:
 editing_design:
   ncbi_isoforms:
     - NM_001101
-  crna: GCCGTTGTCGACGACGAGCG
+  cr_rna: GCCGTTGTCGACGACGAGCG
   linker: AGSGT
   cas9: Wildtype spCas9
   diagrams:

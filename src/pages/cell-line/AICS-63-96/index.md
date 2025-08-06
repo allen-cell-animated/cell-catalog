@@ -34,7 +34,7 @@ images_and_videos:
 editing_design:
   ncbi_isoforms:
     - n
-  crna: AGACTTCCTACATTGTGTCC
+  cr_rna: AGACTTCCTACATTGTGTCC
   linker: LEADYKDDDDKRSEF
   cas9: Wildtype spCas9
   diagrams:

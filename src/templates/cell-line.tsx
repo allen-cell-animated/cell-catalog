@@ -165,7 +165,7 @@ export const pageQuery = graphql`
                 }
                 editing_design {
                     ncbi_isoforms
-                    crna
+                    cr_rna
                     linker
                     cas9
                     diagrams {
