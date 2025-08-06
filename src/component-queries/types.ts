@@ -61,6 +61,13 @@ export interface NormalCellLineFrontmatter {
     };
     certificate_of_analysis: string;
     eu_hpsc_reg: string;
+    editing_design: {
+        ncbi_isoforms: string;
+        crna: string;
+        linker: string;
+        cas9: string;
+        diagrams: DiagramList[];
+    }
 }
 
 export interface NormalCellLineNode {

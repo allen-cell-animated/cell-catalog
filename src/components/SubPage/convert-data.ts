@@ -7,6 +7,7 @@ import {
     SingleImageDiagram,
     ParentalLineFrontmatter,
     ParentLine,
+    NormalCellLineNode,
 } from "../../component-queries/types";
 import { extractGeneticModifications } from "../../component-queries/convert-data";
 import { DiagramCardProps } from "../shared/DiagramCard";
@@ -14,6 +15,7 @@ import {
     ClonePercentPositive,
     UnpackedDiseaseCellLineFull,
     UnpackedEditingDesign,
+    UnpackedNormalCellLineFull,
 } from "./types";
 import { StemCellCharProps } from "./StemCellChar";
 
@@ -64,6 +66,9 @@ export const unpackEditingDesignData = (editing_design?: {
     f_primer?: string;
     r_primer?: string;
     diagrams?: DiagramList[];
+    crna?: string;
+    linker?: string;
+    ncbi_isoforms?: string;
 }): UnpackedEditingDesign | null => {
     if (!editing_design) {
         return null;
@@ -75,6 +80,9 @@ export const unpackEditingDesignData = (editing_design?: {
         cas9: editing_design.cas9,
         fPrimer: editing_design.f_primer,
         rPrimer: editing_design.r_primer,
+        crna: editing_design.crna,
+        linker: editing_design.linker,
+        ncbi_isoforms: editing_design.ncbi_isoforms,
         diagrams: diagrams.length > 0 ? diagrams : undefined, // an empty array is still truthy
     };
 
@@ -140,6 +148,51 @@ export const unpackParentLineFromFrontMatter = (data: ParentalLineFrontmatter): 
         fluorescentTag
     }
 }
+
+export const unpackNormalFrontMatterForSubpage = (
+    cellLineNode: NormalCellLineNode
+): UnpackedNormalCellLineFull => {
+
+    const { taggedGene, alleleCount, tagLocation, fluorescentTag } =
+        extractGeneticModifications(
+            cellLineNode.frontmatter.genetic_modifications
+        );
+    const proteins = taggedGene
+        .map((gene) => gene.protein)
+        .filter((protein): protein is string => protein !== undefined);
+
+    const structures = taggedGene
+        .map((gene) => gene.structure)
+        .filter((structure): structure is string => structure !== undefined);
+
+    const editingDesign = unpackEditingDesignData(
+        cellLineNode.frontmatter.editing_design
+    );
+
+    return {
+        key: `${cellLineNode.frontmatter.cell_line_id}-${cellLineNode.frontmatter.clone_number}`,
+        path: cellLineNode.fields.slug,
+        cellLineId: cellLineNode.frontmatter.cell_line_id,
+        cloneNumber: cellLineNode.frontmatter.clone_number,
+        taggedGene: taggedGene,
+        alleleCount: alleleCount,
+        tagLocation: tagLocation,
+        fluorescentTag: fluorescentTag,
+        parentalLine: cellLineNode.frontmatter.parental_line.frontmatter.name,
+        protein: proteins,
+        structure: structures,
+        status: cellLineNode.frontmatter.status,
+        certificateOfAnalysis: cellLineNode.frontmatter.certificate_of_analysis,
+        healthCertificate: cellLineNode.frontmatter.eu_hpsc_reg,
+        orderLink: cellLineNode.frontmatter.order_link,
+        orderPlasmid: cellLineNode.frontmatter.donor_plasmid,
+        thumbnailImage:
+            cellLineNode.frontmatter.images_and_videos?.images?.[0]?.image?.childImageSharp
+                ?.gatsbyImageData || null,
+        editingDesign: editingDesign,
+    };
+};
+
 
 export const unpackDiseaseFrontmatterForSubpage = (
     cellLineNode: DiseaseCellLineNode

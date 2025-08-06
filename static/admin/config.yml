@@ -222,7 +222,7 @@ collections:
                         },
                         {
                             label: "crRNA",
-                            name: "crRNA",
+                            name: "crna",
                             widget: "string",
                             required: false,
                         },

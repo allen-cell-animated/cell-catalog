@@ -1,16 +1,18 @@
 import { Descriptions } from "antd";
 import React from "react";
 import type { DescriptionsProps } from "antd";
+import classNames from "classnames";
 
 interface InfoPanelProps {
     data: DescriptionsProps["items"];
+    hasLegend?: boolean;
 }
 
-const { container } = require("../../style/info-panel.module.css");
+const { container, legend } = require("../../style/info-panel.module.css");
 
-const InfoPanel: React.FC<InfoPanelProps> = ({ data }) => {
+const InfoPanel: React.FC<InfoPanelProps> = ({ data, hasLegend }) => {
     return (
-        <div className={container}>
+        <div className={classNames(container, hasLegend && legend)}>
             <Descriptions
                 items={data}
                 column={1}
