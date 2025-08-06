@@ -1,4 +1,3 @@
-import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
 export interface Isoform {
@@ -38,7 +37,7 @@ export interface ParentalLineFrontmatter {
             caption: string;
         }[];
         videos: {
-            video: any;
+            video: string;
             caption: string;
         }[];
     };
@@ -71,7 +70,7 @@ export interface NormalCellLineFrontmatter {
             caption: string;
         }[];
         videos: {
-            video: any;
+            video: string;
             caption: string;
         }[];
     };
@@ -166,7 +165,7 @@ export interface DiseaseCellLineFrontmatter {
             caption: string;
         }[];
         videos: {
-            video: any;
+            video: string;
             caption: string;
         }[];
     };
@@ -243,7 +242,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
             caption: string;
         }[];
         videos: {
-            video: any;
+            video: string;
             caption: string;
         }[];
     };

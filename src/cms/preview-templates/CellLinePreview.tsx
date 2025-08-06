@@ -15,8 +15,7 @@ const CellLinePreview = ({ entry, getAsset }: TemplateProps) => {
     const imagesEntry = entry.getIn(["data", "images_and_videos", "images"]);
     const images = imagesEntry ? imagesEntry.toJS() : [];
 
-    const thumbnail = images?.[0]?.image;
-    const thumbnailImage = getAsset(thumbnail);
+    const thumbnailImage = images.length > 0 ? getAsset(images[0]?.image) : null;
 
     const status = entry.getIn(["data", "status"]);
     const genes = geneticModifications.map((mod: any) => mod.gene).join(" / ");
