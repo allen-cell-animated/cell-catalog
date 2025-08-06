@@ -221,7 +221,7 @@ collections:
                             hint: "Use / to separate multiple isoforms (e.g., NM_002859 / NM_001080855)"
                         },
                         {
-                            label: "cRNA",
+                            label: "crRNA",
                             name: "crna",
                             widget: "string",
                             required: false,
