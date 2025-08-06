@@ -7,6 +7,7 @@ import Content, { HTMLContent } from "../components/shared/Content";
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import Footer from "../components/Footer";
 import AboutButton from "../components/AboutButton";
+import { TextWithUrls } from "../types";
 
 const {
     banner,
@@ -19,8 +20,8 @@ interface DiseaseCatalogTemplateProps {
     title: string;
     content: string;
     contentComponent?: JSX.ElementType;
-    footerText: string;
-    fundingText: string;
+    footerText: TextWithUrls[];
+    fundingText: string[];
     acknowledgementsBlock: {
         intro: string;
         collaborators: { name: string; institution: string }[];
@@ -87,12 +88,8 @@ interface QueryResult {
             html: string;
             frontmatter: {
                 title: string;
-                footer_text: {
-                    html: string;
-                };
-                funding_text: {
-                    html: string;
-                };
+                footer_text: TextWithUrls[];
+                funding_text: string[];
                 acknowledgements_block: {
                     intro: string;
                     collaborators: { name: string; institution: string }[];
@@ -119,8 +116,8 @@ const DiseaseCatalog = ({ data }: QueryResult) => {
                 contentComponent={HTMLContent}
                 title={post.frontmatter.title}
                 content={post.html}
-                footerText={post.frontmatter.footer_text.html}
-                fundingText={post.frontmatter.funding_text.html}
+                footerText={post.frontmatter.footer_text}
+                fundingText={post.frontmatter.funding_text}
                 acknowledgementsBlock={post.frontmatter.acknowledgements_block}
                 main={post.frontmatter.main}
                 coriellImage={post.frontmatter.coriell_image}
@@ -139,11 +136,10 @@ export const aboutPageQuery = graphql`
             frontmatter {
                 title
                 footer_text {
-                    html
+                    text
+                    url
                 }
-                funding_text {
-                    html
-                }
+                funding_text
                 acknowledgements_block {
                     intro
                     collaborators {

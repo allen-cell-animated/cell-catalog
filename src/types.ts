@@ -10,3 +10,7 @@ export enum Disease {
     Laminopathy = "Laminopathy",
     SkeletalMyopathy = "Skeletal Myopathy",
 }
+export interface TextWithUrls {
+    text: string;
+    url?: string;
+}

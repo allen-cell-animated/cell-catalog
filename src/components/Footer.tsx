@@ -1,6 +1,7 @@
 import React from "react";
-import { HTMLContent } from "./shared/Content";
 import { Divider } from "antd";
+import { TextWithUrls } from "../types";
+
 const {
     container,
     collaboratorsSection,
@@ -10,14 +11,14 @@ const {
 } = require("../style/footer.module.css");
 
 interface FooterProps {
-    generationText?: string;
+    generationText?: TextWithUrls[];
     acknowledgementsBlock: {
         intro: string;
         collaborators?: { name: string; institution: string }[];
         contributor_text?: string;
         contributors: { name: string; institution: string }[];
     };
-    fundingText: string;
+    fundingText: string[];
 }
 
 const Footer: React.FC<FooterProps> = ({
@@ -28,14 +29,31 @@ const Footer: React.FC<FooterProps> = ({
     const { intro, collaborators, contributor_text, contributors } =
         acknowledgementsBlock;
 
+    const getTextWithUrls = (
+        item: { text: string; url?: string },
+        key: string
+    ) => {
+        return item.url ? (
+            <a
+                key={key}
+                href={item.text}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                {item.text}
+            </a>
+        ) : (
+            <span key={key}>{item.text}</span>
+        );
+    };
+
     return (
         <>
             {generationText && (
-                <div>
-                    <HTMLContent
-                        className={generation}
-                        content={generationText}
-                    />
+                <div className={generation}>
+                    {generationText.map((item, i) =>
+                        getTextWithUrls(item, `${i}`)
+                    )}
                     <Divider />
                 </div>
             )}
@@ -68,7 +86,9 @@ const Footer: React.FC<FooterProps> = ({
                 </div>
                 <div>
                     <h3>Funding</h3>
-                    <HTMLContent content={fundingText} />
+                    {fundingText.map((text, i) => (
+                        <p key={i}>{text}</p>
+                    ))}
                 </div>
             </div>
         </>
