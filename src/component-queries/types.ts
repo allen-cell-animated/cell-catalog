@@ -63,7 +63,7 @@ export interface NormalCellLineFrontmatter {
     eu_hpsc_reg: string;
     editing_design: {
         ncbi_isoforms: string;
-        crna: string;
+        cr_rna: string;
         linker: string;
         cas9: string;
         diagrams: DiagramList[];

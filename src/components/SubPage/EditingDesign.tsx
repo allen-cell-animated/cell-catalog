@@ -36,25 +36,25 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
     fPrimer,
     rPrimer,
     diagrams,
-    ncbi_isoforms,
-    crna,
+    ncbiIsoforms,
+    crRNA,
     linker,
 }) => {
     const rows: DescriptionsProps["items"] = [];
 
-    if (ncbi_isoforms) {
+    if (ncbiIsoforms) {
         rows.push({
             key: "isoforms",
             label: "NCBI Isoforms:",
-            children: ncbi_isoforms,
+            children: ncbiIsoforms,
         });
     }
 
-    if (crna) {
+    if (crRNA) {
         rows.push({
-            key: "crna",
+            key: "cr_rna",
             label: "cRNA Target Site:",
-            children: crna,
+            children: crRNA,
         });
     }
 
@@ -68,7 +68,7 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
 
     if (crnaTargetSite) {
         rows.push({
-            key: "crna",
+            key: "cr_rna",
             label: "cRNA Target Site:",
             children: formatTextWithGeneLocations(crnaTargetSite, pamSite),
         });
