@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import {
     NormalCellLineFrontmatter,
     UnpackedNormalCellLine,
@@ -43,21 +42,16 @@ interface CellLineProps extends UnpackedNormalCellLine {
 export const CellLineTemplate = ({
     cellLineId,
     cloneNumber,
-    tagLocation,
     taggedGene,
-    status,
-    thumbnailImage,
     href,
     orderPlasmid,
     healthCertificate,
     certificateOfAnalysis,
     orderLink,
-    protein,
     fluorescentTag,
     alleleCount,
     imagesAndVideos,
 }: CellLineProps) => {
-    const image = thumbnailImage ? getImage(thumbnailImage) : undefined;
     const hasImagesOrVideos = hasMedia(imagesAndVideos);
     if (cellLineId === 0) {
         return null;
