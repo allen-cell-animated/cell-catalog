@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Card, Flex } from "antd";
-import { getImage, GatsbyImage } from "gatsby-plugin-image";
-import { ParentalLineFrontmatter } from "../component-queries/types";
+import { Card, Flex, Image, Space } from "antd";
+import { ZoomOutOutlined, ZoomInOutlined } from "@ant-design/icons";
+import { getImage, GatsbyImage, getSrc } from "gatsby-plugin-image";
 import { formatCellLineId } from "../utils";
 import Thumbnail from "./Thumbnail";
 
@@ -17,12 +17,13 @@ const {
     primaryImageOnly,
     primaryImageWithThumbnail,
     primaryImageContainer,
+    previewImage,
+    toolbarWrapper,
 } = require("../style/images-and-videos.module.css");
 
 interface ImagesAndVideosProps {
     images?: any[];
     cellLineId: number;
-    parentalLine: ParentalLineFrontmatter;
     videos?: any;
     geneSymbol: string;
     snp: string;
@@ -40,6 +41,9 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     geneSymbol,
 }) => {
     const [mainImage, setMainImage] = useState(images?.[0] || null);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [previewVisible, setPreviewVisible] = useState(false);
+
     const hasMultipleImages = images?.length > 1;
     const thumbnails = images?.map((image, index) => {
         const renderImage = getImage(image?.image);
@@ -49,7 +53,10 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                     key={index}
                     image={renderImage}
                     isSelected={mainImage === image}
-                    onClick={() => setMainImage(image)}
+                    onClick={() => {
+                        setMainImage(image);
+                        setCurrentIndex(index);
+                    }}
                 />
             );
         }
@@ -62,6 +69,21 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     if (!imageData) {
         return null;
     }
+
+    const allPreviewImages = images
+        .map((img) => getImage(img?.image))
+        .filter(Boolean)
+        .map((imgData, i) => {
+            if (imgData !== undefined)
+                return (
+                    <Image
+                        key={`preview-${i}`}
+                        src={getSrc(imgData)}
+                        style={{ display: "none" }}
+                        className={previewImage}
+                    />
+                );
+        });
 
     const title = (
         <Flex
@@ -83,34 +105,69 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     );
 
     return (
-        <Card className={container} title={title}>
-            <Flex
-                className={primaryImageContainer}
-                align="center"
-                vertical
-                justify="center"
-                gap={20}
+        <>
+            <Image.PreviewGroup
+                preview={{
+                    visible: previewVisible,
+                    className: previewImage,
+                    current: currentIndex,
+                    onVisibleChange: (visible) => setPreviewVisible(visible),
+                    onChange: (index) => {
+                        setCurrentIndex(index);
+                        setMainImage(images[index]);
+                    },
+                    toolbarRender: (
+                        _,
+                        {
+                            transform: { scale },
+                            actions: { onZoomIn, onZoomOut },
+                        }
+                    ) => (
+                        <Space className={toolbarWrapper}>
+                            <ZoomOutOutlined
+                                disabled={scale <= 1}
+                                onClick={onZoomOut}
+                            />
+                            <ZoomInOutlined
+                                disabled={scale >= 10}
+                                onClick={onZoomIn}
+                            />
+                        </Space>
+                    ),
+                }}
             >
-                <GatsbyImage
-                    className={primaryImageClassName}
-                    image={imageData}
-                    alt="main image"
-                    imgStyle={{ objectFit: "contain" }}
-                />
-                {mainImage.caption && (
-                    <p className={caption}>{mainImage.caption}</p>
-                )}
-            </Flex>
-            {hasMultipleImages && (
+                {allPreviewImages}
+            </Image.PreviewGroup>
+            <Card className={container} title={title}>
                 <Flex
+                    className={primaryImageContainer}
+                    align="center"
                     vertical
-                    style={{ minHeight: 0 }}
-                    className={thumbnailContainer}
+                    justify="center"
+                    gap={20}
+                    onClick={() => setPreviewVisible(true)}
                 >
-                    {thumbnails}
+                    <GatsbyImage
+                        className={primaryImageClassName}
+                        image={imageData}
+                        alt="main image"
+                        imgStyle={{ objectFit: "contain" }}
+                    />
+                    {mainImage.caption && (
+                        <p className={caption}>{mainImage.caption}</p>
+                    )}
                 </Flex>
-            )}
-        </Card>
+                {hasMultipleImages && (
+                    <Flex
+                        vertical
+                        style={{ minHeight: 0 }}
+                        className={thumbnailContainer}
+                    >
+                        {thumbnails}
+                    </Flex>
+                )}
+            </Card>
+        </>
     );
 };
 

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Table, Tag, Flex } from "antd";
 import { navigate } from "gatsby";
 
-import { HTMLContent } from "../shared/Content";
 import { CellLineStatus } from "../../component-queries/types";
 
 import useWindowWidth from "../../hooks/useWindowWidth";
@@ -14,7 +13,6 @@ const {
     tableTitle,
     container,
     comingSoon,
-    footer,
     hoveredRow,
     dataComplete,
 } = require("../../style/table.module.css");
@@ -22,19 +20,19 @@ const {
 interface CellLineTableProps {
     tableName: string;
     cellLines: UnpackedCellLine[];
-    footerContents: string;
     released: boolean;
     columns: any;
     mobileConfig?: any;
+    suppressRowClickRef?: React.MutableRefObject<boolean>;
 }
 
 const CellLineTable = ({
     tableName,
     cellLines,
-    footerContents,
     released,
     columns,
     mobileConfig,
+    suppressRowClickRef,
 }: CellLineTableProps) => {
     const [hoveredRowIndex, setHoveredRowIndex] = useState(-1);
 
@@ -44,6 +42,9 @@ const CellLineTable = ({
     const isTablet = width < TABLET_BREAKPOINT;
 
     const isClickable = (record: UnpackedCellLine): boolean => {
+        if (suppressRowClickRef?.current) {
+            return false;
+        }
         return (
             record.status === CellLineStatus.DataComplete ||
             env !== "production"
@@ -116,9 +117,6 @@ const CellLineTable = ({
                 showSorterTooltip={false}
                 sortDirections={["ascend", "descend", "ascend"]}
             />
-            <div className={footer}>
-                <HTMLContent content={footerContents} />
-            </div>
         </>
     );
 };

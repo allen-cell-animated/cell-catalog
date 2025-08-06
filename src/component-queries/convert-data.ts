@@ -10,15 +10,21 @@ import {
 } from "./types";
 import { formatCellLineId } from "../utils";
 
-const extractGeneticModifications = (
+export const extractGeneticModifications = (
     modifications?: GeneticModification[]
-): { taggedGene: UnpackedGene[], alleleCount: string[], tagLocation: string[], fluorescentTag: string[] } => {
-    if (!modifications || !modifications.length) return {
-        taggedGene: [],
-        alleleCount: [],
-        tagLocation: [],
-        fluorescentTag: []
-    };
+): {
+    taggedGene: UnpackedGene[];
+    alleleCount: string[];
+    tagLocation: string[];
+    fluorescentTag: string[];
+} => {
+    if (!modifications || !modifications.length)
+        return {
+            taggedGene: [],
+            alleleCount: [],
+            tagLocation: [],
+            fluorescentTag: [],
+        };
 
     return {
         taggedGene: modifications
@@ -47,9 +53,11 @@ export const convertFrontmatterToDiseaseCellLine = (
             structure: gene.frontmatter.structure,
             protein: gene.frontmatter.protein,
         }));
-    const { taggedGene, alleleCount, tagLocation, fluorescentTag } = extractGeneticModifications(
-        cellLineNode.frontmatter.parental_line.frontmatter.genetic_modifications
-    );
+    const { taggedGene, alleleCount, tagLocation, fluorescentTag } =
+        extractGeneticModifications(
+            cellLineNode.frontmatter.parental_line.frontmatter
+                .genetic_modifications
+        );
 
     return {
         cellLineId: cellLineNode.frontmatter.cell_line_id,
@@ -65,7 +73,7 @@ export const convertFrontmatterToDiseaseCellLine = (
         parentalLine: {
             thumbnailImage:
                 cellLineNode.frontmatter.parental_line.frontmatter
-                    .thumbnail_image,
+                    .images_and_videos?.images?.[0]?.image?.childImageSharp?.gatsbyImageData || null,
             cellLineId:
                 cellLineNode.frontmatter.parental_line.frontmatter.cell_line_id,
             cloneNumber:
@@ -84,9 +92,17 @@ export const convertFrontmatterToNormalCellLines = ({
 }: {
     node: NormalCellLineNode;
 }): UnpackedNormalCellLine => {
-    const { taggedGene, alleleCount, tagLocation, fluorescentTag } = extractGeneticModifications(cellLineNode.frontmatter.genetic_modifications);
-    const proteins = taggedGene.map((gene) => gene.protein);
-    const structures = taggedGene.map((gene) => gene.structure);
+    const { taggedGene, alleleCount, tagLocation, fluorescentTag } =
+        extractGeneticModifications(
+            cellLineNode.frontmatter.genetic_modifications
+        );
+    const proteins = taggedGene
+        .map((gene) => gene.protein)
+        .filter((protein): protein is string => protein !== undefined);
+
+    const structures = taggedGene
+        .map((gene) => gene.structure)
+        .filter((structure): structure is string => structure !== undefined);
 
     return {
         key: `${cellLineNode.frontmatter.cell_line_id}-${cellLineNode.frontmatter.clone_number}`,
@@ -98,13 +114,16 @@ export const convertFrontmatterToNormalCellLines = ({
         tagLocation: tagLocation,
         fluorescentTag: fluorescentTag,
         parentalLine: cellLineNode.frontmatter.parental_line.frontmatter.name,
-        protein: proteins.join(" / "),
-        structure: structures.join(" / "),
+        protein: proteins,
+        structure: structures,
         status: cellLineNode.frontmatter.status,
-        certificateOfAnalysis: "",
-        healthCertificate: "",
+        certificateOfAnalysis: cellLineNode.frontmatter.certificate_of_analysis,
+        healthCertificate: cellLineNode.frontmatter.eu_hpsc_reg,
         orderLink: cellLineNode.frontmatter.order_link,
         orderPlasmid: cellLineNode.frontmatter.donor_plasmid,
+        thumbnailImage:
+            cellLineNode.frontmatter.images_and_videos?.images?.[0]?.image?.childImageSharp
+                ?.gatsbyImageData || null,
     };
 };
 
@@ -124,8 +143,9 @@ export const createLookupMappings = (
             if (cellLineId) {
                 allSearchableTerms.add(formatCellLineId(cellLineId));
             }
-            const genes = edge.node.frontmatter.gene;
-            genes.forEach((gene: any) => {
+            const genes = edge.node.frontmatter.genetic_modifications || [];
+            genes.forEach((obj: any) => {
+                const gene = obj.gene;
                 const geneSymbol = gene.frontmatter.symbol;
                 const geneName = gene.frontmatter.name;
                 const geneProtein = gene.frontmatter.protein;
@@ -143,6 +163,7 @@ export const createLookupMappings = (
         });
         geneSymToCellIds.set(symbol, cellLines);
     });
+
     return {
         geneSymToCellIds,
         structureAndNameToGene,

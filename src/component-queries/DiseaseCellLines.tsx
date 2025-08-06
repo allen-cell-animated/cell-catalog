@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { graphql, StaticQuery } from "gatsby";
 
 import { UnpackedDisease } from "./Diseases";
@@ -59,14 +59,19 @@ const DiseaseCellLinesTemplate = (props: DiseaseCellLinesTemplateProps) => {
         const width = useWindowWidth();
         const isPhone = width < PHONE_BREAKPOINT;
 
+        const suppressRowClickRef = useRef(false);
+
         return (
             <div key={disease.name}>
                 <CellLineTable
+                    suppressRowClickRef={suppressRowClickRef}
                     tableName={disease.name}
                     cellLines={groupedCellLines[disease.name]}
-                    footerContents={disease.acknowledgements}
                     released={disease.status === TableStatus.Available}
-                    columns={getDiseaseTableColumns(inProgress)}
+                    columns={getDiseaseTableColumns(
+                        inProgress,
+                        suppressRowClickRef
+                    )}
                     mobileConfig={getDiseaseTableMobileConfig(isPhone)}
                 />
             </div>
@@ -103,13 +108,18 @@ export default function DiseaseCellLineQuery(props: {
                                         frontmatter {
                                             cell_line_id
                                             clone_number
-                                            thumbnail_image {
-                                                childImageSharp {
-                                                    gatsbyImageData(
-                                                        placeholder: BLURRED
-                                                        layout: FIXED
-                                                        width: 192
-                                                    )
+                                            images_and_videos {
+                                                images {
+                                                    image {
+                                                        childImageSharp {
+                                                            gatsbyImageData(
+                                                                placeholder: BLURRED
+                                                                layout: FIXED
+                                                                width: 192
+                                                            )
+                                                        }
+                                                    }
+                                                    caption
                                                 }
                                             }
                                             genetic_modifications {

@@ -5,12 +5,12 @@ import Layout from "../components/Layout";
 import { DiseaseCellLineFrontmatter } from "../component-queries/types";
 import { DefaultButton } from "../components/shared/Buttons";
 import ImagesAndVideos from "../components/ImagesAndVideos";
-import CellLineInfoCard from "../components/CellLineInfoCard";
 import SubpageTabs from "../components/SubPage/SubpageTabs";
 import { DEFAULT_TABS, TABS_WITH_STEM_CELL } from "../constants";
 import { Disease } from "../types";
 import { unpackDiseaseFrontmatterForSubpage } from "../components/SubPage/convert-data";
 import { UnpackedDiseaseCellLineFull } from "../components/SubPage/types";
+import { DiseaseCellLineInfoCard } from "../components/CellLineInfoCard/DiseaseCellLineInfoCard";
 
 const {
     container,
@@ -29,7 +29,6 @@ interface DiseaseCellLineTemplateProps extends UnpackedDiseaseCellLineFull {
 export const DiseaseCellLineTemplate = ({
     href,
     cellLineId,
-    parentalLineGene,
     geneName,
     geneSymbol,
     clones,
@@ -57,10 +56,9 @@ export const DiseaseCellLineTemplate = ({
                             Return to Cell Catalog
                         </DefaultButton>
                     </Link>
-                    <CellLineInfoCard
+                    <DiseaseCellLineInfoCard
                         href={href}
                         cellLineId={cellLineId}
-                        parentLineGene={parentalLineGene}
                         geneName={geneName}
                         geneSymbol={geneSymbol}
                         clones={clones}
@@ -75,14 +73,11 @@ export const DiseaseCellLineTemplate = ({
                     <div className={imagesContainer}>
                         <ImagesAndVideos
                             cellLineId={cellLineId}
-                            fluorescentTag={
-                                parentalLine.genetic_modifications?.[0].fluorescent_tag || ""
-                            }
+                            fluorescentTag={parentalLine.fluorescentTag[0]}
                             parentalGeneSymbol={
-                                parentalLine.genetic_modifications?.[0].gene.frontmatter.symbol || ""
+                                parentalLine.taggedGene[0].symbol
                             }
-                            alleleTag={parentalLine.genetic_modifications?.[0].allele_count || ""}
-                            parentalLine={parentalLine}
+                            alleleTag={parentalLine.alleleCount[0]}
                             geneSymbol={geneSymbol}
                             snp={snp}
                             images={imagesAndVideos.images}
@@ -146,14 +141,6 @@ export const pageQuery = graphql`
                     frontmatter {
                         cell_line_id
                         clone_number
-                        thumbnail_image {
-                            childImageSharp {
-                                gatsbyImageData(
-                                    placeholder: BLURRED
-                                    layout: FIXED
-                                )
-                            }
-                        }
                         genetic_modifications {
                             gene {
                                 frontmatter {
@@ -212,15 +199,17 @@ export const pageQuery = graphql`
                     r_primer
                     diagrams {
                         title
-                        image {
-                            childImageSharp {
-                                gatsbyImageData(
-                                    placeholder: BLURRED
-                                    layout: CONSTRAINED
-                                )
+                        images {
+                            image {
+                                childImageSharp {
+                                    gatsbyImageData(
+                                        placeholder: BLURRED
+                                        layout: CONSTRAINED
+                                    )
+                                }
                             }
+                            caption
                         }
-                        caption
                     }
                 }
                 genomic_characterization {

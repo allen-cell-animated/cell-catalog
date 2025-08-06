@@ -5,3 +5,11 @@
 .mutation {
     color: var(--link-color);
 }
+
+.no-header :global(.ant-card-body) {
+    padding: 0px;
+}
+
+.no-header :global(.ant-card-body) :global(.gatsby-image-wrapper) {
+    margin: 16px;
+}

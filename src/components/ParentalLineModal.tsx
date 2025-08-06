@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Descriptions, Divider, Flex, Modal } from "antd";
 import Icon, { InfoCircleOutlined } from "@ant-design/icons";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 import { DarkBlueHoverButton } from "./shared/Buttons";
 import { UnpackedGene } from "../component-queries/types";
@@ -18,23 +17,26 @@ const {
 const LinkOut = require("../img/external-link.svg");
 
 interface ParentalLineModalProps {
-    image?: FileNode;
+    image?: IGatsbyImageData | null;
     formattedId: string;
     cloneNumber: number;
     status: string;
     taggedGene: UnpackedGene[];
     tagLocation: string[];
     fluorescentTag: string[];
+    suppressRowClickRef: React.MutableRefObject<boolean>;
 }
 const ParentalLineModal = (props: ParentalLineModalProps) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
         e.stopPropagation();
+        props.suppressRowClickRef.current = true;
         setIsModalOpen(true);
     };
 
     const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
+        props.suppressRowClickRef.current = false;
         setIsModalOpen(false);
     };
     const image = getImage(props.image ?? null);

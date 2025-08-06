@@ -39,7 +39,6 @@ const CellLineTableTemplate = (props: QueryResult) => {
             <CellLineTable
                 tableName="Cell Line Catalog"
                 cellLines={filteredCellLines}
-                footerContents={""}
                 released={true}
                 columns={getNormalTableColumns(false)}
                 mobileConfig={getNormalTableMobileConfig(isPhone)}
@@ -47,7 +46,6 @@ const CellLineTableTemplate = (props: QueryResult) => {
             <CellLineTable
                 tableName="Cell Line Catalog"
                 cellLines={inProgressCellLines}
-                footerContents={""}
                 released={false}
                 columns={getNormalTableColumns(true)}
                 mobileConfig={getNormalTableMobileConfig(isPhone)}
@@ -96,6 +94,19 @@ export default function NormalCellLines() {
                                     status
                                     order_link
                                     donor_plasmid
+                                    images_and_videos {
+                                        images {
+                                            image {
+                                                childImageSharp {
+                                                    gatsbyImageData(
+                                                        placeholder: BLURRED
+                                                        layout: CONSTRAINED
+                                                    )
+                                                }
+                                            }
+                                            caption
+                                        }
+                                    }
                                     genetic_modifications {
                                         gene {
                                             frontmatter {

@@ -15,10 +15,15 @@ genetic_modifications:
     fluorescent_tag: mTagRFP-T
     allele_count: mono
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0078-079&PgId=166
-cofa: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0078-079_CofA.pdf
+certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0078-079_CofA.pdf
 donor_plasmid: https://www.addgene.org/The_Allen_Institute_for_Cell_Science/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-55
 images_and_videos:
+  images:
+    - image: single_plane_image_cl79.jpg
+      caption: "Single, mid-level plane of cells in a live hiPS cell colony expressing mEGFP-tagged Tom20 and mTagRFP-T-tagged alpha-tubulin. Panels show individual channels for Tom20 (left), alpha-tubulin (middle), and the overlay of the two (right).  Cells were imaged in 3D on a spinning-disk confocal microscope. Scale bar, 5μm."
+    - image: Main_cell_line_morphology.jpg
+      caption: "Viability and colony formation one day and three days post-thaw. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:
     - caption: Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged
         translocase of outer mitochondrial membrane 20 and mTagRFP-T-tagged
@@ -44,4 +49,15 @@ images_and_videos:
         spinning-disk confocal microscope and a single plane is shown. Movie
         plays at 900x real time. Scale bar, 5 µm.
       video: https://vimeo.com/1079599493/b8d79a10a3?ts=0&share=copy
+editing_design:
+  ncbi_isoforms:
+    - 
+  crna: AATTGTAAGTGCTCAGAGCT / GATGCACTCACGCTGCGGGA
+  linker: GGSGDPPVAT / GGSGGS
+  cas9: Wildtype spCas9
+  diagrams:
+    - title: "mEGFP Insert"
+      images:
+        - image: EditingDesign_gene_figure.png
+          caption: "Top: TOMM20 locus with zoom in on mEGFP insertion site at TOMM20 C-terminal exon. Bottom: TUBA1B locus with zoom in on mTagRFP-T insertion site at TUBA1B N-terminus."
 ---

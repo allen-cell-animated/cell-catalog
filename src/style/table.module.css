@@ -2,11 +2,40 @@
 
 .container {
     max-width: 1728px;
+    padding: 16px 0px 0px 0px;
 }
 
 .table-title {
     margin-right: 18px;
     line-height: 0;
+}
+
+.thumbnail-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.thumbnail-container :global(.gatsby-image-wrapper) {
+    width: 100%;
+    height: 100%;
+}
+
+.id-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: var(--WHITE);
+    opacity: 0.85;
+    text-align: center;
+}
+
+.container .id-header h4 {
+    margin: 0px;
 }
 
 .container :global(.ant-table) {
@@ -67,8 +96,14 @@
     stroke: var(--WHITE);
 }
 
+.action-column:hover .action-button .cert-icon path,
+.action-column:hover .action-button .cert-icon line {
+    fill: var(--primary-color);
+    stroke: var(--WHITE);
+}
+
 .action-column:hover .plasmid-icon path {
-  fill: var(--WHITE);
+    fill: var(--WHITE);
 }
 
 .container h4 {
@@ -121,10 +156,10 @@
 }
 
 .footer {
+    padding: 8px 0 16px 0;
     font-size: 14px;
     font-weight: 300;
     color: var(--ALLEN_LIGHT_60);
-    margin-top: 45px;
 }
 
 .footer p {
@@ -157,6 +192,7 @@
 }
 
 .container.coming-soon :global(.ant-table-cell),
+.container.coming-soon :global(.ant-table-cell) *,
 .container.coming-soon :global(.ant-table-tbody .ant-tag),
 .container.coming-soon h4 {
     color: var(--disabled);
@@ -164,6 +200,15 @@
 
 .container.coming-soon .clones {
     border-right: 1px solid transparent;
+}
+
+.container.coming-soon .thumbnail-container {
+    display: none;
+}
+
+.container.coming-soon .id-header {
+    position: static;
+    text-align: left;
 }
 
 .container
@@ -179,6 +224,40 @@
     font-weight: 600;
     font-weight: 300;
     color: var(--ALLEN_LIGHT_60);
+}
+
+.container .protein,
+.container .structure {
+    max-width: 220px;
+}
+
+.container .gene {
+    max-width: 310px;
+}
+
+.container .multiple-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    min-height: 79px;
+}
+
+.container .truncated-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tooltip:global(.ant-tooltip) {
+    max-width: none;
+}
+
+.tooltip :global(.ant-tooltip-inner) {
+    background-color: var(--tooltip-background);
+    border-radius: 0;
+    min-height: 0;
+    padding: 2px;
 }
 
 .container :global(.ant-table-column-sorters) {

@@ -69,12 +69,6 @@ collections:
             }
           - { label: "Publish Date", name: "date", widget: "datetime" }
           - {
-                label: "Thumbnail Image",
-                name: "thumbnail_image",
-                widget: "image",
-                required: false,
-            }
-          - {
                 label: "Clone Number",
                 name: "clone_number",
                 widget: "number",
@@ -100,7 +94,8 @@ collections:
                             name: "gene",
                             widget: "relation",
                             collection: "gene-name",
-                            search_fields: ["symbol", "name", "protein", "structure"],
+                            search_fields:
+                                ["symbol", "name", "protein", "structure"],
                             value_field: "symbol",
                             display_fields: ["symbol"],
                             required: false,
@@ -123,16 +118,17 @@ collections:
                             label: "Fluorescent Tag",
                             name: "fluorescent_tag",
                             widget: "select",
-                            options: ["mEGFP", "EGFP", "mTagRFP-T", "TagBFP", "HaloTag"],
+                            options:
+                                [
+                                    "mEGFP",
+                                    "EGFP",
+                                    "mTagRFP-T",
+                                    "TagBFP",
+                                    "HaloTag",
+                                ],
                             required: false,
                         },
                     ],
-          }
-          - {
-                label: "Linker",
-                name: "linker",
-                widget: "string",
-                required: false,
             }
           - {
                 label: "Order Link",
@@ -169,6 +165,8 @@ collections:
                             label: "Images",
                             name: "images",
                             widget: "list",
+                            required: false,
+                            hint: "The first image will be used as the thumbnail in the catalog. Drag to rearrange the order.",
                             fields:
                                 [
                                     {
@@ -180,6 +178,7 @@ collections:
                                         label: "Caption",
                                         name: "caption",
                                         widget: "string",
+                                        required: false,
                                     },
                                 ],
                         },
@@ -187,6 +186,7 @@ collections:
                             label: "Videos",
                             name: "videos",
                             widget: "list",
+                            required: false,
                             fields:
                                 [
                                     {
@@ -198,6 +198,80 @@ collections:
                                         label: "Caption",
                                         name: "caption",
                                         widget: "string",
+                                        required: false,
+                                    },
+                                ],
+                        },
+                    ],
+            }
+          - {
+                label: "Editing Design",
+                name: "editing_design",
+                widget: "object",
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            # TODO: confirm with the team what data we need for this field. I'll leave it as it is for now.
+                            label: "NCBI Isoform(s)",
+                            name: "ncbi_isoforms",
+                            widget: "string",
+                            required: false,
+                            hint: "Use / to separate multiple isoforms (e.g., NM_002859 / NM_001080855)"
+                        },
+                        {
+                            label: "crRNA",
+                            name: "crRNA",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Linker",
+                            name: "linker",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Cas9",
+                            name: "cas9",
+                            widget: "select",
+                            default: "",
+                            options: ["", "Wildtype spCas9", "TrueCut™ Cas9 Protein"],
+                            required: false,
+                        },
+                        {
+                            label: "Diagrams",
+                            name: "diagrams",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Title",
+                                        name: "title",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Images",
+                                        name: "images",
+                                        widget: "list",
+                                        required: false,
+                                        fields:
+                                            [
+                                                {
+                                                    label: "Image",
+                                                    name: "image",
+                                                    widget: "image",
+                                                },
+                                                {
+                                                    label: "Caption",
+                                                    name: "caption",
+                                                    widget: "string",
+                                                    required: false,
+                                                },
+                                            ],
                                     },
                                 ],
                         },
@@ -387,6 +461,8 @@ collections:
                             label: "Images",
                             name: "images",
                             widget: "list",
+                            hint: "The first image will be used as the thumbnail in the catalog. Drag to rearrange the order.",
+                            required: false,
                             fields:
                                 [
                                     {
@@ -398,6 +474,7 @@ collections:
                                         label: "Caption",
                                         name: "caption",
                                         widget: "string",
+                                        required: false,
                                     },
                                 ],
                         },
@@ -405,6 +482,7 @@ collections:
                             label: "Videos",
                             name: "videos",
                             widget: "list",
+                            required: false,
                             fields:
                                 [
                                     {
@@ -416,6 +494,7 @@ collections:
                                         label: "Caption",
                                         name: "caption",
                                         widget: "string",
+                                        required: false,
                                     },
                                 ],
                         },
@@ -441,6 +520,7 @@ collections:
                                         label: "Title",
                                         name: "title",
                                         widget: "string",
+                                        required: false,
                                     },
                                     {
                                         label: "Image",
@@ -451,6 +531,7 @@ collections:
                                         label: "Caption",
                                         name: "caption",
                                         widget: "string",
+                                        required: false,
                                     },
                                 ],
                         },
@@ -489,6 +570,7 @@ collections:
                                         label: "Type",
                                         name: "type",
                                         widget: "select",
+                                        required: false,
                                         default: "",
                                         options: ["", "WT", "Mutant"],
                                     },
@@ -526,14 +608,22 @@ collections:
                                         widget: "string",
                                     },
                                     {
-                                        label: "Image",
-                                        name: "image",
-                                        widget: "image",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
+                                        label: "Images",
+                                        name: "images",
+                                        widget: "list",
+                                        fields:
+                                            [
+                                                {
+                                                    label: "Image",
+                                                    name: "image",
+                                                    widget: "image",
+                                                },
+                                                {
+                                                    label: "Caption",
+                                                    name: "caption",
+                                                    widget: "string",
+                                                },
+                                            ],
                                     },
                                 ],
                         },
@@ -646,11 +736,6 @@ collections:
                 default: "Coming soon",
                 required: true,
             }
-          - {
-                label: "Acknowledgements",
-                name: "acknowledgements",
-                widget: "markdown",
-            }
     - name: "pages"
       label: "Pages"
       files:
@@ -659,11 +744,11 @@ collections:
             name: "index"
             fields:
                 - {
-                      label: "Template Key",
-                      name: "templateKey",
-                      widget: "hidden",
-                      default: "index-page",
-                  }
+                    label: "Template Key",
+                    name: "templateKey",
+                    widget: "hidden",
+                    default: "index-page",
+                }
                 - { label: Title, name: title, widget: string }
                 - { label: Image, name: image, widget: image }
                 - { label: Subtitle, name: subtitle, widget: string }
@@ -681,17 +766,16 @@ collections:
                               },
                           ],
                   }
-
           - file: "src/pages/disease-catalog/index.md"
             label: "Disease Cell Line Catalog"
             name: "disease-catalog"
             fields:
                 - {
-                      label: "Template Key",
-                      name: "templateKey",
-                      widget: "hidden",
-                      default: "disease-catalog",
-                  }
+                    label: "Template Key",
+                    name: "templateKey",
+                    widget: "hidden",
+                    default: "disease-catalog",
+                }
                 - { label: "Title", name: "title", widget: "string" }
                 - { label: "Body", name: "body", widget: "markdown" }
                 - {
@@ -705,57 +789,183 @@ collections:
                                   label: Subheading,
                                   name: subheading,
                                   widget: string,
+                                  required: false,
                               },
 
-                              {
-                                  label: Description,
-                                  name: description,
-                                  widget: markdown,
-                              },
-                          ],
-                  }
+                            {
+                                label: Description,
+                                name: description,
+                                widget: markdown,
+                            },
+                        ],
+                }
                 - {
-                      label: "Coriell Image",
-                      name: "coriell_image",
-                      widget: "image",
-                  }
+                    label: "Coriell Image",
+                    name: "coriell_image",
+                    widget: "image",
+                }
                 - {
                       label: "Coriell Link",
                       name: "coriell_link",
                       widget: "string",
                   }
+                - { label: "Learn Image", name: "learn_image", widget: "image" }
+                - { label: "Learn Link", name: "learn_link", widget: "string" }
                 - {
-                      label: "Footer text",
-                      name: "footer_text",
-                      widget: "markdown",
+                    label: "Addgene Image",
+                    name: "addgene_image",
+                    widget: "image",
+                }
+                - {
+                    label: "Addgene Link",
+                    name: "addgene_link",
+                    widget: "string",
+                }
+                - {
+                    label: "Footer text",
+                    name: "footer_text",
+                    widget: "markdown",
+                }
+                - {
+                      label: "Acknowledgements Block",
+                      name: "acknowledgements_block",
+                      widget: "object",
+                      fields:
+                          [
+                              {
+                                  label: "Intro",
+                                  name: "intro",
+                                  widget: "string",
+                              },
+                              {
+                                  label: "Contributors",
+                                  name: "contributors",
+                                  widget: "list",
+                                  required: false,
+                                  collapsed: true,
+                                  fields:
+                                      [
+                                          {
+                                              label: "Name",
+                                              name: "name",
+                                              widget: "string",
+                                          },
+                                          {
+                                              label: "Institution",
+                                              name: "institution",
+                                              widget: "string",
+                                          },
+                                      ],
+                              },
+                              {
+                                  label: "Outro",
+                                  name: "outro",
+                                  widget: "string",
+                              },
+                          ],
                   }
-
+                - { label: "Funding", name: "funding_text", widget: "markdown" }
           - file: "src/pages/normal-catalog/index.md"
             label: "Cell Line Catalog"
             name: "normal-catalog"
             fields:
                 - {
-                      label: "Template Key",
-                      name: "templateKey",
-                      widget: "hidden",
-                      default: "normal-catalog",
-                  }
+                    label: "Template Key",
+                    name: "templateKey",
+                    widget: "hidden",
+                    default: "normal-catalog",
+                }
                 - { label: "Title", name: "title", widget: "string" }
-                - { label: "Body", name: "body", widget: "markdown" }
                 - {
-                      label: "Main",
-                      name: "main",
+                      label: "About Block",
+                      name: "about_block",
                       widget: "object",
                       fields:
+                          [
+                              {
+                                  label: "Primary Text",
+                                  name: "primary",
+                                  widget: "text",
+                              },
+                              {
+                                  label: "Primary emphasis Text",
+                                  name: "emphasis",
+                                  widget: "text",
+                              },
+                              {
+                                  label: "Newsletter Text",
+                                  name: "newsletter",
+                                  widget: "text",
+                              },
+                              {
+                                  label: "Disease Catalog Copy",
+                                  name: "disease",
+                                  widget: "text",
+                              },
+                              {
+                                  label: "Links",
+                                  name: "links",
+                                  widget: "object",
+                                  fields:
+                                      [
+                                          {
+                                              label: "Newsletter Link",
+                                              name: "newsletter",
+                                              widget: "object",
+                                              fields:
+                                                  [
+                                                      {
+                                                          label: "Text",
+                                                          name: "text",
+                                                          widget: "string",
+                                                      },
+                                                      {
+                                                          label: "URL",
+                                                          name: "url",
+                                                          widget: "string",
+                                                      },
+                                                  ],
+                                          },
+                                          {
+                                              label: "Disease Catalog Link",
+                                              name: "disease",
+                                              widget: "object",
+                                              fields:
+                                                  [
+                                                      {
+                                                          label: "Text",
+                                                          name: "text",
+                                                          widget: "string",
+                                                      },
+                                                      {
+                                                          label: "URL",
+                                                          name: "url",
+                                                          widget: "string",
+                                                      },
+                                                  ],
+                                          },
+                                      ],
+                              },
+                          ],
+                  }
+                - { label: "Body", name: "body", widget: "markdown" }
+                - {
+                    label: "Main",
+                    name: "main",
+                    widget: "object",
+                    fields:
                         [
-                            { label: "Heading", name: "heading", widget: "string" },
+                            {
+                                label: "Heading",
+                                name: "heading",
+                                widget: "string",
+                            },
                             {
                                 label: "Subheading",
                                 name: "subheading",
                                 required: false,
                                 widget: "string",
                             },
-
                             {
                                 label: "Description",
                                 name: "description",
@@ -779,7 +989,11 @@ collections:
                     widget: "object",
                     fields:
                         [
-                            { label: "Intro", name: "intro", widget: "string" },
+                            {
+                                label: "Intro",
+                                name: "intro",
+                                widget: "string",
+                            },
                             {
                                 label: "Contributors",
                                 name: "contributors",
@@ -800,11 +1014,11 @@ collections:
                                         },
                                     ],
                             },
-                            { label: "Outro", name: "outro", widget: "string" },
+                            {
+                                label: "Outro",
+                                name: "outro",
+                                widget: "string",
+                            },
                         ],
                 }
-                - {
-                    label: "Funding",
-                    name: "funding_text",
-                    widget: "markdown",
-                }
+                - { label: "Funding", name: "funding_text", widget: "markdown" }

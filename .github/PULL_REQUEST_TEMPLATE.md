@@ -21,6 +21,9 @@ Please delete options that are not relevant.
 
 Steps to Verify:
 ----------------
+- [ ] add link to preview here 
+- [ ] add link to admin preview here (and verify it loads)  
+
 1. A setup step / beginning state
 2. What to do next
 3. Any other instructions

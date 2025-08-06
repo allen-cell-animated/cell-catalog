@@ -25,7 +25,6 @@ export interface GeneticModification {
 export interface ParentalLineFrontmatter {
     cell_line_id: number;
     clone_number: number;
-    thumbnail_image: any;
     genetic_modifications?: GeneticModification[];
     tagged_gene: {
         frontmatter: GeneFrontMatter;
@@ -49,12 +48,20 @@ export interface NormalCellLineFrontmatter {
     tag_location: string[];
     fluorescent_tag: string[];
     donor_plasmid: string;
+    images_and_videos?: {
+        images: {
+            image: FileNode;
+            caption: string;
+        }[];
+    };
     parental_line: {
         frontmatter: {
             name: string;
         };
     };
-};
+    certificate_of_analysis: string;
+    eu_hpsc_reg: string;
+}
 
 export interface NormalCellLineNode {
     id: string;
@@ -104,14 +111,26 @@ export interface Sequence {
     type: string;
 }
 
-export interface Diagram {
+export interface SingleImageDiagram {
     image: {
         childImageSharp: {
             gatsbyImageData: IGatsbyImageData;
         };
-    };
-    title: string;
+    },
     caption: string;
+    title: string;
+}
+
+export interface DiagramList {
+    images: {
+        image: {
+            childImageSharp: {
+                gatsbyImageData: IGatsbyImageData;
+            };
+        },
+        caption: string;
+    }[];
+    title: string;
 }
 
 export interface DiseaseCellLineFrontmatter {
@@ -143,10 +162,10 @@ export interface DiseaseCellLineFrontmatter {
         cas9: string;
         f_primer: string;
         r_primer: string;
-        diagrams: Diagram[];
+        diagrams: DiagramList[];
     };
     genomic_characterization?: {
-        diagrams: Diagram[];
+        diagrams: SingleImageDiagram[];
     };
 }
 
@@ -168,7 +187,6 @@ export interface DiseaseFrontmatter {
         frontmatter: GeneFrontMatter;
     }[];
     status: string;
-    acknowledgements: { html: string };
 }
 
 export interface UnpackedGene {
@@ -185,15 +203,15 @@ export interface UnpackedCellLineMainInfo {
     certificateOfAnalysis: string;
     healthCertificate: string;
     orderLink: string;
-    thumbnailImage?: FileNode;
+    thumbnailImage?: IGatsbyImageData | null;
 }
 
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     key: string;
     cloneNumber: number;
     parentalLine: string;
-    structure: string;
-    protein: string;
+    structure: string[];
+    protein: string[];
     geneticModifications?: {
         taggedGene: UnpackedGene;
         alleleCount: string;
@@ -207,7 +225,16 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     orderPlasmid: string;
 }
 
-export type ParentLine = Partial<UnpackedNormalCellLine>;
+export type ParentLine = Pick<UnpackedNormalCellLine,
+    "thumbnailImage" |
+    "cellLineId" |
+    "cloneNumber" |
+    "taggedGene" |
+    "alleleCount" |
+    "tagLocation" |
+    "fluorescentTag" |
+    "geneticModifications"
+>
 
 export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
     diseaseStatus: string;
@@ -225,13 +252,15 @@ export interface SearchAndFilterGroup {
         node: {
             frontmatter: {
                 cell_line_id: number;
-                gene: {
-                    frontmatter: {
-                        name: string;
-                        symbol: string;
-                        protein: string;
-                        structure: string;
-                    };
+                genetic_modifications: {
+                    gene: {
+                        frontmatter: {
+                            name: string;
+                            symbol: string;
+                            protein: string;
+                            structure: string;
+                        };
+                    }[];
                 };
             };
         };

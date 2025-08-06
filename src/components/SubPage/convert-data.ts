@@ -1,10 +1,14 @@
 import { isEmpty } from "lodash";
 import {
-    Diagram,
+    DiagramList,
     Clone,
     DiseaseCellLineNode,
     Sequence,
+    SingleImageDiagram,
+    ParentalLineFrontmatter,
+    ParentLine,
 } from "../../component-queries/types";
+import { extractGeneticModifications } from "../../component-queries/convert-data";
 import { DiagramCardProps } from "../shared/DiagramCard";
 import {
     ClonePercentPositive,
@@ -13,7 +17,7 @@ import {
 } from "./types";
 import { StemCellCharProps } from "./StemCellChar";
 
-export const unpackDiagrams = (diagrams?: Diagram[]): DiagramCardProps[] => {
+export const unpackDiagrams = (diagrams?: SingleImageDiagram[]): DiagramCardProps[] => {
     if (!diagrams || diagrams.length === 0) {
         return [];
     }
@@ -28,6 +32,30 @@ export const unpackDiagrams = (diagrams?: Diagram[]): DiagramCardProps[] => {
     });
 };
 
+export const unpackMultiImageDiagrams = (diagrams?: DiagramList[]): DiagramCardProps[] => {
+    if (!diagrams || diagrams.length === 0) {
+        return [];
+    }
+
+    const result: DiagramCardProps[] = [];
+
+    diagrams.forEach((diagram) => {
+        if (!diagram.images || diagram.images.length === 0) {
+            return;
+        }
+
+        diagram.images.forEach((imageObj, index) => {
+            result.push({
+                title: index === 0 ? diagram.title : "",
+                caption: imageObj.caption,
+                image: imageObj.image.childImageSharp.gatsbyImageData,
+            });
+        });
+    });
+
+    return result;
+};
+
 // subpage data
 export const unpackEditingDesignData = (editing_design?: {
     crna_target_site?: string;
@@ -35,12 +63,12 @@ export const unpackEditingDesignData = (editing_design?: {
     cas9?: string;
     f_primer?: string;
     r_primer?: string;
-    diagrams?: Diagram[];
+    diagrams?: DiagramList[];
 }): UnpackedEditingDesign | null => {
     if (!editing_design) {
         return null;
     }
-    const diagrams = unpackDiagrams(editing_design.diagrams);
+    const diagrams = unpackMultiImageDiagrams(editing_design.diagrams);
     const data = {
         crnaTargetSite: editing_design.crna_target_site,
         dnaDonorSequence: editing_design.dna_donor_sequence,
@@ -93,21 +121,29 @@ export const getStemCellCharData = (
     }
 };
 
+export const unpackParentLineFromFrontMatter = (data: ParentalLineFrontmatter): ParentLine => {
+    const { taggedGene, alleleCount, tagLocation, fluorescentTag } =
+        extractGeneticModifications(
+            data
+                .genetic_modifications
+        );
+    const thumbnailImage = data.thumbnail_image;
+    const cellLineId = data.cell_line_id;
+    const cloneNumber = data.clone_number;
+    return {
+        thumbnailImage,
+        cellLineId,
+        cloneNumber,
+        taggedGene,
+        alleleCount,
+        tagLocation,
+        fluorescentTag
+    }
+}
+
 export const unpackDiseaseFrontmatterForSubpage = (
     cellLineNode: DiseaseCellLineNode
 ): UnpackedDiseaseCellLineFull => {
-    const parentalLineData = cellLineNode.frontmatter.parental_line.frontmatter;
-
-    const firstGeneticMod = parentalLineData.genetic_modifications?.find(
-        mod => mod && mod.gene && mod.gene.frontmatter
-    );
-
-    const parentalGene = firstGeneticMod?.gene?.frontmatter || {
-        name: "",
-        symbol: "",
-        structure: "",
-        protein: ""
-    };
 
     const { name: geneName, symbol: geneSymbol } =
         cellLineNode.frontmatter.disease.frontmatter.gene[0].frontmatter;
@@ -121,6 +157,9 @@ export const unpackDiseaseFrontmatterForSubpage = (
     const stemCellCharData = getStemCellCharData(
         cellLineNode.frontmatter.clones
     );
+    const parentalLine = unpackParentLineFromFrontMatter(
+        cellLineNode.frontmatter.parental_line.frontmatter)
+    ;
     return {
         path: cellLineNode.fields.slug,
         cellLineId: cellLineNode.frontmatter.cell_line_id,
@@ -132,8 +171,7 @@ export const unpackDiseaseFrontmatterForSubpage = (
         geneSymbol: geneSymbol,
         diseaseName: cellLineNode.frontmatter.disease.frontmatter.name,
         snp: cellLineNode.frontmatter.snp,
-        parentalLine: parentalLineData,
-        parentalLineGene: parentalGene,
+        parentalLine: parentalLine,
         clones: cellLineNode.frontmatter.clones, // TODO: unpack this into only data needed for card
         imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
         editingDesign: editingDesign,
