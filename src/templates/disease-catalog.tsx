@@ -7,6 +7,7 @@ import Content, { HTMLContent } from "../components/shared/Content";
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import Footer from "../components/Footer";
 import AboutButton from "../components/AboutButton";
+import { TextWithUrls } from "../types";
 
 const {
     banner,
@@ -19,8 +20,8 @@ interface DiseaseCatalogTemplateProps {
     title: string;
     content: string;
     contentComponent?: JSX.ElementType;
-    footerText: string;
-    fundingText: string;
+    footerText: TextWithUrls[];
+    fundingText: string[];
     acknowledgementsBlock: {
         intro: string;
         collaborators: { name: string; institution: string }[];
@@ -87,8 +88,8 @@ interface QueryResult {
             html: string;
             frontmatter: {
                 title: string;
-                footer_text: string;
-                funding_text: string;
+                footer_text: TextWithUrls[];
+                funding_text: string[];
                 acknowledgements_block: {
                     intro: string;
                     collaborators: { name: string; institution: string }[];
@@ -134,7 +135,10 @@ export const aboutPageQuery = graphql`
             html
             frontmatter {
                 title
-                footer_text
+                footer_text {
+                    text
+                    url
+                }
                 funding_text
                 acknowledgements_block {
                     intro

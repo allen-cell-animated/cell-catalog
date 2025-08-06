@@ -824,7 +824,17 @@ collections:
                 - {
                     label: "Footer text",
                     name: "footer_text",
-                    widget: "markdown",
+                    widget: "list",
+                    fields:
+                        [
+                            { label: "Text", name: "text", widget: "string" },
+                            {
+                                label: "URL",
+                                name: "url",
+                                widget: "string",
+                                required: false,
+                            },
+                        ],
                 }
                 - {
                       label: "Acknowledgements Block",
@@ -864,7 +874,12 @@ collections:
                               },
                           ],
                   }
-                - { label: "Funding", name: "funding_text", widget: "markdown" }
+                - {
+                    label: "Funding",
+                    name: "funding_text",
+                    widget: "list",
+                    field: { widget: "string" },
+                  }
           - file: "src/pages/normal-catalog/index.md"
             label: "Cell Line Catalog"
             name: "normal-catalog"
@@ -1021,4 +1036,9 @@ collections:
                             },
                         ],
                 }
-                - { label: "Funding", name: "funding_text", widget: "markdown" }
+                - {
+                    label: "Funding",
+                    name: "funding_text",
+                    widget: "list",
+                    field: { widget: "string" },
+                }

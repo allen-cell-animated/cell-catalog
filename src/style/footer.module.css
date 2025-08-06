@@ -13,12 +13,19 @@
 }
 
 .generation {
-    margin-bottom: 40px;
     color: var(--footer-text);
+    font-size: 16px;
+    margin-top: 16px;
+    margin-bottom: 40px;
 }
 
 .generation a {
     color: var(--link-color);
+    text-decoration: underline;
+}
+
+.generation :global(.ant-divider) {
+    margin: 40px 0px 24px;
 }
 
 .collaborators-section {

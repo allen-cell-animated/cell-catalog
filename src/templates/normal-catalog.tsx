@@ -16,7 +16,7 @@ const {
 interface NormalCatalogTemplateProps {
     title: string;
     content: string;
-    fundingText: string;
+    fundingText: string[];
     acknowledgementsBlock: {
         intro: string;
         contributors: { name: string; institution: string }[];
@@ -52,7 +52,7 @@ interface QueryResult {
             html: string;
             frontmatter: {
                 title: string;
-                funding_text: string;
+                funding_text: string[];
                 acknowledgements_block: {
                     intro: string;
                     contributors: { name: string; institution: string }[];
