@@ -3,6 +3,7 @@ import { Card, Flex, Image, Space } from "antd";
 import { ZoomOutOutlined, ZoomInOutlined } from "@ant-design/icons";
 import { getImage, GatsbyImage, getSrc } from "gatsby-plugin-image";
 import { formatCellLineId } from "../utils";
+import { RawImageData, RawVideoData, ImageOrVideo, isImage } from "../utils/mediaUtils";
 import Thumbnail from "./Thumbnail";
 
 const {
@@ -24,20 +25,14 @@ const {
 } = require("../style/images-and-videos.module.css");
 
 interface ImagesAndVideosProps {
-    images: Array<{ image: any; caption: string }>;
+    images: RawImageData[];
     cellLineId: number;
-    videos: Array<{ video: string; caption: string }>;
+    videos: RawVideoData[];
     geneSymbol: string;
     snp?: string;
     fluorescentTag: string;
     parentalGeneSymbol?: string;
     alleleTag: string;
-}
-
-type MediaItem = {
-    type: "image" | "video";
-    data: any;
-    caption?: string;
 }
 
 const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
@@ -49,26 +44,16 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     alleleTag,
     geneSymbol,
 }) => {
-    const mediaArray = (): MediaItem[] => {
-        const items: MediaItem[] = [];
-        images.forEach(img => {
-            items.push({ type: "image", data: img, caption: img.caption });
-        });
-
-        videos.forEach(vid => {
-            items.push({ type: "video", data: vid, caption: vid.caption });
-        });
-
-        return items;
-    };
 
     const getVideoId = (url: string) => {
         const match = url.match(/player\.vimeo\.com\/video\/(\d+)/);
         return match ? match[1] : null;
     };
 
-    const mediaItems = mediaArray();
-    const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(mediaItems[0] || null);
+    const mediaItems: ImageOrVideo[] = [...images, ...videos];
+    const [selectedMedia, setSelectedMedia] = useState<ImageOrVideo | null>(
+        mediaItems[0] || null
+    );
     const [currentIndex, setCurrentIndex] = useState(0);
     const [previewVisible, setPreviewVisible] = useState(false);
 
@@ -76,9 +61,9 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
 
     if (!selectedMedia) return null;
 
-    const imageItems = mediaItems.filter(item => item.type === "image");
+    const imageItems = mediaItems.filter(isImage);
     const allPreviewImages = imageItems
-        .map((item) => getImage(item.data.image))
+        .map((item) => getImage(item.image))
         .filter(Boolean)
         .map((imgData, i) => {
             if (imgData !== undefined)
@@ -92,11 +77,11 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                 );
         });
 
-    const renderThumbnail = (item: MediaItem, index: number) => {
-        const isSelected = selectedMedia.data === item.data;
+    const renderThumbnail = (item: ImageOrVideo, index: number) => {
+        const isSelected = selectedMedia === item;
 
-        if (item.type === "image") {
-            const imageData = getImage(item.data?.image);
+        if (isImage(item)) {
+            const imageData = getImage(item.image);
             if (!imageData) return null;
 
             return (
@@ -105,7 +90,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                     image={imageData}
                     isSelected={isSelected}
                     onClick={() => {
-                        setSelectedMedia(item)
+                        setSelectedMedia(item);
                         setCurrentIndex(index);
                     }}
                     type="image"
@@ -113,7 +98,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
             );
         }
 
-        const videoId = getVideoId(item.data.video) ?? "";
+        const videoId = getVideoId(item.video) ?? "";
 
         return (
             <Thumbnail
@@ -121,13 +106,13 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                 videoId={videoId}
                 isSelected={isSelected}
                 onClick={() => {
-                    setSelectedMedia(item)
+                    setSelectedMedia(item);
                     setCurrentIndex(index);
                 }}
                 type="video"
             />
         );
-        };
+    };
 
     const title = (
         <Flex
@@ -151,8 +136,8 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     );
 
     const renderMedia = () => {
-        if (selectedMedia.type === "image") {
-            const imageData = getImage(selectedMedia.data.image);
+        if (isImage(selectedMedia)) {
+            const imageData = getImage(selectedMedia.image);
             if (!imageData) return null;
 
             return (
@@ -165,7 +150,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
             );
         }
 
-        const vimeoUrl = selectedMedia.data.video;
+        const vimeoUrl = selectedMedia.video;
         return (
             <div
                 className={`${showThumbnails ? primaryImageWithThumbnail : primaryImageOnly} ${videoContainer}`}
@@ -182,7 +167,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
 
     const handleMediaClick = () => {
         // only show preview for images, not videos
-        if (selectedMedia.type === "image") {
+        if (isImage(selectedMedia)) {
             setPreviewVisible(true);
         }
     };
@@ -200,7 +185,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                             const imageItem = imageItems[index];
                             if (imageItem) {
                                 setSelectedMedia(imageItem);
-                                const fullIndex = mediaItems.findIndex(item => item.data === imageItem.data);
+                                const fullIndex = mediaItems.findIndex(item => item === imageItem);
                                 setCurrentIndex(fullIndex);
                             }
                         },

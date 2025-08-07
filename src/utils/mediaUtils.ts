@@ -1,32 +1,44 @@
-import { IGatsbyImageData } from "gatsby-plugin-image";
+import { getImage, IGatsbyImageData } from "gatsby-plugin-image";
 
-export interface RawMediaData {
-  images?: {
-    image: any;
-    caption: string;
-  }[];
-  videos?: {
-    video: string;
-    caption: string;
-  }[];
+export interface RawImageData {
+  image: {
+    childImageSharp?: {
+      gatsbyImageData: IGatsbyImageData;
+    };
+  };
+  caption: string;
 }
 
-export const hasMedia = (rawMedia?: RawMediaData): boolean => {
-  return (rawMedia?.images?.length || 0) > 0 || (rawMedia?.videos?.length || 0) > 0;
+export interface RawVideoData {
+  video: string;
+  caption: string;
+}
+
+export interface MediaFrontMatter {
+  images?: RawImageData[];
+  videos?: RawVideoData[];
+}
+
+export type ImageOrVideo = RawImageData | RawVideoData;
+
+// type guard to distinguish images and videos at runtime
+export function isImage(item: ImageOrVideo): item is RawImageData {
+  return "image" in item;
+}
+
+export const hasMedia = (rawMedia?: MediaFrontMatter): boolean => {
+  return Boolean(rawMedia?.images?.length || rawMedia?.videos?.length);
 };
 
-export const getImages = (rawMedia?: RawMediaData) => {
+export const getImages = (rawMedia?: MediaFrontMatter): RawImageData[] => {
   return rawMedia?.images || [];
 };
 
-export const getVideos = (rawMedia?: RawMediaData) => {
+export const getVideos = (rawMedia?: MediaFrontMatter): RawVideoData[] => {
   return rawMedia?.videos || [];
 };
 
-export const getThumbnail = (imagesAndVideos?: { images?: Array<{ image: any; caption: string }> }): IGatsbyImageData | null => {
-  const firstImage = imagesAndVideos?.images?.[0];
-  if (!firstImage?.image?.childImageSharp?.gatsbyImageData) {
-    return null;
-  }
-  return firstImage.image.childImageSharp.gatsbyImageData;
+export const getThumbnail = (imagesAndVideos?: MediaFrontMatter): IGatsbyImageData | null => {
+  const firstImage = getImages(imagesAndVideos)[0];
+  return firstImage ? getImage(firstImage.image) ?? null : null;
 };
