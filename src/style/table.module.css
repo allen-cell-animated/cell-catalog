@@ -166,11 +166,6 @@
     margin: 0;
 }
 
-.container :global(.ant-table-cell .ant-tag) {
-    color: var(--SERIOUS_GRAY);
-    font-size: 14px;
-}
-
 .container :global(.ant-table-cell .ant-btn) {
     background-color: var(--WHITE);
     font-weight: 600;
