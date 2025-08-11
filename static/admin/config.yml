@@ -290,6 +290,7 @@ collections:
                             name: "diagrams",
                             widget: "list",
                             required: false,
+                            collapsed: true,
                             fields:
                                 [
                                     {
@@ -310,7 +311,12 @@ collections:
                                                     name: "image",
                                                     widget: "image",     
                                                 },
-                                                # No caption field here according to the original data and site
+                                                {
+                                                    label: "Caption",
+                                                    name: "caption",
+                                                    widget: "string",
+                                                    required: false,
+                                                },
                                             ],                   
                                     },
                                 ],
@@ -344,7 +350,7 @@ collections:
                                         label: "Confirmed Sequence",
                                         name: "confirmed_sequence",
                                         widget: "select",
-                                        options: ["", "Yes", "NA"],
+                                        options: ["", "Yes", "NA", "Not Sequenced"],
                                         default: "",
                                         required: false,
                                     },
@@ -357,24 +363,13 @@ collections:
                             required: false,
                         },
                         {
-                            label: "ddPCR", #TODO: confirm with the team about the label name
+                            label: "ddPCR",
                             name: "ddpcr",
                             widget: "list",
                             required: false,
                             fields:
                                 [
-                                    {
-                                        label: "Gene Tag", #TODO: confirm with the team if we can look for this value from gene and tag data
-                                        name: "gene_tag",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                    {
-                                        label: "Clone", #TOOD: clone too
-                                        name: "clone",
-                                        widget: "string",
-                                        required: false,
-                                    },
+                                    # retrieve tag and clone data from genetic_modifications for frontend use
                                     {
                                         label: "FP Ratio",
                                         name: "fp_ratio",
@@ -397,7 +392,45 @@ collections:
                             widget: "string",
                             required: false,
                         },
-                        #TODO: check if we want the karyotype image to be at here or move to stem cell characterization
+                        {
+                            label: "crRNA Off-targets",
+                            name: "crrna_off_targets",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Clones Analyzed",
+                                        name: "clones_analyzed",
+                                        widget: "number",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Off-Targets Sequenced Per Clone",
+                                        name: "off_targets_sequenced_per_clone",
+                                        widget: "number",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Total Sites Sequenced",
+                                        name: "total_sites_sequenced",
+                                        widget: "number",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Mutations Identified",
+                                        name: "mutations_identified",
+                                        widget: "number",
+                                        required: false,
+                                    }
+                                ],
+                        },
+                        {
+                            label: "crRNA Off-targets Caption",
+                            name: "cr_rna_off_targets_caption",
+                            widget: "string",
+                            required: false,
+                        },
                     ],
                 
             }
