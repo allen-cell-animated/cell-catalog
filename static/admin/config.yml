@@ -370,6 +370,19 @@ collections:
                             fields:
                                 [
                                     # retrieve tag and clone data from genetic_modifications for frontend use
+                                    # TODO: actually do we want to let the users specify these values here? would be useful for multi-edited lines
+                                    {
+                                        label: "Tag", #[gene symbol]-[flourescent tag]
+                                        name: "tag",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Clone",
+                                        name: "clone",
+                                        widget: "string",
+                                        required: false,
+                                    },
                                     {
                                         label: "FP Ratio",
                                         name: "fp_ratio",
@@ -394,7 +407,7 @@ collections:
                         },
                         {
                             label: "crRNA Off-targets",
-                            name: "crrna_off_targets",
+                            name: "cr_rna_off_targets",
                             widget: "list",
                             required: false,
                             fields:
@@ -427,7 +440,7 @@ collections:
                         },
                         {
                             label: "crRNA Off-targets Caption",
-                            name: "cr_rna_off_targets_caption",
+                            name: "off_targets_caption",
                             widget: "string",
                             required: false,
                         },
