@@ -35,4 +35,37 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: TUBA1B locus; Bottom: Zoom in on mTagRFP-T insertion site at TUBA1B N-terminus"
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_mTag-RFP-T.png
+    - title: "Karyotype Analysis"
+      images:
+        - image: TUBA1B-mTagRFPt_cl.35.JPG
+          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "TUBA1B-mTagRFP-T"
+      junction: "5'"
+      expected_size: "1568"
+      confirmed_sequence: "Yes"
+    - editedGene: "TUBA1B-mTagRFP-T"
+      junction: "3'"
+      expected_size: "1900"
+      confirmed_sequence: "Yes"
+    - editedGene: "TUBA1B-mTagRFP-T"
+      junction: "WT internal"
+      expected_size: "700"
+      confirmed_sequence: "Yes"
+    - editedGene: "TUBA1B-mTagRFP-T"
+      junction: "Full junctional allele"
+      expected_size: "Tagged:3120; Untagged:2391"
+      confirmed_sequence: "Not sequenced"
+  junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mTagRFP-T insertion. Primers were designed to exclude amplification from the donor plasmid."
+  ddpcr:
+    - tag: TUBA1B-mTagRFP-T
+      clone: cl35
+      fp_ratio: 0.495
+      plasmid: 0.003
+  ddpcr_caption: "mTagRFP-T: mTagRFP-T/RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 ---

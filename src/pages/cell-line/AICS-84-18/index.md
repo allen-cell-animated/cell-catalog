@@ -41,4 +41,57 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: FBL locus with zoom in on mEGFP insertion site at FBL C-terminal exon. Bottom: NPM1 locus showing 7 NPM1 isoforms with zoom in on mTagRFP-T insertion site at NPM1 C-terminal exon"
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_generic.png
+    - title: "Karyotype Analysis"
+      images:
+        - image: FBL_NPM1_cl18_final_karyo.JPG
+          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "FBL-mEGFP"
+      junction: "5'"
+      expected_size: "1560"
+      confirmed_sequence: "Yes"
+    - editedGene: "FBL-mEGFP"
+      junction: "3'"
+      expected_size: "1754"
+      confirmed_sequence: "Yes"
+    - editedGene: "FBL-mEGFP"
+      junction: "WT internal"
+      expected_size: "671"
+      confirmed_sequence: "Yes"
+    - editedGene: "FBL-mEGFP"
+      junction: "Full junctional allele"
+      expected_size: "Tagged:2925; Untagged:2169"
+      confirmed_sequence: ""
+    - editedGene: "NPM1-mTagRFP-T"
+      junction: "5'"
+      expected_size: "1560"
+      confirmed_sequence: "Yes"
+    - editedGene: "NPM1-mTagRFP-T"
+      junction: "3'"
+      expected_size: "1657"
+      confirmed_sequence: "Yes"
+    - editedGene: "NPM1-mTagRFP-T"
+      junction: "WT internal"
+      expected_size: "1179"
+      confirmed_sequence: "Yes"
+    - editedGene: "NPM1-mTagRFP-T"
+      junction: "Full junctional allele"
+      expected_size: "Tagged:WIP; Untagged:WIP"
+      confirmed_sequence: ""
+  junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP insertion. Primers were designed to exclude amplification from the donor plasmid."
+  ddpcr:
+    - tag: FBL-mEGFP
+      clone: cl18
+      fp_ratio: 0.534
+      plasmid: 0.042
+    - tag: NPM1-mTagRFP-T
+      clone: cl18
+      fp_ratio: 0.526
+      plasmid: 0.042
+  ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 ---

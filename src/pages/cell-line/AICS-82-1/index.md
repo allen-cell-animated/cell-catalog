@@ -57,4 +57,37 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: G3BP1 locus showing 2 G3BP1 isoforms; Bottom: Zoom in on mEGFP insertion site at G3BP1 N-terminal exon."
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+    - title: "Karyotype Analysis"
+      images:
+        - image: _karyotype.JPG
+          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "G3BP1-mEGFP"
+      junction: "5'"
+      expected_size: ""
+      confirmed_sequence: "Yes"
+    - editedGene: "G3BP1-mEGFP"
+      junction: "3'"
+      expected_size: ""
+      confirmed_sequence: "Yes"
+    - editedGene: "G3BP1-mEGFP"
+      junction: "WT"
+      expected_size: "1408"
+      confirmed_sequence: "Yes"
+    - editedGene: "G3BP1-mEGFP"
+      junction: "Full junctional allele"
+      expected_size: "Tagged: bp; Untagged: bp"
+      confirmed_sequence: "Yes"
+  junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP insertion. Primers were designed to exclude amplification from the donor plasmid."
+  ddpcr:
+    - tag: G3BP1-mEGFP
+      clone: cl1
+      fp_ratio: 0.54
+      plasmid: 0
+  ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: KAN/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 ---

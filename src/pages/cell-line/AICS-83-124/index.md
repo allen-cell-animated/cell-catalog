@@ -31,4 +31,37 @@ editing_design:
       images:
         - image: DCP1A_GFP.png
           caption: "Top: DCP1A locus showing 3 DCP1A isoforms; Bottom: Zoom in on mEGFP insertion site at DCP1A N-Terminus."
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+    - title: "Karyotype Analysis"
+      images:
+        - image: AICS-83_cl124_DCP1A_karyotype.JPG
+          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "DCP1A-mEGFP"
+      junction: "5'"
+      expected_size: "2109"
+      confirmed_sequence: "Yes"
+    - editedGene: "DCP1A-mEGFP"
+      junction: "3'"
+      expected_size: "1893"
+      confirmed_sequence: "Yes"
+    - editedGene: "DCP1A-mEGFP"
+      junction: "WT"
+      expected_size: "886/1613"
+      confirmed_sequence: "Yes"
+    - editedGene: "DCP1A-mEGFP"
+      junction: "Full junctional allele"
+      expected_size: "Tagged: 3074, Untagged: 2374 "
+      confirmed_sequence: "Yes"
+  junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP insertion."
+  ddpcr:
+    - tag: DCP1A-mEGFP
+      clone: cl124
+      fp_ratio: 0.56
+      plasmid: 0.0016
+  ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene. RPP30 is known 2n reference gene."
 ---

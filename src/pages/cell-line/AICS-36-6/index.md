@@ -31,4 +31,37 @@ editing_design:
       images:
         - image: AAVS1_gfp.png
           caption: "Top: mEGFP insertion site at AAVS1 locus in PPP1R12C intron; Bottom: Zoom in on mEGFP insertion site at AAVS1 locus"
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+    - title: "Karyotype Analysis"
+      images:
+        - image: AAVS1_cl.6.JPG
+          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "AAVS1-mEGFP"
+      junction: "5'"
+      expected_size: "NA"
+      confirmed_sequence: "NA"
+    - editedGene: "AAVS1-mEGFP"
+      junction: "3'"
+      expected_size: "1214"
+      confirmed_sequence: "Yes"
+    - editedGene: "AAVS1-mEGFP"
+      junction: "WT internal"
+      expected_size: "1391"
+      confirmed_sequence: "Yes"
+    - editedGene: "AAVS1-mEGFP"
+      junction: "Full junctional allele"
+      expected_size: "NA"
+      confirmed_sequence: "NA"
+  junction_table_caption: "PCR amplified 3' junction was used to establish delivery via HDR at the intended genomic locus. Tiled junctions were not possible to amplify or sequence due to the large size of the delivered sequence (5KB). The precise sequence of the delivered sequence was not determined because the mEGFP tag sequence was not fused to an endogenous coding sequence."
+  ddpcr:
+    - tag: AAVS1-mEGFP
+      clone: cl6
+      fp_ratio: 0.48
+      plasmid: 0.01
+  ddpcr_caption: "mEGFP: mEGFP/RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 ---

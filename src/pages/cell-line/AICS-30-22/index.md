@@ -35,4 +35,41 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: MAP1LC3B locus; Bottom: Zoom in on mEGFP insertion site at MAP1LC3B N-terminal exon"
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+    - title: "GFP-tagged and untagged alleles"
+      images:
+        - image: GenomicCharacterization_tagged_allele_gel.jpg
+          caption: "Junctional PCR primers complementary to sequences flanking the homology arms in the distal genome were used together to co-amplify tagged and untagged alleles. Gel shows untagged allele (smaller band) and tagged allele (larger band) from single PCR reaction. A band intermediate in size between the anticipated tagged and untagged allele products is consistently observed and is a hypothesized heteroduplex of the tagged and untagged allele products. (1% Agarose gel with Thermo Fisher 1kb ladder)."
+    - title: "Karyotype Analysis"
+      images:
+        - image: MAP1LC3B_cl.22.JPG
+          caption: "After cells banks were created, one vial was thawed and 20 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "MAP1LC3B-mEGFP"
+      junction: "5'"
+      expected_size: "1654"
+      confirmed_sequence: "Yes"
+    - editedGene: "MAP1LC3B-mEGFP"
+      junction: "3'"
+      expected_size: "2150"
+      confirmed_sequence: "Yes"
+    - editedGene: "MAP1LC3B-mEGFP"
+      junction: "WT internal"
+      expected_size: "1013"
+      confirmed_sequence: "Yes"
+    - editedGene: "MAP1LC3B-mEGFP"
+      junction: "Full junctional allele"
+      expected_size: "Tagged:3396; Untagged:2686"
+      confirmed_sequence: "Not sequenced"
+  junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP insertion. Primers were designed to exclude amplification from the donor plasmid."
+  ddpcr:
+    - tag: MAP1LC3B-mEGFP
+      clone: cl22
+      fp_ratio: 0.478
+      plasmid: 0.003
+  ddpcr_caption: "mEGFP: mEGFP/RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 ---
