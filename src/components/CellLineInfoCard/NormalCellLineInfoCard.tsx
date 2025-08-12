@@ -5,20 +5,13 @@ import GeneSymbolTag from "../GeneSymbolTag";
 import TubeIcon from "../Icons/TubeIcon";
 import PlasmidIcon from "../Icons/PlasmidIcon";
 import { formatCellLineId } from "../../utils";
-import { Divider, Flex } from "antd";
+import { Flex } from "antd";
 import { UnpackedGene } from "../../component-queries/types";
+import { MultiLineTableCell } from "../MultiLineTableCell";
 
-const {
-    multiple,
-    divider,
-} = require("../../style/cell-line-info-card.module.css");
+const { multiple } = require("../../style/cell-line-info-card.module.css");
 
-interface ExtractedGeneFields {
-    name: string[];
-    symbol: string[];
-    structure: string[];
-    protein: string[];
-}
+type ExtractedGeneFields = Record<keyof UnpackedGene, string[]>;
 
 interface NormalCellLineInfoCardProps extends CellLineInfoCardRequiredProps {
     orderPlasmid: string;
@@ -31,46 +24,17 @@ interface NormalCellLineInfoCardProps extends CellLineInfoCardRequiredProps {
 export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (
     props
 ) => {
-    const extractFieldsFromTaggedGene = (
-        taggedGenes: UnpackedGene[]
-    ): ExtractedGeneFields => {
-        const result: ExtractedGeneFields = {
-            name: [],
-            symbol: [],
-            structure: [],
-            protein: [],
-        };
 
-        taggedGenes.forEach((gene) => {
-            result.name.push(gene.name);
-            result.symbol.push(gene.symbol);
-            if (gene.structure) result.structure.push(gene.structure);
-            if (gene.protein) result.protein.push(gene.protein);
-        });
-
-        return result;
-    };
-
-    const extractedGeneFields = extractFieldsFromTaggedGene(props.taggedGene);
-
-    const renderWithDividers = (items: (string | undefined)[]) => {
-        return (
-            <div className={multiple}>
-                {items.map((item, i) => (
-                    <>
-                        <span>{item}</span>
-                        {i < items.length - 1 && (
-                            <Divider className={divider} />
-                        )}
-                    </>
-                ))}
-            </div>
-        );
-    };
-
-    const proteinList = renderWithDividers(extractedGeneFields.protein);
-    const geneNameList = renderWithDividers(extractedGeneFields.name);
-    const structureList = renderWithDividers(extractedGeneFields.structure);
+    const extractedGeneFields = props.taggedGene.reduce<ExtractedGeneFields>(
+        (acc, gene) => {
+            acc.name.push(gene.name);
+            acc.symbol.push(gene.symbol);
+            if (gene.structure) acc.structure.push(gene.structure);
+            if (gene.protein) acc.protein.push(gene.protein);
+            return acc;
+        },
+        { name: [], symbol: [], structure: [], protein: [] }
+    );
 
     const geneSymbolTags = (
         <Flex gap={4}>
@@ -86,7 +50,13 @@ export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (
         {
             key: "1",
             label: "Protein",
-            children: proteinList,
+            children: (
+                <MultiLineTableCell
+                    className={multiple}
+                    dividers
+                    entries={extractedGeneFields.protein}
+                />
+            ),
         },
         {
             key: "2",
@@ -96,12 +66,24 @@ export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (
         {
             key: "3",
             label: "Gene Name",
-            children: geneNameList,
+            children: (
+                <MultiLineTableCell
+                    className={multiple}
+                    dividers
+                    entries={extractedGeneFields.name}
+                />
+            ),
         },
         {
             key: "4",
             label: "Structure",
-            children: structureList,
+            children: (
+                <MultiLineTableCell
+                    className={multiple}
+                    dividers
+                    entries={extractedGeneFields.structure}
+                />
+            ),
         },
     ];
 
