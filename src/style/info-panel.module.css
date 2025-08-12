@@ -15,7 +15,7 @@
 .container :global(.ant-descriptions-item) {
     border-spacing: 0;
     border-bottom: 1px var(--small-table-border-color) solid;
-    padding: 10px 0 10px 20px !important;
+    padding: 10px 10px 10px 20px !important;
     line-height: 1;
 }
 
