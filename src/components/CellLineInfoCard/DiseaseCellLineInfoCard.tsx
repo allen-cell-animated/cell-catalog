@@ -7,7 +7,6 @@ import { Divider } from "antd";
 import { PRIMARY_COLOR } from "../../style/theme";
 import CloneTable from "../CloneTable";
 import GeneSymbolTag from "../GeneSymbolTag";
-
 interface DiseaseCellLineInfoCardProps extends CellLineInfoCardRequiredProps {
     parentalLine: ParentLine;
     snp: string;
@@ -17,16 +16,6 @@ interface DiseaseCellLineInfoCardProps extends CellLineInfoCardRequiredProps {
 export const DiseaseCellLineInfoCard: React.FC<DiseaseCellLineInfoCardProps> = (
     props
 ) => {
-    const buttonList = [
-        {
-            label: "Certificate of Analysis",
-            href: props.certificateOfAnalysis,
-        },
-        {
-            label: "hPSCreg Certificate",
-            href: props.healthCertificate,
-        },
-    ];
 
     const infoRows = [
         { key: "1", label: "SNP", children: props.snp },
@@ -58,12 +47,20 @@ export const DiseaseCellLineInfoCard: React.FC<DiseaseCellLineInfoCardProps> = (
         </>
     );
 
+    const buttonList = [
+        {
+            key: "order",
+            label: `Obtain ${formatCellLineId(props.cellLineId)}`,
+            href: props.orderLink,
+            subtitle: buttonSubtitle,
+        },
+    ];
+
     return (
         <CellLineInfoCardBase
             {...props}
             buttonList={buttonList}
             infoRows={infoRows}
-            buttonSubtitle={buttonSubtitle}
             additionalInfo={<CloneTable dataSource={props.clones} />}
         />
     );
