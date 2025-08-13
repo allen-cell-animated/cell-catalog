@@ -27,8 +27,6 @@ export const unpackDiagrams = (diagrams?: SingleImageDiagram[]): DiagramCardProp
             title: diagram.title,
             caption: diagram.caption,
             image: diagram.image
-                ? diagram.image.childImageSharp.gatsbyImageData
-                : undefined,
         };
     });
 };
@@ -49,7 +47,7 @@ export const unpackMultiImageDiagrams = (diagrams?: DiagramList[]): DiagramCardP
             result.push({
                 title: index === 0 ? diagram.title : "",
                 caption: imageObj.caption,
-                image: imageObj.image.childImageSharp.gatsbyImageData,
+                image: imageObj.image,
             });
         });
     });
