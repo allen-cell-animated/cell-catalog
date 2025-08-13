@@ -60,13 +60,13 @@ export const unpackMultiImageDiagrams = (diagrams?: DiagramList[]): DiagramCardP
 
 // subpage data
 export const unpackEditingDesignData = (editing_design?: {
-    crna_target_site?: string;
+    cr_rna_target_site?: string;
     dna_donor_sequence?: Sequence[];
     cas9?: string;
     f_primer?: string;
     r_primer?: string;
     diagrams?: DiagramList[];
-    crna?: string;
+    cr_rna?: string;
     linker?: string;
     ncbi_isoforms?: string;
 }): UnpackedEditingDesign | null => {
@@ -75,14 +75,14 @@ export const unpackEditingDesignData = (editing_design?: {
     }
     const diagrams = unpackMultiImageDiagrams(editing_design.diagrams);
     const data = {
-        crnaTargetSite: editing_design.crna_target_site,
+        crRnaTargetSite: editing_design.cr_rna_target_site,
         dnaDonorSequence: editing_design.dna_donor_sequence,
         cas9: editing_design.cas9,
         fPrimer: editing_design.f_primer,
         rPrimer: editing_design.r_primer,
-        crna: editing_design.crna,
+        crRNA: editing_design.cr_rna,
         linker: editing_design.linker,
-        ncbi_isoforms: editing_design.ncbi_isoforms,
+        ncbiIsoforms: editing_design.ncbi_isoforms,
         diagrams: diagrams.length > 0 ? diagrams : undefined, // an empty array is still truthy
     };
 

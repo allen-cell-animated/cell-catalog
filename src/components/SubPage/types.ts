@@ -8,18 +8,18 @@ import {
 import { DiagramCardProps } from "../shared/DiagramCard";
 import { StemCellCharProps } from "./StemCellChar";
 
-// crna field for normal cell lines differs from 
-// crnaTargetSite field for disease cell lines
+// crRNA field for normal cell lines differs from 
+// crRnaTargetSite field for disease cell lines
 export interface UnpackedEditingDesign {
-    crnaTargetSite?: string;
+    crRnaTargetSite?: string;
     dnaDonorSequence?: Sequence[];
     cas9?: string;
     fPrimer?: string;
     rPrimer?: string;
     diagrams?: DiagramCardProps[];
-    crna?: string;
+    crRNA?: string;
     linker?: string;
-    ncbi_isoforms?: string;
+    ncbiIsoforms?: string;
 }
 
 export interface ClonePercentPositive {
