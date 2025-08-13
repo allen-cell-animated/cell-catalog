@@ -546,11 +546,11 @@ collections:
                 fields:
                     [
                         {
-                            label: "cRNA Target Site",
-                            name: "crna_target_site",
+                            label: "crRNA Target Site",
+                            name: "cr_rna_target_site",
                             widget: "string",
                             required: false,
-                            hint: "Enter entire cRNA Target Site sequence. Place square brackets around PAM site. e.g. AG[TGG]ATA",
+                            hint: "Enter entire crRNA Target Site sequence. Place square brackets around PAM site. e.g. AG[TGG]ATA",
                         },
                         {
                             label: "DNA Donor Sequence",

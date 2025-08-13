@@ -164,7 +164,7 @@ export interface DiseaseCellLineFrontmatter {
         }[];
     };
     editing_design?: {
-        crna_target_site: string;
+        cr_rna_target_site: string;
         dna_donor_sequence: Sequence[];
         cas9: string;
         f_primer: string;

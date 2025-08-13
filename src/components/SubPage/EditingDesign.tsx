@@ -30,7 +30,7 @@ const formatTextWithGeneLocations = (text: string, className: string) => {
 };
 
 const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
-    crnaTargetSite,
+    crRnaTargetSite,
     dnaDonorSequence,
     cas9,
     fPrimer,
@@ -53,7 +53,7 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
     if (crRNA) {
         rows.push({
             key: "cr_rna",
-            label: "cRNA Target Site:",
+            label: "crRNA Target Site:",
             children: crRNA,
         });
     }
@@ -66,11 +66,11 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
         });
     }
 
-    if (crnaTargetSite) {
+    if (crRnaTargetSite) {
         rows.push({
             key: "cr_rna",
-            label: "cRNA Target Site:",
-            children: formatTextWithGeneLocations(crnaTargetSite, pamSite),
+            label: "crRNA Target Site:",
+            children: formatTextWithGeneLocations(crRnaTargetSite, pamSite),
         });
     }
 
@@ -120,15 +120,15 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
         });
     }
 
-    const shouldShowLegend = Boolean(crnaTargetSite || dnaDonorSequence);
+    const shouldShowLegend = Boolean(crRnaTargetSite || dnaDonorSequence);
     const legendContent = shouldShowLegend ? (
         <div className={legendText}>
-            {crnaTargetSite && (
+            {crRnaTargetSite && (
                 <>
                     <span className={pamSite}>Red</span> = PAM Site
                 </>
             )}
-            {crnaTargetSite && dnaDonorSequence && ", "}
+            {crRnaTargetSite && dnaDonorSequence && ", "}
             {dnaDonorSequence && (
                 <>
                     <span className={mutation}>Blue</span> = Mutation

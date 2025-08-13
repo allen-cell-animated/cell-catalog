@@ -53,7 +53,7 @@ genomic_characterization:
         G-banded metaphase cells were karyotyped. Above is the representative
         analysis for clone 9. All clones resulted in normal karyotype.
 editing_design:
-  crna_target_site: 5’ CCTCTCAATGAGACTGTCGT[GGG] 3’
+  cr_rna_target_site: 5’ CCTCTCAATGAGACTGTCGT[GGG] 3’
   dna_donor_sequence:
     - sequence: " 5’ AGAACAAGGATCCTCTCAATGAGACTGTC[A]TGGGCTTGTATCAGAAGTCTTCCCTCAAG 3’"
       type: Mutant

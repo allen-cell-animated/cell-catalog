@@ -60,7 +60,7 @@ export const unpackMultiImageDiagrams = (diagrams?: DiagramList[]): DiagramCardP
 
 // subpage data
 export const unpackEditingDesignData = (editing_design?: {
-    crna_target_site?: string;
+    cr_rna_target_site?: string;
     dna_donor_sequence?: Sequence[];
     cas9?: string;
     f_primer?: string;
@@ -75,7 +75,7 @@ export const unpackEditingDesignData = (editing_design?: {
     }
     const diagrams = unpackMultiImageDiagrams(editing_design.diagrams);
     const data = {
-        crnaTargetSite: editing_design.crna_target_site,
+        crRnaTargetSite: editing_design.cr_rna_target_site,
         dnaDonorSequence: editing_design.dna_donor_sequence,
         cas9: editing_design.cas9,
         fPrimer: editing_design.f_primer,
