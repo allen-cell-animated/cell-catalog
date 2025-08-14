@@ -1,43 +1,34 @@
 import React from "react";
-import { Typography, TooltipProps } from "antd";
+import { TruncatedText } from "./TruncatedText";
+import { Divider } from "antd";
 
-const { Text } = Typography;
-
-const {
-    tooltip,
-    multipleLines,
-    truncatedText,
-} = require("../style/table.module.css");
-
-export const getTooltipProps = (text: string): TooltipProps => {
-    return { title: text, arrow: false, rootClassName: tooltip };
-};
+const { divider } = require("../style/cell-line-info-card.module.css");
 
 interface MultipleLineContainerProps {
     entries: string[];
-    truncated?: boolean;
+    className?: string;
+    dividers?: boolean;
 }
 
 export const MultiLineTableCell: React.FC<MultipleLineContainerProps> = ({
     entries,
+    className,
+    dividers,
 }) => {
     if (!entries || entries.length === 0) {
         return null;
     }
 
     return (
-        <div className={multipleLines}>
+        <div className={className}>
             {entries.map((entry, idx) => {
                 return (
-                    <Text
-                        key={`${entry}-${idx}`}
-                        className={truncatedText}
-                        ellipsis={{
-                            tooltip: getTooltipProps(entry),
-                        }}
-                    >
-                        {entry}
-                    </Text>
+                    <React.Fragment key={`${entry}-${idx}`}>
+                        <TruncatedText>{entry}</TruncatedText>
+                        {dividers && idx < entries.length - 1 && (
+                            <Divider className={divider} />
+                        )}
+                    </React.Fragment>
                 );
             })}
         </div>

@@ -85,7 +85,10 @@ export const getNormalTableColumns = (
             sortIcon: sortIcon,
             className: protein,
             render: (proteins: string[]) => (
-                <MultiLineTableCell entries={proteins} />
+                <MultiLineTableCell
+                    className={multipleLines}
+                    entries={proteins}
+                />
             ),
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
@@ -123,7 +126,10 @@ export const getNormalTableColumns = (
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
             render: (alleleCount: string[]) => (
-                <MultiLineTableCell entries={alleleCount} />
+                <MultiLineTableCell
+                    className={multipleLines}
+                    entries={alleleCount}
+                />
             ),
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
@@ -140,7 +146,10 @@ export const getNormalTableColumns = (
             sortIcon: sortIcon,
             className: structure,
             render: (structures: string[]) => (
-                <MultiLineTableCell entries={structures} />
+                <MultiLineTableCell
+                    className={multipleLines}
+                    entries={structures}
+                />
             ),
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
@@ -153,7 +162,9 @@ export const getNormalTableColumns = (
             key: "fluorescentTag",
             dataIndex: "fluorescentTag",
             responsive: mdBreakpoint,
-            render: (tags: string[]) => <MultiLineTableCell entries={tags} />,
+            render: (tags: string[]) => (
+                <MultiLineTableCell className={multipleLines} entries={tags} />
+            ),
             sortIcon: sortIcon,
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
@@ -168,7 +179,10 @@ export const getNormalTableColumns = (
             className: inProgress ? "" : lastColumn,
             responsive: mdBreakpoint,
             render: (locations: string[]) => (
-                <MultiLineTableCell entries={locations} />
+                <MultiLineTableCell
+                    className={multipleLines}
+                    entries={locations}
+                />
             ),
             sortIcon: sortIcon,
             sorter: (a: any, b: any) =>
