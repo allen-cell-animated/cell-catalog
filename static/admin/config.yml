@@ -885,66 +885,54 @@ collections:
                               {
                                   label: "Primary Text",
                                   name: "primary",
-                                  widget: "text",
-                              },
-                              {
-                                  label: "Primary emphasis Text",
-                                  name: "emphasis",
-                                  widget: "text",
-                              },
-                              {
-                                  label: "Newsletter Text",
-                                  name: "newsletter",
-                                  widget: "text",
+                                  widget: "object",
+                                  fields:
+                                        - { label: "Text", name: "text", widget: "string" },
+                                        - {
+                                                label: "emphasis",
+                                                name: "emphasis",
+                                                widget: "list",
+                                                required: false,
+                                                fields: [
+                                                    text: string,
+                                                ]
+                                            },
+                                        - {
+                                                label: "URL",
+                                                name: "link",
+                                                widget: "list",
+                                                required: false,
+                                                fields: [
+                                                    text: string,
+                                                    url: string,
+                                                ]
+                                            },
                               },
                               {
                                   label: "Disease Catalog Copy",
                                   name: "disease",
-                                  widget: "text",
-                              },
-                              {
-                                  label: "Links",
-                                  name: "links",
                                   widget: "object",
                                   fields:
-                                      [
-                                          {
-                                              label: "Newsletter Link",
-                                              name: "newsletter",
-                                              widget: "object",
-                                              fields:
-                                                  [
-                                                      {
-                                                          label: "Text",
-                                                          name: "text",
-                                                          widget: "string",
-                                                      },
-                                                      {
-                                                          label: "URL",
-                                                          name: "url",
-                                                          widget: "string",
-                                                      },
-                                                  ],
-                                          },
-                                          {
-                                              label: "Disease Catalog Link",
-                                              name: "disease",
-                                              widget: "object",
-                                              fields:
-                                                  [
-                                                      {
-                                                          label: "Text",
-                                                          name: "text",
-                                                          widget: "string",
-                                                      },
-                                                      {
-                                                          label: "URL",
-                                                          name: "url",
-                                                          widget: "string",
-                                                      },
-                                                  ],
-                                          },
-                                      ],
+                                        - { label: "Text", name: "text", widget: "string" },
+                                        - {
+                                                label: "emphasis",
+                                                name: "emphasis",
+                                                widget: "list",
+                                                required: false,
+                                                fields: [
+                                                    text: string,
+                                                ]
+                                            },
+                                        - {
+                                                label: "URL",
+                                                name: "link",
+                                                widget: "list",
+                                                required: false,
+                                                fields: [
+                                                    text: string,
+                                                    url: string,
+                                                ]
+                                            },
                               },
                           ],
                   }
