@@ -2,19 +2,14 @@ import { getImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 export interface RawImageData {
   image: {
-    childImageSharp?: {
+    childImageSharp: {
       gatsbyImageData: IGatsbyImageData;
     };
   };
   caption: string;
 }
 
-interface RawImageWithData {
-  image: { childImageSharp: { gatsbyImageData: IGatsbyImageData } };
-  caption: string;
-};
-
-export interface ValidatedImageData {
+export interface UnpackedImageData {
   image: IGatsbyImageData;
   caption: string;
 }
@@ -29,35 +24,28 @@ export interface MediaFrontMatter {
   videos?: RawVideoData[];
 }
 
-export type ImageOrVideo = ValidatedImageData | RawVideoData;
-
-// type guard to ensure image data is defined
-export function hasGatsbyImageData(x: RawImageData): x is RawImageWithData {
-  return !!x.image.childImageSharp?.gatsbyImageData;
-}
+export type ImageOrVideo = UnpackedImageData | RawVideoData;
 
 // type guard to distinguish images and videos at runtime
-export function isImage(item: ImageOrVideo): item is ValidatedImageData {
+export function isImage(item: ImageOrVideo): item is UnpackedImageData {
   return "image" in item;
 }
 
 // flatten and validate image data
-export function toValidatedImageData(
+export function unpackImageData(
   x: RawImageData
-): ValidatedImageData | null {
-  return hasGatsbyImageData(x)
-    ? { image: x.image.childImageSharp.gatsbyImageData, caption: x.caption }
-    : null;
+): UnpackedImageData | null {
+  return { image: x.image.childImageSharp.gatsbyImageData, caption: x.caption };
 }
 
 export const hasMedia = (rawMedia?: MediaFrontMatter): boolean => {
   return Boolean(rawMedia?.images?.length || rawMedia?.videos?.length);
 };
 
-export const getImages = (raw?: MediaFrontMatter): ValidatedImageData[] => {
+export const getImages = (raw?: MediaFrontMatter): UnpackedImageData[] => {
   const media = (raw?.images ?? []);
-  return media.map(toValidatedImageData)
-    .filter((x): x is ValidatedImageData => x !== null);
+  return media.map(unpackImageData)
+    .filter((x): x is UnpackedImageData => x !== null);
 }
 
 export const getVideos = (rawMedia?: MediaFrontMatter): RawVideoData[] => {

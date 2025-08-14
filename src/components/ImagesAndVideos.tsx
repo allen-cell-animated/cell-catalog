@@ -3,7 +3,7 @@ import { Card, Flex, Image, Space } from "antd";
 import { ZoomOutOutlined, ZoomInOutlined } from "@ant-design/icons";
 import { GatsbyImage, getSrc } from "gatsby-plugin-image";
 import { formatCellLineId } from "../utils";
-import { RawVideoData, ImageOrVideo, isImage, ValidatedImageData } from "../utils/mediaUtils";
+import { RawVideoData, ImageOrVideo, isImage, UnpackedImageData } from "../utils/mediaUtils";
 import Thumbnail from "./Thumbnail";
 
 const {
@@ -25,7 +25,7 @@ const {
 } = require("../style/images-and-videos.module.css");
 
 interface ImagesAndVideosProps {
-    images: ValidatedImageData[];
+    images: UnpackedImageData[];
     cellLineId: number;
     videos: RawVideoData[];
     geneSymbol: string;
