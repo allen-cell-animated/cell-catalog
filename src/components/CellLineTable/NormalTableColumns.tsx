@@ -8,18 +8,16 @@ import {
     UnpackedNormalCellLine,
 } from "../../component-queries/types";
 import { RAIN_SHADOW, SERIOUS_GRAY } from "../../style/theme";
+import PlasmidIcon from "../Icons/PlasmidIcon";
 import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint } from "./types";
 import { MultiLineTableCell } from "../MultiLineTableCell";
 import GeneDisplay from "../GeneDisplay";
 
-const Plasmid = require("../../img/plasmid.svg");
-
 const {
     lastColumn,
     actionColumn,
     actionButton,
-    plasmidIcon,
     protein,
     gene,
     structure,
@@ -58,11 +56,7 @@ const obtainPlasmidColumn = {
                     rel="noreferrer"
                 >
                     <Flex gap={8}>
-                        <Icon
-                            className={plasmidIcon}
-                            component={Plasmid}
-                            style={{ fontSize: 28 }}
-                        />
+                        <PlasmidIcon />
                         Obtain Plasmid
                     </Flex>
                 </a>

@@ -7,16 +7,15 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { CellLineStatus } from "../../component-queries/types";
 import { formatCellLineId } from "../../utils";
 import { WHITE } from "../../style/theme";
+import TubeIcon from "../Icons/TubeIcon";
 import { mdBreakpoint, UnpackedCellLine } from "./types";
 
 const CertificateIcon = require("../../img/cert-icon.svg");
-const Tube = require("../../img/tube.svg");
 
 const {
     cellLineId,
     actionColumn,
     actionButton,
-    tubeIcon,
     certIcon,
     idHeader,
     thumbnailContainer,
@@ -105,14 +104,7 @@ export const obtainLineColumn = {
                     rel="noreferrer"
                 >
                     <Flex>
-                        <Icon
-                            className={tubeIcon}
-                            component={Tube}
-                            style={{
-                                color: WHITE,
-                                fontSize: "40px",
-                            }}
-                        />
+                        <TubeIcon />
                         Obtain Collection
                     </Flex>
                 </a>
