@@ -1,7 +1,8 @@
 import React from "react";
-import { Flex, Tag, Typography } from "antd";
+import { Flex, Typography } from "antd";
 import { UnpackedGene } from "../component-queries/types";
 import { getTooltipProps } from "./MultiLineTableCell";
+import GeneSymbolTag from "./GeneSymbolTag";
 
 interface GeneDisplayProps {
     gene: UnpackedGene;
@@ -13,9 +14,7 @@ const { Text } = Typography;
 const GeneDisplay: React.FC<GeneDisplayProps> = ({ gene }) => {
     return (
         <Flex wrap="nowrap" align="flex-end">
-            <Tag bordered={false} color="#DFE5EA">
-                {gene.symbol}
-            </Tag>
+            <GeneSymbolTag symbol={gene.symbol}/>
             <Text
                 className={truncatedText}
                 ellipsis={{
