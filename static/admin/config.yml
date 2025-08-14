@@ -34,6 +34,39 @@ richTextFields: &richTextFields
       - { label: "Text", name: "text", widget: "string" }
       - { label: "URL",  name: "url",  widget: "string" }
 
+imageFields: &imageFields
+  - { label: "Image", name: "image", widget: "image" }
+  - { label: "Caption", name: "caption", widget: "string", required: false }
+
+videoFields: &videoFields
+  - { label: "Video", name: "video", widget: "file" }
+  - { label: "Caption", name: "caption", widget: "string", required: false }
+
+acknowledgementsBlock: &acknowledgementsBlock
+  widget: "object"
+  fields:
+    - { label: "Intro", name: "intro", widget: "string" }
+    - label: "Contributors"
+      name: "contributors"
+      widget: "list"
+      required: false
+      collapsed: true
+      fields:
+        - { label: "Name", name: "name", widget: "string" }
+        - { label: "Institution", name: "institution", widget: "string" }
+    - { label: "Outro", name: "outro", widget: "string" }
+
+diagramFields: &diagramFields
+  - { label: "Title", name: "title", widget: "string", required: false }
+  - { label: "Image", name: "image", widget: "image" }
+  - { label: "Caption", name: "caption", widget: "string", required: false }
+
+cellLineStatusOptions: &cellLineStatusOptions
+  - { label: "Data is complete: will render on the table and the subpage", value: "data complete" }
+  - { label: "Released: renders only on the table", value: "released" }
+  - { label: "In progress: will show in the 'in progress' table", value: "in progress" }
+  - { label: "Hide: you can enter data but it won't show up on the site at all", value: "hide" }
+
 collections:
     - name: "cell-line"
       label: "Cell Lines"
@@ -64,25 +97,7 @@ collections:
                 label: "Status",
                 name: "status",
                 widget: "select",
-                options:
-                    [
-                        {
-                            label: "Data is complete: will render on the table and the subpage",
-                            value: "data complete",
-                        },
-                        {
-                            label: "Released: renders only on the table",
-                            value: "released",
-                        },
-                        {
-                            label: "In progress: will show in the 'in progress' table",
-                            value: "in progress",
-                        },
-                        {
-                            label: "Hide: you can enter data but it won't show up on the site at all",
-                            value: "hide",
-                        },
-                    ],
+                options: *cellLineStatusOptions,
                 default: "hide",
                 required: true,
             }
@@ -186,40 +201,14 @@ collections:
                             widget: "list",
                             required: false,
                             hint: "The first image will be used as the thumbnail in the catalog. Drag to rearrange the order.",
-                            fields:
-                                [
-                                    {
-                                        label: "Image",
-                                        name: "image",
-                                        widget: "image",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                ],
+                            fields: *imageFields
                         },
                         {
                             label: "Videos",
                             name: "videos",
                             widget: "list",
                             required: false,
-                            fields:
-                                [
-                                    {
-                                        label: "Video",
-                                        name: "video",
-                                        widget: "file",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                ],
+                            fields: *videoFields
                         },
                     ],
             }
@@ -264,35 +253,7 @@ collections:
                             name: "diagrams",
                             widget: "list",
                             required: false,
-                            fields:
-                                [
-                                    {
-                                        label: "Title",
-                                        name: "title",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                    {
-                                        label: "Images",
-                                        name: "images",
-                                        widget: "list",
-                                        required: false,
-                                        fields:
-                                            [
-                                                {
-                                                    label: "Image",
-                                                    name: "image",
-                                                    widget: "image",
-                                                },
-                                                {
-                                                    label: "Caption",
-                                                    name: "caption",
-                                                    widget: "string",
-                                                    required: false,
-                                                },
-                                            ],
-                                    },
-                                ],
+                            fields: *diagramFields
                         },
                     ],
             }
@@ -342,21 +303,7 @@ collections:
                 label: "Status",
                 name: "status",
                 widget: "select",
-                options:
-                    [
-                        {
-                            label: "Data is complete: will render on the table and the subpage",
-                            value: "data complete",
-                        },
-                        {
-                            label: "Released: renders only on the table",
-                            value: "released",
-                        },
-                        {
-                            label: "In progress: completely hidden",
-                            value: "in progress",
-                        },
-                    ],
+                options: *cellLineStatusOptions,
                 default: "in progress",
                 required: true,
             }
@@ -533,26 +480,7 @@ collections:
                             widget: "list",
                             required: false,
                             collapsed: true,
-                            fields:
-                                [
-                                    {
-                                        label: "Title",
-                                        name: "title",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                    {
-                                        label: "Image",
-                                        name: "image",
-                                        widget: "image",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                ],
+                            fields: *diagramFields
                         },
                     ],
             }
@@ -849,39 +777,7 @@ collections:
                       label: "Acknowledgements Block",
                       name: "acknowledgements_block",
                       widget: "object",
-                      fields:
-                          [
-                              {
-                                  label: "Intro",
-                                  name: "intro",
-                                  widget: "string",
-                              },
-                              {
-                                  label: "Contributors",
-                                  name: "contributors",
-                                  widget: "list",
-                                  required: false,
-                                  collapsed: true,
-                                  fields:
-                                      [
-                                          {
-                                              label: "Name",
-                                              name: "name",
-                                              widget: "string",
-                                          },
-                                          {
-                                              label: "Institution",
-                                              name: "institution",
-                                              widget: "string",
-                                          },
-                                      ],
-                              },
-                              {
-                                  label: "Outro",
-                                  name: "outro",
-                                  widget: "string",
-                              },
-                          ],
+                      fields: *acknowledgementsBlock
                   }
                 - { label: "Funding", name: "funding_text", widget: "markdown" }
           - file: "src/pages/normal-catalog/index.md"
@@ -954,38 +850,6 @@ collections:
                     label: "Acknowledgements Block",
                     name: "acknowledgements_block",
                     widget: "object",
-                    fields:
-                        [
-                            {
-                                label: "Intro",
-                                name: "intro",
-                                widget: "string",
-                            },
-                            {
-                                label: "Contributors",
-                                name: "contributors",
-                                widget: "list",
-                                required: false,
-                                collapsed: true,
-                                fields:
-                                    [
-                                        {
-                                            label: "Name",
-                                            name: "name",
-                                            widget: "string",
-                                        },
-                                        {
-                                            label: "Institution",
-                                            name: "institution",
-                                            widget: "string",
-                                        },
-                                    ],
-                            },
-                            {
-                                label: "Outro",
-                                name: "outro",
-                                widget: "string",
-                            },
-                        ],
+                    fields: *acknowledgementsBlock
                 }
                 - { label: "Funding", name: "funding_text", widget: "markdown" }
