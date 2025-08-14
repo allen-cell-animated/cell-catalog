@@ -1,5 +1,5 @@
 import { IGatsbyImageData } from "gatsby-plugin-image";
-import { RawImageData, MediaFrontMatter } from "../utils/mediaUtils";
+import { MediaFrontMatter, UnpackedImageData } from "../utils/mediaUtils";
 
 export interface Isoform {
     name: string;
@@ -107,12 +107,12 @@ export interface Sequence {
     type: string;
 }
 
-export interface SingleImageDiagram extends RawImageData {
+export interface SingleImageDiagram extends UnpackedImageData {
     title: string;
 }
 
 export interface DiagramList {
-    images: RawImageData[];
+    images: UnpackedImageData[];
     title: string;
 }
 

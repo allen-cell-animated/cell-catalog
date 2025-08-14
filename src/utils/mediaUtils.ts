@@ -2,10 +2,15 @@ import { getImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 export interface RawImageData {
   image: {
-    childImageSharp?: {
+    childImageSharp: {
       gatsbyImageData: IGatsbyImageData;
     };
   };
+  caption: string;
+}
+
+export interface UnpackedImageData {
+  image: IGatsbyImageData;
   caption: string;
 }
 
@@ -19,20 +24,29 @@ export interface MediaFrontMatter {
   videos?: RawVideoData[];
 }
 
-export type ImageOrVideo = RawImageData | RawVideoData;
+export type ImageOrVideo = UnpackedImageData | RawVideoData;
 
 // type guard to distinguish images and videos at runtime
-export function isImage(item: ImageOrVideo): item is RawImageData {
+export function isImage(item: ImageOrVideo): item is UnpackedImageData {
   return "image" in item;
+}
+
+// flatten and validate image data
+export function unpackImageData(
+  x: RawImageData
+): UnpackedImageData | null {
+  return { image: x.image.childImageSharp.gatsbyImageData, caption: x.caption };
 }
 
 export const hasMedia = (rawMedia?: MediaFrontMatter): boolean => {
   return Boolean(rawMedia?.images?.length || rawMedia?.videos?.length);
 };
 
-export const getImages = (rawMedia?: MediaFrontMatter): RawImageData[] => {
-  return rawMedia?.images || [];
-};
+export const getImages = (raw?: MediaFrontMatter): UnpackedImageData[] => {
+  const media = (raw?.images ?? []);
+  return media.map(unpackImageData)
+    .filter((x): x is UnpackedImageData => x !== null);
+}
 
 export const getVideos = (rawMedia?: MediaFrontMatter): RawVideoData[] => {
   return rawMedia?.videos || [];

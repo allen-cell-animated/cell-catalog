@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Card, Flex, Image, Space } from "antd";
 import { ZoomOutOutlined, ZoomInOutlined } from "@ant-design/icons";
-import { getImage, GatsbyImage, getSrc } from "gatsby-plugin-image";
+import { GatsbyImage, getSrc } from "gatsby-plugin-image";
 import { formatCellLineId } from "../utils";
-import { RawImageData, RawVideoData, ImageOrVideo, isImage } from "../utils/mediaUtils";
+import { RawVideoData, ImageOrVideo, isImage, UnpackedImageData } from "../utils/mediaUtils";
 import Thumbnail from "./Thumbnail";
 
 const {
@@ -25,7 +25,7 @@ const {
 } = require("../style/images-and-videos.module.css");
 
 interface ImagesAndVideosProps {
-    images: RawImageData[];
+    images: UnpackedImageData[];
     cellLineId: number;
     videos: RawVideoData[];
     geneSymbol: string;
@@ -63,14 +63,11 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
 
     const imageItems = mediaItems.filter(isImage);
     const allPreviewImages = imageItems
-        .map((item) => getImage(item.image))
-        .filter(Boolean)
-        .map((imgData, i) => {
-            if (imgData !== undefined)
+        .map((item, i) => {
                 return (
                     <Image
                         key={`preview-${i}`}
-                        src={getSrc(imgData)}
+                        src={getSrc(item.image)}
                         style={{ display: "none" }}
                         className={previewImage}
                     />
@@ -81,13 +78,10 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
         const isSelected = selectedMedia === item;
 
         if (isImage(item)) {
-            const imageData = getImage(item.image);
-            if (!imageData) return null;
-
             return (
                 <Thumbnail
                     key={index}
-                    image={imageData}
+                    image={item.image}
                     isSelected={isSelected}
                     onClick={() => {
                         setSelectedMedia(item);
@@ -137,13 +131,14 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
 
     const renderMedia = () => {
         if (isImage(selectedMedia)) {
-            const imageData = getImage(selectedMedia.image);
-            if (!imageData) return null;
-
             return (
                 <GatsbyImage
-                    className={showThumbnails ? primaryImageWithThumbnail : primaryImageOnly}
-                    image={imageData}
+                    className={
+                        showThumbnails
+                            ? primaryImageWithThumbnail
+                            : primaryImageOnly
+                    }
+                    image={selectedMedia.image}
                     alt="Cell line media"
                     imgStyle={{ objectFit: "contain" }}
                 />
