@@ -17,6 +17,39 @@ public_folder: /img
 
 # Section below defines reusable field collections defined with 
 # yaml anchors &[anchor], referenced with alias *[anchor]
+# they can be reused like "variables" although yaml doesn't
+# directly support variables per-se
+field/templateKey: &field_templateKey
+  label: "Template Key"
+  name: "templateKey"
+  widget: "hidden"
+
+field/date: &field_date
+  label: "Publish Date"
+  name: "date"
+  widget: "datetime"
+
+field/orderLink: &field_orderLink
+  label: "Order Link"
+  name: "order_link"
+  widget: "string"
+  required: false
+
+field/certificate: &field_certificateOfAnalysis
+  label: "Certificate of Analysis"
+  name: "certificate_of_analysis"
+  widget: "file"
+  required: false
+
+relation/gene: &relation_gene
+  label: "Gene"
+  name: "gene"
+  widget: "relation"
+  collection: "gene-name"
+  search_fields: ["symbol", "name", "protein", "structure"]
+  value_field: "symbol"
+  display_fields: ["symbol"]
+
 richTextFields: &richTextFields
   - &f_text       { label: "Text", name: "text", widget: "string" }
   - &f_emphasis
@@ -34,13 +67,33 @@ richTextFields: &richTextFields
       - { label: "Text", name: "text", widget: "string" }
       - { label: "URL",  name: "url",  widget: "string" }
 
-imageFields: &imageFields
+objects/richTextObject: &objects_richTextObject
+  widget: "object"
+  fields: *richTextFields
+
+imageFields: &fields_image
   - { label: "Image", name: "image", widget: "image" }
   - { label: "Caption", name: "caption", widget: "string", required: false }
 
-videoFields: &videoFields
+videoFields: &fields_video
   - { label: "Video", name: "video", widget: "file" }
   - { label: "Caption", name: "caption", widget: "string", required: false }
+
+objects/imagesAndVideos: &objects_imagesAndVideos
+  widget: "object"
+  required: false
+  fields:
+    - label: "Images"
+      name: "images"
+      widget: "list"
+      required: false
+      hint: "The first image will be used as the thumbnail in the catalog. Drag to rearrange the order."
+      fields: *fields_image
+    - label: "Videos"
+      name: "videos"
+      widget: "list"
+      required: false
+      fields: *fields_video
 
 acknowledgementsBlock: &acknowledgementsBlock
   widget: "object"
@@ -67,6 +120,12 @@ cellLineStatusOptions: &cellLineStatusOptions
   - { label: "In progress: will show in the 'in progress' table", value: "in progress" }
   - { label: "Hide: you can enter data but it won't show up on the site at all", value: "hide" }
 
+options/alleleCount: &options_alleleCount [ "mono", "bi" ]
+options/tagLocation: &options_tagLocation [ "C-terminus", "N-terminus", "NA" ]
+options/fluorescentTag: &options_fluorescentTag [ "mEGFP", "EGFP", "mTagRFP-T", "TagBFP", "HaloTag" ]
+options/protocolCategory: &options_protocolCategory
+  [ "Cell Culture Protocols", "Gene Editing Protocols", "Disease Specific Protocols" ]
+
 collections:
     - name: "cell-line"
       label: "Cell Lines"
@@ -80,18 +139,15 @@ collections:
       media_folder: ""
       public_folder: ""
       fields:
-          - {
-                label: "Template Key",
-                name: "templateKey",
-                widget: "hidden",
-                default: "cell-line",
-            }
+          - <<: *field_templateKey
+            default: "cell-line"
           - {
                 label: "ID",
                 name: "cell_line_id",
                 widget: "number",
                 required: true,
             }
+          - <<: *field_date
           - { label: "name", name: "name", widget: "string", required: false }
           - {
                 label: "Status",
@@ -101,7 +157,6 @@ collections:
                 default: "hide",
                 required: true,
             }
-          - { label: "Publish Date", name: "date", widget: "datetime" }
           - {
                 label: "Clone Number",
                 name: "clone_number",
@@ -121,61 +176,15 @@ collections:
                 name: "genetic_modifications",
                 widget: "list",
                 required: false,
-                fields:
-                    [
-                        {
-                            label: "Gene",
-                            name: "gene",
-                            widget: "relation",
-                            collection: "gene-name",
-                            search_fields:
-                                ["symbol", "name", "protein", "structure"],
-                            value_field: "symbol",
-                            display_fields: ["symbol"],
-                            required: false,
-                        },
-                        {
-                            label: "Allele Count",
-                            name: "allele_count",
-                            widget: "select",
-                            options: ["mono", "bi"],
-                            required: false,
-                        },
-                        {
-                            label: "Tag Location",
-                            name: "tag_location",
-                            widget: "select",
-                            options: ["C-terminus", "N-terminus", "NA"],
-                            required: false,
-                        },
-                        {
-                            label: "Fluorescent Tag",
-                            name: "fluorescent_tag",
-                            widget: "select",
-                            options:
-                                [
-                                    "mEGFP",
-                                    "EGFP",
-                                    "mTagRFP-T",
-                                    "TagBFP",
-                                    "HaloTag",
-                                ],
-                            required: false,
-                        },
-                    ],
+                fields: [
+                { <<: *relation_gene, required: false },
+                { label: "Allele Count", name: "allele_count", widget: "select", options: *options_alleleCount, required: false },
+                { label: "Tag Location", name: "tag_location", widget: "select", options: *options_tagLocation, required: false },
+                { label: "Fluorescent Tag", name: "fluorescent_tag", widget: "select", options: *options_fluorescentTag, required: false }
+                ]
             }
-          - {
-                label: "Order Link",
-                name: "order_link",
-                widget: "string",
-                required: false,
-            }
-          - {
-                label: "Certificate of Analysis",
-                name: "certificate_of_analysis",
-                widget: "file",
-                required: false,
-            }
+          - <<: *field_orderLink
+          - <<: *field_certificateOfAnalysis
           - {
                 label: "Donor Plasmid",
                 name: "donor_plasmid",
@@ -188,30 +197,9 @@ collections:
                 widget: "file",
                 required: false,
             }
-          - {
-                label: "Image and Video Carousel",
-                name: "images_and_videos",
-                widget: "object",
-                required: false,
-                fields:
-                    [
-                        {
-                            label: "Images",
-                            name: "images",
-                            widget: "list",
-                            required: false,
-                            hint: "The first image will be used as the thumbnail in the catalog. Drag to rearrange the order.",
-                            fields: *imageFields
-                        },
-                        {
-                            label: "Videos",
-                            name: "videos",
-                            widget: "list",
-                            required: false,
-                            fields: *videoFields
-                        },
-                    ],
-            }
+          - label: "Image and Video Carousel"
+            name: "images_and_videos"
+            <<: *objects_imagesAndVideos
           - {
                 label: "Editing Design",
                 name: "editing_design",
@@ -269,12 +257,9 @@ collections:
       media_folder: ""
       public_folder: ""
       fields:
-          - {
-                label: "Template Key",
-                name: "templateKey",
-                widget: "hidden",
-                default: "disease-cell-line",
-            }
+          - <<: *field_templateKey
+            default: "disease-cell-line"
+          - <<: *field_date
           - {
                 label: "ID",
                 name: "cell_line_id",
@@ -288,8 +273,7 @@ collections:
                 collection: "disease",
                 search_fields: ["name"],
                 value_field: "name",
-            }
-          - { label: "Publish Date", name: "date", widget: "datetime" }
+            },
           - { label: "SNP", name: "snp", widget: string }
           - {
                 label: "Parent line",
@@ -398,74 +382,17 @@ collections:
                         },
                     ],
             }
-          - {
-                label: "Order Link",
-                name: "order_link",
-                widget: "string",
-                required: false,
-            }
-          - {
-                label: "Certificate of Analysis",
-                name: "certificate_of_analysis",
-                widget: "file",
-                required: false,
-            }
+          - <<: *field_orderLink
+          - <<: *field_certificateOfAnalysis
           - {
                 label: "hPSCreg Certificate",
                 name: "hPSCreg_certificate_link",
                 widget: "file",
                 required: false,
             }
-          - {
-                label: "Image and Video Carousel",
-                name: "images_and_videos",
-                widget: "object",
-                required: false,
-                fields:
-                    [
-                        {
-                            label: "Images",
-                            name: "images",
-                            widget: "list",
-                            hint: "The first image will be used as the thumbnail in the catalog. Drag to rearrange the order.",
-                            required: false,
-                            fields:
-                                [
-                                    {
-                                        label: "Image",
-                                        name: "image",
-                                        widget: "image",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                ],
-                        },
-                        {
-                            label: "Videos",
-                            name: "videos",
-                            widget: "list",
-                            required: false,
-                            fields:
-                                [
-                                    {
-                                        label: "Video",
-                                        name: "video",
-                                        widget: "file",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                ],
-                        },
-                    ],
-            }
+          - label: "Image and Video Carousel",
+            name: "images_and_videos",
+            <<: *objects_imagesAndVideos
           - {
                 label: "Genomic Characterization",
                 name: "genomic_characterization",
@@ -583,32 +510,9 @@ collections:
                 required: false,
                 collapsed: true,
                 fields:
-                    [
-                        {
-                            label: "File Upload",
-                            name: "file",
-                            widget: "file",
-                            required: false,
-                        },
-                        {
-                            label: "File Name",
-                            name: "file_name",
-                            widget: "string",
-                            required: false,
-                        },
-                        {
-                            label: "Category",
-                            name: "category",
-                            widget: "select",
-                            options:
-                                [
-                                    "Cell Culture Protocols",
-                                    "Gene Editing Protocols",
-                                    "Disease Specific Protocols",
-                                ],
-                            required: false,
-                        },
-                    ],
+                    - { label: "File Upload", name: "file", widget: "file",   required: false },
+                    - { label: "File Name",   name: "file_name", widget: "string", required: false },
+                    - { label: "Category",    name: "category", widget: "select", options: *options_protocolCategory, required: false }
             }
     - name: "gene-name"
       label: "Gene and structures names"
@@ -616,12 +520,8 @@ collections:
       slug: "{{symbol}}"
       create: true # Allow users to create new documents in this collection
       fields: # The fields each document in this collection have
-          - {
-                label: "Template Key",
-                name: "templateKey",
-                widget: "hidden",
-                default: "gene-name",
-            }
+          - <<: *field_templateKey
+            default: "gene-name"
           - {
                 label: "Gene Symbol",
                 name: "symbol",
@@ -659,22 +559,10 @@ collections:
       slug: "{{name}}"
       create: true # Allow users to create new documents in this collection
       fields: # The fields each document in this collection have
-          - {
-                label: "Template Key",
-                name: "templateKey",
-                widget: "hidden",
-                default: "disease",
-            }
+          - <<: *field_templateKey
+            default: "disease"
           - { label: "Name", name: "name", widget: string }
-          - {
-                label: "Gene",
-                name: "gene",
-                widget: "relation",
-                collection: "gene-name",
-                search_fields: ["symbol", "name", "protein", "structure"],
-                value_field: "symbol",
-                display_fields: ["symbol", "protein", "structure"],
-            }
+          - <<: *relation_gene
           - {
                 label: "Status",
                 name: "status",
@@ -690,12 +578,8 @@ collections:
             label: "Landing Page"
             name: "index"
             fields:
-                - {
-                    label: "Template Key",
-                    name: "templateKey",
-                    widget: "hidden",
-                    default: "index-page",
-                }
+                - <<: *field_templateKey
+                  default: "index-page"
                 - { label: Title, name: title, widget: string }
                 - { label: Image, name: image, widget: image }
                 - { label: Subtitle, name: subtitle, widget: string }
@@ -717,12 +601,8 @@ collections:
             label: "Disease Cell Line Catalog"
             name: "disease-catalog"
             fields:
-                - {
-                    label: "Template Key",
-                    name: "templateKey",
-                    widget: "hidden",
-                    default: "disease-catalog",
-                }
+                - <<: *field_templateKey
+                  default: "disease-catalog"
                 - { label: "Title", name: "title", widget: "string" }
                 - { label: "Body", name: "body", widget: "markdown" }
                 - {
@@ -784,32 +664,20 @@ collections:
             label: "Cell Line Catalog"
             name: "normal-catalog"
             fields:
-                - {
-                    label: "Template Key",
-                    name: "templateKey",
-                    widget: "hidden",
-                    default: "normal-catalog",
-                }
+                - <<: *field_templateKey
+                  default: "normal-catalog"
                 - { label: "Title", name: "title", widget: "string" }
                 - {
                       label: "About Block",
                       name: "about_block",
                       widget: "object",
-                      fields:
-                          [
-                              {
-                                  label: "Primary Text",
-                                  name: "primary",
-                                  widget: "object",
-                                  fields: *richTextFields
-                              },
-                              {
-                                  label: "Disease Catalog Copy",
-                                  name: "disease",
-                                  widget: "object",
-                                  fields: *richTextFields
-                              },
-                          ],
+                      fields
+                        - <<: *objects_richTextObject,
+                          label: "Primary Text",
+                          name: "primary",
+                        - <<: *objects_richTextObject,
+                          label: "Disease Catalog Copy",
+                          name: "disease"
                   }
                 - { label: "Body", name: "body", widget: "markdown" }
                 - {
