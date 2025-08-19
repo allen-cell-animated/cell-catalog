@@ -20,7 +20,7 @@ const TubeIcon: React.FC<TubeIconProps> = ({
     const mergedStyle: React.CSSProperties = {
         fontSize: `${size}px`,
         ...style,
-    } as React.CSSProperties;
+    };
 
     return (
         <Icon
