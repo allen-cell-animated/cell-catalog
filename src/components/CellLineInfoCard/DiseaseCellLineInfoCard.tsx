@@ -74,7 +74,6 @@ export const DiseaseCellLineInfoCard: React.FC<DiseaseCellLineInfoCardProps> = (
             buttonList={buttonList}
             infoRows={infoRows}
             additionalInfo={<CloneTable dataSource={props.clones} />}
-            alignContent={true}
         />
     );
 };

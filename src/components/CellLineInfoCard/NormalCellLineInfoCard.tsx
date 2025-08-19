@@ -44,8 +44,6 @@ export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (
         </Flex>
     );
 
-    // matching the data with catalog 1.0, the final version may change depending on the design
-    // for now, showing only the first gene data if a line has multiple genes
     const infoRows = [
         {
             key: "1",
@@ -108,7 +106,6 @@ export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (
             buttonList={buttonList}
             infoRows={infoRows}
             multiGene={props.taggedGene.length > 1}
-            alignContent={true}
         />
     );
 };

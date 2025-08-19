@@ -36,7 +36,6 @@ interface CellLineInfoCardBaseProps {
     buttonList: OrderButtonProps[];
     additionalInfo?: ReactNode;
     multiGene?: boolean;
-    alignContent?: boolean;
 }
 
 const CellLineInfoCardBase = ({
@@ -48,7 +47,6 @@ const CellLineInfoCardBase = ({
     certificateOfAnalysis,
     healthCertificate,
     multiGene,
-    alignContent,
 }: CellLineInfoCardBaseProps) => {
     const defaultToolTipText = "Copy cell line link to clipboard";
     const [shareTooltipText, setShareTooltipText] =
@@ -124,7 +122,7 @@ const CellLineInfoCardBase = ({
             <InfoPanel
                 data={infoRows}
                 baseline={multiGene}
-                alignContent={alignContent}
+                alignContent={true}
             />
             {additionalInfo}
             <Flex vertical gap={8}>
