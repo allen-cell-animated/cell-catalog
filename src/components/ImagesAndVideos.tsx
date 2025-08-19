@@ -3,7 +3,8 @@ import { Card, Flex, Image, Space } from "antd";
 import { ZoomOutOutlined, ZoomInOutlined } from "@ant-design/icons";
 import { GatsbyImage, getSrc } from "gatsby-plugin-image";
 import { formatCellLineId } from "../utils";
-import { RawVideoData, ImageOrVideo, isImage, UnpackedImageData } from "../utils/mediaUtils";
+import { RawVideoData, ImageOrVideo, UnpackedImageData } from "../component-queries/types";
+import { isImage } from "../utils/mediaUtils";
 import Thumbnail from "./Thumbnail";
 
 const {

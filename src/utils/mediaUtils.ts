@@ -1,30 +1,5 @@
 import { getImage, IGatsbyImageData } from "gatsby-plugin-image";
-
-export interface RawImageData {
-  image: {
-    childImageSharp: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
-  caption: string;
-}
-
-export interface UnpackedImageData {
-  image: IGatsbyImageData;
-  caption: string;
-}
-
-export interface RawVideoData {
-  video: string;
-  caption: string;
-}
-
-export interface MediaFrontMatter {
-  images?: RawImageData[];
-  videos?: RawVideoData[];
-}
-
-export type ImageOrVideo = UnpackedImageData | RawVideoData;
+import { RawImageData, UnpackedImageData, RawVideoData, MediaFrontMatter, ImageOrVideo } from "../component-queries/types";
 
 // type guard to distinguish images and videos at runtime
 export function isImage(item: ImageOrVideo): item is UnpackedImageData {

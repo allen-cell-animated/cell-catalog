@@ -1,5 +1,30 @@
 import { IGatsbyImageData } from "gatsby-plugin-image";
-import { MediaFrontMatter, UnpackedImageData } from "../utils/mediaUtils";
+
+export interface RawImageData {
+    image: {
+        childImageSharp: {
+            gatsbyImageData: IGatsbyImageData;
+        };
+    };
+    caption: string;
+}
+
+export interface UnpackedImageData {
+    image: IGatsbyImageData;
+    caption: string;
+}
+
+export interface RawVideoData {
+    video: string;
+    caption: string;
+}
+
+export interface MediaFrontMatter {
+    images?: RawImageData[];
+    videos?: RawVideoData[];
+}
+
+export type ImageOrVideo = UnpackedImageData | RawVideoData;
 
 export interface Isoform {
     name: string;
