@@ -1,30 +1,27 @@
 .container {
-    display: flex;
-    gap: 48px;
+    margin: 0 0 24px 0;
 }
 
-.section {
+.container h1,
+.content-wrapper {
+    margin-bottom: 16px;
+}
+
+.content-wrapper :global(.content) {
     display: flex;
-    flex-direction: column;
-    font-size: 20px;
     gap: 16px;
-    line-height: 1.75;
-}
-
-.section h1 {
-    font-size: 33px;
-}
-
-.first-block {
-    display: flex;
     flex-direction: column;
-    gap: 34px;
 }
 
-.primary-text {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.content-wrapper p {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--SERIOUS_GRAY);
+    margin: 0;
+}
+
+.content-wrapper a {
+    color: var(--link-color);
 }
 
 .italic {
@@ -36,25 +33,16 @@
     font-weight: 600;
 }
 
-.button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.about-wrapper {
-    margin: auto;
-}
-
 .about-card {
-    border: 1px solid var(--border-color);
+    border: 1.5px solid var(--border-color);
     border-radius: 8px;
     color: var(--BLUE_90);
     height: 114px;
     width: 250px;
     display: flex;
     flex-direction: column;
-    padding-top: 16px;
+    padding: 16px 0px;
+    justify-content: space-around;
 }
 
 .about-card:hover {
@@ -80,6 +68,8 @@
     margin: auto;
 }
 
-.about-card.addgene-card {
-    gap: 10px;
+@media screen and (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
 }
