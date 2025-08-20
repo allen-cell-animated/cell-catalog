@@ -222,7 +222,7 @@ collections:
                         },
                         {
                             label: "crRNA",
-                            name: "crna",
+                            name: "cr_rna",
                             widget: "string",
                             required: false,
                         },
@@ -546,11 +546,11 @@ collections:
                 fields:
                     [
                         {
-                            label: "cRNA Target Site",
-                            name: "crna_target_site",
+                            label: "crRNA Target Site",
+                            name: "cr_rna_target_site",
                             widget: "string",
                             required: false,
-                            hint: "Enter entire cRNA Target Site sequence. Place square brackets around PAM site. e.g. AG[TGG]ATA",
+                            hint: "Enter entire crRNA Target Site sequence. Place square brackets around PAM site. e.g. AG[TGG]ATA",
                         },
                         {
                             label: "DNA Donor Sequence",
@@ -740,132 +740,6 @@ collections:
       label: "Pages"
       files:
           - file: "src/pages/index.md"
-            label: "Landing Page"
-            name: "index"
-            fields:
-                - {
-                    label: "Template Key",
-                    name: "templateKey",
-                    widget: "hidden",
-                    default: "index-page",
-                }
-                - { label: Title, name: title, widget: string }
-                - { label: Image, name: image, widget: image }
-                - { label: Subtitle, name: subtitle, widget: string }
-                - {
-                      label: Mainpitch,
-                      name: main_pitch,
-                      widget: object,
-                      fields:
-                          [
-                              { label: Title, name: title, widget: string },
-                              {
-                                  label: Description,
-                                  name: description,
-                                  widget: text,
-                              },
-                          ],
-                  }
-          - file: "src/pages/disease-catalog/index.md"
-            label: "Disease Cell Line Catalog"
-            name: "disease-catalog"
-            fields:
-                - {
-                    label: "Template Key",
-                    name: "templateKey",
-                    widget: "hidden",
-                    default: "disease-catalog",
-                }
-                - { label: "Title", name: "title", widget: "string" }
-                - { label: "Body", name: "body", widget: "markdown" }
-                - {
-                      label: Main,
-                      name: main,
-                      widget: object,
-                      fields:
-                          [
-                              { label: Heading, name: heading, widget: string },
-                              {
-                                  label: Subheading,
-                                  name: subheading,
-                                  widget: string,
-                                  required: false,
-                              },
-
-                            {
-                                label: Description,
-                                name: description,
-                                widget: markdown,
-                            },
-                        ],
-                }
-                - {
-                    label: "Coriell Image",
-                    name: "coriell_image",
-                    widget: "image",
-                }
-                - {
-                      label: "Coriell Link",
-                      name: "coriell_link",
-                      widget: "string",
-                  }
-                - { label: "Learn Image", name: "learn_image", widget: "image" }
-                - { label: "Learn Link", name: "learn_link", widget: "string" }
-                - {
-                    label: "Addgene Image",
-                    name: "addgene_image",
-                    widget: "image",
-                }
-                - {
-                    label: "Addgene Link",
-                    name: "addgene_link",
-                    widget: "string",
-                }
-                - {
-                    label: "Footer text",
-                    name: "footer_text",
-                    widget: "markdown",
-                }
-                - {
-                      label: "Acknowledgements Block",
-                      name: "acknowledgements_block",
-                      widget: "object",
-                      fields:
-                          [
-                              {
-                                  label: "Intro",
-                                  name: "intro",
-                                  widget: "string",
-                              },
-                              {
-                                  label: "Contributors",
-                                  name: "contributors",
-                                  widget: "list",
-                                  required: false,
-                                  collapsed: true,
-                                  fields:
-                                      [
-                                          {
-                                              label: "Name",
-                                              name: "name",
-                                              widget: "string",
-                                          },
-                                          {
-                                              label: "Institution",
-                                              name: "institution",
-                                              widget: "string",
-                                          },
-                                      ],
-                              },
-                              {
-                                  label: "Outro",
-                                  name: "outro",
-                                  widget: "string",
-                              },
-                          ],
-                  }
-                - { label: "Funding", name: "funding_text", widget: "markdown" }
-          - file: "src/pages/normal-catalog/index.md"
             label: "Cell Line Catalog"
             name: "normal-catalog"
             fields:
