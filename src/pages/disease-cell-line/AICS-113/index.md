@@ -85,7 +85,7 @@ genomic_characterization:
         analysis for clone 44. All clones resulted in normal karyotype.
       image: aics-0113_cl44_g769v_karyotype.png
 editing_design:
-  crna_target_site: 5’ CATAAGGTGTTCTTCAAGGC[TGG] 3’
+  cr_rna_target_site: 5’ CATAAGGTGTTCTTCAAGGC[TGG] 3’
   dna_donor_sequence:
     - sequence: 5’ TCTGCCCCATAAGGTGTTCTTCAAGGCTG[T]CTTGCTGGGAACCCTGGAAGAGATGCGGG 3’
       type: Mutant

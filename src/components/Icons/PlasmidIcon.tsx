@@ -21,12 +21,12 @@ const PlasmidIcon: React.FC<PlasmidIconProps> = ({
     const mergedStyle: React.CSSProperties = {
         fontSize: `${size}px`,
         ...style,
-    } as React.CSSProperties;
+    };
 
     return (
         <Icon
             className={classNames("plasmid-icon", className)}
-            component={Plasmid}
+            component={Plasmid} 
             style={mergedStyle}
             {...props}
         />

@@ -58,7 +58,7 @@ genomic_characterization:
         analysis for clone 72. All clones resulted in normal karyotype.
       image: aics-0109_cl72_e525k_karyotype.png
 editing_design:
-  crna_target_site: 5’ AAAGAGGCACCTTCTCGATG[AGG] 3’
+  cr_rna_target_site: 5’ AAAGAGGCACCTTCTCGATG[AGG] 3’
   dna_donor_sequence:
     - sequence: 5’ TCAGGTGGTAAGGCCAAAGAGGCACCTTCT[T]GATGAGGTCAATGC AGGCCTGCAGGTCC 3’
       type: Mutant
