@@ -16,7 +16,7 @@ genetic_modifications:
   - gene: EOMES
     tag_location: C-terminus
     fluorescent_tag: mEGFP
-    allele_count: null
+    allele_count: mono
 order_link: null
 certificate_of_analysis: null
 images_and_videos:
