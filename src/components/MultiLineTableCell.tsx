@@ -2,22 +2,37 @@ import React from "react";
 import { TruncatedText } from "./TruncatedText";
 import { Divider } from "antd";
 
-const { divider } = require("../style/cell-line-info-card.module.css");
+const {
+    divider,
+    infoCardMultiLineCell,
+} = require("../style/cell-line-info-card.module.css");
+
+const { tableMultiLineCell } = require("../style/table.module.css");
+
+export enum ParentComponent {
+    INFO_CARD = "info-card",
+    TABLE = "table",
+}
 
 interface MultipleLineContainerProps {
     entries: string[];
-    className?: string;
+    parent: ParentComponent;
     dividers?: boolean;
 }
 
 export const MultiLineTableCell: React.FC<MultipleLineContainerProps> = ({
     entries,
-    className,
+    parent,
     dividers,
 }) => {
     if (!entries || entries.length === 0) {
         return null;
     }
+
+    const className =
+        parent === ParentComponent.INFO_CARD
+            ? infoCardMultiLineCell
+            : tableMultiLineCell;
 
     return (
         <div className={className}>

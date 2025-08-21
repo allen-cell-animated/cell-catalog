@@ -7,9 +7,7 @@ import PlasmidIcon from "../Icons/PlasmidIcon";
 import { formatCellLineId } from "../../utils";
 import { Flex } from "antd";
 import { UnpackedGene } from "../../component-queries/types";
-import { MultiLineTableCell } from "../MultiLineTableCell";
-
-const { multiple } = require("../../style/cell-line-info-card.module.css");
+import { MultiLineTableCell, ParentComponent } from "../MultiLineTableCell";
 
 type ExtractedGeneFields = Record<keyof UnpackedGene, string[]>;
 
@@ -50,7 +48,7 @@ export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (
             label: "Protein",
             children: (
                 <MultiLineTableCell
-                    className={multiple}
+                    parent={ParentComponent.INFO_CARD}
                     dividers
                     entries={extractedGeneFields.protein}
                 />
@@ -66,7 +64,7 @@ export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (
             label: "Gene Name",
             children: (
                 <MultiLineTableCell
-                    className={multiple}
+                    parent={ParentComponent.INFO_CARD}
                     dividers
                     entries={extractedGeneFields.name}
                 />
@@ -77,7 +75,7 @@ export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (
             label: "Structure",
             children: (
                 <MultiLineTableCell
-                    className={multiple}
+                    parent={ParentComponent.INFO_CARD}
                     dividers
                     entries={extractedGeneFields.structure}
                 />

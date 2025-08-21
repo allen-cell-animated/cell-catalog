@@ -11,7 +11,7 @@ import { RAIN_SHADOW, SERIOUS_GRAY } from "../../style/theme";
 import PlasmidIcon from "../Icons/PlasmidIcon";
 import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint } from "./types";
-import { MultiLineTableCell } from "../MultiLineTableCell";
+import { MultiLineTableCell, ParentComponent } from "../MultiLineTableCell";
 import GeneDisplay from "../GeneDisplay";
 
 const {
@@ -21,7 +21,7 @@ const {
     protein,
     gene,
     structure,
-    multipleLines,
+    tableMultiLineCell,
 } = require("../../style/table.module.css");
 
 const caseInsensitiveStringCompare = (a = "", b = "") =>
@@ -86,7 +86,7 @@ export const getNormalTableColumns = (
             className: protein,
             render: (proteins: string[]) => (
                 <MultiLineTableCell
-                    className={multipleLines}
+                    parent={ParentComponent.TABLE}
                     entries={proteins}
                 />
             ),
@@ -106,7 +106,7 @@ export const getNormalTableColumns = (
             className: gene,
             render: (taggedGene: UnpackedGene[]) => {
                 return (
-                    <div className={multipleLines}>
+                    <div className={tableMultiLineCell}>
                         {taggedGene.map((gene, index) => (
                             <GeneDisplay key={index} gene={gene} />
                         ))}
@@ -127,7 +127,7 @@ export const getNormalTableColumns = (
             sortIcon: sortIcon,
             render: (alleleCount: string[]) => (
                 <MultiLineTableCell
-                    className={multipleLines}
+                    parent={ParentComponent.TABLE}
                     entries={alleleCount}
                 />
             ),
@@ -147,7 +147,7 @@ export const getNormalTableColumns = (
             className: structure,
             render: (structures: string[]) => (
                 <MultiLineTableCell
-                    className={multipleLines}
+                    parent={ParentComponent.TABLE}
                     entries={structures}
                 />
             ),
@@ -163,7 +163,7 @@ export const getNormalTableColumns = (
             dataIndex: "fluorescentTag",
             responsive: mdBreakpoint,
             render: (tags: string[]) => (
-                <MultiLineTableCell className={multipleLines} entries={tags} />
+                <MultiLineTableCell parent={ParentComponent.TABLE} entries={tags} />
             ),
             sortIcon: sortIcon,
             sorter: (a: any, b: any) =>
@@ -180,7 +180,7 @@ export const getNormalTableColumns = (
             responsive: mdBreakpoint,
             render: (locations: string[]) => (
                 <MultiLineTableCell
-                    className={multipleLines}
+                    parent={ParentComponent.TABLE}
                     entries={locations}
                 />
             ),

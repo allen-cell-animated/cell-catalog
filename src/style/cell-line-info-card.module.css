@@ -85,7 +85,7 @@
     padding: 6px;
 }
 
-.multiple {
+.info-card-multi-line-cell {
     display: flex;
     flex-direction: column;
     font-size: 14px;
