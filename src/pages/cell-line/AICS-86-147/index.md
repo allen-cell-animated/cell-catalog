@@ -106,16 +106,16 @@ genomic_characterization:
   junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP, mTagRFP-T, and HaloTag insertion. Primers were designed to exclude amplification from the donor plasmid."
   ddpcr:
     - tag: FBL-mEGFP
-      clone: cl147
+      clone: 147
       fp_ratio: 0.521
-      plasmid: 0
+      plasmid: 0.0
     - tag: NPM1-mTagRFP-T
-      clone: cl147
+      clone: 147
       fp_ratio: 0.492
-      plasmid: 0
+      plasmid: 0.0
     - tag: UBTF-HaloTag
-      clone: cl147
+      clone: 147
       fp_ratio: 0.482
-      plasmid: 0
+      plasmid: 0.0
   ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 ---

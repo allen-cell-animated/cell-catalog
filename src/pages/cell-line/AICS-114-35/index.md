@@ -78,7 +78,7 @@ genomic_characterization:
   junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP insertion."
   ddpcr:
     - tag: CDH1-mEGFP
-      clone: cl35
+      clone: 35
       fp_ratio: 0.515
       plasmid: N/A
   ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. RPP30 is known 2n reference gene."

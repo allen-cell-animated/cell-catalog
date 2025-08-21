@@ -64,7 +64,7 @@ genomic_characterization:
   junction_table_caption: "PCR amplified 3' junction was used to establish delivery via HDR at the intended genomic locus. Tiled junctions were not possible to amplify or sequence due to the large size of the delivered sequence (6KB). The precise sequence of the delivered sequence was not determined because the mTag-RFP-T tag sequence was not fused to an endogenous coding sequence."
   ddpcr:
     - tag: AAVS1-mTagRFP-T
-      clone: cl91
+      clone: 91
       fp_ratio: 0.483
       plasmid: 0.001
   ddpcr_caption: "mTagRFP-T: mTagRFP-T/RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."

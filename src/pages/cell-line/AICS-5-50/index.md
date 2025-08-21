@@ -68,9 +68,9 @@ genomic_characterization:
   junction_table_caption: "PCR amplified and Sanger sequenced 5’, 3’, WT, and full allele junctions to check for precise EGFP insertion. Primers were designed to exclude amplification from the donor plasmid."
   ddpcr:
     - tag: PXN-EGFP
-      clone: cl50
+      clone: 50
       fp_ratio: 0.56
-      plasmid: 0
+      plasmid: 0.0
   ddpcr_caption: "EGFP: EGFP/RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
   cr_rna_off_targets:
     - clones_analyzed: 5
