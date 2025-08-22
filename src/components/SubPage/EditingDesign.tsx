@@ -30,20 +30,47 @@ const formatTextWithGeneLocations = (text: string, className: string) => {
 };
 
 const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
-    crnaTargetSite,
+    crRnaTargetSite,
     dnaDonorSequence,
     cas9,
     fPrimer,
     rPrimer,
     diagrams,
+    ncbiIsoforms,
+    crRNA,
+    linker,
 }) => {
     const rows: DescriptionsProps["items"] = [];
 
-    if (crnaTargetSite) {
+    if (ncbiIsoforms) {
         rows.push({
-            key: "crna",
-            label: "cRNA Target Site:",
-            children: formatTextWithGeneLocations(crnaTargetSite, pamSite),
+            key: "isoforms",
+            label: "NCBI Isoforms:",
+            children: ncbiIsoforms,
+        });
+    }
+
+    if (crRNA) {
+        rows.push({
+            key: "cr_rna",
+            label: "crRNA Target Site:",
+            children: crRNA,
+        });
+    }
+
+    if (linker) {
+        rows.push({
+            key: "linker",
+            label: "Linker: ",
+            children: linker,
+        });
+    }
+
+    if (crRnaTargetSite) {
+        rows.push({
+            key: "cr_rna",
+            label: "crRNA Target Site:",
+            children: formatTextWithGeneLocations(crRnaTargetSite, pamSite),
         });
     }
 
@@ -93,15 +120,15 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
         });
     }
 
-    const shouldShowLegend = Boolean(crnaTargetSite || dnaDonorSequence);
+    const shouldShowLegend = Boolean(crRnaTargetSite || dnaDonorSequence);
     const legendContent = shouldShowLegend ? (
         <div className={legendText}>
-            {crnaTargetSite && (
+            {crRnaTargetSite && (
                 <>
                     <span className={pamSite}>Red</span> = PAM Site
                 </>
             )}
-            {crnaTargetSite && dnaDonorSequence && ", "}
+            {crRnaTargetSite && dnaDonorSequence && ", "}
             {dnaDonorSequence && (
                 <>
                     <span className={mutation}>Blue</span> = Mutation
@@ -114,7 +141,7 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
         <div className={container}>
             {rows.length > 0 && (
                 <SubpageContentCard>
-                    <InfoPanel data={rows} />
+                    <InfoPanel data={rows} hasLegend={shouldShowLegend} />
                     {legendContent}
                 </SubpageContentCard>
             )}
@@ -124,9 +151,7 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
                     title={diagramProps.title}
                     caption={diagramProps.caption}
                     image={diagramProps.image}
-                    className={
-                        !diagramProps.title && noHeader
-                    }
+                    className={!diagramProps.title && noHeader}
                 />
             ))}
         </div>

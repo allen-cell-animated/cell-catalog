@@ -189,7 +189,7 @@ export const pageQuery = graphql`
                     }
                 }
                 editing_design {
-                    crna_target_site
+                    cr_rna_target_site
                     dna_donor_sequence {
                         sequence
                         type

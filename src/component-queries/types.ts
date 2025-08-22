@@ -81,6 +81,13 @@ export interface NormalCellLineFrontmatter {
     };
     certificate_of_analysis: string;
     eu_hpsc_reg: string;
+    editing_design: {
+        ncbi_isoforms: string;
+        cr_rna: string;
+        linker: string;
+        cas9: string;
+        diagrams: DiagramList[];
+    };
     images_and_videos?: MediaFrontMatter;
 };
 
@@ -156,7 +163,7 @@ export interface DiseaseCellLineFrontmatter {
     hPSCreg_certificate_link: string;
     images_and_videos?: MediaFrontMatter;
     editing_design?: {
-        crna_target_site: string;
+        cr_rna_target_site: string;
         dna_donor_sequence: Sequence[];
         cas9: string;
         f_primer: string;

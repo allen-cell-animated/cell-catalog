@@ -6,6 +6,7 @@ import { CellLineInfoCardRequiredProps } from "./types";
 import { Divider } from "antd";
 import { PRIMARY_COLOR } from "../../style/theme";
 import CloneTable from "../CloneTable";
+import GeneSymbolTag from "../GeneSymbolTag";
 
 interface DiseaseCellLineInfoCardProps extends CellLineInfoCardRequiredProps {
     parentalLine: ParentLine;
@@ -29,7 +30,11 @@ export const DiseaseCellLineInfoCard: React.FC<DiseaseCellLineInfoCardProps> = (
 
     const infoRows = [
         { key: "1", label: "SNP", children: props.snp },
-        { key: "2", label: "Gene Symbol", children: props.geneSymbol },
+        {
+            key: "2",
+            label: "Gene Symbol",
+            children: <GeneSymbolTag symbol={props.geneSymbol}/>,
+        },
         { key: "3", label: "Gene Name", children: props.geneName },
         {
             key: "4",

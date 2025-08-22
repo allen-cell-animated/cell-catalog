@@ -3,11 +3,13 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
 import {
     NormalCellLineFrontmatter,
-    UnpackedNormalCellLine,
 } from "../component-queries/types";
-import { convertFrontmatterToNormalCellLines } from "../component-queries/convert-data";
 import { NormalCellLineInfoCard } from "../components/CellLineInfoCard/NormalCellLineInfoCard";
 import { DefaultButton } from "../components/shared/Buttons";
+import SubpageTabs from "../components/SubPage/SubpageTabs";
+import { TABS_WITH_STEM_CELL } from "../constants";
+import { unpackNormalFrontMatterForSubpage } from "../components/SubPage/convert-data";
+import { UnpackedNormalCellLineFull } from "../components/SubPage/types";
 import ImagesAndVideos from "../components/ImagesAndVideos";
 import { hasMedia, getImages, getVideos } from "../utils/mediaUtils";
 
@@ -34,7 +36,7 @@ interface QueryResult {
     };
 }
 
-interface CellLineProps extends UnpackedNormalCellLine {
+interface CellLineProps extends UnpackedNormalCellLineFull {
     href: string;
 }
 
@@ -50,6 +52,7 @@ export const CellLineTemplate = ({
     orderLink,
     fluorescentTag,
     alleleCount,
+    editingDesign,
     imagesAndVideos,
 }: CellLineProps) => {
     const hasImagesOrVideos = hasMedia(imagesAndVideos);
@@ -57,51 +60,57 @@ export const CellLineTemplate = ({
         return null;
     }
     return (
-        <div className={container}>
-            <div className={leftCard}>
-                <Link to="/normal-catalog">
-                    <DefaultButton>
-                        <Arrow className={returnArrow} />
-                        Return to Cell Catalog
-                    </DefaultButton>
-                </Link>
-                <NormalCellLineInfoCard
-                    href={href}
-                    cellLineId={cellLineId}
-                    geneName={taggedGene[0].name}
-                    geneSymbol={taggedGene[0].symbol}
-                    orderLink={orderLink}
-                    certificateOfAnalysis={certificateOfAnalysis}
-                    orderPlasmid={orderPlasmid}
-                    healthCertificate={healthCertificate}
-                    cloneNumber={cloneNumber}
-                    taggedGene={taggedGene}
-                    fluorescentTag={fluorescentTag}
-                    alleleCount={alleleCount}
-                />
-            </div>
-            <div className={section}>
-                {hasImagesOrVideos && (
-                    <ImagesAndVideos
+        <>
+            <div className={container}>
+                <div className={leftCard}>
+                    <Link to="/normal-catalog">
+                        <DefaultButton>
+                            <Arrow className={returnArrow} />
+                            Return to Cell Catalog
+                        </DefaultButton>
+                    </Link>
+                    <NormalCellLineInfoCard
+                        href={href}
                         cellLineId={cellLineId}
-                        geneSymbol={taggedGene?.[0]?.symbol || ""}
-                        fluorescentTag={fluorescentTag?.[0] || ""}
-                        alleleTag={alleleCount?.[0] || ""}
-                        images={getImages(imagesAndVideos)}
-                        videos={getVideos(imagesAndVideos)}
+                        geneName={taggedGene[0].name}
+                        geneSymbol={taggedGene[0].symbol}
+                        orderLink={orderLink}
+                        certificateOfAnalysis={certificateOfAnalysis}
+                        orderPlasmid={orderPlasmid}
+                        healthCertificate={healthCertificate}
+                        cloneNumber={cloneNumber}
+                        taggedGene={taggedGene}
+                        fluorescentTag={fluorescentTag}
+                        alleleCount={alleleCount}
                     />
-                )}
+                </div>
+                <div className={section}>
+                    {hasImagesOrVideos && (
+                        <ImagesAndVideos
+                            cellLineId={cellLineId}
+                            geneSymbol={taggedGene?.[0]?.symbol || ""}
+                            fluorescentTag={fluorescentTag?.[0] || ""}
+                            alleleTag={alleleCount?.[0] || ""}
+                            images={getImages(imagesAndVideos)}
+                            videos={getVideos(imagesAndVideos)}
+                        />
+                    )}
+                </div>
             </div>
-        </div>
+            <SubpageTabs
+                editingDesignData={editingDesign}
+                genomicCharacterizationData={[]}
+                stemCellCharData={null}
+                tabsToRender={TABS_WITH_STEM_CELL}
+            />
+        </>
     );
 };
 
 const CellLine = ({ data, location }: QueryResult) => {
     const { markdownRemark: cellLine } = data;
 
-    const unpackedCellLine = convertFrontmatterToNormalCellLines({
-        node: cellLine,
-    });
+    const unpackedCellLine = unpackNormalFrontMatterForSubpage(cellLine);
 
     return (
         <Layout>
@@ -159,6 +168,26 @@ export const pageQuery = graphql`
                     videos {
                         video 
                         caption
+                    }
+                }
+                editing_design {
+                    ncbi_isoforms
+                    cr_rna
+                    linker
+                    cas9
+                    diagrams {
+                        title
+                        images {
+                            image {
+                                childImageSharp {
+                                    gatsbyImageData(
+                                        placeholder: BLURRED
+                                        layout: CONSTRAINED
+                                    )
+                                }
+                            }
+                            caption
+                        }
                     }
                 }
             }
