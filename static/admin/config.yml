@@ -15,6 +15,25 @@ local_backend: true
 media_folder: static/img
 public_folder: /img
 
+# Section below defines reusable field collections defined with 
+# yaml anchors &[anchor], referenced with alias *[anchor]
+richTextFields: &richTextFields
+  - &f_text       { label: "Text", name: "text", widget: "string" }
+  - &f_emphasis
+    label: "emphasis"
+    name: "emphasis"
+    widget: "list"
+    required: false
+    fields: [ { label: "Text", name: "text", widget: "string" } ]
+  - &f_link
+    label: "URL"
+    name: "link"
+    widget: "list"
+    required: false
+    fields:
+      - { label: "Text", name: "text", widget: "string" }
+      - { label: "URL",  name: "url",  widget: "string" }
+
 collections:
     - name: "cell-line"
       label: "Cell Lines"
@@ -759,66 +778,14 @@ collections:
                               {
                                   label: "Primary Text",
                                   name: "primary",
-                                  widget: "text",
-                              },
-                              {
-                                  label: "Primary emphasis Text",
-                                  name: "emphasis",
-                                  widget: "text",
-                              },
-                              {
-                                  label: "Newsletter Text",
-                                  name: "newsletter",
-                                  widget: "text",
+                                  widget: "object",
+                                  fields: *richTextFields
                               },
                               {
                                   label: "Disease Catalog Copy",
                                   name: "disease",
-                                  widget: "text",
-                              },
-                              {
-                                  label: "Links",
-                                  name: "links",
                                   widget: "object",
-                                  fields:
-                                      [
-                                          {
-                                              label: "Newsletter Link",
-                                              name: "newsletter",
-                                              widget: "object",
-                                              fields:
-                                                  [
-                                                      {
-                                                          label: "Text",
-                                                          name: "text",
-                                                          widget: "string",
-                                                      },
-                                                      {
-                                                          label: "URL",
-                                                          name: "url",
-                                                          widget: "string",
-                                                      },
-                                                  ],
-                                          },
-                                          {
-                                              label: "Disease Catalog Link",
-                                              name: "disease",
-                                              widget: "object",
-                                              fields:
-                                                  [
-                                                      {
-                                                          label: "Text",
-                                                          name: "text",
-                                                          widget: "string",
-                                                      },
-                                                      {
-                                                          label: "URL",
-                                                          name: "url",
-                                                          widget: "string",
-                                                      },
-                                                  ],
-                                          },
-                                      ],
+                                  fields: *richTextFields
                               },
                           ],
                   }
