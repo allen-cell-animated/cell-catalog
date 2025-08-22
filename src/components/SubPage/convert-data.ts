@@ -185,9 +185,8 @@ export const unpackNormalFrontMatterForSubpage = (
         healthCertificate: cellLineNode.frontmatter.eu_hpsc_reg,
         orderLink: cellLineNode.frontmatter.order_link,
         orderPlasmid: cellLineNode.frontmatter.donor_plasmid,
-        thumbnailImage:
-            cellLineNode.frontmatter.images_and_videos?.images?.[0]?.image?.childImageSharp
-                ?.gatsbyImageData || null,
+        thumbnailImage: getThumbnail(cellLineNode.frontmatter.images_and_videos),
+        imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
         editingDesign: editingDesign,
     };
 };
