@@ -278,7 +278,7 @@ collections:
                     ],
             }
           - {
-                label: "Cell Line Category (Optional)",
+                label: "Cell Line Category",
                 name: "cell_line_category",
                 widget: "select",
                 options:
