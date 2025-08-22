@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import {
     NormalCellLineFrontmatter,
     UnpackedNormalCellLine,
@@ -10,6 +9,7 @@ import { convertFrontmatterToNormalCellLines } from "../component-queries/conver
 import { NormalCellLineInfoCard } from "../components/CellLineInfoCard/NormalCellLineInfoCard";
 import { DefaultButton } from "../components/shared/Buttons";
 import ImagesAndVideos from "../components/ImagesAndVideos";
+import { hasMedia, getImages, getVideos } from "../utils/mediaUtils";
 
 const {
     container,
@@ -42,24 +42,17 @@ interface CellLineProps extends UnpackedNormalCellLine {
 export const CellLineTemplate = ({
     cellLineId,
     cloneNumber,
-    tagLocation,
     taggedGene,
-    status,
-    thumbnailImage,
     href,
     orderPlasmid,
     healthCertificate,
     certificateOfAnalysis,
     orderLink,
-    protein,
     fluorescentTag,
     alleleCount,
     imagesAndVideos,
 }: CellLineProps) => {
-    const image = thumbnailImage ? getImage(thumbnailImage) : undefined;
-    const hasImagesOrVideos =
-        (imagesAndVideos?.images?.length || 0) > 0 ||
-        (imagesAndVideos?.videos?.length || 0) > 0;
+    const hasImagesOrVideos = hasMedia(imagesAndVideos);
     if (cellLineId === 0) {
         return null;
     }
@@ -94,8 +87,8 @@ export const CellLineTemplate = ({
                         geneSymbol={taggedGene?.[0]?.symbol || ""}
                         fluorescentTag={fluorescentTag?.[0] || ""}
                         alleleTag={alleleCount?.[0] || ""}
-                        images={imagesAndVideos?.images || []}
-                        videos={imagesAndVideos?.videos || []}
+                        images={getImages(imagesAndVideos)}
+                        videos={getVideos(imagesAndVideos)}
                     />
                 )}
             </div>

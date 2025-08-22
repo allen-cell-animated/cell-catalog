@@ -1,5 +1,30 @@
-import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import { IGatsbyImageData } from "gatsby-plugin-image";
+
+export interface RawImageData {
+    image: {
+        childImageSharp: {
+            gatsbyImageData: IGatsbyImageData;
+        };
+    };
+    caption: string;
+}
+
+export interface UnpackedImageData {
+    image: IGatsbyImageData;
+    caption: string;
+}
+
+export interface RawVideoData {
+    video: string;
+    caption: string;
+}
+
+export interface MediaFrontMatter {
+    images?: RawImageData[];
+    videos?: RawVideoData[];
+}
+
+export type ImageOrVideo = UnpackedImageData | RawVideoData;
 
 export interface Isoform {
     name: string;
@@ -32,16 +57,7 @@ export interface ParentalLineFrontmatter {
     allele_count: string[];
     tag_location: string[];
     fluorescent_tag: string[];
-    images_and_videos?: {
-        images: {
-            image: any;
-            caption: string;
-        }[];
-        videos: {
-            video: any;
-            caption: string;
-        }[];
-    };
+    images_and_videos?: MediaFrontMatter;
 }
 
 export interface NormalCellLineFrontmatter {
@@ -65,17 +81,8 @@ export interface NormalCellLineFrontmatter {
     };
     certificate_of_analysis: string;
     eu_hpsc_reg: string;
-    images_and_videos?: {
-        images: {
-            image: any;
-            caption: string;
-        }[];
-        videos: {
-            video: any;
-            caption: string;
-        }[];
-    };
-}
+    images_and_videos?: MediaFrontMatter;
+};
 
 export interface NormalCellLineNode {
     id: string;
@@ -125,25 +132,12 @@ export interface Sequence {
     type: string;
 }
 
-export interface SingleImageDiagram {
-    image: {
-        childImageSharp: {
-            gatsbyImageData: IGatsbyImageData;
-        };
-    },
-    caption: string;
+export interface SingleImageDiagram extends UnpackedImageData {
     title: string;
 }
 
 export interface DiagramList {
-    images: {
-        image: {
-            childImageSharp: {
-                gatsbyImageData: IGatsbyImageData;
-            };
-        },
-        caption: string;
-    }[];
+    images: UnpackedImageData[];
     title: string;
 }
 
@@ -160,16 +154,7 @@ export interface DiseaseCellLineFrontmatter {
     order_link: string;
     status: CellLineStatus;
     hPSCreg_certificate_link: string;
-    images_and_videos?: {
-        images: {
-            image: any;
-            caption: string;
-        }[];
-        videos: {
-            video: any;
-            caption: string;
-        }[];
-    };
+    images_and_videos?: MediaFrontMatter;
     editing_design?: {
         crna_target_site: string;
         dna_donor_sequence: Sequence[];
@@ -218,6 +203,7 @@ export interface UnpackedCellLineMainInfo {
     healthCertificate: string;
     orderLink: string;
     thumbnailImage?: IGatsbyImageData | null;
+    imagesAndVideos?: MediaFrontMatter;
 }
 
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
@@ -237,16 +223,6 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     tagLocation: string[];
     fluorescentTag: string[];
     orderPlasmid: string;
-    imagesAndVideos?: {
-        images: {
-            image: any;
-            caption: string;
-        }[];
-        videos: {
-            video: any;
-            caption: string;
-        }[];
-    };
 }
 
 export type ParentLine = Pick<UnpackedNormalCellLine,
