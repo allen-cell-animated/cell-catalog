@@ -1,9 +1,9 @@
 import React from "react";
+import { Flex } from "antd";
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import { StaticQuery, graphql } from "gatsby";
 import AboutButton from "../components/AboutButton";
 import { renderRichText, RichText } from "../utils/formattingUtils";
-import { Flex } from "antd";
 
 const {
     container,
