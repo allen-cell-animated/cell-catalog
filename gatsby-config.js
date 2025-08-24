@@ -1,9 +1,9 @@
 module.exports = {
     siteMetadata: {
-        title: "Disease Cell Line Catalog",
+        title: "Cell Line Catalog",
         siteURL: "https://cell-catalog.allencell.org",
         description:
-            "The Disease Collection Cell Catalog is a growing compilation of cell lines that carry mutations in genes known to cause disease. These cell lines were created by introducing a point mutation in one of the fluorescently tagged WTC-11 clonal lines from the Allen Cell Collection.",
+            "The Cell Line Catalog provides a listing of our completed cell lines in the Allen Cell Collection, as well as those in progress. The Disease Collection Cell Catalog is a growing compilation of cell lines that carry mutations in genes known to cause disease. These cell lines were created by introducing a point mutation in one of the fluorescently tagged WTC-11 clonal lines from the Allen Cell Collection.",
     },
     headers: [
         {
