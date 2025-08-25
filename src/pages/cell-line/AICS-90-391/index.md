@@ -21,7 +21,7 @@ images_and_videos:
     - image: Main_cell_line_morphology.jpg
       caption: "Viability and colony formation one day and three days post-thaw. Cells were treated with ROCK inhibitor for 24 hrs post-thaw."
   videos:
-    - video: https://vimeo.com/1079587233/6ede024c61?ts=0&share=copy
+    - video: https://player.vimeo.com/video/1079587233
       caption: Z-stack of live hiPS cell colony expressing TagBFP-tagged dCas9-KRAB.
         TagBFP-tagged dCas9-KRAB (left) and overlay onto transmitted light image
         stack (right) are shown. Cells were imaged in 3D on a spinning-disk

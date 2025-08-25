@@ -25,7 +25,7 @@ images_and_videos:
         were imaged one (a,b), three (c,d) and four (e,f) days post-thaw using a
         Leica microscope at 4x and 10x magnification
   videos:
-    - video: https://vimeo.com/1082631557/50d82c66b5?ts=0&share=copy
+    - video: https://player.vimeo.com/video/1082631557
       caption: Z-stack of a live hiPS cell colony expressing mTagRFP-T-tagged
         mitochondrial targeting sequence of COXVIII (mitoTag). The movie starts
         at the bottom of the cells and ends at the top (scale bar, 5 µm). Cells

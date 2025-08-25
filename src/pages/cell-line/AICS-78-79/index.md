@@ -32,7 +32,7 @@ images_and_videos:
         overlay of the two (right). Cells were imaged in 3D on a spinning-disk
         confocal microscope every 3 min and a single plane is shown. Movie plays
         at 1800x real time. Scale bar, 20 µm.
-      video: https://vimeo.com/1079601694/b4122b9a48?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079601694
     - caption: Z-stack of live hiPS cell colony expressing mEGFP-tagged translocase of
         outer mitochondrial membrane 20 and mTagRFP-T-tagged tubulin-alpha 1b.
         Panels show individual channels for translocase of outer mitochondrial
@@ -40,7 +40,7 @@ images_and_videos:
         two (right). Cells were imaged in 3D on a spinning-disk confocal
         microscope. The movie starts at the bottom of the cells and ends at the
         top. Scale bar, 5µm.
-      video: https://vimeo.com/1079600993/5f57682ecf?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079600993
     - caption: Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged
         translocase of outer mitochondrial membrane 20 and mTagRFP-T-tagged
         tubulin-alpha 1b. Panels show individual channels for translocase of
@@ -48,7 +48,7 @@ images_and_videos:
         the overlay of the two (right). Cells were imaged in 3D every 3 min on a
         spinning-disk confocal microscope and a single plane is shown. Movie
         plays at 900x real time. Scale bar, 5 µm.
-      video: https://vimeo.com/1079599493/b8d79a10a3?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079599493
 editing_design:
   ncbi_isoforms:
     - 

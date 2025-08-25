@@ -9,6 +9,7 @@ import {
     ParentLine,
     NormalCellLineNode,
 } from "../../component-queries/types";
+import { getThumbnail } from "../../utils/mediaUtils";
 import { extractGeneticModifications } from "../../component-queries/convert-data";
 import { DiagramCardProps } from "../shared/DiagramCard";
 import {
@@ -28,8 +29,6 @@ export const unpackDiagrams = (diagrams?: SingleImageDiagram[]): DiagramCardProp
             title: diagram.title,
             caption: diagram.caption,
             image: diagram.image
-                ? diagram.image.childImageSharp.gatsbyImageData
-                : undefined,
         };
     });
 };
@@ -50,7 +49,7 @@ export const unpackMultiImageDiagrams = (diagrams?: DiagramList[]): DiagramCardP
             result.push({
                 title: index === 0 ? diagram.title : "",
                 caption: imageObj.caption,
-                image: imageObj.image.childImageSharp.gatsbyImageData,
+                image: imageObj.image,
             });
         });
     });
@@ -135,7 +134,7 @@ export const unpackParentLineFromFrontMatter = (data: ParentalLineFrontmatter): 
             data
                 .genetic_modifications
         );
-    const thumbnailImage = data.thumbnail_image;
+    const thumbnailImage = getThumbnail(data.images_and_videos);
     const cellLineId = data.cell_line_id;
     const cloneNumber = data.clone_number;
     return {
@@ -186,9 +185,8 @@ export const unpackNormalFrontMatterForSubpage = (
         healthCertificate: cellLineNode.frontmatter.eu_hpsc_reg,
         orderLink: cellLineNode.frontmatter.order_link,
         orderPlasmid: cellLineNode.frontmatter.donor_plasmid,
-        thumbnailImage:
-            cellLineNode.frontmatter.images_and_videos?.images?.[0]?.image?.childImageSharp
-                ?.gatsbyImageData || null,
+        thumbnailImage: getThumbnail(cellLineNode.frontmatter.images_and_videos),
+        imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
         editingDesign: editingDesign,
     };
 };

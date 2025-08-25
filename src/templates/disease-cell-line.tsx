@@ -5,6 +5,7 @@ import Layout from "../components/Layout";
 import { DiseaseCellLineFrontmatter } from "../component-queries/types";
 import { DefaultButton } from "../components/shared/Buttons";
 import ImagesAndVideos from "../components/ImagesAndVideos";
+import { hasMedia, getImages, getVideos } from "../utils/mediaUtils";
 import SubpageTabs from "../components/SubPage/SubpageTabs";
 import { DEFAULT_TABS, TABS_WITH_STEM_CELL } from "../constants";
 import { Disease } from "../types";
@@ -43,9 +44,7 @@ export const DiseaseCellLineTemplate = ({
     genomicCharacterization,
     stemCellCharData,
 }: DiseaseCellLineTemplateProps) => {
-    const hasImagesOrVideos =
-        (imagesAndVideos?.images?.length || 0) > 0 ||
-        (imagesAndVideos?.videos?.length || 0) > 0;
+    const hasImagesOrVideos = hasMedia(imagesAndVideos);
     return (
         <>
             <div className={container}>
@@ -80,7 +79,8 @@ export const DiseaseCellLineTemplate = ({
                             alleleTag={parentalLine.alleleCount[0]}
                             geneSymbol={geneSymbol}
                             snp={snp}
-                            images={imagesAndVideos.images}
+                            images={getImages(imagesAndVideos)}
+                            videos={getVideos(imagesAndVideos)}
                         />
                     </div>
                 )}
