@@ -1,0 +1,10 @@
+.tooltip:global(.ant-tooltip) {
+    max-width: none;
+}
+
+.tooltip :global(.ant-tooltip-inner) {
+    background-color: var(--tooltip-background);
+    border-radius: 0;
+    min-height: 0;
+    padding: 2px;
+}

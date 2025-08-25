@@ -7,7 +7,7 @@ import { Divider } from "antd";
 import { PRIMARY_COLOR } from "../../style/theme";
 import CloneTable from "../CloneTable";
 import GeneSymbolTag from "../GeneSymbolTag";
-
+import { TruncatedText } from "../TruncatedText";
 interface DiseaseCellLineInfoCardProps extends CellLineInfoCardRequiredProps {
     parentalLine: ParentLine;
     snp: string;
@@ -17,31 +17,32 @@ interface DiseaseCellLineInfoCardProps extends CellLineInfoCardRequiredProps {
 export const DiseaseCellLineInfoCard: React.FC<DiseaseCellLineInfoCardProps> = (
     props
 ) => {
-    const buttonList = [
-        {
-            label: "Certificate of Analysis",
-            href: props.certificateOfAnalysis,
-        },
-        {
-            label: "hPSCreg Certificate",
-            href: props.healthCertificate,
-        },
-    ];
-
     const infoRows = [
-        { key: "1", label: "SNP", children: props.snp },
+        {
+            key: "1",
+            label: "SNP",
+            children: <TruncatedText>{props.snp}</TruncatedText>,
+        },
         {
             key: "2",
             label: "Gene Symbol",
-            children: <GeneSymbolTag symbol={props.geneSymbol}/>,
+            children: <GeneSymbolTag symbol={props.geneSymbol} />,
         },
-        { key: "3", label: "Gene Name", children: props.geneName },
+        {
+            key: "3",
+            label: "Gene Name",
+            children: <TruncatedText>{props.geneName}</TruncatedText>,
+        },
         {
             key: "4",
             label: "Parental Line",
-            children: `${formatCellLineId(props.parentalLine.cellLineId)} cl. ${
-                props.parentalLine.cloneNumber
-            } ${props.parentalLine.taggedGene[0].symbol}`,
+            children: (
+                <TruncatedText>
+                    {`${formatCellLineId(props.parentalLine.cellLineId)} cl. ${
+                        props.parentalLine.cloneNumber
+                    } ${props.parentalLine.taggedGene[0].symbol}`}
+                </TruncatedText>
+            ),
         },
     ];
 
@@ -58,12 +59,20 @@ export const DiseaseCellLineInfoCard: React.FC<DiseaseCellLineInfoCardProps> = (
         </>
     );
 
+    const buttonList = [
+        {
+            key: "order",
+            label: `Obtain ${formatCellLineId(props.cellLineId)}`,
+            href: props.orderLink,
+            subtitle: buttonSubtitle,
+        },
+    ];
+
     return (
         <CellLineInfoCardBase
             {...props}
             buttonList={buttonList}
             infoRows={infoRows}
-            buttonSubtitle={buttonSubtitle}
             additionalInfo={<CloneTable dataSource={props.clones} />}
         />
     );

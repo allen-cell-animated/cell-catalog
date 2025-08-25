@@ -1,13 +1,11 @@
 import React, { ReactNode, useState } from "react";
-import { Card, Flex, Button, Divider, Tooltip } from "antd";
+import { Card, Flex, Button, Tooltip } from "antd";
+import classNames from "classnames";
 import Icon from "@ant-design/icons";
 
-import { PRIMARY_COLOR } from "../../style/theme";
 import { formatCellLineId } from "../../utils";
-import CloneTable from "../CloneTable";
 import { DarkThemeGhostButton, DefaultButton } from "../shared/Buttons";
 import InfoPanel from "../shared/InfoPanel";
-import { Clone } from "../../component-queries/types";
 import { InfoTableRow } from "./types";
 
 const Share = require("../../img/share-icon.svg");
@@ -17,7 +15,16 @@ const {
     title,
     container,
     extraLargeButton,
+    extraLargeButtonHeader,
+    spacedButton,
 } = require("../../style/cell-line-info-card.module.css");
+
+interface OrderButtonProps {
+    label: string;
+    href: string;
+    icon?: ReactNode;
+    subtitle?: ReactNode;
+}
 
 interface CellLineInfoCardBaseProps {
     href: string;
@@ -26,9 +33,9 @@ interface CellLineInfoCardBaseProps {
     certificateOfAnalysis: string;
     healthCertificate: string;
     orderLink: string;
-    buttonList: { label: string; href: string }[];
-    buttonSubtitle?: ReactNode;
+    buttonList: OrderButtonProps[];
     additionalInfo?: ReactNode;
+    multiGene?: boolean;
 }
 
 const CellLineInfoCardBase = ({
@@ -36,13 +43,49 @@ const CellLineInfoCardBase = ({
     buttonList,
     cellLineId,
     infoRows,
-    orderLink,
     additionalInfo,
-    buttonSubtitle,
+    certificateOfAnalysis,
+    healthCertificate,
+    multiGene,
 }: CellLineInfoCardBaseProps) => {
     const defaultToolTipText = "Copy cell line link to clipboard";
     const [shareTooltipText, setShareTooltipText] =
         useState(defaultToolTipText);
+
+    const getDefaultButton = (label: string, href: string) => (
+        <DefaultButton key={href} href={href} target="_blank" rel="noreferrer">
+            {label}
+        </DefaultButton>
+    );
+
+    const getOrderButton = ({
+        label,
+        href,
+        icon,
+        subtitle,
+    }: OrderButtonProps) => (
+        <Button
+            type="primary"
+            className={extraLargeButton}
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+        >
+            <div
+                className={classNames(
+                    extraLargeButtonHeader,
+                    icon && spacedButton
+                )}
+            >
+                <h2>
+                    {icon}
+                    {label}
+                </h2>
+                <LinkOut />
+            </div>
+            {subtitle}
+        </Button>
+    );
 
     const titleContents = (
         <Flex justify="space-between" align="center">
@@ -76,34 +119,22 @@ const CellLineInfoCardBase = ({
     );
     return (
         <Card title={titleContents} className={container}>
-            <InfoPanel data={infoRows} />
+            <InfoPanel
+                data={infoRows}
+                baseline={multiGene}
+                alignContent={true}
+            />
             {additionalInfo}
             <Flex vertical gap={8}>
-                {buttonList.map((button) => (
-                    <DefaultButton
-                        key={button.href}
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        {button.label}
-                    </DefaultButton>
-                ))}
+                {getDefaultButton(
+                    "Certificate of Analysis",
+                    certificateOfAnalysis
+                )}
+                {getDefaultButton("hPSCreg Certificate", healthCertificate)}
             </Flex>
-            <Button
-                type="primary"
-                className={extraLargeButton}
-                href={orderLink}
-                target="_blank"
-                rel="noreferrer"
-            >
-                <h2>
-                    <Flex gap={8} align="center" justify="center">
-                        Obtain {formatCellLineId(cellLineId)}
-                        <LinkOut />
-                    </Flex>
-                </h2>
-                {buttonSubtitle}
-            </Button>
+            {buttonList.map((button) =>
+                getOrderButton(button)
+            )}
         </Card>
     );
 };

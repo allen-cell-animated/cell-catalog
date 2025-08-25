@@ -1,43 +1,49 @@
 import React from "react";
-import { Typography, TooltipProps } from "antd";
-
-const { Text } = Typography;
+import { TruncatedText } from "./TruncatedText";
+import { Divider } from "antd";
 
 const {
-    tooltip,
-    multipleLines,
-    truncatedText,
-} = require("../style/table.module.css");
+    divider,
+    infoCardMultiLineCell,
+} = require("../style/cell-line-info-card.module.css");
 
-export const getTooltipProps = (text: string): TooltipProps => {
-    return { title: text, arrow: false, rootClassName: tooltip };
-};
+const { tableMultiLineCell } = require("../style/table.module.css");
+
+export enum ParentComponent {
+    INFO_CARD = "info-card",
+    TABLE = "table",
+}
 
 interface MultipleLineContainerProps {
     entries: string[];
-    truncated?: boolean;
+    parent: ParentComponent;
+    dividers?: boolean;
 }
 
 export const MultiLineTableCell: React.FC<MultipleLineContainerProps> = ({
     entries,
+    parent,
+    dividers,
 }) => {
     if (!entries || entries.length === 0) {
         return null;
     }
 
+    const className =
+        parent === ParentComponent.INFO_CARD
+            ? infoCardMultiLineCell
+            : tableMultiLineCell;
+
     return (
-        <div className={multipleLines}>
+        <div className={className}>
             {entries.map((entry, idx) => {
                 return (
-                    <Text
-                        key={`${entry}-${idx}`}
-                        className={truncatedText}
-                        ellipsis={{
-                            tooltip: getTooltipProps(entry),
-                        }}
-                    >
-                        {entry}
-                    </Text>
+                    <React.Fragment key={`${entry}-${idx}`}>
+                        <TruncatedText>{entry}</TruncatedText>
+                        {dividers && idx < entries.length - 1 && (
+                            <Divider className={divider} />
+                        )}
+                    </React.Fragment>
                 );
             })}
         </div>
