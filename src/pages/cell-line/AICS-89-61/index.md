@@ -45,4 +45,77 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: FBL locus with zoom in on mEGFP insertion site at FBL C-terminal exon. Middle: NPM1 locus showing 7 NPM1 isoforms with zoom in on mTagRFP-T insertion site at NPM1 C-terminal exon. Bottom: CLYBL locus showing dCas9-TagBFP-KRAB insertion site at CLYBL safe harbor site between exons 2 and 3."
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_generic_insert.png
+    - title: "Karyotype Analysis"
+      images:
+        - image: AICS-89_cl61_FBL-NPM1-dCas9-KRAB_karyotype.JPG
+          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "FBL-mEGFP"
+      junction: "5'"
+      expected_size: "1424"
+      confirmed_sequence: "yes"
+    - editedGene: "FBL-mEGFP"
+      junction: "3'"
+      expected_size: "1489"
+      confirmed_sequence: "yes"
+    - editedGene: "FBL-mEGFP"
+      junction: "WT internal"
+      expected_size: "1800"
+      confirmed_sequence: "yes"
+    - editedGene: "FBL-mEGFP"
+      junction: "Full junctional allele"
+      expected_size: "Tagged: bp; Untagged: bp"
+      confirmed_sequence: "yes"
+    - editedGene: "NPM1-mTagRFP-T"
+      junction: "5'"
+      expected_size: "1489"
+      confirmed_sequence: "yes"
+    - editedGene: "NPM1-mTagRFP-T"
+      junction: "3'"
+      expected_size: "1581"
+      confirmed_sequence: "yes"
+    - editedGene: "NPM1-mTagRFP-T"
+      junction: "WT internal"
+      expected_size: "2217"
+      confirmed_sequence: "yes"
+    - editedGene: "NPM1-mTagRFP-T"
+      junction: "Full junctional allele"
+      expected_size: "Tagged: bp; Untagged: bp"
+      confirmed_sequence: "yes"
+    - editedGene: "CLYBL-dCas9-KRAB"
+      junction: "5'"
+      expected_size: "1875"
+      confirmed_sequence: "yes"
+    - editedGene: "CLYBL-dCas9-KRAB"
+      junction: "3'"
+      expected_size: "3471"
+      confirmed_sequence: "yes"
+    - editedGene: "CLYBL-dCas9-KRAB"
+      junction: "WT internal"
+      expected_size: "2348"
+      confirmed_sequence: "yes"
+    - editedGene: "CLYBL-dCas9-KRAB"
+      junction: "Full junctional allele"
+      expected_size: "Tagged: bp; Untagged: bp"
+      confirmed_sequence: ""
+  junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP insertion. Primers were designed to exclude amplification from the donor plasmid."
+  ddpcr:
+    - tag: FBL-mEGFP
+      clone: 61
+      fp_ratio: 0.463
+      plasmid: 0.001
+    - tag: NPM1-mTagRFP-T
+      clone: 61
+      fp_ratio: 0.485
+      plasmid: 0.001
+    - tag: CLYBL-dCas9-KRAB
+      clone: 61
+      fp_ratio: 0.538
+      plasmid: 0.001
+  ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: KAN/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 ---

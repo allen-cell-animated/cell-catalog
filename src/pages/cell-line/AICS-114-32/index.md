@@ -48,4 +48,37 @@ editing_design:
       images:
         - image: CDH1_gfp.png
           caption: "Top: CDH1 locus showing 4 CDH1 isoforms; Bottom: Zoom in on mEGFP insertion site at CDH1 C-terminal exon."
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+    - title: "Karyotype Analysis"
+      images:
+        - image: AICS-114_cl32_CDH1_karyotype.jpg
+          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "CDH1-mEGFP"
+      junction: "5'"
+      expected_size: "1897"
+      confirmed_sequence: "Yes"
+    - editedGene: "CDH1-mEGFP"
+      junction: "3'"
+      expected_size: "2094"
+      confirmed_sequence: "Yes"
+    - editedGene: "CDH1-mEGFP"
+      junction: "WT"
+      expected_size: "981"
+      confirmed_sequence: "Yes"
+    - editedGene: "CDH1-mEGFP"
+      junction: "Full junctional allele"
+      expected_size: "Tagged: 3525"
+      confirmed_sequence: "Yes"
+  junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP insertion."
+  ddpcr:
+    - tag: CDH1-mEGFP
+      clone: 32
+      fp_ratio: 1.06
+      plasmid: N/A
+  ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. RPP30 is known 2n reference gene."
 ---

@@ -37,4 +37,37 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: GJA1 locus; Bottom: Zoom in on mEGFP insertion site at GJA1 C-terminus"
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+    - title: "Karyotype Analysis"
+      images:
+        - image: GJA1_cl.16.JPG
+          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "GJA1-mEGFP"
+      junction: "5'"
+      expected_size: "1500"
+      confirmed_sequence: "Pass"
+    - editedGene: "GJA1-mEGFP"
+      junction: "3'"
+      expected_size: "1500"
+      confirmed_sequence: "Pass"
+    - editedGene: "GJA1-mEGFP"
+      junction: "WT internal"
+      expected_size: "400"
+      confirmed_sequence: "Pass(pseudogene present*)"
+    - editedGene: "GJA1-mEGFP"
+      junction: "Full junctional allele"
+      expected_size: "Tagged:2800; Untagged:2100"
+      confirmed_sequence: ""
+  junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP insertion. Primers were designed to exclude amplification from the donor plasmid. *Presence of GJA1 pseudogene resulted in mixed peaks for the WT junction; these mixed peaks correspond to mismtaches b/w WT GJA1 and the GJA1 pseudogene and not mis-editing or off-target cutting"
+  ddpcr:
+    - tag: GJA1-mEGFP
+      clone: 16
+      fp_ratio: 0.49
+      plasmid: 0.0
+  ddpcr_caption: "mEGFP: mEGFP/RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 ---
