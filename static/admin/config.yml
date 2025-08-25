@@ -296,6 +296,14 @@ collections:
                         },
                     ],
             }
+          - {
+                label: "Cell Line Category",
+                name: "cell_line_category",
+                widget: "select",
+                options:
+                    ["Key Structure and Organelle", "Nuclear Structure", "Stress", "Cardiac Structure", "Tools", "Endothelial"],
+                required: false,
+            }
     - name: "disease-cell-line"
       label: "Disease Cell Lines"
       label_singular: "Disease Cell Line"
