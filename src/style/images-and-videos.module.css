@@ -61,6 +61,10 @@
     flex: 1 1 auto;
 }
 
+.primary-image-container {
+    width: 100%;
+}
+
 .container .primary-image-container :global(.gatsby-image-wrapper) {
     height: 0;
     cursor: pointer;
