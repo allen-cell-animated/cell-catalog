@@ -4,8 +4,7 @@ import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import { Card } from "antd";
 import classNames from "classnames";
 
-const { cardWrapper, aboutCard } = require("../style/about.module.css");
-
+const { aboutCard } = require("../style/about.module.css");
 interface AboutButtonProps {
     image: FileNode | JSX.Element;
     link: string;
@@ -30,7 +29,7 @@ const AboutButton: React.FC<AboutButtonProps> = ({
 
     if (!imageElement) return null;
     return (
-        <div className={cardWrapper}>
+        <div>
             {imageElement && (
                 <a href={link} target="_blank" rel="noreferrer">
                     <Card

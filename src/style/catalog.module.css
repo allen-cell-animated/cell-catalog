@@ -1,41 +1,10 @@
 .container :global(.ant-table-cell) {
     font-size: 14px;
 }
-.header {
-    margin: 16px 0 40px 0;
-}
 
-.header :global(.content) {
-    display: flex;
-    gap: 16px;
-    flex-direction: column;
-}
-
-.header p {
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--SERIOUS_GRAY);
-    margin: 0;
-}
-
-.header a {
-    color: var(--link-color);
-}
 .main-heading {
     color: var(--primary-color);
-}
-
-.normal.main-heading {
-    margin-top: 56px;
-}
-
-.banner:global(.ant-card) {
-    border-color: var(--border-color);
-    padding: 20px 32px;
-}
-
-.banner :global(.ant-card-body) {
-    padding: 0;
+    margin-top: 16px;
 }
 
 .banner-content {
@@ -44,8 +13,7 @@
     font-weight: 300;
 }
 
-@media screen and (max-width: 768px) {
-    .header {
-        flex-direction: column;
-    }
+.container :global(.ant-divider-horizontal) {
+    padding: 0px;
+    margin: 16px 0px 32px 0px;
 }

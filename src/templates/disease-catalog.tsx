@@ -11,9 +11,9 @@ import AboutButton from "../components/AboutButton";
 const {
     banner,
     bannerContent,
-    header,
     mainHeading,
 } = require("../style/catalog.module.css");
+const { container, contentWrapper } = require("../style/about.module.css");
 
 interface DiseaseCatalogTemplateProps {
     title: string;
@@ -50,21 +50,23 @@ export const DiseaseCatalogTemplate = ({
     const PageContent = contentComponent || Content;
     return (
         <section>
-            <h1>{title}</h1>
-            <Flex className={header}>
-                <PageContent className="content" content={content} />
-                <Divider
-                    type="vertical"
-                    style={{ height: "initial", marginInline: "20px" }}
-                />
-                <AboutButton
-                    image={coriellImage}
-                    link={coriellLink}
-                    title="View Allen Cell Collection on"
-                />
-            </Flex>
+            <section className={container}>
+                <h1>{title}</h1>
+                <Flex className={contentWrapper}>
+                    <PageContent className="content" content={content} />
+                    <Divider
+                        type="vertical"
+                        style={{ height: "initial", marginInline: "20px" }}
+                    />
+                    <AboutButton
+                        image={coriellImage}
+                        link={coriellLink}
+                        title="View Allen Cell Collection on"
+                    />
+                </Flex>
+            </section>
             <h2 className={mainHeading}>{main.heading}</h2>
-            <Card className={banner} bordered={true}>
+            <Card className={banner}>
                 {main.subheading && <h4>{main.subheading}</h4>}
                 <PageContent
                     className={bannerContent}

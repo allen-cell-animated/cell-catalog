@@ -1,6 +1,6 @@
 ---
 templateKey: disease-catalog
-title: About the Collection
+title: About the collection
 main:
   heading: Disease models available in our collection
   description: Data for our lines will be added to this page in a user-friendly
