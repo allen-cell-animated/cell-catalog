@@ -63,7 +63,7 @@ export const CellLineTemplate = ({
         <>
             <div className={container}>
                 <div className={leftCard}>
-                    <Link to="/normal-catalog">
+                    <Link to="/">
                         <DefaultButton>
                             <Arrow className={returnArrow} />
                             Return to Cell Catalog
