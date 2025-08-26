@@ -34,7 +34,6 @@ export interface UnpackedDiseaseCellLineFull extends UnpackedCellLineMainInfo {
     snp: string;
     parentalLine: ParentLine;
     clones: Clone[];
-    imagesAndVideos: any;
     editingDesign: UnpackedEditingDesign | null;
     genomicCharacterization?: DiagramCardProps[];
     stemCellCharData: StemCellCharProps | null;
