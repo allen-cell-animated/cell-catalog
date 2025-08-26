@@ -234,7 +234,7 @@
     max-width: 310px;
 }
 
-.container .multiple-lines {
+.container .table-multi-line-cell {
     display: flex;
     flex-direction: column;
     gap: 5px;
