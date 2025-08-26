@@ -89,6 +89,7 @@ export interface NormalCellLineFrontmatter {
         diagrams: DiagramList[];
     };
     images_and_videos?: MediaFrontMatter;
+    cell_line_category: string[];
 };
 
 export interface NormalCellLineNode {
@@ -230,6 +231,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     tagLocation: string[];
     fluorescentTag: string[];
     orderPlasmid: string;
+    cellLineCategory: string[];
 }
 
 export type ParentLine = Pick<UnpackedNormalCellLine,

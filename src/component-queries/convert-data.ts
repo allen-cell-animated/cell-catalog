@@ -126,6 +126,7 @@ export const convertFrontmatterToNormalCellLines = ({
             cellLineNode.frontmatter.images_and_videos
         ),
         imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
+        cellLineCategory: cellLineNode.frontmatter.cell_line_category
     };
 };
 

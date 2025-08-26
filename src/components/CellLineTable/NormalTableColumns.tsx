@@ -176,12 +176,30 @@ export const getNormalTableColumns = (
             title: "Tag Location",
             key: "tagLocation",
             dataIndex: "tagLocation",
-            className: inProgress ? "" : lastColumn,
             responsive: mdBreakpoint,
             render: (locations: string[]) => (
                 <MultiLineTableCell
                     parent={ParentComponent.TABLE}
                     entries={locations}
+                />
+            ),
+            sortIcon: sortIcon,
+            sorter: (a: any, b: any) =>
+                caseInsensitiveStringCompare(
+                    (a.tagLocation ?? []).join("|"),
+                    (b.tagLocation ?? []).join("|")
+                ),
+        },
+        {
+            title: "Category",
+            key: "cellLineCategory",
+            dataIndex: "cellLineCategory",
+            className: inProgress ? "" : lastColumn,
+            responsive: mdBreakpoint,
+            render: (categories: string[]) => (
+                <MultiLineTableCell
+                    parent={ParentComponent.TABLE}
+                    entries={categories}
                 />
             ),
             sortIcon: sortIcon,
