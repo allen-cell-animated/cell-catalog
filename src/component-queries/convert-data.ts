@@ -135,6 +135,7 @@ export const createLookupMappings = (
 ): SearchLookup => {
     const geneSymToCellIds = new Map();
     const structureAndNameToGene = new Map();
+    const categoryToIds = new Map();
     const allSearchableTerms: Set<string> = new Set();
     data.forEach((group: any) => {
         const symbol = group.fieldValue;
@@ -145,6 +146,17 @@ export const createLookupMappings = (
             cellLines.push(cellLineId);
             if (cellLineId) {
                 allSearchableTerms.add(formatCellLineId(cellLineId));
+            }
+            const categories = edge.node.frontmatter.cell_line_category;
+            if (categories) {
+                categories.forEach((category: any) => {
+                    allSearchableTerms.add(category);
+                    if (cellLineId) {
+                        const set = categoryToIds.get(category) || new Set();
+                        set.add(cellLineId);
+                        categoryToIds.set(category, set);
+                    }
+                });
             }
             const genes = edge.node.frontmatter.genetic_modifications || [];
             genes.forEach((obj: any) => {
@@ -171,5 +183,6 @@ export const createLookupMappings = (
         geneSymToCellIds,
         structureAndNameToGene,
         allSearchableTerms,
+        categoryToIds
     };
 };

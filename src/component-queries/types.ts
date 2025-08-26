@@ -271,6 +271,7 @@ export interface SearchAndFilterGroup {
                         };
                     }[];
                 };
+                cell_line_category: string[];
             };
         };
     }[];
@@ -289,5 +290,6 @@ export interface SearchLookup {
     // (so many words map to the same gene symbol)
     // used for getting a unique identifier for the geneSymToCellIds map
     structureAndNameToGene: Map<string, string>;
+    categoryToIds: Map<string, number[]>
     allSearchableTerms: Set<string>;
 }
