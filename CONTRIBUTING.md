@@ -91,7 +91,7 @@ The `main` branch is auto deployed at the [staging site](https://main--cell-cata
 1. Make a new version: `npm version [patch/minor/major]`
 2. Push the new package.json version: `git push origin main`
 3. Push the new tag: `git push origin [NEW_TAG]`
-4. Go to the [releases page](https://github.com/simularium/simularium-website/releases) and write the release notes for the new version. You can refer to the auto-generated [CHANGELOG.md][changelog] for a list of changes.
+4. Go to the [production site](https://cell-catalog.allencell.org/disease-catalog/) and write the release notes for the new version.
 
 
 ## Debugging

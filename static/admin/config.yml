@@ -17,8 +17,27 @@ public_folder: /img
 
 # Section below defines reusable field collections defined with 
 # yaml anchors &[anchor], referenced with alias *[anchor]
-# they can be reused like "variables" although yaml doesn't
-# directly support variables per-se
+richTextFields: &richTextFields
+  - &f_text       { label: "Text", name: "text", widget: "string" }
+  - &f_emphasis
+    label: "emphasis"
+    name: "emphasis"
+    widget: "list"
+    required: false
+    fields: [ { label: "Text", name: "text", widget: "string" } ]
+  - &f_link
+    label: "URL"
+    name: "link"
+    widget: "list"
+    required: false
+    fields:
+      - { label: "Text", name: "text", widget: "string" }
+      - { label: "URL",  name: "url",  widget: "string" }
+
+objects/richTextObject: &objects_richTextObject
+  widget: "object"
+  fields: *richTextFields
+
 field/templateKey: &field_templateKey
   label: "Template Key"
   name: "templateKey"
@@ -49,27 +68,6 @@ relation/gene: &relation_gene
   search_fields: ["symbol", "name", "protein", "structure"]
   value_field: "symbol"
   display_fields: ["symbol"]
-
-richTextFields: &richTextFields
-  - &f_text       { label: "Text", name: "text", widget: "string" }
-  - &f_emphasis
-    label: "emphasis"
-    name: "emphasis"
-    widget: "list"
-    required: false
-    fields: [ { label: "Text", name: "text", widget: "string" } ]
-  - &f_link
-    label: "URL"
-    name: "link"
-    widget: "list"
-    required: false
-    fields:
-      - { label: "Text", name: "text", widget: "string" }
-      - { label: "URL",  name: "url",  widget: "string" }
-
-objects/richTextObject: &objects_richTextObject
-  widget: "object"
-  fields: *richTextFields
 
 imageFields: &fields_image
   - { label: "Image", name: "image", widget: "image" }
@@ -244,6 +242,14 @@ collections:
                             fields: *diagramFields
                         },
                     ],
+            }
+          - {
+                label: "Cell Line Category",
+                name: "cell_line_category",
+                widget: "select",
+                options:
+                    ["Key Structure and Organelle", "Nuclear Structure", "Stress", "Cardiac Structure", "Tools", "Endothelial"],
+                required: false,
             }
     - name: "disease-cell-line"
       label: "Disease Cell Lines"
@@ -575,92 +581,6 @@ collections:
       label: "Pages"
       files:
           - file: "src/pages/index.md"
-            label: "Landing Page"
-            name: "index"
-            fields:
-                - <<: *field_templateKey
-                  default: "index-page"
-                - { label: Title, name: title, widget: string }
-                - { label: Image, name: image, widget: image }
-                - { label: Subtitle, name: subtitle, widget: string }
-                - {
-                      label: Mainpitch,
-                      name: main_pitch,
-                      widget: object,
-                      fields:
-                          [
-                              { label: Title, name: title, widget: string },
-                              {
-                                  label: Description,
-                                  name: description,
-                                  widget: text,
-                              },
-                          ],
-                  }
-          - file: "src/pages/disease-catalog/index.md"
-            label: "Disease Cell Line Catalog"
-            name: "disease-catalog"
-            fields:
-                - <<: *field_templateKey
-                  default: "disease-catalog"
-                - { label: "Title", name: "title", widget: "string" }
-                - { label: "Body", name: "body", widget: "markdown" }
-                - {
-                      label: Main,
-                      name: main,
-                      widget: object,
-                      fields:
-                          [
-                              { label: Heading, name: heading, widget: string },
-                              {
-                                  label: Subheading,
-                                  name: subheading,
-                                  widget: string,
-                                  required: false,
-                              },
-
-                            {
-                                label: Description,
-                                name: description,
-                                widget: markdown,
-                            },
-                        ],
-                }
-                - {
-                    label: "Coriell Image",
-                    name: "coriell_image",
-                    widget: "image",
-                }
-                - {
-                      label: "Coriell Link",
-                      name: "coriell_link",
-                      widget: "string",
-                  }
-                - { label: "Learn Image", name: "learn_image", widget: "image" }
-                - { label: "Learn Link", name: "learn_link", widget: "string" }
-                - {
-                    label: "Addgene Image",
-                    name: "addgene_image",
-                    widget: "image",
-                }
-                - {
-                    label: "Addgene Link",
-                    name: "addgene_link",
-                    widget: "string",
-                }
-                - {
-                    label: "Footer text",
-                    name: "footer_text",
-                    widget: "markdown",
-                }
-                - {
-                      label: "Acknowledgements Block",
-                      name: "acknowledgements_block",
-                      widget: "object",
-                      fields: *acknowledgementsBlock
-                  }
-                - { label: "Funding", name: "funding_text", widget: "markdown" }
-          - file: "src/pages/normal-catalog/index.md"
             label: "Cell Line Catalog"
             name: "normal-catalog"
             fields:

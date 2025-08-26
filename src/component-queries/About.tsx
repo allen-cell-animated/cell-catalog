@@ -24,8 +24,6 @@ interface AboutProps {
             };
             coriell_image: FileNode;
             coriell_link: string;
-            learn_image: FileNode;
-            learn_link: string;
             addgene_image: FileNode;
             addgene_link: string;
         };
@@ -70,16 +68,6 @@ const About: React.FC = () => {
                                 }
                             }
                             coriell_link
-                            learn_image {
-                                childImageSharp {
-                                    gatsbyImageData(
-                                        placeholder: BLURRED
-                                        layout: FIXED
-                                        width: 250
-                                    )
-                                }
-                            }
-                            learn_link
                             addgene_image {
                                 childImageSharp {
                                     gatsbyImageData(

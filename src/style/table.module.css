@@ -90,10 +90,14 @@
     color: var(--WHITE);
 }
 
-.action-column:hover .action-button .tube-icon path,
-.action-column:hover .action-button .tube-icon line {
+.action-column:hover .action-button :global(.tube-icon) path,
+.action-column:hover .action-button :global(.tube-icon) line {
     fill: var(--primary-color);
     stroke: var(--WHITE);
+}
+
+.action-column .action-button :global(.tube-icon) {
+  color: var(--WHITE);
 }
 
 .action-column:hover .action-button .cert-icon path,
@@ -102,7 +106,7 @@
     stroke: var(--WHITE);
 }
 
-.action-column:hover .plasmid-icon path {
+.action-column:hover :global(.plasmid-icon) path {
     fill: var(--WHITE);
 }
 
@@ -230,7 +234,7 @@
     max-width: 310px;
 }
 
-.container .multiple-lines {
+.container .table-multi-line-cell {
     display: flex;
     flex-direction: column;
     gap: 5px;

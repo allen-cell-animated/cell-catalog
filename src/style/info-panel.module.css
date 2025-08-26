@@ -1,6 +1,7 @@
 .container :global(.ant-descriptions) {
     border-radius: 4px;
     border: 1px var(--small-table-border-color) solid;
+    margin-bottom: 24px;
 }
 
 .container.legend :global(.ant-descriptions) {
@@ -14,7 +15,7 @@
 .container :global(.ant-descriptions-item) {
     border-spacing: 0;
     border-bottom: 1px var(--small-table-border-color) solid;
-    padding: 10px 0 10px 20px !important;
+    padding: 10px 10px 10px 20px !important;
     line-height: 1;
 }
 
@@ -31,6 +32,11 @@
 .container :global(.ant-descriptions-item-label) {
     font-size: 14px;
     color: var(--MEDIUM_GRAY);
+    align-items: center;
+}
+
+.container .aligned :global(.ant-descriptions-item-label) {
+    width: 105px;
 }
 
 .container :global(.ant-descriptions-item-content) {

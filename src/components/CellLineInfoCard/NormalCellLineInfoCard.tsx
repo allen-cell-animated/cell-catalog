@@ -2,16 +2,19 @@ import React from "react";
 import CellLineInfoCardBase from "./CellLineInfoCardBase";
 import { CellLineInfoCardRequiredProps } from "./types";
 import GeneSymbolTag from "../GeneSymbolTag";
+import TubeIcon from "../Icons/TubeIcon";
+import PlasmidIcon from "../Icons/PlasmidIcon";
+import { formatCellLineId } from "../../utils";
+import { Flex } from "antd";
+import { UnpackedGene } from "../../component-queries/types";
+import { MultiLineTableCell, ParentComponent } from "../MultiLineTableCell";
+
+type ExtractedGeneFields = Record<keyof UnpackedGene, string[]>;
 
 interface NormalCellLineInfoCardProps extends CellLineInfoCardRequiredProps {
     orderPlasmid: string;
     cloneNumber: number;
-    taggedGene: {
-        name: string;
-        symbol: string;
-        structure?: string;
-        protein?: string;
-    }[];
+    taggedGene: UnpackedGene[];
     fluorescentTag: string[];
     alleleCount: string[];
 }
@@ -19,65 +22,88 @@ interface NormalCellLineInfoCardProps extends CellLineInfoCardRequiredProps {
 export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (
     props
 ) => {
-    const buttonList = [
+
+    const extractedGeneFields = props.taggedGene.reduce<ExtractedGeneFields>(
+        (acc, gene) => {
+            acc.name.push(gene.name);
+            acc.symbol.push(gene.symbol);
+            if (gene.structure) acc.structure.push(gene.structure);
+            if (gene.protein) acc.protein.push(gene.protein);
+            return acc;
+        },
+        { name: [], symbol: [], structure: [], protein: [] }
+    );
+
+    const geneSymbolTags = (
+        <Flex gap={4}>
+            {extractedGeneFields.symbol.map((symbol, i) => (
+                <GeneSymbolTag key={i} symbol={symbol as string} />
+            ))}
+        </Flex>
+    );
+
+    const infoRows = [
         {
-            label: "Certificate of Analysis",
-            href: props.certificateOfAnalysis,
+            key: "1",
+            label: "Protein",
+            children: (
+                <MultiLineTableCell
+                    parent={ParentComponent.INFO_CARD}
+                    dividers
+                    entries={extractedGeneFields.protein}
+                />
+            ),
         },
         {
-            label: "hPSCreg Certificate",
-            href: props.healthCertificate,
+            key: "2",
+            label: "Gene Symbol",
+            children: geneSymbolTags,
         },
         {
-            label: "Obtain Plasmid",
-            href: props.orderPlasmid,
+            key: "3",
+            label: "Gene Name",
+            children: (
+                <MultiLineTableCell
+                    parent={ParentComponent.INFO_CARD}
+                    dividers
+                    entries={extractedGeneFields.name}
+                />
+            ),
+        },
+        {
+            key: "4",
+            label: "Structure",
+            children: (
+                <MultiLineTableCell
+                    parent={ParentComponent.INFO_CARD}
+                    dividers
+                    entries={extractedGeneFields.structure}
+                />
+            ),
         },
     ];
 
-    const extractFieldsFromTaggedGene = (
-        field: keyof (typeof props.taggedGene)[0]
-    ) => {
-        return props.taggedGene.map((gene) => gene[field]).join(", ");
-    };
-
-    // matching the data with catalog 1.0, the final version may change depending on the design
-    // for now, showing only the first gene data if a line has multiple genes
-   const infoRows = [
-       { key: "1", label: "Clone Number", children: props.cloneNumber },
-       {
-           key: "2",
-           label: "Gene Symbol",
-           children: (
-               <GeneSymbolTag symbol={extractFieldsFromTaggedGene("symbol")} />
-           ),
-       },
-       {
-           key: "3",
-           label: "Gene Name",
-           children: extractFieldsFromTaggedGene("name"),
-       },
-       {
-           key: "4",
-           label: "Protein",
-           children: extractFieldsFromTaggedGene("protein"),
-       },
-       {
-           key: "5",
-           label: "Fluorescent Tag",
-           children: props.fluorescentTag.join(", "),
-       },
-       {
-           key: "6",
-           label: "Tagged Allele",
-           children: props.alleleCount.join(", "),
-       },
-   ];
+    const buttonList = [
+        {
+            key: "order",
+            label: `Obtain ${formatCellLineId(props.cellLineId)}`,
+            icon: <TubeIcon />,
+            href: props.orderLink,
+        },
+        {
+            key: "orderPlasmid",
+            label: "Obtain Donor Plasmid",
+            icon: <PlasmidIcon />,
+            href: props.orderPlasmid,
+        },
+    ];
 
     return (
         <CellLineInfoCardBase
             {...props}
             buttonList={buttonList}
             infoRows={infoRows}
+            multiGene={props.taggedGene.length > 1}
         />
     );
 };

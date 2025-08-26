@@ -8,6 +8,7 @@ import {
     SearchLookup,
     SearchAndFilterGroup,
 } from "./types";
+import { getThumbnail } from "../utils/mediaUtils";
 import { formatCellLineId } from "../utils";
 
 export const extractGeneticModifications = (
@@ -71,9 +72,9 @@ export const convertFrontmatterToDiseaseCellLine = (
         mutatedGene: mutatedGenes,
         path: cellLineNode.fields.slug,
         parentalLine: {
-            thumbnailImage:
-                cellLineNode.frontmatter.parental_line.frontmatter
-                    .images_and_videos?.images?.[0]?.image?.childImageSharp?.gatsbyImageData || null,
+            thumbnailImage: getThumbnail(
+                cellLineNode.frontmatter.parental_line.frontmatter.images_and_videos
+            ),
             cellLineId:
                 cellLineNode.frontmatter.parental_line.frontmatter.cell_line_id,
             cloneNumber:
@@ -121,9 +122,10 @@ export const convertFrontmatterToNormalCellLines = ({
         healthCertificate: cellLineNode.frontmatter.eu_hpsc_reg,
         orderLink: cellLineNode.frontmatter.order_link,
         orderPlasmid: cellLineNode.frontmatter.donor_plasmid,
-        thumbnailImage:
-            cellLineNode.frontmatter.images_and_videos?.images?.[0]?.image?.childImageSharp
-                ?.gatsbyImageData || null,
+        thumbnailImage: getThumbnail(
+            cellLineNode.frontmatter.images_and_videos
+        ),
+        imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
     };
 };
 
