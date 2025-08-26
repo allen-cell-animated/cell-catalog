@@ -35,4 +35,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: ACTB locus; Bottom: Zoom in on mEGFP insertion site at ACTB N-terminal exon"
+cell_line_category: 
+ - Key Structure and Organelle
 ---

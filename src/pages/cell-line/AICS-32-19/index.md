@@ -35,4 +35,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: CETN2 locus; Bottom: Zoom in on mTagRFP-T insertion site at CETN2 N-terminus"
+cell_line_category: 
+ - Key Structure and Organelle
 ---

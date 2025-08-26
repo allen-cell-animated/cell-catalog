@@ -43,4 +43,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: EZH2 locus showing 5 EZH2 isoforms; Bottom: Zoom in on mEGFP insertion site at EZH2 N-terminal exon"
+cell_line_category: 
+ - Nuclear Structure
 ---

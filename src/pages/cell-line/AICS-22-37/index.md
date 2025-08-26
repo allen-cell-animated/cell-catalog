@@ -35,4 +35,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: LAMP1 locus; Bottom: Zoom in on mEGFP insertion site at LAMP1 C-terminal exon"
+cell_line_category: 
+ - Key Structure and Organelle
 ---

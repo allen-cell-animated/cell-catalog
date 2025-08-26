@@ -303,6 +303,7 @@ collections:
                 options:
                     ["Key Structure and Organelle", "Nuclear Structure", "Stress", "Cardiac Structure", "Tools", "Endothelial"],
                 required: false,
+                multiple: true,
             }
     - name: "disease-cell-line"
       label: "Disease Cell Lines"

@@ -37,4 +37,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: GJA1 locus; Bottom: Zoom in on mEGFP insertion site at GJA1 C-terminus"
+cell_line_category: 
+ - Key Structure and Organelle
 ---

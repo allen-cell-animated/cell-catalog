@@ -37,4 +37,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: HIST1H2BJ locus; Bottom: Zoom in on mEGFP insertion site at HIST1H2BJ C-terminus"
+cell_line_category: 
+ - Nuclear Structure
 ---

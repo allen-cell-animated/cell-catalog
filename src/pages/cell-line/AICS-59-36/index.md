@@ -41,4 +41,7 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: SEC61B locus with zoom in on mEGFP insertion site at SEC61B N-terminal exon; Bottom: LMNB1 locus showing 2 LMNB1 isoforms with zoom in on mTagRFP-T insertion site at LMNB1 N-terminal exon"
+cell_line_category: 
+  - Key Structure and Organelle
+  - Nuclear Structure
 ---

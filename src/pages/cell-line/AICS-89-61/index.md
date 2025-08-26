@@ -45,4 +45,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: FBL locus with zoom in on mEGFP insertion site at FBL C-terminal exon. Middle: NPM1 locus showing 7 NPM1 isoforms with zoom in on mTagRFP-T insertion site at NPM1 C-terminal exon. Bottom: CLYBL locus showing dCas9-TagBFP-KRAB insertion site at CLYBL safe harbor site between exons 2 and 3."
+cell_line_category: 
+ - Tools
 ---

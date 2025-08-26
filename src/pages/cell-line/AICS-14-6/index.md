@@ -37,4 +37,7 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: FBL locus; Bottom: Zoom in on mEGFP insertion site at FBL C-terminal exon"
+cell_line_category: 
+  - Key Structure and Organelle
+  - Nuclear Structure
 ---

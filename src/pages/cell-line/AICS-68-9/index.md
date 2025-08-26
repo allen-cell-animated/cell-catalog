@@ -37,4 +37,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: SMC1A locus showing 2 SMC1A isoforms; Bottom: Zoom in on mEGFP insertion site at SMC1A C-terminal exon"
+cell_line_category: 
+ - Nuclear Structure
 ---

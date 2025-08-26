@@ -31,4 +31,6 @@ editing_design:
       images:
         - image: AAVS1_gfp.png
           caption: "Top: mEGFP insertion site at AAVS1 locus in PPP1R12C intron; Bottom: Zoom in on mEGFP insertion site at AAVS1 locus"
+cell_line_category: 
+ - Key Structure and Organelle
 ---

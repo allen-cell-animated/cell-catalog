@@ -37,4 +37,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: ST6GAL1 locus showing 3 ST6GAL1 isoforms; Bottom: Zoom in on mEGFP insertion site at ST6GAL1 C-terminal exon"
+cell_line_category: 
+ - Key Structure and Organelle
 ---
