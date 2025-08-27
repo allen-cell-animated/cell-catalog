@@ -60,6 +60,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: TOMM20 locus with zoom in on mEGFP insertion site at TOMM20 C-terminal exon. Bottom: TUBA1B locus with zoom in on mTagRFP-T insertion site at TUBA1B N-terminus."
-cell_line_category: 
+category_labels: 
  - Key Structure and Organelle
 ---

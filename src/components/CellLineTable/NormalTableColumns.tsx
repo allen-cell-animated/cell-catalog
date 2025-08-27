@@ -192,8 +192,8 @@ export const getNormalTableColumns = (
         },
         {
             title: "Category",
-            key: "cellLineCategory",
-            dataIndex: "cellLineCategory",
+            key: "categoryLabels",
+            dataIndex: "categoryLabels",
             className: inProgress ? "" : lastColumn,
             responsive: mdBreakpoint,
             render: (categories: string[]) => (

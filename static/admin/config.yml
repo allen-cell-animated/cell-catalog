@@ -297,8 +297,8 @@ collections:
                     ],
             }
           - {
-                label: "Cell Line Category",
-                name: "cell_line_category",
+                label: "Category Labels",
+                name: "category_labels",
                 widget: "select",
                 options:
                     ["Key Structure and Organelle", "Nuclear Structure", "Stress", "Cardiac Structure", "Tools", "Endothelial"],

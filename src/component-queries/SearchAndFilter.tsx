@@ -57,7 +57,7 @@ const SearchAndFilter = ({
                                                 }
                                             }
                                         }
-                                        cell_line_category
+                                        category_labels
                                     }
                                 }
                             }

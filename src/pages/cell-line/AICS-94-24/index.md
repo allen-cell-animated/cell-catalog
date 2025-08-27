@@ -37,6 +37,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: SON locus showing 4 SON isoforms; Bottom: Zoom in on mEGFP insertion site at SON N-terminal exon"
-cell_line_category: 
+category_labels: 
  - Nuclear Structure
 ---

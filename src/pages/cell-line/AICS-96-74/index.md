@@ -46,6 +46,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: POLR2A locus; Bottom: Zoom in on mEGFP insertion site at POLR2A N-terminal exon"
-cell_line_category: 
+category_labels: 
  - Nuclear Structure
 ---

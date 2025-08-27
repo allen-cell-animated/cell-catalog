@@ -35,6 +35,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP insertion site at ACTN2 C-terminus; More information on tagging transcriptionally silent genes in hiPSCs is available in Roberts et al. (2019) Stem Cell Reports"
-cell_line_category: 
+category_labels: 
  - Cardiac Structure
 ---

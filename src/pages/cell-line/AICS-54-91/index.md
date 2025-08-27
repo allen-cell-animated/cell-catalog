@@ -35,6 +35,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: mTagRFPT insertion site at safe harbor locus (AAVS1) in PPP1R12C intron; Bottom: Zoom in on mTagRFPT insertion site at safe harbor locus (AAVS1); insertion into AAVS1 is based on Hockmeyer et al (2011) Nat. Biotechnology, 29(8): 731-734"
-cell_line_category: 
+category_labels: 
  - Key Structure and Organelle
 ---

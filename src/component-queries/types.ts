@@ -89,7 +89,7 @@ export interface NormalCellLineFrontmatter {
         diagrams: DiagramList[];
     };
     images_and_videos?: MediaFrontMatter;
-    cell_line_category: string[];
+    category_labels: string[];
 };
 
 export interface NormalCellLineNode {
@@ -231,7 +231,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     tagLocation: string[];
     fluorescentTag: string[];
     orderPlasmid: string;
-    cellLineCategory: string[];
+    categoryLabels: string[];
 }
 
 export type ParentLine = Pick<UnpackedNormalCellLine,
@@ -271,7 +271,7 @@ export interface SearchAndFilterGroup {
                         };
                     }[];
                 };
-                cell_line_category: string[];
+                category_labels: string[];
             };
         };
     }[];

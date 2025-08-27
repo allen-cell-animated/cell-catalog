@@ -35,6 +35,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: TFAM locus showing 2 TFAM isoforms; Bottom: Zoom in on mEGFP insertion site at TFAM C-terminal exon"
-cell_line_category: 
+category_labels: 
  - Key Structure and Organelle
 ---

@@ -31,6 +31,6 @@ editing_design:
       images:
         - image: DCP1A_GFP.png
           caption: "Top: DCP1A locus showing 3 DCP1A isoforms; Bottom: Zoom in on mEGFP insertion site at DCP1A N-Terminus."
-cell_line_category: 
+category_labels: 
  - Stress
 ---

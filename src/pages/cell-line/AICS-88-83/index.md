@@ -47,6 +47,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: PCNA locus showing 2 PCNA isoforms; Bottom: Zoom in on mEGFP insertion site at PCNA N-terminal exon"
-cell_line_category: 
+category_labels: 
  - Nuclear Structure
 ---

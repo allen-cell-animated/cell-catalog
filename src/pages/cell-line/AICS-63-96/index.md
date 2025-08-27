@@ -42,6 +42,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: DMD locus showing DMD isoforms; Bottom: Zoom in on mEGFP insertion site at DMD C-terminal exon"
-cell_line_category: 
+category_labels: 
  - Cardiac Structure
 ---

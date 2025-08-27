@@ -35,6 +35,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: RAB5A locus showing 2 RAB5A isoforms; Bottom: Zoom in on mEGFP insertion site at RAB5A N-terminal exon"
-cell_line_category: 
+category_labels: 
  - Key Structure and Organelle
 ---

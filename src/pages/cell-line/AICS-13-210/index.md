@@ -37,7 +37,7 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: LMNB1 locus showing 2 LMNB1 isoforms; Bottom: Zoom in on mEGFP insertion site at LMNB1 N-terminal exon"
-cell_line_category: 
+category_labels: 
   - Key Structure and Organelle
   - Nuclear Structure
 ---

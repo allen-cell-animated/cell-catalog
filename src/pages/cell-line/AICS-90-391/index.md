@@ -38,6 +38,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: CLYBL locus; Bottom: Zoom in on dCas9-TagBFP-KRAB insertion site at CLYBL safe harbor site between exons 2 and 3"
-cell_line_category: 
+category_labels: 
  - Tools
 ---

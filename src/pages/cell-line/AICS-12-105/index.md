@@ -37,6 +37,6 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: TUBA1B locus; Bottom: Zoom in on mEGFP insertion site at TUBA1B N-terminus"
-cell_line_category: 
+category_labels: 
  - Key Structure and Organelle
 ---

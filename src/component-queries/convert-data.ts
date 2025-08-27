@@ -126,7 +126,7 @@ export const convertFrontmatterToNormalCellLines = ({
             cellLineNode.frontmatter.images_and_videos
         ),
         imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
-        cellLineCategory: cellLineNode.frontmatter.cell_line_category
+        categoryLabels: cellLineNode.frontmatter.category_labels
     };
 };
 
@@ -147,7 +147,7 @@ export const createLookupMappings = (
             if (cellLineId) {
                 allSearchableTerms.add(formatCellLineId(cellLineId));
             }
-            const categories = edge.node.frontmatter.cell_line_category;
+            const categories = edge.node.frontmatter.category_labels;
             if (categories) {
                 categories.forEach((category: any) => {
                     allSearchableTerms.add(category);
