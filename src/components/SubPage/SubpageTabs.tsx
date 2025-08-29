@@ -4,8 +4,10 @@ import { SubPage } from "../../types";
 import EditingDesignSubpage from "./EditingDesign";
 import GenomicCharacterization from "./GenomicCharacterization";
 import StemCellChar, { StemCellCharProps } from "./StemCellChar";
-import { UnpackedEditingDesign } from "./types";
-import { DiagramCardProps } from "../shared/DiagramCard";
+import {
+    UnpackedEditingDesign,
+    UnpackedGenomicCharacterization,
+} from "./types";
 
 const {
     container,
@@ -16,7 +18,7 @@ const {
 export interface SubpageTabsProps {
     tabsToRender: SubPage[];
     editingDesignData: UnpackedEditingDesign | null;
-    genomicCharacterizationData?: DiagramCardProps[];
+    genomicCharacterizationData?: UnpackedGenomicCharacterization | null;
     stemCellCharData: StemCellCharProps | null;
 }
 
@@ -33,20 +35,32 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
             </div>
         );
     };
+
+    const hasGcTables = (gc?: UnpackedGenomicCharacterization | null): boolean =>
+        !!(
+            gc?.amplifiedJunctions?.data?.length ||
+            gc?.ddpcr?.data?.length ||
+            gc?.crRnaOffTargets?.data?.length
+        );
+
+    const hasGcData =
+        !!genomicCharacterizationData &&
+        !!(
+            genomicCharacterizationData.diagrams?.length ||
+            hasGcTables(genomicCharacterizationData)
+        );
+
     const tabComponents = {
         [SubPage.EditingDesign]: editingDesignData ? (
             <EditingDesignSubpage {...editingDesignData} />
         ) : (
             getNoDataComponent(SubPage.EditingDesign)
         ),
-        [SubPage.GenomicCharacterization]:
-            genomicCharacterizationData?.length ? (
-                <GenomicCharacterization
-                    diagrams={genomicCharacterizationData || []}
-                />
-            ) : (
-                getNoDataComponent(SubPage.GenomicCharacterization)
-            ),
+        [SubPage.GenomicCharacterization]: hasGcData ? (
+            <GenomicCharacterization {...genomicCharacterizationData} />
+        ) : (
+            getNoDataComponent(SubPage.GenomicCharacterization)
+        ),
         [SubPage.StemCellCharacteristics]: stemCellCharData ? (
             <StemCellChar {...stemCellCharData} />
         ) : (
