@@ -37,4 +37,41 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: SMC1A locus showing 2 SMC1A isoforms; Bottom: Zoom in on mEGFP insertion site at SMC1A C-terminal exon"
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+    - title: "GFP-tagged and untagged alleles"
+      images:
+        - image: FULL_ALLELE_CL9.jpg
+          caption: "Junctional PCR primers complementary to sequences flanking the homology arms in the distal genome were used together to amplify tagged and untagged allele. Gel shows untagged allele (smaller band) for WT unedited line and tagged allele (larger band) for cl9. (1% Agarose gel with Thermo Fisher 1kb ladder)."
+    - title: "Karyotype Analysis"
+      images:
+        - image: Cl9_Karyo.PNG
+          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "SMC1A-mEGFP"
+      junction: "5'"
+      expected_size: "1601"
+      confirmed_sequence: "PASS"
+    - editedGene: "SMC1A-mEGFP"
+      junction: "3'"
+      expected_size: "1597"
+      confirmed_sequence: "PASS"
+    - editedGene: "SMC1A-mEGFP"
+      junction: "WT internal"
+      expected_size: "N/A"
+      confirmed_sequence: "N/A"
+    - editedGene: "SMC1A-mEGFP"
+      junction: "Full junctional allele"
+      expected_size: "Wild Type:X-Chromosome; Insert: 3076"
+      confirmed_sequence: "PASS"
+  junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP insertion. Primers were designed to exclude amplification from the donor plasmid."
+  ddpcr:
+    - tag: SMC1A-mEGFP
+      clone: 9
+      fp_ratio: 0.51
+      plasmid: 0.0
+  ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 ---

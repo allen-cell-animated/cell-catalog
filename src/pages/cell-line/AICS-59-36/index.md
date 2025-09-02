@@ -41,4 +41,57 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: SEC61B locus with zoom in on mEGFP insertion site at SEC61B N-terminal exon; Bottom: LMNB1 locus showing 2 LMNB1 isoforms with zoom in on mTagRFP-T insertion site at LMNB1 N-terminal exon"
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_generic.png
+    - title: "Karyotype Analysis"
+      images:
+        - image: AICS-59DualSec-LMNB1cl.jpg
+          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "SEC61B-mEGFP"
+      junction: "5'"
+      expected_size: "1371"
+      confirmed_sequence: "perfect"
+    - editedGene: "SEC61B-mEGFP"
+      junction: "3'"
+      expected_size: "1875"
+      confirmed_sequence: "perfect"
+    - editedGene: "SEC61B-mEGFP"
+      junction: "WT internal"
+      expected_size: "795"
+      confirmed_sequence: "perfect"
+    - editedGene: "SEC61B-mEGFP"
+      junction: "Full junctional allele"
+      expected_size: "Wild Type: 2131; Insert: 2913"
+      confirmed_sequence: "perfect"
+    - editedGene: "LMNB1-mTagRFP-T"
+      junction: "5'"
+      expected_size: "1297"
+      confirmed_sequence: "perfect"
+    - editedGene: "LMNB1-mTagRFP-T"
+      junction: "3'"
+      expected_size: "1260"
+      confirmed_sequence: "perfect"
+    - editedGene: "LMNB1-mTagRFP-T"
+      junction: "WT internal"
+      expected_size: "717"
+      confirmed_sequence: "perfect"
+    - editedGene: "LMNB1-mTagRFP-T"
+      junction: "Full junctional allele"
+      expected_size: "Wild Type: 1906; Insert: 2739"
+      confirmed_sequence: "perfect"
+  junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP and mTagRFP-T insertion. Primers were designed to exclude amplification from the donor plasmid."
+  ddpcr:
+    - tag: SEC61B-mEGFP
+      clone: 36
+      fp_ratio: 0.533
+      plasmid: 0.002
+    - tag: LMNB1-mTagRFP-T
+      clone: 36
+      fp_ratio: 0.561
+      plasmid: 0.002
+  ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 ---

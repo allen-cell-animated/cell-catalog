@@ -35,4 +35,37 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: mTagRFPT insertion site at safe harbor locus (AAVS1) in PPP1R12C intron; Bottom: Zoom in on mTagRFPT insertion site at safe harbor locus (AAVS1); insertion into AAVS1 is based on Hockmeyer et al (2011) Nat. Biotechnology, 29(8): 731-734"
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_mTag-RFP-T.png
+    - title: "Karyotype Analysis"
+      images:
+        - image: AAVS1_cl.91.JPG
+          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "AAVS1-mTagRFP-T"
+      junction: "5'"
+      expected_size: "NA"
+      confirmed_sequence: "NA"
+    - editedGene: "AAVS1-mTagRFP-T"
+      junction: "3'"
+      expected_size: "1213"
+      confirmed_sequence: "Yes"
+    - editedGene: "AAVS1-mTagRFP-T"
+      junction: "WT internal"
+      expected_size: "534"
+      confirmed_sequence: "Yes"
+    - editedGene: "AAVS1-mTagRFP-T"
+      junction: "Full junctional allele"
+      expected_size: "NA"
+      confirmed_sequence: "NA"
+  junction_table_caption: "PCR amplified 3' junction was used to establish delivery via HDR at the intended genomic locus. Tiled junctions were not possible to amplify or sequence due to the large size of the delivered sequence (6KB). The precise sequence of the delivered sequence was not determined because the mTag-RFP-T tag sequence was not fused to an endogenous coding sequence."
+  ddpcr:
+    - tag: AAVS1-mTagRFP-T
+      clone: 91
+      fp_ratio: 0.483
+      plasmid: 0.001
+  ddpcr_caption: "mTagRFP-T: mTagRFP-T/RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 ---
