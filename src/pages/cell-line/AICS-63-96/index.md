@@ -30,11 +30,11 @@ images_and_videos:
         differentiation). Skeletal muscle sample was courtesy of Shawn Luttrell
         and David Mack (University of Washington). The movie starts at the
         bottom of the cells and ends at the top. Scale bar, 10 µm.
-      video: https://vimeo.com/1079587182/3cc7dddf19?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079587182
 editing_design:
   ncbi_isoforms:
     - n
-  crna: AGACTTCCTACATTGTGTCC
+  cr_rna: AGACTTCCTACATTGTGTCC
   linker: LEADYKDDDDKRSEF
   cas9: Wildtype spCas9
   diagrams:

@@ -1,29 +1,19 @@
 import React from "react";
-import { Flex, Tag, Typography } from "antd";
+import { Flex } from "antd";
 import { UnpackedGene } from "../component-queries/types";
-import { getTooltipProps } from "./MultiLineTableCell";
+
+import GeneSymbolTag from "./GeneSymbolTag";
+import { TruncatedText } from "./TruncatedText";
 
 interface GeneDisplayProps {
     gene: UnpackedGene;
 }
 
-const { truncatedText } = require("../style/table.module.css");
-const { Text } = Typography;
-
 const GeneDisplay: React.FC<GeneDisplayProps> = ({ gene }) => {
     return (
         <Flex wrap="nowrap" align="flex-end">
-            <Tag bordered={false} color="#DFE5EA">
-                {gene.symbol}
-            </Tag>
-            <Text
-                className={truncatedText}
-                ellipsis={{
-                    tooltip: getTooltipProps(gene.name),
-                }}
-            >
-                {gene.name}
-            </Text>
+            <GeneSymbolTag symbol={gene.symbol} />
+            <TruncatedText>{gene.name}</TruncatedText>
         </Flex>
     );
 };

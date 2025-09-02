@@ -25,21 +25,21 @@ images_and_videos:
         CCCTC-binding factor (CTCF). A single, mid-level plane of the cells was
         imaged every 3 min on a spinning-disk confocal microscope. Movie plays
         at 900x real time. Scale bar, 5 µm.
-      video: https://vimeo.com/1079876600/45101538a9?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079876600
     - caption: Z-stack of live hiPS cell colony expressing mEGFP-tagged CCCTC-binding
         factor (CTCF). Cells were imaged in 3D on a spinning-disk confocal
         microscope. Movie starts at the bottom of the cells and ends at the top.
         Scale bar, 5µm.
-      video: https://vimeo.com/1079876690/e62c08a332?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079876690
     - caption: Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged
         CCCTC-binding factor (CTCF). A single, mid-level plane of the cells was
         imaged every 3 min on a spinning-disk confocal microscope. Movie plays
         at 1800x real time. Scale bar, 20 µm.
-      video: https://vimeo.com/1079876768/14a8b1fded?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079876768
 editing_design:
   ncbi_isoforms:
     - 
-  crna: TGATGCAGTCGAAGCCATTG
+  cr_rna: TGATGCAGTCGAAGCCATTG
   linker: EDLYFQS
   cas9: Wildtype spCas9
   diagrams:

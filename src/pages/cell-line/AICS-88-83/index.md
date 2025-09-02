@@ -25,21 +25,21 @@ images_and_videos:
         proliferating cell nuclear antigen (PCNA). A single, mid-level plane of
         the cells was imaged every 3 min on a spinning-disk confocal microscope.
         Movie plays at 900x real time. Scale bar, 5 µm.
-      video: https://vimeo.com/1079876284/e0804684a6?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079876284
     - caption: Z-stack of live hiPS cell colony expressing mEGFP-tagged proliferating
         cell nuclear antigen (PCNA). Cells were imaged in 3D on a spinning-disk
         confocal microscope. Movie starts at the bottom of the cells and ends at
         the top. Scale bar, 5µm.
-      video: https://vimeo.com/1079876437/05c06fe957?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079876437
     - caption: Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged
         proliferating cell nuclear antigen (PCNA). A single, mid-level plane of
         the cells was imaged every 3 min on a spinning-disk confocal microscope.
         Movie plays at 1800x real time. Scale bar, 20 µm.
-      video: https://vimeo.com/1079876541/cc9572adf0?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079876541
 editing_design:
   ncbi_isoforms:
     - 
-  crna: GTTCGAGGCGCGCCTGGTCC
+  cr_rna: GTTCGAGGCGCGCCTGGTCC
   linker: GEGQGQGQGPGRGYAYRS
   cas9: Wildtype spCas9
   diagrams:

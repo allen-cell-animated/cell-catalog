@@ -31,7 +31,7 @@ images_and_videos:
 editing_design:
   ncbi_isoforms:
     - NM_001256012
-  crna: GTTCTCTGCGCCATTGTAAA
+  cr_rna: GTTCTCTGCGCCATTGTAAA
   linker: YSDLELKLRIP
   cas9: Wildtype spCas9
   diagrams:

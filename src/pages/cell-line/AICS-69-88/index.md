@@ -29,7 +29,7 @@ images_and_videos:
 editing_design:
   ncbi_isoforms:
     - n
-  crna: GCCATGGCCTCGGGAGCCGG
+  cr_rna: GCCATGGCCTCGGGAGCCGG
   linker: YSDLE
   cas9: Wildtype spCas9
   diagrams:

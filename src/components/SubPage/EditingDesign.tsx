@@ -30,31 +30,31 @@ const formatTextWithGeneLocations = (text: string, className: string) => {
 };
 
 const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
-    crnaTargetSite,
+    crRnaTargetSite,
     dnaDonorSequence,
     cas9,
     fPrimer,
     rPrimer,
     diagrams,
-    ncbi_isoforms,
-    crna,
+    ncbiIsoforms,
+    crRNA,
     linker,
 }) => {
     const rows: DescriptionsProps["items"] = [];
 
-    if (ncbi_isoforms) {
+    if (ncbiIsoforms) {
         rows.push({
             key: "isoforms",
             label: "NCBI Isoforms:",
-            children: ncbi_isoforms,
+            children: ncbiIsoforms,
         });
     }
 
-    if (crna) {
+    if (crRNA) {
         rows.push({
-            key: "crna",
-            label: "cRNA Target Site:",
-            children: crna,
+            key: "cr_rna",
+            label: "crRNA Target Site:",
+            children: crRNA,
         });
     }
 
@@ -66,11 +66,11 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
         });
     }
 
-    if (crnaTargetSite) {
+    if (crRnaTargetSite) {
         rows.push({
-            key: "crna",
-            label: "cRNA Target Site:",
-            children: formatTextWithGeneLocations(crnaTargetSite, pamSite),
+            key: "cr_rna",
+            label: "crRNA Target Site:",
+            children: formatTextWithGeneLocations(crRnaTargetSite, pamSite),
         });
     }
 
@@ -120,15 +120,15 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
         });
     }
 
-    const shouldShowLegend = Boolean(crnaTargetSite || dnaDonorSequence);
+    const shouldShowLegend = Boolean(crRnaTargetSite || dnaDonorSequence);
     const legendContent = shouldShowLegend ? (
         <div className={legendText}>
-            {crnaTargetSite && (
+            {crRnaTargetSite && (
                 <>
                     <span className={pamSite}>Red</span> = PAM Site
                 </>
             )}
-            {crnaTargetSite && dnaDonorSequence && ", "}
+            {crRnaTargetSite && dnaDonorSequence && ", "}
             {dnaDonorSequence && (
                 <>
                     <span className={mutation}>Blue</span> = Mutation

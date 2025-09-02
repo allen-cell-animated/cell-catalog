@@ -27,7 +27,7 @@ images_and_videos:
 editing_design:
   ncbi_isoforms:
     - NM_004415
-  crna: AGAACTACTGCTAAATGAGT
+  cr_rna: AGAACTACTGCTAAATGAGT
   linker: HDPPVAT
   cas9: Wildtype spCas9
   diagrams:

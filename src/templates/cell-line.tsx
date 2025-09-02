@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import {
     NormalCellLineFrontmatter,
 } from "../component-queries/types";
@@ -11,10 +10,12 @@ import SubpageTabs from "../components/SubPage/SubpageTabs";
 import { TABS_WITH_STEM_CELL } from "../constants";
 import { unpackNormalFrontMatterForSubpage } from "../components/SubPage/convert-data";
 import { UnpackedNormalCellLineFull } from "../components/SubPage/types";
+import ImagesAndVideos from "../components/ImagesAndVideos";
+import { hasMedia, getImages, getVideos } from "../utils/mediaUtils";
 
 const {
     container,
-    imagesContainer,
+    section,
     leftCard,
     returnArrow,
 } = require("../style/disease-cell-line.module.css");
@@ -43,10 +44,7 @@ interface CellLineProps extends UnpackedNormalCellLineFull {
 export const CellLineTemplate = ({
     cellLineId,
     cloneNumber,
-    tagLocation,
     taggedGene,
-    status,
-    thumbnailImage,
     href,
     orderPlasmid,
     healthCertificate,
@@ -55,8 +53,9 @@ export const CellLineTemplate = ({
     fluorescentTag,
     alleleCount,
     editingDesign,
+    imagesAndVideos,
 }: CellLineProps) => {
-    const image = thumbnailImage ? getImage(thumbnailImage) : undefined;
+    const hasImagesOrVideos = hasMedia(imagesAndVideos);
     if (cellLineId === 0) {
         return null;
     }
@@ -64,7 +63,7 @@ export const CellLineTemplate = ({
         <>
             <div className={container}>
                 <div className={leftCard}>
-                    <Link to="/normal-catalog">
+                    <Link to="/">
                         <DefaultButton>
                             <Arrow className={returnArrow} />
                             Return to Cell Catalog
@@ -85,9 +84,16 @@ export const CellLineTemplate = ({
                         alleleCount={alleleCount}
                     />
                 </div>
-                <div className={imagesContainer}>
-                    {image && (
-                        <GatsbyImage image={image} alt="Cell Line Thumbnail" />
+                <div className={section}>
+                    {hasImagesOrVideos && (
+                        <ImagesAndVideos
+                            cellLineId={cellLineId}
+                            geneSymbol={taggedGene?.[0]?.symbol || ""}
+                            fluorescentTag={fluorescentTag?.[0] || ""}
+                            alleleTag={alleleCount?.[0] || ""}
+                            images={getImages(imagesAndVideos)}
+                            videos={getVideos(imagesAndVideos)}
+                        />
                     )}
                 </div>
             </div>
@@ -154,18 +160,19 @@ export const pageQuery = graphql`
                     images {
                         image {
                             childImageSharp {
-                                gatsbyImageData(
-                                    placeholder: BLURRED
-                                    layout: CONSTRAINED
-                                )
+                                gatsbyImageData(width: 400, placeholder: BLURRED)
                             }
                         }
+                        caption
+                    }
+                    videos {
+                        video 
                         caption
                     }
                 }
                 editing_design {
                     ncbi_isoforms
-                    crna
+                    cr_rna
                     linker
                     cas9
                     diagrams {

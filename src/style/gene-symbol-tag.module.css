@@ -1,0 +1,5 @@
+.tag:global(.ant-tag) {
+    background-color: var(--ALLEN_LIGHT_10);
+    color: var(--SERIOUS_GRAY);
+    font-size: 14px;
+}
