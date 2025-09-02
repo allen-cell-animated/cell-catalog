@@ -37,4 +37,41 @@ editing_design:
           caption: "Top: RAB5A locus showing 2 RAB5A isoforms; Bottom: Zoom in on mEGFP insertion site at RAB5A N-terminal exon"
 category_labels: 
  - Key Structure and Organelle
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+    - title: "GFP-tagged and untagged alleles"
+      images:
+        - image: GenomicCharacterization_tagged_allele_gel_cl35.jpg
+          caption: "Junctional PCR primers complementary to sequences flanking the homology arms in the distal genome were used together to co-amplify tagged and untagged alleles. Gel shows tagged allele (larger band) only for biallelic clone 35. (1% Agarose gel with Thermo Fisher 1kb ladder)."
+    - title: "Karyotype Analysis"
+      images:
+        - image: RAB5A_cl.35.JPG
+          caption: "After cells banks were created, one vial was thawed and 20 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "RAB5A-mEGFP"
+      junction: "5'"
+      expected_size: "1383"
+      confirmed_sequence: "Pass"
+    - editedGene: "RAB5A-mEGFP"
+      junction: "3'"
+      expected_size: "1780"
+      confirmed_sequence: "Pass"
+    - editedGene: "RAB5A-mEGFP"
+      junction: "WT internal"
+      expected_size: "NA"
+      confirmed_sequence: "NA"
+    - editedGene: "RAB5A-mEGFP"
+      junction: "Full junctional allele"
+      expected_size: "Tagged:1180; Untagged:NA"
+      confirmed_sequence: "Not sequenced"
+  junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. Expect absence of WT (untagged) allele because clone 35 has bi-allelic RAB5A mEGFP tag. 5' and 3' junctions were Sanger sequenced to check for precise mEGFP insertion. Primers were designed to exclude amplification from the donor plasmid."
+  ddpcr:
+    - tag: RAB5A-mEGFP
+      clone: 35
+      fp_ratio: 0.92
+      plasmid: 0.0
+  ddpcr_caption: "mEGFP: mEGFP/RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 ---

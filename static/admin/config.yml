@@ -297,6 +297,175 @@ collections:
                     ],
             }
           - {
+                label: "Genomic Characterization",
+                name: "genomic_characterization",
+                widget: "object",
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            label: "Diagrams",
+                            name: "diagrams",
+                            widget: "list",
+                            required: false,
+                            collapsed: true,
+                            fields:
+                                [
+                                    {
+                                        label: "Title",
+                                        name: "title",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Images",
+                                        name: "images",
+                                        widget: "list",
+                                        required: false,
+                                        fields:
+                                            [
+                                                {
+                                                    label: "Image",
+                                                    name: "image",
+                                                    widget: "image",     
+                                                },
+                                                {
+                                                    label: "Caption",
+                                                    name: "caption",
+                                                    widget: "string",
+                                                    required: false,
+                                                },
+                                            ],                   
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Amplified Junctions",
+                            name: "amplified_junctions",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Edited Gene",
+                                        name: "editedGene",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Junction",
+                                        name: "junction",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Expected Size",
+                                        name: "expected_size",
+                                        widget: "string",  # Using string to handle both numbers and text like "Tagged:3006; Untagged:2256"
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Confirmed Sequence",
+                                        name: "confirmed_sequence",
+                                        widget: "select",
+                                        options: ["", "Yes", "NA", "Not Sequenced"],
+                                        default: "",
+                                        required: false,
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Junction Table Caption",
+                            name: "junction_table_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "ddPCR",
+                            name: "ddpcr",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Tag",
+                                        name: "tag",
+                                        widget: "string",
+                                        required: false,
+                                        hint: "Enter the tag in the format [gene symbol]-[fluorescent tag]"
+                                    },
+                                    {
+                                        label: "Clone",
+                                        name: "clone",
+                                        widget: number,
+                                        required: false,
+                                    },
+                                    {
+                                        label: "FP Ratio",
+                                        name: "fp_ratio",
+                                        widget: "number",
+                                        required: false,
+                                        value_type: "float",
+                                    },
+                                    {
+                                        label: "Plasmid",
+                                        name: "plasmid",
+                                        widget: "number",
+                                        required: false,
+                                        value_type: "float",
+                                    },
+                                ],
+                        },
+                        {
+                            label: "ddPCR Caption",
+                            name: "ddpcr_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "crRNA Off-targets",
+                            name: "cr_rna_off_targets",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Clones Analyzed",
+                                        name: "clones_analyzed",
+                                        widget: "number",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Off-Targets Sequenced Per Clone",
+                                        name: "off_targets_sequenced_per_clone",
+                                        widget: "number",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Total Sites Sequenced",
+                                        name: "total_sites_sequenced",
+                                        widget: "number",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Mutations Identified",
+                                        name: "mutations_identified",
+                                        widget: "number",
+                                        required: false,
+                                    }
+                                ],
+                        },
+                        {
+                            label: "crRNA Off-targets Caption",
+                            name: "off_targets_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                    ],
+                
+            } 
+          - {
                 label: "Category Labels",
                 name: "category_labels",
                 widget: "select",

@@ -37,4 +37,41 @@ editing_design:
           caption: "Top: MYL2 locus; Bottom: Zoom in on mEGFP insertion site at MYL2 C-terminus; For more information on tagging transcriptionally silent genes in hiPSCs see: Roberts et al. 2018. Scarless gene tagging of transcriptionally silent genes in hiPSCs to visualize cardiomyocyte sarcomeres in live cells. bioRxiv doi:10.1101/342881"
 category_labels: 
  - Cardiac Structure
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+    - title: "GFP-tagged and untagged alleles"
+      images:
+        - image: cl27_67_68_70_all_junctions_crop.jpg
+          caption: "Junctional PCR primers complementary to sequences flanking the homology arms in the distal genome were used together to co-amplify tagged and untagged alleles. Gel shows untagged allele (smaller band) and tagged allele (larger band) from single PCR reaction. A band intermediate in size between the anticipated tagged and untagged allele products is consistently observed and is a hypothesized heteroduplex of the tagged and untagged allele products. (1% Agarose gel with Thermo Fisher 1kb ladder)."
+    - title: "Karyotype Analysis"
+      images:
+        - image: MYL2_cl_27_karyotype.jpg
+          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "MYL2-mEGFP"
+      junction: "5'"
+      expected_size: "1728"
+      confirmed_sequence: "pass"
+    - editedGene: "MYL2-mEGFP"
+      junction: "3'"
+      expected_size: "1763"
+      confirmed_sequence: "pass"
+    - editedGene: "MYL2-mEGFP"
+      junction: "WT internal"
+      expected_size: "733"
+      confirmed_sequence: "pass"
+    - editedGene: "MYL2-mEGFP"
+      junction: "Full junctional allele"
+      expected_size: "3066"
+      confirmed_sequence: "pass"
+  junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP insertion. Primers were designed to exclude amplification from the donor plasmid."
+  ddpcr:
+    - tag: MYL2-mEGFP
+      clone: 27
+      fp_ratio: 0.54
+      plasmid: 0.003
+  ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 ---

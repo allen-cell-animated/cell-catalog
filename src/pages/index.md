@@ -1,6 +1,6 @@
 ---
 templateKey: normal-catalog
-title: About the Collection
+title: About the collection
 about_block: 
   primary:
     text: The Allen Cell Collection contains over one hundred high quality, certified fluorescently tagged hiPSC lines that target dozens of key cellular structures and substructures. These cell lines and their editing plasmids are openly available to academic and commercial researchers through Coriell and Addgene respectively. New lines are released frequently. Subscribe to our newsletter to stay current with out latest releases!

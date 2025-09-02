@@ -37,4 +37,37 @@ editing_design:
           caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP insertion site at ACTN2 C-terminus; More information on tagging transcriptionally silent genes in hiPSCs is available in Roberts et al. (2019) Stem Cell Reports"
 category_labels: 
  - Cardiac Structure
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+    - title: "Karyotype Analysis"
+      images:
+        - image: ACTN2_cl85_final_karyo.JPG
+          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "ACTN2-mEGFP"
+      junction: "5'"
+      expected_size: "fill"
+      confirmed_sequence: "fill"
+    - editedGene: "ACTN2-mEGFP"
+      junction: "3'"
+      expected_size: "fill"
+      confirmed_sequence: "fill"
+    - editedGene: "ACTN2-mEGFP"
+      junction: "WT internal"
+      expected_size: "fill"
+      confirmed_sequence: "fill"
+    - editedGene: "ACTN2-mEGFP"
+      junction: "Full junctional allele"
+      expected_size: "Wild Type: ; Insert: "
+      confirmed_sequence: "fill"
+  junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP insertion. Primers were designed to exclude amplification from the donor plasmid."
+  ddpcr:
+    - tag: ACTN2-mEGFP
+      clone: 85
+      fp_ratio: 0.48
+      plasmid: 0.0
+  ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 ---

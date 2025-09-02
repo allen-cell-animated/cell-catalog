@@ -39,4 +39,41 @@ editing_design:
           caption: "Top: NUP153 locus showing 3 NUP153 isoforms; Bottom: Zoom in on mEGFP insertion site at NUP153 N-terminal exon"
 category_labels: 
  - Nuclear Structure
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+    - title: "GFP-tagged and untagged alleles"
+      images:
+        - image: AICS-69_NUP153_FullAllele.jpg
+          caption: "Junctional PCR primers complementary to sequences flanking the homology arms in the distal genome were used together to co-amplify tagged and untagged alleles. Gel shows untagged allele (smaller band) and tagged allele (larger band) from single PCR reaction. A band intermediate in size between the anticipated tagged and untagged allele products is consistently observed and is a hypothesized heteroduplex of the tagged and untagged allele products. (1% Agarose gel with Thermo Fisher 1kb ladder)."
+    - title: "Karyotype Analysis"
+      images:
+        - image: AICS-69_c88_NUP153_Karyotype.jpg
+          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - editedGene: "NUP153-mEGFP"
+      junction: "5'"
+      expected_size: "1640"
+      confirmed_sequence: "Yes"
+    - editedGene: "NUP153-mEGFP"
+      junction: "3'"
+      expected_size: "1587"
+      confirmed_sequence: "Yes"
+    - editedGene: "NUP153-mEGFP"
+      junction: "WT internal"
+      expected_size: "1233"
+      confirmed_sequence: "Yes"
+    - editedGene: "NUP153-mEGFP"
+      junction: "Full junctional allele"
+      expected_size: "Tagged: 2967; Untagged: 2253"
+      confirmed_sequence: "Not sequenced"
+  junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP insertion. Primers were designed to exclude amplification from the donor plasmid."
+  ddpcr:
+    - tag: NUP153-mEGFP
+      clone: 88
+      fp_ratio: 0.51
+      plasmid: 0.003
+  ddpcr_caption: "mEGFP: mEGFP/RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 ---
