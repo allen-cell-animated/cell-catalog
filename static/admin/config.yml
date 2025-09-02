@@ -34,6 +34,48 @@ richTextFields: &richTextFields
       - { label: "Text", name: "text", widget: "string" }
       - { label: "URL",  name: "url",  widget: "string" }
 
+
+field_image: &field_image { label: "Image", name: "image", widget: "image" }
+field_caption: &field_caption { label: "Caption", name: "caption", widget: "string", required: false }
+field_video: &field_video { label: "Video", name: "video", widget: "file" }
+field_title: &field_title { label: "Title", name: "title", widget: "string", required: false }
+
+fields_image_list: &fields_image_list
+  - *field_image
+  - *field_caption
+
+fields_video_list: &fields_video_list
+  - *field_video
+  - *field_caption
+
+objects/imagesAndVideos: &objects_images_and_videos
+  widget: "object"
+  required: false
+  fields:
+    - label: "Images"
+      name: "images"
+      widget: "list"
+      required: false
+      hint: "The first image will be used as the thumbnail in the catalog. Drag to rearrange the order."
+      fields: *fields_image_list
+    - label: "Videos"
+      name: "videos"
+      widget: "list"
+      required: false
+      fields: *fields_video_list
+
+fields_multi_image_diagram: &fields_multi_image_diagram
+  - *field_title
+  - label: "Images"
+    name: "images"
+    widget: "list"
+    fields: *fields_image_list
+
+fields_single_image_diagram: &fields_single_image_diagram
+  - *field_title
+  - *field_image
+  - *field_caption
+
 collections:
     - name: "cell-line"
       label: "Cell Lines"
@@ -176,52 +218,7 @@ collections:
           - {
                 label: "Image and Video Carousel",
                 name: "images_and_videos",
-                widget: "object",
-                required: false,
-                fields:
-                    [
-                        {
-                            label: "Images",
-                            name: "images",
-                            widget: "list",
-                            required: false,
-                            hint: "The first image will be used as the thumbnail in the catalog. Drag to rearrange the order.",
-                            fields:
-                                [
-                                    {
-                                        label: "Image",
-                                        name: "image",
-                                        widget: "image",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                ],
-                        },
-                        {
-                            label: "Videos",
-                            name: "videos",
-                            widget: "list",
-                            required: false,
-                            fields:
-                                [
-                                    {
-                                        label: "Video",
-                                        name: "video",
-                                        widget: "file",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                ],
-                        },
-                    ],
+                <<: *objects_images_and_videos
             }
           - {
                 label: "Editing Design",
@@ -264,35 +261,7 @@ collections:
                             name: "diagrams",
                             widget: "list",
                             required: false,
-                            fields:
-                                [
-                                    {
-                                        label: "Title",
-                                        name: "title",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                    {
-                                        label: "Images",
-                                        name: "images",
-                                        widget: "list",
-                                        required: false,
-                                        fields:
-                                            [
-                                                {
-                                                    label: "Image",
-                                                    name: "image",
-                                                    widget: "image",
-                                                },
-                                                {
-                                                    label: "Caption",
-                                                    name: "caption",
-                                                    widget: "string",
-                                                    required: false,
-                                                },
-                                            ],
-                                    },
-                                ],
+                            fields: *fields_multi_image_diagram
                         },
                     ],
             }
@@ -310,35 +279,7 @@ collections:
                             widget: "list",
                             required: false,
                             collapsed: true,
-                            fields:
-                                [
-                                    {
-                                        label: "Title",
-                                        name: "title",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                    {
-                                        label: "Images",
-                                        name: "images",
-                                        widget: "list",
-                                        required: false,
-                                        fields:
-                                            [
-                                                {
-                                                    label: "Image",
-                                                    name: "image",
-                                                    widget: "image",     
-                                                },
-                                                {
-                                                    label: "Caption",
-                                                    name: "caption",
-                                                    widget: "string",
-                                                    required: false,
-                                                },
-                                            ],                   
-                                    },
-                                ],
+                            fields: *fields_multi_image_diagram
                         },
                         {
                             label: "Amplified Junctions",
@@ -349,7 +290,7 @@ collections:
                                 [
                                     {
                                         label: "Edited Gene",
-                                        name: "editedGene",
+                                        name: "edited_gene",
                                         widget: "string",
                                         required: false,
                                     },
@@ -649,52 +590,7 @@ collections:
           - {
                 label: "Image and Video Carousel",
                 name: "images_and_videos",
-                widget: "object",
-                required: false,
-                fields:
-                    [
-                        {
-                            label: "Images",
-                            name: "images",
-                            widget: "list",
-                            hint: "The first image will be used as the thumbnail in the catalog. Drag to rearrange the order.",
-                            required: false,
-                            fields:
-                                [
-                                    {
-                                        label: "Image",
-                                        name: "image",
-                                        widget: "image",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                ],
-                        },
-                        {
-                            label: "Videos",
-                            name: "videos",
-                            widget: "list",
-                            required: false,
-                            fields:
-                                [
-                                    {
-                                        label: "Video",
-                                        name: "video",
-                                        widget: "file",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                ],
-                        },
-                    ],
+                <<: *objects_images_and_videos
             }
           - {
                 label: "Genomic Characterization",
@@ -710,26 +606,7 @@ collections:
                             widget: "list",
                             required: false,
                             collapsed: true,
-                            fields:
-                                [
-                                    {
-                                        label: "Title",
-                                        name: "title",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                    {
-                                        label: "Image",
-                                        name: "image",
-                                        widget: "image",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                ],
+                            fields: *fields_single_image_diagram
                         },
                     ],
             }
@@ -796,32 +673,7 @@ collections:
                             widget: "list",
                             required: false,
                             collapsed: true,
-                            fields:
-                                [
-                                    {
-                                        label: "Title",
-                                        name: "title",
-                                        widget: "string",
-                                    },
-                                    {
-                                        label: "Images",
-                                        name: "images",
-                                        widget: "list",
-                                        fields:
-                                            [
-                                                {
-                                                    label: "Image",
-                                                    name: "image",
-                                                    widget: "image",
-                                                },
-                                                {
-                                                    label: "Caption",
-                                                    name: "caption",
-                                                    widget: "string",
-                                                },
-                                            ],
-                                    },
-                                ],
+                            fields: *fields_multi_image_diagram
                         },
                     ],
             }
