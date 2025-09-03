@@ -35,6 +35,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: TTN locus showing 7 TTN isoforms; Bottom: Zoom in on mEGFP insertion site at TTN C-terminus; For more information on tagging transcriptionally silent genes in hiPSCs see: Roberts et al. 2018. Scarless gene tagging of transcriptionally silent genes in hiPSCs to visualize cardiomyocyte sarcomeres in live cells. bioRxiv doi:10.1101/342881"
+category_labels: 
+ - Cardiac Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

@@ -47,6 +47,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: CTCF locus showing 2 CTCF isoforms; Bottom: Zoom in on mEGFP insertion site at CTCF N-terminal exon"
+category_labels: 
+ - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

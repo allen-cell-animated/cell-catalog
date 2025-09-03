@@ -35,6 +35,9 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: FUS locus showing 3 FUS isoforms; Bottom: Zoom in on mEGFP insertion site at FUS C-terminal exon"
+category_labels:
+  - Stress
+  - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

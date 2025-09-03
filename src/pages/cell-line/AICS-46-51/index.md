@@ -37,6 +37,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: ATP2A2 locus showing 2 ATP2A2 isoforms; Bottom: Zoom in on mEGFP insertion site at ATP2A2 N-terminal exon"
+category_labels: 
+ - Cardiac Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

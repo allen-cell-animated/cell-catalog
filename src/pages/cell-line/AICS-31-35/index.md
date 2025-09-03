@@ -35,6 +35,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: TUBA1B locus; Bottom: Zoom in on mTagRFP-T insertion site at TUBA1B N-terminus"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

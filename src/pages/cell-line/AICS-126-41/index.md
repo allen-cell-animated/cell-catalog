@@ -31,6 +31,8 @@ editing_design:
       images:
         - image: CDH5_GFP.png
           caption: "Top: CDH5 locus showing 3 CDH5 isoforms; Bottom: Zoom in on mEGFP insertion site at CDH5 C-terminal exon."
+category_labels: 
+ - Endothelial
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

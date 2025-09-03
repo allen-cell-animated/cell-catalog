@@ -37,6 +37,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: SOX2 locus; Bottom: Zoom in on mEGFP insertion site at SOX2 C-terminus"
+category_labels: 
+ - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

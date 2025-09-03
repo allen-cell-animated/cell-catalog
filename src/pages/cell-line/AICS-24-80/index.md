@@ -39,6 +39,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: MYH10 locus showing 3 MYH10 isoforms; Bottom: Zoom in on mEGFP insertion site at MYH10 N-terminal exon"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

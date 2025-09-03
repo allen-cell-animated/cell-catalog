@@ -37,6 +37,9 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: LMNB1 locus showing 2 LMNB1 isoforms with zoom in on mTagRFP-T insertion site at LMNB1 N-terminal exon."
+category_labels: 
+  - Key Structure and Organelle
+  - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

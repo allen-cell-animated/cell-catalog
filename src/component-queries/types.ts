@@ -89,6 +89,7 @@ export interface NormalCellLineFrontmatter {
         diagrams: DiagramList[];
     };
     images_and_videos?: MediaFrontMatter;
+    category_labels: string[];
 };
 
 export interface NormalCellLineNode {
@@ -230,6 +231,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     tagLocation: string[];
     fluorescentTag: string[];
     orderPlasmid: string;
+    categoryLabels: string[];
 }
 
 export type ParentLine = Pick<UnpackedNormalCellLine,
@@ -269,6 +271,7 @@ export interface SearchAndFilterGroup {
                         };
                     }[];
                 };
+                category_labels: string[];
             };
         };
     }[];
@@ -287,5 +290,6 @@ export interface SearchLookup {
     // (so many words map to the same gene symbol)
     // used for getting a unique identifier for the geneSymToCellIds map
     structureAndNameToGene: Map<string, string>;
+    categoryToIds: Map<string, number[]>
     allSearchableTerms: Set<string>;
 }

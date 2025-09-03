@@ -42,6 +42,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: DMD locus showing DMD isoforms; Bottom: Zoom in on mEGFP insertion site at DMD C-terminal exon"
+category_labels: 
+ - Cardiac Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

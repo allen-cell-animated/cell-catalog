@@ -35,6 +35,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: CTNNB1 locus showing 4 CTNNB1 isoforms; Bottom: Zoom in on mEGFP insertion site at CTNNB1 N-terminal exon"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

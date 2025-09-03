@@ -35,6 +35,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: DSP locus showing 3 DSP  isoforms; Bottom: Zoom in on mEGFP insertion site at DSP C-terminal exon"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

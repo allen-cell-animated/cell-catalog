@@ -45,6 +45,9 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: FBL locus with zoom in on mEGFP insertion site at FBL C-terminal exon. Middle: NPM1 locus showing 7 NPM1 isoforms with zoom in on mTagRFP-T insertion site at NPM1 C-terminal exon. Bottom: UBTF locus showing 3 UBTF isoforms with zoom in on HaloTag insertion site at UBTF N-terminal exon"
+category_labels: 
+  - Key Structure and Organelle
+  - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

@@ -35,6 +35,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: SLC25A17 locus showing 3 SLC25A17 isoforms; Bottom: Zoom in on mEGFP insertion site at SLC25A17C-terminal exon"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

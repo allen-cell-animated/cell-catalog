@@ -46,6 +46,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: TERF2 locus; Bottom: Zoom in on mEGFP insertion site at TERF2 N-terminal exon."
+category_labels: 
+ - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

@@ -37,6 +37,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: NUP153 locus showing 3 NUP153 isoforms; Bottom: Zoom in on mEGFP insertion site at NUP153 N-terminal exon"
+category_labels: 
+ - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

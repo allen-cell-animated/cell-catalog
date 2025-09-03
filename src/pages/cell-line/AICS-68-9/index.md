@@ -37,6 +37,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: SMC1A locus showing 2 SMC1A isoforms; Bottom: Zoom in on mEGFP insertion site at SMC1A C-terminal exon"
+category_labels: 
+ - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

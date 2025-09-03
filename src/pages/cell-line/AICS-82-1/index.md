@@ -57,6 +57,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: G3BP1 locus showing 2 G3BP1 isoforms; Bottom: Zoom in on mEGFP insertion site at G3BP1 N-terminal exon."
+category_labels: 
+ - Stress
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

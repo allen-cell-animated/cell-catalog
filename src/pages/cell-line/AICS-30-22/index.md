@@ -35,6 +35,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: MAP1LC3B locus; Bottom: Zoom in on mEGFP insertion site at MAP1LC3B N-terminal exon"
+category_labels: 
+ - Stress
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

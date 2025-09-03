@@ -46,6 +46,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: POLR2A locus; Bottom: Zoom in on mEGFP insertion site at POLR2A N-terminal exon"
+category_labels: 
+ - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

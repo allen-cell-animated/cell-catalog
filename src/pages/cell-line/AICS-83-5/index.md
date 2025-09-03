@@ -31,6 +31,8 @@ editing_design:
       images:
         - image: DCP1A_GFP.png
           caption: "Top: DCP1A locus showing 3 DCP1A isoforms; Bottom: Zoom in on mEGFP insertion site at DCP1A N-Terminus."
+category_labels: 
+ - Stress
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

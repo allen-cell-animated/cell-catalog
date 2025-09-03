@@ -37,6 +37,8 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: GJA1 locus; Bottom: Zoom in on mEGFP insertion site at GJA1 C-terminus"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"

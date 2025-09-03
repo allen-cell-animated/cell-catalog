@@ -37,6 +37,9 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: NPM1 locus showing 7 NPM1 isoforms; Bottom: Zoom in on mEGFP insertion site at NPM1 C-terminal exon"
+category_labels: 
+  - Key Structure and Organelle
+  - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
