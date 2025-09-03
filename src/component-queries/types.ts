@@ -293,3 +293,12 @@ export interface SearchLookup {
     categoryToIds: Map<string, number[]>
     allSearchableTerms: Set<string>;
 }
+
+export enum CategoryLabel {
+    KeyStructureAndOrganelle = "Key Structure and Organelle",
+    NuclearStructure = "Nuclear Structure",
+    Stress = "Stress",
+    CardiacStructure = "Cardiac Structure",
+    Tools = "Tools",
+    Endothelial = "Endothelial",
+}

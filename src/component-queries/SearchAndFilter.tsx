@@ -3,19 +3,30 @@ import { Card } from "antd";
 import { StaticQuery, graphql } from "gatsby";
 import SearchBar from "../components/SearchBar";
 import { createLookupMappings } from "./convert-data";
-import { SearchAndFilterQueryResult, UnpackedNormalCellLine } from "./types";
+import {
+    CategoryLabel,
+    SearchAndFilterQueryResult,
+    UnpackedNormalCellLine,
+} from "./types";
+import Filter from "./Filter";
 
-const { banner } = require("../style/catalog.module.css");
-const { container } = require("../style/search-and-filter.module.css");
+const {
+    container,
+    inputContainer,
+} = require("../style/search-and-filter.module.css");
 
 interface SearchAndFilterProps {
     allCellLines: UnpackedNormalCellLine[];
+    selectedCategories: CategoryLabel[];
+    setSelectedCategories: (labels: CategoryLabel[]) => void;
     setResults: (filteredCellLines: UnpackedNormalCellLine[]) => void;
 }
 
 // This query groups all cell lines by gene symbol
 const SearchAndFilter = ({
     allCellLines,
+    selectedCategories,
+    setSelectedCategories,
     setResults,
 }: SearchAndFilterProps) => {
     return (
@@ -70,16 +81,20 @@ const SearchAndFilter = ({
                     data.allMarkdownRemark.group
                 );
                 return (
-                    <Card className={banner}>
-                        <div className={container}>
-                            <div>
-                                Search below or sort by clicking on column
-                                headers
-                            </div>
+                    <Card className={container}>
+                        <div>
+                            Search below or sort by clicking on column headers
+                        </div>
+                        <div className={inputContainer}>
                             <SearchBar
                                 allCellLines={allCellLines}
                                 mappings={mappings}
                                 setResults={setResults}
+                            />
+                            <Filter
+                                filteredList={allCellLines}
+                                value={selectedCategories}
+                                onChange={setSelectedCategories}
                             />
                         </div>
                     </Card>
