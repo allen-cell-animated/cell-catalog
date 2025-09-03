@@ -42,10 +42,10 @@ genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "Karyotype Analysis"
       images:
-        - image: KARYO_cl69_AICS-80 FUS-mEGFP cl.jpg
+        - image: KARYO_cl69_AICS_80_FUS_mEGFP_cl.jpg
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
     - editedGene: "FUS-mEGFP"

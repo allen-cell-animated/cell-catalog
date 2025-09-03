@@ -41,7 +41,7 @@ genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mTag-RFP-T.png
+        - image: ../GenomicCharacterization_junction_schematic_mTag-RFP-T.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: CETN2_full_allele_gel.jpg

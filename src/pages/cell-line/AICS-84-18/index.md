@@ -48,7 +48,7 @@ genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_generic.png
+        - image: ../GenomicCharacterization_junction_schematic_generic.png
     - title: "Karyotype Analysis"
       images:
         - image: FBL_NPM1_cl18_final_karyo.JPG
