@@ -39,7 +39,7 @@ genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_EGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_EGFP.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: PXN_full_allele.jpg

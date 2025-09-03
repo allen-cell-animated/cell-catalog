@@ -39,7 +39,7 @@ genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mTag-RFP-T.png
+        - image: ../GenomicCharacterization_junction_schematic_mTag-RFP-T.png
     - title: "Karyotype Analysis"
       images:
         - image: TUBA1B-mTagRFPt_cl.35.JPG
