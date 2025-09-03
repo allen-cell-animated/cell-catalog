@@ -72,4 +72,35 @@ genomic_characterization:
       fp_ratio: 0.488
       plasmid: 0.0
   ddpcr_caption: "mEGFP: mEGFP/RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
+stem_cell_characteristics:
+  pluripotency_analysis:
+    - marker: "NANOG"
+      positive_cells: 99.3
+    - marker: "SOX2"
+      positive_cells: 99.2
+    - marker: "OCT4"
+      positive_cells: 97.7
+    - marker: "SSEA-1"
+      positive_cells: 4.95
+    - marker: "SSEA-3"
+      positive_cells: 95.5
+    - marker: "TRA-160"
+      positive_cells: 98.9
+  pluripotency_caption: "iPSCs were stained with directly conjugated antibodies from BD Biosciences, acquired using a FACSAria III Fusion (BD Biosciences), and analyzed using FlowJo software (Treestar, Inc.). Doublets were excluded, then marker-specific gates were set according to corresponding fluorescence-minus-one (FMO) controls."
+  trilineage_differentiation:
+    - germ_layer: "Ectoderm"
+      marker: "PAX6"
+      percent_positive_cells: Pass
+    - germ_layer: "Endoderm"
+      marker: "SOX17"
+      percent_positive_cells: Pass
+    - germ_layer: "Mesoderm"
+      marker: "Brachyury"
+      percent_positive_cells: Pass
+  trilineage_caption: "iPSCs were subjected to a 5-7 day, non-terminal, directed differentiation using the STEMdiff™ Trilineage Differentiation Kit (STEMCELL Technologies, Inc.). Total RNA was isolated from each lineage specific differentiation and assayed via ddPCR for the expression of lineage specific transcripts; Pax6(Ectoderm), Sox17(Endoderm) and Brachyury(Mesoderm)."
+  cardiomyocyte_differentiation:
+    troponin_percent_positive: "94-96 (2)"
+    day_of_beating_percent: "100 (3)"
+    day_of_beating_range: "d9-d14"
+  cardiomyocyte_differentiation_caption: "iPSCs were differentiated to cardiomyocytes and observed for initiation of beating starting at day 6. At ~day 20, cells were fixed and stained with anti-cardiac Troponin T (BD Biosciences) and gating was based on an isotype control. Ranges observed across multiple experiments are shown for Troponin T and Day of beating initiation; number of experiments is shown in (). "
 ---
