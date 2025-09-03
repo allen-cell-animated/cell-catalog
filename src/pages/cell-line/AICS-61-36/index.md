@@ -44,7 +44,7 @@ genomic_characterization:
         - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "GFP-tagged and untagged alleles"
       images:
-        - image:AICS_61_cl36_71_Full_Allele_redo_edited.jpg
+        - image: AICS_61_cl36_71_Full_Allele_redo_edited.jpg
           caption: "Junctional PCR primers complementary to sequences flanking the homology arms in the distal genome were used together to co-amplify tagged and untagged alleles. Gel shows untagged allele (smaller band) and tagged allele (larger band) from single PCR reaction. A band intermediate in size between the anticipated tagged and untagged allele products is consistently observed and is a hypothesized heteroduplex of the tagged and untagged allele products. (1% Agarose gel with Thermo Fisher 1kb ladder)."
     - title: "Karyotype Analysis"
       images:
