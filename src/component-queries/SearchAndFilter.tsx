@@ -8,7 +8,7 @@ import {
     SearchAndFilterQueryResult,
     UnpackedNormalCellLine,
 } from "./types";
-import Filter from "./Filter";
+import Filter from "../components/Filter";
 
 const {
     container,

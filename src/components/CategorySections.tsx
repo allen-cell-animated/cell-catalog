@@ -1,8 +1,8 @@
 import React from "react";
-import { CategoryLabel, UnpackedNormalCellLine } from "./types";
-import CellLineTable from "../components/CellLineTable";
-import { getNormalTableColumns } from "../components/CellLineTable/NormalTableColumns";
-import { getNormalTableMobileConfig } from "../components/CellLineTable/MobileView";
+import { CategoryLabel, UnpackedNormalCellLine } from "../component-queries/types";
+import CellLineTable from "./CellLineTable";
+import { getNormalTableColumns } from "./CellLineTable/NormalTableColumns";
+import { getNormalTableMobileConfig } from "./CellLineTable/MobileView";
 
 interface CategorySectionsProps {
     selectedCategories: CategoryLabel[];

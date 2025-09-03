@@ -4,7 +4,7 @@ import {
     CategoryLabel,
     UnpackedNormalCellLine,
 } from "../component-queries/types";
-import { SecondaryButton } from "../components/shared/Buttons";
+import { SecondaryButton } from "./shared/Buttons";
 
 const {
     clearButton,
