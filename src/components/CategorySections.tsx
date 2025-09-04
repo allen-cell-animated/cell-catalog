@@ -25,17 +25,14 @@ const bucketByCategory = (
     list: UnpackedNormalCellLine[],
     selected: string[]
 ): Record<string, UnpackedNormalCellLine[]> => {
-    const buckets: Record<string, UnpackedNormalCellLine[]> = {};
-    if (!selected.length) return buckets;
-    for (const label of selected) buckets[label] = [];
-    list.forEach((item) => {
-        const labels = item.categoryLabels || [];
-        labels.forEach((label) => {
-            if (buckets[label]) buckets[label].push(item);
-        });
-    });
-    return buckets;
-};
+    return list.reduce((acc, item) => {
+        for (const label of item.categoryLabels ?? []) {
+            if (!selected.includes(label)) continue;
+            (acc[label] ??= []).push(item);
+        }
+        return acc;
+    }, {} as Record<string, UnpackedNormalCellLine[]>);
+}
 
 const CategorySections: React.FC<CategorySectionsProps> = ({
     selectedCategories,
