@@ -54,6 +54,7 @@ export const CellLineTemplate = ({
     alleleCount,
     editingDesign,
     imagesAndVideos,
+    stemCellCharacteristics,
 }: CellLineProps) => {
     const hasImagesOrVideos = hasMedia(imagesAndVideos);
     if (cellLineId === 0) {
@@ -100,7 +101,7 @@ export const CellLineTemplate = ({
             <SubpageTabs
                 editingDesignData={editingDesign}
                 genomicCharacterizationData={[]}
-                stemCellCharData={null}
+                stemCellCharacteristics={stemCellCharacteristics}
                 tabsToRender={TABS_WITH_STEM_CELL}
             />
         </>
@@ -160,13 +161,16 @@ export const pageQuery = graphql`
                     images {
                         image {
                             childImageSharp {
-                                gatsbyImageData(width: 400, placeholder: BLURRED)
+                                gatsbyImageData(
+                                    width: 400
+                                    placeholder: BLURRED
+                                )
                             }
                         }
                         caption
                     }
                     videos {
-                        video 
+                        video
                         caption
                     }
                 }
@@ -188,6 +192,36 @@ export const pageQuery = graphql`
                             }
                             caption
                         }
+                    }
+                }
+                stem_cell_characteristics {
+                    pluripotency_analysis {
+                        marker
+                        positive_cells
+                    }
+                    pluripotency_caption
+                    trilineage_differentiation {
+                        germ_layer
+                        marker
+                        percent_positive_cells
+                    }
+                    trilineage_caption
+                    cardiomyocyte_differentiation {
+                        troponin_percent_positive
+                        day_of_beating_percent
+                        day_of_beating_range
+                    }
+                    cardiomyocyte_differentiation_caption
+                    rnaseq_analysis {
+                        image {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    placeholder: BLURRED
+                                    layout: CONSTRAINED
+                                )
+                            }
+                        }
+                        caption
                     }
                 }
             }
