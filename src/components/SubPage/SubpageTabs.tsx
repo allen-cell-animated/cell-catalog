@@ -3,8 +3,11 @@ import { Flex, Tabs } from "antd";
 import { SubPage } from "../../types";
 import EditingDesignSubpage from "./EditingDesign";
 import GenomicCharacterization from "./GenomicCharacterization";
-import StemCellChar, { StemCellCharProps } from "./StemCellChar";
-import { UnpackedEditingDesign } from "./types";
+import StemCellChar from "./StemCellChar";
+import {
+    UnpackedEditingDesign,
+    UnpackedStemCellCharacteristics,
+} from "./types";
 import { DiagramCardProps } from "../shared/DiagramCard";
 
 const {
@@ -17,14 +20,14 @@ export interface SubpageTabsProps {
     tabsToRender: SubPage[];
     editingDesignData: UnpackedEditingDesign | null;
     genomicCharacterizationData?: DiagramCardProps[];
-    stemCellCharData: StemCellCharProps | null;
+    stemCellCharacteristics: UnpackedStemCellCharacteristics | null;
 }
 
 const SubpageTabs: React.FC<SubpageTabsProps> = ({
     tabsToRender,
     editingDesignData,
     genomicCharacterizationData,
-    stemCellCharData,
+    stemCellCharacteristics,
 }) => {
     const getNoDataComponent = (tab: SubPage) => {
         return (
@@ -33,6 +36,20 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
             </div>
         );
     };
+
+    const hasSCCTables = (scc?: UnpackedStemCellCharacteristics | null) =>
+        !!(
+            scc?.pluripotencyAnalysis?.data.length ||
+            scc?.trilineageDifferentiation?.data.length ||
+            scc?.cardiomyocyteDifferentiation?.data.length ||
+            scc?.diseaseCardioMyocyteDifferentiation?.data.length
+        );
+
+    const hasSCCData = !!(
+        stemCellCharacteristics?.rnaSeqAnalysis?.length ||
+        hasSCCTables(stemCellCharacteristics)
+    );
+
     const tabComponents = {
         [SubPage.EditingDesign]: editingDesignData ? (
             <EditingDesignSubpage {...editingDesignData} />
@@ -47,12 +64,11 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
             ) : (
                 getNoDataComponent(SubPage.GenomicCharacterization)
             ),
-        [SubPage.StemCellCharacteristics]: stemCellCharData ? (
-            <StemCellChar {...stemCellCharData} />
+        [SubPage.StemCellCharacteristics]: hasSCCData ? (
+            <StemCellChar data={stemCellCharacteristics!} />
         ) : (
             getNoDataComponent(SubPage.StemCellCharacteristics)
         ),
-
         // TODO: add this once we have the data
         // [SubPage.Protocols]: <div>Protocols Content</div>,
     };
