@@ -415,6 +415,131 @@ collections:
                 required: false,
                 multiple: true,
             }
+          - {
+                label: "Stem Cell Characteristics",
+                name: "stem_cell_characteristics",
+                widget: "object",
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            label: "Pluripotency Analysis",
+                            name: "pluripotency_analysis",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Marker",
+                                        name: "marker",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Positive Cells (%)",
+                                        name: "positive_cells",
+                                        widget: "number",
+                                        value_type: "float",
+                                        required: false,
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Pluripotency Caption",
+                            name: "pluripotency_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Trilineage Differentiation",
+                            name: "trilineage_differentiation",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Germ Layer",
+                                        name: "germ_layer",
+                                        widget: "select",
+                                        options: ["Ectoderm", "Endoderm", "Mesoderm"],
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Marker",
+                                        name: "marker",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Percent Positive Cells",
+                                        name: "percent_positive_cells",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Trilineage Caption",
+                            name: "trilineage_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Cardiomyocyte Differentiation",
+                            name: "cardiomyocyte_differentiation",
+                            widget: "object",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Troponin T Percent Positive",
+                                        name: "troponin_percent_positive",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Day of Beating Percent",
+                                        name: "day_of_beating_percent",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Day of Beating Range",
+                                        name: "day_of_beating_range",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Cardiomyocyte Differentiation Caption",
+                            name: "cardiomyocyte_differentiation_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "RNAseq Analysis",
+                            name: "rnaseq_analysis",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Image",
+                                        name: "image",
+                                        widget: "image",
+                                    },
+                                    {
+                                        label: "Caption",
+                                        name: "caption",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                ],
+                        },
+                    ],
+            }
     - name: "disease-cell-line"
       label: "Disease Cell Lines"
       label_singular: "Disease Cell Line"
