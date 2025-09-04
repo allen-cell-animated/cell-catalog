@@ -65,19 +65,19 @@ genomic_characterization:
       images:
         - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
   amplified_junctions:
-    - editedGene: "G3BP1-mEGFP"
+    - edited_gene: "G3BP1-mEGFP"
       junction: "5'"
       expected_size: ""
       confirmed_sequence: "Yes"
-    - editedGene: "G3BP1-mEGFP"
+    - edited_gene: "G3BP1-mEGFP"
       junction: "3'"
       expected_size: ""
       confirmed_sequence: "Yes"
-    - editedGene: "G3BP1-mEGFP"
+    - edited_gene: "G3BP1-mEGFP"
       junction: "WT"
       expected_size: "1408"
       confirmed_sequence: "Yes"
-    - editedGene: "G3BP1-mEGFP"
+    - edited_gene: "G3BP1-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Tagged: bp; Untagged: bp"
       confirmed_sequence: "Yes"

@@ -55,19 +55,19 @@ genomic_characterization:
       images:
         - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
   amplified_junctions:
-    - editedGene: ""
+    - edited_gene: ""
       junction: "5'"
       expected_size: ""
       confirmed_sequence: ""
-    - editedGene: ""
+    - edited_gene: ""
       junction: "3'"
       expected_size: ""
       confirmed_sequence: ""
-    - editedGene: ""
+    - edited_gene: ""
       junction: "WT"
       expected_size: ""
       confirmed_sequence: ""
-    - editedGene: ""
+    - edited_gene: ""
       junction: "Full junctional allele"
       expected_size: "Tagged: bp; Untagged: bp"
       confirmed_sequence: ""
