@@ -40,4 +40,7 @@ images_and_videos:
         bar, 5 µm). Inset image is 2x enlargement of boxed area to show detailed
         relationship between tagged proteins. Cells were imaged live in 3D on a
         spinning-disk confocal microscope. "
+editing_design:
+  cas9: Wildtype spCas9
+  cr_rna: AATTGTAAGTGCTCAGAGCT
 ---
