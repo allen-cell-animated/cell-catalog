@@ -1,11 +1,4 @@
 ---
-donor_plasmid: null
-editing_design:
-  ncbi_isoforms:
-    - N
-  cr_rna: N
-  linker: null
-  cas9: Wildtype spCas9
 templateKey: cell-line
 cell_line_id: 122
 status: in progress
@@ -19,7 +12,18 @@ genetic_modifications:
     allele_count: mono
 order_link: null
 certificate_of_analysis: null
+donor_plasmid: null
 images_and_videos:
   ? videos
+editing_design:
+  ncbi_isoforms:
+    - N
+  cr_rna: N
+  linker: null
+  cas9: Wildtype spCas9
+  diagrams:
+    - title: mEGFP insert
+      images:
+        - image: eomes_cofa_editingfigure.png
 eu_hpsc_reg: null
 ---
