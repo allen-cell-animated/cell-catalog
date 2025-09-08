@@ -33,6 +33,5 @@ images_and_videos:
         were imaged live in 3D on a spinning-disk confocal microscope.
 editing_design:
   diagrams:
-    - images:
-        - image: figure_mitotag_rfp.png
+    - images: []
 ---
