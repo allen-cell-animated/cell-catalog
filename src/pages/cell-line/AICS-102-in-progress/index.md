@@ -11,6 +11,7 @@ genetic_modifications:
     tag_location: NA
     fluorescent_tag: mTagRFP-T
     allele_count: mono
+order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0102-330&Product=iPSC&PgId=166
 certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0102-330_CofA.pdf
 images_and_videos:
   images:
