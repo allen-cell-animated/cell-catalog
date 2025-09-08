@@ -31,4 +31,8 @@ images_and_videos:
         mitochondrial targeting sequence of COXVIII (mitoTag). The movie starts
         at the bottom of the cells and ends at the top (scale bar, 5 µm). Cells
         were imaged live in 3D on a spinning-disk confocal microscope.
+editing_design:
+  diagrams:
+    - images:
+        - image: figure_mitotag_rfp.png
 ---
