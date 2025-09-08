@@ -44,4 +44,10 @@ images_and_videos:
 editing_design:
   cas9: Wildtype spCas9
   cr_rna: AATTGTAAGTGCTCAGAGCT
+  diagrams:
+    - title: AICS-120_TOMM20_Mito/figure_TOMM20_GFP.png
+      images:
+        - image: figure_tomm20_gfp.png
+        - caption: AICS-120_TOMM20_Mito/figure_MitoTag_RFP.png
+          image: figure_mitotag_rfp.png
 ---
