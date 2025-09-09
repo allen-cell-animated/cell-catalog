@@ -19,9 +19,11 @@ const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
 }) => {
 
     return (
-        <Flex gap={40} wrap="wrap" justify="space-between" align="baseline">
+        <Flex gap={24} wrap="wrap" justify="flex-start" align="start">
             {amplifiedJunctions?.data.length ? (
                 <SubpageTable
+                    width="half"
+                    height={420}
                     title={"Amplified Junctions"}
                     columns={AMPLIFIED_JUNCTION_COLUMNS}
                     dataSource={amplifiedJunctions.data}
@@ -30,14 +32,18 @@ const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
             ) : null}
             {ddpcr?.data.length ? (
                 <SubpageTable
+                    width="half"
+                    height={420}
                     title={"GFP and donor plasmid copy number"}
                     columns={DDPCR_COLUMNS}
                     dataSource={ddpcr.data}
                     caption={ddpcr.caption}
                 />
             ) : null}
-            {crRnaOffTargets?.data.length ?  (
+            {crRnaOffTargets?.data.length ? (
                 <SubpageTable
+                    width="twoThirds"
+                    height={420}
                     title={"crRNA Off-targets"}
                     columns={CRRNA_OFF_TARGETS_COLUMNS}
                     dataSource={crRnaOffTargets.data}

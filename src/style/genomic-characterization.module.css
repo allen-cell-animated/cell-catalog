@@ -1,3 +1,35 @@
+
+
+
+/* Parent row for cards/tables */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;            /* ← control all spacing here */
+  align-items: stretch; /* make heights line up */
+}
+
+/* width presets using flex-basis; works well with gap */
+.w-one-third {
+  flex: 0 1 calc((100% - 2 * 24px) / 3);
+  max-width: calc((100% - 2 * 24px) / 3);
+}
+
+.w-half {
+  flex: 0 1 calc((100% - 24px) / 2);
+  max-width: calc((100% - 24px) / 2);
+}
+
+.w-two-thirds {
+  flex: 0 1 calc(2 * (100% - 2 * 24px) / 3 + 24px);
+  max-width: calc(2 * (100% - 2 * 24px) / 3 + 24px);
+}
+
+.w-full {
+  flex: 0 1 100%;
+  max-width: 100%;
+}
+
 .card {
     height: 100%;
     flex: 1 1 calc(50% - 20px);
@@ -16,4 +48,18 @@
         flex-basis: 100%;
         max-width: 100%;
     }
+}
+
+/* Responsive: collapse to 2 cols, then 1 col */
+@media (max-width: 1024px) {
+  .w-one-third, .w-half, .w-two-thirds { 
+    flex: 0 1 calc((100% - 24px) / 2);
+    max-width: calc((100% - 24px) / 2);
+  }
+}
+@media (max-width: 640px) {
+  .w-one-third, .w-half, .w-two-thirds, .w-full {
+    flex: 0 1 100%;
+    max-width: 100%;
+  }
 }

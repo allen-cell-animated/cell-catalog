@@ -1,5 +1,89 @@
+/* ====== Card & table container ====== */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: var(--card-h, auto); /* set via inline style from component */
+  min-height: 0;
+}
+
+/* Scroll region so variable row counts don’t change card height */
+.table-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+/* ====== AntD header/thead tweaks (kept from your version) ====== */
+.container :global(.ant-card-head-title) {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
 .container :global(.ant-table-thead .ant-table-cell)::before {
-    display: none; /* remove dividers between column headers */
+  display: none; /* remove dividers between column headers */
+}
+
+.container :global(.ant-table-thead .ant-table-cell) {
+  border-bottom: 1.5px solid var(--border-color);
+  padding-bottom: 4px;
+}
+
+/* ====== Table sizing & density ====== */
+.table:global(.ant-table-wrapper) {
+  width: 100%;           /* was max-content; let it fill the card width */
+}
+
+.table :global(.ant-table) {
+  table-layout: fixed;   /* prevents columns from expanding unpredictably */
+}
+
+.table :global(.ant-table-cell) {
+  padding: 8px 12px;     /* compact spacing; tweak as needed */
+  white-space: normal;   /* wrap long content */
+  word-break: break-word;
+}
+
+.table :last-of-type:global(.ant-table-row .ant-table-cell) {
+  border-style: none;
+}
+
+/* ====== Width presets (match flex row gap = 24px) ====== */
+.w-one-third  { flex: 0 1 calc((100% - 2 * 24px) / 3); max-width: calc((100% - 2 * 24px) / 3); }
+.w-half       { flex: 0 1 calc((100% - 24px) / 2);     max-width: calc((100% - 24px) / 2); }
+.w-two-thirds { flex: 0 1 calc(2 * (100% - 2 * 24px) / 3 + 24px); max-width: calc(2 * (100% - 2 * 24px) / 3 + 24px); }
+.w-full       { flex: 0 1 100%; max-width: 100%; }
+
+/* ====== Responsive collapse ====== */
+@media (max-width: 1024px) {
+  .w-one-third,
+  .w-half,
+  .w-two-thirds {
+    flex: 0 1 calc((100% - 24px) / 2);
+    max-width: calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .w-one-third,
+  .w-half,
+  .w-two-thirds,
+  .w-full {
+    flex: 0 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* Optional: on narrower desktops, ensure wrappers fill available width */
+@media screen and (max-width: 1280px) {
+  .table:global(.ant-table-wrapper) {
+    width: 100%;
+  }
+}
+
+/* 
+.container :global(.ant-table-thead .ant-table-cell)::before {
+    display: none; 
 }
 
 .container :global(.ant-card-head-title) {
@@ -27,4 +111,4 @@
    .table:global(.ant-table-wrapper) {
         width: 100%;
     }
-}
+} */
