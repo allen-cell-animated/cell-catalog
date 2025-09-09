@@ -39,6 +39,7 @@ const CellLineTableTemplate = (props: QueryResult) => {
         <>
             <SearchAndFilter
                 allCellLines={finishedCellLines}
+                filteredCellLines={filteredCellLines}
                 setResults={setFilteredCellLines}
                 selectedCategories={selectedCategories}
                 setSelectedCategories={setSelectedCategories}

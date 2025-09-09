@@ -18,6 +18,7 @@ const {
 interface SearchAndFilterProps {
     allCellLines: UnpackedNormalCellLine[];
     selectedCategories: CategoryLabel[];
+    filteredCellLines: UnpackedNormalCellLine[];
     setSelectedCategories: (labels: CategoryLabel[]) => void;
     setResults: (filteredCellLines: UnpackedNormalCellLine[]) => void;
 }
@@ -26,6 +27,7 @@ interface SearchAndFilterProps {
 const SearchAndFilter = ({
     allCellLines,
     selectedCategories,
+    filteredCellLines,
     setSelectedCategories,
     setResults,
 }: SearchAndFilterProps) => {
@@ -92,7 +94,7 @@ const SearchAndFilter = ({
                                 setResults={setResults}
                             />
                             <Filter
-                                filteredList={allCellLines}
+                                filteredList={filteredCellLines}
                                 value={selectedCategories}
                                 onChange={setSelectedCategories}
                             />
