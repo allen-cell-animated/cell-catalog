@@ -25,23 +25,23 @@ images_and_videos:
         E-cadherin. A single plane near the top of the cells was imaged every 3
         min on a spinning-disk confocal microscope. Movie plays at 900x real
         time. Scale bar, 5 µm.
-      video: https://vimeo.com/1079877453/64b0dd3fbc?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079877453
     - caption: Z-stack of a live hiPS cell colony expressing mEGFP-tagged E-cadherin.
         Cells were imaged in 3D on a spinning-disk confocal microscope. The
         movie starts at the bottom of the cells and ends at the top. Scale bar,
         5 µm.
-      video: https://vimeo.com/1079877719/96600ed1da?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079877719
     - caption: Time-lapse movie of a live hiPS cell colony expressing mEGFP-tagged
         E-cadherin. A small mid-level stack of six z-slices was imaged every 3
         min on a spinning-disk confocal microscope. A maximum intensity
         projection of the six z-slices is shown. Bleaching was corrected using
         the histogram matching method in ImageJ. Movie plays at 1800x real time.
         Scale bar, 5 µm.
-      video: https://vimeo.com/1079877956/3b9719f5a4?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079877956
 editing_design:
   ncbi_isoforms:
     - 
-  crna: ACGACTAGGGGACTCGAGAG
+  cr_rna: ACGACTAGGGGACTCGAGAG
   linker: LE
   cas9: Wildtype spCas9
   diagrams:
@@ -53,7 +53,7 @@ genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "Karyotype Analysis"
       images:
         - image: AICS-114_cl35_CDH1_karyotype.jpg
@@ -82,4 +82,35 @@ genomic_characterization:
       fp_ratio: 0.515
       plasmid: N/A
   ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. RPP30 is known 2n reference gene."
+stem_cell_characteristics:
+  pluripotency_analysis:
+    - marker: "NANOG"
+      positive_cells: 99.8
+    - marker: "SOX2"
+      positive_cells: 99.9
+    - marker: "OCT4"
+      positive_cells: 99.7
+    - marker: "SSEA-1"
+      positive_cells: 0.47
+    - marker: "SSEA-4"
+      positive_cells: 100
+    - marker: "TRA-160"
+      positive_cells: 100
+  pluripotency_caption: "iPSCs were stained with directly conjugated antibodies from BD Biosciences, acquired using a FACSAria III Fusion (BD Biosciences), and analyzed using FlowJo software (Treestar, Inc.). Doublets were excluded, then marker-specific gates were set according to corresponding fluorescence-minus-one (FMO) controls."
+  trilineage_differentiation:
+    - germ_layer: "Ectoderm"
+      marker: "PAX6"
+      percent_positive_cells: Pass
+    - germ_layer: "Endoderm"
+      marker: "SOX17"
+      percent_positive_cells: Pass
+    - germ_layer: "Mesoderm"
+      marker: "Brachyury"
+      percent_positive_cells: Pass
+  trilineage_caption: "iPSCs were subjected to a 5-7 day, non-terminal, directed differentiation using the STEMdiff™ Trilineage Differentiation Kit (STEMCELL Technologies, Inc.). Total RNA was isolated from each lineage specific differentiation and assayed via ddPCR for the expression of lineage specific transcripts; Pax6(Ectoderm), Sox17(Endoderm) and Brachyury(Mesoderm)."
+  cardiomyocyte_differentiation:
+    troponin_percent_positive: "70.4"
+    day_of_beating_percent: "100 (4)"
+    day_of_beating_range: "D8 - D11"
+  cardiomyocyte_differentiation_caption: "iPSCs were differentiated to cardiomyocytes and observed for initiation of beating starting at day 6. At ~day 12, cells were fixed and stained with anti-cardiac Troponin T (BD Biosciences) and gating was based on an isotype control. Ranges observed across multiple experiments are shown for Troponin T and Day of beating initiation; number of experiments is shown in (). "
 ---

@@ -10,6 +10,7 @@ import {
     NormalCellLineNode,
     GenomicCharacterizationFrontMatter,
 } from "../../component-queries/types";
+import { getThumbnail } from "../../utils/mediaUtils";
 import { extractGeneticModifications } from "../../component-queries/convert-data";
 import { DiagramCardProps } from "../shared/DiagramCard";
 import {
@@ -30,8 +31,6 @@ export const unpackDiagrams = (diagrams?: SingleImageDiagram[]): DiagramCardProp
             title: diagram.title,
             caption: diagram.caption,
             image: diagram.image
-                ? diagram.image.childImageSharp.gatsbyImageData
-                : undefined,
         };
     });
 };
@@ -49,13 +48,11 @@ export const unpackMultiImageDiagrams = (diagrams?: DiagramList[]): DiagramCardP
         }
 
         diagram.images.forEach((imageObj, index) => {
-            if (imageObj.image) {
-                result.push({
-                    title: index === 0 ? diagram.title : "",
-                    caption: imageObj.caption,
-                    image: imageObj.image.childImageSharp.gatsbyImageData,
-                });
-            }
+            result.push({
+                title: index === 0 ? diagram.title : "",
+                caption: imageObj.caption,
+                image: imageObj.image,
+            });
         });
     });
 
@@ -64,13 +61,13 @@ export const unpackMultiImageDiagrams = (diagrams?: DiagramList[]): DiagramCardP
 
 // subpage data
 export const unpackEditingDesignData = (editing_design?: {
-    crna_target_site?: string;
+    cr_rna_target_site?: string;
     dna_donor_sequence?: Sequence[];
     cas9?: string;
     f_primer?: string;
     r_primer?: string;
     diagrams?: DiagramList[];
-    crna?: string;
+    cr_rna?: string;
     linker?: string;
     ncbi_isoforms?: string;
 }): UnpackedEditingDesign | null => {
@@ -79,14 +76,14 @@ export const unpackEditingDesignData = (editing_design?: {
     }
     const diagrams = unpackMultiImageDiagrams(editing_design.diagrams);
     const data = {
-        crnaTargetSite: editing_design.crna_target_site,
+        crRnaTargetSite: editing_design.cr_rna_target_site,
         dnaDonorSequence: editing_design.dna_donor_sequence,
         cas9: editing_design.cas9,
         fPrimer: editing_design.f_primer,
         rPrimer: editing_design.r_primer,
-        crna: editing_design.crna,
+        crRNA: editing_design.cr_rna,
         linker: editing_design.linker,
-        ncbi_isoforms: editing_design.ncbi_isoforms,
+        ncbiIsoforms: editing_design.ncbi_isoforms,
         diagrams: diagrams.length > 0 ? diagrams : undefined, // an empty array is still truthy
     };
 
@@ -189,7 +186,7 @@ export const unpackParentLineFromFrontMatter = (data: ParentalLineFrontmatter): 
             data
                 .genetic_modifications
         );
-    const thumbnailImage = data.thumbnail_image;
+    const thumbnailImage = getThumbnail(data.images_and_videos);
     const cellLineId = data.cell_line_id;
     const cloneNumber = data.clone_number;
     return {
@@ -242,9 +239,8 @@ export const unpackNormalFrontMatterForSubpage = (
         healthCertificate: cellLineNode.frontmatter.eu_hpsc_reg,
         orderLink: cellLineNode.frontmatter.order_link,
         orderPlasmid: cellLineNode.frontmatter.donor_plasmid,
-        thumbnailImage:
-            cellLineNode.frontmatter.images_and_videos?.images?.[0]?.image?.childImageSharp
-                ?.gatsbyImageData || null,
+        thumbnailImage: getThumbnail(cellLineNode.frontmatter.images_and_videos),
+        imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
         editingDesign: editingDesign,
         genomicCharacterization: genomicCharacterization
     };

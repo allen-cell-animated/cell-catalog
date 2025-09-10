@@ -39,10 +39,28 @@
     gap: 0; /* #11  in a separate pr? */
 }
 
-.extra-large-button h2 {
+.extra-large-button .extra-large-button-header {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.extra-large-button .extra-large-button-header.spaced-button {
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px 0px 20px;
+    width: 100%;
+}
+
+.extra-large-button .extra-large-button-header h2 {
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
 }
 
 .extra-large-button:hover {
@@ -50,9 +68,34 @@
     transition: background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
     background: linear-gradient(
         180deg,
-        #0b9aab 0%,
-        rgba(11, 154, 171, 0.5) 100%
+        var(--AQUA_BLUE) 0%,
+        var(--OCEAN_BLUE) 100%
     ) !important;
+}
+
+.extra-large-button :global(.tube-icon) {
+    color: var(--ALLEN_LIGHT_10);
+}
+
+.extra-large-button:hover :global(.tube-icon) {
+    color: var(--OCEAN_BLUE);
+}
+
+.extra-large-button :global(.plasmid-icon) {
+    padding: 6px;
+}
+
+.info-card-multi-line-cell {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    width: 100%;
+}
+
+.divider {
+    margin: 1px;
+    min-width: 95%;
+    width: 95%;
 }
 
 /* mobile sizing */

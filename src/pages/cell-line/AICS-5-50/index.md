@@ -27,7 +27,7 @@ images_and_videos:
 editing_design:
   ncbi_isoforms:
     - NM_0028593
-  crna: GCACCTAGCAGAAGAGCTTG
+  cr_rna: GCACCTAGCAGAAGAGCTTG
   linker: GTSGGS
   cas9: Wildtype spCas9
   diagrams:
@@ -35,11 +35,13 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: PXN locus showing 4 PXN isoforms; Bottom: Zoom in on EGFP insertion site at PXN C-terminal exon"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_EGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_EGFP.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: PXN_full_allele.jpg
@@ -78,4 +80,38 @@ genomic_characterization:
       total_sites_sequenced: 55
       mutations_identified: 0
   off_targets_caption: "Potential off-targets were identified using Cas-OFFinder; ~4 off-targets in exons and ~ 4 most likely to cut off-targets (having fewest # of flaws relative to on-target) were sanger sequenced to confirm no off-target editing."
+stem_cell_characteristics:
+  pluripotency_analysis:
+    - marker: "NANOG"
+      positive_cells: 98.7
+    - marker: "SOX2"
+      positive_cells: 97.4
+    - marker: "OCT4"
+      positive_cells: 97.3
+    - marker: "SSEA-1"
+      positive_cells: 3.49
+    - marker: "SSEA-3"
+      positive_cells: 100
+    - marker: "TRA-160"
+      positive_cells: 90
+  pluripotency_caption: "iPSCs were stained with directly conjugated antibodies from BD Biosciences, acquired using a FACSAria III Fusion (BD Biosciences), and analyzed using FlowJo software (Treestar, Inc.). Doublets were excluded, then marker-specific gates were set according to corresponding fluorescence-minus-one (FMO) controls."
+  trilineage_differentiation:
+    - germ_layer: "Ectoderm"
+      marker: "PAX6"
+      percent_positive_cells: 65.4
+    - germ_layer: "Endoderm"
+      marker: "SOX17"
+      percent_positive_cells: 57.8
+    - germ_layer: "Mesoderm"
+      marker: "Brachyury"
+      percent_positive_cells: 95.8
+  trilineage_caption: "iPSCs were subjected to a 5-7 day, non-terminal, directed differentiation using the STEMdiff™ Trilineage Differentiation Kit (STEMCELL Technologies, Inc.). Cells were stained for markers of Ectoderm, Endoderm, and Mesoderm lineages using directly conjugated antibodies from BD Biosciences. Gating was based on isotype controls."
+  cardiomyocyte_differentiation:
+    troponin_percent_positive: "66-98 (4)"
+    day_of_beating_percent: "75 (16)"
+    day_of_beating_range: "d7-d17"
+  cardiomyocyte_differentiation_caption: "iPSCs were differentiated to cardiomyocytes and observed for initiation of beating starting at day 6. At ~day 20, cells were fixed and stained with anti-cardiac Troponin T (BD Biosciences) and gating was based on an isotype control. Ranges observed across multiple experiments are shown for Troponin T and Day of beating initiation; number of experiments is shown in ()."
+  rnaseq_analysis:
+    - image: StemCellCharacterization_rnaseq_fig.png
+      caption: "Transcript levels of stem cell markers and edited locus. Heat maps are based on log2 normalized read counts. Cardiomyocyte samples at Day 5 and Day 20 are shown for comparison. Unedited Stem Cell samples are from passage 14 and passage 8. PXN-EGFP samples are from two independent clones."
 ---

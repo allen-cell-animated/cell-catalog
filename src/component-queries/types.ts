@@ -1,5 +1,30 @@
-import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import { IGatsbyImageData } from "gatsby-plugin-image";
+
+export interface RawImageData {
+    image: {
+        childImageSharp: {
+            gatsbyImageData: IGatsbyImageData;
+        };
+    };
+    caption: string;
+}
+
+export interface UnpackedImageData {
+    image: IGatsbyImageData;
+    caption: string;
+}
+
+export interface RawVideoData {
+    video: string;
+    caption: string;
+}
+
+export interface MediaFrontMatter {
+    images?: RawImageData[];
+    videos?: RawVideoData[];
+}
+
+export type ImageOrVideo = UnpackedImageData | RawVideoData;
 
 export interface Isoform {
     name: string;
@@ -32,6 +57,7 @@ export interface ParentalLineFrontmatter {
     allele_count: string[];
     tag_location: string[];
     fluorescent_tag: string[];
+    images_and_videos?: MediaFrontMatter;
 }
 
 export interface GenomicCharacterizationFrontMatter {
@@ -73,12 +99,6 @@ export interface NormalCellLineFrontmatter {
     tag_location: string[];
     fluorescent_tag: string[];
     donor_plasmid: string;
-    images_and_videos?: {
-        images: {
-            image: FileNode;
-            caption: string;
-        }[];
-    };
     parental_line: {
         frontmatter: {
             name: string;
@@ -88,13 +108,15 @@ export interface NormalCellLineFrontmatter {
     eu_hpsc_reg: string;
     editing_design: {
         ncbi_isoforms: string;
-        crna: string;
+        cr_rna: string;
         linker: string;
         cas9: string;
         diagrams: DiagramList[];
-    }
+    };
     genomic_characterization: GenomicCharacterizationFrontMatter;
-}
+    images_and_videos?: MediaFrontMatter;
+    category_labels: string[];
+};
 
 export interface NormalCellLineNode {
     id: string;
@@ -144,25 +166,12 @@ export interface Sequence {
     type: string;
 }
 
-export interface SingleImageDiagram {
-    image: {
-        childImageSharp: {
-            gatsbyImageData: IGatsbyImageData;
-        };
-    },
-    caption: string;
+export interface SingleImageDiagram extends UnpackedImageData {
     title: string;
 }
 
 export interface DiagramList {
-    images: {
-        image: {
-            childImageSharp: {
-                gatsbyImageData: IGatsbyImageData;
-            };
-        },
-        caption: string;
-    }[];
+    images: UnpackedImageData[];
     title: string;
 }
 
@@ -179,18 +188,9 @@ export interface DiseaseCellLineFrontmatter {
     order_link: string;
     status: CellLineStatus;
     hPSCreg_certificate_link: string;
-    images_and_videos?: {
-        images: {
-            image: any;
-            caption: string;
-        }[];
-        videos: {
-            video: any;
-            caption: string;
-        }[];
-    };
+    images_and_videos?: MediaFrontMatter;
     editing_design?: {
-        crna_target_site: string;
+        cr_rna_target_site: string;
         dna_donor_sequence: Sequence[];
         cas9: string;
         f_primer: string;
@@ -237,6 +237,7 @@ export interface UnpackedCellLineMainInfo {
     healthCertificate: string;
     orderLink: string;
     thumbnailImage?: IGatsbyImageData | null;
+    imagesAndVideos?: MediaFrontMatter;
 }
 
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
@@ -256,6 +257,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     tagLocation: string[];
     fluorescentTag: string[];
     orderPlasmid: string;
+    categoryLabels: string[];
 }
 
 export type ParentLine = Pick<UnpackedNormalCellLine,
@@ -295,6 +297,7 @@ export interface SearchAndFilterGroup {
                         };
                     }[];
                 };
+                category_labels: string[];
             };
         };
     }[];
@@ -313,5 +316,6 @@ export interface SearchLookup {
     // (so many words map to the same gene symbol)
     // used for getting a unique identifier for the geneSymToCellIds map
     structureAndNameToGene: Map<string, string>;
+    categoryToIds: Map<string, number[]>
     allSearchableTerms: Set<string>;
 }

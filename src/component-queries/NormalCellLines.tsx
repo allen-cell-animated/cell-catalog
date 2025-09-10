@@ -125,6 +125,7 @@ export default function NormalCellLines() {
                                             name
                                         }
                                     }
+                                    category_labels
                                 }
                             }
                         }

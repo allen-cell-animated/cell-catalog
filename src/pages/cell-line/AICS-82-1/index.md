@@ -28,28 +28,28 @@ images_and_videos:
         sodium arsenite. A single, mid-level plane is shown at low contrast
         (left) and high contrast (right). Movie plays at 2700x real time. Scale
         bar, 5 µm.
-      video: https://vimeo.com/1079876982/bc2b66d38c?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079876982
     - caption: Time-lapse movie of a live hiPS cell colony expressing mEGFP-tagged Ras
         GTPase-activating protein-binding protein 1 (G3BP-1). A single,
         mid-level plane of the cells was imaged every 3 min on a spinning-disk
         confocal microscope. Movie plays at 1800x real time. Scale bar, 20 µm.
-      video: https://vimeo.com/1079877106/b647e3fc11?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079877106
     - caption: Z-stack of live hiPS cell colony expressing mEGFP-tagged Ras
         GTPase-activating protein-binding protein 1 (G3BP-1) in control cells
         (left panel) and cells in the presence of 62.5 µM sodium arsenite for 60
         minutes (right panel). Cells were imaged in 3D on a spinning-disk
         confocal microscope. Movie starts at the bottom of the cells and ends at
         the top. Scale bar, 5µm.
-      video: https://vimeo.com/1079877062/f3bff4ef97?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079877062
     - caption: Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged Ras
         GTPase-activating protein-binding protein 1 (G3BP-1). A single,
         mid-level plane of the cells was imaged every 3 min on a spinning-disk
         confocal microscope. Movie plays at 900x real time. Scale bar, 5 µm.
-      video: https://vimeo.com/1079876934/b976fc343f?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079876934
 editing_design:
   ncbi_isoforms:
     - 
-  crna: TTGCTTTGGTCAATTCAACC
+  cr_rna: TTGCTTTGGTCAATTCAACC
   linker: SGLRS
   cas9: Wildtype spCas9
   diagrams:
@@ -57,15 +57,13 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: G3BP1 locus showing 2 G3BP1 isoforms; Bottom: Zoom in on mEGFP insertion site at G3BP1 N-terminal exon."
+category_labels: 
+ - Stress
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
-    - title: "Karyotype Analysis"
-      images:
-        - image: _karyotype.JPG
-          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
   amplified_junctions:
     - edited_gene: "G3BP1-mEGFP"
       junction: "5'"
@@ -90,4 +88,32 @@ genomic_characterization:
       fp_ratio: 0.54
       plasmid: 0.0
   ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: KAN/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
+stem_cell_characteristics:
+  pluripotency_analysis:
+    - marker: "NANOG"
+      positive_cells: 
+    - marker: "SOX2"
+      positive_cells: 
+    - marker: "OCT4"
+      positive_cells: 
+    - marker: "SSEA-1"
+      positive_cells: 
+    - marker: "SSEA-4"
+      positive_cells: 
+    - marker: "TRA-160"
+      positive_cells: 
+  pluripotency_caption: "iPSCs were stained with directly conjugated antibodies from BD Biosciences, acquired using a FACSAria III Fusion (BD Biosciences), and analyzed using FlowJo software (Treestar, Inc.). Doublets were excluded, then marker-specific gates were set according to corresponding fluorescence-minus-one (FMO) controls."
+  trilineage_differentiation:
+    - germ_layer: "Ectoderm"
+      marker: "PAX6"
+      percent_positive_cells: Pass
+    - germ_layer: "Endoderm"
+      marker: "SOX17"
+      percent_positive_cells: Pass
+    - germ_layer: "Mesoderm"
+      marker: "Brachyury"
+      percent_positive_cells: Pass
+  trilineage_caption: "iPSCs were subjected to a 5-7 day, non-terminal, directed differentiation using the STEMdiff™ Trilineage Differentiation Kit (STEMCELL Technologies, Inc.). Total RNA was isolated from each lineage specific differentiation and assayed via ddPCR for the expression of lineage specific transcripts; Pax6(Ectoderm), Sox17(Endoderm) and Brachyury(Mesoderm)."
+  cardiomyocyte_differentiation:
+  cardiomyocyte_differentiation_caption: "iPSCs were differentiated to cardiomyocytes and observed for initiation of beating starting at day 6. At ~day 12, cells were fixed and stained with anti-cardiac Troponin T (BD Biosciences) and gating was based on an isotype control. Ranges observed across multiple experiments are shown for Troponin T and Day of beating initiation; number of experiments is shown in (). "
 ---

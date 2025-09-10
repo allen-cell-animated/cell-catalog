@@ -1,18 +1,12 @@
 import React from "react";
-import { Divider, Flex } from "antd";
+import { Divider } from "antd";
 import { graphql } from "gatsby";
-import classNames from "classnames";
 import Layout from "../components/Layout";
 import Footer from "../components/Footer";
 import NormalCellLines from "../component-queries/NormalCellLines";
 import About from "../component-queries/About";
 
-const {
-    container,
-    header,
-    mainHeading,
-    normal,
-} = require("../style/catalog.module.css");
+const { container, mainHeading } = require("../style/catalog.module.css");
 interface NormalCatalogTemplateProps {
     title: string;
     content: string;
@@ -32,11 +26,9 @@ export const NormalCatalogTemplate = ({
 }: NormalCatalogTemplateProps) => {
     return (
         <section className={container}>
-            <Flex className={header}>
-                <About />
-            </Flex>
+            <About />
             <Divider />
-            <h2 className={classNames(normal, mainHeading)}>{tableHeader}</h2>
+            <h2 className={mainHeading}>{tableHeader}</h2>
             <NormalCellLines />
             <Footer
                 acknowledgementsBlock={acknowledgementsBlock}

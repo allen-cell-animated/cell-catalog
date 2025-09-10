@@ -11,6 +11,7 @@ genetic_modifications:
     tag_location: NA
     fluorescent_tag: mTagRFP-T
     allele_count: mono
+order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0102-330&Product=iPSC&PgId=166
 certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0102-330_CofA.pdf
 images_and_videos:
   images:
@@ -25,7 +26,7 @@ images_and_videos:
         were imaged one (a,b), three (c,d) and four (e,f) days post-thaw using a
         Leica microscope at 4x and 10x magnification
   videos:
-    - video: https://vimeo.com/1082631557/50d82c66b5?ts=0&share=copy
+    - video: https://player.vimeo.com/video/1082631557
       caption: Z-stack of a live hiPS cell colony expressing mTagRFP-T-tagged
         mitochondrial targeting sequence of COXVIII (mitoTag). The movie starts
         at the bottom of the cells and ends at the top (scale bar, 5 µm). Cells

@@ -25,21 +25,21 @@ images_and_videos:
         proliferating cell nuclear antigen (PCNA). A single, mid-level plane of
         the cells was imaged every 3 min on a spinning-disk confocal microscope.
         Movie plays at 900x real time. Scale bar, 5 µm.
-      video: https://vimeo.com/1079876284/e0804684a6?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079876284
     - caption: Z-stack of live hiPS cell colony expressing mEGFP-tagged proliferating
         cell nuclear antigen (PCNA). Cells were imaged in 3D on a spinning-disk
         confocal microscope. Movie starts at the bottom of the cells and ends at
         the top. Scale bar, 5µm.
-      video: https://vimeo.com/1079876437/05c06fe957?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079876437
     - caption: Time-lapse movie of live hiPS cell colony expressing mEGFP-tagged
         proliferating cell nuclear antigen (PCNA). A single, mid-level plane of
         the cells was imaged every 3 min on a spinning-disk confocal microscope.
         Movie plays at 1800x real time. Scale bar, 20 µm.
-      video: https://vimeo.com/1079876541/cc9572adf0?ts=0&share=copy
+      video: https://player.vimeo.com/video/1079876541
 editing_design:
   ncbi_isoforms:
     - 
-  crna: GTTCGAGGCGCGCCTGGTCC
+  cr_rna: GTTCGAGGCGCGCCTGGTCC
   linker: GEGQGQGQGPGRGYAYRS
   cas9: Wildtype spCas9
   diagrams:
@@ -47,15 +47,13 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: PCNA locus showing 2 PCNA isoforms; Bottom: Zoom in on mEGFP insertion site at PCNA N-terminal exon"
+category_labels: 
+ - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
-    - title: "Karyotype Analysis"
-      images:
-        - image: _karyotype.JPG
-          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
   amplified_junctions:
     - edited_gene: ""
       junction: "5'"
@@ -80,4 +78,32 @@ genomic_characterization:
       fp_ratio: 
       plasmid: 
   ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: KAN/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
+stem_cell_characteristics:
+  pluripotency_analysis:
+    - marker: "NANOG"
+      positive_cells: 
+    - marker: "SOX2"
+      positive_cells: 
+    - marker: "OCT4"
+      positive_cells: 
+    - marker: "SSEA-1"
+      positive_cells: 
+    - marker: "SSEA-4"
+      positive_cells: 
+    - marker: "TRA-160"
+      positive_cells: 
+  pluripotency_caption: "iPSCs were stained with directly conjugated antibodies from BD Biosciences, acquired using a FACSAria III Fusion (BD Biosciences), and analyzed using FlowJo software (Treestar, Inc.). Doublets were excluded, then marker-specific gates were set according to corresponding fluorescence-minus-one (FMO) controls."
+  trilineage_differentiation:
+    - germ_layer: "Ectoderm"
+      marker: "PAX6"
+      percent_positive_cells: 
+    - germ_layer: "Endoderm"
+      marker: "SOX17"
+      percent_positive_cells: 
+    - germ_layer: "Mesoderm"
+      marker: "Brachyury"
+      percent_positive_cells: 
+  trilineage_caption: "iPSCs were subjected to a 5-7 day, non-terminal, directed differentiation using the STEMdiff™ Trilineage Differentiation Kit (STEMCELL Technologies, Inc.). Total RNA was isolated from each lineage specific differentiation and assayed via ddPCR for the expression of lineage specific transcripts; Pax6(Ectoderm), Sox17(Endoderm) and Brachyury(Mesoderm)."
+  cardiomyocyte_differentiation:
+  cardiomyocyte_differentiation_caption: "iPSCs were differentiated to cardiomyocytes and observed for initiation of beating starting at day 6. At ~day 12, cells were fixed and stained with anti-cardiac Troponin T (BD Biosciences) and gating was based on an isotype control. Ranges observed across multiple experiments are shown for Troponin T and Day of beating initiation; number of experiments is shown in (). "
 ---

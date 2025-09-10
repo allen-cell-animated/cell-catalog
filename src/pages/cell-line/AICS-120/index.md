@@ -22,7 +22,7 @@ images_and_videos:
         were imaged one and three days post-thaw using a Leica microscope at 4x
         and 10x magnification.
   videos:
-    - video: https://vimeo.com/1082633752/0e3a793bb8?ts=0&share=copy
+    - video: https://player.vimeo.com/video/1082633752
       caption: "Z-stack of a live hiPS cell colony expressing expressing mEGFP-tagged
         outer mitochondrial membrane receptor Tom20 (TOMM20) and
         mTagRFP-T-tagged mitochondrial targeting sequence of COXVIII (mitoTag).

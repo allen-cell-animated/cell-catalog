@@ -8,6 +8,7 @@ import {
     SearchLookup,
     SearchAndFilterGroup,
 } from "./types";
+import { getThumbnail } from "../utils/mediaUtils";
 import { formatCellLineId } from "../utils";
 
 export const extractGeneticModifications = (
@@ -71,9 +72,9 @@ export const convertFrontmatterToDiseaseCellLine = (
         mutatedGene: mutatedGenes,
         path: cellLineNode.fields.slug,
         parentalLine: {
-            thumbnailImage:
-                cellLineNode.frontmatter.parental_line.frontmatter
-                    .images_and_videos?.images?.[0]?.image?.childImageSharp?.gatsbyImageData || null,
+            thumbnailImage: getThumbnail(
+                cellLineNode.frontmatter.parental_line.frontmatter.images_and_videos
+            ),
             cellLineId:
                 cellLineNode.frontmatter.parental_line.frontmatter.cell_line_id,
             cloneNumber:
@@ -121,9 +122,11 @@ export const convertFrontmatterToNormalCellLines = ({
         healthCertificate: cellLineNode.frontmatter.eu_hpsc_reg,
         orderLink: cellLineNode.frontmatter.order_link,
         orderPlasmid: cellLineNode.frontmatter.donor_plasmid,
-        thumbnailImage:
-            cellLineNode.frontmatter.images_and_videos?.images?.[0]?.image?.childImageSharp
-                ?.gatsbyImageData || null,
+        thumbnailImage: getThumbnail(
+            cellLineNode.frontmatter.images_and_videos
+        ),
+        imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
+        categoryLabels: cellLineNode.frontmatter.category_labels
     };
 };
 
@@ -132,6 +135,7 @@ export const createLookupMappings = (
 ): SearchLookup => {
     const geneSymToCellIds = new Map();
     const structureAndNameToGene = new Map();
+    const categoryToIds = new Map();
     const allSearchableTerms: Set<string> = new Set();
     data.forEach((group: any) => {
         const symbol = group.fieldValue;
@@ -142,6 +146,17 @@ export const createLookupMappings = (
             cellLines.push(cellLineId);
             if (cellLineId) {
                 allSearchableTerms.add(formatCellLineId(cellLineId));
+            }
+            const categories = edge.node.frontmatter.category_labels;
+            if (categories) {
+                categories.forEach((category: any) => {
+                    allSearchableTerms.add(category);
+                    if (cellLineId) {
+                        const set = categoryToIds.get(category) || new Set();
+                        set.add(cellLineId);
+                        categoryToIds.set(category, set);
+                    }
+                });
             }
             const genes = edge.node.frontmatter.genetic_modifications || [];
             genes.forEach((obj: any) => {
@@ -168,5 +183,6 @@ export const createLookupMappings = (
         geneSymToCellIds,
         structureAndNameToGene,
         allSearchableTerms,
+        categoryToIds
     };
 };

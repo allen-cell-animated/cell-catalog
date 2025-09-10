@@ -5,53 +5,48 @@ const { createFilePath } = require("gatsby-source-filesystem");
 exports.createSchemaCustomization = ({ actions, schema }) => {
     const { createTypes } = actions;
     const typeDefs = [
-      "type MarkdownRemark implements Node { frontmatter: Frontmatter }",
-      `type GeneticModification {
+        "type MarkdownRemark implements Node { frontmatter: Frontmatter }",
+        `type GeneticModification {
                 gene: MarkdownRemark @link(by: "frontmatter.symbol", from: "gene")
                 allele_count: String
                 tag_location: String
                 fluorescent_tag: String
             }`,
         ` type ImgWithCaption {
-        image: File @fileByRelativePath
-        caption: String
-        }
-
-        type Diagram {
-        title: String
-        images: [ImgWithCaption]
-        }
-
-        type DdpcrRow {
-        tag: String
-        clone: Float
-        fp_ratio: Float
-        plasmid: Float
-        }
-
-        type AmplifiedJunction {
-        edited_gene: String
-        junction: String
-        expected_size: String
-        confirmed_sequence: String
-        }
-
-        type OffTargetRow {
-        clones_analyzed: Float
-        off_targets_sequenced_per_clone: Float
-        total_sites_sequenced: Float
-        mutations_identified: Float
-        }
-
-        type MarkdownRemarkFrontmatterGenomic_characterization {
-        diagrams: [Diagram]
-        amplified_junctions: [AmplifiedJunction]
-        junction_table_caption: String
-        ddpcr: [DdpcrRow]
-        ddpcr_caption: String
-        cr_rna_off_targets: [OffTargetRow]
-        off_targets_caption: String
-        } `,
+            image: File @fileByRelativePath
+            caption: String
+            }
+            type Diagram {
+            title: String
+            images: [ImgWithCaption]
+            }
+            type DdpcrRow {
+            tag: String
+            clone: Float
+            fp_ratio: Float
+            plasmid: Float
+            }
+            type AmplifiedJunction {
+            edited_gene: String
+            junction: String
+            expected_size: String
+            confirmed_sequence: String
+            }
+            type OffTargetRow {
+            clones_analyzed: Float
+            off_targets_sequenced_per_clone: Float
+            total_sites_sequenced: Float
+            mutations_identified: Float
+            }
+            type MarkdownRemarkFrontmatterGenomic_characterization {
+            diagrams: [Diagram]
+            amplified_junctions: [AmplifiedJunction]
+            junction_table_caption: String
+            ddpcr: [DdpcrRow]
+            ddpcr_caption: String
+            cr_rna_off_targets: [OffTargetRow]
+            off_targets_caption: String
+            } `,
         `type Frontmatter {
                 disease: MarkdownRemark @link(by: "frontmatter.name")
                 genetic_modifications: [GeneticModification]

@@ -8,22 +8,20 @@ import {
     UnpackedNormalCellLine,
 } from "../../component-queries/types";
 import { RAIN_SHADOW, SERIOUS_GRAY } from "../../style/theme";
+import PlasmidIcon from "../Icons/PlasmidIcon";
 import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint } from "./types";
-import { MultiLineTableCell } from "../MultiLineTableCell";
+import { MultiLineTableCell, ParentComponent } from "../MultiLineTableCell";
 import GeneDisplay from "../GeneDisplay";
-
-const Plasmid = require("../../img/plasmid.svg");
 
 const {
     lastColumn,
     actionColumn,
     actionButton,
-    plasmidIcon,
     protein,
     gene,
     structure,
-    multipleLines,
+    tableMultiLineCell,
 } = require("../../style/table.module.css");
 
 const caseInsensitiveStringCompare = (a = "", b = "") =>
@@ -58,11 +56,7 @@ const obtainPlasmidColumn = {
                     rel="noreferrer"
                 >
                     <Flex gap={8}>
-                        <Icon
-                            className={plasmidIcon}
-                            component={Plasmid}
-                            style={{ fontSize: 28 }}
-                        />
+                        <PlasmidIcon />
                         Obtain Plasmid
                     </Flex>
                 </a>
@@ -91,7 +85,10 @@ export const getNormalTableColumns = (
             sortIcon: sortIcon,
             className: protein,
             render: (proteins: string[]) => (
-                <MultiLineTableCell entries={proteins} />
+                <MultiLineTableCell
+                    parent={ParentComponent.TABLE}
+                    entries={proteins}
+                />
             ),
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
@@ -109,7 +106,7 @@ export const getNormalTableColumns = (
             className: gene,
             render: (taggedGene: UnpackedGene[]) => {
                 return (
-                    <div className={multipleLines}>
+                    <div className={tableMultiLineCell}>
                         {taggedGene.map((gene, index) => (
                             <GeneDisplay key={index} gene={gene} />
                         ))}
@@ -129,7 +126,10 @@ export const getNormalTableColumns = (
             responsive: mdBreakpoint,
             sortIcon: sortIcon,
             render: (alleleCount: string[]) => (
-                <MultiLineTableCell entries={alleleCount} />
+                <MultiLineTableCell
+                    parent={ParentComponent.TABLE}
+                    entries={alleleCount}
+                />
             ),
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
@@ -146,7 +146,10 @@ export const getNormalTableColumns = (
             sortIcon: sortIcon,
             className: structure,
             render: (structures: string[]) => (
-                <MultiLineTableCell entries={structures} />
+                <MultiLineTableCell
+                    parent={ParentComponent.TABLE}
+                    entries={structures}
+                />
             ),
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
@@ -159,7 +162,9 @@ export const getNormalTableColumns = (
             key: "fluorescentTag",
             dataIndex: "fluorescentTag",
             responsive: mdBreakpoint,
-            render: (tags: string[]) => <MultiLineTableCell entries={tags} />,
+            render: (tags: string[]) => (
+                <MultiLineTableCell parent={ParentComponent.TABLE} entries={tags} />
+            ),
             sortIcon: sortIcon,
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
@@ -171,10 +176,31 @@ export const getNormalTableColumns = (
             title: "Tag Location",
             key: "tagLocation",
             dataIndex: "tagLocation",
-            className: inProgress ? "" : lastColumn,
             responsive: mdBreakpoint,
             render: (locations: string[]) => (
-                <MultiLineTableCell entries={locations} />
+                <MultiLineTableCell
+                    parent={ParentComponent.TABLE}
+                    entries={locations}
+                />
+            ),
+            sortIcon: sortIcon,
+            sorter: (a: any, b: any) =>
+                caseInsensitiveStringCompare(
+                    (a.tagLocation ?? []).join("|"),
+                    (b.tagLocation ?? []).join("|")
+                ),
+        },
+        {
+            title: "Category",
+            key: "categoryLabels",
+            dataIndex: "categoryLabels",
+            className: inProgress ? "" : lastColumn,
+            responsive: mdBreakpoint,
+            render: (categories: string[]) => (
+                <MultiLineTableCell
+                    parent={ParentComponent.TABLE}
+                    entries={categories}
+                />
             ),
             sortIcon: sortIcon,
             sorter: (a: any, b: any) =>

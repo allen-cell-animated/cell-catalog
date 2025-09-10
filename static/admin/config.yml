@@ -15,6 +15,26 @@ local_backend: true
 media_folder: static/img
 public_folder: /img
 
+# Section below defines reusable field collections defined with 
+# yaml anchors &[anchor], referenced with alias *[anchor]
+richTextFields: &richTextFields
+  - &f_text       { label: "Text", name: "text", widget: "string" }
+  - &f_emphasis
+    label: "emphasis"
+    name: "emphasis"
+    widget: "list"
+    required: false
+    fields: [ { label: "Text", name: "text", widget: "string" } ]
+  - &f_link
+    label: "URL"
+    name: "link"
+    widget: "list"
+    required: false
+    fields:
+      - { label: "Text", name: "text", widget: "string" }
+      - { label: "URL",  name: "url",  widget: "string" }
+
+
 field_image: &field_image { label: "Image", name: "image", widget: "image" }
 field_caption: &field_caption { label: "Caption", name: "caption", widget: "string", required: false }
 field_video: &field_video { label: "Video", name: "video", widget: "file" }
@@ -218,7 +238,7 @@ collections:
                         },
                         {
                             label: "crRNA",
-                            name: "crna",
+                            name: "cr_rna",
                             widget: "string",
                             required: false,
                         },
@@ -367,6 +387,154 @@ collections:
                                         label: "Total Sites Sequenced",
                                         name: "total_sites_sequenced",
                                         widget: "number",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Mutations Identified",
+                                        name: "mutations_identified",
+                                        widget: "number",
+                                        required: false,
+                                    }
+                                ],
+                        },
+                        {
+                            label: "crRNA Off-targets Caption",
+                            name: "off_targets_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                    ],
+                
+            } 
+          - {
+                label: "Category Labels",
+                name: "category_labels",
+                widget: "select",
+                options:
+                    ["Key Structure and Organelle", "Nuclear Structure", "Stress", "Cardiac Structure", "Tools", "Endothelial"],
+                required: false,
+                multiple: true,
+            }
+          - {
+                label: "Stem Cell Characteristics",
+                name: "stem_cell_characteristics",
+                widget: "object",
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            label: "Pluripotency Analysis",
+                            name: "pluripotency_analysis",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Marker",
+                                        name: "marker",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Positive Cells (%)",
+                                        name: "positive_cells",
+                                        widget: "number",
+                                        value_type: "float",
+                                        required: false,
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Pluripotency Caption",
+                            name: "pluripotency_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Trilineage Differentiation",
+                            name: "trilineage_differentiation",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Germ Layer",
+                                        name: "germ_layer",
+                                        widget: "select",
+                                        options: ["Ectoderm", "Endoderm", "Mesoderm"],
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Marker",
+                                        name: "marker",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Percent Positive Cells",
+                                        name: "percent_positive_cells",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Trilineage Caption",
+                            name: "trilineage_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Cardiomyocyte Differentiation",
+                            name: "cardiomyocyte_differentiation",
+                            widget: "object",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Troponin T Percent Positive",
+                                        name: "troponin_percent_positive",
+                                        widget: "string",
+                                        required: false,
+                                        hint: "Enter the tag in the format [gene symbol]-[fluorescent tag]"
+                                    },
+                                    {
+                                        label: "Day of Beating Percent",
+                                        name: "day_of_beating_percent",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Day of Beating Range",
+                                        name: "day_of_beating_range",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Cardiomyocyte Differentiation Caption",
+                            name: "cardiomyocyte_differentiation_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "RNAseq Analysis",
+                            name: "rnaseq_analysis",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Image",
+                                        name: "image",
+                                        widget: "image",
+                                    },
+                                    {
+                                        label: "Caption",
+                                        name: "caption",
+                                        widget: "string",
                                         required: false,
                                     },
                                     {
@@ -578,7 +746,8 @@ collections:
                             widget: "list",
                             required: false,
                             collapsed: true,
-                            fields: *fields_single_image_diagram                        },
+                            fields: *fields_single_image_diagram
+                        },
                     ],
             }
           - {
@@ -590,11 +759,11 @@ collections:
                 fields:
                     [
                         {
-                            label: "cRNA Target Site",
-                            name: "crna_target_site",
+                            label: "crRNA Target Site",
+                            name: "cr_rna_target_site",
                             widget: "string",
                             required: false,
-                            hint: "Enter entire cRNA Target Site sequence. Place square brackets around PAM site. e.g. AG[TGG]ATA",
+                            hint: "Enter entire crRNA Target Site sequence. Place square brackets around PAM site. e.g. AG[TGG]ATA",
                         },
                         {
                             label: "DNA Donor Sequence",
@@ -759,132 +928,6 @@ collections:
       label: "Pages"
       files:
           - file: "src/pages/index.md"
-            label: "Landing Page"
-            name: "index"
-            fields:
-                - {
-                    label: "Template Key",
-                    name: "templateKey",
-                    widget: "hidden",
-                    default: "index-page",
-                }
-                - { label: Title, name: title, widget: string }
-                - { label: Image, name: image, widget: image }
-                - { label: Subtitle, name: subtitle, widget: string }
-                - {
-                      label: Mainpitch,
-                      name: main_pitch,
-                      widget: object,
-                      fields:
-                          [
-                              { label: Title, name: title, widget: string },
-                              {
-                                  label: Description,
-                                  name: description,
-                                  widget: text,
-                              },
-                          ],
-                  }
-          - file: "src/pages/disease-catalog/index.md"
-            label: "Disease Cell Line Catalog"
-            name: "disease-catalog"
-            fields:
-                - {
-                    label: "Template Key",
-                    name: "templateKey",
-                    widget: "hidden",
-                    default: "disease-catalog",
-                }
-                - { label: "Title", name: "title", widget: "string" }
-                - { label: "Body", name: "body", widget: "markdown" }
-                - {
-                      label: Main,
-                      name: main,
-                      widget: object,
-                      fields:
-                          [
-                              { label: Heading, name: heading, widget: string },
-                              {
-                                  label: Subheading,
-                                  name: subheading,
-                                  widget: string,
-                                  required: false,
-                              },
-
-                            {
-                                label: Description,
-                                name: description,
-                                widget: markdown,
-                            },
-                        ],
-                }
-                - {
-                    label: "Coriell Image",
-                    name: "coriell_image",
-                    widget: "image",
-                }
-                - {
-                      label: "Coriell Link",
-                      name: "coriell_link",
-                      widget: "string",
-                  }
-                - { label: "Learn Image", name: "learn_image", widget: "image" }
-                - { label: "Learn Link", name: "learn_link", widget: "string" }
-                - {
-                    label: "Addgene Image",
-                    name: "addgene_image",
-                    widget: "image",
-                }
-                - {
-                    label: "Addgene Link",
-                    name: "addgene_link",
-                    widget: "string",
-                }
-                - {
-                    label: "Footer text",
-                    name: "footer_text",
-                    widget: "markdown",
-                }
-                - {
-                      label: "Acknowledgements Block",
-                      name: "acknowledgements_block",
-                      widget: "object",
-                      fields:
-                          [
-                              {
-                                  label: "Intro",
-                                  name: "intro",
-                                  widget: "string",
-                              },
-                              {
-                                  label: "Contributors",
-                                  name: "contributors",
-                                  widget: "list",
-                                  required: false,
-                                  collapsed: true,
-                                  fields:
-                                      [
-                                          {
-                                              label: "Name",
-                                              name: "name",
-                                              widget: "string",
-                                          },
-                                          {
-                                              label: "Institution",
-                                              name: "institution",
-                                              widget: "string",
-                                          },
-                                      ],
-                              },
-                              {
-                                  label: "Outro",
-                                  name: "outro",
-                                  widget: "string",
-                              },
-                          ],
-                  }
-                - { label: "Funding", name: "funding_text", widget: "markdown" }
-          - file: "src/pages/normal-catalog/index.md"
             label: "Cell Line Catalog"
             name: "normal-catalog"
             fields:
@@ -904,66 +947,14 @@ collections:
                               {
                                   label: "Primary Text",
                                   name: "primary",
-                                  widget: "text",
-                              },
-                              {
-                                  label: "Primary emphasis Text",
-                                  name: "emphasis",
-                                  widget: "text",
-                              },
-                              {
-                                  label: "Newsletter Text",
-                                  name: "newsletter",
-                                  widget: "text",
+                                  widget: "object",
+                                  fields: *richTextFields
                               },
                               {
                                   label: "Disease Catalog Copy",
                                   name: "disease",
-                                  widget: "text",
-                              },
-                              {
-                                  label: "Links",
-                                  name: "links",
                                   widget: "object",
-                                  fields:
-                                      [
-                                          {
-                                              label: "Newsletter Link",
-                                              name: "newsletter",
-                                              widget: "object",
-                                              fields:
-                                                  [
-                                                      {
-                                                          label: "Text",
-                                                          name: "text",
-                                                          widget: "string",
-                                                      },
-                                                      {
-                                                          label: "URL",
-                                                          name: "url",
-                                                          widget: "string",
-                                                      },
-                                                  ],
-                                          },
-                                          {
-                                              label: "Disease Catalog Link",
-                                              name: "disease",
-                                              widget: "object",
-                                              fields:
-                                                  [
-                                                      {
-                                                          label: "Text",
-                                                          name: "text",
-                                                          widget: "string",
-                                                      },
-                                                      {
-                                                          label: "URL",
-                                                          name: "url",
-                                                          widget: "string",
-                                                      },
-                                                  ],
-                                          },
-                                      ],
+                                  fields: *richTextFields
                               },
                           ],
                   }
