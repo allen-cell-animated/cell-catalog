@@ -1,11 +1,14 @@
 import { ColumnsType } from "antd/es/table";
 import { AmplifiedJunction, CrRnaOffTargets, DDCPR } from "./types";
 
+const { firstColumn } = require("../../style/subpage-table.module.css");
+
 export const AMPLIFIED_JUNCTION_COLUMNS: ColumnsType<AmplifiedJunction> = [
     {
         title: "Edited Gene",
         dataIndex: "editedGene",
         key: "editedGene",
+        className: firstColumn,
     },
     {
         title: "Junction",
@@ -29,6 +32,7 @@ export const DDPCR_COLUMNS: ColumnsType<DDCPR> = [
         title: "Tag",
         dataIndex: "tag",
         key: "tag",
+        className: firstColumn,
     },
     {
         title: "Clone",

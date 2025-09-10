@@ -1,5 +1,4 @@
 import React from "react";
-import { Flex } from "antd";
 import classNames from "classnames";
 import DiagramCard from "../shared/DiagramCard";
 import { UnpackedGenomicCharacterization as GenomicCharacterizationProps } from "./types";
@@ -7,8 +6,9 @@ import SubpageTable from "../shared/SubpageTable";
 import { DDPCR_COLUMNS, CRRNA_OFF_TARGETS_COLUMNS, AMPLIFIED_JUNCTION_COLUMNS } from "./genomic-characterization-table-constants";
 
 const {
-    card,
-    fullWidth,
+    masonry,
+    masonryItem,
+    masonrySpanAll,
 } = require("../../style/genomic-characterization.module.css");
 
 const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
@@ -19,9 +19,10 @@ const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
 }) => {
 
     return (
-        <Flex gap={40} wrap="wrap" justify="space-between" align="baseline">
+        <div className={masonry}>
             {amplifiedJunctions?.data.length ? (
                 <SubpageTable
+                    className={masonryItem}
                     title={"Amplified Junctions"}
                     columns={AMPLIFIED_JUNCTION_COLUMNS}
                     dataSource={amplifiedJunctions.data}
@@ -30,14 +31,16 @@ const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
             ) : null}
             {ddpcr?.data.length ? (
                 <SubpageTable
+                    className={masonryItem}
                     title={"GFP and donor plasmid copy number"}
                     columns={DDPCR_COLUMNS}
                     dataSource={ddpcr.data}
                     caption={ddpcr.caption}
                 />
             ) : null}
-            {crRnaOffTargets?.data.length ?  (
+            {crRnaOffTargets?.data.length ? (
                 <SubpageTable
+                    className={masonryItem}
                     title={"crRNA Off-targets"}
                     columns={CRRNA_OFF_TARGETS_COLUMNS}
                     dataSource={crRnaOffTargets.data}
@@ -48,15 +51,16 @@ const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
                 <DiagramCard
                     key={index}
                     className={classNames(
-                        card,
-                        diagram.title?.includes("Sanger") ? fullWidth : ""
+                        diagram.title?.includes("Sanger")
+                            ? masonrySpanAll
+                            : masonryItem
                     )}
                     title={diagram.title}
                     caption={diagram.caption}
                     image={diagram.image}
                 />
             ))}
-        </Flex>
+        </div>
     );
 };
 
