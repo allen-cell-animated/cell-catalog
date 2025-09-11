@@ -80,7 +80,7 @@ genomic_characterization:
     - tag: CDH1-mEGFP
       clone: 35
       fp_ratio: 0.515
-      plasmid: N/A
+      plasmid: null
   ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. RPP30 is known 2n reference gene."
 stem_cell_characteristics:
   pluripotency_analysis:
