@@ -54,6 +54,7 @@ export const CellLineTemplate = ({
     alleleCount,
     editingDesign,
     imagesAndVideos,
+    genomicCharacterization,
 }: CellLineProps) => {
     const hasImagesOrVideos = hasMedia(imagesAndVideos);
     if (cellLineId === 0) {
@@ -99,7 +100,7 @@ export const CellLineTemplate = ({
             </div>
             <SubpageTabs
                 editingDesignData={editingDesign}
-                genomicCharacterizationData={[]}
+                genomicCharacterizationData={genomicCharacterization}
                 stemCellCharData={null}
                 tabsToRender={TABS_WITH_STEM_CELL}
             />
@@ -189,6 +190,43 @@ export const pageQuery = graphql`
                             caption
                         }
                     }
+                }
+                genomic_characterization {
+                    diagrams {
+                        title
+                        images {
+                            image {
+                                childImageSharp {
+                                    gatsbyImageData(
+                                        placeholder: BLURRED
+                                        layout: CONSTRAINED
+                                    )
+                                }
+                            }
+                            caption
+                        }
+                    }
+                    amplified_junctions {
+                        edited_gene
+                        junction
+                        expected_size
+                        confirmed_sequence
+                    }
+                    ddpcr {
+                        tag
+                        clone
+                        fp_ratio
+                        plasmid
+                    }
+                    cr_rna_off_targets {
+                        clones_analyzed
+                        off_targets_sequenced_per_clone
+                        total_sites_sequenced
+                        mutations_identified
+                    }
+                    junction_table_caption
+                    ddpcr_caption
+                    off_targets_caption
                 }
             }
         }

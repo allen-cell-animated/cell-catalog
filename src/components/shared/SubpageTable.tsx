@@ -25,7 +25,6 @@ const SubpageTable: React.FC<SubpageTable> = ({
             {...cardProps}
             title={title}
             caption={caption}
-            style={{ width: "min-content" }}
             className={classNames(container, className)}
         >
             <Table
