@@ -55,7 +55,6 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
                 funding_text:  String @md
                 footer_text: String @md
                 genomic_characterization: MarkdownRemarkFrontmatterGenomic_characterization
-                stem_cell_characteristics: MarkdownRemarkFrontmatterStem_cell_characteristics
             }`,
     ];
     createTypes(typeDefs);
