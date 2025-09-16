@@ -11,6 +11,7 @@ import {
     GenomicCharacterizationFrontMatter,
 } from "../../component-queries/types";
 import { getThumbnail } from "../../utils/mediaUtils";
+import { hasTableData, nonEmptyArray } from "../../utils";
 import { extractGeneticModifications } from "../../component-queries/convert-data";
 import { DiagramCardProps } from "../shared/DiagramCard";
 import {
@@ -134,10 +135,10 @@ export const unpackGenomicCharacterization = (gc?: GenomicCharacterizationFrontM
         })
     }
     const data = {
-        amplifiedJunctions: amplifiedJunctionsData,
-        ddpcr: ddpcrData,
-        crRnaOffTargets: crRnaOffTargetsData,
-        diagrams: diagrams.length > 0 ? diagrams : undefined,
+        amplifiedJunctions: hasTableData(amplifiedJunctionsData) ? amplifiedJunctionsData : undefined,
+        ddpcr: hasTableData(ddpcrData) ? ddpcrData : undefined,
+        crRnaOffTargets: hasTableData(crRnaOffTargetsData) ? crRnaOffTargetsData : undefined,
+        diagrams: nonEmptyArray(diagrams) ? diagrams : undefined,
     };
 
     return data;

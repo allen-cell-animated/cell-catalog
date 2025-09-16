@@ -1,9 +1,12 @@
 import React from "react";
-import classNames from "classnames";
 import DiagramCard from "../shared/DiagramCard";
 import { UnpackedGenomicCharacterization as GenomicCharacterizationProps } from "./types";
 import SubpageTable from "../shared/SubpageTable";
-import { DDPCR_COLUMNS, CRRNA_OFF_TARGETS_COLUMNS, AMPLIFIED_JUNCTION_COLUMNS } from "./genomic-characterization-table-constants";
+import {
+    DDPCR_COLUMNS,
+    CRRNA_OFF_TARGETS_COLUMNS,
+    AMPLIFIED_JUNCTION_COLUMNS,
+} from "./genomic-characterization-table-constants";
 
 const {
     masonry,
@@ -17,10 +20,9 @@ const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
     ddpcr,
     crRnaOffTargets,
 }) => {
-
     return (
         <div className={masonry}>
-            {amplifiedJunctions?.data.length ? (
+            {amplifiedJunctions ? (
                 <SubpageTable
                     className={masonryItem}
                     title={"Amplified Junctions"}
@@ -29,7 +31,7 @@ const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
                     caption={amplifiedJunctions.caption}
                 />
             ) : null}
-            {ddpcr?.data.length ? (
+            {ddpcr ? (
                 <SubpageTable
                     className={masonryItem}
                     title={"GFP and donor plasmid copy number"}
@@ -38,7 +40,7 @@ const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
                     caption={ddpcr.caption}
                 />
             ) : null}
-            {crRnaOffTargets?.data.length ? (
+            {crRnaOffTargets ? (
                 <SubpageTable
                     className={masonryItem}
                     title={"crRNA Off-targets"}
@@ -50,11 +52,11 @@ const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
             {diagrams?.map((diagram, index) => (
                 <DiagramCard
                     key={index}
-                    className={classNames(
+                    className={
                         diagram.title?.includes("Sanger")
                             ? masonrySpanAll
                             : masonryItem
-                    )}
+                    }
                     title={diagram.title}
                     caption={diagram.caption}
                     image={diagram.image}

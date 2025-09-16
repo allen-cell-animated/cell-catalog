@@ -18,7 +18,7 @@ const {
 export interface SubpageTabsProps {
     tabsToRender: SubPage[];
     editingDesignData: UnpackedEditingDesign | null;
-    genomicCharacterizationData?: UnpackedGenomicCharacterization | null;
+    genomicCharacterizationData: UnpackedGenomicCharacterization | null;
     stemCellCharData: StemCellCharProps | null;
 }
 
@@ -36,27 +36,13 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
         );
     };
 
-    const hasGcTables = (gc?: UnpackedGenomicCharacterization | null): boolean =>
-        !!(
-            gc?.amplifiedJunctions?.data?.length ||
-            gc?.ddpcr?.data?.length ||
-            gc?.crRnaOffTargets?.data?.length
-        );
-
-    const hasGcData =
-        !!genomicCharacterizationData &&
-        !!(
-            genomicCharacterizationData.diagrams?.length ||
-            hasGcTables(genomicCharacterizationData)
-        );
-
     const tabComponents = {
         [SubPage.EditingDesign]: editingDesignData ? (
             <EditingDesignSubpage {...editingDesignData} />
         ) : (
             getNoDataComponent(SubPage.EditingDesign)
         ),
-        [SubPage.GenomicCharacterization]: hasGcData ? (
+        [SubPage.GenomicCharacterization]: genomicCharacterizationData ? (
             <GenomicCharacterization {...genomicCharacterizationData} />
         ) : (
             getNoDataComponent(SubPage.GenomicCharacterization)

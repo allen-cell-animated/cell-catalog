@@ -74,7 +74,7 @@ export interface UnpackedDiseaseCellLineFull extends UnpackedCellLineMainInfo {
     parentalLine: ParentLine;
     clones: Clone[];
     editingDesign: UnpackedEditingDesign | null;
-    genomicCharacterization?: UnpackedGenomicCharacterization;
+    genomicCharacterization: UnpackedGenomicCharacterization | null;
     stemCellCharData: StemCellCharProps | null;
 }
 
