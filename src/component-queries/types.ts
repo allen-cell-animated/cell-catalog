@@ -85,6 +85,28 @@ export interface GenomicCharacterizationFrontMatter {
     off_targets_caption: string;
 }
 
+
+export interface StemCellCharacteristicsFrontMatter {
+    pluripotency_analysis: {
+        marker: string;
+        positive_cells: number;
+    }[];
+    pluripotency_caption: string;
+    trilineage_differentiation: {
+        germ_layer: string;
+        marker: string;
+        percent_positive_cells: string;
+    }[];
+    trilineage_caption: string;
+    cardiomyocyte_differentiation: {
+        troponin_percent_positive: string;
+        day_of_beating_percent: string;
+        day_of_beating_range: string;
+    };
+    cardiomyocyte_differentiation_caption: string;
+    rnaseq_analysis: UnpackedImageData[];
+}
+
 export interface NormalCellLineFrontmatter {
     templateKey: string;
     cell_line_id: number;
@@ -114,6 +136,7 @@ export interface NormalCellLineFrontmatter {
         diagrams: DiagramList[];
     };
     genomic_characterization: GenomicCharacterizationFrontMatter;
+    stem_cell_characteristics: StemCellCharacteristicsFrontMatter;
     images_and_videos?: MediaFrontMatter;
     category_labels: string[];
 };

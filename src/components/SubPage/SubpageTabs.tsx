@@ -7,6 +7,7 @@ import StemCellChar, { StemCellCharProps } from "./StemCellChar";
 import {
     UnpackedEditingDesign,
     UnpackedGenomicCharacterization,
+    UnpackedStemCellCharacteristics,
 } from "./types";
 
 const {
@@ -19,14 +20,14 @@ export interface SubpageTabsProps {
     tabsToRender: SubPage[];
     editingDesignData: UnpackedEditingDesign | null;
     genomicCharacterizationData?: UnpackedGenomicCharacterization | null;
-    stemCellCharData: StemCellCharProps | null;
+    stemCellCharacteristics: UnpackedStemCellCharacteristics | null;
 }
 
 const SubpageTabs: React.FC<SubpageTabsProps> = ({
     tabsToRender,
     editingDesignData,
     genomicCharacterizationData,
-    stemCellCharData,
+    stemCellCharacteristics,
 }) => {
     const getNoDataComponent = (tab: SubPage) => {
         return (
@@ -36,7 +37,9 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
         );
     };
 
-    const hasGcTables = (gc?: UnpackedGenomicCharacterization | null): boolean =>
+    const hasGcTables = (
+        gc?: UnpackedGenomicCharacterization | null
+    ): boolean =>
         !!(
             gc?.amplifiedJunctions?.data?.length ||
             gc?.ddpcr?.data?.length ||
@@ -50,6 +53,19 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
             hasGcTables(genomicCharacterizationData)
         );
 
+    const hasSCCTables = (scc?: UnpackedStemCellCharacteristics | null) =>
+        !!(
+            scc?.pluripotencyAnalysis?.data.length ||
+            scc?.trilineageDifferentiation?.data.length ||
+            scc?.cardiomyocyteDifferentiation?.data.length ||
+            scc?.diseaseCardioMyocyteDifferentiation?.data.length
+        );
+
+    const hasSCCData = !!(
+        stemCellCharacteristics?.rnaSeqAnalysis?.length ||
+        hasSCCTables(stemCellCharacteristics)
+    );
+
     const tabComponents = {
         [SubPage.EditingDesign]: editingDesignData ? (
             <EditingDesignSubpage {...editingDesignData} />
@@ -61,8 +77,8 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
         ) : (
             getNoDataComponent(SubPage.GenomicCharacterization)
         ),
-        [SubPage.StemCellCharacteristics]: stemCellCharData ? (
-            <StemCellChar {...stemCellCharData} />
+        [SubPage.StemCellCharacteristics]: hasSCCData ? (
+            <StemCellChar data={stemCellCharacteristics!} />
         ) : (
             getNoDataComponent(SubPage.StemCellCharacteristics)
         ),

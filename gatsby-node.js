@@ -47,6 +47,39 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
             cr_rna_off_targets: [OffTargetRow]
             off_targets_caption: String
             } `,
+        `type PluripotencyRow {
+            marker: String
+            positive_cells: Float
+            }
+
+            type TrilineageRow {
+            germ_layer: String
+            marker: String
+            percent_positive_cells: String
+            }
+
+            type CardiomyocyteDifferentiation {
+            troponin_percent_positive: String
+            day_of_beating_percent: String
+            day_of_beating_range: String
+            }
+
+            type RnaSeqRow {
+            image: File @fileByRelativePath
+            caption: String
+            }
+
+            type StemCellCharacteristics {
+            pluripotency_analysis: [PluripotencyRow]
+            pluripotency_caption: String
+            trilineage_differentiation: [TrilineageRow]
+            trilineage_caption: String
+            cardiomyocyte_differentiation: CardiomyocyteDifferentiation
+            cardiomyocyte_differentiation_caption: String
+            rnaseq_analysis: [RnaSeqRow]
+            }
+
+            `,
         `type Frontmatter {
                 disease: MarkdownRemark @link(by: "frontmatter.name")
                 genetic_modifications: [GeneticModification]
@@ -55,6 +88,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
                 funding_text:  String @md
                 footer_text: String @md
                 genomic_characterization: MarkdownRemarkFrontmatterGenomic_characterization
+                stem_cell_characteristics: StemCellCharacteristics
             }`,
     ];
     createTypes(typeDefs);
