@@ -12,7 +12,7 @@ const {
     masonry,
     masonryItem,
     masonrySpanAll,
-} = require("../../style/genomic-characterization.module.css");
+} = require("../../style/subpage.module.css");
 
 const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
     diagrams,
