@@ -15,7 +15,7 @@ import { hasMedia, getImages, getVideos } from "../utils/mediaUtils";
 
 const {
     container,
-    section,
+    imagesContainer,
     leftCard,
     returnArrow,
 } = require("../style/disease-cell-line.module.css");
@@ -84,7 +84,7 @@ export const CellLineTemplate = ({
                         alleleCount={alleleCount}
                     />
                 </div>
-                <div className={section}>
+                <div className={imagesContainer}>
                     {hasImagesOrVideos && (
                         <ImagesAndVideos
                             cellLineId={cellLineId}
