@@ -497,6 +497,7 @@ collections:
                                         name: "troponin_percent_positive",
                                         widget: "string",
                                         required: false,
+                                        hint: "Enter the tag in the format [gene symbol]-[fluorescent tag]"
                                     },
                                     {
                                         label: "Day of Beating Percent",
@@ -536,9 +537,22 @@ collections:
                                         widget: "string",
                                         required: false,
                                     },
+                                    {
+                                        label: "Mutations Identified",
+                                        name: "mutations_identified",
+                                        widget: "number",
+                                        required: false,
+                                    }
                                 ],
                         },
+                        {
+                            label: "crRNA Off-targets Caption",
+                            name: "off_targets_caption",
+                            widget: "string",
+                            required: false,
+                        },
                     ],
+                
             }
     - name: "disease-cell-line"
       label: "Disease Cell Lines"

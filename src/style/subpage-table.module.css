@@ -1,26 +1,40 @@
+.container :global(.ant-table .ant-table-cell) {
+  font-size: 12px;
+}
+
 .container :global(.ant-table-thead .ant-table-cell)::before {
-    display: none; /* remove dividers between column headers */
+    display: none;
 }
 
 .container :global(.ant-card-head-title) {
     font-size: 24px;
     font-weight: 600;
-    text-align: center;
 }
 
 .container :global(.ant-table-thead .ant-table-cell) {
     border-bottom: 1.5px solid var(--border-color);
-    padding-bottom: 4px;
+    padding: 20px 24px 0px 24px;
+    font-weight: 700;
+}
+
+.container .first-column:global(.ant-table-cell) {
+  font-weight: 700;
+}
+
+.container :global(.ant-table-row .ant-table-cell) {
+    border-bottom: 1.5px solid var(--border-color);
+    padding: 8px 24px;
 }
 
 .table {
-    width: max-content;
     border-radius: 0;
     margin-bottom: 20px;
+    overflow-x: auto;
 }
 
 .table :last-of-type:global(.ant-table-row .ant-table-cell) {
     border-style: none;
+    padding: 8px 24px 0px 24px;
 }
 
 @media screen and (max-width: 1280px) {

@@ -6,8 +6,17 @@
     padding: 0px;
 }
 
+.container :global(.ant-card-body) {
+    text-align: center;
+}
+
+
 .container:global(.ant-card:not(.ant-card-head))
     :global(.ant-card-body)
     :global(.gatsby-data-image-wrapper) {
     margin: 16px;
+}
+
+.container :global(.ant-card-body) :global(.gatsby-image-wrapper) img {
+    padding: 8px;
 }
