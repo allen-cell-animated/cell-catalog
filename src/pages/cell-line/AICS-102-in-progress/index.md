@@ -34,4 +34,6 @@ images_and_videos:
 editing_design:
   diagrams:
     - images: []
+category_labels:
+  - Key Structure and Organelle
 ---
