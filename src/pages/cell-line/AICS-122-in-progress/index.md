@@ -11,7 +11,7 @@ genetic_modifications:
     fluorescent_tag: mEGFP
     allele_count: mono
 order_link: null
-certificate_of_analysis: null
+certificate_of_analysis: chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0122-077_CofA.pdf
 donor_plasmid: null
 images_and_videos:
   ? videos
