@@ -50,4 +50,6 @@ editing_design:
         - image: figure_tomm20_gfp.png
         - caption: AICS-120_TOMM20_Mito/figure_MitoTag_RFP.png
           image: figure_mitotag_rfp.png
+category_labels:
+  - Key Structure and Organelle
 ---
