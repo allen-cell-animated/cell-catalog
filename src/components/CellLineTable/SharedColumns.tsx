@@ -1,8 +1,9 @@
-import {Link} from "gatsby";
 import React from "react";
-import { Flex } from "antd";
+import { Flex, Tooltip } from "antd";
 import Icon from "@ant-design/icons";
+import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import classNames from "classnames";
 
 import { CellLineStatus } from "../../component-queries/types";
 import { formatCellLineId } from "../../utils";
@@ -19,6 +20,7 @@ const {
     certIcon,
     idHeader,
     thumbnailContainer,
+    disabled,
 } = require("../../style/table.module.css");
 
 export const cellLineIdColumn = {
@@ -94,21 +96,29 @@ export const obtainLineColumn = {
     className: actionColumn,
     fixed: "right" as const,
     render: (orderLink: string) => {
-        return (
-            orderLink && (
-                <a
-                    key={orderLink}
-                    className={actionButton}
-                    href={orderLink}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <Flex>
-                        <TubeIcon />
-                        Obtain Collection
-                    </Flex>
-                </a>
-            )
+        const isDisabled = !orderLink;
+        const link = (
+            <a
+                key={orderLink}
+                className={classNames(actionButton, {
+                    [disabled]: isDisabled,
+                })}
+                href={isDisabled ? undefined : orderLink}
+                target="_blank"
+                rel="noreferrer"
+            >
+                <Flex>
+                    <TubeIcon />
+                    Obtain Collection
+                </Flex>
+            </a>
+        );
+        return isDisabled ? (
+            <Tooltip title="This collection is not yet available">
+                {link}
+            </Tooltip>
+        ) : (
+            link
         );
     },
 };
