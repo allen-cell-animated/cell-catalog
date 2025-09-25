@@ -87,12 +87,14 @@ export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (
         {
             key: "order",
             label: `Obtain ${formatCellLineId(props.cellLineId)}`,
+            disabledLabel: `Collection not yet available.`,
             icon: <TubeIcon />,
             href: props.orderLink,
         },
         {
             key: "orderPlasmid",
             label: "Obtain Donor Plasmid",
+            disabledLabel: `Plasmid not yet available.`,
             icon: <PlasmidIcon />,
             href: props.orderPlasmid,
         },
