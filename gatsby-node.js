@@ -54,6 +54,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
                 parental_line: MarkdownRemark @link(by: "frontmatter.cell_line_id")
                 funding_text:  String @md
                 footer_text: String @md
+                genomic_characterization: MarkdownRemarkFrontmatterGenomic_characterization
             }`,
     ];
     createTypes(typeDefs);
