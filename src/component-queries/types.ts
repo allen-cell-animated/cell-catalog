@@ -60,6 +60,31 @@ export interface ParentalLineFrontmatter {
     images_and_videos?: MediaFrontMatter;
 }
 
+export interface GenomicCharacterizationFrontMatter {
+    diagrams: DiagramList[];
+    amplified_junctions: {
+        edited_gene: string;
+        junction: string;
+        expected_size: string;
+        confirmed_sequence: string; // "" yes, NA, Not Sequenced
+    }[];
+    junction_table_caption: string;
+    ddpcr: {
+        tag: string;
+        clone: number;
+        fp_ratio: number;
+        plasmid: number;
+    }[]
+    ddpcr_caption: string;
+    cr_rna_off_targets: {
+        clones_analyzed: number;
+        off_targets_sequenced_per_clone: number;
+        total_sites_sequenced: number;
+        mutations_identified: number;
+    }[]
+    off_targets_caption: string;
+}
+
 export interface NormalCellLineFrontmatter {
     templateKey: string;
     cell_line_id: number;
@@ -88,6 +113,7 @@ export interface NormalCellLineFrontmatter {
         cas9: string;
         diagrams: DiagramList[];
     };
+    genomic_characterization: GenomicCharacterizationFrontMatter;
     images_and_videos?: MediaFrontMatter;
     category_labels: string[];
 };

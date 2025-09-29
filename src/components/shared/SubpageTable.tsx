@@ -5,14 +5,14 @@ import SubpageContentCard from "./SubpageContentCard";
 
 const { container, table } = require("../../style/subpage-table.module.css");
 
-export interface SubpageTable extends CardProps {
+export interface SubpageTableProps extends CardProps {
     title?: string;
     caption?: string;
     columns: any[];
     dataSource: any[];
 }
 
-const SubpageTable: React.FC<SubpageTable> = ({
+const SubpageTable: React.FC<SubpageTableProps> = ({
     title,
     caption,
     className,
@@ -20,12 +20,16 @@ const SubpageTable: React.FC<SubpageTable> = ({
     dataSource,
     ...cardProps
 }) => {
+
+    if (dataSource.length === 0) {
+        return null;
+    }
+
     return (
         <SubpageContentCard
             {...cardProps}
             title={title}
             caption={caption}
-            style={{ width: "min-content" }}
             className={classNames(container, className)}
         >
             <Table
