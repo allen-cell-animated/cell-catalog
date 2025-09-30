@@ -1,12 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import { GeneFrontMatter } from "../component-queries/types";
+import { GeneFrontmatter } from "../component-queries/types";
 
 interface DiseaseTemplateProps {
     name: string;
     gene: {
-        frontmatter: GeneFrontMatter;
+        frontmatter: GeneFrontmatter;
     }[];
 }
 export const DiseaseTemplate = ({ name, gene }: DiseaseTemplateProps) => {

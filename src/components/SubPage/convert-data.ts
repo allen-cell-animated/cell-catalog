@@ -8,7 +8,7 @@ import {
     ParentalLineFrontmatter,
     ParentLine,
     NormalCellLineNode,
-    GenomicCharacterizationFrontMatter,
+    GenomicCharacterizationFrontmatter,
 } from "../../component-queries/types";
 import { getThumbnail } from "../../utils/mediaUtils";
 import { hasTableData, nonEmptyArray } from "../../utils";
@@ -95,7 +95,7 @@ export const unpackEditingDesignData = (editing_design?: {
     }
 };
 
-export const unpackGenomicCharacterization = (gc?: GenomicCharacterizationFrontMatter): UnpackedGenomicCharacterization | null => {
+export const unpackGenomicCharacterization = (gc?: GenomicCharacterizationFrontmatter): UnpackedGenomicCharacterization | null => {
     if (!gc) {
         return null
     }
@@ -181,7 +181,7 @@ export const getStemCellCharData = (
     }
 };
 
-export const unpackParentLineFromFrontMatter = (data: ParentalLineFrontmatter): ParentLine => {
+export const unpackParentLineFromFrontmatter = (data: ParentalLineFrontmatter): ParentLine => {
     const { taggedGene, alleleCount, tagLocation, fluorescentTag } =
         extractGeneticModifications(
             data
@@ -201,7 +201,7 @@ export const unpackParentLineFromFrontMatter = (data: ParentalLineFrontmatter): 
     }
 }
 
-export const unpackNormalFrontMatterForSubpage = (
+export const unpackNormalFrontmatterForSubpage = (
     cellLineNode: NormalCellLineNode
 ): UnpackedNormalCellLineFull => {
 
@@ -265,7 +265,7 @@ export const unpackDiseaseFrontmatterForSubpage = (
     const stemCellCharData = getStemCellCharData(
         cellLineNode.frontmatter.clones
     );
-    const parentalLine = unpackParentLineFromFrontMatter(
+    const parentalLine = unpackParentLineFromFrontmatter(
         cellLineNode.frontmatter.parental_line.frontmatter);
     return {
         path: cellLineNode.fields.slug,
