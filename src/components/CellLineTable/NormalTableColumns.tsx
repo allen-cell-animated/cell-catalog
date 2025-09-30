@@ -66,7 +66,7 @@ const obtainPlasmidColumn = {
             </a>
         );
           return isDisabled ? (
-              <Tooltip title="This plasmid is not yet available">{link}</Tooltip>
+              <Tooltip title="Plasmid not yet available">{link}</Tooltip>
           ) : (
               link
           );

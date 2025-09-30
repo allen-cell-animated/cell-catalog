@@ -114,7 +114,7 @@ export const obtainLineColumn = {
             </a>
         );
         return isDisabled ? (
-            <Tooltip title="This collection is not yet available">
+            <Tooltip title="This collection not yet available">
                 {link}
             </Tooltip>
         ) : (
