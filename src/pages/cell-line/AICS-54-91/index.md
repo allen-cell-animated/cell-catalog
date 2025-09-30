@@ -35,29 +35,31 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: mTagRFPT insertion site at safe harbor locus (AAVS1) in PPP1R12C intron; Bottom: Zoom in on mTagRFPT insertion site at safe harbor locus (AAVS1); insertion into AAVS1 is based on Hockmeyer et al (2011) Nat. Biotechnology, 29(8): 731-734"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mTag-RFP-T.png
+        - image: ../GenomicCharacterization_junction_schematic_mTag-RFP-T.png
     - title: "Karyotype Analysis"
       images:
         - image: AAVS1_cl.91.JPG
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "AAVS1-mTagRFP-T"
+    - edited_gene: "AAVS1-mTagRFP-T"
       junction: "5'"
       expected_size: "NA"
       confirmed_sequence: "NA"
-    - editedGene: "AAVS1-mTagRFP-T"
+    - edited_gene: "AAVS1-mTagRFP-T"
       junction: "3'"
       expected_size: "1213"
       confirmed_sequence: "Yes"
-    - editedGene: "AAVS1-mTagRFP-T"
+    - edited_gene: "AAVS1-mTagRFP-T"
       junction: "WT internal"
       expected_size: "534"
       confirmed_sequence: "Yes"
-    - editedGene: "AAVS1-mTagRFP-T"
+    - edited_gene: "AAVS1-mTagRFP-T"
       junction: "Full junctional allele"
       expected_size: "NA"
       confirmed_sequence: "NA"

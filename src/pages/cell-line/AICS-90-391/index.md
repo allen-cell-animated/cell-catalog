@@ -38,29 +38,31 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: CLYBL locus; Bottom: Zoom in on dCas9-TagBFP-KRAB insertion site at CLYBL safe harbor site between exons 2 and 3"
+category_labels: 
+ - Tools
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_generic_insert.png
+        - image: ../GenomicCharacterization_junction_schematic_generic_insert.png
     - title: "Karyotype Analysis"
       images:
         - image: AICS-90_cl391_CLYBL-dCas9-KRAB_karyotype.JPG
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "dCas9-KRAB-BFP"
+    - edited_gene: "dCas9-KRAB-BFP"
       junction: "5'"
       expected_size: "1942"
       confirmed_sequence: "Yes"
-    - editedGene: "dCas9-KRAB-BFP"
+    - edited_gene: "dCas9-KRAB-BFP"
       junction: "3'"
       expected_size: "3232"
       confirmed_sequence: "Yes"
-    - editedGene: "dCas9-KRAB-BFP"
+    - edited_gene: "dCas9-KRAB-BFP"
       junction: "WT internal"
       expected_size: "2232"
       confirmed_sequence: "Yes"
-    - editedGene: "dCas9-KRAB-BFP"
+    - edited_gene: "dCas9-KRAB-BFP"
       junction: "Full junctional allele"
       expected_size: "Not performed"
       confirmed_sequence: ""

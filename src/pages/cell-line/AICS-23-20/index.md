@@ -37,11 +37,13 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: TJP1 locus showing 4 TJP1  isoforms; Bottom: Zoom in on mEGFP insertion site at TJP1 N-terminal exon"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: TJP1_full_allele_gel.jpg
@@ -51,19 +53,19 @@ genomic_characterization:
         - image: TJP1_cl.20.JPG
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "TJP1-mEGFP"
+    - edited_gene: "TJP1-mEGFP"
       junction: "5'"
       expected_size: "1445"
       confirmed_sequence: "Yes"
-    - editedGene: "TJP1-mEGFP"
+    - edited_gene: "TJP1-mEGFP"
       junction: "3'"
       expected_size: "1876"
       confirmed_sequence: "Yes"
-    - editedGene: "TJP1-mEGFP"
+    - edited_gene: "TJP1-mEGFP"
       junction: "WT internal"
       expected_size: "453"
       confirmed_sequence: "Yes"
-    - editedGene: "TJP1-mEGFP"
+    - edited_gene: "TJP1-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Tagged:3006; Untagged:2256"
       confirmed_sequence: "NA"

@@ -35,11 +35,13 @@ editing_design:
       images:
         - image: MYL2_gfp.png
           caption: "Top: MYL2 locus; Bottom: Zoom in on mEGFP insertion site at MYL2 C-terminus; For more information on tagging transcriptionally silent genes in hiPSCs see: Roberts et al. 2018. Scarless gene tagging of transcriptionally silent genes in hiPSCs to visualize cardiomyocyte sarcomeres in live cells. bioRxiv doi:10.1101/342881"
+category_labels: 
+ - Cardiac Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: cl27_67_68_70_all_junctions_crop.jpg
@@ -49,19 +51,19 @@ genomic_characterization:
         - image: MYL2_cl_27_karyotype.jpg
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "MYL2-mEGFP"
+    - edited_gene: "MYL2-mEGFP"
       junction: "5'"
       expected_size: "1728"
       confirmed_sequence: "pass"
-    - editedGene: "MYL2-mEGFP"
+    - edited_gene: "MYL2-mEGFP"
       junction: "3'"
       expected_size: "1763"
       confirmed_sequence: "pass"
-    - editedGene: "MYL2-mEGFP"
+    - edited_gene: "MYL2-mEGFP"
       junction: "WT internal"
       expected_size: "733"
       confirmed_sequence: "pass"
-    - editedGene: "MYL2-mEGFP"
+    - edited_gene: "MYL2-mEGFP"
       junction: "Full junctional allele"
       expected_size: "3066"
       confirmed_sequence: "pass"

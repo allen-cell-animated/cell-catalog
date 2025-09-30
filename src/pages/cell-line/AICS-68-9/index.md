@@ -37,11 +37,13 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: SMC1A locus showing 2 SMC1A isoforms; Bottom: Zoom in on mEGFP insertion site at SMC1A C-terminal exon"
+category_labels: 
+ - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: FULL_ALLELE_CL9.jpg
@@ -51,19 +53,19 @@ genomic_characterization:
         - image: Cl9_Karyo.PNG
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "SMC1A-mEGFP"
+    - edited_gene: "SMC1A-mEGFP"
       junction: "5'"
       expected_size: "1601"
       confirmed_sequence: "PASS"
-    - editedGene: "SMC1A-mEGFP"
+    - edited_gene: "SMC1A-mEGFP"
       junction: "3'"
       expected_size: "1597"
       confirmed_sequence: "PASS"
-    - editedGene: "SMC1A-mEGFP"
+    - edited_gene: "SMC1A-mEGFP"
       junction: "WT internal"
       expected_size: "N/A"
       confirmed_sequence: "N/A"
-    - editedGene: "SMC1A-mEGFP"
+    - edited_gene: "SMC1A-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Wild Type:X-Chromosome; Insert: 3076"
       confirmed_sequence: "PASS"

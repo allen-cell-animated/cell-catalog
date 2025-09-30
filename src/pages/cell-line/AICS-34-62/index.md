@@ -37,29 +37,32 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: LMNB1 locus showing 2 LMNB1 isoforms with zoom in on mTagRFP-T insertion site at LMNB1 N-terminal exon."
+category_labels: 
+  - Key Structure and Organelle
+  - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "Karyotype Analysis"
       images:
         - image: AICS-34_cl62_LMNB1-mTagRFP-T_karyotype.JPG
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "LMNB1-mTagRFP-T"
+    - edited_gene: "LMNB1-mTagRFP-T"
       junction: "5'"
       expected_size: "1406"
       confirmed_sequence: "yes"
-    - editedGene: "LMNB1-mTagRFP-T"
+    - edited_gene: "LMNB1-mTagRFP-T"
       junction: "3'"
       expected_size: "1388"
       confirmed_sequence: "yes"
-    - editedGene: "LMNB1-mTagRFP-T"
+    - edited_gene: "LMNB1-mTagRFP-T"
       junction: "WT internal"
       expected_size: "1462"
       confirmed_sequence: "yes"
-    - editedGene: "LMNB1-mTagRFP-T"
+    - edited_gene: "LMNB1-mTagRFP-T"
       junction: "Full junctional allele"
       expected_size: "Tagged: bp; Untagged: bp"
       confirmed_sequence: "Yes"

@@ -35,29 +35,31 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: TTN locus showing 7 TTN isoforms; Bottom: Zoom in on mEGFP insertion site at TTN C-terminus; For more information on tagging transcriptionally silent genes in hiPSCs see: Roberts et al. 2018. Scarless gene tagging of transcriptionally silent genes in hiPSCs to visualize cardiomyocyte sarcomeres in live cells. bioRxiv doi:10.1101/342881"
+category_labels: 
+ - Cardiac Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "Karyotype Analysis"
       images:
         - image: ttn_clone39_karyotype.jpg
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "TTN-mEGFP"
+    - edited_gene: "TTN-mEGFP"
       junction: "5'"
       expected_size: "1589"
       confirmed_sequence: "1568, 21bp MMEJ guided in-frame deletion"
-    - editedGene: "TTN-mEGFP"
+    - edited_gene: "TTN-mEGFP"
       junction: "3'"
       expected_size: "1553"
       confirmed_sequence: "PASS"
-    - editedGene: "TTN-mEGFP"
+    - edited_gene: "TTN-mEGFP"
       junction: "WT internal"
       expected_size: "559"
       confirmed_sequence: "PASS"
-    - editedGene: "TTN-mEGFP"
+    - edited_gene: "TTN-mEGFP"
       junction: "Full junctional allele"
       expected_size: "2986"
       confirmed_sequence: "2965, 21bp MMEJ guided in-frame deletion"

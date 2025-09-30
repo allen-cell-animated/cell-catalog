@@ -35,29 +35,31 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: ACTN2 locus showing 3 ACTN2 isoforms; Bottom: Zoom in on mEGFP insertion site at ACTN2 C-terminus; More information on tagging transcriptionally silent genes in hiPSCs is available in Roberts et al. (2019) Stem Cell Reports"
+category_labels: 
+ - Cardiac Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "Karyotype Analysis"
       images:
         - image: ACTN2_cl85_final_karyo.JPG
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "ACTN2-mEGFP"
+    - edited_gene: "ACTN2-mEGFP"
       junction: "5'"
       expected_size: "fill"
       confirmed_sequence: "fill"
-    - editedGene: "ACTN2-mEGFP"
+    - edited_gene: "ACTN2-mEGFP"
       junction: "3'"
       expected_size: "fill"
       confirmed_sequence: "fill"
-    - editedGene: "ACTN2-mEGFP"
+    - edited_gene: "ACTN2-mEGFP"
       junction: "WT internal"
       expected_size: "fill"
       confirmed_sequence: "fill"
-    - editedGene: "ACTN2-mEGFP"
+    - edited_gene: "ACTN2-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Wild Type: ; Insert: "
       confirmed_sequence: "fill"

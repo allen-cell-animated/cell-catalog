@@ -15,7 +15,7 @@ import { hasMedia, getImages, getVideos } from "../utils/mediaUtils";
 
 const {
     container,
-    section,
+    imagesContainer,
     leftCard,
     returnArrow,
 } = require("../style/disease-cell-line.module.css");
@@ -54,6 +54,7 @@ export const CellLineTemplate = ({
     alleleCount,
     editingDesign,
     imagesAndVideos,
+    genomicCharacterization,
     stemCellCharacteristics,
 }: CellLineProps) => {
     const hasImagesOrVideos = hasMedia(imagesAndVideos);
@@ -85,7 +86,7 @@ export const CellLineTemplate = ({
                         alleleCount={alleleCount}
                     />
                 </div>
-                <div className={section}>
+                <div className={imagesContainer}>
                     {hasImagesOrVideos && (
                         <ImagesAndVideos
                             cellLineId={cellLineId}
@@ -100,7 +101,7 @@ export const CellLineTemplate = ({
             </div>
             <SubpageTabs
                 editingDesignData={editingDesign}
-                genomicCharacterizationData={[]}
+                genomicCharacterizationData={genomicCharacterization}
                 stemCellCharacteristics={stemCellCharacteristics}
                 tabsToRender={TABS_WITH_STEM_CELL}
             />
@@ -193,6 +194,43 @@ export const pageQuery = graphql`
                             caption
                         }
                     }
+                }
+                genomic_characterization {
+                    diagrams {
+                        title
+                        images {
+                            image {
+                                childImageSharp {
+                                    gatsbyImageData(
+                                        placeholder: BLURRED
+                                        layout: CONSTRAINED
+                                    )
+                                }
+                            }
+                            caption
+                        }
+                    }
+                    amplified_junctions {
+                        edited_gene
+                        junction
+                        expected_size
+                        confirmed_sequence
+                    }
+                    ddpcr {
+                        tag
+                        clone
+                        fp_ratio
+                        plasmid
+                    }
+                    cr_rna_off_targets {
+                        clones_analyzed
+                        off_targets_sequenced_per_clone
+                        total_sites_sequenced
+                        mutations_identified
+                    }
+                    junction_table_caption
+                    ddpcr_caption
+                    off_targets_caption
                 }
                 stem_cell_characteristics {
                     pluripotency_analysis {

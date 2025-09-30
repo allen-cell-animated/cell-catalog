@@ -6,6 +6,7 @@ import GenomicCharacterization from "./GenomicCharacterization";
 import StemCellChar from "./StemCellChar";
 import {
     UnpackedEditingDesign,
+    UnpackedGenomicCharacterization,
     UnpackedStemCellCharacteristics,
 } from "./types";
 import { DiagramCardProps } from "../shared/DiagramCard";
@@ -19,7 +20,7 @@ const {
 export interface SubpageTabsProps {
     tabsToRender: SubPage[];
     editingDesignData: UnpackedEditingDesign | null;
-    genomicCharacterizationData?: DiagramCardProps[];
+    genomicCharacterizationData: UnpackedGenomicCharacterization | null;
     stemCellCharacteristics: UnpackedStemCellCharacteristics | null;
 }
 
@@ -56,14 +57,11 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
         ) : (
             getNoDataComponent(SubPage.EditingDesign)
         ),
-        [SubPage.GenomicCharacterization]:
-            genomicCharacterizationData?.length ? (
-                <GenomicCharacterization
-                    diagrams={genomicCharacterizationData || []}
-                />
-            ) : (
-                getNoDataComponent(SubPage.GenomicCharacterization)
-            ),
+        [SubPage.GenomicCharacterization]: genomicCharacterizationData ? (
+            <GenomicCharacterization {...genomicCharacterizationData} />
+        ) : (
+            getNoDataComponent(SubPage.GenomicCharacterization)
+        ),
         [SubPage.StemCellCharacteristics]: hasSCCData ? (
             <StemCellChar data={stemCellCharacteristics!} />
         ) : (

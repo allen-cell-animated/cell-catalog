@@ -35,11 +35,13 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: PXN locus showing 4 PXN isoforms; Bottom: Zoom in on EGFP insertion site at PXN C-terminal exon"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_EGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_EGFP.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: PXN_full_allele.jpg
@@ -49,19 +51,19 @@ genomic_characterization:
         - image: StemCellCharacterization_karyotype.jpg
           caption: "After cells banks were created, one vial was thawed and 20 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "PXN-EGFP"
+    - edited_gene: "PXN-EGFP"
       junction: "5'"
       expected_size: "1186"
       confirmed_sequence: "Yes"
-    - editedGene: "PXN-EGFP"
+    - edited_gene: "PXN-EGFP"
       junction: "3'"
       expected_size: "1150"
       confirmed_sequence: "Yes"
-    - editedGene: "PXN-EGFP"
+    - edited_gene: "PXN-EGFP"
       junction: "WT internal"
       expected_size: "800"
       confirmed_sequence: "Yes"
-    - editedGene: "PXN-EGFP"
+    - edited_gene: "PXN-EGFP"
       junction: "Full junctional allele"
       expected_size: "Tagged:2770; Untagged:2055"
       confirmed_sequence: "Yes"

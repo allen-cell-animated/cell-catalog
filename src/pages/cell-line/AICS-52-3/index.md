@@ -35,29 +35,31 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: MYL7 locus; Bottom: Zoom in on mEGFP insertion site at MYL7 C-terminus; For more information on tagging transcriptionally silent genes in hiPSCs see: Roberts et al. 2018. Scarless gene tagging of transcriptionally silent genes in hiPSCs to visualize cardiomyocyte sarcomeres in live cells. bioRxiv doi:10.1101/342881"
+category_labels: 
+ - Cardiac Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "Karyotype Analysis"
       images:
         - image: myl7_clone3_karyotype.jpg
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "MYL7-mEGFP"
+    - edited_gene: "MYL7-mEGFP"
       junction: "5'"
       expected_size: "1609"
       confirmed_sequence: "pass"
-    - editedGene: "MYL7-mEGFP"
+    - edited_gene: "MYL7-mEGFP"
       junction: "3'"
       expected_size: "1652"
       confirmed_sequence: "pass"
-    - editedGene: "MYL7-mEGFP"
+    - edited_gene: "MYL7-mEGFP"
       junction: "WT internal"
       expected_size: "728"
       confirmed_sequence: "pass"
-    - editedGene: "MYL7-mEGFP"
+    - edited_gene: "MYL7-mEGFP"
       junction: "Full junctional allele"
       expected_size: "3039"
       confirmed_sequence: "pass"

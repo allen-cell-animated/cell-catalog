@@ -35,11 +35,13 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: DSP locus showing 3 DSP  isoforms; Bottom: Zoom in on mEGFP insertion site at DSP C-terminal exon"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: DSP_full_allele.jpg
@@ -49,19 +51,19 @@ genomic_characterization:
         - image: StemCellCharacterization_karyotype.jpg
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "DSP-mEGFP"
+    - edited_gene: "DSP-mEGFP"
       junction: "5'"
       expected_size: "1661"
       confirmed_sequence: "Yes"
-    - editedGene: "DSP-mEGFP"
+    - edited_gene: "DSP-mEGFP"
       junction: "3'"
       expected_size: "1421"
       confirmed_sequence: "Yes"
-    - editedGene: "DSP-mEGFP"
+    - edited_gene: "DSP-mEGFP"
       junction: "WT internal"
       expected_size: "634"
       confirmed_sequence: "Yes"
-    - editedGene: "DSP-mEGFP"
+    - edited_gene: "DSP-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Tagged:3298; Untagged:2560"
       confirmed_sequence: "Yes"

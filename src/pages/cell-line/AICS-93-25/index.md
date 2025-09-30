@@ -46,29 +46,31 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: TERF2 locus; Bottom: Zoom in on mEGFP insertion site at TERF2 N-terminal exon."
+category_labels: 
+ - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "Karyotype Analysis"
       images:
         - image: AICS-93_cl25_TERF2_karyotype.JPG
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "TERF2-mEGFP"
+    - edited_gene: "TERF2-mEGFP"
       junction: "5'"
       expected_size: "1712"
       confirmed_sequence: "Yes"
-    - editedGene: "TERF2-mEGFP"
+    - edited_gene: "TERF2-mEGFP"
       junction: "3'"
       expected_size: "1652"
       confirmed_sequence: "Yes"
-    - editedGene: "TERF2-mEGFP"
+    - edited_gene: "TERF2-mEGFP"
       junction: "WT"
       expected_size: "1637"
       confirmed_sequence: "Yes"
-    - editedGene: "TERF2-mEGFP"
+    - edited_gene: "TERF2-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Tagged: bp; Untagged: bp"
       confirmed_sequence: "Yes"

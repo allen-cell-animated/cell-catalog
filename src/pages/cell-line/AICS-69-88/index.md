@@ -37,11 +37,13 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: NUP153 locus showing 3 NUP153 isoforms; Bottom: Zoom in on mEGFP insertion site at NUP153 N-terminal exon"
+category_labels: 
+ - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: AICS-69_NUP153_FullAllele.jpg
@@ -51,19 +53,19 @@ genomic_characterization:
         - image: AICS-69_c88_NUP153_Karyotype.jpg
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "NUP153-mEGFP"
+    - edited_gene: "NUP153-mEGFP"
       junction: "5'"
       expected_size: "1640"
       confirmed_sequence: "Yes"
-    - editedGene: "NUP153-mEGFP"
+    - edited_gene: "NUP153-mEGFP"
       junction: "3'"
       expected_size: "1587"
       confirmed_sequence: "Yes"
-    - editedGene: "NUP153-mEGFP"
+    - edited_gene: "NUP153-mEGFP"
       junction: "WT internal"
       expected_size: "1233"
       confirmed_sequence: "Yes"
-    - editedGene: "NUP153-mEGFP"
+    - edited_gene: "NUP153-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Tagged: 2967; Untagged: 2253"
       confirmed_sequence: "Not sequenced"

@@ -41,45 +41,48 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: SEC61B locus with zoom in on mEGFP insertion site at SEC61B N-terminal exon; Bottom: LMNB1 locus showing 2 LMNB1 isoforms with zoom in on mTagRFP-T insertion site at LMNB1 N-terminal exon"
+category_labels: 
+  - Key Structure and Organelle
+  - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_generic.png
+        - image: ../GenomicCharacterization_junction_schematic_generic.png
     - title: "Karyotype Analysis"
       images:
         - image: AICS-59DualSec-LMNB1cl.jpg
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "SEC61B-mEGFP"
+    - edited_gene: "SEC61B-mEGFP"
       junction: "5'"
       expected_size: "1371"
       confirmed_sequence: "perfect"
-    - editedGene: "SEC61B-mEGFP"
+    - edited_gene: "SEC61B-mEGFP"
       junction: "3'"
       expected_size: "1875"
       confirmed_sequence: "perfect"
-    - editedGene: "SEC61B-mEGFP"
+    - edited_gene: "SEC61B-mEGFP"
       junction: "WT internal"
       expected_size: "795"
       confirmed_sequence: "perfect"
-    - editedGene: "SEC61B-mEGFP"
+    - edited_gene: "SEC61B-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Wild Type: 2131; Insert: 2913"
       confirmed_sequence: "perfect"
-    - editedGene: "LMNB1-mTagRFP-T"
+    - edited_gene: "LMNB1-mTagRFP-T"
       junction: "5'"
       expected_size: "1297"
       confirmed_sequence: "perfect"
-    - editedGene: "LMNB1-mTagRFP-T"
+    - edited_gene: "LMNB1-mTagRFP-T"
       junction: "3'"
       expected_size: "1260"
       confirmed_sequence: "perfect"
-    - editedGene: "LMNB1-mTagRFP-T"
+    - edited_gene: "LMNB1-mTagRFP-T"
       junction: "WT internal"
       expected_size: "717"
       confirmed_sequence: "perfect"
-    - editedGene: "LMNB1-mTagRFP-T"
+    - edited_gene: "LMNB1-mTagRFP-T"
       junction: "Full junctional allele"
       expected_size: "Wild Type: 1906; Insert: 2739"
       confirmed_sequence: "perfect"

@@ -35,29 +35,32 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: FUS locus showing 3 FUS isoforms; Bottom: Zoom in on mEGFP insertion site at FUS C-terminal exon"
+category_labels:
+  - Stress
+  - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "Karyotype Analysis"
       images:
-        - image: KARYO_cl69_AICS-80 FUS-mEGFP cl.jpg
+        - image: KARYO_cl69_AICS_80_FUS_mEGFP_cl.jpg
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "FUS-mEGFP"
+    - edited_gene: "FUS-mEGFP"
       junction: "5'"
       expected_size: "2178"
       confirmed_sequence: "Pass"
-    - editedGene: "FUS-mEGFP"
+    - edited_gene: "FUS-mEGFP"
       junction: "3'"
       expected_size: "1485"
       confirmed_sequence: "Pass"
-    - editedGene: "FUS-mEGFP"
+    - edited_gene: "FUS-mEGFP"
       junction: "WT internal"
       expected_size: "694"
       confirmed_sequence: "Pass"
-    - editedGene: "FUS-mEGFP"
+    - edited_gene: "FUS-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Wild Type: 2722 bp; Insert: 3715 bp"
       confirmed_sequence: "Pass"

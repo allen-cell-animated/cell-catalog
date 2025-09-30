@@ -82,6 +82,31 @@ export interface ParentalLineFrontmatter {
     images_and_videos?: MediaFrontMatter;
 }
 
+export interface GenomicCharacterizationFrontMatter {
+    diagrams: DiagramList[];
+    amplified_junctions: {
+        edited_gene: string;
+        junction: string;
+        expected_size: string;
+        confirmed_sequence: string; // "" yes, NA, Not Sequenced
+    }[];
+    junction_table_caption: string;
+    ddpcr: {
+        tag: string;
+        clone: number;
+        fp_ratio: number;
+        plasmid: number;
+    }[]
+    ddpcr_caption: string;
+    cr_rna_off_targets: {
+        clones_analyzed: number;
+        off_targets_sequenced_per_clone: number;
+        total_sites_sequenced: number;
+        mutations_identified: number;
+    }[]
+    off_targets_caption: string;
+}
+
 export interface NormalCellLineFrontmatter {
     templateKey: string;
     cell_line_id: number;
@@ -110,8 +135,10 @@ export interface NormalCellLineFrontmatter {
         cas9: string;
         diagrams: DiagramList[];
     };
+    genomic_characterization: GenomicCharacterizationFrontMatter;
     stem_cell_characteristics: StemCellCharacteristicsFrontMatter;
     images_and_videos?: MediaFrontMatter;
+    category_labels: string[];
 };
 
 export interface NormalCellLineNode {
@@ -254,6 +281,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     tagLocation: string[];
     fluorescentTag: string[];
     orderPlasmid: string;
+    categoryLabels: string[];
 }
 
 export type ParentLine = Pick<UnpackedNormalCellLine,
@@ -293,6 +321,7 @@ export interface SearchAndFilterGroup {
                         };
                     }[];
                 };
+                category_labels: string[];
             };
         };
     }[];
@@ -311,5 +340,6 @@ export interface SearchLookup {
     // (so many words map to the same gene symbol)
     // used for getting a unique identifier for the geneSymToCellIds map
     structureAndNameToGene: Map<string, string>;
+    categoryToIds: Map<string, number[]>
     allSearchableTerms: Set<string>;
 }

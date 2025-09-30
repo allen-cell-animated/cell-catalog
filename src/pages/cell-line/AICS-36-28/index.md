@@ -31,29 +31,31 @@ editing_design:
       images:
         - image: AAVS1_gfp.png
           caption: "Top: mEGFP insertion site at AAVS1 locus in PPP1R12C intron; Bottom: Zoom in on mEGFP insertion site at AAVS1 locus"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "Karyotype Analysis"
       images:
         - image: AAVS1_cl28_final_karyo.JPG
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "AAVS1-mEGFP"
+    - edited_gene: "AAVS1-mEGFP"
       junction: "5'"
       expected_size: "NA"
       confirmed_sequence: "NA"
-    - editedGene: "AAVS1-mEGFP"
+    - edited_gene: "AAVS1-mEGFP"
       junction: "3'"
       expected_size: "1214"
       confirmed_sequence: "Yes"
-    - editedGene: "AAVS1-mEGFP"
+    - edited_gene: "AAVS1-mEGFP"
       junction: "WT internal"
       expected_size: "1391"
       confirmed_sequence: "Yes"
-    - editedGene: "AAVS1-mEGFP"
+    - edited_gene: "AAVS1-mEGFP"
       junction: "Full junctional allele"
       expected_size: "NA"
       confirmed_sequence: "NA"

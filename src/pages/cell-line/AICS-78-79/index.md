@@ -60,38 +60,31 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: TOMM20 locus with zoom in on mEGFP insertion site at TOMM20 C-terminal exon. Bottom: TUBA1B locus with zoom in on mTagRFP-T insertion site at TUBA1B N-terminus."
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
-    - title: "Karyotype Analysis"
-      images:
-        - image: _karyotype.JPG
-          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
   amplified_junctions:
-    - editedGene: ""
+    - edited_gene: ""
       junction: "5'"
       expected_size: ""
       confirmed_sequence: ""
-    - editedGene: ""
+    - edited_gene: ""
       junction: "3'"
       expected_size: ""
       confirmed_sequence: ""
-    - editedGene: ""
+    - edited_gene: ""
       junction: "WT"
       expected_size: ""
       confirmed_sequence: ""
-    - editedGene: ""
+    - edited_gene: ""
       junction: "Full junctional allele"
       expected_size: "Tagged: bp; Untagged: bp"
       confirmed_sequence: ""
   junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP insertion. Primers were designed to exclude amplification from the donor plasmid."
-  ddpcr:
-    - tag: 
-      clone: cl
-      fp_ratio: 
-      plasmid: 
   ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: KAN/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
 stem_cell_characteristics:
   pluripotency_analysis:

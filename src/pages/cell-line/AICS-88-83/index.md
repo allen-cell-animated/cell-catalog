@@ -47,29 +47,27 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: PCNA locus showing 2 PCNA isoforms; Bottom: Zoom in on mEGFP insertion site at PCNA N-terminal exon"
+category_labels: 
+ - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
-    - title: "Karyotype Analysis"
-      images:
-        - image: _karyotype.JPG
-          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
   amplified_junctions:
-    - editedGene: ""
+    - edited_gene: ""
       junction: "5'"
       expected_size: ""
       confirmed_sequence: ""
-    - editedGene: ""
+    - edited_gene: ""
       junction: "3'"
       expected_size: ""
       confirmed_sequence: ""
-    - editedGene: ""
+    - edited_gene: ""
       junction: "WT"
       expected_size: ""
       confirmed_sequence: ""
-    - editedGene: ""
+    - edited_gene: ""
       junction: "Full junctional allele"
       expected_size: "Tagged: bp; Untagged: bp"
       confirmed_sequence: ""

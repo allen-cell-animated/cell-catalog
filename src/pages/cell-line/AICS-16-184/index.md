@@ -35,11 +35,13 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: ACTB locus; Bottom: Zoom in on mEGFP insertion site at ACTB N-terminal exon"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: ACTB_full_allele_gel.jpg
@@ -49,19 +51,19 @@ genomic_characterization:
         - image: ACTB_cl.184.JPG
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "ACTB-mEGFP"
+    - edited_gene: "ACTB-mEGFP"
       junction: "5'"
       expected_size: "1414"
       confirmed_sequence: "Yes"
-    - editedGene: "ACTB-mEGFP"
+    - edited_gene: "ACTB-mEGFP"
       junction: "3'"
       expected_size: "1935"
       confirmed_sequence: "Yes"
-    - editedGene: "ACTB-mEGFP"
+    - edited_gene: "ACTB-mEGFP"
       junction: "WT internal"
       expected_size: "794"
       confirmed_sequence: "Yes"
-    - editedGene: "ACTB-mEGFP"
+    - edited_gene: "ACTB-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Tagged:2888; Untagged:2159"
       confirmed_sequence: "NA"

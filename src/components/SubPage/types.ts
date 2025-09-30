@@ -21,6 +21,45 @@ export interface UnpackedEditingDesign {
     ncbiIsoforms?: string;
 }
 
+export interface AmplifiedJunction {
+    editedGene: string;
+    junction: string;
+    expectedSize: string;
+    confirmedSequence: string;
+}
+
+export interface DDCPR {
+    tag: string;
+    clone: number;
+    fpRatio: number;
+    plasmid: number;
+}
+
+export interface CrRnaOffTargets {
+    clonesAnalyzed: number;
+    offTargetsSequenced: number;
+    totalSitesSequenced: number;
+    mutationsIdentified: number;
+}
+
+export type GenoCharDataTypes = AmplifiedJunction | DDCPR | CrRnaOffTargets;
+
+export interface GenomicCharacterizationTableData<T extends GenoCharDataTypes = GenoCharDataTypes> {
+    caption: string;
+    data: T[];
+}
+
+export type AmplifiedJunctionData = GenomicCharacterizationTableData<AmplifiedJunction>
+export type DdcprData = GenomicCharacterizationTableData<DDCPR>
+export type CrRnaOffTargetsData = GenomicCharacterizationTableData<CrRnaOffTargets>
+
+export interface UnpackedGenomicCharacterization {
+    diagrams?: DiagramCardProps[];
+    amplifiedJunctions?: AmplifiedJunctionData;
+    ddpcr?: DdcprData;
+    crRnaOffTargets?: CrRnaOffTargetsData;
+}
+
 export interface PluripotencyAnalysis {
     marker: string;
     positiveCells: number;
@@ -77,7 +116,7 @@ export interface UnpackedDiseaseCellLineFull extends UnpackedCellLineMainInfo {
     parentalLine: ParentLine;
     clones: Clone[];
     editingDesign: UnpackedEditingDesign | null;
-    genomicCharacterization?: DiagramCardProps[];
+    genomicCharacterization: UnpackedGenomicCharacterization | null;
 }
 
 export interface UnpackedNormalCellLineFull extends UnpackedCellLineMainInfo {
@@ -98,4 +137,5 @@ export interface UnpackedNormalCellLineFull extends UnpackedCellLineMainInfo {
     fluorescentTag: string[];
     orderPlasmid: string;
     editingDesign: UnpackedEditingDesign | null;
+    genomicCharacterization: UnpackedGenomicCharacterization | null;
 }

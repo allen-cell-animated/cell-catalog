@@ -35,29 +35,31 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: TUBA1B locus; Bottom: Zoom in on mTagRFP-T insertion site at TUBA1B N-terminus"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mTag-RFP-T.png
+        - image: ../GenomicCharacterization_junction_schematic_mTag-RFP-T.png
     - title: "Karyotype Analysis"
       images:
         - image: TUBA1B-mTagRFPt_cl.35.JPG
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "TUBA1B-mTagRFP-T"
+    - edited_gene: "TUBA1B-mTagRFP-T"
       junction: "5'"
       expected_size: "1568"
       confirmed_sequence: "Yes"
-    - editedGene: "TUBA1B-mTagRFP-T"
+    - edited_gene: "TUBA1B-mTagRFP-T"
       junction: "3'"
       expected_size: "1900"
       confirmed_sequence: "Yes"
-    - editedGene: "TUBA1B-mTagRFP-T"
+    - edited_gene: "TUBA1B-mTagRFP-T"
       junction: "WT internal"
       expected_size: "700"
       confirmed_sequence: "Yes"
-    - editedGene: "TUBA1B-mTagRFP-T"
+    - edited_gene: "TUBA1B-mTagRFP-T"
       junction: "Full junctional allele"
       expected_size: "Tagged:3120; Untagged:2391"
       confirmed_sequence: "Not sequenced"

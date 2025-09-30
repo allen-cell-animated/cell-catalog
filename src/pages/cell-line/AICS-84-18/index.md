@@ -41,45 +41,48 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: FBL locus with zoom in on mEGFP insertion site at FBL C-terminal exon. Bottom: NPM1 locus showing 7 NPM1 isoforms with zoom in on mTagRFP-T insertion site at NPM1 C-terminal exon"
+category_labels: 
+  - Key Structure and Organelle
+  - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_generic.png
+        - image: ../GenomicCharacterization_junction_schematic_generic.png
     - title: "Karyotype Analysis"
       images:
         - image: FBL_NPM1_cl18_final_karyo.JPG
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "FBL-mEGFP"
+    - edited_gene: "FBL-mEGFP"
       junction: "5'"
       expected_size: "1560"
       confirmed_sequence: "Yes"
-    - editedGene: "FBL-mEGFP"
+    - edited_gene: "FBL-mEGFP"
       junction: "3'"
       expected_size: "1754"
       confirmed_sequence: "Yes"
-    - editedGene: "FBL-mEGFP"
+    - edited_gene: "FBL-mEGFP"
       junction: "WT internal"
       expected_size: "671"
       confirmed_sequence: "Yes"
-    - editedGene: "FBL-mEGFP"
+    - edited_gene: "FBL-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Tagged:2925; Untagged:2169"
       confirmed_sequence: ""
-    - editedGene: "NPM1-mTagRFP-T"
+    - edited_gene: "NPM1-mTagRFP-T"
       junction: "5'"
       expected_size: "1560"
       confirmed_sequence: "Yes"
-    - editedGene: "NPM1-mTagRFP-T"
+    - edited_gene: "NPM1-mTagRFP-T"
       junction: "3'"
       expected_size: "1657"
       confirmed_sequence: "Yes"
-    - editedGene: "NPM1-mTagRFP-T"
+    - edited_gene: "NPM1-mTagRFP-T"
       junction: "WT internal"
       expected_size: "1179"
       confirmed_sequence: "Yes"
-    - editedGene: "NPM1-mTagRFP-T"
+    - edited_gene: "NPM1-mTagRFP-T"
       junction: "Full junctional allele"
       expected_size: "Tagged:WIP; Untagged:WIP"
       confirmed_sequence: ""

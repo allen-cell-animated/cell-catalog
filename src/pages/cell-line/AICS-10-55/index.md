@@ -35,11 +35,13 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: SEC61B locus; Bottom: Zoom in on mEGFP insertion site at SEC61B N-terminal exon"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: SEC61B_full_allele_gel.jpg
@@ -49,19 +51,19 @@ genomic_characterization:
         - image: SEC61B_cl.55.JPG
           caption: "After cells banks were created, one vial was thawed and 20 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "SEC61B-mEGFP"
+    - edited_gene: "SEC61B-mEGFP"
       junction: "5'"
       expected_size: "1500"
       confirmed_sequence: "Yes"
-    - editedGene: "SEC61B-mEGFP"
+    - edited_gene: "SEC61B-mEGFP"
       junction: "3'"
       expected_size: "1803"
       confirmed_sequence: "Yes"
-    - editedGene: "SEC61B-mEGFP"
+    - edited_gene: "SEC61B-mEGFP"
       junction: "WT internal"
       expected_size: "810"
       confirmed_sequence: "Yes"
-    - editedGene: "SEC61B-mEGFP"
+    - edited_gene: "SEC61B-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Tagged:3019; Untagged:2287"
       confirmed_sequence: "NA"

@@ -35,11 +35,13 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: TOMM20 locus; Bottom: Zoom in on mEGFP insertion site at TOMM20 C-terminal exon"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: TOMM20_full_allele.jpg
@@ -49,19 +51,19 @@ genomic_characterization:
         - image: StemCellCharacterization_karyotype.jpg
           caption: "After cells banks were created, one vial was thawed and 20 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "TOMM20-mEGFP"
+    - edited_gene: "TOMM20-mEGFP"
       junction: "5'"
       expected_size: "1870"
       confirmed_sequence: "Yes, but evidence of duplication"
-    - editedGene: "TOMM20-mEGFP"
+    - edited_gene: "TOMM20-mEGFP"
       junction: "3'"
       expected_size: "1474"
       confirmed_sequence: "Yes, but evidence of duplication"
-    - editedGene: "TOMM20-mEGFP"
+    - edited_gene: "TOMM20-mEGFP"
       junction: "WT internal"
       expected_size: "722"
       confirmed_sequence: "Yes, but evidence of duplication"
-    - editedGene: "TOMM20-mEGFP"
+    - edited_gene: "TOMM20-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Tagged:2955; Untagged:2208"
       confirmed_sequence: "Cannot be amplified due to likely duplication"

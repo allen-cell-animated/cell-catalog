@@ -35,29 +35,31 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: TFAM locus showing 2 TFAM isoforms; Bottom: Zoom in on mEGFP insertion site at TFAM C-terminal exon"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "Karyotype Analysis"
       images:
         - image: AICS-87_cl31_TFAM_karyotype.JPG
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "TFAM-mEGFP"
+    - edited_gene: "TFAM-mEGFP"
       junction: "5'"
       expected_size: "1629"
       confirmed_sequence: "yes"
-    - editedGene: "TFAM-mEGFP"
+    - edited_gene: "TFAM-mEGFP"
       junction: "3'"
       expected_size: "1653"
       confirmed_sequence: "yes"
-    - editedGene: "TFAM-mEGFP"
+    - edited_gene: "TFAM-mEGFP"
       junction: "WT internal"
       expected_size: "1782"
       confirmed_sequence: "yes"
-    - editedGene: "TFAM-mEGFP"
+    - edited_gene: "TFAM-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Tagged: bp; Untagged: bp"
       confirmed_sequence: "yes"

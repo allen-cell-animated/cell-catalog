@@ -37,11 +37,14 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: NPM1 locus showing 7 NPM1 isoforms; Bottom: Zoom in on mEGFP insertion site at NPM1 C-terminal exon"
+category_labels: 
+  - Key Structure and Organelle
+  - Nuclear Structure
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: AICS-58_AICS-57_full_allele_PCR_180202b.jpg
@@ -51,19 +54,19 @@ genomic_characterization:
         - image: AICS-57_NPM1-mEGFP_cl50.jpg
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "NPM1-mEGFP"
+    - edited_gene: "NPM1-mEGFP"
       junction: "5'"
       expected_size: "1560"
       confirmed_sequence: "Yes"
-    - editedGene: "NPM1-mEGFP"
+    - edited_gene: "NPM1-mEGFP"
       junction: "3'"
       expected_size: "1657"
       confirmed_sequence: "Yes"
-    - editedGene: "NPM1-mEGFP"
+    - edited_gene: "NPM1-mEGFP"
       junction: "WT internal"
       expected_size: "1179"
       confirmed_sequence: "Yes"
-    - editedGene: "NPM1-mEGFP"
+    - edited_gene: "NPM1-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Tagged:WIP; Untagged:WIP"
       confirmed_sequence: ""

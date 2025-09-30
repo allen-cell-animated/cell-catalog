@@ -35,11 +35,13 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: CETN2 locus; Bottom: Zoom in on mTagRFP-T insertion site at CETN2 N-terminus"
+category_labels: 
+ - Key Structure and Organelle
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mTag-RFP-T.png
+        - image: ../GenomicCharacterization_junction_schematic_mTag-RFP-T.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: CETN2_full_allele_gel.jpg
@@ -49,19 +51,19 @@ genomic_characterization:
         - image: CETN2_cl.19.JPG
           caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "CETN2-mTagRFP-T"
+    - edited_gene: "CETN2-mTagRFP-T"
       junction: "5'"
       expected_size: "1940"
       confirmed_sequence: "Yes"
-    - editedGene: "CETN2-mTagRFP-T"
+    - edited_gene: "CETN2-mTagRFP-T"
       junction: "3'"
       expected_size: "2083"
       confirmed_sequence: "Yes"
-    - editedGene: "CETN2-mTagRFP-T"
+    - edited_gene: "CETN2-mTagRFP-T"
       junction: "WT internal"
       expected_size: "NA"
       confirmed_sequence: "NA"
-    - editedGene: "CETN2-mTagRFP-T"
+    - edited_gene: "CETN2-mTagRFP-T"
       junction: "Full junctional allele"
       expected_size: "Tagged:3932; Untagged:NA"
       confirmed_sequence: "Not sequenced"

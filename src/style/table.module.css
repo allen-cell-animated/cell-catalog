@@ -100,9 +100,13 @@
   color: var(--WHITE);
 }
 
+.action-column .action-button .cert-icon path,
+.action-column .action-button .cert-icon line {
+    stroke: var(--primary-color);
+}
+
 .action-column:hover .action-button .cert-icon path,
 .action-column:hover .action-button .cert-icon line {
-    fill: var(--primary-color);
     stroke: var(--WHITE);
 }
 

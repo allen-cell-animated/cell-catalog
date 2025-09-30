@@ -35,11 +35,13 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: MAP1LC3B locus; Bottom: Zoom in on mEGFP insertion site at MAP1LC3B N-terminal exon"
+category_labels: 
+ - Stress
 genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: GenomicCharacterization_tagged_allele_gel.jpg
@@ -49,19 +51,19 @@ genomic_characterization:
         - image: MAP1LC3B_cl.22.JPG
           caption: "After cells banks were created, one vial was thawed and 20 G-banded metaphase cells were karyotyped."
   amplified_junctions:
-    - editedGene: "MAP1LC3B-mEGFP"
+    - edited_gene: "MAP1LC3B-mEGFP"
       junction: "5'"
       expected_size: "1654"
       confirmed_sequence: "Yes"
-    - editedGene: "MAP1LC3B-mEGFP"
+    - edited_gene: "MAP1LC3B-mEGFP"
       junction: "3'"
       expected_size: "2150"
       confirmed_sequence: "Yes"
-    - editedGene: "MAP1LC3B-mEGFP"
+    - edited_gene: "MAP1LC3B-mEGFP"
       junction: "WT internal"
       expected_size: "1013"
       confirmed_sequence: "Yes"
-    - editedGene: "MAP1LC3B-mEGFP"
+    - edited_gene: "MAP1LC3B-mEGFP"
       junction: "Full junctional allele"
       expected_size: "Tagged:3396; Untagged:2686"
       confirmed_sequence: "Not sequenced"
