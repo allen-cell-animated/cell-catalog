@@ -1,5 +1,4 @@
 import React from "react";
-import { Flex } from "antd";
 import { PluripotencyAnalysis, UnpackedStemCellCharacteristics } from "./types";
 import SubpageTable from "../shared/SubpageTable";
 import {
@@ -10,7 +9,10 @@ import {
 import DiagramCard from "../shared/DiagramCard";
 import { ColumnsType } from "antd/es/table";
 
-const { card } = require("../../style/genomic-characterization.module.css");
+const {
+    masonry,
+    masonryItem,
+} = require("../../style/subpage.module.css");
 
 export function getPluripotencyColunms(data: PluripotencyAnalysis[]): {
     columns: ColumnsType<any>;
@@ -75,9 +77,10 @@ const StemCellChar: React.FC<StemCellCharProps> = ({ data }) => {
     }));
     // TODO: add passing antibodies and differentiation tables once we have the data
     return (
-        <Flex gap={16} wrap="wrap" justify="space-between" align="baseline">
+        <div className={masonry}>
             {!!flippedAxesPluripotency && (
                 <SubpageTable
+                    className={masonryItem}
                     title="Pluripotency Analysis"
                     columns={flippedAxesPluripotency.columns}
                     dataSource={flippedAxesPluripotency.dataSource}
@@ -87,6 +90,7 @@ const StemCellChar: React.FC<StemCellCharProps> = ({ data }) => {
 
             {!!trilineageDifferentiation?.data.length && (
                 <SubpageTable
+                    className={masonryItem}
                     title="Trilineage Differentiation"
                     columns={TRILINEAGE_COLUMNS}
                     dataSource={trilineageDifferentiation.data}
@@ -96,6 +100,7 @@ const StemCellChar: React.FC<StemCellCharProps> = ({ data }) => {
 
             {!!cardiomyocyteDifferentiation?.data.length && (
                 <SubpageTable
+                    className={masonryItem}
                     title="Cardiomyocyte Differentiation"
                     columns={CARDIOMYOCYTE_COLUMNS}
                     dataSource={cardiomyocyteDifferentiation.data}
@@ -105,7 +110,7 @@ const StemCellChar: React.FC<StemCellCharProps> = ({ data }) => {
             {rnaSeqAnalysis?.map((image, index) => (
                 <DiagramCard
                     key={index}
-                    className={card}
+                    className={masonryItem}
                     title={image.title}
                     caption={image.caption}
                     image={image.image}
@@ -113,13 +118,14 @@ const StemCellChar: React.FC<StemCellCharProps> = ({ data }) => {
             ))}
             {!!percentPositiveRows.length && (
                 <SubpageTable
+                    className={masonryItem}
                     title="Cardiomyocyte Differentiation"
                     columns={PERCENT_POS_COLUMNS}
                     caption={diseaseCardioMyocyteDifferentiation?.caption}
                     dataSource={percentPositiveRows}
                 />
             )}
-        </Flex>
+        </div>
     );
 };
 
