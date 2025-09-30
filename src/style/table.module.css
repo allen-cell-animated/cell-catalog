@@ -124,10 +124,7 @@
 }
 
 .action-button.disabled :global(.tube-icon) line,
-.action-button.disabled :global(.tube-icon) path {
-  stroke: var(--RAIN_SHADOW);
-}
-
+.action-button.disabled :global(.tube-icon) path,
 .action-button.disabled .cert-icon path,
 .action-button.disabled .cert-icon line {
   stroke: var(--RAIN_SHADOW);
