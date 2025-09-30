@@ -61,6 +61,49 @@ export interface UnpackedGenomicCharacterization {
     crRnaOffTargets?: CrRnaOffTargetsData;
 }
 
+export interface PluripotencyAnalysis {
+    marker: string;
+    positiveCells: number;
+}
+
+export interface TrilineageDifferentiation {
+    germLayer: string; // Ectoderm, Endoderm, Mesoderm
+    marker: string;
+    percentPositiveCells: string;
+}
+
+export interface CardiomyocyteDifferentiation {
+    troponinPercentPositive: string;
+    dayOfBeatingPercent: string;
+    dayOfBeatingRange: string;
+}
+
+export interface DiseaseCardioMyocyteDifferentiation {
+    percentPositive: ClonePercentPositive[];
+    passingAntibodies?: any[]; //TODO: type this once we have the data
+    differentiation?: any[];
+}
+
+export type StemCellCharDataTypes = PluripotencyAnalysis | TrilineageDifferentiation | CardiomyocyteDifferentiation | DiseaseCardioMyocyteDifferentiation;
+
+export interface StemCellCharTableData<T extends StemCellCharDataTypes = StemCellCharDataTypes> {
+    caption: string;
+    data: T[];
+}
+
+export type PluripotencyAnalysisData = StemCellCharTableData<PluripotencyAnalysis>
+export type TrilineageDifferentiationData = StemCellCharTableData<TrilineageDifferentiation>
+export type CardiomyocyteDifferentiationData = StemCellCharTableData<CardiomyocyteDifferentiation>
+export type DiseaseCardioMyocyteDifferentiationData = StemCellCharTableData<DiseaseCardioMyocyteDifferentiation>
+
+export interface UnpackedStemCellCharacteristics {
+    pluripotencyAnalysis?: PluripotencyAnalysisData;
+    trilineageDifferentiation?: TrilineageDifferentiationData;
+    cardiomyocyteDifferentiation?: CardiomyocyteDifferentiationData;
+    rnaSeqAnalysis?: DiagramCardProps[];
+    diseaseCardioMyocyteDifferentiation?: DiseaseCardioMyocyteDifferentiationData;
+}
+
 export interface ClonePercentPositive {
     cloneNumber: number;
     value: number;
@@ -75,7 +118,6 @@ export interface UnpackedDiseaseCellLineFull extends UnpackedCellLineMainInfo {
     clones: Clone[];
     editingDesign: UnpackedEditingDesign | null;
     genomicCharacterization: UnpackedGenomicCharacterization | null;
-    stemCellCharData: StemCellCharProps | null;
 }
 
 export interface UnpackedNormalCellLineFull extends UnpackedCellLineMainInfo {

@@ -3,10 +3,11 @@ import { Flex, Tabs } from "antd";
 import { SubPage } from "../../types";
 import EditingDesignSubpage from "./EditingDesign";
 import GenomicCharacterization from "./GenomicCharacterization";
-import StemCellChar, { StemCellCharProps } from "./StemCellChar";
+import StemCellChar from "./StemCellChar";
 import {
     UnpackedEditingDesign,
     UnpackedGenomicCharacterization,
+    UnpackedStemCellCharacteristics,
 } from "./types";
 
 const {
@@ -19,14 +20,14 @@ export interface SubpageTabsProps {
     tabsToRender: SubPage[];
     editingDesignData: UnpackedEditingDesign | null;
     genomicCharacterizationData: UnpackedGenomicCharacterization | null;
-    stemCellCharData: StemCellCharProps | null;
+    stemCellCharacteristics: UnpackedStemCellCharacteristics | null;
 }
 
 const SubpageTabs: React.FC<SubpageTabsProps> = ({
     tabsToRender,
     editingDesignData,
     genomicCharacterizationData,
-    stemCellCharData,
+    stemCellCharacteristics,
 }) => {
     const getNoDataComponent = (tab: SubPage) => {
         return (
@@ -47,8 +48,8 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
         ) : (
             getNoDataComponent(SubPage.GenomicCharacterization)
         ),
-        [SubPage.StemCellCharacteristics]: stemCellCharData ? (
-            <StemCellChar {...stemCellCharData} />
+        [SubPage.StemCellCharacteristics]: stemCellCharacteristics ? (
+            <StemCellChar data={stemCellCharacteristics} />
         ) : (
             getNoDataComponent(SubPage.StemCellCharacteristics)
         ),
