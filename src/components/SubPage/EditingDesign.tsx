@@ -6,13 +6,12 @@ import InfoPanel from "../shared/InfoPanel";
 import SubpageContentCard from "../shared/SubpageContentCard";
 import { UnpackedEditingDesign as EditingDesignSubpageProps } from "./types";
 
-const { container, legendText } = require("../../style/subpage.module.css");
-
 const {
     mutation,
     noHeader,
     pamSite,
 } = require("../../style/editing-design.module.css");
+const { container, legendText } = require("../../style/subpage.module.css");
 
 const formatTextWithGeneLocations = (text: string, className: string) => {
     // PAM sites and mutations are indicated in the string using square brackets
