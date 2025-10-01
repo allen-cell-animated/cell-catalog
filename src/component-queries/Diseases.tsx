@@ -32,7 +32,7 @@ const DiseaseTemplate = (props: QueryResult) => {
 
     const unpackedDiseases = diseases
         .map(({ node: disease }) => {
-            const { name, gene, status } = disease.frontmatter;
+            const { gene, name, status } = disease.frontmatter;
             return {
                 name,
                 geneSymbol: gene[0].frontmatter.symbol,

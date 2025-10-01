@@ -13,9 +13,9 @@ import { UnpackedCellLine, mdBreakpoint } from "./types";
 const CertificateIcon = require("../../img/cert-icon.svg");
 
 const {
-    cellLineId,
-    actionColumn,
     actionButton,
+    actionColumn,
+    cellLineId,
     certIcon,
     idHeader,
     thumbnailContainer,

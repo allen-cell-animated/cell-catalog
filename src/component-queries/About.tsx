@@ -8,9 +8,9 @@ import { RichText, renderRichText } from "../utils/formattingUtils";
 
 const {
     container,
-    italic,
-    diseaseCopy,
     contentWrapper,
+    diseaseCopy,
+    italic,
 } = require("../style/about.module.css");
 
 interface AboutProps {
@@ -84,12 +84,12 @@ const About: React.FC = () => {
             `}
             render={(data: AboutProps) => {
                 const {
-                    title,
                     about_block,
-                    coriell_image,
-                    coriell_link,
                     addgene_image,
                     addgene_link,
+                    coriell_image,
+                    coriell_link,
+                    title,
                 } = data.markdownRemark.frontmatter;
 
                 return (

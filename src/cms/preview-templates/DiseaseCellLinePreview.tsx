@@ -84,6 +84,7 @@ const DiseaseCellLinePreview = ({ entry, getAsset }: TemplateProps) => {
 
             {images.map((data: any) => (
                 <div
+                    key={data.image.url}
                     style={{
                         display: "flex",
                         alignItems: "center",

@@ -23,10 +23,10 @@ const getVimeoThumbnail = (videoId: string) => {
 
 const Thumbnail: React.FC<ThumbnailProps> = ({
     image,
-    videoId,
     isSelected,
     onClick,
     type = "image",
+    videoId,
 }) => {
     return (
         <div

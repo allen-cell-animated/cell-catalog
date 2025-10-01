@@ -12,11 +12,11 @@ const Share = require("../../img/share-icon.svg");
 const LinkOut = require("../../img/external-link.svg");
 
 const {
-    title,
     container,
     extraLargeButton,
     extraLargeButtonHeader,
     spacedButton,
+    title,
 } = require("../../style/cell-line-info-card.module.css");
 
 interface OrderButtonProps {
@@ -39,13 +39,13 @@ interface CellLineInfoCardBaseProps {
 }
 
 const CellLineInfoCardBase = ({
-    href,
+    additionalInfo,
     buttonList,
     cellLineId,
-    infoRows,
-    additionalInfo,
     certificateOfAnalysis,
     healthCertificate,
+    href,
+    infoRows,
     multiGene,
 }: CellLineInfoCardBaseProps) => {
     const defaultToolTipText = "Copy cell line link to clipboard";
@@ -59,9 +59,9 @@ const CellLineInfoCardBase = ({
     );
 
     const getOrderButton = ({
-        label,
         href,
         icon,
+        label,
         subtitle,
     }: OrderButtonProps) => (
         <Button

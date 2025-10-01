@@ -39,21 +39,21 @@ interface CellLineProps extends UnpackedNormalCellLineFull {
     href: string;
 }
 
-// eslint-disable-next-line
+ 
 export const CellLineTemplate = ({
-    cellLineId,
-    cloneNumber,
-    taggedGene,
-    href,
-    orderPlasmid,
-    healthCertificate,
-    certificateOfAnalysis,
-    orderLink,
-    fluorescentTag,
     alleleCount,
+    cellLineId,
+    certificateOfAnalysis,
+    cloneNumber,
     editingDesign,
-    imagesAndVideos,
+    fluorescentTag,
     genomicCharacterization,
+    healthCertificate,
+    href,
+    imagesAndVideos,
+    orderLink,
+    orderPlasmid,
+    taggedGene,
 }: CellLineProps) => {
     const hasImagesOrVideos = hasMedia(imagesAndVideos);
     if (cellLineId === 0) {

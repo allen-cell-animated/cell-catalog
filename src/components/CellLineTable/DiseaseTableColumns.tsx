@@ -94,7 +94,7 @@ export const getDiseaseTableColumns = (
             className: classNames(clones, { [lastColumn]: !inProgress }),
             responsive: mdBreakpoint,
             render: (clones: Clone[], _: any, index: number) => {
-                const { numMutants, numIsogenics } = getCloneSummary(clones);
+                const { numIsogenics, numMutants } = getCloneSummary(clones);
                 return (
                     <CloneSummary
                         numMutants={numMutants}

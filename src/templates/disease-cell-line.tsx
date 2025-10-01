@@ -15,9 +15,9 @@ import { getImages, getVideos, hasMedia } from "../utils/mediaUtils";
 
 const {
     container,
+    imagesContainer,
     leftCard,
     returnArrow,
-    imagesContainer,
 } = require("../style/disease-cell-line.module.css");
 
 const Arrow = require("../img/arrow.svg");
@@ -26,22 +26,22 @@ interface DiseaseCellLineTemplateProps extends UnpackedDiseaseCellLineFull {
     href: string;
 }
 
-// eslint-disable-next-line
+ 
 export const DiseaseCellLineTemplate = ({
-    href,
     cellLineId,
-    geneName,
-    geneSymbol,
-    clones,
-    snp,
-    orderLink,
     certificateOfAnalysis,
-    parentalLine,
-    healthCertificate,
-    imagesAndVideos,
+    clones,
     diseaseName,
     editingDesign,
+    geneName,
+    geneSymbol,
     genomicCharacterization,
+    healthCertificate,
+    href,
+    imagesAndVideos,
+    orderLink,
+    parentalLine,
+    snp,
     stemCellCharData,
 }: DiseaseCellLineTemplateProps) => {
     const hasImagesOrVideos = hasMedia(imagesAndVideos);

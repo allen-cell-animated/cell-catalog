@@ -12,8 +12,8 @@ interface PlasmidIconProps extends IconComponentProps {
 }
 
 const PlasmidIcon: React.FC<PlasmidIconProps> = ({
-    size = 28,
     className,
+    size = 28,
     style,
     ...props
 }) => {

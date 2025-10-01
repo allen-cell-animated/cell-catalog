@@ -15,11 +15,11 @@ export interface DiagramCardProps extends CardProps {
 }
 
 const DiagramCard: React.FC<DiagramCardProps> = ({
-    title,
-    image,
     caption,
-    headerLeadText,
     className,
+    headerLeadText,
+    image,
+    title,
     ...cardProps
 }) => {
     if (!image) {

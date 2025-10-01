@@ -10,7 +10,7 @@ interface DiseaseTemplateProps {
         frontmatter: GeneFrontmatter;
     }[];
 }
-export const DiseaseTemplate = ({ name, gene }: DiseaseTemplateProps) => {
+export const DiseaseTemplate = ({ gene, name }: DiseaseTemplateProps) => {
     return (
         <section className="section">
             <div className="container content">

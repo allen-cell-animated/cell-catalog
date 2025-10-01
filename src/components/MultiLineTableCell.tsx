@@ -22,9 +22,9 @@ interface MultipleLineContainerProps {
 }
 
 export const MultiLineTableCell: React.FC<MultipleLineContainerProps> = ({
+    dividers,
     entries,
     parent,
-    dividers,
 }) => {
     if (!entries || entries.length === 0) {
         return null;

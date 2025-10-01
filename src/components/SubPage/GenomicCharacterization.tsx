@@ -16,10 +16,10 @@ const {
 } = require("../../style/subpage.module.css");
 
 const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
-    diagrams,
     amplifiedJunctions,
-    ddpcr,
     crRnaOffTargets,
+    ddpcr,
+    diagrams,
 }) => {
     return (
         <div className={masonry}>

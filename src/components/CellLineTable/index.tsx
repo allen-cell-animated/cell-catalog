@@ -9,11 +9,11 @@ import useWindowWidth from "../../hooks/useWindowWidth";
 import { TableStatus, UnpackedCellLine } from "./types";
 
 const {
-    tableTitle,
-    container,
     comingSoon,
-    hoveredRow,
+    container,
     dataComplete,
+    hoveredRow,
+    tableTitle,
 } = require("../../style/table.module.css");
 
 interface CellLineTableProps {
@@ -26,12 +26,12 @@ interface CellLineTableProps {
 }
 
 const CellLineTable = ({
-    tableName,
     cellLines,
-    released,
     columns,
     mobileConfig,
+    released,
     suppressRowClickRef,
+    tableName,
 }: CellLineTableProps) => {
     const [hoveredRowIndex, setHoveredRowIndex] = useState(-1);
 

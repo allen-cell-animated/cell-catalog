@@ -10,9 +10,9 @@ interface CloneSummaryProps {
 }
 
 const CloneSummary: React.FC<CloneSummaryProps> = ({
-    numMutants,
-    numIsogenics,
     index,
+    numIsogenics,
+    numMutants,
 }) => (
     <Flex vertical={true} key={index}>
         <div>

@@ -13,18 +13,18 @@ import { isImage } from "../utils/mediaUtils";
 import Thumbnail from "./Thumbnail";
 
 const {
+    caption,
     container,
     header,
-    titleSection,
     mainTitle,
-    subtitle,
-    rightTitle,
-    caption,
-    thumbnailContainer,
+    previewImage,
+    primaryImageContainer,
     primaryImageOnly,
     primaryImageWithThumbnail,
-    primaryImageContainer,
-    previewImage,
+    rightTitle,
+    subtitle,
+    thumbnailContainer,
+    titleSection,
     toolbarWrapper,
     videoContainer,
     videoIframe,
@@ -42,13 +42,13 @@ interface ImagesAndVideosProps {
 }
 
 const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
-    images,
-    videos,
+    alleleTag,
     cellLineId,
     fluorescentTag,
-    parentalGeneSymbol,
-    alleleTag,
     geneSymbol,
+    images,
+    parentalGeneSymbol,
+    videos,
 }) => {
     const getVideoId = (url: string) => {
         const match = url.match(/player\.vimeo\.com\/video\/(\d+)/);
@@ -193,8 +193,8 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                         toolbarRender: (
                             _,
                             {
-                                transform: { scale },
                                 actions: { onZoomIn, onZoomOut },
+                                transform: { scale },
                             },
                         ) => (
                             <Space className={toolbarWrapper}>

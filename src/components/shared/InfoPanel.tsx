@@ -11,16 +11,16 @@ interface InfoPanelProps {
 }
 
 const {
+    aligned,
     container,
     legend,
-    aligned,
 } = require("../../style/info-panel.module.css");
 
 const InfoPanel: React.FC<InfoPanelProps> = ({
-    data,
-    hasLegend,
     alignContent,
     baseline = true,
+    data,
+    hasLegend,
 }) => {
     return (
         <div className={classNames(container, hasLegend && legend)}>

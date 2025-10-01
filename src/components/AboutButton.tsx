@@ -13,10 +13,10 @@ interface AboutButtonProps {
 }
 
 const AboutButton: React.FC<AboutButtonProps> = ({
+    className,
     image,
     link,
     title,
-    className,
 }) => {
     const imageElement = React.isValidElement(image)
         ? image

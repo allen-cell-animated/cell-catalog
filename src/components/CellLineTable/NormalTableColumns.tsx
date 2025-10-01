@@ -1,4 +1,4 @@
-import Icon, { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
+import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { Flex } from "antd";
 import { SortOrder } from "antd/es/table/interface";
 import React from "react";
@@ -15,11 +15,11 @@ import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint } from "./types";
 
 const {
-    lastColumn,
-    actionColumn,
     actionButton,
-    protein,
+    actionColumn,
     gene,
+    lastColumn,
+    protein,
     structure,
     tableMultiLineCell,
 } = require("../../style/table.module.css");

@@ -21,8 +21,8 @@ interface NormalCatalogTemplateProps {
 }
 
 export const NormalCatalogTemplate = ({
-    fundingText,
     acknowledgementsBlock,
+    fundingText,
     tableHeader,
 }: NormalCatalogTemplateProps) => {
     return (

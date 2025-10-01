@@ -9,9 +9,9 @@ import { UnpackedEditingDesign as EditingDesignSubpageProps } from "./types";
 const { container, legendText } = require("../../style/subpage.module.css");
 
 const {
-    pamSite,
     mutation,
     noHeader,
+    pamSite,
 } = require("../../style/editing-design.module.css");
 
 const formatTextWithGeneLocations = (text: string, className: string) => {
@@ -31,15 +31,15 @@ const formatTextWithGeneLocations = (text: string, className: string) => {
 };
 
 const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
-    crRnaTargetSite,
-    dnaDonorSequence,
     cas9,
-    fPrimer,
-    rPrimer,
-    diagrams,
-    ncbiIsoforms,
     crRNA,
+    crRnaTargetSite,
+    diagrams,
+    dnaDonorSequence,
+    fPrimer,
     linker,
+    ncbiIsoforms,
+    rPrimer,
 }) => {
     const rows: DescriptionsProps["items"] = [];
 

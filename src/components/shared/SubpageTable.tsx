@@ -14,11 +14,11 @@ export interface SubpageTableProps extends CardProps {
 }
 
 const SubpageTable: React.FC<SubpageTableProps> = ({
-    title,
     caption,
     className,
     columns,
     dataSource,
+    title,
     ...cardProps
 }) => {
     if (dataSource.length === 0) {

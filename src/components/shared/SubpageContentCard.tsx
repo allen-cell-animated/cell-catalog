@@ -5,9 +5,9 @@ import React from "react";
 const { Meta } = Card;
 
 const {
-    container,
     borderBody,
     borderCard,
+    container,
 } = require("../../style/subpage-content-card.module.css");
 
 interface SubpageContentCardProps extends CardProps {
@@ -17,9 +17,9 @@ interface SubpageContentCardProps extends CardProps {
 }
 
 const SubpageContentCard: React.FC<SubpageContentCardProps> = ({
-    title,
-    children,
     caption,
+    children,
+    title,
     ...cardProps
 }) => {
     // include any className sent in

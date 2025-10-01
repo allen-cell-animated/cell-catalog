@@ -19,7 +19,7 @@ const { container, contentWrapper } = require("../style/about.module.css");
 interface DiseaseCatalogTemplateProps {
     title: string;
     content: string;
-    contentComponent?: JSX.ElementType;
+    contentComponent?: React.JSX.ElementType;
     footerText: string;
     fundingText: string;
     acknowledgementsBlock: {
@@ -36,17 +36,17 @@ interface DiseaseCatalogTemplateProps {
     coriellImage: FileNode;
     coriellLink: string;
 }
-// eslint-disable-next-line
+
 export const DiseaseCatalogTemplate = ({
-    title,
+    acknowledgementsBlock,
     content,
     contentComponent,
-    footerText,
-    fundingText,
-    acknowledgementsBlock,
-    main,
     coriellImage,
     coriellLink,
+    footerText,
+    fundingText,
+    main,
+    title,
 }: DiseaseCatalogTemplateProps) => {
     const PageContent = contentComponent || Content;
     return (

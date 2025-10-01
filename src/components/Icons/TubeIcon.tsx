@@ -12,8 +12,8 @@ interface TubeIconProps extends IconComponentProps {
 }
 
 const TubeIcon: React.FC<TubeIconProps> = ({
-    size = 40,
     className,
+    size = 40,
     style,
     ...props
 }) => {
