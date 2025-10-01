@@ -9,12 +9,12 @@ import Footer from "../components/Footer";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/shared/Content";
 
+const { container, contentWrapper } = require("../style/about.module.css");
 const {
     banner,
     bannerContent,
     mainHeading,
 } = require("../style/catalog.module.css");
-const { container, contentWrapper } = require("../style/about.module.css");
 
 interface DiseaseCatalogTemplateProps {
     title: string;
