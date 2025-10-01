@@ -1,14 +1,14 @@
-import {Link} from "gatsby";
-import React from "react";
-import { Flex } from "antd";
 import Icon from "@ant-design/icons";
+import { Flex } from "antd";
+import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import React from "react";
 
 import { CellLineStatus } from "../../component-queries/types";
-import { formatCellLineId } from "../../utils";
 import { WHITE } from "../../style/theme";
+import { formatCellLineId } from "../../utils";
 import TubeIcon from "../Icons/TubeIcon";
-import { mdBreakpoint, UnpackedCellLine } from "./types";
+import { UnpackedCellLine, mdBreakpoint } from "./types";
 
 const CertificateIcon = require("../../img/cert-icon.svg");
 
@@ -43,7 +43,9 @@ export const cellLineIdColumn = {
                     />
                 </div>
             </>
-        ) : cellLine;
+        ) : (
+            cellLine
+        );
 
         return record.status === CellLineStatus.DataComplete ? (
             <Link to={record.path}>{content}</Link>

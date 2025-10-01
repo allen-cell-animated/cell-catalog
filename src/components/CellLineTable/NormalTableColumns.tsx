@@ -1,18 +1,18 @@
-import React from "react";
-import { Flex } from "antd";
 import Icon, { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
+import { Flex } from "antd";
 import { SortOrder } from "antd/es/table/interface";
+import React from "react";
 
 import {
     UnpackedGene,
     UnpackedNormalCellLine,
 } from "../../component-queries/types";
 import { RAIN_SHADOW, SERIOUS_GRAY } from "../../style/theme";
+import GeneDisplay from "../GeneDisplay";
 import PlasmidIcon from "../Icons/PlasmidIcon";
+import { MultiLineTableCell, ParentComponent } from "../MultiLineTableCell";
 import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint } from "./types";
-import { MultiLineTableCell, ParentComponent } from "../MultiLineTableCell";
-import GeneDisplay from "../GeneDisplay";
 
 const {
     lastColumn,
@@ -66,7 +66,7 @@ const obtainPlasmidColumn = {
 };
 
 export const getNormalTableColumns = (
-    inProgress: boolean
+    inProgress: boolean,
 ): CellLineColumns<UnpackedNormalCellLine> => {
     const columns = [
         {
@@ -93,7 +93,7 @@ export const getNormalTableColumns = (
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     (a.protein ?? []).join("|"),
-                    (b.protein ?? []).join("|")
+                    (b.protein ?? []).join("|"),
                 ),
         },
         {
@@ -116,7 +116,7 @@ export const getNormalTableColumns = (
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     a.taggedGene[0].name,
-                    b.taggedGene[0].name
+                    b.taggedGene[0].name,
                 ),
         },
         {
@@ -134,7 +134,7 @@ export const getNormalTableColumns = (
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     (a.alleleCount ?? []).join("|"),
-                    (b.alleleCount ?? []).join("|")
+                    (b.alleleCount ?? []).join("|"),
                 ),
         },
         {
@@ -154,7 +154,7 @@ export const getNormalTableColumns = (
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     (a.structure ?? []).join("|"),
-                    (b.structure ?? []).join("|")
+                    (b.structure ?? []).join("|"),
                 ),
         },
         {
@@ -163,13 +163,16 @@ export const getNormalTableColumns = (
             dataIndex: "fluorescentTag",
             responsive: mdBreakpoint,
             render: (tags: string[]) => (
-                <MultiLineTableCell parent={ParentComponent.TABLE} entries={tags} />
+                <MultiLineTableCell
+                    parent={ParentComponent.TABLE}
+                    entries={tags}
+                />
             ),
             sortIcon: sortIcon,
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     (a.fluorescentTag ?? []).join("|"),
-                    (b.fluorescentTag ?? []).join("|")
+                    (b.fluorescentTag ?? []).join("|"),
                 ),
         },
         {
@@ -187,7 +190,7 @@ export const getNormalTableColumns = (
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     (a.tagLocation ?? []).join("|"),
-                    (b.tagLocation ?? []).join("|")
+                    (b.tagLocation ?? []).join("|"),
                 ),
         },
         {
@@ -206,7 +209,7 @@ export const getNormalTableColumns = (
             sorter: (a: any, b: any) =>
                 caseInsensitiveStringCompare(
                     (a.tagLocation ?? []).join("|"),
-                    (b.tagLocation ?? []).join("|")
+                    (b.tagLocation ?? []).join("|"),
                 ),
         },
     ];

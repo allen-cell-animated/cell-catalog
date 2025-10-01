@@ -1,5 +1,6 @@
-import React from "react";
 import { Flex, Tabs } from "antd";
+import React from "react";
+
 import { SubPage } from "../../types";
 import EditingDesignSubpage from "./EditingDesign";
 import GenomicCharacterization from "./GenomicCharacterization";

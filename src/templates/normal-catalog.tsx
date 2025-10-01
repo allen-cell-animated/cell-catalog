@@ -1,10 +1,11 @@
-import React from "react";
 import { Divider } from "antd";
 import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import Footer from "../components/Footer";
-import NormalCellLines from "../component-queries/NormalCellLines";
+import React from "react";
+
 import About from "../component-queries/About";
+import NormalCellLines from "../component-queries/NormalCellLines";
+import Footer from "../components/Footer";
+import Layout from "../components/Layout";
 
 const { container, mainHeading } = require("../style/catalog.module.css");
 interface NormalCatalogTemplateProps {

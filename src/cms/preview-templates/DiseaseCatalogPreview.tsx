@@ -1,6 +1,7 @@
-import React from 'react'
-import { DiseaseCatalogTemplate } from '../../templates/disease-catalog'
-import { TemplateProps } from './types';
+import React from "react";
+
+import { DiseaseCatalogTemplate } from "../../templates/disease-catalog";
+import { TemplateProps } from "./types";
 
 const DiseaseCatalogPreview = ({ entry, widgetFor }: TemplateProps) => (
     <DiseaseCatalogTemplate
@@ -9,6 +10,5 @@ const DiseaseCatalogPreview = ({ entry, widgetFor }: TemplateProps) => (
         footerText={entry.getIn(["data", "footer_text"])}
     />
 );
-
 
 export default DiseaseCatalogPreview;

@@ -53,17 +53,24 @@
     "dev": "npx concurrently \"npx netlify-cms-proxy-server\" \"npm start -- --progress\""
   },
   "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/antd": "^1.0.0",
     "@types/node": "^20.11.20",
     "@types/react": "^18.2.59",
     "@types/react-dom": "^18.2.19",
     "@types/react-helmet": "^6.1.11",
     "concurrently": "^9.1.2",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react": "^7.37.5",
     "gatsby-plugin-postcss": "^6.13.1",
+    "globals": "^16.4.0",
+    "jiti": "^2.6.1",
     "netlify-cli": "^17.15.7",
     "postcss": "^8.4.35",
-    "prettier": "^2.0.5",
+    "prettier": "^3.6.2",
     "typescript": "^5.3.3",
+    "typescript-eslint": "^8.45.0",
     "typescript-plugin-css-modules": "^5.1.0"
   },
   "engines": {

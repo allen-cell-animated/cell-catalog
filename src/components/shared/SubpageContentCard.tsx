@@ -1,6 +1,6 @@
-import React from "react";
 import { Card, CardProps } from "antd";
 import classNames from "classnames";
+import React from "react";
 
 const { Meta } = Card;
 

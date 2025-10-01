@@ -1,12 +1,13 @@
 import React from "react";
+
 import DiagramCard from "../shared/DiagramCard";
-import { UnpackedGenomicCharacterization as GenomicCharacterizationProps } from "./types";
 import SubpageTable from "../shared/SubpageTable";
 import {
-    DDPCR_COLUMNS,
-    CRRNA_OFF_TARGETS_COLUMNS,
     AMPLIFIED_JUNCTION_COLUMNS,
+    CRRNA_OFF_TARGETS_COLUMNS,
+    DDPCR_COLUMNS,
 } from "./genomic-characterization-table-constants";
+import { UnpackedGenomicCharacterization as GenomicCharacterizationProps } from "./types";
 
 const {
     masonry,

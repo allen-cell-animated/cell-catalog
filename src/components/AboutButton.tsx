@@ -1,8 +1,8 @@
-import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import { Card } from "antd";
 import classNames from "classnames";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
+import React from "react";
 
 const { aboutCard } = require("../style/about.module.css");
 interface AboutButtonProps {

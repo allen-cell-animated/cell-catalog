@@ -1,6 +1,7 @@
-import React from "react";
-import { TruncatedText } from "./TruncatedText";
 import { Divider } from "antd";
+import React from "react";
+
+import { TruncatedText } from "./TruncatedText";
 
 const {
     divider,

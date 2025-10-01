@@ -1,6 +1,7 @@
-import React from "react";
 import { Card } from "antd";
 import { StaticQuery, graphql } from "gatsby";
+import React from "react";
+
 import SearchBar from "../components/SearchBar";
 import { createLookupMappings } from "./convert-data";
 import { SearchAndFilterQueryResult, UnpackedNormalCellLine } from "./types";
@@ -67,7 +68,7 @@ const SearchAndFilter = ({
             `}
             render={(data: SearchAndFilterQueryResult) => {
                 const mappings = createLookupMappings(
-                    data.allMarkdownRemark.group
+                    data.allMarkdownRemark.group,
                 );
                 return (
                     <Card className={banner}>

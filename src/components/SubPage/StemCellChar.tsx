@@ -1,11 +1,12 @@
-import React from "react";
 import { Flex } from "antd";
-import { ClonePercentPositive } from "./types";
+import React from "react";
+
 import SubpageTable from "../shared/SubpageTable";
 import {
     PERCENT_POS_CAPTION,
     PERCENT_POS_COLUMNS,
 } from "./stem-cell-table-constants";
+import { ClonePercentPositive } from "./types";
 
 export interface StemCellCharProps {
     percentPositive: ClonePercentPositive[];

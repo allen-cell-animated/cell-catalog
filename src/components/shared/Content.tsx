@@ -10,7 +10,6 @@ interface HTMLContentProps {
     className?: string;
 }
 
-
 export const HTMLContent = ({ content, className }: HTMLContentProps) => (
     <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
 );

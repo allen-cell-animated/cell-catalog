@@ -1,6 +1,8 @@
-import React from "react";
-import { HTMLContent } from "./shared/Content";
 import { Divider } from "antd";
+import React from "react";
+
+import { HTMLContent } from "./shared/Content";
+
 const {
     container,
     collaboratorsSection,

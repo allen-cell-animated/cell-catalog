@@ -1,5 +1,6 @@
 import { Flex } from "antd";
 import React from "react";
+
 const { cloneNumber } = require("../style/table.module.css");
 
 interface CloneSummaryProps {

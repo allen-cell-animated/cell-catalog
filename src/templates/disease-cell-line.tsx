@@ -1,17 +1,17 @@
+import { Link, graphql } from "gatsby";
 import React from "react";
-import { graphql, Link } from "gatsby";
 
-import Layout from "../components/Layout";
 import { DiseaseCellLineFrontmatter } from "../component-queries/types";
-import { DefaultButton } from "../components/shared/Buttons";
+import { DiseaseCellLineInfoCard } from "../components/CellLineInfoCard/DiseaseCellLineInfoCard";
 import ImagesAndVideos from "../components/ImagesAndVideos";
-import { hasMedia, getImages, getVideos } from "../utils/mediaUtils";
+import Layout from "../components/Layout";
 import SubpageTabs from "../components/SubPage/SubpageTabs";
-import { DEFAULT_TABS, TABS_WITH_STEM_CELL } from "../constants";
-import { Disease } from "../types";
 import { unpackDiseaseFrontmatterForSubpage } from "../components/SubPage/convert-data";
 import { UnpackedDiseaseCellLineFull } from "../components/SubPage/types";
-import { DiseaseCellLineInfoCard } from "../components/CellLineInfoCard/DiseaseCellLineInfoCard";
+import { DefaultButton } from "../components/shared/Buttons";
+import { DEFAULT_TABS, TABS_WITH_STEM_CELL } from "../constants";
+import { Disease } from "../types";
+import { getImages, getVideos, hasMedia } from "../utils/mediaUtils";
 
 const {
     container,

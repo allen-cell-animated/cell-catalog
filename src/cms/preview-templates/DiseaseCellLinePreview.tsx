@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { TemplateProps } from "./types";
+import { Clone } from "../../component-queries/types";
+import CloneTable from "../../components/CloneTable";
+import PreviewCompatibleImage from "../../components/PreviewCompatibleImage";
 import InfoPanel from "../../components/shared/InfoPanel";
 import { formatCellLineId } from "../../utils";
-import CloneTable from "../../components/CloneTable";
-import { Clone } from "../../component-queries/types";
-import PreviewCompatibleImage from "../../components/PreviewCompatibleImage";
-import ProgressPreview from "./ProgressPreview";
 import useDisableWheel from "../hooks/useDisableWheel";
+import ProgressPreview from "./ProgressPreview";
+import { TemplateProps } from "./types";
 
 const DiseaseCellLinePreview = ({ entry, getAsset }: TemplateProps) => {
     const parental_line_id = entry.getIn(["data", "parental_line"]);

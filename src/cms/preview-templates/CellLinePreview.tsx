@@ -1,27 +1,37 @@
 import React from "react";
-import { TemplateProps } from "./types";
-import useDisableWheel from "../hooks/useDisableWheel";
-import InfoPanel from "../../components/shared/InfoPanel";
-import ProgressPreview from "./ProgressPreview";
-import PreviewCompatibleImage from "../../components/PreviewCompatibleImage";
 
+import PreviewCompatibleImage from "../../components/PreviewCompatibleImage";
+import InfoPanel from "../../components/shared/InfoPanel";
+import useDisableWheel from "../hooks/useDisableWheel";
+import ProgressPreview from "./ProgressPreview";
+import { TemplateProps } from "./types";
 
 const CellLinePreview = ({ entry, getAsset }: TemplateProps) => {
     useDisableWheel();
-    const geneticModificationsEntry = entry.getIn(["data", "genetic_modifications"]);
-    const geneticModifications = geneticModificationsEntry ?
-        geneticModificationsEntry.toJS() : 
-        [];
+    const geneticModificationsEntry = entry.getIn([
+        "data",
+        "genetic_modifications",
+    ]);
+    const geneticModifications = geneticModificationsEntry
+        ? geneticModificationsEntry.toJS()
+        : [];
     const imagesEntry = entry.getIn(["data", "images_and_videos", "images"]);
     const images = imagesEntry ? imagesEntry.toJS() : [];
 
-    const thumbnailImage = images.length > 0 ? getAsset(images[0]?.image) : null;
+    const thumbnailImage =
+        images.length > 0 ? getAsset(images[0]?.image) : null;
 
     const status = entry.getIn(["data", "status"]);
     const genes = geneticModifications.map((mod: any) => mod.gene).join(" / ");
-    const tagLocations = geneticModifications.map((mod: any) => mod.tag_location).join(" / ");
-    const fluorescentTags = geneticModifications.map((mod: any) => mod.fluorescent_tag).join(" / ");
-    const alleleCounts = geneticModifications.map((mod: any) => mod.allele_count).join(" / ");
+    const tagLocations = geneticModifications
+        .map((mod: any) => mod.tag_location)
+        .join(" / ");
+    const fluorescentTags = geneticModifications
+        .map((mod: any) => mod.fluorescent_tag)
+        .join(" / ");
+    const alleleCounts = geneticModifications
+        .map((mod: any) => mod.allele_count)
+        .join(" / ");
 
     const data = [
         {
@@ -54,21 +64,25 @@ const CellLinePreview = ({ entry, getAsset }: TemplateProps) => {
             label: "Allele Count",
             children: alleleCounts,
         },
-        ...(thumbnailImage ? [{
-            key: "thumbnail",
-            label: "Thumbnail Image",
-            children: (
-                <PreviewCompatibleImage
-                    imageInfo={{
-                        image: thumbnailImage.url,
-                        alt: "Cell Line Thumbnail"
-                    }}
-                    imageStyle={{ 
-                        maxWidth: "400px",
-                    }}
-                />
-            ),
-        }] : []),
+        ...(thumbnailImage
+            ? [
+                  {
+                      key: "thumbnail",
+                      label: "Thumbnail Image",
+                      children: (
+                          <PreviewCompatibleImage
+                              imageInfo={{
+                                  image: thumbnailImage.url,
+                                  alt: "Cell Line Thumbnail",
+                              }}
+                              imageStyle={{
+                                  maxWidth: "400px",
+                              }}
+                          />
+                      ),
+                  },
+              ]
+            : []),
     ];
 
     return (

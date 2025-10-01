@@ -1,13 +1,14 @@
+import { Flex } from "antd";
 import React from "react";
+
+import { UnpackedGene } from "../../component-queries/types";
+import { formatCellLineId } from "../../utils";
+import GeneSymbolTag from "../GeneSymbolTag";
+import PlasmidIcon from "../Icons/PlasmidIcon";
+import TubeIcon from "../Icons/TubeIcon";
+import { MultiLineTableCell, ParentComponent } from "../MultiLineTableCell";
 import CellLineInfoCardBase from "./CellLineInfoCardBase";
 import { CellLineInfoCardRequiredProps } from "./types";
-import GeneSymbolTag from "../GeneSymbolTag";
-import TubeIcon from "../Icons/TubeIcon";
-import PlasmidIcon from "../Icons/PlasmidIcon";
-import { formatCellLineId } from "../../utils";
-import { Flex } from "antd";
-import { UnpackedGene } from "../../component-queries/types";
-import { MultiLineTableCell, ParentComponent } from "../MultiLineTableCell";
 
 type ExtractedGeneFields = Record<keyof UnpackedGene, string[]>;
 
@@ -20,9 +21,8 @@ interface NormalCellLineInfoCardProps extends CellLineInfoCardRequiredProps {
 }
 
 export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (
-    props
+    props,
 ) => {
-
     const extractedGeneFields = props.taggedGene.reduce<ExtractedGeneFields>(
         (acc, gene) => {
             acc.name.push(gene.name);
@@ -31,7 +31,7 @@ export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (
             if (gene.protein) acc.protein.push(gene.protein);
             return acc;
         },
-        { name: [], symbol: [], structure: [], protein: [] }
+        { name: [], symbol: [], structure: [], protein: [] },
     );
 
     const geneSymbolTags = (

@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import { Table, Tag, Flex } from "antd";
+import { Flex, Table, Tag } from "antd";
 import { navigate } from "gatsby";
+import React, { useState } from "react";
 
 import { CellLineStatus } from "../../component-queries/types";
-
-import useWindowWidth from "../../hooks/useWindowWidth";
 import { TABLET_BREAKPOINT } from "../../constants";
-import { TableStatus, UnpackedCellLine } from "./types";
 import useEnv from "../../hooks/useEnv";
+import useWindowWidth from "../../hooks/useWindowWidth";
+import { TableStatus, UnpackedCellLine } from "./types";
 
 const {
     tableTitle,
@@ -52,7 +51,7 @@ const CellLineTable = ({
     };
     const onCellInteraction = (
         record: UnpackedCellLine,
-        index: number | undefined
+        index: number | undefined,
     ): {} => {
         // creates a hover effect for the whole row, and takes the user to
         // the sub-page for the cell line. The reason

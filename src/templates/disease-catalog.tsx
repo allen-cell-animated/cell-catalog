@@ -1,12 +1,13 @@
-import React from "react";
 import { Card, Divider, Flex } from "antd";
 import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import Diseases from "../component-queries/Diseases";
-import Content, { HTMLContent } from "../components/shared/Content";
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
-import Footer from "../components/Footer";
+import React from "react";
+
+import Diseases from "../component-queries/Diseases";
 import AboutButton from "../components/AboutButton";
+import Footer from "../components/Footer";
+import Layout from "../components/Layout";
+import Content, { HTMLContent } from "../components/shared/Content";
 
 const {
     banner,

@@ -1,7 +1,8 @@
 import React from "react";
+
+import { Isoform } from "../../component-queries/types";
 import { GeneNameTemplate } from "../../templates/gene-name";
 import { TemplateProps } from "./types";
-import { Isoform } from "../../component-queries/types";
 
 const GeneNamePreview = ({ entry, widgetFor }: TemplateProps) => {
     const isoforms = [] as Isoform[];
