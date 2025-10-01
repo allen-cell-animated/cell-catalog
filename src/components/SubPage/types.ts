@@ -6,7 +6,6 @@ import {
     UnpackedGene,
 } from "../../component-queries/types";
 import { DiagramCardProps } from "../shared/DiagramCard";
-import { StemCellCharProps } from "./StemCellChar";
 
 // crRNA field for normal cell lines differs from 
 // crRnaTargetSite field for disease cell lines
@@ -97,11 +96,11 @@ export type CardiomyocyteDifferentiationData = StemCellCharTableData<Cardiomyocy
 export type DiseaseCardioMyocyteDifferentiationData = StemCellCharTableData<DiseaseCardioMyocyteDifferentiation>
 
 export interface UnpackedStemCellCharacteristics {
-    pluripotencyAnalysis?: PluripotencyAnalysisData;
-    trilineageDifferentiation?: TrilineageDifferentiationData;
-    cardiomyocyteDifferentiation?: CardiomyocyteDifferentiationData;
-    rnaSeqAnalysis?: DiagramCardProps[];
-    diseaseCardioMyocyteDifferentiation?: DiseaseCardioMyocyteDifferentiationData;
+    pluripotencyAnalysis: PluripotencyAnalysisData;
+    trilineageDifferentiation: TrilineageDifferentiationData;
+    cardiomyocyteDifferentiation: CardiomyocyteDifferentiationData;
+    rnaSeqAnalysis: DiagramCardProps[];
+    diseaseCardioMyocyteDifferentiation: DiseaseCardioMyocyteDifferentiationData;
 }
 
 export interface ClonePercentPositive {

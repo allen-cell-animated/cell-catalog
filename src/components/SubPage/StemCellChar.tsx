@@ -1,23 +1,27 @@
 import React from "react";
-import { Flex } from "antd";
-import { ClonePercentPositive, PluripotencyAnalysis, UnpackedStemCellCharacteristics } from "./types";
+import {
+    PluripotencyAnalysisData,
+    UnpackedStemCellCharacteristics as StemCellCharProps,
+} from "./types";
 import SubpageTable from "../shared/SubpageTable";
 import {
     CARDIOMYOCYTE_COLUMNS,
-    PERCENT_POS_CAPTION,
     PERCENT_POS_COLUMNS,
     TRILINEAGE_COLUMNS,
 } from "./stem-cell-table-constants";
 import { ColumnsType } from "antd/es/table";
 import DiagramCard from "../shared/DiagramCard";
 
-
 const { masonry, masonryItem } = require("../../style/subpage.module.css");
 
-export function getPluripotencyColunms(data: PluripotencyAnalysis[]): {
+export function getPluripotencyColunms(
+    pluripotencyData: PluripotencyAnalysisData
+): {
     columns: ColumnsType<any>;
     dataSource: any[];
-} {
+} | null {
+    if (pluripotencyData.data.length === 0) return null;
+    const data = pluripotencyData.data;
     const columns: ColumnsType<any> = [
         {
             title: "Metric",
@@ -49,27 +53,20 @@ export function getPluripotencyColunms(data: PluripotencyAnalysis[]): {
     return { columns, dataSource };
 }
 
-export interface StemCellCharProps {
-    data: UnpackedStemCellCharacteristics;
-}
-
-const StemCellChar: React.FC<StemCellCharProps> = ({ data }) => {
-    const {
-        pluripotencyAnalysis,
-        trilineageDifferentiation,
-        cardiomyocyteDifferentiation,
-        diseaseCardioMyocyteDifferentiation,
-        rnaSeqAnalysis,
-    } = data || {};
-
-    const flippedAxesPluripotency = pluripotencyAnalysis?.data
-        ? getPluripotencyColunms(pluripotencyAnalysis.data)
-        : null;
+const StemCellChar: React.FC<StemCellCharProps> = ({
+    pluripotencyAnalysis,
+    trilineageDifferentiation,
+    cardiomyocyteDifferentiation,
+    diseaseCardioMyocyteDifferentiation,
+    rnaSeqAnalysis,
+}) => {
+    const flippedAxesPluripotency =
+        getPluripotencyColunms(pluripotencyAnalysis);
 
     const percentPositive =
-        diseaseCardioMyocyteDifferentiation?.data?.flatMap(
+        diseaseCardioMyocyteDifferentiation.data.flatMap(
             (item) => item.percentPositive ?? []
-        ) ?? [];
+        );
     const percentPositiveRows = percentPositive.map((clone) => ({
         key: clone.cloneNumber,
         cloneNumber: clone.cloneNumber,
@@ -78,7 +75,7 @@ const StemCellChar: React.FC<StemCellCharProps> = ({ data }) => {
     // TODO: add passing antibodies and differentiation tables once we have the data
     return (
         <div className={masonry}>
-            {!!flippedAxesPluripotency && (
+            {flippedAxesPluripotency && (
                 <SubpageTable
                     className={masonryItem}
                     title="Pluripotency Analysis"

@@ -49,7 +49,7 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
             getNoDataComponent(SubPage.GenomicCharacterization)
         ),
         [SubPage.StemCellCharacteristics]: stemCellCharacteristics ? (
-            <StemCellChar data={stemCellCharacteristics} />
+            <StemCellChar {...stemCellCharacteristics} />
         ) : (
             getNoDataComponent(SubPage.StemCellCharacteristics)
         ),

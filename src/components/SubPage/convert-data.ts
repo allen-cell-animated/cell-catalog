@@ -26,7 +26,6 @@ import {
     UnpackedNormalCellLineFull,
     UnpackedStemCellCharacteristics,
 } from "./types";
-import { StemCellCharProps } from "./StemCellChar";
 import { PERCENT_POS_CAPTION } from "./stem-cell-table-constants";
 
 export const unpackDiagrams = (diagrams?: SingleImageDiagram[]): DiagramCardProps[] => {
@@ -185,8 +184,11 @@ export const getStemCellCharData = (
         return null;
     }
 
-    // Return in UnpackedStemCellCharacteristics format
     return {
+        pluripotencyAnalysis: { caption: "", data: [] },
+        trilineageDifferentiation: { caption: "", data: [] },
+        cardiomyocyteDifferentiation: { caption: "", data: [] },
+        rnaSeqAnalysis: [],
         diseaseCardioMyocyteDifferentiation: {
             caption: PERCENT_POS_CAPTION,
             data: [{
@@ -265,6 +267,7 @@ export const unpackNormalStemCellCharacteristics = (scc?: StemCellCharacteristic
         trilineageDifferentiation,
         cardiomyocyteDifferentiation,
         rnaSeqAnalysis,
+        diseaseCardioMyocyteDifferentiation: {caption: "", data: []}
     };
 }
 
