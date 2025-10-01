@@ -1,19 +1,19 @@
+import { StaticQuery, graphql } from "gatsby";
 import React, { useRef } from "react";
-import { graphql, StaticQuery } from "gatsby";
 
-import { UnpackedDisease } from "./Diseases";
-import { DiseaseCellLineEdge, UnpackedDiseaseCellLine } from "./types";
-import { convertFrontmatterToDiseaseCellLine } from "./convert-data";
 import CellLineTable from "../components/CellLineTable";
 import { getDiseaseTableColumns } from "../components/CellLineTable/DiseaseTableColumns";
 import { getDiseaseTableMobileConfig } from "../components/CellLineTable/MobileView";
+import { TableStatus } from "../components/CellLineTable/types";
 import { PHONE_BREAKPOINT } from "../constants";
 import useWindowWidth from "../hooks/useWindowWidth";
-import { TableStatus } from "../components/CellLineTable/types";
+import { UnpackedDisease } from "./Diseases";
+import { convertFrontmatterToDiseaseCellLine } from "./convert-data";
+import { DiseaseCellLineEdge, UnpackedDiseaseCellLine } from "./types";
 
 const groupLines = (
     diseases: UnpackedDisease[],
-    cellLines: DiseaseCellLineEdge[]
+    cellLines: DiseaseCellLineEdge[],
 ) => {
     if (!diseases) {
         return {};
@@ -70,7 +70,7 @@ const DiseaseCellLinesTemplate = (props: DiseaseCellLinesTemplateProps) => {
                     released={disease.status === TableStatus.Available}
                     columns={getDiseaseTableColumns(
                         inProgress,
-                        suppressRowClickRef
+                        suppressRowClickRef,
                     )}
                     mobileConfig={getDiseaseTableMobileConfig(isPhone)}
                 />

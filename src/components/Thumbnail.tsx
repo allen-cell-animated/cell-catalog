@@ -1,12 +1,12 @@
-import React from "react";
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import classNames from "classnames";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import React from "react";
 
 const {
-    thumbnail,
     selectedThumbnail,
-    videoThumbnailImage,
+    thumbnail,
     video,
+    videoThumbnailImage,
 } = require("../style/thumbnail.module.css");
 
 interface ThumbnailProps {
@@ -23,10 +23,10 @@ const getVimeoThumbnail = (videoId: string) => {
 
 const Thumbnail: React.FC<ThumbnailProps> = ({
     image,
-    videoId,
     isSelected,
     onClick,
     type = "image",
+    videoId,
 }) => {
     return (
         <div

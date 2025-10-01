@@ -1,16 +1,18 @@
 import * as React from "react";
-import { Helmet } from "react-helmet";
-import { ConfigProvider, Layout as AntLayout } from "antd";
+import { Layout as AntLayout, ConfigProvider } from "antd";
 import { Script, withPrefix } from "gatsby";
-const { Content } = AntLayout;
+import { Helmet } from "react-helmet";
 
 import "../style/index.sass";
-import useSiteMetadata from "./SiteMetadata";
 import theme from "../style/theme";
+import useSiteMetadata from "./SiteMetadata";
+
+const { Content } = AntLayout;
+
 const { container } = require("../style/layout.module.css");
 
 const TemplateWrapper = ({ children }: React.PropsWithChildren) => {
-    const { title, description } = useSiteMetadata();
+    const { description, title } = useSiteMetadata();
     return (
         <ConfigProvider theme={theme}>
             <Helmet>

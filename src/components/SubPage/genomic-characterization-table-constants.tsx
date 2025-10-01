@@ -1,4 +1,5 @@
 import { ColumnsType } from "antd/es/table";
+
 import { AmplifiedJunction, CrRnaOffTargets, DDCPR } from "./types";
 
 const { firstColumn } = require("../../style/subpage-table.module.css");

@@ -1,7 +1,7 @@
-import React, { ReactNode, useState } from "react";
-import { Card, Flex, Button, Tooltip } from "antd";
-import classNames from "classnames";
 import Icon from "@ant-design/icons";
+import { Button, Card, Flex, Tooltip } from "antd";
+import classNames from "classnames";
+import React, { ReactNode, useState } from "react";
 
 import { formatCellLineId } from "../../utils";
 import { DarkThemeGhostButton, DefaultButton } from "../shared/Buttons";
@@ -12,11 +12,11 @@ const Share = require("../../img/share-icon.svg");
 const LinkOut = require("../../img/external-link.svg");
 
 const {
-    title,
     container,
     extraLargeButton,
     extraLargeButtonHeader,
     spacedButton,
+    title,
 } = require("../../style/cell-line-info-card.module.css");
 
 interface OrderButtonProps {
@@ -39,13 +39,13 @@ interface CellLineInfoCardBaseProps {
 }
 
 const CellLineInfoCardBase = ({
-    href,
+    additionalInfo,
     buttonList,
     cellLineId,
-    infoRows,
-    additionalInfo,
     certificateOfAnalysis,
     healthCertificate,
+    href,
+    infoRows,
     multiGene,
 }: CellLineInfoCardBaseProps) => {
     const defaultToolTipText = "Copy cell line link to clipboard";
@@ -59,9 +59,9 @@ const CellLineInfoCardBase = ({
     );
 
     const getOrderButton = ({
-        label,
         href,
         icon,
+        label,
         subtitle,
     }: OrderButtonProps) => (
         <Button
@@ -74,7 +74,7 @@ const CellLineInfoCardBase = ({
             <div
                 className={classNames(
                     extraLargeButtonHeader,
-                    icon && spacedButton
+                    icon && spacedButton,
                 )}
             >
                 <h2>
@@ -128,13 +128,11 @@ const CellLineInfoCardBase = ({
             <Flex vertical gap={8}>
                 {getDefaultButton(
                     "Certificate of Analysis",
-                    certificateOfAnalysis
+                    certificateOfAnalysis,
                 )}
                 {getDefaultButton("hPSCreg Certificate", healthCertificate)}
             </Flex>
-            {buttonList.map((button) =>
-                getOrderButton(button)
-            )}
+            {buttonList.map((button) => getOrderButton(button))}
         </Card>
     );
 };

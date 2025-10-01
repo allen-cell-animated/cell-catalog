@@ -1,18 +1,18 @@
+import { StaticQuery, graphql } from "gatsby";
 import React from "react";
-import { graphql, StaticQuery } from "gatsby";
 
+import CellLineTable from "../components/CellLineTable";
+import { getNormalTableMobileConfig } from "../components/CellLineTable/MobileView";
+import { getNormalTableColumns } from "../components/CellLineTable/NormalTableColumns";
+import { PHONE_BREAKPOINT } from "../constants";
+import useWindowWidth from "../hooks/useWindowWidth";
+import SearchAndFilter from "./SearchAndFilter";
+import { convertFrontmatterToNormalCellLines } from "./convert-data";
 import {
     CellLineStatus,
     NormalCellLineNode,
     UnpackedNormalCellLine,
 } from "./types";
-import { convertFrontmatterToNormalCellLines } from "./convert-data";
-import CellLineTable from "../components/CellLineTable";
-import { getNormalTableColumns } from "../components/CellLineTable/NormalTableColumns";
-import { PHONE_BREAKPOINT } from "../constants";
-import useWindowWidth from "../hooks/useWindowWidth";
-import { getNormalTableMobileConfig } from "../components/CellLineTable/MobileView";
-import SearchAndFilter from "./SearchAndFilter";
 
 const CellLineTableTemplate = (props: QueryResult) => {
     const { edges: cellLines } = props.data.allMarkdownRemark;

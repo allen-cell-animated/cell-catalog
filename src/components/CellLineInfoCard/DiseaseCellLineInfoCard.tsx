@@ -1,13 +1,15 @@
-import React from "react";
-import CellLineInfoCardBase from "./CellLineInfoCardBase";
-import { getCloneSummary, formatCellLineId } from "../../utils";
-import { Clone, ParentLine } from "../../component-queries/types";
-import { CellLineInfoCardRequiredProps } from "./types";
 import { Divider } from "antd";
+import React from "react";
+
+import { Clone, ParentLine } from "../../component-queries/types";
 import { PRIMARY_COLOR } from "../../style/theme";
+import { formatCellLineId, getCloneSummary } from "../../utils";
 import CloneTable from "../CloneTable";
 import GeneSymbolTag from "../GeneSymbolTag";
 import { TruncatedText } from "../TruncatedText";
+import CellLineInfoCardBase from "./CellLineInfoCardBase";
+import { CellLineInfoCardRequiredProps } from "./types";
+
 interface DiseaseCellLineInfoCardProps extends CellLineInfoCardRequiredProps {
     parentalLine: ParentLine;
     snp: string;
@@ -15,7 +17,7 @@ interface DiseaseCellLineInfoCardProps extends CellLineInfoCardRequiredProps {
 }
 
 export const DiseaseCellLineInfoCard: React.FC<DiseaseCellLineInfoCardProps> = (
-    props
+    props,
 ) => {
     const infoRows = [
         {

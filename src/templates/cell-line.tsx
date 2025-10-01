@@ -1,17 +1,16 @@
+import { Link, graphql } from "gatsby";
 import React from "react";
-import { graphql, Link } from "gatsby";
-import Layout from "../components/Layout";
-import {
-    NormalCellLineFrontmatter,
-} from "../component-queries/types";
+
+import { NormalCellLineFrontmatter } from "../component-queries/types";
 import { NormalCellLineInfoCard } from "../components/CellLineInfoCard/NormalCellLineInfoCard";
-import { DefaultButton } from "../components/shared/Buttons";
+import ImagesAndVideos from "../components/ImagesAndVideos";
+import Layout from "../components/Layout";
 import SubpageTabs from "../components/SubPage/SubpageTabs";
-import { TABS_WITH_STEM_CELL } from "../constants";
 import { unpackNormalFrontmatterForSubpage } from "../components/SubPage/convert-data";
 import { UnpackedNormalCellLineFull } from "../components/SubPage/types";
-import ImagesAndVideos from "../components/ImagesAndVideos";
-import { hasMedia, getImages, getVideos } from "../utils/mediaUtils";
+import { DefaultButton } from "../components/shared/Buttons";
+import { TABS_WITH_STEM_CELL } from "../constants";
+import { getImages, getVideos, hasMedia } from "../utils/mediaUtils";
 
 const {
     container,
@@ -40,21 +39,20 @@ interface CellLineProps extends UnpackedNormalCellLineFull {
     href: string;
 }
 
-// eslint-disable-next-line
 export const CellLineTemplate = ({
-    cellLineId,
-    cloneNumber,
-    taggedGene,
-    href,
-    orderPlasmid,
-    healthCertificate,
-    certificateOfAnalysis,
-    orderLink,
-    fluorescentTag,
     alleleCount,
+    cellLineId,
+    certificateOfAnalysis,
+    cloneNumber,
     editingDesign,
-    imagesAndVideos,
+    fluorescentTag,
     genomicCharacterization,
+    healthCertificate,
+    href,
+    imagesAndVideos,
+    orderLink,
+    orderPlasmid,
+    taggedGene,
 }: CellLineProps) => {
     const hasImagesOrVideos = hasMedia(imagesAndVideos);
     if (cellLineId === 0) {
@@ -161,13 +159,16 @@ export const pageQuery = graphql`
                     images {
                         image {
                             childImageSharp {
-                                gatsbyImageData(width: 400, placeholder: BLURRED)
+                                gatsbyImageData(
+                                    width: 400
+                                    placeholder: BLURRED
+                                )
                             }
                         }
                         caption
                     }
                     videos {
-                        video 
+                        video
                         caption
                     }
                 }

@@ -1,7 +1,8 @@
-import React from "react";
 import { CardProps } from "antd";
 import classNames from "classnames";
-import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
+import React from "react";
+
 import SubpageContentCard from "./SubpageContentCard";
 
 const { container } = require("../../style/diagram-card.module.css");
@@ -14,11 +15,11 @@ export interface DiagramCardProps extends CardProps {
 }
 
 const DiagramCard: React.FC<DiagramCardProps> = ({
-    title,
-    image,
     caption,
-    headerLeadText,
     className,
+    headerLeadText,
+    image,
+    title,
     ...cardProps
 }) => {
     if (!image) {
