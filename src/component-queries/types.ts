@@ -20,7 +20,7 @@ export interface RawVideoData {
     caption: string;
 }
 
-export interface MediaFrontMatter {
+export interface MediaFrontmatter {
     images?: RawImageData[];
     videos?: RawVideoData[];
 }
@@ -31,7 +31,7 @@ export interface Isoform {
     name: string;
     ids?: string[];
 }
-export interface GeneFrontMatter {
+export interface GeneFrontmatter {
     name: string;
     symbol: string;
     structure?: string;
@@ -41,7 +41,7 @@ export interface GeneFrontMatter {
 
 export interface GeneticModification {
     gene: {
-        frontmatter: GeneFrontMatter;
+        frontmatter: GeneFrontmatter;
     };
     allele_count: string;
     tag_location: string;
@@ -74,15 +74,15 @@ export interface ParentalLineFrontmatter {
     clone_number: number;
     genetic_modifications?: GeneticModification[];
     tagged_gene: {
-        frontmatter: GeneFrontMatter;
+        frontmatter: GeneFrontmatter;
     }[];
     allele_count: string[];
     tag_location: string[];
     fluorescent_tag: string[];
-    images_and_videos?: MediaFrontMatter;
+    images_and_videos?: MediaFrontmatter;
 }
 
-export interface GenomicCharacterizationFrontMatter {
+export interface GenomicCharacterizationFrontmatter {
     diagrams: DiagramList[];
     amplified_junctions: {
         edited_gene: string;
@@ -115,7 +115,7 @@ export interface NormalCellLineFrontmatter {
     order_link: string;
     genetic_modifications?: GeneticModification[];
     tagged_gene: {
-        frontmatter: GeneFrontMatter;
+        frontmatter: GeneFrontmatter;
     }[];
     allele_count: string[];
     tag_location: string[];
@@ -135,9 +135,9 @@ export interface NormalCellLineFrontmatter {
         cas9: string;
         diagrams: DiagramList[];
     };
-    genomic_characterization: GenomicCharacterizationFrontMatter;
+    genomic_characterization: GenomicCharacterizationFrontmatter;
     stem_cell_characteristics: StemCellCharacteristicsFrontmatter;
-    images_and_videos?: MediaFrontMatter;
+    images_and_videos?: MediaFrontmatter;
     category_labels: string[];
 };
 
@@ -211,7 +211,7 @@ export interface DiseaseCellLineFrontmatter {
     order_link: string;
     status: CellLineStatus;
     hPSCreg_certificate_link: string;
-    images_and_videos?: MediaFrontMatter;
+    images_and_videos?: MediaFrontmatter;
     editing_design?: {
         cr_rna_target_site: string;
         dna_donor_sequence: Sequence[];
@@ -240,7 +240,7 @@ export interface DiseaseCellLineEdge {
 export interface DiseaseFrontmatter {
     name: string;
     gene: {
-        frontmatter: GeneFrontMatter;
+        frontmatter: GeneFrontmatter;
     }[];
     status: string;
 }
@@ -260,7 +260,7 @@ export interface UnpackedCellLineMainInfo {
     healthCertificate: string;
     orderLink: string;
     thumbnailImage?: IGatsbyImageData | null;
-    imagesAndVideos?: MediaFrontMatter;
+    imagesAndVideos?: MediaFrontmatter;
     stemCellCharacteristics: UnpackedStemCellCharacteristics | null;
 }
 

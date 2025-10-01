@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import { GeneFrontMatter } from "../component-queries/types";
+import { GeneFrontmatter } from "../component-queries/types";
 
-interface GeneNameTemplateProps extends GeneFrontMatter {}
+interface GeneNameTemplateProps extends GeneFrontmatter {}
 
 export const GeneNameTemplate = ({
     name,
@@ -59,7 +59,7 @@ export default GeneName;
 interface QueryResult {
     data: {
         markdownRemark: {
-            frontmatter: GeneFrontMatter;
+            frontmatter: GeneFrontmatter;
         };
     };
 }
