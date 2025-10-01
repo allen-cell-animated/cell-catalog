@@ -19,7 +19,7 @@ export interface RawVideoData {
     caption: string;
 }
 
-export interface MediaFrontMatter {
+export interface MediaFrontmatter {
     images?: RawImageData[];
     videos?: RawVideoData[];
 }
@@ -30,7 +30,7 @@ export interface Isoform {
     name: string;
     ids?: string[];
 }
-export interface GeneFrontMatter {
+export interface GeneFrontmatter {
     name: string;
     symbol: string;
     structure?: string;
@@ -40,7 +40,7 @@ export interface GeneFrontMatter {
 
 export interface GeneticModification {
     gene: {
-        frontmatter: GeneFrontMatter;
+        frontmatter: GeneFrontmatter;
     };
     allele_count: string;
     tag_location: string;
@@ -52,12 +52,37 @@ export interface ParentalLineFrontmatter {
     clone_number: number;
     genetic_modifications?: GeneticModification[];
     tagged_gene: {
-        frontmatter: GeneFrontMatter;
+        frontmatter: GeneFrontmatter;
     }[];
     allele_count: string[];
     tag_location: string[];
     fluorescent_tag: string[];
-    images_and_videos?: MediaFrontMatter;
+    images_and_videos?: MediaFrontmatter;
+}
+
+export interface GenomicCharacterizationFrontmatter {
+    diagrams: DiagramList[];
+    amplified_junctions: {
+        edited_gene: string;
+        junction: string;
+        expected_size: string;
+        confirmed_sequence: string; // "" yes, NA, Not Sequenced
+    }[];
+    junction_table_caption: string;
+    ddpcr: {
+        tag: string;
+        clone: number;
+        fp_ratio: number;
+        plasmid: number;
+    }[]
+    ddpcr_caption: string;
+    cr_rna_off_targets: {
+        clones_analyzed: number;
+        off_targets_sequenced_per_clone: number;
+        total_sites_sequenced: number;
+        mutations_identified: number;
+    }[]
+    off_targets_caption: string;
 }
 
 export interface NormalCellLineFrontmatter {
@@ -68,7 +93,7 @@ export interface NormalCellLineFrontmatter {
     order_link: string;
     genetic_modifications?: GeneticModification[];
     tagged_gene: {
-        frontmatter: GeneFrontMatter;
+        frontmatter: GeneFrontmatter;
     }[];
     allele_count: string[];
     tag_location: string[];
@@ -88,7 +113,9 @@ export interface NormalCellLineFrontmatter {
         cas9: string;
         diagrams: DiagramList[];
     };
-    images_and_videos?: MediaFrontMatter;
+    genomic_characterization: GenomicCharacterizationFrontmatter;
+    images_and_videos?: MediaFrontmatter;
+    category_labels: string[];
 };
 
 export interface NormalCellLineNode {
@@ -161,7 +188,7 @@ export interface DiseaseCellLineFrontmatter {
     order_link: string;
     status: CellLineStatus;
     hPSCreg_certificate_link: string;
-    images_and_videos?: MediaFrontMatter;
+    images_and_videos?: MediaFrontmatter;
     editing_design?: {
         cr_rna_target_site: string;
         dna_donor_sequence: Sequence[];
@@ -190,7 +217,7 @@ export interface DiseaseCellLineEdge {
 export interface DiseaseFrontmatter {
     name: string;
     gene: {
-        frontmatter: GeneFrontMatter;
+        frontmatter: GeneFrontmatter;
     }[];
     status: string;
 }
@@ -210,7 +237,7 @@ export interface UnpackedCellLineMainInfo {
     healthCertificate: string;
     orderLink: string;
     thumbnailImage?: IGatsbyImageData | null;
-    imagesAndVideos?: MediaFrontMatter;
+    imagesAndVideos?: MediaFrontmatter;
 }
 
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
@@ -230,6 +257,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     tagLocation: string[];
     fluorescentTag: string[];
     orderPlasmid: string;
+    categoryLabels: string[];
 }
 
 export type ParentLine = Pick<UnpackedNormalCellLine,
@@ -269,6 +297,7 @@ export interface SearchAndFilterGroup {
                         };
                     }[];
                 };
+                category_labels: string[];
             };
         };
     }[];
@@ -287,5 +316,6 @@ export interface SearchLookup {
     // (so many words map to the same gene symbol)
     // used for getting a unique identifier for the geneSymToCellIds map
     structureAndNameToGene: Map<string, string>;
+    categoryToIds: Map<string, number[]>
     allSearchableTerms: Set<string>;
 }

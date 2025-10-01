@@ -71,7 +71,8 @@ const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
         // NOTE: the checks for undefined values are for typescript, this data is all
         // generated from the same source, so the looks ups will always
         // return a value
-        const { geneSymToCellIds, structureAndNameToGene } = mappings;
+        const { geneSymToCellIds, structureAndNameToGene, categoryToIds } =
+            mappings;
         let cellLineIds: number[] = [];
         if (value.includes("AICS")) {
             // the cell line ids in the lookup list are formatted as AICS-<id>
@@ -86,6 +87,11 @@ const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
                 ? geneSymToCellIds.get(geneSymbol) || []
                 : [];
         }
+
+        if (categoryToIds?.has(value)) {
+            cellLineIds = Array.from(categoryToIds.get(value) || []);
+        }
+
         return cellLineIds;
     };
 

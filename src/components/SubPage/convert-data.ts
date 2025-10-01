@@ -8,14 +8,17 @@ import {
     ParentalLineFrontmatter,
     ParentLine,
     NormalCellLineNode,
+    GenomicCharacterizationFrontmatter,
 } from "../../component-queries/types";
 import { getThumbnail } from "../../utils/mediaUtils";
+import { hasTableData, nonEmptyArray } from "../../utils";
 import { extractGeneticModifications } from "../../component-queries/convert-data";
 import { DiagramCardProps } from "../shared/DiagramCard";
 import {
     ClonePercentPositive,
     UnpackedDiseaseCellLineFull,
     UnpackedEditingDesign,
+    UnpackedGenomicCharacterization,
     UnpackedNormalCellLineFull,
 } from "./types";
 import { StemCellCharProps } from "./StemCellChar";
@@ -92,6 +95,56 @@ export const unpackEditingDesignData = (editing_design?: {
     }
 };
 
+export const unpackGenomicCharacterization = (gc?: GenomicCharacterizationFrontmatter): UnpackedGenomicCharacterization | null => {
+    if (!gc) {
+        return null
+    }
+
+    const diagrams = unpackMultiImageDiagrams(gc.diagrams);
+    const amplifiedJunctionsData = {
+        caption: gc.junction_table_caption,
+        data: (gc.amplified_junctions ?? []).map((junction) => {
+            return {
+                editedGene: junction.edited_gene,
+                junction: junction.junction,
+                expectedSize: junction.expected_size,
+                confirmedSequence: junction.confirmed_sequence
+            }
+        })
+    }
+    const ddpcrData = {
+        caption: gc.ddpcr_caption,
+        data: (gc.ddpcr ?? []).map((ddpcr) => {
+            return {
+                tag: ddpcr.tag,
+                clone: ddpcr.clone,
+                fpRatio: ddpcr.fp_ratio,
+                plasmid: ddpcr.plasmid
+            }
+        })
+    }
+    const crRnaOffTargetsData = {
+        caption: gc.off_targets_caption,
+        data: (gc.cr_rna_off_targets ?? []).map((offTarget) => {
+            return {
+                clonesAnalyzed: offTarget.clones_analyzed,
+                offTargetsSequenced: offTarget.off_targets_sequenced_per_clone,
+                totalSitesSequenced: offTarget.total_sites_sequenced,
+                mutationsIdentified: offTarget.mutations_identified
+            }
+        })
+    }
+    const data = {
+        amplifiedJunctions: hasTableData(amplifiedJunctionsData) ? amplifiedJunctionsData : undefined,
+        ddpcr: hasTableData(ddpcrData) ? ddpcrData : undefined,
+        crRnaOffTargets: hasTableData(crRnaOffTargetsData) ? crRnaOffTargetsData : undefined,
+        diagrams: nonEmptyArray(diagrams) ? diagrams : undefined,
+    };
+
+    return data;
+}
+
+
 export const getStemCellCharData = (
     clones: Clone[]
 ): StemCellCharProps | null => {
@@ -128,7 +181,7 @@ export const getStemCellCharData = (
     }
 };
 
-export const unpackParentLineFromFrontMatter = (data: ParentalLineFrontmatter): ParentLine => {
+export const unpackParentLineFromFrontmatter = (data: ParentalLineFrontmatter): ParentLine => {
     const { taggedGene, alleleCount, tagLocation, fluorescentTag } =
         extractGeneticModifications(
             data
@@ -148,7 +201,7 @@ export const unpackParentLineFromFrontMatter = (data: ParentalLineFrontmatter): 
     }
 }
 
-export const unpackNormalFrontMatterForSubpage = (
+export const unpackNormalFrontmatterForSubpage = (
     cellLineNode: NormalCellLineNode
 ): UnpackedNormalCellLineFull => {
 
@@ -167,6 +220,8 @@ export const unpackNormalFrontMatterForSubpage = (
     const editingDesign = unpackEditingDesignData(
         cellLineNode.frontmatter.editing_design
     );
+
+    const genomicCharacterization = unpackGenomicCharacterization(cellLineNode.frontmatter.genomic_characterization)
 
     return {
         key: `${cellLineNode.frontmatter.cell_line_id}-${cellLineNode.frontmatter.clone_number}`,
@@ -188,6 +243,7 @@ export const unpackNormalFrontMatterForSubpage = (
         thumbnailImage: getThumbnail(cellLineNode.frontmatter.images_and_videos),
         imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
         editingDesign: editingDesign,
+        genomicCharacterization: genomicCharacterization
     };
 };
 
@@ -202,15 +258,15 @@ export const unpackDiseaseFrontmatterForSubpage = (
     const editingDesign = unpackEditingDesignData(
         cellLineNode.frontmatter.editing_design
     );
-    const genomicCharacterization = unpackDiagrams(
-        cellLineNode.frontmatter.genomic_characterization?.diagrams
-    );
+    const genomicCharacterization = {
+        diagrams: unpackDiagrams(
+            cellLineNode.frontmatter.genomic_characterization?.diagrams)
+    };
     const stemCellCharData = getStemCellCharData(
         cellLineNode.frontmatter.clones
     );
-    const parentalLine = unpackParentLineFromFrontMatter(
-        cellLineNode.frontmatter.parental_line.frontmatter)
-    ;
+    const parentalLine = unpackParentLineFromFrontmatter(
+        cellLineNode.frontmatter.parental_line.frontmatter);
     return {
         path: cellLineNode.fields.slug,
         cellLineId: cellLineNode.frontmatter.cell_line_id,

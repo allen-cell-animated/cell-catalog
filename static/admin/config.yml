@@ -34,6 +34,48 @@ richTextFields: &richTextFields
       - { label: "Text", name: "text", widget: "string" }
       - { label: "URL",  name: "url",  widget: "string" }
 
+
+field_image: &field_image { label: "Image", name: "image", widget: "image" }
+field_caption: &field_caption { label: "Caption", name: "caption", widget: "string", required: false }
+field_video: &field_video { label: "Video", name: "video", widget: "file" }
+field_title: &field_title { label: "Title", name: "title", widget: "string", required: false }
+
+fields_image_list: &fields_image_list
+  - *field_image
+  - *field_caption
+
+fields_video_list: &fields_video_list
+  - *field_video
+  - *field_caption
+
+objects/imagesAndVideos: &objects_images_and_videos
+  widget: "object"
+  required: false
+  fields:
+    - label: "Images"
+      name: "images"
+      widget: "list"
+      required: false
+      hint: "The first image will be used as the thumbnail in the catalog. Drag to rearrange the order."
+      fields: *fields_image_list
+    - label: "Videos"
+      name: "videos"
+      widget: "list"
+      required: false
+      fields: *fields_video_list
+
+fields_multi_image_diagram: &fields_multi_image_diagram
+  - *field_title
+  - label: "Images"
+    name: "images"
+    widget: "list"
+    fields: *fields_image_list
+
+fields_single_image_diagram: &fields_single_image_diagram
+  - *field_title
+  - *field_image
+  - *field_caption
+
 collections:
     - name: "cell-line"
       label: "Cell Lines"
@@ -176,52 +218,7 @@ collections:
           - {
                 label: "Image and Video Carousel",
                 name: "images_and_videos",
-                widget: "object",
-                required: false,
-                fields:
-                    [
-                        {
-                            label: "Images",
-                            name: "images",
-                            widget: "list",
-                            required: false,
-                            hint: "The first image will be used as the thumbnail in the catalog. Drag to rearrange the order.",
-                            fields:
-                                [
-                                    {
-                                        label: "Image",
-                                        name: "image",
-                                        widget: "image",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                ],
-                        },
-                        {
-                            label: "Videos",
-                            name: "videos",
-                            widget: "list",
-                            required: false,
-                            fields:
-                                [
-                                    {
-                                        label: "Video",
-                                        name: "video",
-                                        widget: "file",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                ],
-                        },
-                    ],
+                <<: *objects_images_and_videos
             }
           - {
                 label: "Editing Design",
@@ -264,45 +261,298 @@ collections:
                             name: "diagrams",
                             widget: "list",
                             required: false,
-                            fields:
-                                [
-                                    {
-                                        label: "Title",
-                                        name: "title",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                    {
-                                        label: "Images",
-                                        name: "images",
-                                        widget: "list",
-                                        required: false,
-                                        fields:
-                                            [
-                                                {
-                                                    label: "Image",
-                                                    name: "image",
-                                                    widget: "image",
-                                                },
-                                                {
-                                                    label: "Caption",
-                                                    name: "caption",
-                                                    widget: "string",
-                                                    required: false,
-                                                },
-                                            ],
-                                    },
-                                ],
+                            fields: *fields_multi_image_diagram
                         },
                     ],
             }
           - {
-                label: "Cell Line Category",
-                name: "cell_line_category",
+                label: "Genomic Characterization",
+                name: "genomic_characterization",
+                widget: "object",
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            label: "Diagrams",
+                            name: "diagrams",
+                            widget: "list",
+                            required: false,
+                            collapsed: true,
+                            fields: *fields_multi_image_diagram
+                        },
+                        {
+                            label: "Amplified Junctions",
+                            name: "amplified_junctions",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Edited Gene",
+                                        name: "edited_gene",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Junction",
+                                        name: "junction",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Expected Size",
+                                        name: "expected_size",
+                                        widget: "string",  # Using string to handle both numbers and text like "Tagged:3006; Untagged:2256"
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Confirmed Sequence",
+                                        name: "confirmed_sequence",
+                                        widget: "select",
+                                        options: ["", "Yes", "NA", "Not Sequenced"],
+                                        default: "",
+                                        required: false,
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Junction Table Caption",
+                            name: "junction_table_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "ddPCR",
+                            name: "ddpcr",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Tag",
+                                        name: "tag",
+                                        widget: "string",
+                                        required: false,
+                                        hint: "Enter the tag in the format [gene symbol]-[fluorescent tag]"
+                                    },
+                                    {
+                                        label: "Clone",
+                                        name: "clone",
+                                        widget: number,
+                                        required: false,
+                                    },
+                                    {
+                                        label: "FP Ratio",
+                                        name: "fp_ratio",
+                                        widget: "number",
+                                        required: false,
+                                        value_type: "float",
+                                    },
+                                    {
+                                        label: "Plasmid",
+                                        name: "plasmid",
+                                        widget: "number",
+                                        required: false,
+                                        value_type: "float",
+                                    },
+                                ],
+                        },
+                        {
+                            label: "ddPCR Caption",
+                            name: "ddpcr_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "crRNA Off-targets",
+                            name: "cr_rna_off_targets",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Clones Analyzed",
+                                        name: "clones_analyzed",
+                                        widget: "number",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Off-Targets Sequenced Per Clone",
+                                        name: "off_targets_sequenced_per_clone",
+                                        widget: "number",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Total Sites Sequenced",
+                                        name: "total_sites_sequenced",
+                                        widget: "number",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Mutations Identified",
+                                        name: "mutations_identified",
+                                        widget: "number",
+                                        required: false,
+                                    }
+                                ],
+                        },
+                        {
+                            label: "crRNA Off-targets Caption",
+                            name: "off_targets_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                    ],
+                
+            } 
+          - {
+                label: "Category Labels",
+                name: "category_labels",
                 widget: "select",
                 options:
                     ["Key Structure and Organelle", "Nuclear Structure", "Stress", "Cardiac Structure", "Tools", "Endothelial"],
                 required: false,
+                multiple: true,
+            }
+          - {
+                label: "Stem Cell Characteristics",
+                name: "stem_cell_characteristics",
+                widget: "object",
+                required: false,
+                collapsed: true,
+                fields:
+                    [
+                        {
+                            label: "Pluripotency Analysis",
+                            name: "pluripotency_analysis",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Marker",
+                                        name: "marker",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Positive Cells (%)",
+                                        name: "positive_cells",
+                                        widget: "number",
+                                        value_type: "float",
+                                        required: false,
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Pluripotency Caption",
+                            name: "pluripotency_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Trilineage Differentiation",
+                            name: "trilineage_differentiation",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Germ Layer",
+                                        name: "germ_layer",
+                                        widget: "select",
+                                        options: ["Ectoderm", "Endoderm", "Mesoderm"],
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Marker",
+                                        name: "marker",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Percent Positive Cells",
+                                        name: "percent_positive_cells",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Trilineage Caption",
+                            name: "trilineage_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "Cardiomyocyte Differentiation",
+                            name: "cardiomyocyte_differentiation",
+                            widget: "object",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Troponin T Percent Positive",
+                                        name: "troponin_percent_positive",
+                                        widget: "string",
+                                        required: false,
+                                        hint: "Enter the tag in the format [gene symbol]-[fluorescent tag]"
+                                    },
+                                    {
+                                        label: "Day of Beating Percent",
+                                        name: "day_of_beating_percent",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Day of Beating Range",
+                                        name: "day_of_beating_range",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                ],
+                        },
+                        {
+                            label: "Cardiomyocyte Differentiation Caption",
+                            name: "cardiomyocyte_differentiation_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                        {
+                            label: "RNAseq Analysis",
+                            name: "rnaseq_analysis",
+                            widget: "list",
+                            required: false,
+                            fields:
+                                [
+                                    {
+                                        label: "Image",
+                                        name: "image",
+                                        widget: "image",
+                                    },
+                                    {
+                                        label: "Caption",
+                                        name: "caption",
+                                        widget: "string",
+                                        required: false,
+                                    },
+                                    {
+                                        label: "Mutations Identified",
+                                        name: "mutations_identified",
+                                        widget: "number",
+                                        required: false,
+                                    }
+                                ],
+                        },
+                        {
+                            label: "crRNA Off-targets Caption",
+                            name: "off_targets_caption",
+                            widget: "string",
+                            required: false,
+                        },
+                    ],
+                
             }
     - name: "disease-cell-line"
       label: "Disease Cell Lines"
@@ -480,52 +730,7 @@ collections:
           - {
                 label: "Image and Video Carousel",
                 name: "images_and_videos",
-                widget: "object",
-                required: false,
-                fields:
-                    [
-                        {
-                            label: "Images",
-                            name: "images",
-                            widget: "list",
-                            hint: "The first image will be used as the thumbnail in the catalog. Drag to rearrange the order.",
-                            required: false,
-                            fields:
-                                [
-                                    {
-                                        label: "Image",
-                                        name: "image",
-                                        widget: "image",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                ],
-                        },
-                        {
-                            label: "Videos",
-                            name: "videos",
-                            widget: "list",
-                            required: false,
-                            fields:
-                                [
-                                    {
-                                        label: "Video",
-                                        name: "video",
-                                        widget: "file",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                ],
-                        },
-                    ],
+                <<: *objects_images_and_videos
             }
           - {
                 label: "Genomic Characterization",
@@ -541,26 +746,7 @@ collections:
                             widget: "list",
                             required: false,
                             collapsed: true,
-                            fields:
-                                [
-                                    {
-                                        label: "Title",
-                                        name: "title",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                    {
-                                        label: "Image",
-                                        name: "image",
-                                        widget: "image",
-                                    },
-                                    {
-                                        label: "Caption",
-                                        name: "caption",
-                                        widget: "string",
-                                        required: false,
-                                    },
-                                ],
+                            fields: *fields_single_image_diagram
                         },
                     ],
             }
@@ -627,32 +813,7 @@ collections:
                             widget: "list",
                             required: false,
                             collapsed: true,
-                            fields:
-                                [
-                                    {
-                                        label: "Title",
-                                        name: "title",
-                                        widget: "string",
-                                    },
-                                    {
-                                        label: "Images",
-                                        name: "images",
-                                        widget: "list",
-                                        fields:
-                                            [
-                                                {
-                                                    label: "Image",
-                                                    name: "image",
-                                                    widget: "image",
-                                                },
-                                                {
-                                                    label: "Caption",
-                                                    name: "caption",
-                                                    widget: "string",
-                                                },
-                                            ],
-                                    },
-                                ],
+                            fields: *fields_multi_image_diagram
                         },
                     ],
             }

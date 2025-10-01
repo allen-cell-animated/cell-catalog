@@ -37,4 +37,74 @@ editing_design:
       images:
         - image: EditingDesign_gene_figure.png
           caption: "Top: ATP2A2 locus showing 2 ATP2A2 isoforms; Bottom: Zoom in on mEGFP insertion site at ATP2A2 N-terminal exon"
+category_labels: 
+ - Cardiac Structure
+genomic_characterization:
+  diagrams:
+    - title: "Schematic of Junctions"
+      images:
+        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
+    - title: "GFP-tagged and untagged alleles"
+      images:
+        - image: AICS-46_ATP2A2-mEGFP_Full_Allele.jpg
+          caption: "Junctional PCR primers complementary to sequences flanking the homology arms in the distal genome were used together to co-amplify tagged and untagged alleles. Gel shows untagged allele (smaller band) and tagged allele (larger band) from single PCR reaction. A band intermediate in size between the anticipated tagged and untagged allele products is consistently observed and is a hypothesized heteroduplex of the tagged and untagged allele products. (1% Agarose gel with Thermo Fisher 1kb ladder)."
+    - title: "Karyotype Analysis"
+      images:
+        - image: AICS-46_c51_ATP2A2_karyotype.jpg
+          caption: "After cells banks were created, one vial was thawed and 30 G-banded metaphase cells were karyotyped."
+  amplified_junctions:
+    - edited_gene: "ATP2A2-mEGFP"
+      junction: "5'"
+      expected_size: "2009"
+      confirmed_sequence: "Yes"
+    - edited_gene: "ATP2A2-mEGFP"
+      junction: "3'"
+      expected_size: "1687"
+      confirmed_sequence: "Yes"
+    - edited_gene: "ATP2A2-mEGFP"
+      junction: "WT internal"
+      expected_size: "688"
+      confirmed_sequence: "Yes"
+    - edited_gene: "ATP2A2-mEGFP"
+      junction: "Full junctional allele"
+      expected_size: "Tagged: 3079; Untagged: 2356"
+      confirmed_sequence: "Not sequenced"
+  junction_table_caption: "PCR amplified 5', 3', WT, and full allele junctions. 5', 3', and WT junctions were Sanger sequenced to check for precise mEGFP insertion. Primers were designed to exclude amplification from the donor plasmid."
+  ddpcr:
+    - tag: ATP2A2-mEGFP
+      clone: 51
+      fp_ratio: 0.538
+      plasmid: 0.001
+  ddpcr_caption: "mEGFP: mEGFP/RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. Plasmid: AmpR/RPP30 ratio from ddPCR assay; values <0.1 indicate clone with no detectable plasmid integration. RPP30 is known 2n reference gene."
+stem_cell_characteristics:
+  pluripotency_analysis:
+    - marker: "NANOG"
+      positive_cells: 99.9
+    - marker: "SOX2"
+      positive_cells: 100
+    - marker: "OCT4"
+      positive_cells: 99.6
+    - marker: "SSEA-1"
+      positive_cells: 0.23
+    - marker: "SSEA-3"
+      positive_cells: 99.9
+    - marker: "TRA-160"
+      positive_cells: 99.4
+  pluripotency_caption: "iPSCs were stained with directly conjugated antibodies from BD Biosciences, acquired using a FACSAria III Fusion (BD Biosciences), and analyzed using FlowJo software (Treestar, Inc.). Doublets were excluded, then marker-specific gates were set according to corresponding fluorescence-minus-one (FMO) controls."
+  trilineage_differentiation:
+    - germ_layer: "Ectoderm"
+      marker: "PAX6"
+      percent_positive_cells: Pass
+    - germ_layer: "Endoderm"
+      marker: "SOX17"
+      percent_positive_cells: Pass
+    - germ_layer: "Mesoderm"
+      marker: "Brachyury"
+      percent_positive_cells: Pass
+  trilineage_caption: "iPSCs were subjected to a 5-7 day, non-terminal, directed differentiation using the STEMdiff™ Trilineage Differentiation Kit (STEMCELL Technologies, Inc.). Total RNA was isolated from each lineage specific differentiation and assayed via ddPCR for the expression of lineage specific transcripts; Pax6(Ectoderm), Sox17(Endoderm) and Brachyury(Mesoderm)."
+  cardiomyocyte_differentiation:
+    troponin_percent_positive: "72-89 (4)"
+    day_of_beating_percent: "100 (7)"
+    day_of_beating_range: "d7-d10"
+  cardiomyocyte_differentiation_caption: "iPSCs were differentiated to cardiomyocytes and observed for initiation of beating starting at day 6. At ~day 12, cells were fixed and stained with anti-cardiac Troponin T (BD Biosciences) and gating was based on an isotype control. Ranges observed across multiple experiments are shown for Troponin T and Day of beating initiation; number of experiments is shown in (). "
 ---

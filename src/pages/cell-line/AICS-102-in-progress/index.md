@@ -11,6 +11,7 @@ genetic_modifications:
     tag_location: NA
     fluorescent_tag: mTagRFP-T
     allele_count: mono
+order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0102-330&Product=iPSC&PgId=166
 certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0102-330_CofA.pdf
 images_and_videos:
   images:
@@ -30,4 +31,9 @@ images_and_videos:
         mitochondrial targeting sequence of COXVIII (mitoTag). The movie starts
         at the bottom of the cells and ends at the top (scale bar, 5 µm). Cells
         were imaged live in 3D on a spinning-disk confocal microscope.
+editing_design:
+  diagrams:
+    - images: []
+category_labels:
+  - Key Structure and Organelle
 ---

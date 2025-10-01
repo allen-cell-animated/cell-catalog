@@ -1,4 +1,5 @@
 import React from "react";
+import { Flex } from "antd";
 import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import { StaticQuery, graphql } from "gatsby";
 import AboutButton from "../components/AboutButton";
@@ -6,18 +7,15 @@ import { renderRichText, RichText } from "../utils/formattingUtils";
 
 const {
     container,
-    section,
     italic,
-    firstBlock,
     diseaseCopy,
-    buttonContainer,
-    primaryText,
-    addgeneCard,
+    contentWrapper,
 } = require("../style/about.module.css");
 
 interface AboutProps {
     markdownRemark: {
         frontmatter: {
+            title: string;
             about_block: {
                 primary: RichText;
                 disease: RichText;
@@ -39,6 +37,7 @@ const About: React.FC = () => {
                         frontmatter: { templateKey: { eq: "normal-catalog" } }
                     ) {
                         frontmatter {
+                            title
                             about_block {
                                 primary {
                                     text
@@ -84,6 +83,7 @@ const About: React.FC = () => {
             `}
             render={(data: AboutProps) => {
                 const {
+                    title,
                     about_block,
                     coriell_image,
                     coriell_link,
@@ -92,37 +92,44 @@ const About: React.FC = () => {
                 } = data.markdownRemark.frontmatter;
 
                 return (
-                    <div className={container}>
-                        <div className={section}>
-                            <div className={firstBlock}>
-                                <div className={primaryText}>
-                                    <h1> About the collection </h1>
-                                    <div>
-                                        {renderRichText(
-                                            about_block.primary,
-                                            italic
-                                        )}
+                    <section className={container}>
+                        <Flex gap={48}>
+                            <section>
+                                <h1>{title}</h1>
+                                <Flex
+                                    className={contentWrapper}
+                                    vertical
+                                    justify="space-between"
+                                >
+                                    <div className="content">
+                                        <p>
+                                            {renderRichText(
+                                                about_block.primary,
+                                                italic
+                                            )}
+                                        </p>
+                                        <div className={diseaseCopy}>
+                                            {renderRichText(
+                                                about_block.disease
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div className={diseaseCopy}>
-                                {renderRichText(about_block.disease)}
-                            </div>
-                        </div>
-                        <div className={buttonContainer}>
-                            <AboutButton
-                                image={coriell_image}
-                                link={coriell_link}
-                                title="View Allen Cell Collection on"
-                            />
-                            <AboutButton
-                                image={addgene_image}
-                                link={addgene_link}
-                                title="View Plasmid Collection on"
-                                className={addgeneCard}
-                            />
-                        </div>
-                    </div>
+                                </Flex>
+                            </section>
+                            <Flex gap={8} vertical>
+                                <AboutButton
+                                    image={coriell_image}
+                                    link={coriell_link}
+                                    title="View Allen Cell Collection on"
+                                />
+                                <AboutButton
+                                    image={addgene_image}
+                                    link={addgene_link}
+                                    title="View Plasmid Collection on"
+                                />
+                            </Flex>
+                        </Flex>
+                    </section>
                 );
             }}
         />
