@@ -48,7 +48,7 @@ export interface GeneticModification {
     fluorescent_tag: string;
 }
 
-export interface StemCellCharacteristicsFrontMatter {
+export interface StemCellCharacteristicsFrontmatter {
     pluripotency_analysis: {
         marker: string;
         positive_cells: number;
@@ -136,7 +136,7 @@ export interface NormalCellLineFrontmatter {
         diagrams: DiagramList[];
     };
     genomic_characterization: GenomicCharacterizationFrontMatter;
-    stem_cell_characteristics: StemCellCharacteristicsFrontMatter;
+    stem_cell_characteristics: StemCellCharacteristicsFrontmatter;
     images_and_videos?: MediaFrontMatter;
     category_labels: string[];
 };

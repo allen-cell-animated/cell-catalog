@@ -9,7 +9,7 @@ import {
     ParentLine,
     NormalCellLineNode,
     GenomicCharacterizationFrontMatter,
-    StemCellCharacteristicsFrontMatter,
+    StemCellCharacteristicsFrontmatter,
 } from "../../component-queries/types";
 import { getThumbnail } from "../../utils/mediaUtils";
 import { hasTableData, nonEmptyArray } from "../../utils";
@@ -218,7 +218,7 @@ export const unpackParentLineFromFrontMatter = (data: ParentalLineFrontmatter): 
     }
 }
 
-export const unpackNormalStemCellCharacteristics = (scc?: StemCellCharacteristicsFrontMatter): UnpackedStemCellCharacteristics | null => {
+export const unpackNormalStemCellCharacteristics = (scc?: StemCellCharacteristicsFrontmatter): UnpackedStemCellCharacteristics | null => {
     if (!scc) return null;
 
     const pluripotencyAnalysis: PluripotencyAnalysisData = {
