@@ -223,7 +223,7 @@ export const unpackNormalStemCellCharacteristics = (scc?: StemCellCharacteristic
 
     const pluripotencyAnalysis: PluripotencyAnalysisData = {
         caption: scc.pluripotency_caption,
-        data: scc.pluripotency_analysis.map((row) => ({
+        data: (scc.pluripotency_analysis ?? []).map((row) => ({
             marker: row.marker,
             positiveCells: row.positive_cells,
         })),
@@ -231,7 +231,7 @@ export const unpackNormalStemCellCharacteristics = (scc?: StemCellCharacteristic
 
     const trilineageDifferentiation: TrilineageDifferentiationData = {
         caption: scc.trilineage_caption,
-        data: scc.trilineage_differentiation.map((row) => ({
+        data: (scc.trilineage_differentiation ?? []).map((row) => ({
             germLayer: row.germ_layer,
             marker: row.marker,
             percentPositiveCells: row.percent_positive_cells,
@@ -240,7 +240,7 @@ export const unpackNormalStemCellCharacteristics = (scc?: StemCellCharacteristic
 
     const cardiomyocyteDifferentiation: CardiomyocyteDifferentiationData = {
         caption: scc.cardiomyocyte_differentiation_caption,
-        data: [
+        data: scc.cardiomyocyte_differentiation ? [
             {
                 troponinPercentPositive:
                     scc.cardiomyocyte_differentiation.troponin_percent_positive,
@@ -249,10 +249,10 @@ export const unpackNormalStemCellCharacteristics = (scc?: StemCellCharacteristic
                 dayOfBeatingRange:
                     scc.cardiomyocyte_differentiation.day_of_beating_range,
             },
-        ],
+        ] : [],
     };
 
-    const rnaSeqAnalysis: DiagramCardProps[] = scc.rnaseq_analysis.map(
+    const rnaSeqAnalysis: DiagramCardProps[] = (scc.rnaseq_analysis ?? []).map(
         (item) => ({
             title: "RNASEQ", // TODO get appropriate title for this card
             image: item.image,
