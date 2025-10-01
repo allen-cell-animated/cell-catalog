@@ -26,7 +26,6 @@ interface DiseaseCellLineTemplateProps extends UnpackedDiseaseCellLineFull {
     href: string;
 }
 
- 
 export const DiseaseCellLineTemplate = ({
     cellLineId,
     certificateOfAnalysis,

@@ -39,7 +39,6 @@ interface CellLineProps extends UnpackedNormalCellLineFull {
     href: string;
 }
 
- 
 export const CellLineTemplate = ({
     alleleCount,
     cellLineId,

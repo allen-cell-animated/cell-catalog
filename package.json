@@ -48,7 +48,8 @@
     "build": "npm run clean && gatsby build",
     "develop": "npm run clean && gatsby develop",
     "serve": "gatsby serve",
-    "format": "prettier \"src/**/*{.tsx, .ts}\"",
+    "format": "prettier \"src/**/*{.tsx, .ts}\" --write",
+    "lint": "eslint \"src/**/*{.tsx, .ts}\" --quiet --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx concurrently \"npx netlify-cms-proxy-server\" \"npm start -- --progress\""
   },
