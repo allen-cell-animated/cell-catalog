@@ -63,7 +63,7 @@
     justify-content: center;
 }
 
-.extra-large-button:hover {
+.extra-large-button:not(.disabled):hover {
     color: var(--primary-color) !important;
     transition: background 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
     background: linear-gradient(
@@ -83,6 +83,23 @@
 
 .extra-large-button :global(.plasmid-icon) {
     padding: 6px;
+}
+
+.extra-large-button.disabled {
+    color: var(--RAIN_SHADOW);
+    background-color: var(--WHITE);
+    border-color: var(--RAIN_SHADOW);
+    cursor: not-allowed;
+}
+
+.extra-large-button.disabled :global(.tube-icon) line,
+.extra-large-button.disabled :global(.tube-icon) path {
+    fill: var(--WHITE);
+    stroke: var(--RAIN_SHADOW);
+}
+
+.extra-large-button.disabled :global(.plasmid-icon) path {
+    fill: var(--RAIN_SHADOW);
 }
 
 .info-card-multi-line-cell {
