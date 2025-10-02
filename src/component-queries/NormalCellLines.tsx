@@ -2,6 +2,7 @@ import React from "react";
 import { graphql, StaticQuery } from "gatsby";
 
 import {
+    CategoryLabel,
     CellLineStatus,
     NormalCellLineNode,
     UnpackedNormalCellLine,
@@ -13,6 +14,7 @@ import { PHONE_BREAKPOINT } from "../constants";
 import useWindowWidth from "../hooks/useWindowWidth";
 import { getNormalTableMobileConfig } from "../components/CellLineTable/MobileView";
 import SearchAndFilter from "./SearchAndFilter";
+import CategorySections from "../components/CategorySections";
 
 const CellLineTableTemplate = (props: QueryResult) => {
     const { edges: cellLines } = props.data.allMarkdownRemark;
@@ -30,19 +32,33 @@ const CellLineTableTemplate = (props: QueryResult) => {
     const isPhone = width < PHONE_BREAKPOINT;
     const [filteredCellLines, setFilteredCellLines] =
         React.useState(finishedCellLines);
+    const [selectedCategories, setSelectedCategories] = React.useState<
+        CategoryLabel[]
+    >([]);
     return (
         <>
             <SearchAndFilter
                 allCellLines={finishedCellLines}
+                filteredCellLines={filteredCellLines}
                 setResults={setFilteredCellLines}
+                selectedCategories={selectedCategories}
+                setSelectedCategories={setSelectedCategories}
             />
-            <CellLineTable
-                tableName="Cell Line Catalog"
-                cellLines={filteredCellLines}
-                released={true}
-                columns={getNormalTableColumns(false)}
-                mobileConfig={getNormalTableMobileConfig(isPhone)}
-            />
+            {selectedCategories.length === 0 ? (
+                <CellLineTable
+                    tableName="Cell Line Catalog"
+                    cellLines={filteredCellLines}
+                    released={true}
+                    columns={getNormalTableColumns(false)}
+                    mobileConfig={getNormalTableMobileConfig(isPhone)}
+                />
+            ) : (
+                <CategorySections
+                    selectedCategories={selectedCategories}
+                    filteredList={filteredCellLines}
+                    isPhone={isPhone}
+                />
+            )}
             <CellLineTable
                 tableName="Cell Line Catalog"
                 cellLines={inProgressCellLines}

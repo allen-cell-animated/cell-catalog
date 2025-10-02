@@ -115,7 +115,7 @@ export interface NormalCellLineFrontmatter {
     };
     genomic_characterization: GenomicCharacterizationFrontmatter;
     images_and_videos?: MediaFrontmatter;
-    category_labels: string[];
+    category_labels: CategoryLabel[];
 };
 
 export interface NormalCellLineNode {
@@ -257,7 +257,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     tagLocation: string[];
     fluorescentTag: string[];
     orderPlasmid: string;
-    categoryLabels: string[];
+    categoryLabels: CategoryLabel[];
 }
 
 export type ParentLine = Pick<UnpackedNormalCellLine,
@@ -318,4 +318,13 @@ export interface SearchLookup {
     structureAndNameToGene: Map<string, string>;
     categoryToIds: Map<string, number[]>
     allSearchableTerms: Set<string>;
+}
+
+export enum CategoryLabel {
+    KeyStructureAndOrganelle = "Key Structure and Organelle",
+    NuclearStructure = "Nuclear Structure",
+    Stress = "Stress",
+    CardiacStructure = "Cardiac Structure",
+    Tools = "Tools",
+    Endothelial = "Endothelial",
 }
