@@ -28,16 +28,16 @@ export const LABEL_COPY: Record<CategoryLabel, string> = {
 
 const bucketByCategory = (
     list: UnpackedNormalCellLine[],
-    selected: string[]
-): Record<string, UnpackedNormalCellLine[]> => {
+    selected: CategoryLabel[]
+): Record<CategoryLabel, UnpackedNormalCellLine[]> => {
     return list.reduce((acc, item) => {
         for (const label of item.categoryLabels ?? []) {
             if (!selected.includes(label)) continue;
             (acc[label] ??= []).push(item);
         }
         return acc;
-    }, {} as Record<string, UnpackedNormalCellLine[]>);
-}
+    }, {} as Record<CategoryLabel, UnpackedNormalCellLine[]>);
+};
 
 const CategorySections: React.FC<CategorySectionsProps> = ({
     selectedCategories,
