@@ -36,9 +36,9 @@ export const getDiseaseTableMobileConfig = (isPhone: boolean) => {
                 )}
                 <div>
                     <label>Gene Symbol & Name:</label>
-                    <span>
-                        <GeneDisplay gene={record.mutatedGene} />
-                    </span>
+                    {record.mutatedGene.map((gene, index) => (
+                        <GeneDisplay key={index} gene={gene} />
+                    ))}
                 </div>
                 <div>
                     <label>Clones:</label>
@@ -68,16 +68,18 @@ export const getNormalTableMobileConfig = (isPhone: boolean) => {
                 {isPhone && (
                     <div>
                         <label>Tagged Protein:</label>
-                        <Flex vertical={true} key={record.protein}>
-                            <span key={record.protein}>{record.protein}</span>
-                        </Flex>
+                        {record.protein.map((protein, index) => (
+                            <Flex vertical={true} key={index}>
+                                <span key={protein}>{protein}</span>
+                            </Flex>
+                        ))}
                     </div>
                 )}
                 <div>
                     <label>Gene Symbol & Name:</label>
-                    <span>
-                        <GeneDisplay gene={record.taggedGene} />
-                    </span>
+                    {record.taggedGene.map((gene, index) => (
+                        <GeneDisplay key={index} gene={gene} />
+                    ))}
                 </div>
             </Flex>
         ),
