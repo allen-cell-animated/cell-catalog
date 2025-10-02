@@ -13,12 +13,17 @@ interface CategorySectionsProps {
 // Todo: get copy from science team/UX
 export const LABEL_COPY: Record<CategoryLabel, string> = {
     [CategoryLabel.KeyStructureAndOrganelle]:
-        "One sentence on key structures and organelles.",
-    [CategoryLabel.NuclearStructure]: "One sentence on nuclear structure.",
-    [CategoryLabel.Stress]: "One sentence on stress-related cell lines.",
-    [CategoryLabel.CardiacStructure]: "One sentence on cardiac structure.",
-    [CategoryLabel.Tools]: "One sentence on tools category.",
-    [CategoryLabel.Endothelial]: "One sentence on endothelial category.",
+        "Cellular structures labeled by tagged protein expressed in stem cell state.",
+    [CategoryLabel.NuclearStructure]:
+        "Structures labeled by tagged protein expressed in nuclear compartment.",
+    [CategoryLabel.Stress]:
+        "Structures labeled are indicators of specific subtypes of stress responses .",
+    [CategoryLabel.CardiacStructure]:
+        "Structures labeled are expressed specifically in differentiated cardiomyocytes.",
+    [CategoryLabel.Tools]:
+        "CRISPRi (dCas9-KRAB) expressed from safe harbor for knockdown experiments, with other structures tagged.",
+    [CategoryLabel.Endothelial]:
+        "Structure labeled is specifically expressed in differentiated endothelial cells  .",
 };
 
 const bucketByCategory = (
