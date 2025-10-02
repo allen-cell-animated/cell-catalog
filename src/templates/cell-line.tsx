@@ -8,7 +8,7 @@ import { NormalCellLineInfoCard } from "../components/CellLineInfoCard/NormalCel
 import { DefaultButton } from "../components/shared/Buttons";
 import SubpageTabs from "../components/SubPage/SubpageTabs";
 import { TABS_WITH_STEM_CELL } from "../constants";
-import { unpackNormalFrontMatterForSubpage } from "../components/SubPage/convert-data";
+import { unpackNormalFrontmatterForSubpage } from "../components/SubPage/convert-data";
 import { UnpackedNormalCellLineFull } from "../components/SubPage/types";
 import ImagesAndVideos from "../components/ImagesAndVideos";
 import { hasMedia, getImages, getVideos } from "../utils/mediaUtils";
@@ -111,7 +111,7 @@ export const CellLineTemplate = ({
 const CellLine = ({ data, location }: QueryResult) => {
     const { markdownRemark: cellLine } = data;
 
-    const unpackedCellLine = unpackNormalFrontMatterForSubpage(cellLine);
+    const unpackedCellLine = unpackNormalFrontmatterForSubpage(cellLine);
 
     return (
         <Layout>
