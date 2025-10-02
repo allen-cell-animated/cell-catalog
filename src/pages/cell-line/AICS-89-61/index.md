@@ -125,15 +125,15 @@ stem_cell_characteristics:
     - marker: "NANOG"
       positive_cells: 99.8
     - marker: "SOX2"
-      positive_cells: NA
+      positive_cells: null
     - marker: "OCT4"
       positive_cells: 99.8
     - marker: "SSEA-1"
-      positive_cells: NA
+      positive_cells: null
     - marker: "SSEA-4"
       positive_cells: 100
     - marker: "TRA-160"
-      positive_cells: NA
+      positive_cells: null
   pluripotency_caption: "iPSCs were stained with directly conjugated antibodies from BD Biosciences, acquired using a FACSAria III Fusion (BD Biosciences), and analyzed using FlowJo software (Treestar, Inc.). Doublets were excluded, then marker-specific gates were set according to corresponding fluorescence-minus-one (FMO) controls."
   trilineage_differentiation:
     - germ_layer: "Ectoderm"

@@ -1,4 +1,5 @@
 import { IGatsbyImageData } from "gatsby-plugin-image";
+import { UnpackedStemCellCharacteristics } from "../components/SubPage/types";
 
 export interface RawImageData {
     image: {
@@ -45,6 +46,27 @@ export interface GeneticModification {
     allele_count: string;
     tag_location: string;
     fluorescent_tag: string;
+}
+
+export interface StemCellCharacteristicsFrontmatter {
+    pluripotency_analysis: {
+        marker: string;
+        positive_cells: number;
+    }[];
+    pluripotency_caption: string;
+    trilineage_differentiation: {
+        germ_layer: string;
+        marker: string;
+        percent_positive_cells: string;
+    }[];
+    trilineage_caption: string;
+    cardiomyocyte_differentiation: {
+        troponin_percent_positive: string;
+        day_of_beating_percent: string;
+        day_of_beating_range: string;
+    };
+    cardiomyocyte_differentiation_caption: string;
+    rnaseq_analysis: UnpackedImageData[];
 }
 
 export interface ParentalLineFrontmatter {
@@ -114,6 +136,7 @@ export interface NormalCellLineFrontmatter {
         diagrams: DiagramList[];
     };
     genomic_characterization: GenomicCharacterizationFrontmatter;
+    stem_cell_characteristics: StemCellCharacteristicsFrontmatter;
     images_and_videos?: MediaFrontmatter;
     category_labels: string[];
 };
@@ -238,6 +261,7 @@ export interface UnpackedCellLineMainInfo {
     orderLink: string;
     thumbnailImage?: IGatsbyImageData | null;
     imagesAndVideos?: MediaFrontmatter;
+    stemCellCharacteristics: UnpackedStemCellCharacteristics | null;
 }
 
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
