@@ -82,16 +82,16 @@
     text-decoration: underline;
 }
 
-.container .action-column:global(.ant-table-cell):has(a):hover {
+.container .action-column:global(.ant-table-cell):has(a:not(.disabled)):hover {
     background-color: var(--primary-color);
 }
 
-.action-column:hover .action-button {
+.action-column:hover:has(a:not(.disabled)) .action-button {
     color: var(--WHITE);
 }
 
-.action-column:hover .action-button :global(.tube-icon) path,
-.action-column:hover .action-button :global(.tube-icon) line {
+.action-column:hover:has(a:not(.disabled)) .action-button :global(.tube-icon) path,
+.action-column:hover:has(a:not(.disabled)) .action-button :global(.tube-icon) line {
     fill: var(--primary-color);
     stroke: var(--WHITE);
 }
@@ -100,14 +100,38 @@
   color: var(--WHITE);
 }
 
-.action-column:hover .action-button .cert-icon path,
-.action-column:hover .action-button .cert-icon line {
-    fill: var(--primary-color);
+.action-column .action-button .cert-icon path,
+.action-column .action-button .cert-icon line {
+    stroke: var(--primary-color);
+}
+
+.action-column:hover:has(a:not(.disabled)) .action-button .cert-icon path,
+.action-column:hover:has(a:not(.disabled)) .action-button .cert-icon line {
     stroke: var(--WHITE);
 }
 
-.action-column:hover :global(.plasmid-icon) path {
+.action-column:hover:has(a:not(.disabled)) :global(.plasmid-icon) path {
     fill: var(--WHITE);
+}
+
+.action-button.disabled {
+  color: var(--RAIN_SHADOW);
+  cursor: not-allowed;
+}
+
+.action-button.disabled :global(.tube-icon) path {
+  fill: var(--WHITE);
+}
+
+.action-button.disabled :global(.tube-icon) line,
+.action-button.disabled :global(.tube-icon) path,
+.action-button.disabled .cert-icon path,
+.action-button.disabled .cert-icon line {
+  stroke: var(--RAIN_SHADOW);
+}
+
+.action-button.disabled :global(.plasmid-icon) path {
+  fill: var(--RAIN_SHADOW);
 }
 
 .container h4 {

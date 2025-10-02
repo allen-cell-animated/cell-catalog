@@ -1,7 +1,8 @@
 import React from "react";
-import { Flex } from "antd";
-import Icon, { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
+import { Flex, Tooltip } from "antd";
+import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { SortOrder } from "antd/es/table/interface";
+import classNames from "classnames";
 
 import {
     UnpackedGene,
@@ -22,6 +23,7 @@ const {
     gene,
     structure,
     tableMultiLineCell,
+    disabled,
 } = require("../../style/table.module.css");
 
 const caseInsensitiveStringCompare = (a = "", b = "") =>
@@ -47,21 +49,27 @@ const obtainPlasmidColumn = {
     className: actionColumn,
     fixed: "right" as const,
     render: (orderPlasmid: string) => {
-        return (
-            orderPlasmid && (
-                <a
-                    className={actionButton}
-                    href={orderPlasmid}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <Flex gap={8}>
-                        <PlasmidIcon />
-                        Obtain Plasmid
-                    </Flex>
-                </a>
-            )
+        const isDisabled = !orderPlasmid;
+        const link = (
+            <a
+                className={classNames(actionButton, {
+                    [disabled]: isDisabled,
+                })}
+                href={isDisabled ? undefined : orderPlasmid}
+                target="_blank"
+                rel="noreferrer"
+            >
+                <Flex gap={8}>
+                    <PlasmidIcon />
+                    Obtain Plasmid
+                </Flex>
+            </a>
         );
+          return isDisabled ? (
+              <Tooltip title="Plasmid not yet available">{link}</Tooltip>
+          ) : (
+              link
+          );
     },
 };
 

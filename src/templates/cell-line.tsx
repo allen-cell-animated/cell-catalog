@@ -8,14 +8,14 @@ import { NormalCellLineInfoCard } from "../components/CellLineInfoCard/NormalCel
 import { DefaultButton } from "../components/shared/Buttons";
 import SubpageTabs from "../components/SubPage/SubpageTabs";
 import { TABS_WITH_STEM_CELL } from "../constants";
-import { unpackNormalFrontMatterForSubpage } from "../components/SubPage/convert-data";
+import { unpackNormalFrontmatterForSubpage } from "../components/SubPage/convert-data";
 import { UnpackedNormalCellLineFull } from "../components/SubPage/types";
 import ImagesAndVideos from "../components/ImagesAndVideos";
 import { hasMedia, getImages, getVideos } from "../utils/mediaUtils";
 
 const {
     container,
-    section,
+    imagesContainer,
     leftCard,
     returnArrow,
 } = require("../style/disease-cell-line.module.css");
@@ -54,6 +54,7 @@ export const CellLineTemplate = ({
     alleleCount,
     editingDesign,
     imagesAndVideos,
+    genomicCharacterization,
 }: CellLineProps) => {
     const hasImagesOrVideos = hasMedia(imagesAndVideos);
     if (cellLineId === 0) {
@@ -84,7 +85,7 @@ export const CellLineTemplate = ({
                         alleleCount={alleleCount}
                     />
                 </div>
-                <div className={section}>
+                <div className={imagesContainer}>
                     {hasImagesOrVideos && (
                         <ImagesAndVideos
                             cellLineId={cellLineId}
@@ -99,7 +100,7 @@ export const CellLineTemplate = ({
             </div>
             <SubpageTabs
                 editingDesignData={editingDesign}
-                genomicCharacterizationData={[]}
+                genomicCharacterizationData={genomicCharacterization}
                 stemCellCharData={null}
                 tabsToRender={TABS_WITH_STEM_CELL}
             />
@@ -110,7 +111,7 @@ export const CellLineTemplate = ({
 const CellLine = ({ data, location }: QueryResult) => {
     const { markdownRemark: cellLine } = data;
 
-    const unpackedCellLine = unpackNormalFrontMatterForSubpage(cellLine);
+    const unpackedCellLine = unpackNormalFrontmatterForSubpage(cellLine);
 
     return (
         <Layout>
@@ -135,6 +136,7 @@ export const pageQuery = graphql`
                 cell_line_id
                 certificate_of_analysis
                 eu_hpsc_reg
+                order_link
                 donor_plasmid
                 parental_line {
                     frontmatter {
@@ -189,6 +191,43 @@ export const pageQuery = graphql`
                             caption
                         }
                     }
+                }
+                genomic_characterization {
+                    diagrams {
+                        title
+                        images {
+                            image {
+                                childImageSharp {
+                                    gatsbyImageData(
+                                        placeholder: BLURRED
+                                        layout: CONSTRAINED
+                                    )
+                                }
+                            }
+                            caption
+                        }
+                    }
+                    amplified_junctions {
+                        edited_gene
+                        junction
+                        expected_size
+                        confirmed_sequence
+                    }
+                    ddpcr {
+                        tag
+                        clone
+                        fp_ratio
+                        plasmid
+                    }
+                    cr_rna_off_targets {
+                        clones_analyzed
+                        off_targets_sequenced_per_clone
+                        total_sites_sequenced
+                        mutations_identified
+                    }
+                    junction_table_caption
+                    ddpcr_caption
+                    off_targets_caption
                 }
             }
         }
