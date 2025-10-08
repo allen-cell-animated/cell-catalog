@@ -23,7 +23,7 @@ export const LABEL_COPY: Record<CategoryLabel, string> = {
     [CategoryLabel.Tools]:
         "CRISPRi (dCas9-KRAB) expressed from safe harbor for knockdown experiments, with other structures tagged.",
     [CategoryLabel.Endothelial]:
-        "Structure labeled is specifically expressed in differentiated endothelial cells  .",
+        "Structure labeled is specifically expressed in differentiated endothelial cells.",
 };
 
 const bucketByCategory = (
