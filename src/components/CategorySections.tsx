@@ -17,7 +17,7 @@ export const LABEL_COPY: Record<CategoryLabel, string> = {
     [CategoryLabel.NuclearStructure]:
         "Structures labeled by tagged protein expressed in nuclear compartment.",
     [CategoryLabel.Stress]:
-        "Structures labeled are indicators of specific subtypes of stress responses .",
+        "Structures labeled are indicators of specific subtypes of stress responses.",
     [CategoryLabel.CardiacStructure]:
         "Structures labeled are expressed specifically in differentiated cardiomyocytes.",
     [CategoryLabel.Tools]:
