@@ -5,7 +5,10 @@ import React from "react";
 
 const Tube = require("../../img/tube.svg");
 
-interface TubeIconProps extends IconComponentProps {
+
+type IconBaseProps = Omit<IconComponentProps, "ref" | "component">;
+
+interface TubeIconProps extends IconBaseProps {
     size?: number;
     className?: string;
     style?: React.CSSProperties;

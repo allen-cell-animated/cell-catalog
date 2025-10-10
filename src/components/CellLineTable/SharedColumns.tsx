@@ -1,5 +1,5 @@
 import Icon from "@ant-design/icons";
-import { Flex } from "antd";
+import { Flex, Tooltip } from "antd";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
@@ -9,6 +9,7 @@ import { WHITE } from "../../style/theme";
 import { formatCellLineId } from "../../utils";
 import TubeIcon from "../Icons/TubeIcon";
 import { UnpackedCellLine, mdBreakpoint } from "./types";
+import classNames from "classnames";
 
 const CertificateIcon = require("../../img/cert-icon.svg");
 
@@ -17,6 +18,7 @@ const {
     actionColumn,
     cellLineId,
     certIcon,
+    disabled,
     idHeader,
     thumbnailContainer,
 } = require("../../style/table.module.css");
@@ -96,21 +98,29 @@ export const obtainLineColumn = {
     className: actionColumn,
     fixed: "right" as const,
     render: (orderLink: string) => {
-        return (
-            orderLink && (
-                <a
-                    key={orderLink}
-                    className={actionButton}
-                    href={orderLink}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <Flex>
-                        <TubeIcon />
-                        Obtain Collection
-                    </Flex>
-                </a>
-            )
+        const isDisabled = !orderLink;
+        const link = (
+            <a
+                key={orderLink}
+                className={classNames(actionButton, {
+                    [disabled]: isDisabled,
+                })}
+                href={isDisabled ? undefined : orderLink}
+                target="_blank"
+                rel="noreferrer"
+            >
+                <Flex>
+                    <TubeIcon />
+                    Obtain Collection
+                </Flex>
+            </a>
+        );
+        return isDisabled ? (
+            <Tooltip title="This collection not yet available">
+                {link}
+            </Tooltip>
+        ) : (
+            link
         );
     },
 };

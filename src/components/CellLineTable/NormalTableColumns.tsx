@@ -1,5 +1,5 @@
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
-import { Flex } from "antd";
+import { Flex, Tooltip } from "antd";
 import { SortOrder } from "antd/es/table/interface";
 import React from "react";
 
@@ -13,10 +13,12 @@ import PlasmidIcon from "../Icons/PlasmidIcon";
 import { MultiLineTableCell, ParentComponent } from "../MultiLineTableCell";
 import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint } from "./types";
+import classNames from "classnames";
 
 const {
     actionButton,
     actionColumn,
+    disabled,
     gene,
     lastColumn,
     protein,
@@ -47,21 +49,27 @@ const obtainPlasmidColumn = {
     className: actionColumn,
     fixed: "right" as const,
     render: (orderPlasmid: string) => {
-        return (
-            orderPlasmid && (
-                <a
-                    className={actionButton}
-                    href={orderPlasmid}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <Flex gap={8}>
-                        <PlasmidIcon />
-                        Obtain Plasmid
-                    </Flex>
-                </a>
-            )
+        const isDisabled = !orderPlasmid;
+        const link = (
+            <a
+                className={classNames(actionButton, {
+                    [disabled]: isDisabled,
+                })}
+                href={isDisabled ? undefined : orderPlasmid}
+                target="_blank"
+                rel="noreferrer"
+            >
+                <Flex gap={8}>
+                    <PlasmidIcon />
+                    Obtain Plasmid
+                </Flex>
+            </a>
         );
+          return isDisabled ? (
+              <Tooltip title="Plasmid not yet available">{link}</Tooltip>
+          ) : (
+              link
+          );
     },
 };
 
@@ -71,7 +79,7 @@ export const getNormalTableColumns = (
     const columns = [
         {
             ...cellLineIdColumn,
-            sorter: (a: any, b: any) =>
+            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
                 (a.cellLineId ?? 0) - (b.cellLineId ?? 0),
             sortIcon: sortIcon,
             defaultSortOrder: "ascend" as SortOrder,
@@ -90,7 +98,7 @@ export const getNormalTableColumns = (
                     entries={proteins}
                 />
             ),
-            sorter: (a: any, b: any) =>
+            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
                 caseInsensitiveStringCompare(
                     (a.protein ?? []).join("|"),
                     (b.protein ?? []).join("|"),
@@ -113,7 +121,7 @@ export const getNormalTableColumns = (
                     </div>
                 );
             },
-            sorter: (a: any, b: any) =>
+            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
                 caseInsensitiveStringCompare(
                     a.taggedGene[0].name,
                     b.taggedGene[0].name,
@@ -131,7 +139,7 @@ export const getNormalTableColumns = (
                     entries={alleleCount}
                 />
             ),
-            sorter: (a: any, b: any) =>
+            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
                 caseInsensitiveStringCompare(
                     (a.alleleCount ?? []).join("|"),
                     (b.alleleCount ?? []).join("|"),
@@ -151,7 +159,7 @@ export const getNormalTableColumns = (
                     entries={structures}
                 />
             ),
-            sorter: (a: any, b: any) =>
+            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
                 caseInsensitiveStringCompare(
                     (a.structure ?? []).join("|"),
                     (b.structure ?? []).join("|"),
@@ -169,7 +177,7 @@ export const getNormalTableColumns = (
                 />
             ),
             sortIcon: sortIcon,
-            sorter: (a: any, b: any) =>
+            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
                 caseInsensitiveStringCompare(
                     (a.fluorescentTag ?? []).join("|"),
                     (b.fluorescentTag ?? []).join("|"),
@@ -187,7 +195,7 @@ export const getNormalTableColumns = (
                 />
             ),
             sortIcon: sortIcon,
-            sorter: (a: any, b: any) =>
+            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
                 caseInsensitiveStringCompare(
                     (a.tagLocation ?? []).join("|"),
                     (b.tagLocation ?? []).join("|"),
@@ -206,7 +214,7 @@ export const getNormalTableColumns = (
                 />
             ),
             sortIcon: sortIcon,
-            sorter: (a: any, b: any) =>
+            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
                 caseInsensitiveStringCompare(
                     (a.tagLocation ?? []).join("|"),
                     (b.tagLocation ?? []).join("|"),

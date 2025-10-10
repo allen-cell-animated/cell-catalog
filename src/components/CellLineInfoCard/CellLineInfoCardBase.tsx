@@ -13,6 +13,7 @@ const LinkOut = require("../../img/external-link.svg");
 
 const {
     container,
+    disabled,
     extraLargeButton,
     extraLargeButtonHeader,
     spacedButton,
@@ -21,6 +22,7 @@ const {
 
 interface OrderButtonProps {
     label: string;
+    disabledLabel: string;
     href: string;
     icon?: ReactNode;
     subtitle?: ReactNode;
@@ -59,33 +61,50 @@ const CellLineInfoCardBase = ({
     );
 
     const getOrderButton = ({
+        disabledLabel,
         href,
         icon,
         label,
         subtitle,
-    }: OrderButtonProps) => (
-        <Button
-            type="primary"
-            className={extraLargeButton}
-            href={href}
-            target="_blank"
-            rel="noreferrer"
-        >
-            <div
-                className={classNames(
-                    extraLargeButtonHeader,
-                    icon && spacedButton,
-                )}
+    }: OrderButtonProps) => {
+        const isDisabled = !href;
+        const buttonClass = classNames(extraLargeButton, {
+            [disabled]: isDisabled,
+        });
+
+        const button = (
+            <Button
+                type="primary"
+                className={buttonClass}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                disabled={isDisabled}
             >
-                <h2>
-                    {icon}
-                    {label}
-                </h2>
-                <LinkOut />
-            </div>
-            {subtitle}
-        </Button>
-    );
+                <div
+                    className={classNames(
+                        extraLargeButtonHeader,
+                        icon && spacedButton
+                    )}
+                >
+                    <h2>
+                        {icon}
+                        {label}
+                    </h2>
+                    <LinkOut />
+                </div>
+                {subtitle}
+            </Button>
+        );
+
+        return isDisabled ? (
+            <Tooltip key={label} title={disabledLabel}>
+                {button}
+            </Tooltip>
+        ) : (
+            button
+        );
+    };
 
     const titleContents = (
         <Flex justify="space-between" align="center">
