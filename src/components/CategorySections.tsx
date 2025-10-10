@@ -8,6 +8,7 @@ interface CategorySectionsProps {
     selectedCategories: CategoryLabel[];
     filteredList: UnpackedNormalCellLine[];
     isPhone: boolean;
+    released: boolean;
 }
 
 // Todo: get copy from science team/UX
@@ -43,6 +44,7 @@ const CategorySections: React.FC<CategorySectionsProps> = ({
     selectedCategories,
     filteredList,
     isPhone,
+    released,
 }) => {
     const buckets = React.useMemo(
         () => bucketByCategory(filteredList, selectedCategories),
@@ -59,8 +61,8 @@ const CategorySections: React.FC<CategorySectionsProps> = ({
                         key={cat}
                         tableName={`${cat} — ${LABEL_COPY[cat] || ""}`}
                         cellLines={data}
-                        released={true}
-                        columns={getNormalTableColumns(false)}
+                        released={released}
+                        columns={getNormalTableColumns(!released)}
                         mobileConfig={getNormalTableMobileConfig(isPhone)}
                     />
                 );
