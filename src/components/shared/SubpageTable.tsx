@@ -1,6 +1,7 @@
-import React from "react";
 import { CardProps, Table } from "antd";
 import classNames from "classnames";
+import React from "react";
+
 import SubpageContentCard from "./SubpageContentCard";
 
 const { container, table } = require("../../style/subpage-table.module.css");
@@ -13,14 +14,13 @@ export interface SubpageTableProps extends CardProps {
 }
 
 const SubpageTable: React.FC<SubpageTableProps> = ({
-    title,
     caption,
     className,
     columns,
     dataSource,
+    title,
     ...cardProps
 }) => {
-
     if (dataSource.length === 0) {
         return null;
     }

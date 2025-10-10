@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { Descriptions, Divider, Flex, Modal } from "antd";
 import Icon, { InfoCircleOutlined } from "@ant-design/icons";
-import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { Descriptions, Divider, Flex, Modal } from "antd";
+import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
+import React, { useState } from "react";
 
-import { DarkBlueHoverButton } from "./shared/Buttons";
 import { UnpackedGene } from "../component-queries/types";
+import { DarkBlueHoverButton } from "./shared/Buttons";
 
 const {
-    modal,
-    title,
-    header,
-    subTitle,
-    clone,
     actionButton,
+    clone,
+    header,
+    modal,
+    subTitle,
+    title,
 } = require("../style/modal.module.css");
 const LinkOut = require("../img/external-link.svg");
 
@@ -52,9 +52,9 @@ const ParentalLineModal = (props: ParentalLineModalProps) => {
     if (props.status === "coming soon") {
         return <>{props.formattedId}</>;
     }
-    
-    const { symbol, name } = props.taggedGene[0];
-    const fluorescentTag  = props.fluorescentTag[0];  
+
+    const { name, symbol } = props.taggedGene[0];
+    const fluorescentTag = props.fluorescentTag[0];
     const tagLocation = props.tagLocation[0];
     const parentalLineItems = [
         {

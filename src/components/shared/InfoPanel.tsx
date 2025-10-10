@@ -1,7 +1,7 @@
 import { Descriptions } from "antd";
-import React from "react";
 import type { DescriptionsProps } from "antd";
 import classNames from "classnames";
+import React from "react";
 
 interface InfoPanelProps {
     data: DescriptionsProps["items"];
@@ -10,9 +10,18 @@ interface InfoPanelProps {
     alignContent?: boolean;
 }
 
-const { container, legend, aligned } = require("../../style/info-panel.module.css");
+const {
+    aligned,
+    container,
+    legend,
+} = require("../../style/info-panel.module.css");
 
-const InfoPanel: React.FC<InfoPanelProps> = ({ data, hasLegend, alignContent, baseline = true }) => {
+const InfoPanel: React.FC<InfoPanelProps> = ({
+    alignContent,
+    baseline = true,
+    data,
+    hasLegend,
+}) => {
     return (
         <div className={classNames(container, hasLegend && legend)}>
             <Descriptions

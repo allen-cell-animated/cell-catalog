@@ -1,16 +1,17 @@
-import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/Layout";
+import React from "react";
+
 import { GeneFrontmatter } from "../component-queries/types";
+import Layout from "../components/Layout";
 
 interface GeneNameTemplateProps extends GeneFrontmatter {}
 
 export const GeneNameTemplate = ({
+    isoforms,
     name,
-    symbol,
     protein,
     structure,
-    isoforms,
+    symbol,
 }: GeneNameTemplateProps) => {
     return (
         <section>

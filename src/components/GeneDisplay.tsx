@@ -1,7 +1,7 @@
-import React from "react";
 import { Flex } from "antd";
-import { UnpackedGene } from "../component-queries/types";
+import React from "react";
 
+import { UnpackedGene } from "../component-queries/types";
 import GeneSymbolTag from "./GeneSymbolTag";
 import { TruncatedText } from "./TruncatedText";
 

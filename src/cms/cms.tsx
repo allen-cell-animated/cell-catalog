@@ -1,16 +1,16 @@
 import CMS from "decap-cms-app";
-import uploadcare from "decap-cms-media-library-uploadcare";
 import cloudinary from "decap-cms-media-library-cloudinary";
+import uploadcare from "decap-cms-media-library-uploadcare";
 
-import DiseaseCatalogPreview from "./preview-templates/DiseaseCatalogPreview";
 import CellLinePreview from "./preview-templates/CellLinePreview";
-import GeneNamePreview from "./preview-templates/GeneNamePreview";
+import DiseaseCatalogPreview from "./preview-templates/DiseaseCatalogPreview";
 import DiseaseCellLinePreview from "./preview-templates/DiseaseCellLinePreview";
+import GeneNamePreview from "./preview-templates/GeneNamePreview";
 
 CMS.registerMediaLibrary(uploadcare);
 CMS.registerMediaLibrary(cloudinary);
 CMS.registerPreviewStyle(
-    "https://cdnjs.cloudflare.com/ajax/libs/antd/4.4.3/antd.min.css"
+    "https://cdnjs.cloudflare.com/ajax/libs/antd/4.4.3/antd.min.css",
 );
 CMS.registerPreviewStyle("./style.css");
 
