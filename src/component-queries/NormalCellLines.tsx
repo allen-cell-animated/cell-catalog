@@ -36,6 +36,50 @@ const CellLineTableTemplate = (props: QueryResult) => {
     const finishedCellLines = filteredCellLines.filter(
         (cellLine) => cellLine.status !== CellLineStatus.InProgress
     );
+
+    const filteredByCategory = selectedCategories.length > 0;
+    const hasInProgressLines = inProgressCellLines.length > 0;
+
+    const defaultRender = (
+        <>
+            <CellLineTable
+                tableName="Cell Line Catalog"
+                cellLines={finishedCellLines}
+                released={true}
+                columns={getNormalTableColumns(false)}
+                mobileConfig={getNormalTableMobileConfig(isPhone)}
+            />
+            {!!inProgressCellLines.length && (
+                <CellLineTable
+                    tableName="Cell Line Catalog"
+                    cellLines={inProgressCellLines}
+                    released={false}
+                    columns={getNormalTableColumns(true)}
+                    mobileConfig={getNormalTableMobileConfig(isPhone)}
+                />
+            )}
+        </>
+    );
+
+    const sortedBySelectedCategoryRender = (
+        <>
+            <CategorySections
+                selectedCategories={selectedCategories}
+                filteredList={finishedCellLines}
+                isPhone={isPhone}
+                released={true}
+            />
+            {hasInProgressLines && (
+                <CategorySections
+                    selectedCategories={selectedCategories}
+                    filteredList={inProgressCellLines}
+                    isPhone={isPhone}
+                    released={false}
+                />
+            )}
+        </>
+    );
+
     return (
         <>
             <SearchAndFilter
@@ -45,43 +89,9 @@ const CellLineTableTemplate = (props: QueryResult) => {
                 selectedCategories={selectedCategories}
                 setSelectedCategories={setSelectedCategories}
             />
-            {selectedCategories.length === 0 ? (
-                <>
-                    <CellLineTable
-                        tableName="Cell Line Catalog"
-                        cellLines={finishedCellLines}
-                        released={true}
-                        columns={getNormalTableColumns(false)}
-                        mobileConfig={getNormalTableMobileConfig(isPhone)}
-                    />
-                    {!!inProgressCellLines.length && (
-                        <CellLineTable
-                            tableName="Cell Line Catalog"
-                            cellLines={inProgressCellLines}
-                            released={false}
-                            columns={getNormalTableColumns(true)}
-                            mobileConfig={getNormalTableMobileConfig(isPhone)}
-                        />
-                    )}
-                </>
-            ) : (
-                <>
-                    <CategorySections
-                        selectedCategories={selectedCategories}
-                        filteredList={finishedCellLines}
-                        isPhone={isPhone}
-                        released={true}
-                    />
-                    {!!inProgressCellLines.length && (
-                        <CategorySections
-                            selectedCategories={selectedCategories}
-                            filteredList={inProgressCellLines}
-                            isPhone={isPhone}
-                            released={false}
-                        />
-                    )}
-                </>
-            )}
+            {filteredByCategory
+                ? sortedBySelectedCategoryRender
+                : defaultRender}
         </>
     );
 };
