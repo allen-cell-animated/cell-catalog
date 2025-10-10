@@ -5,7 +5,6 @@ import {
     CategoryLabel,
     CellLineStatus,
     NormalCellLineNode,
-    UnpackedNormalCellLine,
 } from "./types";
 import { convertFrontmatterToNormalCellLines } from "./convert-data";
 import CellLineTable from "../components/CellLineTable";
@@ -18,54 +17,71 @@ import CategorySections from "../components/CategorySections";
 
 const CellLineTableTemplate = (props: QueryResult) => {
     const { edges: cellLines } = props.data.allMarkdownRemark;
-    const inProgressCellLines = [] as UnpackedNormalCellLine[];
-    const finishedCellLines = [] as UnpackedNormalCellLine[];
-    cellLines.forEach((cellLine) => {
-        const unPackedCellLine = convertFrontmatterToNormalCellLines(cellLine);
-        if (unPackedCellLine.status === CellLineStatus.InProgress) {
-            inProgressCellLines.push(unPackedCellLine);
-        } else {
-            finishedCellLines.push(unPackedCellLine);
-        }
-    });
+
+    const allCellLines = cellLines.map((cellLine) =>
+        convertFrontmatterToNormalCellLines(cellLine)
+    );
+
     const width = useWindowWidth();
     const isPhone = width < PHONE_BREAKPOINT;
     const [filteredCellLines, setFilteredCellLines] =
-        React.useState(finishedCellLines);
+        React.useState(allCellLines);
     const [selectedCategories, setSelectedCategories] = React.useState<
         CategoryLabel[]
     >([]);
+
+    const inProgressCellLines = filteredCellLines.filter(
+        (cellLine) => cellLine.status === CellLineStatus.InProgress
+    );
+    const finishedCellLines = filteredCellLines.filter(
+        (cellLine) => cellLine.status !== CellLineStatus.InProgress
+    );
     return (
         <>
             <SearchAndFilter
-                allCellLines={finishedCellLines}
+                allCellLines={allCellLines}
                 filteredCellLines={filteredCellLines}
                 setResults={setFilteredCellLines}
                 selectedCategories={selectedCategories}
                 setSelectedCategories={setSelectedCategories}
             />
             {selectedCategories.length === 0 ? (
-                <CellLineTable
-                    tableName="Cell Line Catalog"
-                    cellLines={filteredCellLines}
-                    released={true}
-                    columns={getNormalTableColumns(false)}
-                    mobileConfig={getNormalTableMobileConfig(isPhone)}
-                />
+                <>
+                    <CellLineTable
+                        tableName="Cell Line Catalog"
+                        cellLines={finishedCellLines}
+                        released={true}
+                        columns={getNormalTableColumns(false)}
+                        mobileConfig={getNormalTableMobileConfig(isPhone)}
+                    />
+                    {!!inProgressCellLines.length && (
+                        <CellLineTable
+                            tableName="Cell Line Catalog"
+                            cellLines={inProgressCellLines}
+                            released={false}
+                            columns={getNormalTableColumns(true)}
+                            mobileConfig={getNormalTableMobileConfig(isPhone)}
+                        />
+                    )}
+                </>
             ) : (
-                <CategorySections
-                    selectedCategories={selectedCategories}
-                    filteredList={filteredCellLines}
-                    isPhone={isPhone}
-                />
+                <>
+                    <CategorySections
+                        selectedCategories={selectedCategories}
+                        filteredList={finishedCellLines}
+                        isPhone={isPhone}
+                        released={true}
+                    />
+                    {!!inProgressCellLines.length && (
+                        <CategorySections
+                            selectedCategories={selectedCategories}
+                            filteredList={inProgressCellLines}
+                            isPhone={isPhone}
+                            released={false}
+                        />
+                    )}
+                </>
             )}
-            <CellLineTable
-                tableName="Cell Line Catalog"
-                cellLines={inProgressCellLines}
-                released={false}
-                columns={getNormalTableColumns(true)}
-                mobileConfig={getNormalTableMobileConfig(isPhone)}
-            />
         </>
     );
 };
