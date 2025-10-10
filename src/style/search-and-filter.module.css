@@ -44,12 +44,8 @@
     width: 100%;
 }
 
-.filter-container :global(.ant-select-selector) {
-    height: 43px;
-}
-
 .filter-container :global(.ant-select-selection-wrap) {
-    height: 100%;
+    align-self: center;
 }
 
 .filter-container :global(.ant-select-selection-placeholder) {

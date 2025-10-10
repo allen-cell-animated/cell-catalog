@@ -46,7 +46,7 @@ const Filter: React.FC<FilterProps> = ({ filteredList, value, onChange }) => {
     };
 
     return (
-        <Flex className={filterContainer} gap={16} align="baseline">
+        <Flex className={filterContainer} gap={16}>
             <Select
                 mode="multiple"
                 allowClear
