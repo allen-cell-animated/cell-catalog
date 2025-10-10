@@ -1,6 +1,7 @@
 import { CaretDownOutlined, CaretUpOutlined } from "@ant-design/icons";
 import { Flex, Tooltip } from "antd";
 import { SortOrder } from "antd/es/table/interface";
+import classNames from "classnames";
 import React from "react";
 
 import {
@@ -13,7 +14,6 @@ import PlasmidIcon from "../Icons/PlasmidIcon";
 import { MultiLineTableCell, ParentComponent } from "../MultiLineTableCell";
 import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint } from "./types";
-import classNames from "classnames";
 
 const {
     actionButton,
@@ -65,11 +65,11 @@ const obtainPlasmidColumn = {
                 </Flex>
             </a>
         );
-          return isDisabled ? (
-              <Tooltip title="Plasmid not yet available">{link}</Tooltip>
-          ) : (
-              link
-          );
+        return isDisabled ? (
+            <Tooltip title="Plasmid not yet available">{link}</Tooltip>
+        ) : (
+            link
+        );
     },
 };
 

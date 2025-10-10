@@ -1,5 +1,6 @@
 import Icon from "@ant-design/icons";
 import { Flex, Tooltip } from "antd";
+import classNames from "classnames";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
@@ -9,7 +10,6 @@ import { WHITE } from "../../style/theme";
 import { formatCellLineId } from "../../utils";
 import TubeIcon from "../Icons/TubeIcon";
 import { UnpackedCellLine, mdBreakpoint } from "./types";
-import classNames from "classnames";
 
 const CertificateIcon = require("../../img/cert-icon.svg");
 
@@ -116,9 +116,7 @@ export const obtainLineColumn = {
             </a>
         );
         return isDisabled ? (
-            <Tooltip title="This collection not yet available">
-                {link}
-            </Tooltip>
+            <Tooltip title="This collection not yet available">{link}</Tooltip>
         ) : (
             link
         );

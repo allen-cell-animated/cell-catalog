@@ -5,7 +5,6 @@ import React from "react";
 
 const Tube = require("../../img/tube.svg");
 
-
 type IconBaseProps = Omit<IconComponentProps, "ref" | "component">;
 
 interface TubeIconProps extends IconBaseProps {

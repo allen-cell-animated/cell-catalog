@@ -84,7 +84,7 @@ const CellLineInfoCardBase = ({
                 <div
                     className={classNames(
                         extraLargeButtonHeader,
-                        icon && spacedButton
+                        icon && spacedButton,
                     )}
                 >
                     <h2>

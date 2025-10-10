@@ -66,7 +66,7 @@ export const DiseaseCellLineInfoCard: React.FC<DiseaseCellLineInfoCardProps> = (
             key: "order",
             label: `Obtain ${formatCellLineId(props.cellLineId)}`,
             disabledLabel: `${formatCellLineId(
-                props.cellLineId
+                props.cellLineId,
             )} not yet available.`,
             href: props.orderLink,
             subtitle: buttonSubtitle,

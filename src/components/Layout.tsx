@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Layout as AntLayout, ConfigProvider } from "antd";
-import { Helmet as RawHelmet } from "react-helmet";
 import { Script, withPrefix } from "gatsby";
+import { Helmet as RawHelmet } from "react-helmet";
 
 import "../style/index.sass";
 import theme from "../style/theme";
@@ -11,9 +11,8 @@ const { Content } = AntLayout;
 
 const { container } = require("../style/layout.module.css");
 
-const Helmet = RawHelmet as unknown as React.ComponentType<
-    React.PropsWithChildren
->;
+const Helmet =
+    RawHelmet as unknown as React.ComponentType<React.PropsWithChildren>;
 
 const TemplateWrapper = ({ children }: React.PropsWithChildren) => {
     const { description, title } = useSiteMetadata();

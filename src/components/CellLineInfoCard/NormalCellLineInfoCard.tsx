@@ -88,7 +88,7 @@ export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (
             key: "order",
             label: `Obtain ${formatCellLineId(props.cellLineId)}`,
             disabledLabel: `${formatCellLineId(
-                props.cellLineId
+                props.cellLineId,
             )} not yet available.`,
             icon: <TubeIcon />,
             href: props.orderLink,
