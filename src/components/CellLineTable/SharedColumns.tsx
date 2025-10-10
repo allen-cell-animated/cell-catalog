@@ -6,7 +6,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import classNames from "classnames";
 
 import { CellLineStatus } from "../../component-queries/types";
-import { formatCellLineId } from "../../utils";
+import { formatCellLineId, openLinkInNewTab } from "../../utils";
 import { WHITE } from "../../style/theme";
 import TubeIcon from "../Icons/TubeIcon";
 import { mdBreakpoint, UnpackedCellLine } from "./types";
@@ -96,11 +96,7 @@ export const obtainLineColumn = {
     className: actionColumn,
     fixed: "right" as const,
     onCell: (record: UnpackedCellLine) => ({
-        onClick: () => {
-            if (record.orderLink) {
-                window.open(record.orderLink, "_blank", "noopener,noreferrer");
-            }
-        },
+        onClick: () => openLinkInNewTab(record.orderLink),
     }),
     render: (orderLink: string) => {
         const isDisabled = !orderLink;

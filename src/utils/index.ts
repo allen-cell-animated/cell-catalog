@@ -23,3 +23,9 @@ export const hasTableData = <T>(t?: { data: T[] } | null): boolean =>
 
 export const nonEmptyArray = <T>(a?: T[] | null): a is T[] =>
     Array.isArray(a) && a.length > 0;
+
+export const openLinkInNewTab = (link: string) => {
+    if (link) {
+        window.open(link, "_blank", "noopener,noreferrer");
+    }
+}

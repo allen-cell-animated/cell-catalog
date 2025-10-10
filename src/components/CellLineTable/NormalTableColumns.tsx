@@ -9,6 +9,7 @@ import {
     UnpackedNormalCellLine,
 } from "../../component-queries/types";
 import { RAIN_SHADOW, SERIOUS_GRAY } from "../../style/theme";
+import { openLinkInNewTab } from "../../utils";
 import PlasmidIcon from "../Icons/PlasmidIcon";
 import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
 import { CellLineColumns, mdBreakpoint } from "./types";
@@ -49,11 +50,7 @@ const obtainPlasmidColumn = {
     className: actionColumn,
     fixed: "right" as const,
     onCell: (record: UnpackedNormalCellLine) => ({
-        onClick: () => {
-            if (record.orderPlasmid) {
-                window.open(record.orderPlasmid, "_blank", "noopener,noreferrer");
-            }
-        },
+        onClick: () => openLinkInNewTab(record.orderPlasmid),
     }),
     render: (orderPlasmid: string) => {
         const isDisabled = !orderPlasmid;
