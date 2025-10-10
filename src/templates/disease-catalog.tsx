@@ -16,7 +16,7 @@ const {
     mainHeading,
 } = require("../style/catalog.module.css");
 
-interface DiseaseCatalogTemplateProps {
+export interface DiseaseCatalogTemplateProps {
     title: string;
     content: string;
     contentComponent?: React.JSX.ElementType;
