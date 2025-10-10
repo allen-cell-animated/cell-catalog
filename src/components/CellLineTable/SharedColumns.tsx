@@ -95,6 +95,13 @@ export const obtainLineColumn = {
     dataIndex: "orderLink",
     className: actionColumn,
     fixed: "right" as const,
+    onCell: (record: UnpackedCellLine) => ({
+        onClick: () => {
+            if (record.orderLink) {
+                window.open(record.orderLink, "_blank", "noopener,noreferrer");
+            }
+        },
+    }),
     render: (orderLink: string) => {
         const isDisabled = !orderLink;
         const link = (

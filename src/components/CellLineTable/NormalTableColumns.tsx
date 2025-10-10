@@ -48,6 +48,13 @@ const obtainPlasmidColumn = {
     dataIndex: "orderPlasmid",
     className: actionColumn,
     fixed: "right" as const,
+    onCell: (record: UnpackedNormalCellLine) => ({
+        onClick: () => {
+            if (record.orderPlasmid) {
+                window.open(record.orderPlasmid, "_blank", "noopener,noreferrer");
+            }
+        },
+    }),
     render: (orderPlasmid: string) => {
         const isDisabled = !orderPlasmid;
         const link = (
