@@ -44,8 +44,13 @@
     width: 100%;
 }
 
+.container .filter-container :global(.ant-select) :global(.ant-select-selector) {
+    cursor: pointer;
+}
+
 .filter-container :global(.ant-select-selection-wrap) {
     align-self: center;
+    cursor: text;
 }
 
 .filter-container :global(.ant-select-selection-placeholder) {
