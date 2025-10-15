@@ -68,3 +68,11 @@
     ) {
     display: none;
 }
+
+@media (max-width: 768px) {
+    .input-container {
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 16px;
+    }
+}

@@ -57,7 +57,8 @@ const CategorySections: React.FC<CategorySectionsProps> = ({
                 return (
                     <CellLineTable
                         key={cat}
-                        tableName={`${cat} — ${LABEL_COPY[cat] || ""}`}
+                        tableName={cat}
+                        tableDescription={LABEL_COPY[cat] || ""}
                         cellLines={data}
                         released={true}
                         columns={getNormalTableColumns(false)}
