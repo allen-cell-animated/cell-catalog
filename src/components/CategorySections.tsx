@@ -1,0 +1,73 @@
+import React from "react";
+import { CategoryLabel, UnpackedNormalCellLine } from "../component-queries/types";
+import CellLineTable from "./CellLineTable";
+import { getNormalTableColumns } from "./CellLineTable/NormalTableColumns";
+import { getNormalTableMobileConfig } from "./CellLineTable/MobileView";
+
+interface CategorySectionsProps {
+    selectedCategories: CategoryLabel[];
+    filteredList: UnpackedNormalCellLine[];
+    isPhone: boolean;
+}
+
+// Todo: get copy from science team/UX
+export const LABEL_COPY: Record<CategoryLabel, string> = {
+    [CategoryLabel.KeyStructureAndOrganelle]:
+        "Cellular structures labeled by tagged protein expressed in stem cell state.",
+    [CategoryLabel.NuclearStructure]:
+        "Structures labeled by tagged protein expressed in nuclear compartment.",
+    [CategoryLabel.Stress]:
+        "Structures labeled are indicators of specific subtypes of stress responses.",
+    [CategoryLabel.CardiacStructure]:
+        "Structures labeled are expressed specifically in differentiated cardiomyocytes.",
+    [CategoryLabel.Tools]:
+        "CRISPRi (dCas9-KRAB) expressed from safe harbor for knockdown experiments, with other structures tagged.",
+    [CategoryLabel.Endothelial]:
+        "Structure labeled is specifically expressed in differentiated endothelial cells.",
+};
+
+const bucketByCategory = (
+    list: UnpackedNormalCellLine[],
+    selected: CategoryLabel[]
+): Record<CategoryLabel, UnpackedNormalCellLine[]> => {
+    return list.reduce((acc, item) => {
+        for (const label of item.categoryLabels ?? []) {
+            if (!selected.includes(label)) continue;
+            (acc[label] ??= []).push(item);
+        }
+        return acc;
+    }, {} as Record<CategoryLabel, UnpackedNormalCellLine[]>);
+};
+
+const CategorySections: React.FC<CategorySectionsProps> = ({
+    selectedCategories,
+    filteredList,
+    isPhone,
+}) => {
+    const buckets = React.useMemo(
+        () => bucketByCategory(filteredList, selectedCategories),
+        [filteredList, selectedCategories]
+    );
+
+    return (
+        <>
+            {selectedCategories.map((cat) => {
+                const data = buckets[cat] || [];
+                if (!data.length) return null;
+                return (
+                    <CellLineTable
+                        key={cat}
+                        tableName={cat}
+                        tableDescription={LABEL_COPY[cat] || ""}
+                        cellLines={data}
+                        released={true}
+                        columns={getNormalTableColumns(false)}
+                        mobileConfig={getNormalTableMobileConfig(isPhone)}
+                    />
+                );
+            })}
+        </>
+    );
+};
+
+export default CategorySections;
