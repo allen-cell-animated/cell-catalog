@@ -9,19 +9,24 @@ import {
     ParentLine,
     NormalCellLineNode,
     GenomicCharacterizationFrontmatter,
+    StemCellCharacteristicsFrontmatter,
 } from "../../component-queries/types";
 import { getThumbnail } from "../../utils/mediaUtils";
 import { hasTableData, nonEmptyArray } from "../../utils";
 import { extractGeneticModifications } from "../../component-queries/convert-data";
 import { DiagramCardProps } from "../shared/DiagramCard";
 import {
+    CardiomyocyteDifferentiationData,
     ClonePercentPositive,
+    PluripotencyAnalysisData,
+    TrilineageDifferentiationData,
     UnpackedDiseaseCellLineFull,
     UnpackedEditingDesign,
     UnpackedGenomicCharacterization,
     UnpackedNormalCellLineFull,
+    UnpackedStemCellCharacteristics,
 } from "./types";
-import { StemCellCharProps } from "./StemCellChar";
+import { PERCENT_POS_CAPTION } from "./stem-cell-table-constants";
 
 export const unpackDiagrams = (diagrams?: SingleImageDiagram[]): DiagramCardProps[] => {
     if (!diagrams || diagrams.length === 0) {
@@ -147,7 +152,7 @@ export const unpackGenomicCharacterization = (gc?: GenomicCharacterizationFrontm
 
 export const getStemCellCharData = (
     clones: Clone[]
-): StemCellCharProps | null => {
+): UnpackedStemCellCharacteristics | null => {
     const init: {
         percentPositive: ClonePercentPositive[];
         passingAntibodies: any[];
@@ -157,7 +162,7 @@ export const getStemCellCharData = (
         passingAntibodies: [],
         differentiation: [],
     };
-    const data = clones.reduce((acc, clone) => {
+    const collectedData = clones.reduce((acc, clone) => {
         const cloneNumber = clone.clone_number;
         if (cloneNumber === undefined) {
             return acc;
@@ -170,15 +175,29 @@ export const getStemCellCharData = (
         }
         return acc;
     }, init);
+
     if (
-        data.percentPositive.length === 0 &&
-        data.passingAntibodies.length === 0 &&
-        data.differentiation.length === 0
+        collectedData.percentPositive.length === 0 &&
+        collectedData.passingAntibodies.length === 0 &&
+        collectedData.differentiation.length === 0
     ) {
         return null;
-    } else {
-        return data;
     }
+
+    return {
+        pluripotencyAnalysis: { caption: "", data: [] },
+        trilineageDifferentiation: { caption: "", data: [] },
+        cardiomyocyteDifferentiation: { caption: "", data: [] },
+        rnaSeqAnalysis: [],
+        diseaseCardioMyocyteDifferentiation: {
+            caption: PERCENT_POS_CAPTION,
+            data: [{
+                percentPositive: collectedData.percentPositive,
+                passingAntibodies: collectedData.passingAntibodies,
+                differentiation: collectedData.differentiation,
+            }]
+        }
+    };
 };
 
 export const unpackParentLineFromFrontmatter = (data: ParentalLineFrontmatter): ParentLine => {
@@ -199,6 +218,57 @@ export const unpackParentLineFromFrontmatter = (data: ParentalLineFrontmatter): 
         tagLocation,
         fluorescentTag
     }
+}
+
+export const unpackNormalStemCellCharacteristics = (scc?: StemCellCharacteristicsFrontmatter): UnpackedStemCellCharacteristics | null => {
+    if (!scc) return null;
+
+    const pluripotencyAnalysis: PluripotencyAnalysisData = {
+        caption: scc.pluripotency_caption,
+        data: (scc.pluripotency_analysis ?? []).map((row) => ({
+            marker: row.marker,
+            positiveCells: row.positive_cells,
+        })),
+    };
+
+    const trilineageDifferentiation: TrilineageDifferentiationData = {
+        caption: scc.trilineage_caption,
+        data: (scc.trilineage_differentiation ?? []).map((row) => ({
+            germLayer: row.germ_layer,
+            marker: row.marker,
+            percentPositiveCells: row.percent_positive_cells,
+        })),
+    };
+
+    const cardiomyocyteDifferentiation: CardiomyocyteDifferentiationData = {
+        caption: scc.cardiomyocyte_differentiation_caption,
+        data: scc.cardiomyocyte_differentiation ? [
+            {
+                troponinPercentPositive:
+                    scc.cardiomyocyte_differentiation.troponin_percent_positive,
+                dayOfBeatingPercent:
+                    scc.cardiomyocyte_differentiation.day_of_beating_percent,
+                dayOfBeatingRange:
+                    scc.cardiomyocyte_differentiation.day_of_beating_range,
+            },
+        ] : [],
+    };
+
+    const rnaSeqAnalysis: DiagramCardProps[] = (scc.rnaseq_analysis ?? []).map(
+        (item) => ({
+            title: "RNASEQ", // TODO get appropriate title for this card
+            image: item.image,
+            caption: item.caption,
+        })
+    );
+
+    return {
+        pluripotencyAnalysis,
+        trilineageDifferentiation,
+        cardiomyocyteDifferentiation,
+        rnaSeqAnalysis,
+        diseaseCardioMyocyteDifferentiation: {caption: "", data: []}
+    };
 }
 
 export const unpackNormalFrontmatterForSubpage = (
@@ -223,6 +293,8 @@ export const unpackNormalFrontmatterForSubpage = (
 
     const genomicCharacterization = unpackGenomicCharacterization(cellLineNode.frontmatter.genomic_characterization)
 
+    const stemCellCharacteristics = unpackNormalStemCellCharacteristics(cellLineNode.frontmatter.stem_cell_characteristics);
+
     return {
         key: `${cellLineNode.frontmatter.cell_line_id}-${cellLineNode.frontmatter.clone_number}`,
         path: cellLineNode.fields.slug,
@@ -243,7 +315,8 @@ export const unpackNormalFrontmatterForSubpage = (
         thumbnailImage: getThumbnail(cellLineNode.frontmatter.images_and_videos),
         imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
         editingDesign: editingDesign,
-        genomicCharacterization: genomicCharacterization
+        genomicCharacterization: genomicCharacterization,
+        stemCellCharacteristics: stemCellCharacteristics
     };
 };
 
@@ -262,7 +335,7 @@ export const unpackDiseaseFrontmatterForSubpage = (
         diagrams: unpackDiagrams(
             cellLineNode.frontmatter.genomic_characterization?.diagrams)
     };
-    const stemCellCharData = getStemCellCharData(
+    const stemCellCharacteristics = getStemCellCharData(
         cellLineNode.frontmatter.clones
     );
     const parentalLine = unpackParentLineFromFrontmatter(
@@ -283,6 +356,6 @@ export const unpackDiseaseFrontmatterForSubpage = (
         imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
         editingDesign: editingDesign,
         genomicCharacterization: genomicCharacterization,
-        stemCellCharData: stemCellCharData,
+        stemCellCharacteristics: stemCellCharacteristics,
     };
 };
