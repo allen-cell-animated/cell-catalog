@@ -1,8 +1,7 @@
 import React from "react";
 import { graphql, StaticQuery } from "gatsby";
 
-import {
-    CategoryLabel,
+import {    
     CategoryLabel,
     CellLineStatus,
     NormalCellLineNode,
@@ -14,7 +13,6 @@ import { PHONE_BREAKPOINT } from "../constants";
 import useWindowWidth from "../hooks/useWindowWidth";
 import { getNormalTableMobileConfig } from "../components/CellLineTable/MobileView";
 import SearchAndFilter from "./SearchAndFilter";
-import CategorySections from "../components/CategorySections";
 import CategorySections from "../components/CategorySections";
 
 const CellLineTableTemplate = (props: QueryResult) => {
