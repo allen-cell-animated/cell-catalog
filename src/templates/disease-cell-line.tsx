@@ -42,7 +42,7 @@ export const DiseaseCellLineTemplate = ({
     diseaseName,
     editingDesign,
     genomicCharacterization,
-    stemCellCharData,
+    stemCellCharacteristics,
 }: DiseaseCellLineTemplateProps) => {
     const hasImagesOrVideos = hasMedia(imagesAndVideos);
     return (
@@ -88,7 +88,7 @@ export const DiseaseCellLineTemplate = ({
             <SubpageTabs
                 editingDesignData={editingDesign}
                 genomicCharacterizationData={genomicCharacterization}
-                stemCellCharData={stemCellCharData}
+                stemCellCharacteristics={stemCellCharacteristics}
                 tabsToRender={
                     diseaseName === Disease.Cardiomyopathy
                         ? TABS_WITH_STEM_CELL

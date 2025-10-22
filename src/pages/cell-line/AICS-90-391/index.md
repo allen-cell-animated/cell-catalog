@@ -78,11 +78,11 @@ stem_cell_characteristics:
     - marker: "NANOG"
       positive_cells: 99.9
     - marker: "SOX2"
-      positive_cells: NA
+      positive_cells: null
     - marker: "OCT4"
       positive_cells: 100
     - marker: "SSEA-1"
-      positive_cells: NA
+      positive_cells: null
     - marker: "SSEA-4"
       positive_cells: 100
     - marker: "TRA-160"
