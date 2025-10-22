@@ -1,14 +1,83 @@
 .container {
-    padding: 0 64px;
+    padding: 20px 96px;
     font-weight: 600;
     font-size: 17px;
     line-height: 34px;
+    border: 1.5px solid var(--RAIN_SHADOW);
+}
+
+.container :global(.ant-card-body) {
+    padding: 0;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 4px;
 }
 
 .search-bar-container {
     max-width: 984px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
+    flex: 2;
+}
+
+.search-bar-container .autocomplete {
+    height: 40px;
+    font-size: 17px;
+    min-width: 200px;
+}
+
+.clear-button {
+    height: 40px;
+    width: 62px;
+}
+
+.filter-container {
+    flex: 1;
+}
+
+.filter-container :global(.ant-select) {
+    min-width: 200px;
+    max-width: 418px;
+    width: 100%;
+}
+
+.container .filter-container :global(.ant-select) :global(.ant-select-selector) {
+    cursor: pointer;
+}
+
+.filter-container :global(.ant-select-selection-wrap) {
+    align-self: center;
+    cursor: text;
+}
+
+.filter-container :global(.ant-select-selection-placeholder) {
+    color: var(--MEDIUM_GRAY);
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.filter-container
+    :global(.ant-select-selection-item):global(.ant-select-selection-item) {
+    background: none;
+    color: var(--ALLEN_BLUE);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.filter-container
+    :global(.ant-select-selection-item-remove):global(
+        .ant-select-selection-item-remove
+    ) {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .input-container {
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 16px;
+    }
 }
