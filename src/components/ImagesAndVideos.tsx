@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Flex, Image, Space } from "antd";
 import { ZoomOutOutlined, ZoomInOutlined } from "@ant-design/icons";
 import { GatsbyImage, getSrc } from "gatsby-plugin-image";
@@ -57,8 +57,26 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     );
     const [currentIndex, setCurrentIndex] = useState(0);
     const [previewVisible, setPreviewVisible] = useState(false);
+    const [videoSrc, setVideoSrc] = useState<string>("");
 
     const showThumbnails = mediaItems.length > 1;
+
+    // preload video iframe when selectedMedia changes
+    useEffect(() => {
+        if (selectedMedia && !isImage(selectedMedia)) {
+            // clear src first to reset iframe
+            setVideoSrc("");
+            
+            // set video src after a brief moment to allow iframe to initialize
+            const timerId = setTimeout(() => {
+                setVideoSrc(`${selectedMedia.video}?badge=0&autoplay=1&muted=1&loop=1&title=0`);
+            }, 100);
+            
+            return () => {
+                clearTimeout(timerId);
+            };
+        }
+    }, [selectedMedia]);
 
     if (!selectedMedia) return null;
 
@@ -146,13 +164,12 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
             );
         }
 
-        const vimeoUrl = selectedMedia.video;
         return (
             <div
                 className={`${showThumbnails ? primaryImageWithThumbnail : primaryImageOnly} ${videoContainer}`}
             >
                 <iframe
-                    src={`${vimeoUrl}?badge=0&autoplay=1&muted=1&loop=1&title=0`}
+                    src={videoSrc}
                     className={videoIframe}
                     title="Cell line video"
                     allowFullScreen
