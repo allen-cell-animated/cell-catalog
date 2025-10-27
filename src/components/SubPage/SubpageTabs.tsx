@@ -32,7 +32,7 @@ const SubpageTabs: React.FC<SubpageTabsProps> = ({
     const getNoDataComponent = (tab: SubPage) => {
         return (
             <div className={noData}>
-                {`${tab}`} not yet available for this cell line.
+                {tab} not yet available for this cell line.
             </div>
         );
     };
