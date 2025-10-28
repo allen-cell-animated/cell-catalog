@@ -189,6 +189,12 @@ collections:
                                 ],
                             required: false,
                         },
+                        {
+                            label: "Donor Plasmid",
+                            name: "donor_plasmid",
+                            widget: "string",
+                            required: false,
+                        }
                     ],
             }
           - {
@@ -201,12 +207,6 @@ collections:
                 label: "Certificate of Analysis",
                 name: "certificate_of_analysis",
                 widget: "file",
-                required: false,
-            }
-          - {
-                label: "Donor Plasmid",
-                name: "donor_plasmid",
-                widget: "string",
                 required: false,
             }
           - {

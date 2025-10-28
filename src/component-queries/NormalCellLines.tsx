@@ -135,7 +135,6 @@ export default function NormalCellLines() {
                                     clone_number
                                     status
                                     order_link
-                                    donor_plasmid
                                     images_and_videos {
                                         images {
                                             image {
@@ -161,6 +160,7 @@ export default function NormalCellLines() {
                                         allele_count
                                         tag_location
                                         fluorescent_tag
+                                        donor_plasmid
                                     }
                                     parental_line {
                                         frontmatter {

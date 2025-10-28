@@ -138,7 +138,6 @@ export const pageQuery = graphql`
                 certificate_of_analysis
                 eu_hpsc_reg
                 order_link
-                donor_plasmid
                 parental_line {
                     frontmatter {
                         name
@@ -157,6 +156,7 @@ export const pageQuery = graphql`
                     tag_location
                     fluorescent_tag
                     allele_count
+                    donor_plasmid
                 }
                 status
                 images_and_videos {
