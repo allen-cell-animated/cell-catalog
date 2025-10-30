@@ -1,12 +1,13 @@
+import { ColumnsType } from "antd/es/table";
 import React from "react";
 
-import { ColumnsType } from "antd/es/table";
 import {
-    PluripotencyAnalysis,
-    TrilineageDifferentiation,
     CardiomyocyteDifferentiation,
     DiseaseCardioMyocyteDifferentiation,
+    PluripotencyAnalysis,
+    TrilineageDifferentiation,
 } from "./types";
+
 const {
     cloneColumn,
     percentPositiveColumn,

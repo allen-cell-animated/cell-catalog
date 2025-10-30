@@ -9,8 +9,8 @@ import {
     UnpackedNormalCellLine,
 } from "../../component-queries/types";
 import { RAIN_SHADOW, SERIOUS_GRAY } from "../../style/theme";
-import GeneDisplay from "../GeneDisplay";
 import { openLinkInNewTab } from "../../utils";
+import GeneDisplay from "../GeneDisplay";
 import PlasmidIcon from "../Icons/PlasmidIcon";
 import { MultiLineTableCell, ParentComponent } from "../MultiLineTableCell";
 import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";

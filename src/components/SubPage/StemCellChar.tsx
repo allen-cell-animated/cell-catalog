@@ -1,21 +1,22 @@
+import { ColumnsType } from "antd/es/table";
 import React from "react";
-import {
-    PluripotencyAnalysisData,
-    UnpackedStemCellCharacteristics as StemCellCharProps,
-} from "./types";
+
+import DiagramCard from "../shared/DiagramCard";
 import SubpageTable from "../shared/SubpageTable";
 import {
     CARDIOMYOCYTE_COLUMNS,
     PERCENT_POS_COLUMNS,
     TRILINEAGE_COLUMNS,
 } from "./stem-cell-table-constants";
-import { ColumnsType } from "antd/es/table";
-import DiagramCard from "../shared/DiagramCard";
+import {
+    PluripotencyAnalysisData,
+    UnpackedStemCellCharacteristics as StemCellCharProps,
+} from "./types";
 
 const { masonry, masonryItem } = require("../../style/subpage.module.css");
 
 export function getPluripotencyColumns(
-    pluripotencyData: PluripotencyAnalysisData
+    pluripotencyData: PluripotencyAnalysisData,
 ): {
     columns: ColumnsType<any>;
     dataSource: any[];
@@ -45,7 +46,7 @@ export function getPluripotencyColumns(
                     typeof row.positiveCells === "number"
                         ? `${row.positiveCells}%`
                         : row.positiveCells,
-                ])
+                ]),
             ),
         },
     ];
@@ -63,10 +64,9 @@ const StemCellChar: React.FC<StemCellCharProps> = ({
     const flippedAxesPluripotency =
         getPluripotencyColumns(pluripotencyAnalysis);
 
-    const percentPositive =
-        diseaseCardioMyocyteDifferentiation.data.flatMap(
-            (item) => item.percentPositive ?? []
-        );
+    const percentPositive = diseaseCardioMyocyteDifferentiation.data.flatMap(
+        (item) => item.percentPositive ?? [],
+    );
     const percentPositiveRows = percentPositive.map((clone) => ({
         key: clone.cloneNumber,
         cloneNumber: clone.cloneNumber,

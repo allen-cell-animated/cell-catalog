@@ -1,8 +1,12 @@
 import React from "react";
-import { CategoryLabel, UnpackedNormalCellLine } from "../component-queries/types";
+
+import {
+    CategoryLabel,
+    UnpackedNormalCellLine,
+} from "../component-queries/types";
 import CellLineTable from "./CellLineTable";
-import { getNormalTableColumns } from "./CellLineTable/NormalTableColumns";
 import { getNormalTableMobileConfig } from "./CellLineTable/MobileView";
+import { getNormalTableColumns } from "./CellLineTable/NormalTableColumns";
 
 interface CategorySectionsProps {
     selectedCategories: CategoryLabel[];
@@ -29,15 +33,18 @@ export const LABEL_COPY: Record<CategoryLabel, string> = {
 
 const bucketByCategory = (
     list: UnpackedNormalCellLine[],
-    selected: CategoryLabel[]
+    selected: CategoryLabel[],
 ): Record<CategoryLabel, UnpackedNormalCellLine[]> => {
-    return list.reduce((acc, item) => {
-        for (const label of item.categoryLabels ?? []) {
-            if (!selected.includes(label)) continue;
-            (acc[label] ??= []).push(item);
-        }
-        return acc;
-    }, {} as Record<CategoryLabel, UnpackedNormalCellLine[]>);
+    return list.reduce(
+        (acc, item) => {
+            for (const label of item.categoryLabels ?? []) {
+                if (!selected.includes(label)) continue;
+                (acc[label] ??= []).push(item);
+            }
+            return acc;
+        },
+        {} as Record<CategoryLabel, UnpackedNormalCellLine[]>,
+    );
 };
 
 const CategorySections: React.FC<CategorySectionsProps> = ({
@@ -48,7 +55,7 @@ const CategorySections: React.FC<CategorySectionsProps> = ({
 }) => {
     const buckets = React.useMemo(
         () => bucketByCategory(filteredList, selectedCategories),
-        [filteredList, selectedCategories]
+        [filteredList, selectedCategories],
     );
 
     return (

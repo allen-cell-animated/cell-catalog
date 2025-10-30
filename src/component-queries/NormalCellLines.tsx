@@ -1,6 +1,7 @@
 import { StaticQuery, graphql } from "gatsby";
 import React from "react";
 
+import CategorySections from "../components/CategorySections";
 import CellLineTable from "../components/CellLineTable";
 import { getNormalTableMobileConfig } from "../components/CellLineTable/MobileView";
 import { getNormalTableColumns } from "../components/CellLineTable/NormalTableColumns";
@@ -8,18 +9,13 @@ import { PHONE_BREAKPOINT } from "../constants";
 import useWindowWidth from "../hooks/useWindowWidth";
 import SearchAndFilter from "./SearchAndFilter";
 import { convertFrontmatterToNormalCellLines } from "./convert-data";
-import {    
-    CategoryLabel,
-    CellLineStatus,
-    NormalCellLineNode,
-} from "./types";
-import CategorySections from "../components/CategorySections";
+import { CategoryLabel, CellLineStatus, NormalCellLineNode } from "./types";
 
 const CellLineTableTemplate = (props: QueryResult) => {
     const { edges: cellLines } = props.data.allMarkdownRemark;
 
     const allCellLines = cellLines.map((cellLine) =>
-        convertFrontmatterToNormalCellLines(cellLine)
+        convertFrontmatterToNormalCellLines(cellLine),
     );
 
     const width = useWindowWidth();
@@ -31,10 +27,10 @@ const CellLineTableTemplate = (props: QueryResult) => {
     >([]);
 
     const inProgressCellLines = filteredCellLines.filter(
-        (cellLine) => cellLine.status === CellLineStatus.InProgress
+        (cellLine) => cellLine.status === CellLineStatus.InProgress,
     );
     const finishedCellLines = filteredCellLines.filter(
-        (cellLine) => cellLine.status !== CellLineStatus.InProgress
+        (cellLine) => cellLine.status !== CellLineStatus.InProgress,
     );
 
     const filteredByCategory = selectedCategories.length > 0;

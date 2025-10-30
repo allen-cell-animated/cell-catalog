@@ -1,5 +1,6 @@
-import React, { useRef, useState } from "react";
 import { AutoComplete, Flex, Input } from "antd";
+import React, { useRef, useState } from "react";
+
 import {
     SearchLookup,
     UnpackedNormalCellLine,

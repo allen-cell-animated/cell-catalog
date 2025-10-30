@@ -6,8 +6,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 
 import { CellLineStatus } from "../../component-queries/types";
-import { formatCellLineId, openLinkInNewTab } from "../../utils";
 import { WHITE } from "../../style/theme";
+import { formatCellLineId, openLinkInNewTab } from "../../utils";
 import TubeIcon from "../Icons/TubeIcon";
 import { UnpackedCellLine, mdBreakpoint } from "./types";
 

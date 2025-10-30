@@ -2,6 +2,7 @@ import { Card } from "antd";
 import { StaticQuery, graphql } from "gatsby";
 import React from "react";
 
+import Filter from "../components/Filter";
 import SearchBar from "../components/SearchBar";
 import { createLookupMappings } from "./convert-data";
 import {
@@ -9,7 +10,6 @@ import {
     SearchAndFilterQueryResult,
     UnpackedNormalCellLine,
 } from "./types";
-import Filter from "../components/Filter";
 
 const {
     container,
