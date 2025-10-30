@@ -1,5 +1,6 @@
 import React from "react";
 
+import { GeneticModification } from "../../component-queries/types";
 import PreviewCompatibleImage from "../../components/PreviewCompatibleImage";
 import InfoPanel from "../../components/shared/InfoPanel";
 import useDisableWheel from "../hooks/useDisableWheel";
@@ -22,15 +23,17 @@ const CellLinePreview = ({ entry, getAsset }: TemplateProps) => {
         images.length > 0 ? getAsset(images[0]?.image) : null;
 
     const status = entry.getIn(["data", "status"]);
-    const genes = geneticModifications.map((mod: any) => mod.gene).join(" / ");
+    const genes = geneticModifications
+        .map((mod: GeneticModification) => mod.gene)
+        .join(" / ");
     const tagLocations = geneticModifications
-        .map((mod: any) => mod.tag_location)
+        .map((mod: GeneticModification) => mod.tag_location)
         .join(" / ");
     const fluorescentTags = geneticModifications
-        .map((mod: any) => mod.fluorescent_tag)
+        .map((mod: GeneticModification) => mod.fluorescent_tag)
         .join(" / ");
     const alleleCounts = geneticModifications
-        .map((mod: any) => mod.allele_count)
+        .map((mod: GeneticModification) => mod.allele_count)
         .join(" / ");
 
     const data = [

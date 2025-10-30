@@ -41,14 +41,14 @@ const CellLineTableTemplate = (props: QueryResult) => {
                 cellLines={filteredCellLines}
                 released={true}
                 columns={getNormalTableColumns(false)}
-                mobileConfig={getNormalTableMobileConfig(isPhone)}
+                mobileConfig={getNormalTableMobileConfig({ isPhone })}
             />
             <CellLineTable
                 tableName="Cell Line Catalog"
                 cellLines={inProgressCellLines}
                 released={false}
                 columns={getNormalTableColumns(true)}
-                mobileConfig={getNormalTableMobileConfig(isPhone)}
+                mobileConfig={getNormalTableMobileConfig({ isPhone })}
             />
         </>
     );
@@ -132,7 +132,7 @@ export default function NormalCellLines() {
                     }
                 }
             `}
-            render={(data: any) => <CellLineTableTemplate data={data} />}
+            render={(data) => <CellLineTableTemplate data={data} />}
         />
     );
 }

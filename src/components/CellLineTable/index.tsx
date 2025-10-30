@@ -2,11 +2,15 @@ import { Flex, Table, Tag } from "antd";
 import { navigate } from "gatsby";
 import React, { useState } from "react";
 
-import { CellLineStatus } from "../../component-queries/types";
+import {
+    CellLineStatus,
+    UnpackedDiseaseCellLine,
+    UnpackedNormalCellLine,
+} from "../../component-queries/types";
 import { TABLET_BREAKPOINT } from "../../constants";
 import useEnv from "../../hooks/useEnv";
 import useWindowWidth from "../../hooks/useWindowWidth";
-import { TableStatus, UnpackedCellLine } from "./types";
+import { CellLineColumns, TableStatus, UnpackedCellLine } from "./types";
 
 const {
     comingSoon,
@@ -20,8 +24,12 @@ interface CellLineTableProps {
     tableName: string;
     cellLines: UnpackedCellLine[];
     released: boolean;
-    columns: any;
-    mobileConfig?: any;
+    columns:
+        | CellLineColumns<UnpackedDiseaseCellLine>
+        | CellLineColumns<UnpackedNormalCellLine>;
+    mobileConfig?: {
+        expandedRowRender: (record: UnpackedNormalCellLine) => React.ReactNode;
+    };
     suppressRowClickRef?: React.MutableRefObject<boolean>;
 }
 
@@ -52,7 +60,7 @@ const CellLineTable = ({
     const onCellInteraction = (
         record: UnpackedCellLine,
         index: number | undefined,
-    ): {} => {
+    ) => {
         // creates a hover effect for the whole row, and takes the user to
         // the sub-page for the cell line. The reason
         // this couldn't be done at the row level, is that we have
@@ -75,7 +83,7 @@ const CellLineTable = ({
         };
     };
 
-    const interactiveColumns = columns.map((column: any) => {
+    const interactiveColumns = columns.map((column) => {
         // the two clickable columns are the order cell line and
         // CoA column. They do not have the hover effect and
         // should not take you to the cell line page, and are not
