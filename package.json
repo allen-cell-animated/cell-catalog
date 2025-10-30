@@ -55,7 +55,7 @@
     "typecheck": "npx tsc -noEmit"
   },
   "devDependencies": {
-    "@eslint/js": "^9.36.0",
+    "@eslint/js": "^9.38.0",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/antd": "^1.0.0",
     "@types/node": "^20.11.20",
@@ -63,7 +63,7 @@
     "@types/react-dom": "^18.2.19",
     "@types/react-helmet": "^6.1.11",
     "concurrently": "^9.1.2",
-    "eslint": "^9.36.0",
+    "eslint": "^9.38.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-sort-destructure-keys": "^2.0.0",
     "gatsby-plugin-postcss": "^6.13.1",
@@ -72,8 +72,8 @@
     "netlify-cli": "^17.15.7",
     "postcss": "^8.4.35",
     "prettier": "^3.6.2",
-    "typescript": "^5.3.3",
-    "typescript-eslint": "^8.45.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2",
     "typescript-plugin-css-modules": "^5.1.0"
   },
   "engines": {
