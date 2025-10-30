@@ -18,6 +18,8 @@ const {
     dataComplete,
     hoveredRow,
     tableTitle,
+    categoryText,
+    titleContainer,
 } = require("../../style/table.module.css");
 
 interface CellLineTableProps {
@@ -30,12 +32,14 @@ interface CellLineTableProps {
     mobileConfig?: {
         expandedRowRender: (record: UnpackedNormalCellLine) => React.ReactNode;
     };
+    tableDescription?: string;
     suppressRowClickRef?: React.MutableRefObject<boolean>;
 }
 
 const CellLineTable = ({
     cellLines,
     columns,
+    tableDescription,
     mobileConfig,
     released,
     suppressRowClickRef,
@@ -107,8 +111,13 @@ const CellLineTable = ({
                     isClickable(record) ? dataComplete : ""
                 }
                 title={() => (
-                    <Flex align="center">
+                    <Flex className={titleContainer} align="center">
                         <h3 className={tableTitle}>{tableName}</h3>
+                        {tableDescription && width >= TABLET_BREAKPOINT && (
+                            <div className={categoryText}>
+                                {tableDescription}
+                            </div>
+                        )}
                         {inProgress ? (
                             <Tag color="#00215F" style={{ color: "#fff" }}>
                                 {TableStatus.ComingSoon}

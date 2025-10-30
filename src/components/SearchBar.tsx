@@ -1,13 +1,16 @@
-import { AutoComplete, Input } from "antd";
 import React, { useRef, useState } from "react";
-
+import { AutoComplete, Flex, Input } from "antd";
 import {
     SearchLookup,
     UnpackedNormalCellLine,
 } from "../component-queries/types";
 import { SecondaryButton } from "./shared/Buttons";
 
-const { searchBarContainer } = require("../style/search-and-filter.module.css");
+const {
+    searchBarContainer,
+    autocomplete,
+    clearButton,
+} = require("../style/search-and-filter.module.css");
 
 interface SearchBarProps {
     mappings: SearchLookup;
@@ -117,7 +120,7 @@ const SearchBar = ({ allCellLines, mappings, setResults }: SearchBarProps) => {
     };
 
     return (
-        <div className={searchBarContainer}>
+        <Flex gap={12} className={searchBarContainer}>
             <AutoComplete
                 defaultActiveFirstOption={false}
                 options={options}
@@ -137,15 +140,19 @@ const SearchBar = ({ allCellLines, mappings, setResults }: SearchBarProps) => {
                     }
                 }}
             >
-                <Input placeholder="Search AICS ID, protein, gene..." />
+                <Input
+                    className={autocomplete}
+                    placeholder="Search AICS ID, protein, gene..."
+                />
             </AutoComplete>
             <SecondaryButton
+                className={clearButton}
                 onClick={handleClear}
                 disabled={currentValue === ""}
             >
                 Clear
             </SecondaryButton>
-        </div>
+        </Flex>
     );
 };
 
