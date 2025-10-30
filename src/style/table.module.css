@@ -134,7 +134,7 @@
   fill: var(--RAIN_SHADOW);
 }
 
-.container h4 {
+.container .id-header h4 {
     font-family: "Open Sans", sans-serif;
     font-size: 24px;
     font-weight: 600;
