@@ -52,8 +52,8 @@ export const CellLineTemplate = ({
     imagesAndVideos,
     orderLink,
     orderPlasmid,
-    taggedGene,
     stemCellCharacteristics,
+    taggedGene,
 }: CellLineProps) => {
     const hasImagesOrVideos = hasMedia(imagesAndVideos);
     if (cellLineId === 0) {

@@ -55,11 +55,11 @@ export function getPluripotencyColumns(
 }
 
 const StemCellChar: React.FC<StemCellCharProps> = ({
-    pluripotencyAnalysis,
-    trilineageDifferentiation,
     cardiomyocyteDifferentiation,
     diseaseCardioMyocyteDifferentiation,
+    pluripotencyAnalysis,
     rnaSeqAnalysis,
+    trilineageDifferentiation,
 }) => {
     const flippedAxesPluripotency =
         getPluripotencyColumns(pluripotencyAnalysis);

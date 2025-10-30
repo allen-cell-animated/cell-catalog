@@ -30,7 +30,7 @@ const getAllOptions = (
         .map((c) => ({ label: c, value: c }));
 };
 
-const Filter: React.FC<FilterProps> = ({ filteredList, value, onChange }) => {
+const Filter: React.FC<FilterProps> = ({ filteredList, onChange, value }) => {
     const options = React.useMemo(
         () => getAllOptions(filteredList),
         [filteredList],

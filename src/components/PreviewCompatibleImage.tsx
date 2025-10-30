@@ -1,11 +1,11 @@
 import * as React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, GatsbyImageProps } from "gatsby-plugin-image";
 
 interface PreviewCompatibleImageProps {
     imageInfo: {
         alt?: string;
-        childImageSharp?: any;
-        image: any;
+        childImageSharp?: GatsbyImageProps;
+        image: string | { childImageSharp?: GatsbyImageProps; gatsbyImageData?: any };
     };
     imageStyle?: React.CSSProperties;
 }

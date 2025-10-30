@@ -8,9 +8,9 @@ import {
 import { SecondaryButton } from "./shared/Buttons";
 
 const {
-    searchBarContainer,
     autocomplete,
     clearButton,
+    searchBarContainer,
 } = require("../style/search-and-filter.module.css");
 
 interface SearchBarProps {

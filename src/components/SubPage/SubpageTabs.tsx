@@ -27,8 +27,8 @@ export interface SubpageTabsProps {
 const SubpageTabs: React.FC<SubpageTabsProps> = ({
     editingDesignData,
     genomicCharacterizationData,
-    tabsToRender,
     stemCellCharacteristics,
+    tabsToRender,
 }) => {
     const getNoDataComponent = (tab: SubPage) => {
         return (

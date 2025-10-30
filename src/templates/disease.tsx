@@ -30,7 +30,18 @@ export const DiseaseTemplate = ({ gene, name }: DiseaseTemplateProps) => {
     );
 };
 
-const Disease = ({ data }: any) => {
+interface DiseaseQueryData {
+    markdownRemark: {
+        frontmatter: {
+            name: string;
+            gene: {
+                frontmatter: GeneFrontmatter;
+            }[];
+        };
+    };
+}
+
+const Disease = ({ data }: { data: DiseaseQueryData }) => {
     const { markdownRemark: cellLine } = data;
     return (
         <Layout>

@@ -27,10 +27,10 @@ interface SearchAndFilterProps {
 // This query groups all cell lines by gene symbol
 const SearchAndFilter = ({
     allCellLines,
-    selectedCategories,
     filteredCellLines,
-    setSelectedCategories,
+    selectedCategories,
     setResults,
+    setSelectedCategories,
 }: SearchAndFilterProps) => {
     return (
         <StaticQuery

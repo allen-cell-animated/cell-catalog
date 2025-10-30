@@ -4,7 +4,6 @@ import React from "react";
 import { GeneFrontmatter } from "../component-queries/types";
 import Layout from "../components/Layout";
 
-interface GeneNameTemplateProps extends GeneFrontmatter {}
 
 export const GeneNameTemplate = ({
     isoforms,
@@ -12,7 +11,7 @@ export const GeneNameTemplate = ({
     protein,
     structure,
     symbol,
-}: GeneNameTemplateProps) => {
+}: GeneFrontmatter) => {
     return (
         <section>
             <h2>{name}</h2>

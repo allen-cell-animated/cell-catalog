@@ -48,10 +48,10 @@ const bucketByCategory = (
 };
 
 const CategorySections: React.FC<CategorySectionsProps> = ({
-    selectedCategories,
     filteredList,
     isPhone,
     released,
+    selectedCategories,
 }) => {
     const buckets = React.useMemo(
         () => bucketByCategory(filteredList, selectedCategories),

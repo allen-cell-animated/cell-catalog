@@ -5,19 +5,19 @@ import PreviewCompatibleImage from "../../components/PreviewCompatibleImage";
 import InfoPanel from "../../components/shared/InfoPanel";
 import useDisableWheel from "../hooks/useDisableWheel";
 import ProgressPreview from "./ProgressPreview";
-import { TemplateProps } from "./types";
+import { Item, TemplateProps } from "./types";
 
 const CellLinePreview = ({ entry, getAsset }: TemplateProps) => {
     useDisableWheel();
     const geneticModificationsEntry = entry.getIn([
         "data",
         "genetic_modifications",
-    ]);
-    const geneticModifications = geneticModificationsEntry
-        ? geneticModificationsEntry.toJS()
+    ]) as Item;
+    const geneticModifications: GeneticModification[] = geneticModificationsEntry
+        ? geneticModificationsEntry.toJS() as GeneticModification[]
         : [];
-    const imagesEntry = entry.getIn(["data", "images_and_videos", "images"]);
-    const images = imagesEntry ? imagesEntry.toJS() : [];
+    const imagesEntry = entry.getIn(["data", "images_and_videos", "images"]) as Item;
+    const images: { image: string }[] = imagesEntry ? imagesEntry.toJS() : [];
 
     const thumbnailImage =
         images.length > 0 ? getAsset(images[0]?.image) : null;
