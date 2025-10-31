@@ -1,32 +1,33 @@
 import React from "react";
-import { GeneNameTemplate } from "../../templates/gene-name";
-import { TemplateProps } from "./types";
-import { Isoform } from "../../component-queries/types";
 
-const GeneNamePreview = ({ entry, widgetFor }: TemplateProps) => {
+import { Isoform } from "../../component-queries/types";
+import { GeneNameTemplate } from "../../templates/gene-name";
+import { Item, TemplateProps } from "./types";
+
+const GeneNamePreview = ({ entry }: TemplateProps) => {
     const isoforms = [] as Isoform[];
-    const isoformData = entry.getIn(["data", "isoforms"]);
+    const isoformData = entry.getIn(["data", "isoforms"]) as Item[];
     if (isoformData) {
-        isoformData.forEach((isoform: any) => {
-            const idsData = isoform.get("ids");
+        isoformData.forEach((isoform: Item) => {
+            const idsData = isoform.get("ids") as unknown as Item;
             const ids = [] as string[];
             if (idsData?.size) {
-                idsData.forEach((id: any) => {
-                    ids.push(id);
+                idsData.forEach((id: Item) => {
+                    ids.push(id.toString());
                 });
             }
             isoforms.push({
-                name: isoform.get("name"),
+                name: isoform.get("name") as string,
                 ids: ids,
             });
         });
     }
     return (
         <GeneNameTemplate
-            symbol={entry.getIn(["data", "symbol"])}
-            name={entry.getIn(["data", "name"])}
-            protein={entry.getIn(["data", "protein"])}
-            structure={entry.getIn(["data", "structure"])}
+            symbol={entry.getIn(["data", "symbol"]) as string}
+            name={entry.getIn(["data", "name"]) as string}
+            protein={entry.getIn(["data", "protein"]) as string}
+            structure={entry.getIn(["data", "structure"]) as string}
             isoforms={isoforms}
         />
     );

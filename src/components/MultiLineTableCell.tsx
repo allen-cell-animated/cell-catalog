@@ -1,6 +1,7 @@
-import React from "react";
-import { TruncatedText } from "./TruncatedText";
 import { Divider } from "antd";
+import React from "react";
+
+import { TruncatedText } from "./TruncatedText";
 
 const {
     divider,
@@ -21,9 +22,9 @@ interface MultipleLineContainerProps {
 }
 
 export const MultiLineTableCell: React.FC<MultipleLineContainerProps> = ({
+    dividers,
     entries,
     parent,
-    dividers,
 }) => {
     if (!entries || entries.length === 0) {
         return null;

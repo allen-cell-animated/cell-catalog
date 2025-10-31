@@ -155,8 +155,8 @@ export const getStemCellCharData = (
 ): UnpackedStemCellCharacteristics | null => {
     const init: {
         percentPositive: ClonePercentPositive[];
-        passingAntibodies: any[];
-        differentiation: any[];
+        passingAntibodies: string[];
+        differentiation: TrilineageDifferentiationData[];
     } = {
         percentPositive: [],
         passingAntibodies: [],
@@ -201,7 +201,7 @@ export const getStemCellCharData = (
 };
 
 export const unpackParentLineFromFrontmatter = (data: ParentalLineFrontmatter): ParentLine => {
-    const { taggedGene, alleleCount, tagLocation, fluorescentTag } =
+    const { alleleCount, fluorescentTag, taggedGene, tagLocation } =
         extractGeneticModifications(
             data
                 .genetic_modifications
@@ -275,7 +275,7 @@ export const unpackNormalFrontmatterForSubpage = (
     cellLineNode: NormalCellLineNode
 ): UnpackedNormalCellLineFull => {
 
-    const { taggedGene, alleleCount, tagLocation, fluorescentTag } =
+    const { alleleCount, fluorescentTag, taggedGene, tagLocation } =
         extractGeneticModifications(
             cellLineNode.frontmatter.genetic_modifications
         );

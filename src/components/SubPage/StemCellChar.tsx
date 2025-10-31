@@ -1,28 +1,30 @@
+import { AnyObject } from "antd/es/_util/type";
+import { ColumnsType } from "antd/es/table";
 import React from "react";
-import {
-    PluripotencyAnalysisData,
-    UnpackedStemCellCharacteristics as StemCellCharProps,
-} from "./types";
+
+import DiagramCard from "../shared/DiagramCard";
 import SubpageTable from "../shared/SubpageTable";
 import {
     CARDIOMYOCYTE_COLUMNS,
     PERCENT_POS_COLUMNS,
     TRILINEAGE_COLUMNS,
 } from "./stem-cell-table-constants";
-import { ColumnsType } from "antd/es/table";
-import DiagramCard from "../shared/DiagramCard";
+import {
+    PluripotencyAnalysisData,
+    UnpackedStemCellCharacteristics as StemCellCharProps,
+} from "./types";
 
 const { masonry, masonryItem } = require("../../style/subpage.module.css");
 
-export function getPluripotencyColunms(
-    pluripotencyData: PluripotencyAnalysisData
+export function getPluripotencyColumns(
+    pluripotencyData: PluripotencyAnalysisData,
 ): {
-    columns: ColumnsType<any>;
-    dataSource: any[];
+    columns: ColumnsType<AnyObject>;
+    dataSource: AnyObject[];
 } | null {
     if (pluripotencyData.data.length === 0) return null;
     const data = pluripotencyData.data;
-    const columns: ColumnsType<any> = [
+    const columns: ColumnsType<AnyObject> = [
         {
             title: "Metric",
             dataIndex: "metric",
@@ -45,7 +47,7 @@ export function getPluripotencyColunms(
                     typeof row.positiveCells === "number"
                         ? `${row.positiveCells}%`
                         : row.positiveCells,
-                ])
+                ]),
             ),
         },
     ];
@@ -54,25 +56,23 @@ export function getPluripotencyColunms(
 }
 
 const StemCellChar: React.FC<StemCellCharProps> = ({
-    pluripotencyAnalysis,
-    trilineageDifferentiation,
     cardiomyocyteDifferentiation,
     diseaseCardioMyocyteDifferentiation,
+    pluripotencyAnalysis,
     rnaSeqAnalysis,
+    trilineageDifferentiation,
 }) => {
     const flippedAxesPluripotency =
-        getPluripotencyColunms(pluripotencyAnalysis);
+        getPluripotencyColumns(pluripotencyAnalysis);
 
-    const percentPositive =
-        diseaseCardioMyocyteDifferentiation.data.flatMap(
-            (item) => item.percentPositive ?? []
-        );
+    const percentPositive = diseaseCardioMyocyteDifferentiation.data.flatMap(
+        (item) => item.percentPositive ?? [],
+    );
     const percentPositiveRows = percentPositive.map((clone) => ({
         key: clone.cloneNumber,
         cloneNumber: clone.cloneNumber,
         value: `${clone.value}%`,
     }));
-    // TODO: add passing antibodies and differentiation tables once we have the data
     return (
         <div className={masonry}>
             {flippedAxesPluripotency && (
@@ -89,7 +89,7 @@ const StemCellChar: React.FC<StemCellCharProps> = ({
                 <SubpageTable
                     className={masonryItem}
                     title="Trilineage Differentiation"
-                    columns={TRILINEAGE_COLUMNS}
+                    columns={TRILINEAGE_COLUMNS as ColumnsType<AnyObject>}
                     dataSource={trilineageDifferentiation.data}
                     caption={trilineageDifferentiation.caption}
                 />
@@ -99,7 +99,7 @@ const StemCellChar: React.FC<StemCellCharProps> = ({
                 <SubpageTable
                     className={masonryItem}
                     title="Cardiomyocyte Differentiation"
-                    columns={CARDIOMYOCYTE_COLUMNS}
+                    columns={CARDIOMYOCYTE_COLUMNS as ColumnsType<AnyObject>}
                     dataSource={cardiomyocyteDifferentiation.data}
                     caption={cardiomyocyteDifferentiation.caption}
                 />
@@ -117,7 +117,7 @@ const StemCellChar: React.FC<StemCellCharProps> = ({
                 <SubpageTable
                     className={masonryItem}
                     title="Cardiomyocyte Differentiation"
-                    columns={PERCENT_POS_COLUMNS}
+                    columns={PERCENT_POS_COLUMNS as ColumnsType<AnyObject>}
                     caption={diseaseCardioMyocyteDifferentiation?.caption}
                     dataSource={percentPositiveRows}
                 />

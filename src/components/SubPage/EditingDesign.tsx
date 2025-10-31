@@ -1,17 +1,17 @@
-import React from "react";
 import { DescriptionsProps } from "antd";
+import React from "react";
+
 import DiagramCard from "../shared/DiagramCard";
 import InfoPanel from "../shared/InfoPanel";
-import { UnpackedEditingDesign as EditingDesignSubpageProps } from "./types";
 import SubpageContentCard from "../shared/SubpageContentCard";
-
-const { container, legendText } = require("../../style/subpage.module.css");
+import { UnpackedEditingDesign as EditingDesignSubpageProps } from "./types";
 
 const {
-    pamSite,
     mutation,
     noHeader,
+    pamSite,
 } = require("../../style/editing-design.module.css");
+const { container, legendText } = require("../../style/subpage.module.css");
 
 const formatTextWithGeneLocations = (text: string, className: string) => {
     // PAM sites and mutations are indicated in the string using square brackets
@@ -30,15 +30,15 @@ const formatTextWithGeneLocations = (text: string, className: string) => {
 };
 
 const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
-    crRnaTargetSite,
-    dnaDonorSequence,
     cas9,
-    fPrimer,
-    rPrimer,
-    diagrams,
-    ncbiIsoforms,
     crRNA,
+    crRnaTargetSite,
+    diagrams,
+    dnaDonorSequence,
+    fPrimer,
     linker,
+    ncbiIsoforms,
+    rPrimer,
 }) => {
     const rows: DescriptionsProps["items"] = [];
 
@@ -83,10 +83,14 @@ const EditingDesignSubpage: React.FC<EditingDesignSubpageProps> = ({
                     {dnaDonorSequence.map((sequence, index) => {
                         return (
                             <div key={index}>
-                                <span> {sequence.type}{sequence.type === "Mutant" ? "*" : ""} </span>
+                                <span>
+                                    {" "}
+                                    {sequence.type}
+                                    {sequence.type === "Mutant" ? "*" : ""}{" "}
+                                </span>
                                 {formatTextWithGeneLocations(
                                     sequence.sequence,
-                                    mutation
+                                    mutation,
                                 )}
                             </div>
                         );

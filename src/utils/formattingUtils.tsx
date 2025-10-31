@@ -15,7 +15,7 @@ const esc = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 function replaceInline(
     parts: Part[],
     textToMatch: string,
-    makeNode: (key: string) => React.ReactNode
+    makeNode: (key: string) => React.ReactNode,
 ): Part[] {
     if (!textToMatch) return parts;
     const re = new RegExp(`(${esc(textToMatch)})`, "g");

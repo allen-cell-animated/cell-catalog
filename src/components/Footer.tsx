@@ -1,12 +1,14 @@
-import React from "react";
-import { HTMLContent } from "./shared/Content";
 import { Divider } from "antd";
+import React from "react";
+
+import { HTMLContent } from "./shared/Content";
+
 const {
-    container,
     collaboratorsSection,
+    container,
     contributor,
-    institution,
     generation,
+    institution,
 } = require("../style/footer.module.css");
 
 interface FooterProps {
@@ -21,11 +23,11 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({
-    generationText,
     acknowledgementsBlock,
     fundingText,
+    generationText,
 }) => {
-    const { intro, collaborators, contributor_text, contributors } =
+    const { collaborators, contributor_text, contributors, intro } =
         acknowledgementsBlock;
 
     return (

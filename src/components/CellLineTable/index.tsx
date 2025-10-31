@@ -1,21 +1,24 @@
-import React, { useState } from "react";
-import { Table, Tag, Flex } from "antd";
+import { Flex, Table, Tag } from "antd";
 import { navigate } from "gatsby";
+import React, { useState } from "react";
 
-import { CellLineStatus } from "../../component-queries/types";
-
-import useWindowWidth from "../../hooks/useWindowWidth";
+import {
+    CellLineStatus,
+    UnpackedDiseaseCellLine,
+    UnpackedNormalCellLine,
+} from "../../component-queries/types";
 import { TABLET_BREAKPOINT } from "../../constants";
-import { TableStatus, UnpackedCellLine } from "./types";
 import useEnv from "../../hooks/useEnv";
+import useWindowWidth from "../../hooks/useWindowWidth";
+import { CellLineColumns, TableStatus, UnpackedCellLine } from "./types";
 
 const {
-    tableTitle,
-    container,
-    comingSoon,
-    hoveredRow,
-    dataComplete,
     categoryText,
+    comingSoon,
+    container,
+    dataComplete,
+    hoveredRow,
+    tableTitle,
     titleContainer,
 } = require("../../style/table.module.css");
 
@@ -23,20 +26,24 @@ interface CellLineTableProps {
     tableName: string;
     cellLines: UnpackedCellLine[];
     released: boolean;
-    columns: any;
+    columns:
+        | CellLineColumns<UnpackedDiseaseCellLine>
+        | CellLineColumns<UnpackedNormalCellLine>;
+    mobileConfig?: {
+        expandedRowRender: (record: UnpackedNormalCellLine) => React.ReactNode;
+    };
     tableDescription?: string;
-    mobileConfig?: any;
     suppressRowClickRef?: React.MutableRefObject<boolean>;
 }
 
 const CellLineTable = ({
-    tableName,
     cellLines,
-    released,
     columns,
-    tableDescription,
     mobileConfig,
+    released,
     suppressRowClickRef,
+    tableDescription,
+    tableName,
 }: CellLineTableProps) => {
     const [hoveredRowIndex, setHoveredRowIndex] = useState(-1);
 
@@ -56,8 +63,8 @@ const CellLineTable = ({
     };
     const onCellInteraction = (
         record: UnpackedCellLine,
-        index: number | undefined
-    ): {} => {
+        index: number | undefined,
+    ) => {
         // creates a hover effect for the whole row, and takes the user to
         // the sub-page for the cell line. The reason
         // this couldn't be done at the row level, is that we have
@@ -80,7 +87,7 @@ const CellLineTable = ({
         };
     };
 
-    const interactiveColumns = columns.map((column: any) => {
+    const interactiveColumns = columns.map((column) => {
         // the two clickable columns are the order cell line and
         // CoA column. They do not have the hover effect and
         // should not take you to the cell line page, and are not

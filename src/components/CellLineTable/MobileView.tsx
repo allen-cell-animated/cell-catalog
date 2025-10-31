@@ -55,7 +55,13 @@ export const getDiseaseTableMobileConfig = (isPhone: boolean) => {
     };
 };
 
-export const getNormalTableMobileConfig = (isPhone: boolean) => {
+export const getNormalTableMobileConfig = ({
+    isPhone,
+}: {
+    isPhone: boolean;
+}): {
+    expandedRowRender: (record: UnpackedNormalCellLine) => React.ReactNode;
+} => {
     return {
         expandedRowRender: (record: UnpackedNormalCellLine) => (
             <Flex

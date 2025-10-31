@@ -1,5 +1,6 @@
+import { Flex, Select } from "antd";
 import React from "react";
-import { Select, Flex } from "antd";
+
 import {
     CategoryLabel,
     UnpackedNormalCellLine,
@@ -18,21 +19,21 @@ interface FilterProps {
 }
 
 const getAllOptions = (
-    list: UnpackedNormalCellLine[]
+    list: UnpackedNormalCellLine[],
 ): { label: string; value: string }[] => {
     const set = new Set<string>();
     list.forEach((c) =>
-        (c.categoryLabels || []).forEach((label) => set.add(label))
+        (c.categoryLabels || []).forEach((label) => set.add(label)),
     );
     return Array.from(set)
         .sort((a, b) => a.localeCompare(b))
         .map((c) => ({ label: c, value: c }));
 };
 
-const Filter: React.FC<FilterProps> = ({ filteredList, value, onChange }) => {
+const Filter: React.FC<FilterProps> = ({ filteredList, onChange, value }) => {
     const options = React.useMemo(
         () => getAllOptions(filteredList),
-        [filteredList]
+        [filteredList],
     );
 
     const handleClear = () => {

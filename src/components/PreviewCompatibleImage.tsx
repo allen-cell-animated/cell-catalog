@@ -1,11 +1,11 @@
 import * as React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, ISharpGatsbyImageArgs } from "gatsby-plugin-image";
 
 interface PreviewCompatibleImageProps {
     imageInfo: {
         alt?: string;
-        childImageSharp?: any;
-        image: any;
+        childImageSharp?: IGatsbyImageDataParent<Partial<Node>>;
+        image?: string | { childImageSharp: ISharpGatsbyImageArgs };
     };
     imageStyle?: React.CSSProperties;
 }
@@ -16,14 +16,15 @@ const PreviewCompatibleImage = ({
 }: PreviewCompatibleImageProps) => {
     const { alt = "", childImageSharp, image } = imageInfo;
     if (!!image && !!image.childImageSharp) {
+        const gatsbyImage = image as { childImageSharp: ISharpGatsbyImageArgs };
         return (
             <GatsbyImage
-                image={image.childImageSharp.gatsbyImageData}
+                image={gatsbyImage.childImageSharp.gatsbyImageData}
                 style={imageStyle}
                 alt={alt}
             />
         );
-    } else if (!!childImageSharp) {
+    } else if (childImageSharp) {
         return (
             <GatsbyImage
                 image={childImageSharp.gatsbyImageData}
@@ -32,7 +33,7 @@ const PreviewCompatibleImage = ({
             />
         );
         // for Netlify CMS
-    } else if (image) {
+    } else if (image && typeof image === "string") {
         return <img style={imageStyle} src={image} alt={alt} />;
     } else {
         return null;

@@ -54,7 +54,7 @@ export const convertFrontmatterToDiseaseCellLine = (
             structure: gene.frontmatter.structure,
             protein: gene.frontmatter.protein,
         }));
-    const { taggedGene, alleleCount, tagLocation, fluorescentTag } =
+    const { alleleCount, fluorescentTag, taggedGene, tagLocation } =
         extractGeneticModifications(
             cellLineNode.frontmatter.parental_line.frontmatter
                 .genetic_modifications
@@ -93,7 +93,7 @@ export const convertFrontmatterToNormalCellLines = ({
 }: {
     node: NormalCellLineNode;
 }): UnpackedNormalCellLine => {
-    const { taggedGene, alleleCount, tagLocation, fluorescentTag } =
+    const { alleleCount, fluorescentTag, taggedGene, tagLocation } =
         extractGeneticModifications(
             cellLineNode.frontmatter.genetic_modifications
         );
@@ -137,7 +137,7 @@ export const createLookupMappings = (
     const structureAndNameToGene = new Map();
     const categoryToIds = new Map();
     const allSearchableTerms: Set<string> = new Set();
-    data.forEach((group: any) => {
+    data.forEach((group: { fieldValue: string; edges: { node: any }[] }) => {
         const symbol = group.fieldValue;
         allSearchableTerms.add(symbol);
         const cellLines: number[] = [];
@@ -149,7 +149,7 @@ export const createLookupMappings = (
             }
             const categories = edge.node.frontmatter.category_labels;
             if (categories) {
-                categories.forEach((category: any) => {
+                categories.forEach((category: string) => {
                     allSearchableTerms.add(category);
                     if (cellLineId) {
                         const set = categoryToIds.get(category) || new Set();
