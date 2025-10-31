@@ -13,10 +13,15 @@ const CellLinePreview = ({ entry, getAsset }: TemplateProps) => {
         "data",
         "genetic_modifications",
     ]) as Item;
-    const geneticModifications: GeneticModification[] = geneticModificationsEntry
-        ? geneticModificationsEntry.toJS() as GeneticModification[]
-        : [];
-    const imagesEntry = entry.getIn(["data", "images_and_videos", "images"]) as Item;
+    const geneticModifications: GeneticModification[] =
+        geneticModificationsEntry
+            ? (geneticModificationsEntry.toJS() as GeneticModification[])
+            : [];
+    const imagesEntry = entry.getIn([
+        "data",
+        "images_and_videos",
+        "images",
+    ]) as Item;
     const images: { image: string }[] = imagesEntry ? imagesEntry.toJS() : [];
 
     const thumbnailImage =

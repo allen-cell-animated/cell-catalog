@@ -1,4 +1,5 @@
-import { CardProps, Table } from "antd";
+import { CardProps, Table, TableProps } from "antd";
+import { AnyObject } from "antd/es/_util/type";
 import classNames from "classnames";
 import React from "react";
 
@@ -9,8 +10,8 @@ const { container, table } = require("../../style/subpage-table.module.css");
 export interface SubpageTableProps extends CardProps {
     title?: string;
     caption?: string;
-    columns: any[];
-    dataSource: any[];
+    columns: TableProps<AnyObject>["columns"];
+    dataSource: AnyObject[];
 }
 
 const SubpageTable: React.FC<SubpageTableProps> = ({

@@ -1,3 +1,5 @@
+import { AnyObject } from "antd/es/_util/type";
+import { ColumnsType } from "antd/es/table";
 import React from "react";
 
 import DiagramCard from "../shared/DiagramCard";
@@ -27,7 +29,9 @@ const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
                 <SubpageTable
                     className={masonryItem}
                     title={"Amplified Junctions"}
-                    columns={AMPLIFIED_JUNCTION_COLUMNS}
+                    columns={
+                        AMPLIFIED_JUNCTION_COLUMNS as ColumnsType<AnyObject>
+                    }
                     dataSource={amplifiedJunctions.data}
                     caption={amplifiedJunctions.caption}
                 />
@@ -36,7 +40,7 @@ const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
                 <SubpageTable
                     className={masonryItem}
                     title={"GFP and donor plasmid copy number"}
-                    columns={DDPCR_COLUMNS}
+                    columns={DDPCR_COLUMNS as ColumnsType<AnyObject>}
                     dataSource={ddpcr.data}
                     caption={ddpcr.caption}
                 />
@@ -45,7 +49,9 @@ const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
                 <SubpageTable
                     className={masonryItem}
                     title={"crRNA Off-targets"}
-                    columns={CRRNA_OFF_TARGETS_COLUMNS}
+                    columns={
+                        CRRNA_OFF_TARGETS_COLUMNS as ColumnsType<AnyObject>
+                    }
                     dataSource={crRnaOffTargets.data}
                     caption={crRnaOffTargets.caption}
                 />

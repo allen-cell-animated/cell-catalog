@@ -1,5 +1,11 @@
 import { IGatsbyImageData } from "gatsby-plugin-image";
-import { UnpackedStemCellCharacteristics } from "../components/SubPage/types";
+
+export interface TemplateImage {
+    image: {
+        url: string;
+    }
+    caption: string;
+}
 
 export interface RawImageData {
     image: {
@@ -261,7 +267,6 @@ export interface UnpackedCellLineMainInfo {
     orderLink: string;
     thumbnailImage?: IGatsbyImageData | null;
     imagesAndVideos?: MediaFrontmatter;
-    stemCellCharacteristics: UnpackedStemCellCharacteristics | null;
 }
 
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {

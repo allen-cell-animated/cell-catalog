@@ -11,4 +11,6 @@ export interface TemplateProps {
 export interface Item {
     get: (key: string) => string | number | RawImageData["image"];
     toJS: () => unknown;
+    size: number;
+    forEach: (callback: (item: Item, index: number) => void) => void;
 } 

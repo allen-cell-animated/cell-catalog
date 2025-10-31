@@ -1,3 +1,4 @@
+import { AnyObject } from "antd/es/_util/type";
 import { ColumnsType } from "antd/es/table";
 import React from "react";
 
@@ -18,12 +19,12 @@ const { masonry, masonryItem } = require("../../style/subpage.module.css");
 export function getPluripotencyColumns(
     pluripotencyData: PluripotencyAnalysisData,
 ): {
-    columns: ColumnsType<any>;
-    dataSource: any[];
+    columns: ColumnsType<AnyObject>;
+    dataSource: AnyObject[];
 } | null {
     if (pluripotencyData.data.length === 0) return null;
     const data = pluripotencyData.data;
-    const columns: ColumnsType<any> = [
+    const columns: ColumnsType<AnyObject> = [
         {
             title: "Metric",
             dataIndex: "metric",
@@ -72,7 +73,6 @@ const StemCellChar: React.FC<StemCellCharProps> = ({
         cloneNumber: clone.cloneNumber,
         value: `${clone.value}%`,
     }));
-    // TODO: add passing antibodies and differentiation tables once we have the data
     return (
         <div className={masonry}>
             {flippedAxesPluripotency && (
@@ -89,7 +89,7 @@ const StemCellChar: React.FC<StemCellCharProps> = ({
                 <SubpageTable
                     className={masonryItem}
                     title="Trilineage Differentiation"
-                    columns={TRILINEAGE_COLUMNS}
+                    columns={TRILINEAGE_COLUMNS as ColumnsType<AnyObject>}
                     dataSource={trilineageDifferentiation.data}
                     caption={trilineageDifferentiation.caption}
                 />
@@ -99,7 +99,7 @@ const StemCellChar: React.FC<StemCellCharProps> = ({
                 <SubpageTable
                     className={masonryItem}
                     title="Cardiomyocyte Differentiation"
-                    columns={CARDIOMYOCYTE_COLUMNS}
+                    columns={CARDIOMYOCYTE_COLUMNS as ColumnsType<AnyObject>}
                     dataSource={cardiomyocyteDifferentiation.data}
                     caption={cardiomyocyteDifferentiation.caption}
                 />
@@ -117,7 +117,7 @@ const StemCellChar: React.FC<StemCellCharProps> = ({
                 <SubpageTable
                     className={masonryItem}
                     title="Cardiomyocyte Differentiation"
-                    columns={PERCENT_POS_COLUMNS}
+                    columns={PERCENT_POS_COLUMNS as ColumnsType<AnyObject>}
                     caption={diseaseCardioMyocyteDifferentiation?.caption}
                     dataSource={percentPositiveRows}
                 />

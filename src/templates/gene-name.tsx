@@ -4,7 +4,6 @@ import React from "react";
 import { GeneFrontmatter } from "../component-queries/types";
 import Layout from "../components/Layout";
 
-
 export const GeneNameTemplate = ({
     isoforms,
     name,
