@@ -11,7 +11,11 @@ import GeneDisplay from "../GeneDisplay";
 
 const { expandableContent } = require("../../style/table.module.css");
 
-export const getDiseaseTableMobileConfig = (isPhone: boolean) => {
+export const getDiseaseTableMobileConfig = (
+    isPhone: boolean
+): {
+    expandedRowRender: (record: UnpackedDiseaseCellLine, index: number) => React.ReactNode;
+} => {
     return {
         expandedRowRender: (record: UnpackedDiseaseCellLine, index: number) => (
             <Flex
@@ -55,11 +59,9 @@ export const getDiseaseTableMobileConfig = (isPhone: boolean) => {
     };
 };
 
-export const getNormalTableMobileConfig = ({
-    isPhone,
-}: {
-    isPhone: boolean;
-}): {
+export const getNormalTableMobileConfig = (
+    isPhone: boolean
+): {
     expandedRowRender: (record: UnpackedNormalCellLine) => React.ReactNode;
 } => {
     return {
