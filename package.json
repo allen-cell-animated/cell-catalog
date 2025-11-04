@@ -49,10 +49,11 @@
     "develop": "npm run clean && gatsby develop",
     "serve": "gatsby serve",
     "format": "prettier \"src/**/*{.tsx, .ts}\" --write",
+    "formatCheck": "prettier \"src/**/*{.tsx, .ts}\" --check",
     "lint": "eslint \"src/**/*{.tsx, .ts}\" --quiet --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx concurrently \"npx netlify-cms-proxy-server\" \"npm start -- --progress\"",
-    "typecheck": "npx tsc -noEmit"
+    "typeCheck": "npx tsc -noEmit"
   },
   "devDependencies": {
     "@eslint/js": "^9.38.0",

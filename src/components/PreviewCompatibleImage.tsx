@@ -4,7 +4,7 @@ interface PreviewCompatibleImageProps {
     imageInfo: {
         alt?: string;
         // childImageSharp?: IGatsbyImageDataParent<Partial<Node>>;
-        image?: string ;
+        image?: string;
     };
     imageStyle?: React.CSSProperties;
 }
@@ -18,14 +18,14 @@ const PreviewCompatibleImage = ({
 }: PreviewCompatibleImageProps) => {
     const { alt = "", image } = imageInfo;
     // if (!!image && !!image.childImageSharp) {
-        // const gatsbyImage = image as { childImageSharp: ISharpGatsbyImageArgs };
-        // return (
-        //     <GatsbyImage
-        //         image={gatsbyImage.childImageSharp.gatsbyImageData}
-        //         style={imageStyle}
-        //         alt={alt}
-        //     />
-        // );
+    // const gatsbyImage = image as { childImageSharp: ISharpGatsbyImageArgs };
+    // return (
+    //     <GatsbyImage
+    //         image={gatsbyImage.childImageSharp.gatsbyImageData}
+    //         style={imageStyle}
+    //         alt={alt}
+    //     />
+    // );
     // } else if (childImageSharp) {
     //     return (
     //         <GatsbyImage
