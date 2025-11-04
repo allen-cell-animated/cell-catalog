@@ -1,9 +1,22 @@
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
-export interface TemplateImage {
-    image: {
-        url: string;
-    }
+// this is the image that comes from the CMS
+// without any data processing
+// it's just the user entered data
+export interface UserEnteredImage {
+    image: string; // this is the image URL or path
+    caption: string;
+}
+
+export interface ImageAsset {
+    url: string;
+    path: string;
+    field?: string;
+    fileObj?: File;
+}
+
+export interface ImageAssetWithCaption {
+    image: ImageAsset;
     caption: string;
 }
 

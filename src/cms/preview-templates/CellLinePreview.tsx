@@ -1,6 +1,6 @@
 import React from "react";
 
-import { GeneticModification } from "../../component-queries/types";
+import { CellLineStatus, GeneticModification, ImageAsset, UserEnteredImage } from "../../component-queries/types";
 import PreviewCompatibleImage from "../../components/PreviewCompatibleImage";
 import InfoPanel from "../../components/shared/InfoPanel";
 import useDisableWheel from "../hooks/useDisableWheel";
@@ -22,12 +22,10 @@ const CellLinePreview = ({ entry, getAsset }: TemplateProps) => {
         "images_and_videos",
         "images",
     ]) as Item;
-    const images: { image: string }[] = imagesEntry ? imagesEntry.toJS() : [];
-
-    const thumbnailImage =
-        images.length > 0 ? getAsset(images[0]?.image) : null;
-
-    const status = entry.getIn(["data", "status"]);
+    const images: UserEnteredImage[] = imagesEntry ? imagesEntry.toJS() as UserEnteredImage[] : [];
+    const thumbnailImage: ImageAsset | null =
+        images.length > 0 ? getAsset(images[0]?.image as string) as ImageAsset : null;
+    const status = entry.getIn(["data", "status"]) as CellLineStatus;
     const genes = geneticModifications
         .map((mod: GeneticModification) => mod.gene)
         .join(" / ");
@@ -45,12 +43,12 @@ const CellLinePreview = ({ entry, getAsset }: TemplateProps) => {
         {
             key: "cell_line_id",
             label: "Cell Line ID",
-            children: entry.getIn(["data", "cell_line_id"]),
+            children: entry.getIn(["data", "cell_line_id"]) as number,
         },
         {
             key: "clone_number",
             label: "Clone Number",
-            children: entry.getIn(["data", "clone_number"]),
+            children: entry.getIn(["data", "clone_number"]) as number,
         },
         {
             key: "gene",
@@ -92,6 +90,7 @@ const CellLinePreview = ({ entry, getAsset }: TemplateProps) => {
               ]
             : []),
     ];
+    console.log("data", data);
 
     return (
         <>

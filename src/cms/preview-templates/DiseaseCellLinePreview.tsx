@@ -3,7 +3,8 @@ import React from "react";
 import {
     CellLineStatus,
     Clone,
-    TemplateImage,
+    ImageAsset,
+    ImageAssetWithCaption,
 } from "../../component-queries/types";
 import CloneTable from "../../components/CloneTable";
 import PreviewCompatibleImage from "../../components/PreviewCompatibleImage";
@@ -90,7 +91,7 @@ const DiseaseCellLinePreview = ({ entry, getAsset }: TemplateProps) => {
         "images_and_videos",
         "images",
     ]) as Item[];
-    const images = [] as TemplateImage[];
+    const images = [] as ImageAssetWithCaption[];
     if (imageArray !== undefined) {
         imageArray.forEach((imageObj: Item) => {
             const imageValue = imageObj.get("image");
@@ -98,7 +99,7 @@ const DiseaseCellLinePreview = ({ entry, getAsset }: TemplateProps) => {
                 typeof imageValue === "string"
                     ? imageValue
                     : (imageValue?.toString?.() ?? ""),
-            ) as TemplateImage["image"];
+            ) as ImageAsset;
             const data = {
                 image: image,
                 caption: imageObj.get("caption") as string,
@@ -106,13 +107,12 @@ const DiseaseCellLinePreview = ({ entry, getAsset }: TemplateProps) => {
             images.push(data);
         });
     }
-    console.log("images", images);
     return (
         <>
             <ProgressPreview collection={"disease"} status={status} />
             <InfoPanel data={data} />
             <CloneTable dataSource={cloneData} />
-            {images.map((data: TemplateImage) => (
+            {images.map((data: ImageAssetWithCaption) => (
                 <div
                     key={data.image.url}
                     style={{
