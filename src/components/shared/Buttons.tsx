@@ -1,10 +1,10 @@
-import React from "react";
 import { Button as AntdButton } from "antd";
+import React from "react";
 
 const {
-    defaultButton,
     darkBlueHoverButton,
     darkThemeGhostButton,
+    defaultButton,
     secondaryButton,
 } = require("../../style/buttons.module.css");
 

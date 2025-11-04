@@ -1,5 +1,24 @@
 import { IGatsbyImageData } from "gatsby-plugin-image";
-import { UnpackedStemCellCharacteristics } from "../components/SubPage/types";
+
+// this is the image that comes from the CMS
+// without any data processing
+// it's just the user entered data
+export interface UserEnteredImage {
+    image: string; // this is the image URL or path
+    caption: string;
+}
+
+export interface ImageAsset {
+    url: string;
+    path: string;
+    field?: string;
+    fileObj?: File;
+}
+
+export interface ImageAssetWithCaption {
+    image: ImageAsset;
+    caption: string;
+}
 
 export interface RawImageData {
     image: {
@@ -261,7 +280,6 @@ export interface UnpackedCellLineMainInfo {
     orderLink: string;
     thumbnailImage?: IGatsbyImageData | null;
     imagesAndVideos?: MediaFrontmatter;
-    stemCellCharacteristics: UnpackedStemCellCharacteristics | null;
 }
 
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
@@ -305,26 +323,19 @@ export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
     mutatedGene: UnpackedGene[];
 }
 
+export interface LookupGroup {
+    node: {
+        frontmatter: {
+            cell_line_id: number;
+            genetic_modifications: GeneticModification[];
+            category_labels: string[];
+        };
+    };
+}
+
 export interface SearchAndFilterGroup {
     fieldValue: string;
-    edges: {
-        node: {
-            frontmatter: {
-                cell_line_id: number;
-                genetic_modifications: {
-                    gene: {
-                        frontmatter: {
-                            name: string;
-                            symbol: string;
-                            protein: string;
-                            structure: string;
-                        };
-                    }[];
-                };
-                category_labels: string[];
-            };
-        };
-    }[];
+    edges: LookupGroup[];
 }
 
 export interface SearchAndFilterQueryResult {

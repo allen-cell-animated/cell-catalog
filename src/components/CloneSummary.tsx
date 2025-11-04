@@ -1,5 +1,6 @@
 import { Flex } from "antd";
 import React from "react";
+
 const { cloneNumber } = require("../style/table.module.css");
 
 interface CloneSummaryProps {
@@ -9,9 +10,9 @@ interface CloneSummaryProps {
 }
 
 const CloneSummary: React.FC<CloneSummaryProps> = ({
-    numMutants,
-    numIsogenics,
     index,
+    numIsogenics,
+    numMutants,
 }) => (
     <Flex vertical={true} key={index}>
         <div>

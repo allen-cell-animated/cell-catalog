@@ -79,8 +79,8 @@ export interface CardiomyocyteDifferentiation {
 
 export interface DiseaseCardioMyocyteDifferentiation {
     percentPositive: ClonePercentPositive[];
-    passingAntibodies?: any[]; //TODO: type this once we have the data
-    differentiation?: any[];
+    passingAntibodies?: string[]; 
+    differentiation?: TrilineageDifferentiationData[];
 }
 
 export type StemCellCharDataTypes = PluripotencyAnalysis | TrilineageDifferentiation | CardiomyocyteDifferentiation | DiseaseCardioMyocyteDifferentiation;
@@ -117,6 +117,7 @@ export interface UnpackedDiseaseCellLineFull extends UnpackedCellLineMainInfo {
     clones: Clone[];
     editingDesign: UnpackedEditingDesign | null;
     genomicCharacterization: UnpackedGenomicCharacterization | null;
+    stemCellCharacteristics: UnpackedStemCellCharacteristics | null;
 }
 
 export interface UnpackedNormalCellLineFull extends UnpackedCellLineMainInfo {
@@ -138,4 +139,5 @@ export interface UnpackedNormalCellLineFull extends UnpackedCellLineMainInfo {
     orderPlasmid: string[];
     editingDesign: UnpackedEditingDesign | null;
     genomicCharacterization: UnpackedGenomicCharacterization | null;
+    stemCellCharacteristics: UnpackedStemCellCharacteristics | null;
 }
