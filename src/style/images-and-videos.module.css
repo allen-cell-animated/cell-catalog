@@ -127,8 +127,7 @@
 .video-container {
     aspect-ratio: 16/9;
     display: flex;
-    position: relative;
-    background-color: #000000;
+    background-color: var(--BLACK);
 }
 
 .video-iframe {
