@@ -4,8 +4,6 @@ import React, { useState } from "react";
 
 import {
     CellLineStatus,
-    UnpackedDiseaseCellLine,
-    UnpackedNormalCellLine,
 } from "../../component-queries/types";
 import { TABLET_BREAKPOINT } from "../../constants";
 import useEnv from "../../hooks/useEnv";
@@ -26,11 +24,9 @@ interface CellLineTableProps {
     tableName: string;
     cellLines: UnpackedCellLine[];
     released: boolean;
-    columns:
-        | CellLineColumns<UnpackedDiseaseCellLine>
-        | CellLineColumns<UnpackedNormalCellLine>;
+    columns: CellLineColumns<UnpackedCellLine>
     mobileConfig?: {
-        expandedRowRender: (record: UnpackedNormalCellLine) => React.ReactNode;
+        expandedRowRender: (record: UnpackedCellLine , index: number) => React.ReactNode;
     };
     tableDescription?: string;
     suppressRowClickRef?: React.MutableRefObject<boolean>;
@@ -80,7 +76,7 @@ const CellLineTable = ({
             onClick: () => {
                 // if we are not in production, make it easier to
                 // navigate to the cell line page
-                if (isClickable(record)) {
+                if (isClickable(record) && record.path) {
                     navigate(record.path);
                 }
             },

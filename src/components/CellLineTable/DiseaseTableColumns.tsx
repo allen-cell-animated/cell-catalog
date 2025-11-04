@@ -17,7 +17,7 @@ import {
     certificateOfAnalysisColumn,
     obtainLineColumn,
 } from "./SharedColumns";
-import { CellLineColumns, mdBreakpoint, smBreakPoint } from "./types";
+import { CellLineColumns, mdBreakpoint, smBreakPoint, UnpackedCellLine } from "./types";
 
 const {
     clones,
@@ -28,7 +28,7 @@ const {
 export const getDiseaseTableColumns = (
     inProgress: boolean,
     suppressRowClickRef: React.MutableRefObject<boolean>,
-): CellLineColumns<UnpackedDiseaseCellLine> => {
+): CellLineColumns<UnpackedCellLine> => {
     const columns = [
         { ...cellLineIdColumn },
         {
@@ -70,8 +70,9 @@ export const getDiseaseTableColumns = (
             responsive: mdBreakpoint,
             render: (
                 parentalLine: UnpackedNormalCellLine,
-                record: UnpackedDiseaseCellLine,
+                record: UnpackedCellLine,
             ) => {
+                const cellLine = record as UnpackedDiseaseCellLine;
                 return (
                     <ParentalLineModal
                         key={parentalLine.cellLineId}
@@ -80,7 +81,7 @@ export const getDiseaseTableColumns = (
                         cloneNumber={parentalLine.cloneNumber}
                         image={parentalLine.thumbnailImage}
                         taggedGene={parentalLine.taggedGene}
-                        status={record.diseaseStatus}
+                        status={cellLine.diseaseStatus}
                         tagLocation={parentalLine.tagLocation}
                         fluorescentTag={parentalLine.fluorescentTag}
                     />

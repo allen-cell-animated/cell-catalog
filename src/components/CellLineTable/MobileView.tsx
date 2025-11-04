@@ -8,18 +8,23 @@ import {
 import { getCloneSummary } from "../../utils";
 import CloneSummary from "../CloneSummary";
 import GeneDisplay from "../GeneDisplay";
+import { UnpackedCellLine } from "./types";
 
 const { expandableContent } = require("../../style/table.module.css");
 
 export const getDiseaseTableMobileConfig = (
     isPhone: boolean
 ): {
-    expandedRowRender: (record: UnpackedDiseaseCellLine, index: number) => React.ReactNode;
+    expandedRowRender: (record: UnpackedCellLine, index: number) => React.ReactNode;
 } => {
+
     return {
-        expandedRowRender: (record: UnpackedDiseaseCellLine, index: number) => (
+        expandedRowRender: (record: UnpackedCellLine, index: number) => {
+            const diseaseCellLine = record as UnpackedDiseaseCellLine;
+            return (
+
             <Flex
-                key={record.cellLineId}
+                key={diseaseCellLine.cellLineId}
                 gap={16}
                 justify={"flex-start" as const}
                 className={expandableContent}
@@ -28,68 +33,75 @@ export const getDiseaseTableMobileConfig = (
                 {isPhone && (
                     <div>
                         <label>SNP:</label>
-                        <Flex vertical={true} key={record.snp}>
+                        <Flex vertical={true} key={diseaseCellLine.snp}>
                             <span key={"snp-0"}>
-                                {record.snp.split(":")[0]}:{" "}
+                                {diseaseCellLine.snp.split(":")[0]}:{" "}
                             </span>
                             <span key={"snp-1"}>
-                                {record.snp.split(":")[1]}
+                                {diseaseCellLine.snp.split(":")[1]}
                             </span>
                         </Flex>
                     </div>
                 )}
                 <div>
                     <label>Gene Symbol & Name:</label>
-                    {record.mutatedGene.map((gene, index) => (
+                    {diseaseCellLine.mutatedGene.map((gene, index) => (
                         <GeneDisplay key={index} gene={gene} />
                     ))}
                 </div>
                 <div>
                     <label>Clones:</label>
                     <CloneSummary
-                        numMutants={getCloneSummary(record.clones).numMutants}
+                        numMutants={getCloneSummary(diseaseCellLine.clones).numMutants}
                         numIsogenics={
-                            getCloneSummary(record.clones).numIsogenics
+                            getCloneSummary(diseaseCellLine.clones).numIsogenics
                         }
                         index={index}
                     />
                 </div>
             </Flex>
-        ),
-    };
+        );
+    }}
 };
+
 
 export const getNormalTableMobileConfig = (
     isPhone: boolean
 ): {
-    expandedRowRender: (record: UnpackedNormalCellLine) => React.ReactNode;
+    expandedRowRender: (record: UnpackedCellLine) => React.ReactNode;
 } => {
     return {
-        expandedRowRender: (record: UnpackedNormalCellLine) => (
-            <Flex
-                key={record.cellLineId}
-                gap={16}
-                justify={"flex-start" as const}
-                className={expandableContent}
-                wrap={"wrap" as const}
-            >
-                {isPhone && (
+        expandedRowRender: (record: UnpackedCellLine) => {
+            const normalCellLine = record as UnpackedNormalCellLine;
+            if (!normalCellLine.protein || !normalCellLine.taggedGene) {
+                return <div></div>;
+            }
+            return (
+                <Flex
+                    key={normalCellLine.cellLineId}
+                    gap={16}
+                    justify={"flex-start" as const}
+                    className={expandableContent}
+                    wrap={"wrap" as const}
+                >
+                    {isPhone && (
+                        <div>
+                            <label>Tagged Protein:</label>
+                            {normalCellLine.protein.map((protein, index) => (
+                                <Flex vertical={true} key={index}>
+                                    <span key={protein}>{protein}</span>
+                                </Flex>
+                            ))}
+                        </div>
+                    )}
                     <div>
-                        <label>Tagged Protein:</label>
-                        {record.protein.map((protein, index) => (
-                            <Flex vertical={true} key={index}>
-                                <span key={protein}>{protein}</span>
-                            </Flex>
+                        <label>Gene Symbol & Name:</label>
+                        {normalCellLine.taggedGene.map((gene, index) => (
+                            <GeneDisplay key={index} gene={gene} />
                         ))}
                     </div>
-                )}
-                <div>
-                    <label>Gene Symbol & Name:</label>
-                    {record.taggedGene.map((gene, index) => (
-                        <GeneDisplay key={index} gene={gene} />
-                    ))}
-                </div>
-            </Flex>
-        ),
+                </Flex>
+            );
+        },
     };
 };

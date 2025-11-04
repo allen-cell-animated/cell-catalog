@@ -14,7 +14,7 @@ import GeneDisplay from "../GeneDisplay";
 import PlasmidIcon from "../Icons/PlasmidIcon";
 import { MultiLineTableCell, ParentComponent } from "../MultiLineTableCell";
 import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
-import { CellLineColumns, mdBreakpoint } from "./types";
+import { CellLineColumns, mdBreakpoint, UnpackedCellLine } from "./types";
 
 const {
     actionButton,
@@ -49,8 +49,11 @@ const obtainPlasmidColumn = {
     dataIndex: "orderPlasmid",
     className: actionColumn,
     fixed: "right" as const,
-    onCell: (record: UnpackedNormalCellLine) => ({
-        onClick: () => openLinkInNewTab(record.orderPlasmid),
+    onCell: (record: UnpackedCellLine) => ({
+        onClick: () => {
+            const cellLine = record as UnpackedNormalCellLine;
+            return openLinkInNewTab(cellLine.orderPlasmid);
+        },
     }),
     render: (orderPlasmid: string) => {
         const isDisabled = !orderPlasmid;
@@ -79,11 +82,11 @@ const obtainPlasmidColumn = {
 
 export const getNormalTableColumns = (
     inProgress: boolean,
-): CellLineColumns<UnpackedNormalCellLine> => {
+): CellLineColumns<UnpackedCellLine> => {
     const columns = [
         {
             ...cellLineIdColumn,
-            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
+            sorter: (a: UnpackedCellLine, b: UnpackedCellLine) =>
                 (a.cellLineId ?? 0) - (b.cellLineId ?? 0),
             sortIcon: sortIcon,
             defaultSortOrder: "ascend" as SortOrder,
@@ -102,11 +105,14 @@ export const getNormalTableColumns = (
                     entries={proteins}
                 />
             ),
-            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
-                caseInsensitiveStringCompare(
-                    (a.protein ?? []).join("|"),
-                    (b.protein ?? []).join("|"),
-                ),
+            sorter: (a: UnpackedCellLine, b: UnpackedCellLine) => {
+                const recordA = a as UnpackedNormalCellLine;
+                const recordB = b as UnpackedNormalCellLine;
+                return caseInsensitiveStringCompare(
+                    (recordA.protein ?? []).join("|"),
+                    (recordB.protein ?? []).join("|"),
+                );
+            }
         },
         {
             title: "Gene Symbol & Name",
@@ -125,11 +131,14 @@ export const getNormalTableColumns = (
                     </div>
                 );
             },
-            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
-                caseInsensitiveStringCompare(
-                    a.taggedGene[0].name,
-                    b.taggedGene[0].name,
-                ),
+            sorter: (a: UnpackedCellLine, b: UnpackedCellLine) => {
+                const recordA = a as UnpackedNormalCellLine;
+                const recordB = b as UnpackedNormalCellLine;
+                return caseInsensitiveStringCompare(
+                    recordA.taggedGene[0].name,
+                    recordB.taggedGene[0].name,
+                );
+            },
         },
         {
             title: "Tagged Alleles",
@@ -143,11 +152,14 @@ export const getNormalTableColumns = (
                     entries={alleleCount}
                 />
             ),
-            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
-                caseInsensitiveStringCompare(
-                    (a.alleleCount ?? []).join("|"),
-                    (b.alleleCount ?? []).join("|"),
-                ),
+            sorter: (a: UnpackedCellLine, b: UnpackedCellLine) => {
+                const recordA = a as UnpackedNormalCellLine;
+                const recordB = b as UnpackedNormalCellLine;
+                return caseInsensitiveStringCompare(
+                    (recordA.alleleCount ?? []).join("|"),
+                    (recordB.alleleCount ?? []).join("|"),
+                );
+            }
         },
         {
             title: "Structure",
@@ -163,11 +175,14 @@ export const getNormalTableColumns = (
                     entries={structures}
                 />
             ),
-            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
-                caseInsensitiveStringCompare(
-                    (a.structure ?? []).join("|"),
-                    (b.structure ?? []).join("|"),
-                ),
+            sorter: (a: UnpackedCellLine, b: UnpackedCellLine) => {
+                const recordA = a as UnpackedNormalCellLine;
+                const recordB = b as UnpackedNormalCellLine;
+                return caseInsensitiveStringCompare(
+                    (recordA.structure ?? []).join("|"),
+                    (recordB.structure ?? []).join("|"),
+                );
+            },
         },
         {
             title: "Fluorescent Tag",
@@ -181,11 +196,14 @@ export const getNormalTableColumns = (
                 />
             ),
             sortIcon: sortIcon,
-            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
-                caseInsensitiveStringCompare(
-                    (a.fluorescentTag ?? []).join("|"),
-                    (b.fluorescentTag ?? []).join("|"),
-                ),
+            sorter: (a: UnpackedCellLine, b: UnpackedCellLine) => {
+                const recordA = a as UnpackedNormalCellLine;
+                const recordB = b as UnpackedNormalCellLine;
+                return caseInsensitiveStringCompare(
+                    (recordA.fluorescentTag ?? []).join("|"),
+                    (recordB.fluorescentTag ?? []).join("|"),
+                );
+            }
         },
         {
             title: "Tag Location",
@@ -199,12 +217,17 @@ export const getNormalTableColumns = (
                 />
             ),
             sortIcon: sortIcon,
-            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
-                caseInsensitiveStringCompare(
-                    (a.tagLocation ?? []).join("|"),
-                    (b.tagLocation ?? []).join("|"),
-                ),
+            sorter: (a: UnpackedCellLine, b: UnpackedCellLine) =>
+            {
+                const recordA = a as UnpackedNormalCellLine;
+                const recordB = b as UnpackedNormalCellLine;
+                return caseInsensitiveStringCompare(
+                    (recordA.tagLocation ?? []).join("|"),
+                    (recordB.tagLocation ?? []).join("|"),
+                );
+            }
         },
+
         {
             title: "Category",
             key: "categoryLabels",
@@ -218,11 +241,14 @@ export const getNormalTableColumns = (
                 />
             ),
             sortIcon: sortIcon,
-            sorter: (a: UnpackedNormalCellLine, b: UnpackedNormalCellLine) =>
-                caseInsensitiveStringCompare(
-                    (a.tagLocation ?? []).join("|"),
-                    (b.tagLocation ?? []).join("|"),
-                ),
+            sorter: (a: UnpackedCellLine, b: UnpackedCellLine) => {
+                const recordA = a as UnpackedNormalCellLine;
+                const recordB = b as UnpackedNormalCellLine;
+                return caseInsensitiveStringCompare(
+                    (recordA.tagLocation ?? []).join("|"),
+                    (recordB.tagLocation ?? []).join("|"),
+                );
+            }
         },
     ];
     // if active add the buttons
