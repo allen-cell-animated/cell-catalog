@@ -1,5 +1,24 @@
 import { IGatsbyImageData } from "gatsby-plugin-image";
-import { UnpackedStemCellCharacteristics } from "../components/SubPage/types";
+
+// this is the image that comes from the CMS
+// without any data processing
+// it's just the user entered data
+export interface UserEnteredImage {
+    image: string; // this is the image URL or path
+    caption: string;
+}
+
+export interface ImageAsset {
+    url: string;
+    path: string;
+    field?: string;
+    fileObj?: File;
+}
+
+export interface ImageAssetWithCaption {
+    image: ImageAsset;
+    caption: string;
+}
 
 export interface RawImageData {
     image: {
@@ -138,7 +157,7 @@ export interface NormalCellLineFrontmatter {
     genomic_characterization: GenomicCharacterizationFrontmatter;
     stem_cell_characteristics: StemCellCharacteristicsFrontmatter;
     images_and_videos?: MediaFrontmatter;
-    category_labels: string[];
+    category_labels: CategoryLabel[];
 };
 
 export interface NormalCellLineNode {
@@ -261,7 +280,6 @@ export interface UnpackedCellLineMainInfo {
     orderLink: string;
     thumbnailImage?: IGatsbyImageData | null;
     imagesAndVideos?: MediaFrontmatter;
-    stemCellCharacteristics: UnpackedStemCellCharacteristics | null;
 }
 
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
@@ -281,7 +299,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     tagLocation: string[];
     fluorescentTag: string[];
     orderPlasmid: string;
-    categoryLabels: string[];
+    categoryLabels: CategoryLabel[];
 }
 
 export type ParentLine = Pick<UnpackedNormalCellLine,
@@ -305,26 +323,19 @@ export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
     mutatedGene: UnpackedGene[];
 }
 
+export interface LookupGroup {
+    node: {
+        frontmatter: {
+            cell_line_id: number;
+            genetic_modifications: GeneticModification[];
+            category_labels: string[];
+        };
+    };
+}
+
 export interface SearchAndFilterGroup {
     fieldValue: string;
-    edges: {
-        node: {
-            frontmatter: {
-                cell_line_id: number;
-                genetic_modifications: {
-                    gene: {
-                        frontmatter: {
-                            name: string;
-                            symbol: string;
-                            protein: string;
-                            structure: string;
-                        };
-                    }[];
-                };
-                category_labels: string[];
-            };
-        };
-    }[];
+    edges: LookupGroup[];
 }
 
 export interface SearchAndFilterQueryResult {
@@ -342,4 +353,13 @@ export interface SearchLookup {
     structureAndNameToGene: Map<string, string>;
     categoryToIds: Map<string, number[]>
     allSearchableTerms: Set<string>;
+}
+
+export enum CategoryLabel {
+    KeyStructureAndOrganelle = "Key Structure and Organelle",
+    NuclearStructure = "Nuclear Structure",
+    Stress = "Stress",
+    CardiacStructure = "Cardiac Structure",
+    Tools = "Tools",
+    Endothelial = "Endothelial",
 }

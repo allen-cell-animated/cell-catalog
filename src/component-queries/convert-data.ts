@@ -7,6 +7,8 @@ import {
     GeneticModification,
     SearchLookup,
     SearchAndFilterGroup,
+    GeneFrontmatter,
+    LookupGroup,
 } from "./types";
 import { getThumbnail } from "../utils/mediaUtils";
 import { formatCellLineId } from "../utils";
@@ -54,7 +56,7 @@ export const convertFrontmatterToDiseaseCellLine = (
             structure: gene.frontmatter.structure,
             protein: gene.frontmatter.protein,
         }));
-    const { taggedGene, alleleCount, tagLocation, fluorescentTag } =
+    const { alleleCount, fluorescentTag, taggedGene, tagLocation } =
         extractGeneticModifications(
             cellLineNode.frontmatter.parental_line.frontmatter
                 .genetic_modifications
@@ -93,7 +95,7 @@ export const convertFrontmatterToNormalCellLines = ({
 }: {
     node: NormalCellLineNode;
 }): UnpackedNormalCellLine => {
-    const { taggedGene, alleleCount, tagLocation, fluorescentTag } =
+    const { alleleCount, fluorescentTag, taggedGene, tagLocation } =
         extractGeneticModifications(
             cellLineNode.frontmatter.genetic_modifications
         );
@@ -137,11 +139,11 @@ export const createLookupMappings = (
     const structureAndNameToGene = new Map();
     const categoryToIds = new Map();
     const allSearchableTerms: Set<string> = new Set();
-    data.forEach((group: any) => {
+    data.forEach((group:SearchAndFilterGroup) => {
         const symbol = group.fieldValue;
         allSearchableTerms.add(symbol);
         const cellLines: number[] = [];
-        group.edges.forEach((edge: any) => {
+        group.edges.forEach((edge: LookupGroup) => {
             const cellLineId = edge.node.frontmatter.cell_line_id;
             cellLines.push(cellLineId);
             if (cellLineId) {
@@ -149,7 +151,7 @@ export const createLookupMappings = (
             }
             const categories = edge.node.frontmatter.category_labels;
             if (categories) {
-                categories.forEach((category: any) => {
+                categories.forEach((category: string) => {
                     allSearchableTerms.add(category);
                     if (cellLineId) {
                         const set = categoryToIds.get(category) || new Set();
@@ -159,7 +161,7 @@ export const createLookupMappings = (
                 });
             }
             const genes = edge.node.frontmatter.genetic_modifications || [];
-            genes.forEach((obj: any) => {
+            genes.forEach((obj: {gene: {frontmatter: GeneFrontmatter}}) => {
                 const gene = obj.gene;
                 const geneSymbol = gene.frontmatter.symbol;
                 const geneName = gene.frontmatter.name;
@@ -169,7 +171,9 @@ export const createLookupMappings = (
                 structureAndNameToGene.set(geneName, geneSymbol);
                 structureAndNameToGene.set(geneProtein, geneSymbol);
                 allSearchableTerms.add(geneName);
-                allSearchableTerms.add(geneProtein);
+                if (geneProtein) {
+                    allSearchableTerms.add(geneProtein);
+                }
                 if (geneStructure) {
                     structureAndNameToGene.set(geneStructure, geneSymbol);
                     allSearchableTerms.add(geneStructure);
@@ -186,3 +190,4 @@ export const createLookupMappings = (
         categoryToIds
     };
 };
+         

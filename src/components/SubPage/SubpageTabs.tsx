@@ -1,5 +1,6 @@
-import React from "react";
 import { Flex, Tabs } from "antd";
+import React from "react";
+
 import { SubPage } from "../../types";
 import EditingDesignSubpage from "./EditingDesign";
 import GenomicCharacterization from "./GenomicCharacterization";
@@ -24,15 +25,15 @@ export interface SubpageTabsProps {
 }
 
 const SubpageTabs: React.FC<SubpageTabsProps> = ({
-    tabsToRender,
     editingDesignData,
     genomicCharacterizationData,
     stemCellCharacteristics,
+    tabsToRender,
 }) => {
     const getNoDataComponent = (tab: SubPage) => {
         return (
             <div className={noData}>
-                {`<${tab}>`} is not yet available for this cell line.
+                {tab} not yet available for this cell line.
             </div>
         );
     };

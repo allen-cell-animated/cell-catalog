@@ -1,25 +1,30 @@
-import React, { useState, useEffect } from "react";
+import { ZoomInOutlined, ZoomOutOutlined } from "@ant-design/icons";
 import { Card, Flex, Image, Space } from "antd";
-import { ZoomOutOutlined, ZoomInOutlined } from "@ant-design/icons";
 import { GatsbyImage, getSrc } from "gatsby-plugin-image";
+import React, { useState, useEffect } from "react";
+
+import {
+    ImageOrVideo,
+    RawVideoData,
+    UnpackedImageData,
+} from "../component-queries/types";
 import { formatCellLineId } from "../utils";
-import { RawVideoData, ImageOrVideo, UnpackedImageData } from "../component-queries/types";
 import { isImage } from "../utils/mediaUtils";
 import Thumbnail from "./Thumbnail";
 
 const {
+    caption,
     container,
     header,
-    titleSection,
     mainTitle,
-    subtitle,
-    rightTitle,
-    caption,
-    thumbnailContainer,
+    previewImage,
+    primaryImageContainer,
     primaryImageOnly,
     primaryImageWithThumbnail,
-    primaryImageContainer,
-    previewImage,
+    rightTitle,
+    subtitle,
+    thumbnailContainer,
+    titleSection,
     toolbarWrapper,
     videoContainer,
     videoIframe,
@@ -37,15 +42,14 @@ interface ImagesAndVideosProps {
 }
 
 const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
-    images,
-    videos,
+    alleleTag,
     cellLineId,
     fluorescentTag,
-    parentalGeneSymbol,
-    alleleTag,
     geneSymbol,
+    images,
+    parentalGeneSymbol,
+    videos,
 }) => {
-
     const getVideoId = (url: string) => {
         const match = url.match(/player\.vimeo\.com\/video\/(\d+)/);
         return match ? match[1] : null;
@@ -53,7 +57,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
 
     const mediaItems: ImageOrVideo[] = [...images, ...videos];
     const [selectedMedia, setSelectedMedia] = useState<ImageOrVideo | null>(
-        mediaItems[0] || null
+        mediaItems[0] || null,
     );
     const [currentIndex, setCurrentIndex] = useState(0);
     const [previewVisible, setPreviewVisible] = useState(false);
@@ -81,17 +85,16 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     if (!selectedMedia) return null;
 
     const imageItems = mediaItems.filter(isImage);
-    const allPreviewImages = imageItems
-        .map((item, i) => {
-                return (
-                    <Image
-                        key={`preview-${i}`}
-                        src={getSrc(item.image)}
-                        style={{ display: "none" }}
-                        className={previewImage}
-                    />
-                );
-        });
+    const allPreviewImages = imageItems.map((item, i) => {
+        return (
+            <Image
+                key={`preview-${i}`}
+                src={getSrc(item.image)}
+                style={{ display: "none" }}
+                className={previewImage}
+            />
+        );
+    });
 
     const renderThumbnail = (item: ImageOrVideo, index: number) => {
         const isSelected = selectedMedia === item;
@@ -136,10 +139,9 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
             <div className={titleSection}>
                 <h3 className={mainTitle}>{formatCellLineId(cellLineId)}</h3>
                 <span className={subtitle}>
-                    {parentalGeneSymbol ?
-                        `${geneSymbol} in WTC-${fluorescentTag}-${parentalGeneSymbol} (${alleleTag}-allelic tag)` :
-                        `${geneSymbol} in WTC-${fluorescentTag} (${alleleTag}-allelic tag)`
-                    }
+                    {parentalGeneSymbol
+                        ? `${geneSymbol} in WTC-${fluorescentTag}-${parentalGeneSymbol} (${alleleTag}-allelic tag)`
+                        : `${geneSymbol} in WTC-${fluorescentTag} (${alleleTag}-allelic tag)`}
                 </span>
             </div>
             <span className={rightTitle}>
@@ -193,21 +195,24 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                         visible: previewVisible,
                         className: previewImage,
                         current: currentIndex,
-                        onVisibleChange: (visible) => setPreviewVisible(visible),
+                        onVisibleChange: (visible) =>
+                            setPreviewVisible(visible),
                         onChange: (index) => {
                             const imageItem = imageItems[index];
                             if (imageItem) {
                                 setSelectedMedia(imageItem);
-                                const fullIndex = mediaItems.findIndex(item => item === imageItem);
+                                const fullIndex = mediaItems.findIndex(
+                                    (item) => item === imageItem,
+                                );
                                 setCurrentIndex(fullIndex);
                             }
                         },
                         toolbarRender: (
                             _,
                             {
-                                transform: { scale },
                                 actions: { onZoomIn, onZoomOut },
-                            }
+                                transform: { scale },
+                            },
                         ) => (
                             <Space className={toolbarWrapper}>
                                 <ZoomOutOutlined

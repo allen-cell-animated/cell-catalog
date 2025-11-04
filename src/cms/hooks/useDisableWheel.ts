@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const useDisableWheel = () => {
     useEffect(() => {
-        document.addEventListener("wheel", function (event) {
+        document.addEventListener("wheel", function () {
             if (
                 document.activeElement &&
                 (document.activeElement as HTMLInputElement).type === "number"

@@ -7,7 +7,11 @@
 
 .table-title {
     margin-right: 18px;
-    line-height: 0;
+    text-wrap-mode: nowrap;
+}
+
+.category-text {
+    color: var(--BLUE_90);
 }
 
 .thumbnail-container {
@@ -57,8 +61,12 @@
         inset 0 1.5px 0 0 var(--border-color);
 }
 
+.container :global(.ant-table-title) {
+    padding: 28px 16px;
+}
+
 .container :global(.ant-table-title) h3 {
-    margin: 22px 16px 22px 0;
+    margin-right: 40px;
 }
 
 .container :global(.ant-table-thead .ant-table-cell) {
@@ -80,6 +88,14 @@
 
 .container .data-complete .hovered-row:global(.ant-table-cell) h4 {
     text-decoration: underline;
+}
+
+.container .action-column {
+    cursor: pointer;
+}
+
+.container .action-column:has(.action-button.disabled) {
+  cursor: not-allowed;
 }
 
 .container .action-column:global(.ant-table-cell):has(a:not(.disabled)):hover {
@@ -134,7 +150,7 @@
   fill: var(--RAIN_SHADOW);
 }
 
-.container h4 {
+.container .id-header h4 {
     font-family: "Open Sans", sans-serif;
     font-size: 24px;
     font-weight: 600;

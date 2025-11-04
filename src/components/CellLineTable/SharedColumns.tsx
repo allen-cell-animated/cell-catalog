@@ -1,26 +1,26 @@
-import React from "react";
-import { Flex, Tooltip } from "antd";
 import Icon from "@ant-design/icons";
+import { Flex, Tooltip } from "antd";
+import classNames from "classnames";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import classNames from "classnames";
+import React from "react";
 
 import { CellLineStatus } from "../../component-queries/types";
-import { formatCellLineId } from "../../utils";
 import { WHITE } from "../../style/theme";
+import { formatCellLineId, openLinkInNewTab } from "../../utils";
 import TubeIcon from "../Icons/TubeIcon";
-import { mdBreakpoint, UnpackedCellLine } from "./types";
+import { UnpackedCellLine, mdBreakpoint } from "./types";
 
 const CertificateIcon = require("../../img/cert-icon.svg");
 
 const {
-    cellLineId,
-    actionColumn,
     actionButton,
+    actionColumn,
+    cellLineId,
     certIcon,
+    disabled,
     idHeader,
     thumbnailContainer,
-    disabled,
 } = require("../../style/table.module.css");
 
 export const cellLineIdColumn = {
@@ -45,7 +45,9 @@ export const cellLineIdColumn = {
                     />
                 </div>
             </>
-        ) : cellLine;
+        ) : (
+            cellLine
+        );
 
         return record.status === CellLineStatus.DataComplete ? (
             <Link to={record.path}>{content}</Link>
@@ -95,6 +97,9 @@ export const obtainLineColumn = {
     dataIndex: "orderLink",
     className: actionColumn,
     fixed: "right" as const,
+    onCell: (record: UnpackedCellLine) => ({
+        onClick: () => openLinkInNewTab(record.orderLink),
+    }),
     render: (orderLink: string) => {
         const isDisabled = !orderLink;
         const link = (
@@ -114,9 +119,7 @@ export const obtainLineColumn = {
             </a>
         );
         return isDisabled ? (
-            <Tooltip title="This collection not yet available">
-                {link}
-            </Tooltip>
+            <Tooltip title="This collection not yet available">{link}</Tooltip>
         ) : (
             link
         );
