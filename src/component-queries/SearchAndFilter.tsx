@@ -1,6 +1,8 @@
-import React from "react";
 import { Card } from "antd";
 import { StaticQuery, graphql } from "gatsby";
+import React from "react";
+
+import Filter from "../components/Filter";
 import SearchBar from "../components/SearchBar";
 import { createLookupMappings } from "./convert-data";
 import {
@@ -8,7 +10,6 @@ import {
     SearchAndFilterQueryResult,
     UnpackedNormalCellLine,
 } from "./types";
-import Filter from "../components/Filter";
 
 const {
     container,
@@ -26,10 +27,10 @@ interface SearchAndFilterProps {
 // This query groups all cell lines by gene symbol
 const SearchAndFilter = ({
     allCellLines,
-    selectedCategories,
     filteredCellLines,
-    setSelectedCategories,
+    selectedCategories,
     setResults,
+    setSelectedCategories,
 }: SearchAndFilterProps) => {
     return (
         <StaticQuery
@@ -80,7 +81,7 @@ const SearchAndFilter = ({
             `}
             render={(data: SearchAndFilterQueryResult) => {
                 const mappings = createLookupMappings(
-                    data.allMarkdownRemark.group
+                    data.allMarkdownRemark.group,
                 );
                 return (
                     <Card className={container}>

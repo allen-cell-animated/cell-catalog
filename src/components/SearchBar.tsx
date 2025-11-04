@@ -1,5 +1,6 @@
-import React, { useRef, useState } from "react";
 import { AutoComplete, Flex, Input } from "antd";
+import React, { useRef, useState } from "react";
+
 import {
     SearchLookup,
     UnpackedNormalCellLine,
@@ -7,9 +8,9 @@ import {
 import { SecondaryButton } from "./shared/Buttons";
 
 const {
-    searchBarContainer,
     autocomplete,
     clearButton,
+    searchBarContainer,
 } = require("../style/search-and-filter.module.css");
 
 interface SearchBarProps {
@@ -18,7 +19,7 @@ interface SearchBarProps {
     setResults: (filteredCellLines: UnpackedNormalCellLine[]) => void;
 }
 
-const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
+const SearchBar = ({ allCellLines, mappings, setResults }: SearchBarProps) => {
     const [options, setOptions] = useState<{ value: string }[]>([]);
     const [currentValue, setCurrentValue] = useState<string>("");
     const ignoreSelect = useRef(false);
@@ -75,7 +76,7 @@ const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
         // NOTE: the checks for undefined values are for typescript, this data is all
         // generated from the same source, so the looks ups will always
         // return a value
-        const { geneSymToCellIds, structureAndNameToGene, categoryToIds } =
+        const { categoryToIds, geneSymToCellIds, structureAndNameToGene } =
             mappings;
         let cellLineIds: number[] = [];
         if (value.includes("AICS")) {

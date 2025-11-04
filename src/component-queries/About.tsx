@@ -1,15 +1,16 @@
-import React from "react";
 import { Flex } from "antd";
-import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
 import { StaticQuery, graphql } from "gatsby";
+import { FileNode } from "gatsby-plugin-image/dist/src/components/hooks";
+import React from "react";
+
 import AboutButton from "../components/AboutButton";
-import { renderRichText, RichText } from "../utils/formattingUtils";
+import { RichText, renderRichText } from "../utils/formattingUtils";
 
 const {
     container,
-    italic,
-    diseaseCopy,
     contentWrapper,
+    diseaseCopy,
+    italic,
 } = require("../style/about.module.css");
 
 interface AboutProps {
@@ -83,12 +84,12 @@ const About: React.FC = () => {
             `}
             render={(data: AboutProps) => {
                 const {
-                    title,
                     about_block,
-                    coriell_image,
-                    coriell_link,
                     addgene_image,
                     addgene_link,
+                    coriell_image,
+                    coriell_link,
+                    title,
                 } = data.markdownRemark.frontmatter;
 
                 return (
@@ -105,12 +106,12 @@ const About: React.FC = () => {
                                         <p>
                                             {renderRichText(
                                                 about_block.primary,
-                                                italic
+                                                italic,
                                             )}
                                         </p>
                                         <div className={diseaseCopy}>
                                             {renderRichText(
-                                                about_block.disease
+                                                about_block.disease,
                                             )}
                                         </div>
                                     </div>
