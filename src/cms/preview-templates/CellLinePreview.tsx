@@ -1,6 +1,11 @@
 import React from "react";
 
-import { CellLineStatus, GeneticModification, ImageAsset, UserEnteredImage } from "../../component-queries/types";
+import {
+    CellLineStatus,
+    GeneticModification,
+    ImageAsset,
+    UserEnteredImage,
+} from "../../component-queries/types";
 import PreviewCompatibleImage from "../../components/PreviewCompatibleImage";
 import InfoPanel from "../../components/shared/InfoPanel";
 import useDisableWheel from "../hooks/useDisableWheel";
@@ -22,9 +27,13 @@ const CellLinePreview = ({ entry, getAsset }: TemplateProps) => {
         "images_and_videos",
         "images",
     ]) as Item;
-    const images: UserEnteredImage[] = imagesEntry ? imagesEntry.toJS() as UserEnteredImage[] : [];
+    const images: UserEnteredImage[] = imagesEntry
+        ? (imagesEntry.toJS() as UserEnteredImage[])
+        : [];
     const thumbnailImage: ImageAsset | null =
-        images.length > 0 ? getAsset(images[0]?.image as string) as ImageAsset : null;
+        images.length > 0
+            ? (getAsset(images[0]?.image as string) as ImageAsset)
+            : null;
     const status = entry.getIn(["data", "status"]) as CellLineStatus;
     const genes = geneticModifications
         .map((mod: GeneticModification) => mod.gene)
@@ -90,8 +99,6 @@ const CellLinePreview = ({ entry, getAsset }: TemplateProps) => {
               ]
             : []),
     ];
-    console.log("data", data);
-
     return (
         <>
             <ProgressPreview collection={"cell_lines"} status={status} />

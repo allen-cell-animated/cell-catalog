@@ -323,26 +323,19 @@ export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
     mutatedGene: UnpackedGene[];
 }
 
+export interface LookupGroup {
+    node: {
+        frontmatter: {
+            cell_line_id: number;
+            genetic_modifications: GeneticModification[];
+            category_labels: string[];
+        };
+    };
+}
+
 export interface SearchAndFilterGroup {
     fieldValue: string;
-    edges: {
-        node: {
-            frontmatter: {
-                cell_line_id: number;
-                genetic_modifications: {
-                    gene: {
-                        frontmatter: {
-                            name: string;
-                            symbol: string;
-                            protein: string;
-                            structure: string;
-                        };
-                    }[];
-                };
-                category_labels: string[];
-            };
-        };
-    }[];
+    edges: LookupGroup[];
 }
 
 export interface SearchAndFilterQueryResult {

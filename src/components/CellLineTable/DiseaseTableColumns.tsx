@@ -17,7 +17,12 @@ import {
     certificateOfAnalysisColumn,
     obtainLineColumn,
 } from "./SharedColumns";
-import { CellLineColumns, mdBreakpoint, smBreakPoint, UnpackedCellLine } from "./types";
+import {
+    CellLineColumns,
+    UnpackedCellLine,
+    mdBreakpoint,
+    smBreakPoint,
+} from "./types";
 
 const {
     clones,

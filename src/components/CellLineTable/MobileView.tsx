@@ -13,60 +13,65 @@ import { UnpackedCellLine } from "./types";
 const { expandableContent } = require("../../style/table.module.css");
 
 export const getDiseaseTableMobileConfig = (
-    isPhone: boolean
+    isPhone: boolean,
 ): {
-    expandedRowRender: (record: UnpackedCellLine, index: number) => React.ReactNode;
+    expandedRowRender: (
+        record: UnpackedCellLine,
+        index: number,
+    ) => React.ReactNode;
 } => {
-
     return {
         expandedRowRender: (record: UnpackedCellLine, index: number) => {
             const diseaseCellLine = record as UnpackedDiseaseCellLine;
             return (
-
-            <Flex
-                key={diseaseCellLine.cellLineId}
-                gap={16}
-                justify={"flex-start" as const}
-                className={expandableContent}
-                wrap={"wrap"}
-            >
-                {isPhone && (
+                <Flex
+                    key={diseaseCellLine.cellLineId}
+                    gap={16}
+                    justify={"flex-start" as const}
+                    className={expandableContent}
+                    wrap={"wrap"}
+                >
+                    {isPhone && (
+                        <div>
+                            <label>SNP:</label>
+                            <Flex vertical={true} key={diseaseCellLine.snp}>
+                                <span key={"snp-0"}>
+                                    {diseaseCellLine.snp.split(":")[0]}:{" "}
+                                </span>
+                                <span key={"snp-1"}>
+                                    {diseaseCellLine.snp.split(":")[1]}
+                                </span>
+                            </Flex>
+                        </div>
+                    )}
                     <div>
-                        <label>SNP:</label>
-                        <Flex vertical={true} key={diseaseCellLine.snp}>
-                            <span key={"snp-0"}>
-                                {diseaseCellLine.snp.split(":")[0]}:{" "}
-                            </span>
-                            <span key={"snp-1"}>
-                                {diseaseCellLine.snp.split(":")[1]}
-                            </span>
-                        </Flex>
+                        <label>Gene Symbol & Name:</label>
+                        {diseaseCellLine.mutatedGene.map((gene, index) => (
+                            <GeneDisplay key={index} gene={gene} />
+                        ))}
                     </div>
-                )}
-                <div>
-                    <label>Gene Symbol & Name:</label>
-                    {diseaseCellLine.mutatedGene.map((gene, index) => (
-                        <GeneDisplay key={index} gene={gene} />
-                    ))}
-                </div>
-                <div>
-                    <label>Clones:</label>
-                    <CloneSummary
-                        numMutants={getCloneSummary(diseaseCellLine.clones).numMutants}
-                        numIsogenics={
-                            getCloneSummary(diseaseCellLine.clones).numIsogenics
-                        }
-                        index={index}
-                    />
-                </div>
-            </Flex>
-        );
-    }}
+                    <div>
+                        <label>Clones:</label>
+                        <CloneSummary
+                            numMutants={
+                                getCloneSummary(diseaseCellLine.clones)
+                                    .numMutants
+                            }
+                            numIsogenics={
+                                getCloneSummary(diseaseCellLine.clones)
+                                    .numIsogenics
+                            }
+                            index={index}
+                        />
+                    </div>
+                </Flex>
+            );
+        },
+    };
 };
 
-
 export const getNormalTableMobileConfig = (
-    isPhone: boolean
+    isPhone: boolean,
 ): {
     expandedRowRender: (record: UnpackedCellLine) => React.ReactNode;
 } => {

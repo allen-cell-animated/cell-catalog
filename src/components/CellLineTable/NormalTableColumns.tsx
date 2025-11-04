@@ -14,7 +14,7 @@ import GeneDisplay from "../GeneDisplay";
 import PlasmidIcon from "../Icons/PlasmidIcon";
 import { MultiLineTableCell, ParentComponent } from "../MultiLineTableCell";
 import { cellLineIdColumn, obtainLineColumn } from "./SharedColumns";
-import { CellLineColumns, mdBreakpoint, UnpackedCellLine } from "./types";
+import { CellLineColumns, UnpackedCellLine, mdBreakpoint } from "./types";
 
 const {
     actionButton,
@@ -112,7 +112,7 @@ export const getNormalTableColumns = (
                     (recordA.protein ?? []).join("|"),
                     (recordB.protein ?? []).join("|"),
                 );
-            }
+            },
         },
         {
             title: "Gene Symbol & Name",
@@ -159,7 +159,7 @@ export const getNormalTableColumns = (
                     (recordA.alleleCount ?? []).join("|"),
                     (recordB.alleleCount ?? []).join("|"),
                 );
-            }
+            },
         },
         {
             title: "Structure",
@@ -203,7 +203,7 @@ export const getNormalTableColumns = (
                     (recordA.fluorescentTag ?? []).join("|"),
                     (recordB.fluorescentTag ?? []).join("|"),
                 );
-            }
+            },
         },
         {
             title: "Tag Location",
@@ -217,15 +217,14 @@ export const getNormalTableColumns = (
                 />
             ),
             sortIcon: sortIcon,
-            sorter: (a: UnpackedCellLine, b: UnpackedCellLine) =>
-            {
+            sorter: (a: UnpackedCellLine, b: UnpackedCellLine) => {
                 const recordA = a as UnpackedNormalCellLine;
                 const recordB = b as UnpackedNormalCellLine;
                 return caseInsensitiveStringCompare(
                     (recordA.tagLocation ?? []).join("|"),
                     (recordB.tagLocation ?? []).join("|"),
                 );
-            }
+            },
         },
 
         {
@@ -248,7 +247,7 @@ export const getNormalTableColumns = (
                     (recordA.tagLocation ?? []).join("|"),
                     (recordB.tagLocation ?? []).join("|"),
                 );
-            }
+            },
         },
     ];
     // if active add the buttons

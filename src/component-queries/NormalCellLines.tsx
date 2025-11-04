@@ -51,7 +51,7 @@ const CellLineTableTemplate = (props: QueryResult) => {
                     cellLines={inProgressCellLines}
                     released={false}
                     columns={getNormalTableColumns(true)}
-                    mobileConfig={getNormalTableMobileConfig(isPhone )}
+                    mobileConfig={getNormalTableMobileConfig(isPhone)}
                 />
             )}
         </>

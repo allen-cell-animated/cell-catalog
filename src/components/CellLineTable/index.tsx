@@ -2,9 +2,7 @@ import { Flex, Table, Tag } from "antd";
 import { navigate } from "gatsby";
 import React, { useState } from "react";
 
-import {
-    CellLineStatus,
-} from "../../component-queries/types";
+import { CellLineStatus } from "../../component-queries/types";
 import { TABLET_BREAKPOINT } from "../../constants";
 import useEnv from "../../hooks/useEnv";
 import useWindowWidth from "../../hooks/useWindowWidth";
@@ -24,9 +22,12 @@ interface CellLineTableProps {
     tableName: string;
     cellLines: UnpackedCellLine[];
     released: boolean;
-    columns: CellLineColumns<UnpackedCellLine>
+    columns: CellLineColumns<UnpackedCellLine>;
     mobileConfig?: {
-        expandedRowRender: (record: UnpackedCellLine , index: number) => React.ReactNode;
+        expandedRowRender: (
+            record: UnpackedCellLine,
+            index: number,
+        ) => React.ReactNode;
     };
     tableDescription?: string;
     suppressRowClickRef?: React.MutableRefObject<boolean>;
