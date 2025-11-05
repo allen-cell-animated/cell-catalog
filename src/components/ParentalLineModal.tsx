@@ -19,6 +19,7 @@ const LinkOut = require("../img/external-link.svg");
 interface ParentalLineModalProps {
     image?: IGatsbyImageData | null;
     formattedId: string;
+    cellLineId: number;
     cloneNumber: number;
     status: string;
     taggedGene: UnpackedGene[];
@@ -99,7 +100,7 @@ const ParentalLineModal = (props: ParentalLineModalProps) => {
                                 borderWidth: "2px",
                                 backgroundColor: "white",
                             }}
-                            href="https://www.allencell.org/cell-catalog.html"
+                            href={`/cell-line/AICS-${props.cellLineId}-${props.cloneNumber}/`}
                             target="_blank"
                             className={actionButton}
                         >
