@@ -8,6 +8,8 @@ import { DarkBlueHoverButton } from "./shared/Buttons";
 
 const {
     actionButton,
+    buttonContent,
+    buttonIcon,
     clone,
     header,
     modal,
@@ -104,17 +106,10 @@ const ParentalLineModal = (props: ParentalLineModalProps) => {
                             target="_blank"
                             className={actionButton}
                         >
-                            <Flex
-                                justify="flex-end"
-                                gap={110}
-                                style={{
-                                    width: "100%",
-                                    fontWeight: 600,
-                                }}
-                            >
+                            <div className={buttonContent}>
                                 Go to Parental Line
-                                <Icon component={LinkOut} />
-                            </Flex>
+                                <Icon component={LinkOut} className={buttonIcon} />
+                            </div>
                         </DarkBlueHoverButton>
                     </div>
                 }
