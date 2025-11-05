@@ -50,8 +50,12 @@ const obtainPlasmidColumn = {
     className: actionColumn,
     fixed: "right" as const,
     // temp fix: use first plasmid link if multiple exist until design decision made
-    onCell: (record: UnpackedNormalCellLine) => ({
-        onClick: () => openLinkInNewTab(record.orderPlasmid[0]),
+    onCell: (record: UnpackedCellLine) => ({
+        
+        onClick: () => {
+            const cellLine = record as UnpackedNormalCellLine;
+            openLinkInNewTab(cellLine.orderPlasmid[0]);
+        },
     }),
     render: (orderPlasmid: string[]) => {
         const isDisabled = !orderPlasmid || !orderPlasmid[0];
