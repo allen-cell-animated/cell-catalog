@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-decap-cms",
-  "description": "Example Gatsby, and Netlify CMS project",
+  "name": "cell-catalog",
+  "description": "Cell catalog for Allen Institute for Cell Science",
   "version": "1.2.3",
-  "author": "Austin Green",
+  "author": "Megan Riel-Mehan",
   "dependencies": {
     "@ant-design/icons": "^5.5.1",
     "@reach/router": "^1.3.4",
