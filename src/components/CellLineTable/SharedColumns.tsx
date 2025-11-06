@@ -20,6 +20,7 @@ const {
     certIcon,
     disabled,
     idHeader,
+    idTitle,
     thumbnailContainer,
 } = require("../../style/table.module.css");
 
@@ -46,7 +47,7 @@ export const cellLineIdColumn = {
                 </div>
             </>
         ) : (
-            cellLine
+            <div className={idTitle}>{cellLine}</div>
         );
 
         return record.status === CellLineStatus.DataComplete ? (
