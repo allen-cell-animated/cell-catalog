@@ -37,7 +37,8 @@
     font-weight: 400;
 }
 
-.container .main-title h3 {
+.container .main-title {
+    font-weight: 400;
     color: var(--SERIOUS_GRAY);
 }
 
