@@ -41,7 +41,7 @@ genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: ../GenomicCharacterization_junction_schematic_mTag-RFP-T.png
+        - image: /img/shared/GenomicCharacterization_junction_schematic_mTag-RFP-T.png
     - title: "Karyotype Analysis"
       images:
         - image: AAVS1_cl.91.JPG

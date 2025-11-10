@@ -44,7 +44,7 @@ genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: ../GenomicCharacterization_junction_schematic_generic_insert.png
+        - image: /img/shared/GenomicCharacterization_junction_schematic_generic_insert.png
     - title: "Karyotype Analysis"
       images:
         - image: AICS-90_cl391_CLYBL-dCas9-KRAB_karyotype.JPG
