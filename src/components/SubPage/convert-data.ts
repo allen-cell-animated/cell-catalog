@@ -275,7 +275,7 @@ export const unpackNormalFrontmatterForSubpage = (
     cellLineNode: NormalCellLineNode
 ): UnpackedNormalCellLineFull => {
 
-    const { taggedGene, alleleCount, tagLocation, fluorescentTag, donorPlasmid } =
+    const { alleleCount, donorPlasmid, fluorescentTag, taggedGene, tagLocation } =
         extractGeneticModifications(
             cellLineNode.frontmatter.genetic_modifications
         );

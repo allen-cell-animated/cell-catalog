@@ -98,7 +98,7 @@ export const convertFrontmatterToNormalCellLines = ({
 }: {
     node: NormalCellLineNode;
 }): UnpackedNormalCellLine => {
-    const { taggedGene, alleleCount, tagLocation, fluorescentTag, donorPlasmid } =
+    const { alleleCount, donorPlasmid, fluorescentTag, taggedGene, tagLocation } =
         extractGeneticModifications(
             cellLineNode.frontmatter.genetic_modifications
         );

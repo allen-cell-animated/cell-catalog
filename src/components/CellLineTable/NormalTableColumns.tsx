@@ -51,7 +51,6 @@ const obtainPlasmidColumn = {
     fixed: "right" as const,
     // temp fix: use first plasmid link if multiple exist until design decision made
     onCell: (record: UnpackedCellLine) => ({
-        
         onClick: () => {
             const cellLine = record as UnpackedNormalCellLine;
             openLinkInNewTab(cellLine.orderPlasmid[0]);
