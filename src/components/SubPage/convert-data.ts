@@ -275,7 +275,7 @@ export const unpackNormalFrontmatterForSubpage = (
     cellLineNode: NormalCellLineNode
 ): UnpackedNormalCellLineFull => {
 
-    const { alleleCount, fluorescentTag, taggedGene, tagLocation } =
+    const { alleleCount, donorPlasmid, fluorescentTag, taggedGene, tagLocation } =
         extractGeneticModifications(
             cellLineNode.frontmatter.genetic_modifications
         );
@@ -311,7 +311,7 @@ export const unpackNormalFrontmatterForSubpage = (
         certificateOfAnalysis: cellLineNode.frontmatter.certificate_of_analysis,
         healthCertificate: cellLineNode.frontmatter.eu_hpsc_reg,
         orderLink: cellLineNode.frontmatter.order_link,
-        orderPlasmid: cellLineNode.frontmatter.donor_plasmid,
+        orderPlasmid: donorPlasmid,
         thumbnailImage: getThumbnail(cellLineNode.frontmatter.images_and_videos),
         imagesAndVideos: cellLineNode.frontmatter.images_and_videos,
         editingDesign: editingDesign,

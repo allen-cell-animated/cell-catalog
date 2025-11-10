@@ -12,9 +12,9 @@ genetic_modifications:
     tag_location: N-terminus
     fluorescent_tag: mEGFP
     allele_count: mono
+    donor_plasmid: https://www.addgene.org/193920/
 order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0082-001&PgId=166
 certificate_of_analysis: https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0082-001_CofA.pdf
-donor_plasmid: https://www.addgene.org/193920/
 images_and_videos:
   images:
     - image: single_plane_image_cl1.jpg
