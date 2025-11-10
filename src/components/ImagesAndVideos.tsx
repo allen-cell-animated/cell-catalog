@@ -149,12 +149,13 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
         }
 
         const vimeoUrl = selectedMedia.video;
+
         return (
             <div
                 className={`${showThumbnails ? primaryImageWithThumbnail : primaryImageOnly} ${videoContainer}`}
             >
                 <iframe
-                    src={`${vimeoUrl}?badge=0&autoplay=0&title=0`}
+                    src={`${vimeoUrl}?badge=0&autoplay=1&muted=1&loop=1&title=0`}
                     className={videoIframe}
                     title="Cell line video"
                     allowFullScreen
