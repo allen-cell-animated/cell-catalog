@@ -38,6 +38,7 @@
 }
 
 .container .main-title {
+    font-weight: 400;
     color: var(--SERIOUS_GRAY);
 }
 
