@@ -65,7 +65,6 @@ export interface GeneticModification {
     allele_count: string;
     tag_location: string;
     fluorescent_tag: string;
-    donor_plasmid: string;
 }
 
 export interface StemCellCharacteristicsFrontmatter {
@@ -140,6 +139,7 @@ export interface NormalCellLineFrontmatter {
     allele_count: string[];
     tag_location: string[];
     fluorescent_tag: string[];
+    donor_plasmid: string;
     parental_line: {
         frontmatter: {
             name: string;
@@ -298,7 +298,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     alleleCount: string[];
     tagLocation: string[];
     fluorescentTag: string[];
-    orderPlasmid: string[];
+    orderPlasmid: string;
     categoryLabels: CategoryLabel[];
 }
 

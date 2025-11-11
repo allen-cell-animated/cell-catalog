@@ -9,9 +9,9 @@ genetic_modifications:
     tag_location: N-terminus
     fluorescent_tag: mEGFP
     allele_count: bi
-    donor_plasmid: https://www.addgene.org/193922/
 order_link: https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0083-005&PgId=166
 certificate_of_analysis: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0083-005_CofA.pdf
+donor_plasmid: https://www.addgene.org/193922/
 eu_hpsc_reg: https://hpscreg.eu/cell-line/UCSFi001-A-69
 images_and_videos:
   images:

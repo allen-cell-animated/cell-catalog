@@ -136,7 +136,7 @@ export interface UnpackedNormalCellLineFull extends UnpackedCellLineMainInfo {
     alleleCount: string[];
     tagLocation: string[];
     fluorescentTag: string[];
-    orderPlasmid: string[];
+    orderPlasmid: string;
     editingDesign: UnpackedEditingDesign | null;
     genomicCharacterization: UnpackedGenomicCharacterization | null;
     stemCellCharacteristics: UnpackedStemCellCharacteristics | null;

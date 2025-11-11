@@ -13,7 +13,7 @@ import { CellLineInfoCardRequiredProps } from "./types";
 type ExtractedGeneFields = Record<keyof UnpackedGene, string[]>;
 
 interface NormalCellLineInfoCardProps extends CellLineInfoCardRequiredProps {
-    orderPlasmid: string[];
+    orderPlasmid: string;
     cloneNumber: number;
     taggedGene: UnpackedGene[];
     fluorescentTag: string[];
@@ -98,8 +98,7 @@ export const NormalCellLineInfoCard: React.FC<NormalCellLineInfoCardProps> = (
             label: "Obtain Donor Plasmid",
             disabledLabel: `Plasmid not yet available.`,
             icon: <PlasmidIcon />,
-            // temp fix: use first plasmid link if multiple exist until design decision made
-            href: props.orderPlasmid[0],
+            href: props.orderPlasmid,
         },
     ];
 
