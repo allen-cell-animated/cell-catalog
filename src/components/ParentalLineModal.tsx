@@ -4,7 +4,7 @@ import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
 
 import { UnpackedGene } from "../component-queries/types";
-import { formatCellLineId } from "../utils";
+import { formatCellLineSlug } from "../utils";
 import { DarkBlueHoverButton } from "./shared/Buttons";
 
 const {
@@ -103,13 +103,16 @@ const ParentalLineModal = (props: ParentalLineModalProps) => {
                                 borderWidth: "2px",
                                 backgroundColor: "white",
                             }}
-                            href={`/cell-line/${formatCellLineId(props.cellLineId, props.cloneNumber)}/`}
+                            href={`/cell-line/${formatCellLineSlug(props.cellLineId, props.cloneNumber)}/`}
                             target="_blank"
                             className={actionButton}
                         >
                             <div className={buttonContent}>
                                 Go to Parental Line
-                                <Icon component={LinkOut} className={buttonIcon} />
+                                <Icon
+                                    component={LinkOut}
+                                    className={buttonIcon}
+                                />
                             </div>
                         </DarkBlueHoverButton>
                     </div>
