@@ -10,9 +10,9 @@ genetic_modifications:
     tag_location: C-terminus
     fluorescent_tag: mEGFP
     allele_count: mono
-    donor_plasmid: https://www.addgene.org/193921/
 order_link: https://catalog.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0114-035&Product=iPSC
 certificate_of_analysis: https://catalog.coriell.org/0/PDF/Allen/ipsc/AICS-0114-035_CofA.pdf
+donor_plasmid: https://www.addgene.org/193921/
 images_and_videos:
   images:
     - image: single_plane_image_cl35.jpg

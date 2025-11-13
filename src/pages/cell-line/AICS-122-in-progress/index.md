@@ -9,9 +9,9 @@ genetic_modifications:
     tag_location: C-terminus
     fluorescent_tag: mEGFP
     allele_count: 
-    donor_plasmid:
 order_link: 
 certificate_of_analysis: 
+donor_plasmid: 
 eu_hpsc_reg: 
 images_and_videos:
   videos:

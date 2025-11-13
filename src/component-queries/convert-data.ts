@@ -20,7 +20,6 @@ export const extractGeneticModifications = (
     alleleCount: string[];
     tagLocation: string[];
     fluorescentTag: string[];
-    donorPlasmid: string[];
 } => {
     if (!modifications || !modifications.length)
         return {
@@ -28,7 +27,6 @@ export const extractGeneticModifications = (
             alleleCount: [],
             tagLocation: [],
             fluorescentTag: [],
-            donorPlasmid: [],
         };
 
     return {
@@ -43,7 +41,6 @@ export const extractGeneticModifications = (
         alleleCount: modifications.map((mod) => mod.allele_count),
         tagLocation: modifications.map((mod) => mod.tag_location),
         fluorescentTag: modifications.map((mod) => mod.fluorescent_tag),
-        donorPlasmid: modifications.map((mod) => mod.donor_plasmid),
     };
 };
 
@@ -98,7 +95,7 @@ export const convertFrontmatterToNormalCellLines = ({
 }: {
     node: NormalCellLineNode;
 }): UnpackedNormalCellLine => {
-    const { alleleCount, donorPlasmid, fluorescentTag, taggedGene, tagLocation } =
+    const { alleleCount, fluorescentTag, taggedGene, tagLocation } =
         extractGeneticModifications(
             cellLineNode.frontmatter.genetic_modifications
         );
@@ -126,7 +123,7 @@ export const convertFrontmatterToNormalCellLines = ({
         certificateOfAnalysis: cellLineNode.frontmatter.certificate_of_analysis,
         healthCertificate: cellLineNode.frontmatter.eu_hpsc_reg,
         orderLink: cellLineNode.frontmatter.order_link,
-        orderPlasmid: donorPlasmid,
+        orderPlasmid: cellLineNode.frontmatter.donor_plasmid,
         thumbnailImage: getThumbnail(
             cellLineNode.frontmatter.images_and_videos
         ),

@@ -49,21 +49,20 @@ const obtainPlasmidColumn = {
     dataIndex: "orderPlasmid",
     className: actionColumn,
     fixed: "right" as const,
-    // temp fix: use first plasmid link if multiple exist until design decision made
     onCell: (record: UnpackedCellLine) => ({
         onClick: () => {
             const cellLine = record as UnpackedNormalCellLine;
-            openLinkInNewTab(cellLine.orderPlasmid[0]);
+            return openLinkInNewTab(cellLine.orderPlasmid);
         },
     }),
-    render: (orderPlasmid: string[]) => {
-        const isDisabled = !orderPlasmid || !orderPlasmid[0];
+    render: (orderPlasmid: string) => {
+        const isDisabled = !orderPlasmid;
         const link = (
             <a
                 className={classNames(actionButton, {
                     [disabled]: isDisabled,
                 })}
-                href={isDisabled ? undefined : orderPlasmid[0]}
+                href={isDisabled ? undefined : orderPlasmid}
                 target="_blank"
                 rel="noreferrer"
             >
