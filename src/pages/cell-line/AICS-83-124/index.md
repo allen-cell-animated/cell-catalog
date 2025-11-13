@@ -37,7 +37,7 @@ genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: /img/shared/GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "Karyotype Analysis"
       images:
         - image: AICS-83_cl124_DCP1A_karyotype.JPG

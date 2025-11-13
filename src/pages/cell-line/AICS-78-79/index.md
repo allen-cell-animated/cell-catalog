@@ -66,7 +66,7 @@ genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: /img/shared/GenomicCharacterization_junction_schematic_mEGFP.png
   amplified_junctions:
     - edited_gene: ""
       junction: "5'"

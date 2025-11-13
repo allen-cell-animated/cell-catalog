@@ -48,7 +48,7 @@ genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: ../GenomicCharacterization_junction_schematic_generic.png
+        - image: /img/shared/GenomicCharacterization_junction_schematic_generic.png
     - title: "Karyotype Analysis"
       images:
         - image: AICS-59DualSec-LMNB1cl.jpg
