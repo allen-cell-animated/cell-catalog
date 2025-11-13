@@ -3,10 +3,13 @@ import { Clone } from "../component-queries/types";
 
 export const formatCellLineId = (cellLineId: number) => {
     const zeros = "0000";
-    return `AICS-${
-        zeros.slice(0, zeros.length - cellLineId.toString().length) + cellLineId
-    }`;
+    return `AICS-${zeros.slice(0, zeros.length - cellLineId.toString().length) + cellLineId}`;
 };
+
+export const formatCellLineSlug = (cellLineId: number, cloneNumber: number) => {
+    return `AICS-${cellLineId}-${cloneNumber}`;
+};
+
 
 export const getCloneSummary = (clones: Clone[]) => {
     const numMutants = filter(clones, { type: "Mutant" }).length;

@@ -4,10 +4,13 @@ import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
 
 import { UnpackedGene } from "../component-queries/types";
+import { formatCellLineSlug } from "../utils";
 import { DarkBlueHoverButton } from "./shared/Buttons";
 
 const {
     actionButton,
+    buttonContent,
+    buttonIcon,
     clone,
     header,
     modal,
@@ -19,6 +22,7 @@ const LinkOut = require("../img/external-link.svg");
 interface ParentalLineModalProps {
     image?: IGatsbyImageData | null;
     formattedId: string;
+    cellLineId: number;
     cloneNumber: number;
     status: string;
     taggedGene: UnpackedGene[];
@@ -99,21 +103,17 @@ const ParentalLineModal = (props: ParentalLineModalProps) => {
                                 borderWidth: "2px",
                                 backgroundColor: "white",
                             }}
-                            href="https://www.allencell.org/cell-catalog.html"
+                            href={`/cell-line/${formatCellLineSlug(props.cellLineId, props.cloneNumber)}/`}
                             target="_blank"
                             className={actionButton}
                         >
-                            <Flex
-                                justify="flex-end"
-                                gap={110}
-                                style={{
-                                    width: "100%",
-                                    fontWeight: 600,
-                                }}
-                            >
+                            <div className={buttonContent}>
                                 Go to Parental Line
-                                <Icon component={LinkOut} />
-                            </Flex>
+                                <Icon
+                                    component={LinkOut}
+                                    className={buttonIcon}
+                                />
+                            </div>
                         </DarkBlueHoverButton>
                     </div>
                 }

@@ -83,6 +83,7 @@ export const getDiseaseTableColumns = (
                         key={parentalLine.cellLineId}
                         suppressRowClickRef={suppressRowClickRef}
                         formattedId={formatCellLineId(parentalLine.cellLineId)}
+                        cellLineId={parentalLine.cellLineId}
                         cloneNumber={parentalLine.cloneNumber}
                         image={parentalLine.thumbnailImage}
                         taggedGene={parentalLine.taggedGene}
