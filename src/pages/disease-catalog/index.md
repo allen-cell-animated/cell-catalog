@@ -54,6 +54,6 @@ acknowledgements_block:
 funding_text: >
   We wish to thank Allen Institute founders, Jody Allen & Paul G. Allen, for their vision, encouragement, and support.
 ---
-The Disease Collection Cell Catalog is a growing compilation of cell lines that carry mutations in genes known to cause disease. These cell lines were created by introducing a point mutation in one of the fluorescently tagged WTC-11 clonal lines from the [Allen Cell Collection](https://www.allencell.org/cell-catalog.html).
+The Disease Collection Cell Catalog is a growing compilation of cell lines that carry mutations in genes known to cause disease. These cell lines were created by introducing a point mutation in one of the fluorescently tagged WTC-11 clonal lines from the [Allen Cell Collection](https://cell-catalog.allencell.org/).
 
 [Subscribe to our newsletter](https://www.alleninstitute.org/newsletter) to stay informed of frequently released new cell lines.
