@@ -13,7 +13,7 @@ about_block:
     text: Looking for a line with a disease mutation? Check out our Disease Cell Catalog.
     link:
       - text: Check out our Disease Cell Catalog
-        url: https://cell-catalog.allencell.org/disease-catalog/
+        url: /disease-catalog/
 table_header: "Allen Cell Collection Cell Lines"
 coriell_image: /img/coriell.png
 coriell_link: https://www.coriell.org/1/AllenCellCollection
