@@ -1,12 +1,17 @@
+import { AutoComplete, Flex, Input } from "antd";
 import React, { useRef, useState } from "react";
-import { AutoComplete, Input } from "antd";
+
 import {
     SearchLookup,
     UnpackedNormalCellLine,
 } from "../component-queries/types";
 import { SecondaryButton } from "./shared/Buttons";
 
-const { searchBarContainer } = require("../style/search-and-filter.module.css");
+const {
+    autocomplete,
+    clearButton,
+    searchBarContainer,
+} = require("../style/search-and-filter.module.css");
 
 interface SearchBarProps {
     mappings: SearchLookup;
@@ -14,7 +19,7 @@ interface SearchBarProps {
     setResults: (filteredCellLines: UnpackedNormalCellLine[]) => void;
 }
 
-const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
+const SearchBar = ({ allCellLines, mappings, setResults }: SearchBarProps) => {
     const [options, setOptions] = useState<{ value: string }[]>([]);
     const [currentValue, setCurrentValue] = useState<string>("");
     const ignoreSelect = useRef(false);
@@ -71,7 +76,7 @@ const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
         // NOTE: the checks for undefined values are for typescript, this data is all
         // generated from the same source, so the looks ups will always
         // return a value
-        const { geneSymToCellIds, structureAndNameToGene, categoryToIds } =
+        const { categoryToIds, geneSymToCellIds, structureAndNameToGene } =
             mappings;
         let cellLineIds: number[] = [];
         if (value.includes("AICS")) {
@@ -116,7 +121,7 @@ const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
     };
 
     return (
-        <div className={searchBarContainer}>
+        <Flex gap={12} className={searchBarContainer}>
             <AutoComplete
                 defaultActiveFirstOption={false}
                 options={options}
@@ -136,15 +141,19 @@ const SearchBar = ({ mappings, allCellLines, setResults }: SearchBarProps) => {
                     }
                 }}
             >
-                <Input placeholder="Search AICS ID, protein, gene..." />
+                <Input
+                    className={autocomplete}
+                    placeholder="Search AICS ID, protein, gene..."
+                />
             </AutoComplete>
             <SecondaryButton
+                className={clearButton}
                 onClick={handleClear}
                 disabled={currentValue === ""}
             >
                 Clear
             </SecondaryButton>
-        </div>
+        </Flex>
     );
 };
 

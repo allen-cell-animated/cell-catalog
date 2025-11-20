@@ -1,5 +1,6 @@
+import { StaticQuery, graphql } from "gatsby";
 import React from "react";
-import { graphql, StaticQuery } from "gatsby";
+
 import DiseaseCellLineQuery from "./DiseaseCellLines";
 import { DiseaseFrontmatter } from "./types";
 
@@ -31,8 +32,7 @@ const DiseaseTemplate = (props: QueryResult) => {
 
     const unpackedDiseases = diseases
         .map(({ node: disease }) => {
-            const { name, gene, status } =
-            disease.frontmatter;
+            const { gene, name, status } = disease.frontmatter;
             return {
                 name,
                 geneSymbol: gene[0].frontmatter.symbol,

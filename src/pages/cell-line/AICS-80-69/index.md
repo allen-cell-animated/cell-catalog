@@ -42,7 +42,7 @@ genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: /img/shared/GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "Karyotype Analysis"
       images:
         - image: KARYO_cl69_AICS_80_FUS_mEGFP_cl.jpg
@@ -82,7 +82,7 @@ stem_cell_characteristics:
     - marker: "SSEA-1"
       positive_cells: 0.45
     - marker: "SSEA-3"
-      positive_cells: n/a
+      positive_cells: null
     - marker: "TRA-160"
       positive_cells: 99.92
   pluripotency_caption: "iPSCs were stained with directly conjugated antibodies from BD Biosciences, acquired using a FACSAria III Fusion (BD Biosciences), and analyzed using FlowJo software (Treestar, Inc.). Doublets were excluded, then marker-specific gates were set according to corresponding fluorescence-minus-one (FMO) controls."

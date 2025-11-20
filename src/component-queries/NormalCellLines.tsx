@@ -1,55 +1,93 @@
+import { StaticQuery, graphql } from "gatsby";
 import React from "react";
-import { graphql, StaticQuery } from "gatsby";
 
-import {
-    CellLineStatus,
-    NormalCellLineNode,
-    UnpackedNormalCellLine,
-} from "./types";
-import { convertFrontmatterToNormalCellLines } from "./convert-data";
+import CategorySections from "../components/CategorySections";
 import CellLineTable from "../components/CellLineTable";
+import { getNormalTableMobileConfig } from "../components/CellLineTable/MobileView";
 import { getNormalTableColumns } from "../components/CellLineTable/NormalTableColumns";
 import { PHONE_BREAKPOINT } from "../constants";
 import useWindowWidth from "../hooks/useWindowWidth";
-import { getNormalTableMobileConfig } from "../components/CellLineTable/MobileView";
 import SearchAndFilter from "./SearchAndFilter";
+import { convertFrontmatterToNormalCellLines } from "./convert-data";
+import { CategoryLabel, CellLineStatus, NormalCellLineNode } from "./types";
 
 const CellLineTableTemplate = (props: QueryResult) => {
     const { edges: cellLines } = props.data.allMarkdownRemark;
-    const inProgressCellLines = [] as UnpackedNormalCellLine[];
-    const finishedCellLines = [] as UnpackedNormalCellLine[];
-    cellLines.forEach((cellLine) => {
-        const unPackedCellLine = convertFrontmatterToNormalCellLines(cellLine);
-        if (unPackedCellLine.status === CellLineStatus.InProgress) {
-            inProgressCellLines.push(unPackedCellLine);
-        } else {
-            finishedCellLines.push(unPackedCellLine);
-        }
-    });
+
+    const allCellLines = cellLines.map((cellLine) =>
+        convertFrontmatterToNormalCellLines(cellLine),
+    );
+
     const width = useWindowWidth();
     const isPhone = width < PHONE_BREAKPOINT;
     const [filteredCellLines, setFilteredCellLines] =
-        React.useState(finishedCellLines);
-    return (
+        React.useState(allCellLines);
+    const [selectedCategories, setSelectedCategories] = React.useState<
+        CategoryLabel[]
+    >([]);
+
+    const inProgressCellLines = filteredCellLines.filter(
+        (cellLine) => cellLine.status === CellLineStatus.InProgress,
+    );
+    const finishedCellLines = filteredCellLines.filter(
+        (cellLine) => cellLine.status !== CellLineStatus.InProgress,
+    );
+
+    const filteredByCategory = selectedCategories.length > 0;
+    const hasInProgressLines = inProgressCellLines.length > 0;
+
+    const defaultRender = (
         <>
-            <SearchAndFilter
-                allCellLines={finishedCellLines}
-                setResults={setFilteredCellLines}
-            />
             <CellLineTable
                 tableName="Cell Line Catalog"
-                cellLines={filteredCellLines}
+                cellLines={finishedCellLines}
                 released={true}
                 columns={getNormalTableColumns(false)}
                 mobileConfig={getNormalTableMobileConfig(isPhone)}
             />
-            <CellLineTable
-                tableName="Cell Line Catalog"
-                cellLines={inProgressCellLines}
-                released={false}
-                columns={getNormalTableColumns(true)}
-                mobileConfig={getNormalTableMobileConfig(isPhone)}
+            {!!inProgressCellLines.length && (
+                <CellLineTable
+                    tableName="Cell Line Catalog"
+                    cellLines={inProgressCellLines}
+                    released={false}
+                    columns={getNormalTableColumns(true)}
+                    mobileConfig={getNormalTableMobileConfig(isPhone)}
+                />
+            )}
+        </>
+    );
+
+    const sortedBySelectedCategoryRender = (
+        <>
+            <CategorySections
+                selectedCategories={selectedCategories}
+                filteredList={finishedCellLines}
+                isPhone={isPhone}
+                released={true}
             />
+            {hasInProgressLines && (
+                <CategorySections
+                    selectedCategories={selectedCategories}
+                    filteredList={inProgressCellLines}
+                    isPhone={isPhone}
+                    released={false}
+                />
+            )}
+        </>
+    );
+
+    return (
+        <>
+            <SearchAndFilter
+                allCellLines={allCellLines}
+                filteredCellLines={filteredCellLines}
+                setResults={setFilteredCellLines}
+                selectedCategories={selectedCategories}
+                setSelectedCategories={setSelectedCategories}
+            />
+            {filteredByCategory
+                ? sortedBySelectedCategoryRender
+                : defaultRender}
         </>
     );
 };
@@ -132,7 +170,7 @@ export default function NormalCellLines() {
                     }
                 }
             `}
-            render={(data: any) => <CellLineTableTemplate data={data} />}
+            render={(data) => <CellLineTableTemplate data={data} />}
         />
     );
 }

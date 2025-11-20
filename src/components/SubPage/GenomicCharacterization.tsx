@@ -1,35 +1,75 @@
+import { AnyObject } from "antd/es/_util/type";
+import { ColumnsType } from "antd/es/table";
 import React from "react";
-import { Flex } from "antd";
-import classNames from "classnames";
-import DiagramCard, { DiagramCardProps } from "../shared/DiagramCard";
+
+import DiagramCard from "../shared/DiagramCard";
+import SubpageTable from "../shared/SubpageTable";
+import {
+    AMPLIFIED_JUNCTION_COLUMNS,
+    CRRNA_OFF_TARGETS_COLUMNS,
+    DDPCR_COLUMNS,
+} from "./genomic-characterization-table-constants";
+import { UnpackedGenomicCharacterization as GenomicCharacterizationProps } from "./types";
 
 const {
-    card,
-    fullWidth,
-} = require("../../style/genomic-characterization.module.css");
-
-interface GenomicCharacterizationProps {
-    diagrams: DiagramCardProps[];
-}
+    masonry,
+    masonryItem,
+    masonrySpanAll,
+} = require("../../style/subpage.module.css");
 
 const GenomicCharacterization: React.FC<GenomicCharacterizationProps> = ({
+    amplifiedJunctions,
+    crRnaOffTargets,
+    ddpcr,
     diagrams,
 }) => {
     return (
-        <Flex gap={40} wrap="wrap" justify="space-between" align="baseline">
+        <div className={masonry}>
+            {amplifiedJunctions ? (
+                <SubpageTable
+                    className={masonryItem}
+                    title={"Amplified Junctions"}
+                    columns={
+                        AMPLIFIED_JUNCTION_COLUMNS as ColumnsType<AnyObject>
+                    }
+                    dataSource={amplifiedJunctions.data}
+                    caption={amplifiedJunctions.caption}
+                />
+            ) : null}
+            {ddpcr ? (
+                <SubpageTable
+                    className={masonryItem}
+                    title={"GFP and donor plasmid copy number"}
+                    columns={DDPCR_COLUMNS as ColumnsType<AnyObject>}
+                    dataSource={ddpcr.data}
+                    caption={ddpcr.caption}
+                />
+            ) : null}
+            {crRnaOffTargets ? (
+                <SubpageTable
+                    className={masonryItem}
+                    title={"crRNA Off-targets"}
+                    columns={
+                        CRRNA_OFF_TARGETS_COLUMNS as ColumnsType<AnyObject>
+                    }
+                    dataSource={crRnaOffTargets.data}
+                    caption={crRnaOffTargets.caption}
+                />
+            ) : null}
             {diagrams?.map((diagram, index) => (
                 <DiagramCard
                     key={index}
-                    className={classNames(
-                        card,
-                        diagram.title?.includes("Sanger") ? fullWidth : ""
-                    )}
+                    className={
+                        diagram.title?.includes("Sanger")
+                            ? masonrySpanAll
+                            : masonryItem
+                    }
                     title={diagram.title}
                     caption={diagram.caption}
                     image={diagram.image}
                 />
             ))}
-        </Flex>
+        </div>
     );
 };
 

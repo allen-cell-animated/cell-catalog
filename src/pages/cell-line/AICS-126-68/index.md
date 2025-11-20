@@ -37,7 +37,7 @@ genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: /img/shared/GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "GFP-tagged and untagged alleles"
       images:
         - image: CDH5_cl68_full_allele.jpg
@@ -68,7 +68,7 @@ genomic_characterization:
     - tag: CDH5-mEGFP
       clone: 68
       fp_ratio: 0.577
-      plasmid: N/A
+      plasmid: null
   ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. RPP30 is known 2n reference gene."
 stem_cell_characteristics:
   pluripotency_analysis:

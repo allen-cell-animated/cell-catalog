@@ -1,5 +1,25 @@
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
+// this is the image that comes from the CMS
+// without any data processing
+// it's just the user entered data
+export interface UserEnteredImage {
+    image: string; // this is the image URL or path
+    caption: string;
+}
+
+export interface ImageAsset {
+    url: string;
+    path: string;
+    field?: string;
+    fileObj?: File;
+}
+
+export interface ImageAssetWithCaption {
+    image: ImageAsset;
+    caption: string;
+}
+
 export interface RawImageData {
     image: {
         childImageSharp: {
@@ -19,7 +39,7 @@ export interface RawVideoData {
     caption: string;
 }
 
-export interface MediaFrontMatter {
+export interface MediaFrontmatter {
     images?: RawImageData[];
     videos?: RawVideoData[];
 }
@@ -30,7 +50,7 @@ export interface Isoform {
     name: string;
     ids?: string[];
 }
-export interface GeneFrontMatter {
+export interface GeneFrontmatter {
     name: string;
     symbol: string;
     structure?: string;
@@ -40,11 +60,32 @@ export interface GeneFrontMatter {
 
 export interface GeneticModification {
     gene: {
-        frontmatter: GeneFrontMatter;
+        frontmatter: GeneFrontmatter;
     };
     allele_count: string;
     tag_location: string;
     fluorescent_tag: string;
+}
+
+export interface StemCellCharacteristicsFrontmatter {
+    pluripotency_analysis: {
+        marker: string;
+        positive_cells: number;
+    }[];
+    pluripotency_caption: string;
+    trilineage_differentiation: {
+        germ_layer: string;
+        marker: string;
+        percent_positive_cells: string;
+    }[];
+    trilineage_caption: string;
+    cardiomyocyte_differentiation: {
+        troponin_percent_positive: string;
+        day_of_beating_percent: string;
+        day_of_beating_range: string;
+    };
+    cardiomyocyte_differentiation_caption: string;
+    rnaseq_analysis: UnpackedImageData[];
 }
 
 export interface ParentalLineFrontmatter {
@@ -52,12 +93,37 @@ export interface ParentalLineFrontmatter {
     clone_number: number;
     genetic_modifications?: GeneticModification[];
     tagged_gene: {
-        frontmatter: GeneFrontMatter;
+        frontmatter: GeneFrontmatter;
     }[];
     allele_count: string[];
     tag_location: string[];
     fluorescent_tag: string[];
-    images_and_videos?: MediaFrontMatter;
+    images_and_videos?: MediaFrontmatter;
+}
+
+export interface GenomicCharacterizationFrontmatter {
+    diagrams: DiagramList[];
+    amplified_junctions: {
+        edited_gene: string;
+        junction: string;
+        expected_size: string;
+        confirmed_sequence: string; // "" yes, NA, Not Sequenced
+    }[];
+    junction_table_caption: string;
+    ddpcr: {
+        tag: string;
+        clone: number;
+        fp_ratio: number;
+        plasmid: number;
+    }[]
+    ddpcr_caption: string;
+    cr_rna_off_targets: {
+        clones_analyzed: number;
+        off_targets_sequenced_per_clone: number;
+        total_sites_sequenced: number;
+        mutations_identified: number;
+    }[]
+    off_targets_caption: string;
 }
 
 export interface NormalCellLineFrontmatter {
@@ -68,7 +134,7 @@ export interface NormalCellLineFrontmatter {
     order_link: string;
     genetic_modifications?: GeneticModification[];
     tagged_gene: {
-        frontmatter: GeneFrontMatter;
+        frontmatter: GeneFrontmatter;
     }[];
     allele_count: string[];
     tag_location: string[];
@@ -88,8 +154,10 @@ export interface NormalCellLineFrontmatter {
         cas9: string;
         diagrams: DiagramList[];
     };
-    images_and_videos?: MediaFrontMatter;
-    category_labels: string[];
+    genomic_characterization: GenomicCharacterizationFrontmatter;
+    stem_cell_characteristics: StemCellCharacteristicsFrontmatter;
+    images_and_videos?: MediaFrontmatter;
+    category_labels: CategoryLabel[];
 };
 
 export interface NormalCellLineNode {
@@ -162,7 +230,7 @@ export interface DiseaseCellLineFrontmatter {
     order_link: string;
     status: CellLineStatus;
     hPSCreg_certificate_link: string;
-    images_and_videos?: MediaFrontMatter;
+    images_and_videos?: MediaFrontmatter;
     editing_design?: {
         cr_rna_target_site: string;
         dna_donor_sequence: Sequence[];
@@ -191,7 +259,7 @@ export interface DiseaseCellLineEdge {
 export interface DiseaseFrontmatter {
     name: string;
     gene: {
-        frontmatter: GeneFrontMatter;
+        frontmatter: GeneFrontmatter;
     }[];
     status: string;
 }
@@ -211,7 +279,7 @@ export interface UnpackedCellLineMainInfo {
     healthCertificate: string;
     orderLink: string;
     thumbnailImage?: IGatsbyImageData | null;
-    imagesAndVideos?: MediaFrontMatter;
+    imagesAndVideos?: MediaFrontmatter;
 }
 
 export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
@@ -231,7 +299,7 @@ export interface UnpackedNormalCellLine extends UnpackedCellLineMainInfo {
     tagLocation: string[];
     fluorescentTag: string[];
     orderPlasmid: string;
-    categoryLabels: string[];
+    categoryLabels: CategoryLabel[];
 }
 
 export type ParentLine = Pick<UnpackedNormalCellLine,
@@ -255,26 +323,19 @@ export interface UnpackedDiseaseCellLine extends UnpackedCellLineMainInfo {
     mutatedGene: UnpackedGene[];
 }
 
+export interface LookupGroup {
+    node: {
+        frontmatter: {
+            cell_line_id: number;
+            genetic_modifications: GeneticModification[];
+            category_labels: string[];
+        };
+    };
+}
+
 export interface SearchAndFilterGroup {
     fieldValue: string;
-    edges: {
-        node: {
-            frontmatter: {
-                cell_line_id: number;
-                genetic_modifications: {
-                    gene: {
-                        frontmatter: {
-                            name: string;
-                            symbol: string;
-                            protein: string;
-                            structure: string;
-                        };
-                    }[];
-                };
-                category_labels: string[];
-            };
-        };
-    }[];
+    edges: LookupGroup[];
 }
 
 export interface SearchAndFilterQueryResult {
@@ -292,4 +353,13 @@ export interface SearchLookup {
     structureAndNameToGene: Map<string, string>;
     categoryToIds: Map<string, number[]>
     allSearchableTerms: Set<string>;
+}
+
+export enum CategoryLabel {
+    KeyStructureAndOrganelle = "Key Structure and Organelle",
+    NuclearStructure = "Nuclear Structure",
+    Stress = "Stress",
+    CardiacStructure = "Cardiac Structure",
+    Tools = "Tools",
+    Endothelial = "Endothelial",
 }

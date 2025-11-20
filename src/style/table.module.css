@@ -7,7 +7,11 @@
 
 .table-title {
     margin-right: 18px;
-    line-height: 0;
+    text-wrap-mode: nowrap;
+}
+
+.category-text {
+    color: var(--BLUE_90);
 }
 
 .thumbnail-container {
@@ -57,8 +61,12 @@
         inset 0 1.5px 0 0 var(--border-color);
 }
 
+.container :global(.ant-table-title) {
+    padding: 28px 16px;
+}
+
 .container :global(.ant-table-title) h3 {
-    margin: 22px 16px 22px 0;
+    margin-right: 40px;
 }
 
 .container :global(.ant-table-thead .ant-table-cell) {
@@ -82,16 +90,24 @@
     text-decoration: underline;
 }
 
-.container .action-column:global(.ant-table-cell):has(a):hover {
+.container .action-column {
+    cursor: pointer;
+}
+
+.container .action-column:has(.action-button.disabled) {
+  cursor: not-allowed;
+}
+
+.container .action-column:global(.ant-table-cell):has(a:not(.disabled)):hover {
     background-color: var(--primary-color);
 }
 
-.action-column:hover .action-button {
+.action-column:hover:has(a:not(.disabled)) .action-button {
     color: var(--WHITE);
 }
 
-.action-column:hover .action-button :global(.tube-icon) path,
-.action-column:hover .action-button :global(.tube-icon) line {
+.action-column:hover:has(a:not(.disabled)) .action-button :global(.tube-icon) path,
+.action-column:hover:has(a:not(.disabled)) .action-button :global(.tube-icon) line {
     fill: var(--primary-color);
     stroke: var(--WHITE);
 }
@@ -105,16 +121,37 @@
     stroke: var(--primary-color);
 }
 
-.action-column:hover .action-button .cert-icon path,
-.action-column:hover .action-button .cert-icon line {
+.action-column:hover:has(a:not(.disabled)) .action-button .cert-icon path,
+.action-column:hover:has(a:not(.disabled)) .action-button .cert-icon line {
     stroke: var(--WHITE);
 }
 
-.action-column:hover :global(.plasmid-icon) path {
+.action-column:hover:has(a:not(.disabled)) :global(.plasmid-icon) path {
     fill: var(--WHITE);
 }
 
-.container h4 {
+.action-button.disabled {
+  color: var(--RAIN_SHADOW);
+  cursor: not-allowed;
+}
+
+.action-button.disabled :global(.tube-icon) path {
+  fill: var(--WHITE);
+}
+
+.action-button.disabled :global(.tube-icon) line,
+.action-button.disabled :global(.tube-icon) path,
+.action-button.disabled .cert-icon path,
+.action-button.disabled .cert-icon line {
+  stroke: var(--RAIN_SHADOW);
+}
+
+.action-button.disabled :global(.plasmid-icon) path {
+  fill: var(--RAIN_SHADOW);
+}
+
+.container .id-header h4,
+.container .id-title h4 {
     font-family: "Open Sans", sans-serif;
     font-size: 24px;
     font-weight: 600;

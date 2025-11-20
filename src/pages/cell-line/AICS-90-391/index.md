@@ -44,7 +44,7 @@ genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: ../GenomicCharacterization_junction_schematic_generic_insert.png
+        - image: /img/shared/GenomicCharacterization_junction_schematic_generic_insert.png
     - title: "Karyotype Analysis"
       images:
         - image: AICS-90_cl391_CLYBL-dCas9-KRAB_karyotype.JPG
@@ -78,11 +78,11 @@ stem_cell_characteristics:
     - marker: "NANOG"
       positive_cells: 99.9
     - marker: "SOX2"
-      positive_cells: NA
+      positive_cells: null
     - marker: "OCT4"
       positive_cells: 100
     - marker: "SSEA-1"
-      positive_cells: NA
+      positive_cells: null
     - marker: "SSEA-4"
       positive_cells: 100
     - marker: "TRA-160"

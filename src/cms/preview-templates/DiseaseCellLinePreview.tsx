@@ -1,45 +1,65 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { TemplateProps } from "./types";
+import {
+    CellLineStatus,
+    Clone,
+    ImageAsset,
+    ImageAssetWithCaption,
+} from "../../component-queries/types";
+import CloneTable from "../../components/CloneTable";
+import PreviewCompatibleImage from "../../components/PreviewCompatibleImage";
 import InfoPanel from "../../components/shared/InfoPanel";
 import { formatCellLineId } from "../../utils";
-import CloneTable from "../../components/CloneTable";
-import { Clone } from "../../component-queries/types";
-import PreviewCompatibleImage from "../../components/PreviewCompatibleImage";
-import ProgressPreview from "./ProgressPreview";
 import useDisableWheel from "../hooks/useDisableWheel";
+import ProgressPreview from "./ProgressPreview";
+import { Item, TemplateProps } from "./types";
 
 const DiseaseCellLinePreview = ({ entry, getAsset }: TemplateProps) => {
     const parental_line_id = entry.getIn(["data", "parental_line"]);
     useDisableWheel();
-    const data = [
+    const data: {
+        key: string;
+        label: string;
+        children: React.ReactNode | string;
+    }[] = [
         {
             key: "cell_line_id",
             label: "Cell Line ID",
-            children: formatCellLineId(entry.getIn(["data", "cell_line_id"])),
+            children: formatCellLineId(
+                entry.getIn(["data", "cell_line_id"]) as number,
+            ),
         },
         {
             key: "parental_line",
             label: "Parental Line",
-            children: formatCellLineId(parental_line_id),
+            children: formatCellLineId(parental_line_id as number),
         },
         {
             key: "snp",
             label: "SNP",
-            children: entry.getIn(["data", "snp"]),
+            children: entry.getIn(["data", "snp"]) as string,
         },
         {
             key: "order_link",
             label: "Order Link",
             children: (
-                <a href={entry.getIn(["data", "order_link"])}>Order Cells</a>
+                <a href={entry.getIn(["data", "order_link"]) as string}>
+                    Order Cells
+                </a>
             ),
         },
         {
             key: "certificate_of_analysis",
             label: "Certification Link",
             children: (
-                <a href={entry.getIn(["data", "certificate_of_analysis"])}>
+                <a
+                    href={
+                        entry.getIn([
+                            "data",
+                            "certificate_of_analysis",
+                        ]) as string
+                    }
+                >
                     View Certificate of Analysis
                 </a>
             ),
@@ -48,30 +68,41 @@ const DiseaseCellLinePreview = ({ entry, getAsset }: TemplateProps) => {
         {
             key: "health_certificate",
             label: "Health Certificate",
-            children: entry.getIn(["data", "health_certificate"]),
+            children: entry.getIn(["data", "health_certificate"]) as string,
         },
     ];
-    const status = entry.getIn(["data", "status"]);
-    const clones = entry.getIn(["data", "clones"]);
+    const status = entry.getIn(["data", "status"]) as CellLineStatus;
+    const clones = entry.getIn(["data", "clones"]) as Item[];
     const cloneData = [] as Clone[];
-    clones.forEach((clone: any) => {
+    clones.forEach((clone: Item) => {
         const data = {
-            clone_number: clone.get("clone_number"),
-            type: clone.get("type"),
-            transfection_replicate: clone.get("transfection_replicate"),
-            genotype: clone.get("genotype"),
+            clone_number: clone.get("clone_number") as number,
+            type: clone.get("type") as string,
+            transfection_replicate: clone.get(
+                "transfection_replicate",
+            ) as string,
+            genotype: clone.get("genotype") as string,
         };
         cloneData.push(data);
     });
 
-    const imageArray = entry.getIn(["data", "images_and_videos", "images"]);
-    const images = [] as any[];
+    const imageArray = entry.getIn([
+        "data",
+        "images_and_videos",
+        "images",
+    ]) as Item[];
+    const images = [] as ImageAssetWithCaption[];
     if (imageArray !== undefined) {
-        imageArray.forEach((imageObj: any) => {
-            const image = getAsset(imageObj.get("image"));
+        imageArray.forEach((imageObj: Item) => {
+            const imageValue = imageObj.get("image");
+            const image = getAsset(
+                typeof imageValue === "string"
+                    ? imageValue
+                    : (imageValue?.toString?.() ?? ""),
+            ) as ImageAsset;
             const data = {
                 image: image,
-                caption: imageObj.get("caption"),
+                caption: imageObj.get("caption") as string,
             };
             images.push(data);
         });
@@ -81,9 +112,9 @@ const DiseaseCellLinePreview = ({ entry, getAsset }: TemplateProps) => {
             <ProgressPreview collection={"disease"} status={status} />
             <InfoPanel data={data} />
             <CloneTable dataSource={cloneData} />
-
-            {images.map((data: any) => (
+            {images.map((data: ImageAssetWithCaption) => (
                 <div
+                    key={data.image.url}
                     style={{
                         display: "flex",
                         alignItems: "center",

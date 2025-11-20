@@ -1,17 +1,16 @@
+import { Link, graphql } from "gatsby";
 import React from "react";
-import { graphql, Link } from "gatsby";
-import Layout from "../components/Layout";
-import {
-    NormalCellLineFrontmatter,
-} from "../component-queries/types";
+
+import { NormalCellLineFrontmatter } from "../component-queries/types";
 import { NormalCellLineInfoCard } from "../components/CellLineInfoCard/NormalCellLineInfoCard";
-import { DefaultButton } from "../components/shared/Buttons";
-import SubpageTabs from "../components/SubPage/SubpageTabs";
-import { TABS_WITH_STEM_CELL } from "../constants";
-import { unpackNormalFrontMatterForSubpage } from "../components/SubPage/convert-data";
-import { UnpackedNormalCellLineFull } from "../components/SubPage/types";
 import ImagesAndVideos from "../components/ImagesAndVideos";
-import { hasMedia, getImages, getVideos } from "../utils/mediaUtils";
+import Layout from "../components/Layout";
+import SubpageTabs from "../components/SubPage/SubpageTabs";
+import { unpackNormalFrontmatterForSubpage } from "../components/SubPage/convert-data";
+import { UnpackedNormalCellLineFull } from "../components/SubPage/types";
+import { DefaultButton } from "../components/shared/Buttons";
+import { TABS_WITH_STEM_CELL } from "../constants";
+import { getImages, getVideos, hasMedia } from "../utils/mediaUtils";
 
 const {
     container,
@@ -40,20 +39,21 @@ interface CellLineProps extends UnpackedNormalCellLineFull {
     href: string;
 }
 
-// eslint-disable-next-line
 export const CellLineTemplate = ({
-    cellLineId,
-    cloneNumber,
-    taggedGene,
-    href,
-    orderPlasmid,
-    healthCertificate,
-    certificateOfAnalysis,
-    orderLink,
-    fluorescentTag,
     alleleCount,
+    cellLineId,
+    certificateOfAnalysis,
+    cloneNumber,
     editingDesign,
+    fluorescentTag,
+    genomicCharacterization,
+    healthCertificate,
+    href,
     imagesAndVideos,
+    orderLink,
+    orderPlasmid,
+    stemCellCharacteristics,
+    taggedGene,
 }: CellLineProps) => {
     const hasImagesOrVideos = hasMedia(imagesAndVideos);
     if (cellLineId === 0) {
@@ -99,8 +99,8 @@ export const CellLineTemplate = ({
             </div>
             <SubpageTabs
                 editingDesignData={editingDesign}
-                genomicCharacterizationData={[]}
-                stemCellCharData={null}
+                genomicCharacterizationData={genomicCharacterization}
+                stemCellCharacteristics={stemCellCharacteristics}
                 tabsToRender={TABS_WITH_STEM_CELL}
             />
         </>
@@ -110,7 +110,7 @@ export const CellLineTemplate = ({
 const CellLine = ({ data, location }: QueryResult) => {
     const { markdownRemark: cellLine } = data;
 
-    const unpackedCellLine = unpackNormalFrontMatterForSubpage(cellLine);
+    const unpackedCellLine = unpackNormalFrontmatterForSubpage(cellLine);
 
     return (
         <Layout>
@@ -135,6 +135,7 @@ export const pageQuery = graphql`
                 cell_line_id
                 certificate_of_analysis
                 eu_hpsc_reg
+                order_link
                 donor_plasmid
                 parental_line {
                     frontmatter {
@@ -160,13 +161,16 @@ export const pageQuery = graphql`
                     images {
                         image {
                             childImageSharp {
-                                gatsbyImageData(width: 400, placeholder: BLURRED)
+                                gatsbyImageData(
+                                    width: 400
+                                    placeholder: BLURRED
+                                )
                             }
                         }
                         caption
                     }
                     videos {
-                        video 
+                        video
                         caption
                     }
                 }
@@ -188,6 +192,73 @@ export const pageQuery = graphql`
                             }
                             caption
                         }
+                    }
+                }
+                genomic_characterization {
+                    diagrams {
+                        title
+                        images {
+                            image {
+                                childImageSharp {
+                                    gatsbyImageData(
+                                        placeholder: BLURRED
+                                        layout: CONSTRAINED
+                                    )
+                                }
+                            }
+                            caption
+                        }
+                    }
+                    amplified_junctions {
+                        edited_gene
+                        junction
+                        expected_size
+                        confirmed_sequence
+                    }
+                    ddpcr {
+                        tag
+                        clone
+                        fp_ratio
+                        plasmid
+                    }
+                    cr_rna_off_targets {
+                        clones_analyzed
+                        off_targets_sequenced_per_clone
+                        total_sites_sequenced
+                        mutations_identified
+                    }
+                    junction_table_caption
+                    ddpcr_caption
+                    off_targets_caption
+                }
+                stem_cell_characteristics {
+                    pluripotency_analysis {
+                        marker
+                        positive_cells
+                    }
+                    pluripotency_caption
+                    trilineage_differentiation {
+                        germ_layer
+                        marker
+                        percent_positive_cells
+                    }
+                    trilineage_caption
+                    cardiomyocyte_differentiation {
+                        troponin_percent_positive
+                        day_of_beating_percent
+                        day_of_beating_range
+                    }
+                    cardiomyocyte_differentiation_caption
+                    rnaseq_analysis {
+                        image {
+                            childImageSharp {
+                                gatsbyImageData(
+                                    placeholder: BLURRED
+                                    layout: CONSTRAINED
+                                )
+                            }
+                        }
+                        caption
                     }
                 }
             }

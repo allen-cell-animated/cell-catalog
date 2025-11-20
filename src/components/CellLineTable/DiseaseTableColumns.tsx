@@ -1,6 +1,6 @@
-import React from "react";
 import { Flex } from "antd";
 import classNames from "classnames";
+import React from "react";
 
 import {
     Clone,
@@ -9,16 +9,20 @@ import {
     UnpackedNormalCellLine,
 } from "../../component-queries/types";
 import { formatCellLineId, getCloneSummary } from "../../utils";
+import CloneSummary from "../CloneSummary";
 import GeneDisplay from "../GeneDisplay";
 import ParentalLineModal from "../ParentalLineModal";
-import CloneSummary from "../CloneSummary";
-
 import {
     cellLineIdColumn,
     certificateOfAnalysisColumn,
     obtainLineColumn,
 } from "./SharedColumns";
-import { smBreakPoint, mdBreakpoint, CellLineColumns } from "./types";
+import {
+    CellLineColumns,
+    UnpackedCellLine,
+    mdBreakpoint,
+    smBreakPoint,
+} from "./types";
 
 const {
     clones,
@@ -28,8 +32,8 @@ const {
 
 export const getDiseaseTableColumns = (
     inProgress: boolean,
-    suppressRowClickRef: React.MutableRefObject<boolean>
-): CellLineColumns<UnpackedDiseaseCellLine> => {
+    suppressRowClickRef: React.MutableRefObject<boolean>,
+): CellLineColumns<UnpackedCellLine> => {
     const columns = [
         { ...cellLineIdColumn },
         {
@@ -58,13 +62,10 @@ export const getDiseaseTableColumns = (
                 return (
                     <>
                         {mutatedGene.map((gene, index) => (
-                            <GeneDisplay
-                                key={index}
-                                gene={gene}
-                            />
+                            <GeneDisplay key={index} gene={gene} />
                         ))}
                     </>
-                ) 
+                );
             },
         },
         {
@@ -74,17 +75,19 @@ export const getDiseaseTableColumns = (
             responsive: mdBreakpoint,
             render: (
                 parentalLine: UnpackedNormalCellLine,
-                record: UnpackedDiseaseCellLine
+                record: UnpackedCellLine,
             ) => {
+                const cellLine = record as UnpackedDiseaseCellLine;
                 return (
                     <ParentalLineModal
                         key={parentalLine.cellLineId}
                         suppressRowClickRef={suppressRowClickRef}
                         formattedId={formatCellLineId(parentalLine.cellLineId)}
+                        cellLineId={parentalLine.cellLineId}
                         cloneNumber={parentalLine.cloneNumber}
                         image={parentalLine.thumbnailImage}
                         taggedGene={parentalLine.taggedGene}
-                        status={record.diseaseStatus}
+                        status={cellLine.diseaseStatus}
                         tagLocation={parentalLine.tagLocation}
                         fluorescentTag={parentalLine.fluorescentTag}
                     />
@@ -97,8 +100,8 @@ export const getDiseaseTableColumns = (
             dataIndex: "clones",
             className: classNames(clones, { [lastColumn]: !inProgress }),
             responsive: mdBreakpoint,
-            render: (clones: Clone[], _: any, index: number) => {
-                const { numMutants, numIsogenics } = getCloneSummary(clones);
+            render: (clones: Clone[], _: unknown, index: number) => {
+                const { numIsogenics, numMutants } = getCloneSummary(clones);
                 return (
                     <CloneSummary
                         numMutants={numMutants}

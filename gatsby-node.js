@@ -6,6 +6,39 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     const { createTypes } = actions;
     const typeDefs = [
         "type MarkdownRemark implements Node { frontmatter: Frontmatter }",
+        `type PluripotencyRow {
+            marker: String
+            positive_cells: Float
+            }
+
+            type TrilineageRow {
+            germ_layer: String
+            marker: String
+            percent_positive_cells: String
+            }
+
+            type CardiomyocyteDifferentiation {
+            troponin_percent_positive: String
+            day_of_beating_percent: String
+            day_of_beating_range: String
+            }
+
+            type RnaSeqRow {
+            image: File @fileByRelativePath
+            caption: String
+            }
+
+            type StemCellCharacteristics {
+            pluripotency_analysis: [PluripotencyRow]
+            pluripotency_caption: String
+            trilineage_differentiation: [TrilineageRow]
+            trilineage_caption: String
+            cardiomyocyte_differentiation: CardiomyocyteDifferentiation
+            cardiomyocyte_differentiation_caption: String
+            rnaseq_analysis: [RnaSeqRow]
+            }
+
+            `,
         `type GeneticModification {
                 gene: MarkdownRemark @link(by: "frontmatter.symbol", from: "gene")
                 allele_count: String
@@ -54,6 +87,8 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
                 parental_line: MarkdownRemark @link(by: "frontmatter.cell_line_id")
                 funding_text:  String @md
                 footer_text: String @md
+                genomic_characterization: MarkdownRemarkFrontmatterGenomic_characterization
+                stem_cell_characteristics: StemCellCharacteristics
             }`,
     ];
     createTypes(typeDefs);

@@ -1,38 +1,46 @@
-import React, { useState } from "react";
-import { Table, Tag, Flex } from "antd";
+import { Flex, Table, Tag } from "antd";
 import { navigate } from "gatsby";
+import React, { useState } from "react";
 
 import { CellLineStatus } from "../../component-queries/types";
-
-import useWindowWidth from "../../hooks/useWindowWidth";
 import { TABLET_BREAKPOINT } from "../../constants";
-import { TableStatus, UnpackedCellLine } from "./types";
 import useEnv from "../../hooks/useEnv";
+import useWindowWidth from "../../hooks/useWindowWidth";
+import { CellLineColumns, TableStatus, UnpackedCellLine } from "./types";
 
 const {
-    tableTitle,
-    container,
+    categoryText,
     comingSoon,
-    hoveredRow,
+    container,
     dataComplete,
+    hoveredRow,
+    tableTitle,
+    titleContainer,
 } = require("../../style/table.module.css");
 
 interface CellLineTableProps {
     tableName: string;
     cellLines: UnpackedCellLine[];
     released: boolean;
-    columns: any;
-    mobileConfig?: any;
+    columns: CellLineColumns<UnpackedCellLine>;
+    mobileConfig?: {
+        expandedRowRender: (
+            record: UnpackedCellLine,
+            index: number,
+        ) => React.ReactNode;
+    };
+    tableDescription?: string;
     suppressRowClickRef?: React.MutableRefObject<boolean>;
 }
 
 const CellLineTable = ({
-    tableName,
     cellLines,
-    released,
     columns,
     mobileConfig,
+    released,
     suppressRowClickRef,
+    tableDescription,
+    tableName,
 }: CellLineTableProps) => {
     const [hoveredRowIndex, setHoveredRowIndex] = useState(-1);
 
@@ -52,8 +60,8 @@ const CellLineTable = ({
     };
     const onCellInteraction = (
         record: UnpackedCellLine,
-        index: number | undefined
-    ): {} => {
+        index: number | undefined,
+    ) => {
         // creates a hover effect for the whole row, and takes the user to
         // the sub-page for the cell line. The reason
         // this couldn't be done at the row level, is that we have
@@ -69,14 +77,14 @@ const CellLineTable = ({
             onClick: () => {
                 // if we are not in production, make it easier to
                 // navigate to the cell line page
-                if (isClickable(record)) {
+                if (isClickable(record) && record.path) {
                     navigate(record.path);
                 }
             },
         };
     };
 
-    const interactiveColumns = columns.map((column: any) => {
+    const interactiveColumns = columns.map((column) => {
         // the two clickable columns are the order cell line and
         // CoA column. They do not have the hover effect and
         // should not take you to the cell line page, and are not
@@ -100,8 +108,13 @@ const CellLineTable = ({
                     isClickable(record) ? dataComplete : ""
                 }
                 title={() => (
-                    <Flex align="center">
+                    <Flex className={titleContainer} align="center">
                         <h3 className={tableTitle}>{tableName}</h3>
+                        {tableDescription && width >= TABLET_BREAKPOINT && (
+                            <div className={categoryText}>
+                                {tableDescription}
+                            </div>
+                        )}
                         {inProgress ? (
                             <Tag color="#00215F" style={{ color: "#fff" }}>
                                 {TableStatus.ComingSoon}

@@ -1,23 +1,23 @@
+import { Link, graphql } from "gatsby";
 import React from "react";
-import { graphql, Link } from "gatsby";
 
-import Layout from "../components/Layout";
 import { DiseaseCellLineFrontmatter } from "../component-queries/types";
-import { DefaultButton } from "../components/shared/Buttons";
+import { DiseaseCellLineInfoCard } from "../components/CellLineInfoCard/DiseaseCellLineInfoCard";
 import ImagesAndVideos from "../components/ImagesAndVideos";
-import { hasMedia, getImages, getVideos } from "../utils/mediaUtils";
+import Layout from "../components/Layout";
 import SubpageTabs from "../components/SubPage/SubpageTabs";
-import { DEFAULT_TABS, TABS_WITH_STEM_CELL } from "../constants";
-import { Disease } from "../types";
 import { unpackDiseaseFrontmatterForSubpage } from "../components/SubPage/convert-data";
 import { UnpackedDiseaseCellLineFull } from "../components/SubPage/types";
-import { DiseaseCellLineInfoCard } from "../components/CellLineInfoCard/DiseaseCellLineInfoCard";
+import { DefaultButton } from "../components/shared/Buttons";
+import { DEFAULT_TABS, TABS_WITH_STEM_CELL } from "../constants";
+import { Disease } from "../types";
+import { getImages, getVideos, hasMedia } from "../utils/mediaUtils";
 
 const {
     container,
+    imagesContainer,
     leftCard,
     returnArrow,
-    imagesContainer,
 } = require("../style/disease-cell-line.module.css");
 
 const Arrow = require("../img/arrow.svg");
@@ -26,23 +26,22 @@ interface DiseaseCellLineTemplateProps extends UnpackedDiseaseCellLineFull {
     href: string;
 }
 
-// eslint-disable-next-line
 export const DiseaseCellLineTemplate = ({
-    href,
     cellLineId,
-    geneName,
-    geneSymbol,
-    clones,
-    snp,
-    orderLink,
     certificateOfAnalysis,
-    parentalLine,
-    healthCertificate,
-    imagesAndVideos,
+    clones,
     diseaseName,
     editingDesign,
+    geneName,
+    geneSymbol,
     genomicCharacterization,
-    stemCellCharData,
+    healthCertificate,
+    href,
+    imagesAndVideos,
+    orderLink,
+    parentalLine,
+    snp,
+    stemCellCharacteristics,
 }: DiseaseCellLineTemplateProps) => {
     const hasImagesOrVideos = hasMedia(imagesAndVideos);
     return (
@@ -88,7 +87,7 @@ export const DiseaseCellLineTemplate = ({
             <SubpageTabs
                 editingDesignData={editingDesign}
                 genomicCharacterizationData={genomicCharacterization}
-                stemCellCharData={stemCellCharData}
+                stemCellCharacteristics={stemCellCharacteristics}
                 tabsToRender={
                     diseaseName === Disease.Cardiomyopathy
                         ? TABS_WITH_STEM_CELL

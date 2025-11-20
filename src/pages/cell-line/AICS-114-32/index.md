@@ -54,7 +54,7 @@ genomic_characterization:
   diagrams:
     - title: "Schematic of Junctions"
       images:
-        - image: ../GenomicCharacterization_junction_schematic_mEGFP.png
+        - image: /img/shared/GenomicCharacterization_junction_schematic_mEGFP.png
     - title: "Karyotype Analysis"
       images:
         - image: AICS-114_cl32_CDH1_karyotype.jpg
@@ -81,7 +81,7 @@ genomic_characterization:
     - tag: CDH1-mEGFP
       clone: 32
       fp_ratio: 1.06
-      plasmid: N/A
+      plasmid: null
   ddpcr_caption: "FP:RPP30 ratio from ddPCR assay; values = 0.5 +/- 0.1 indicate heterozygous clone, values = 1 +/- 0.1 indicate homozygous clone. RPP30 is known 2n reference gene."
 stem_cell_characteristics:
   pluripotency_analysis:

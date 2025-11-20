@@ -1,36 +1,128 @@
+import { AnyObject } from "antd/es/_util/type";
+import { ColumnsType } from "antd/es/table";
 import React from "react";
-import { Flex } from "antd";
-import { ClonePercentPositive } from "./types";
+
+import DiagramCard from "../shared/DiagramCard";
 import SubpageTable from "../shared/SubpageTable";
 import {
-    PERCENT_POS_CAPTION,
+    CARDIOMYOCYTE_COLUMNS,
     PERCENT_POS_COLUMNS,
+    TRILINEAGE_COLUMNS,
 } from "./stem-cell-table-constants";
+import {
+    PluripotencyAnalysisData,
+    UnpackedStemCellCharacteristics as StemCellCharProps,
+} from "./types";
 
-export interface StemCellCharProps {
-    percentPositive: ClonePercentPositive[];
-    passingAntibodies?: any[]; //TODO: type this once we have the data
-    differentiation?: any[]; //TODO: type this once we have the data
+const { masonry, masonryItem } = require("../../style/subpage.module.css");
+
+export function getPluripotencyColumns(
+    pluripotencyData: PluripotencyAnalysisData,
+): {
+    columns: ColumnsType<AnyObject>;
+    dataSource: AnyObject[];
+} | null {
+    if (pluripotencyData.data.length === 0) return null;
+    const data = pluripotencyData.data;
+    const columns: ColumnsType<AnyObject> = [
+        {
+            title: "Metric",
+            dataIndex: "metric",
+            key: "metric",
+        },
+        ...data.map((row) => ({
+            title: row.marker,
+            dataIndex: row.marker,
+            key: row.marker,
+        })),
+    ];
+
+    const dataSource = [
+        {
+            key: "positive",
+            metric: "% positive cells",
+            ...Object.fromEntries(
+                data.map((row) => [
+                    row.marker,
+                    typeof row.positiveCells === "number"
+                        ? `${row.positiveCells}%`
+                        : row.positiveCells,
+                ]),
+            ),
+        },
+    ];
+
+    return { columns, dataSource };
 }
 
-const StemCellChar: React.FC<StemCellCharProps> = ({ percentPositive }) => {
+const StemCellChar: React.FC<StemCellCharProps> = ({
+    cardiomyocyteDifferentiation,
+    diseaseCardioMyocyteDifferentiation,
+    pluripotencyAnalysis,
+    rnaSeqAnalysis,
+    trilineageDifferentiation,
+}) => {
+    const flippedAxesPluripotency =
+        getPluripotencyColumns(pluripotencyAnalysis);
+
+    const percentPositive = diseaseCardioMyocyteDifferentiation.data.flatMap(
+        (item) => item.percentPositive ?? [],
+    );
     const percentPositiveRows = percentPositive.map((clone) => ({
         key: clone.cloneNumber,
         cloneNumber: clone.cloneNumber,
         value: `${clone.value}%`,
     }));
-    // TODO: add passing antibodies and differentiation tables once we have the data
     return (
-        <Flex>
-            {percentPositiveRows.length && (
+        <div className={masonry}>
+            {flippedAxesPluripotency && (
                 <SubpageTable
-                    title={"Cardiomyocyte Differentiation"}
-                    columns={PERCENT_POS_COLUMNS}
-                    caption={PERCENT_POS_CAPTION}
+                    className={masonryItem}
+                    title="Pluripotency Analysis"
+                    columns={flippedAxesPluripotency.columns}
+                    dataSource={flippedAxesPluripotency.dataSource}
+                    caption={pluripotencyAnalysis?.caption}
+                />
+            )}
+
+            {!!trilineageDifferentiation?.data.length && (
+                <SubpageTable
+                    className={masonryItem}
+                    title="Trilineage Differentiation"
+                    columns={TRILINEAGE_COLUMNS as ColumnsType<AnyObject>}
+                    dataSource={trilineageDifferentiation.data}
+                    caption={trilineageDifferentiation.caption}
+                />
+            )}
+
+            {!!cardiomyocyteDifferentiation?.data.length && (
+                <SubpageTable
+                    className={masonryItem}
+                    title="Cardiomyocyte Differentiation"
+                    columns={CARDIOMYOCYTE_COLUMNS as ColumnsType<AnyObject>}
+                    dataSource={cardiomyocyteDifferentiation.data}
+                    caption={cardiomyocyteDifferentiation.caption}
+                />
+            )}
+            {rnaSeqAnalysis?.map((image, index) => (
+                <DiagramCard
+                    key={index}
+                    className={masonryItem}
+                    title={image.title}
+                    caption={image.caption}
+                    image={image.image}
+                />
+            ))}
+            {!!percentPositiveRows.length && (
+                <SubpageTable
+                    className={masonryItem}
+                    title="Cardiomyocyte Differentiation"
+                    columns={PERCENT_POS_COLUMNS as ColumnsType<AnyObject>}
+                    caption={diseaseCardioMyocyteDifferentiation?.caption}
                     dataSource={percentPositiveRows}
                 />
             )}
-        </Flex>
+        </div>
     );
 };
 

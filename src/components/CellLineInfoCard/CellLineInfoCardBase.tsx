@@ -1,7 +1,7 @@
-import React, { ReactNode, useState } from "react";
-import { Card, Flex, Button, Tooltip } from "antd";
-import classNames from "classnames";
 import Icon from "@ant-design/icons";
+import { Button, Card, Flex, Tooltip } from "antd";
+import classNames from "classnames";
+import React, { ReactNode, useState } from "react";
 
 import { formatCellLineId } from "../../utils";
 import { DarkThemeGhostButton, DefaultButton } from "../shared/Buttons";
@@ -12,15 +12,17 @@ const Share = require("../../img/share-icon.svg");
 const LinkOut = require("../../img/external-link.svg");
 
 const {
-    title,
     container,
+    disabled,
     extraLargeButton,
     extraLargeButtonHeader,
     spacedButton,
+    title,
 } = require("../../style/cell-line-info-card.module.css");
 
 interface OrderButtonProps {
     label: string;
+    disabledLabel: string;
     href: string;
     icon?: ReactNode;
     subtitle?: ReactNode;
@@ -39,13 +41,13 @@ interface CellLineInfoCardBaseProps {
 }
 
 const CellLineInfoCardBase = ({
-    href,
+    additionalInfo,
     buttonList,
     cellLineId,
-    infoRows,
-    additionalInfo,
     certificateOfAnalysis,
     healthCertificate,
+    href,
+    infoRows,
     multiGene,
 }: CellLineInfoCardBaseProps) => {
     const defaultToolTipText = "Copy cell line link to clipboard";
@@ -59,33 +61,50 @@ const CellLineInfoCardBase = ({
     );
 
     const getOrderButton = ({
-        label,
+        disabledLabel,
         href,
         icon,
+        label,
         subtitle,
-    }: OrderButtonProps) => (
-        <Button
-            type="primary"
-            className={extraLargeButton}
-            href={href}
-            target="_blank"
-            rel="noreferrer"
-        >
-            <div
-                className={classNames(
-                    extraLargeButtonHeader,
-                    icon && spacedButton
-                )}
+    }: OrderButtonProps) => {
+        const isDisabled = !href;
+        const buttonClass = classNames(extraLargeButton, {
+            [disabled]: isDisabled,
+        });
+
+        const button = (
+            <Button
+                type="primary"
+                className={buttonClass}
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+                disabled={isDisabled}
             >
-                <h2>
-                    {icon}
-                    {label}
-                </h2>
-                <LinkOut />
-            </div>
-            {subtitle}
-        </Button>
-    );
+                <div
+                    className={classNames(
+                        extraLargeButtonHeader,
+                        icon && spacedButton,
+                    )}
+                >
+                    <h2>
+                        {icon}
+                        {label}
+                    </h2>
+                    <LinkOut />
+                </div>
+                {subtitle}
+            </Button>
+        );
+
+        return isDisabled ? (
+            <Tooltip key={label} title={disabledLabel}>
+                {button}
+            </Tooltip>
+        ) : (
+            button
+        );
+    };
 
     const titleContents = (
         <Flex justify="space-between" align="center">
@@ -128,13 +147,11 @@ const CellLineInfoCardBase = ({
             <Flex vertical gap={8}>
                 {getDefaultButton(
                     "Certificate of Analysis",
-                    certificateOfAnalysis
+                    certificateOfAnalysis,
                 )}
                 {getDefaultButton("hPSCreg Certificate", healthCertificate)}
             </Flex>
-            {buttonList.map((button) =>
-                getOrderButton(button)
-            )}
+            {buttonList.map((button) => getOrderButton(button))}
         </Card>
     );
 };

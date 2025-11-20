@@ -1,5 +1,6 @@
+import { Steps } from "antd";
 import React from "react";
-import { Descriptions, Steps } from "antd";
+
 import { CellLineStatus } from "../../component-queries/types";
 
 interface ProgressPreviewProps {
@@ -53,11 +54,13 @@ const ProgressPreview = ({ collection, status }: ProgressPreviewProps) => {
         {
             title: "Hide",
             description: "Entered data is saved and the line is hidden",
-        }
+        },
     ];
 
-    let statusList = collection === "disease" ? diseaseLineStatus : cellLineStatus;
-    const statusMap = collection === "disease" ? diseaseStatusMap : cellLineStatusMap;
+    let statusList =
+        collection === "disease" ? diseaseLineStatus : cellLineStatus;
+    const statusMap =
+        collection === "disease" ? diseaseStatusMap : cellLineStatusMap;
     let currentStatus = 0;
     if (status === CellLineStatus.Hide) {
         statusList = hideStatus;
