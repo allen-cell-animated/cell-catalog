@@ -2,23 +2,28 @@
 templateKey: cell-line
 cell_line_id: 122
 status: in progress
-clone_number: 
+date: 2025-08-20T23:10:45.716Z
+clone_number: 77
 parental_line: 0
 genetic_modifications:
   - gene: EOMES
     tag_location: C-terminus
     fluorescent_tag: mEGFP
-    allele_count: 
-order_link: 
-certificate_of_analysis: 
-donor_plasmid: 
-eu_hpsc_reg: 
+    allele_count: mono
+order_link: null
+certificate_of_analysis: chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0122-077_CofA.pdf
+donor_plasmid: null
 images_and_videos:
-  videos:
+  ? videos
 editing_design:
   ncbi_isoforms:
     - N
   cr_rna: N
-  linker: 
+  linker: null
   cas9: Wildtype spCas9
+  diagrams:
+    - title: mEGFP insert
+      images:
+        - image: eomes_cofa_editingfigure.png
+eu_hpsc_reg: null
 ---
