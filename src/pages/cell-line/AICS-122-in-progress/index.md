@@ -10,7 +10,7 @@ genetic_modifications:
     tag_location: C-terminus
     fluorescent_tag: mEGFP
     allele_count: mono
-order_link: null
+order_link: https://www.coriell.org/0/Sections/Search/Sample_Detail.aspx?Ref=AICS-0122-077&Product=iPSC&PgId=166
 certificate_of_analysis: chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.coriell.org/0/PDF/Allen/ipsc/AICS-0122-077_CofA.pdf
 donor_plasmid: null
 images_and_videos:
