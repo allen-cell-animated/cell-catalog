@@ -1,7 +1,7 @@
 ---
 templateKey: cell-line
 cell_line_id: 34
-status: released
+status: data complete
 clone_number: 62
 parental_line: 0
 genetic_modifications:
