@@ -3,9 +3,7 @@ templateKey: disease-catalog
 title: About the collection
 main:
   heading: Disease models available in our collection
-  description: Data for our lines will be added to this page in a user-friendly
-    format later this year. In the meantime, access a large selection of QC and
-    other data via the Certificate of Analysis associated with each line.
+  description: ""
   subheading: ""
 coriell_image: /img/coriell.png
 coriell_link: https://www.coriell.org/1/AllenCellCollection
