@@ -11,6 +11,7 @@ import {
 import { formatCellLineId } from "../utils";
 import { isImage } from "../utils/mediaUtils";
 import Thumbnail from "./Thumbnail";
+import { useLocation } from "@reach/router";
 
 const {
     caption,
@@ -50,6 +51,8 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     parentalGeneSymbol,
     videos,
 }) => {
+    const  {pathname}  = useLocation();
+    const isDisease = pathname.includes("disease");
     const getVideoId = (url: string) => {
         const match = url.match(/player\.vimeo\.com\/video\/(\d+)/);
         return match ? match[1] : null;
@@ -126,9 +129,9 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                         : `${geneSymbol} in WTC-${fluorescentTag} (${alleleTag}-allelic tag)`}
                 </span>
             </div>
-            <span className={rightTitle}>
+            {isDisease &&<span className={rightTitle}>
                 Representative media for all clones
-            </span>
+            </span>}
         </Flex>
     );
 
