@@ -1,4 +1,5 @@
 import { ZoomInOutlined, ZoomOutOutlined } from "@ant-design/icons";
+import { useLocation } from "@reach/router";
 import { Card, Flex, Image, Space } from "antd";
 import { GatsbyImage, getSrc } from "gatsby-plugin-image";
 import React, { useState } from "react";
@@ -11,7 +12,6 @@ import {
 import { formatCellLineId } from "../utils";
 import { isImage } from "../utils/mediaUtils";
 import Thumbnail from "./Thumbnail";
-import { useLocation } from "@reach/router";
 
 const {
     caption,
@@ -129,9 +129,11 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                         : `${geneSymbol} in WTC-${fluorescentTag} (${alleleTag}-allelic tag)`}
                 </span>
             </div>
-            {isDisease &&<span className={rightTitle}>
-                Representative media for all clones
-            </span>}
+            {isDisease && (
+                <span className={rightTitle}>
+                    Representative media for all clones
+                </span>
+            )}
         </Flex>
     );
 
