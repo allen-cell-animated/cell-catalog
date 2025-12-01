@@ -51,7 +51,7 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     parentalGeneSymbol,
     videos,
 }) => {
-    const  {pathname}  = useLocation();
+    const { pathname } = useLocation();
     const isDisease = pathname.includes("disease");
     const getVideoId = (url: string) => {
         const match = url.match(/player\.vimeo\.com\/video\/(\d+)/);
