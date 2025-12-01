@@ -67,13 +67,17 @@ export const DiseaseCatalogTemplate = ({
                 </Flex>
             </section>
             <h2 className={mainHeading}>{main.heading}</h2>
-            <Card className={banner}>
-                {main.subheading && <h4>{main.subheading}</h4>}
-                <PageContent
-                    className={bannerContent}
-                    content={main.description}
-                />
-            </Card>
+            {(main.subheading || main.description) && (
+                <Card className={banner}>
+                    {main.subheading && <h4>{main.subheading}</h4>}
+                    {main.description && (
+                        <PageContent
+                            className={bannerContent}
+                            content={main.description}
+                        />
+                    )}
+                </Card>
+            )}
             <Diseases />
             <Footer
                 generationText={footerText}

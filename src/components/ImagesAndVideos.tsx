@@ -1,4 +1,5 @@
 import { ZoomInOutlined, ZoomOutOutlined } from "@ant-design/icons";
+import { useLocation } from "@reach/router";
 import { Card, Flex, Image, Space } from "antd";
 import { GatsbyImage, getSrc } from "gatsby-plugin-image";
 import React, { useState } from "react";
@@ -50,6 +51,8 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
     parentalGeneSymbol,
     videos,
 }) => {
+    const { pathname } = useLocation();
+    const isDisease = pathname.includes("disease");
     const getVideoId = (url: string) => {
         const match = url.match(/player\.vimeo\.com\/video\/(\d+)/);
         return match ? match[1] : null;
@@ -126,9 +129,11 @@ const ImagesAndVideos: React.FC<ImagesAndVideosProps> = ({
                         : `${geneSymbol} in WTC-${fluorescentTag} (${alleleTag}-allelic tag)`}
                 </span>
             </div>
-            <span className={rightTitle}>
-                Representative media for all clones
-            </span>
+            {isDisease && (
+                <span className={rightTitle}>
+                    Representative media for all clones
+                </span>
+            )}
         </Flex>
     );
 
