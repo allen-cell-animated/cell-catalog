@@ -16,7 +16,13 @@ donor_plasmid: null
 images_and_videos:
   videos: null
   images:
-    - image: eomes_thumbnail.png
+    - image: 3500007426_20250603_20x_timelapse_s45_p45_24hr_crop_scalebar50_thumbnail.jpg
+      caption: Cells expressing mEGFP-tagged Eomesodermin (Eomes) 24 hours after
+        induction of the epithelial to mesenchymal transition in hiPS cells by
+        activation of the WNT pathway using GSK3-β inhibition (5 µM CHIR99021).
+        Image shows a maximum intensity projection of cells expressing
+        mEGFP-tagged Eomes. Cells were imaged live in 3D on a spinning-disk
+        confocal microscope. Scale bar, 50 µm.
     - image: eomes_clone77_coapanel.png
       caption: Cells expressing mEGFP-tagged Eomesodermin (Eomes) after induction of
         the epithelial to mesenchymal transition in hiPS cells by activation of
