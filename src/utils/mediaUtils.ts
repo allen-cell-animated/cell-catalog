@@ -8,8 +8,7 @@ export function isImage(item: ImageOrVideo): item is UnpackedImageData {
 }
 
 export const getImageSrcFromFrontmatter = (file: FileNode): string | undefined  => {
-  return file.childImageSharp
-        ?.gatsbyImageData?.images?.fallback?.src;
+  return file.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
 }
 
 // flatten and validate image data
