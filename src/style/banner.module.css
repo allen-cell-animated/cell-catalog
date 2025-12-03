@@ -1,5 +1,5 @@
 .container {
-    height: 286px;
+    height: 236px;
     background-image: url(/img/banner.jpg);
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -14,7 +14,6 @@
     padding-top: 60px;
     padding-bottom: 20px;
     position: relative;
-    padding: 90px 25px;
     max-width: 1100px;
     margin: 0 auto;
 }
