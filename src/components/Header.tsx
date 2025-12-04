@@ -1,5 +1,6 @@
 import { Layout } from "antd";
 import React from "react";
+import NavBar from "./NavBar";
 
 const { Header: AntHeader } = Layout;
 
@@ -25,12 +26,15 @@ const Header: React.FC<HeaderProps> = ({
         style = { backgroundImage: `url(${backgroundImageUrl})` };
     }
     return (
+        <>
+        <NavBar />
         <AntHeader className={container} style={style}>
             <div className={bannerContainer}>
                 <h1 className={titleContainer}>{title}</h1>
                 {subtitle && <p>{subtitle}</p>}
             </div>
         </AntHeader>
+        </>
     );
 };
 

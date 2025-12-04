@@ -1,37 +1,33 @@
-import * as React from "react";
-import { Row } from "antd";
+import React from "react";
 
-// import CsvInput from "../../containers/CsvInput";
-// import { AicsLogo } from "../Icons";
-// import styles from "./style.css";
+const AllenLogo = require("../img/aics-logo-white.png");
 
-interface NavBarProps {
-    selectedDataset: string;
-}
 
-class NavBar extends React.Component<NavBarProps> {
-    public render(): JSX.Element {
-        const { selectedDataset } = this.props;
+const { content, divider, logoLink, pageHeader, titleLink } =
+    require("../style/navbar.module.css");
 
-        return (
-            <div className={styles.pageHeader}>
-                <Row align={"middle"}>
-                    <a
-                        href="https://allencell.org"
-                        title="Allen Institute for Cell Science"
-                        style={{ height: "41px" }}
-                    >
-                        {AicsLogo}
-                    </a>
-                    <span className={styles.verticalBar}>|</span>
-                    <a href="/" className={styles.cfeHome}>
-                        Cell Feature Explorer
-                    </a>
-                </Row>
-                <div className={styles.viewerTitle}>{selectedDataset}</div>
+const NavBar: React.FC = () => {
+    return (
+        <div className={pageHeader}>
+            <div className={content}>
+                <a
+                    href="https://allencell.org"
+                    title="Allen Institute for Cell Science"
+                    className={logoLink}
+                >
+                    <img
+                        src={AllenLogo.default || AllenLogo}
+                        alt="Allen Institute Logo"
+                        style={{ height: "36px" }}
+                    />
+                </a>
+                <span className={divider}>|</span>
+                <a href="/" className={titleLink}>
+                    Allen Cell Collection
+                </a>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 export default NavBar;
