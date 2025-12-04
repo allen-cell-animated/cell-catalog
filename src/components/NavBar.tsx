@@ -2,7 +2,6 @@ import React from "react";
 
 const AllenLogo = require("../img/aics-logo-white.png");
 
-
 const { content, divider, logoLink, pageHeader, titleLink } =
     require("../style/navbar.module.css");
 
