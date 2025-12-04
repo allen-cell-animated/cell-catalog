@@ -70,7 +70,7 @@ interface QueryResult {
 const NormalCatalog = ({ data }: QueryResult) => {
     const { markdownRemark: post } = data;
     const imageFile = post.frontmatter.header?.background;
-    const backgroundImageUrl = getImageSrcFromFrontmatter(imageFile!);
+    const backgroundImageUrl = imageFile ? getImageSrcFromFrontmatter(imageFile) : undefined;
     return (
         <Layout
             header={

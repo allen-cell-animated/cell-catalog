@@ -20,10 +20,7 @@ const Header: React.FC<HeaderProps> = ({
     subtitle = "",
     title = "Cell Catalog",
 }) => {
-    let style = {};
-    if (backgroundImageUrl !== "") {
-        style = { backgroundImage: `url(${backgroundImageUrl})` };
-    }
+    const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
     return (
         <AntHeader className={container} style={style}>
             <div className={bannerContainer}>
