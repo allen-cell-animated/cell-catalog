@@ -7,7 +7,7 @@ export function isImage(item: ImageOrVideo): item is UnpackedImageData {
   return "image" in item;
 }
 
-export const getImageSrcFromFrontmatter = (file: FileNode): string | undefined  => {
+export const getImageSrcFromFileNode = (file: FileNode): string | undefined  => {
   return file.childImageSharp?.gatsbyImageData?.images?.fallback?.src;
 }
 
