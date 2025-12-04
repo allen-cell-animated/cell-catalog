@@ -135,7 +135,7 @@ const DiseaseCatalog = ({ data }: QueryResult) => {
                 <Header
                     title={post.frontmatter.header?.title}
                     subtitle={post.frontmatter.header?.subtitle}
-                    backgroundImageUrl={backgroundImageUrl || ""}
+                    backgroundImageUrl={backgroundImageUrl}
                 />
             }
         >
