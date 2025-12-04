@@ -1,5 +1,5 @@
-import { Link, graphql } from "gatsby";
 import React from "react";
+import { graphql } from "gatsby";
 
 import { DiseaseCellLineFrontmatter } from "../component-queries/types";
 import { DiseaseCellLineInfoCard } from "../components/CellLineInfoCard/DiseaseCellLineInfoCard";
@@ -12,6 +12,7 @@ import { DefaultButton } from "../components/shared/Buttons";
 import { DEFAULT_TABS, TABS_WITH_STEM_CELL } from "../constants";
 import { Disease } from "../types";
 import { getImages, getVideos, hasMedia } from "../utils/mediaUtils";
+import { useReturnToCatalog } from "../hooks/useReturnToCatalog";
 
 const {
     container,
@@ -44,16 +45,15 @@ export const DiseaseCellLineTemplate = ({
     stemCellCharacteristics,
 }: DiseaseCellLineTemplateProps) => {
     const hasImagesOrVideos = hasMedia(imagesAndVideos);
+    const handleReturnClick = useReturnToCatalog("/disease-catalog");
     return (
         <>
             <div className={container}>
                 <div className={leftCard}>
-                    <Link to="/disease-catalog">
-                        <DefaultButton>
-                            <Arrow className={returnArrow} />
-                            Return to Cell Catalog
-                        </DefaultButton>
-                    </Link>
+                    <DefaultButton onClick={handleReturnClick}>
+                        <Arrow className={returnArrow} />
+                        Return to Cell Catalog
+                    </DefaultButton>
                     <DiseaseCellLineInfoCard
                         href={href}
                         cellLineId={cellLineId}

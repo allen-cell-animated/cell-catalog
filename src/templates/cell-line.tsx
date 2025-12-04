@@ -1,7 +1,8 @@
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import React from "react";
-
-import { NormalCellLineFrontmatter } from "../component-queries/types";
+import {
+    NormalCellLineFrontmatter,
+} from "../component-queries/types";
 import { NormalCellLineInfoCard } from "../components/CellLineInfoCard/NormalCellLineInfoCard";
 import ImagesAndVideos from "../components/ImagesAndVideos";
 import Layout from "../components/Layout";
@@ -11,6 +12,7 @@ import { UnpackedNormalCellLineFull } from "../components/SubPage/types";
 import { DefaultButton } from "../components/shared/Buttons";
 import { TABS_WITH_STEM_CELL } from "../constants";
 import { getImages, getVideos, hasMedia } from "../utils/mediaUtils";
+import { useReturnToCatalog } from "../hooks/useReturnToCatalog";
 
 const {
     container,
@@ -59,16 +61,16 @@ export const CellLineTemplate = ({
     if (cellLineId === 0) {
         return null;
     }
+    const handleReturnClick = useReturnToCatalog("/");
+
     return (
         <>
             <div className={container}>
                 <div className={leftCard}>
-                    <Link to="/">
-                        <DefaultButton>
-                            <Arrow className={returnArrow} />
-                            Return to Cell Catalog
-                        </DefaultButton>
-                    </Link>
+                    <DefaultButton onClick={handleReturnClick}>
+                        <Arrow className={returnArrow} />
+                        Return to Cell Catalog
+                    </DefaultButton>
                     <NormalCellLineInfoCard
                         href={href}
                         cellLineId={cellLineId}
