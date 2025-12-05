@@ -3,10 +3,7 @@ import React from "react";
 
 const { Header: AntHeader } = Layout;
 
-const {
-    bannerContainer,
-    container,
-} = require("../style/banner.module.css");
+const { bannerContainer, container } = require("../style/banner.module.css");
 
 interface HeaderProps {
     title?: string;
