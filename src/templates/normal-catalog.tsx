@@ -8,7 +8,7 @@ import NormalCellLines from "../component-queries/NormalCellLines";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Layout from "../components/Layout";
-import { getImageSrcFromFrontmatter } from "../utils/mediaUtils";
+import { getImageSrcFromFileNode } from "../utils/mediaUtils";
 
 const { container, mainHeading } = require("../style/catalog.module.css");
 interface NormalCatalogTemplateProps {
@@ -70,7 +70,9 @@ interface QueryResult {
 const NormalCatalog = ({ data }: QueryResult) => {
     const { markdownRemark: post } = data;
     const imageFile = post.frontmatter.header?.background;
-    const backgroundImageUrl = getImageSrcFromFrontmatter(imageFile!);
+    const backgroundImageUrl = imageFile
+        ? getImageSrcFromFileNode(imageFile)
+        : undefined;
     return (
         <Layout
             header={

@@ -1,14 +1,9 @@
 import { Layout } from "antd";
 import React from "react";
-import NavBar from "./NavBar";
 
 const { Header: AntHeader } = Layout;
 
-const {
-    bannerContainer,
-    container,
-    titleContainer,
-} = require("../style/banner.module.css");
+const { bannerContainer, container } = require("../style/banner.module.css");
 
 interface HeaderProps {
     title?: string;
@@ -21,20 +16,16 @@ const Header: React.FC<HeaderProps> = ({
     subtitle = "",
     title = "Cell Catalog",
 }) => {
-    let style = {};
-    if (backgroundImageUrl !== "") {
-        style = { backgroundImage: `url(${backgroundImageUrl})` };
-    }
+    const style = backgroundImageUrl
+        ? { backgroundImage: `url(${backgroundImageUrl})` }
+        : {};
     return (
-        <>
-        <NavBar />
         <AntHeader className={container} style={style}>
             <div className={bannerContainer}>
-                <h1 className={titleContainer}>{title}</h1>
+                <h1>{title}</h1>
                 {subtitle && <p>{subtitle}</p>}
             </div>
         </AntHeader>
-        </>
     );
 };
 
