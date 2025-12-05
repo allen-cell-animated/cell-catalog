@@ -6,7 +6,6 @@ const { Header: AntHeader } = Layout;
 const {
     bannerContainer,
     container,
-    titleContainer,
 } = require("../style/banner.module.css");
 
 interface HeaderProps {
@@ -26,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({
     return (
         <AntHeader className={container} style={style}>
             <div className={bannerContainer}>
-                <h1 className={titleContainer}>{title}</h1>
+                <h1>{title}</h1>
                 {subtitle && <p>{subtitle}</p>}
             </div>
         </AntHeader>
